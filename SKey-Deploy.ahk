@@ -1725,7 +1725,7 @@ if (GitPush = 1)
 				FileAppend,cd "%GITD%"`n,%GITD%\gitcommit.bat
 				FileAppend,git add .`n,%GITD%\gitcommit.bat
 				FileAppend,git commit -m `%1`%`n,%GITD%\gitcommit.bat
-				FileAppend,git push`n,%GITD%\gitcommit.bat
+				FileAppend,git push origin master`n,%GITD%\gitcommit.bat
 			}
 		FileAppend, "%PushNotes%`n",%DEPL%\changelog.txt
 		RunWait, %comspec% cmd /c " "%SKELD%\!gitupdate.cmd" ",%SKELD%,%rntp%

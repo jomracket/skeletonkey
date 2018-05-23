@@ -4,11 +4,11 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-05-22 6:11 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-05-23 4:31 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-05-22 6:11 PM
+RELEASE= 2018-05-23 4:31 PM
 VERSION= 0.99.34.34
 RASTABLE= 1.7.3
 #Include tf.ahk
@@ -3228,7 +3228,7 @@ Gui, Add, Button, x731 y426 w13 h19 vDELCORECFG gDeleteCoreCfg, X
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[ UTILITIES TAB ]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-SplashTextOn, ,skeletonKey,Loading Utilities ........,
+;SplashTextOn, ,skeletonKey,Loading Utilities ........,
 Progress, 62,Loading Utilities ........
 
 Gui, Tab, 11
@@ -3236,7 +3236,7 @@ Gui, Tab, Util
 
 utltog= Hide
 utlvis= Hidden
-Gui, Add, Button, x128 y216 w75 h23 vutlBUTA gutlBUTA, utlBUTA
+Gui, Add, Button, x128 y216 w75 h23 vutlBUTA gutlBUTA %utlvis%, utlBUTA
 Gui, Add, Button, x128 y240 w75 h23 vutlBUTB gutlBUTB %utlvis%, utlBUTB
 Gui, Add, Button, x128 y264 w75 h23 vutlBUTC gutlBUTC %utlvis%, utlBUTC
 Gui, Add, Button, x368 y120 w75 h23 vutlBUTG gutlBUTG %utlvis%, utlBUTG
@@ -3281,7 +3281,7 @@ Gui, Add, DropDownList, x504 y344 w121 vutlDDLI gutlDDLI %utlvis%, utlDDLI||
 Gui, Add, DropDownList, x640 y320 w100 vutlDDLJ gutlDDLJ %utlvis%, utlDDLJ||
 Gui, Add, DropDownList, x8 y120 w121 vutlDDLC gutlDDLC %utlvis%, utlDDLC||
 Gui, Add, DropDownList, x8 y144 w121 vutlDDLD gutlDDLD %utlvis%, utlDDLD||
-Gui, Add, DropDownList, x8 y72 w121 vutlDDLA gutlDDLA %utlvis%, utlDDLA||
+Gui, Add, DropDownList, x369 y17 w153 vutlDDLA gutlDDLA, Executable||Cloud|Migrate
 Gui, Add, DropDownList, x8 y96 w121 vutlDDLB gutlDDLB %utlvis%, utlDDLB||
 Gui, Add, Edit, x128 y24 w120 vutlEDTA gutlEDTA %utlvis%, utlEDTA
 Gui, Add, Edit, x128 y48 w120 vutlEDTB gutlEDTB %utlvis%, utlEDTB
@@ -3346,7 +3346,7 @@ Gui, Add, Slider, x128 y352 w120 h32 Range0-100 vutlSLDD gutlSLDD %utlvis%, 50
 Gui, Add, Slider, x504 y368 w120 h24 Range0-100 vutlSLDE gutlSLDE %utlvis%, 50 
 Gui, Add, Slider, x602 y408 w151 h25 Range0-100 vutlSLDC gutlSLDC %utlvis%, 50
 Gui, Add, Text, x248 y240 vutlTXTA %utlvis%, utlTXTA
-Gui, Add, Text, x248 y264 vutlTXTB %utlvis%, utlTXTB
+Gui, Add, Text, x248 y264 vutlTXTB, utlTXTB
 Gui, Add, Text, x248 y288 vutlTXTC %utlvis%, utlTXTC
 Gui, Add, Text, x376 y368 vutlTXTD %utlvis%, utlTXTD
 Gui, Add, Text, x376 y392 vutlTXTE %utlvis%, utlTXTE
@@ -3976,7 +3976,8 @@ gosub, NetplaySet
 guicontrol,,ARCSYS,|Select a System||%syslist%
 guicontrol,,ARCPOP,|
 gosub, RecentWrite
-gosub, ArchivePop
+;gosub, ArchivePop
+gosub, utlDDLA
 romfj1= 
 romfj2= 
 if (romf <> "")
@@ -16067,6 +16068,7 @@ return
 ArCnct:
 norun= 1
 guicontrolget,coreselv,,ARCCORES
+guicontrolget,romsys,,ARCSYS
 guicontrol,,RETROM,0
 RETROM= 0
 gosub, ArcLaunch
@@ -16984,7 +16986,7 @@ rjdwnfldr=
 
 if (romsys = "")
 	{
-		romsys= %ARCSYS%
+		guicontrolget,romsys,,ARCSYS
 	}
 ACSVDEST= %RJSYSTEMS%\%romsys%
 if (OVDCHK = 1)
@@ -29593,6 +29595,60 @@ return
 
 ;{;;;;;;;;;;;;;;;;;;;;;    UTILITY-OPTION FUNCTIONS    ;;;;;;;;;;;;;;;;;;
 
+Executable_util:
+gui,submit,nohide
+guicontrol,show,utlBUTH
+guicontrol,move,utlBUTH,x372 y94 w50 h22 
+guicontrol,,utlBUTH,Add
+guicontrol,move,utlBUTJ, x685 y476 w68 h23
+guicontrol,show,utlBUTJ
+guicontrol,,utlBUTJ,Create
+guicontrol,move,utlBUTC, x367 y445 w75 h23
+guicontrol,show,utlBUTC
+guicontrol,,utlBUTC,Browse
+guicontrol,move,utlBUTG, x674 y408 w75 h23
+guicontrol,,utlBUTG,Browse
+guicontrol,show,utlBUTG
+guicontrol,move,utlBUTD, x372 y116 w51 h20
+guicontrol,show,utlBUTD
+guicontrol,,utlBUTD,Delete
+guicontrol,move,utlBUTE, x604 y82 w75 h23
+guicontrol,,utlBUTE,Browse
+guicontrol,show,utlBUTE
+guicontrol,move,utlBUTF, x604 y107 w75 h23
+guicontrol,show,utlBUTF
+guicontrol,,utlBUTF,Browse
+guicontrol,move,utlEDTA, x373 y146 w375 h262
+guicontrol,,utlEDTA,
+guicontrol,show,utlEDTA
+guicontrol,move,utlEDTE, x371 y45 w369 h35
+guicontrol,show,utlEDTE
+guicontrol,,utlEDTE,
+guicontrol,move,utlGRPD, x364 y427 w391 h86
+guicontrol,show,utlGRPD
+guicontrol,move,utlLBXA, x367 y470 w313 h35
+guicontrol,show,utlLBXA
+guicontrol,move,utlLVA, x20 y26 w341 h479
+guicontrol,show,utlLVA
+guicontrol,+Multi,utlLVA
+guicontrol,move,utlTXTB, x531 y20 w79 h13
+guicontrol,show,utlTXTB
+guicontrol,,utlTXTB,Utility
+guicontrol,move,utlTXTC, x447 y449 w59 h13
+guicontrol,show,utlTXTC
+guicontrol,,utlTXTC,Location
+guicontrol,move,utlTXTD, x691 y89 w40 h13
+guicontrol,show,utlTXTD
+guicontrol,,utlTXTD,Emulator
+guicontrol,move,utlTXTE, x692 y111 w39 h13
+guicontrol,show,utlTXTE
+guicontrol,,utlTXTE,ICON
+guicontrol,move,utlTXTF, x523 y130 w38 h13
+guicontrol,,utlTXTF,Edit
+guicontrol,show,utlTXTF
+return
+
+
 ;{;;;; ~~~UTILITY-gui functions~~~  ;;;;;
 utlBUTA:
 gui,submit,nohide
@@ -29829,7 +29885,14 @@ return
 
 utlDDLA:
 gui,submit,nohide
-
+guicontrolget,curutl,,UTLDDLA
+if (curutl = "Executable")
+	{
+		utltog= hide
+		gosub, UTLUNPOP
+		gosub, %UTLDDLA%_util
+		return
+	}
 return
 
 utlDDLB:
@@ -30142,7 +30205,7 @@ guicontrol, %utltog%, utlDDLI
 guicontrol, %utltog%, utlDDLJ
 guicontrol, %utltog%, utlDDLC
 guicontrol, %utltog%, utlDDLD
-guicontrol, %utltog%, utlDDLA
+;guicontrol, %utltog%, utlDDLA
 guicontrol, %utltog%, utlDDLB
 guicontrol, %utltog%, utlEDTA
 guicontrol, %utltog%, utlEDTB
@@ -30206,7 +30269,7 @@ guicontrol, %utltog%, utlSLDD
 guicontrol, %utltog%, utlSLDE
 guicontrol, %utltog%, utlSLDC
 guicontrol, %utltog%, utlTXTA
-guicontrol, %utltog%, utlTXTB
+;guicontrol, %utltog%, utlTXTB
 guicontrol, %utltog%, utlTXTC
 guicontrol, %utltog%, utlTXTD
 guicontrol, %utltog%, utlTXTE
@@ -49926,7 +49989,7 @@ if (INVADE = 1)
 				return
 			}
 		gosub, splitClip
-		if (URLDWN =1)
+		if (URLDWN = 1)
 			{
 				gosub, RomDownload
 			}
