@@ -1,0 +1,16 @@
+[EMULATORS]
+mednafen
+fusion
+mame
+retroarch
+
+[FRONTENDS]
+emulationstation
+xmb
+mirroredlinks
+media
+
+[UTILITITES]
+daemontools
+
+[CONSOLES]
