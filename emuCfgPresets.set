@@ -425,6 +425,13 @@ RJMULTIDISC=1
 RJROMXT=.bin,.dsk,.zip,.nib,.iie,.d,.po,.gz,.2img,.2mg,.hdv,.rti,.edd,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.wav
 MAME?RJEMUOPTS=<apple2e -cass<|<apple2e -flop1<
 
+[Apple - II]
+RJEMUPRESET=MAME - System
+RJMAMENM=apple2
+RJMULTIDISC=1
+RJROMXT=.bin,.dsk,.zip,.nib,.iie,.d,.po,.gz,.2img,.2mg,.hdv,.rti,.edd,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.wav
+MAME?RJEMUOPTS=<apple2 -cass<|<apple2 -flop1<
+
 [Apple - IIgs]
 RJEMUPRESET=Kegs32
 RJMAMENM=apple2gs
@@ -494,14 +501,16 @@ MAME?RJEMUOPTS=<lynx -cart<
 [Atari - ST]
 RJEMUPRESET=STeem
 RJMULTIDISC=1
+RJMAMENM=st
 RJROMXT=.stx,.st,.msa,.zip,.ipf
+MAME?RJMAMEOPTS=<st -cart<|<st -flop1<
 
 [Atari - XE]
 RJEMUPRESET=Altirra
 RJMAMENM=xegs
 RJMULTIDISC=1
 RJROMXT=.atr,.dsk,.xfd,.bin,.rom,.car,.zip
-MAME?RJEMUOPTS=<a800xlp -flop1<a800xlp -cart<|<a800 -flop1<|<a800 -cart<|<a800pal -flop1<a800pal -cart<|<a800xe -flop1<a800xe -cart<|<a800xl -flop1<a800xl -cart<
+MAME?RJEMUOPTS=<a800xlp -flop1<a800xlp -cart<|<a800 -flop1<|<a800 -cart<|<a800pal -flop1<a800pal -cart<|<a800xe -flop1<a800xe -cart<|<a800xl -flop1<a800xl -cart<|<xegs -cass1<|<xegs -flop1<
 
 [Bally - Bally Astrocade]
 RJEMUPRESET=MAME - System
@@ -575,7 +584,7 @@ RJMAMENM=pv2000
 RJMULTIDISC=1
 MAME?RJEMUOPTS=<pv2000 -cart<|<pv2000 -cass<
 
-[Cave]
+[Cave Systems - Cave]
 RJEMUOPTS=<[RJMAMENM] -[MAMEMEDIA]<
 RJEMUARGS=<-rp "[RJMAMEROMPTH]"
 RJEMUPRESET=MAME - Arcade
@@ -625,6 +634,12 @@ RJEMUPRESET=FS-UAE
 RJMAMENM=a1000n
 RJMULTIDISC=1
 MAME?RJEMUOPTS=<a1000 -flop<|<a1000n -flop<
+
+[Commodore - Amiga 1200]
+RJEMUPRESET=FS-UAE
+RJMAMENM=a1200n
+RJMULTIDISC=1
+MAME?RJEMUOPTS=<a1200 -flop<|<a1200n -flop1<
 
 [Commodore - Amiga 2000]
 RJEMUPRESET=FS-UAE
@@ -677,14 +692,6 @@ RJEMUPRESET=DOSBox
 RJMULTIDISC=1
 RJROMXT=.conf
 
-[EXL 100]
-RJEMUPRESET=MAME - System
-RJMAMENM=exl100
-RJMULTIDISC=1
-RJROMXT=.bin,.rom,.zip
-MAME?RJEMUOPTS=<exl100 -cart<
-
-
 [Emerson - Arcadia 2001]
 RJEMUPRESET=WinArcadia
 RJMAMENM=arcadia
@@ -710,10 +717,10 @@ RJMULTIDISC=1
 MAME?RJEMUOPTS=.bin,.zip
 RJROMXT=<advision -cart<
 
-[Epoch - Super Cassette Vision ]
+[Epoch - Super Cassette Vision]
 RJEMUPRESET=MAME - System
 RJMULTIDISC=1
-RJMAMENAME=scv
+RJMAMENM=scv
 MAME?EMUOPTS=<scv -cart<
 RJROMXT=.bin,.zip
 
@@ -743,7 +750,7 @@ RJMAMENM=vectrex
 RJROMXT=.bin,.gam,.vec,.zip
 MAME?RJEMUOPTS=<vectrex -cart<
 
-[Galeco]
+[Galeco - Galeco]
 RJEMUPRESET=Demul
 RJROMXT=.zip
 SETLST=
@@ -754,7 +761,7 @@ RJMAMENM=gmaster
 RJROMXT=.bin,.zip
 MAME?RJEMUOPTS=<gmaster -cart<
 
-[Hikaru]
+[Sega - Hikaru]
 RJEMUPRESET=Demul
 RJROMXT=.zip
 SETLST=
@@ -773,7 +780,7 @@ RJMAMENM=vc4000
 RJROMXT=.bin,.rom,.zip
 MAME?RJEMUOPTS=<vc4000 -cart<
 
-[Jupiter Ace]
+[Jupiter Cantab - Jupiter Ace]
 RJEMUPRESET=MAME - System
 RJMAMENM=jupace
 RJROMXT=.wav,.tap,.ace,.zip
@@ -851,13 +858,21 @@ BlueMSX?RJEMUOPTS=</machine "MSX2+" /rom1 | /fullscreen /machine "MSX2+" /rom1 |
 RJROMXT=.dsk,.dmk,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.mx1,.bin,.rom,.wav,.tap,.cas.zip
 MAME?RJEMUOPTS=<canonv30f -cart1<|<canonv30f -cass<|<canonv30f -flop1<
 
+[Microsoft - MSX2+]
+RJEMUPRESET=BlueMSX
+RJMAMENM=hbf9sp
+RJMULTIDISC=1
+BlueMSX?RJEMUOPTS=</machine "MSX2+" /rom1 | /fullscreen /machine "MSX2+" /rom1 | /machine "MSX2+" /rom1zip | /fullscreen /machine "MSX2+" /rom1zip | /machine "MSX2+" /diskA | /fullscreen /machine "MSX2+" /diskA | /machine "MSX2+" /caszip | /fullscreen /machine "MSX2+" /caszip | /machine "MSX2+" /cas | /fullscreen /machine "MSX2+" /cas<
+RJROMXT=.dsk,.dmk,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.mx1,.bin,.rom,.wav,.tap,.cas.zip
+MAME?RJEMUOPTS=<hbf9sp -flop<
+
 [Microsoft - MSX]
 RJEMUPRESET=BlueMSX
-RJMAMENM=canonv30f
+RJMAMENM=canonv8
 RJMULTIDISC=1
 BlueMSX?RJEMUOPTS=</machine "MSX" /diskA | /fullscreen /machine "MSX" /diskA | /machine "MSX" /cas | /fullscreen /machine "MSX" /cas | /machine "MSX" /caszip | /fullscreen /machine "MSX" /caszip | /machine "MSX" /rom1 | /fullscreen /machine "MSX" /rom1 | /machine "MSX" /rom1zip | /fullscreen /machine "MSX" /rom1zip<
 RJROMXT=.dsk,.dmk,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.mx1,.bin,.rom,.wav,.tap,.cas.zip
-MAME?RJEMUOPTS=<canonv30f -cart1<|<canonv30f -cass<|<canonv30f -flop1<
+MAME?RJEMUOPTS=<canonv8 -cart1<|<canonv8 -cass<|<canonv8 -flop1<
 
 [Microsoft - XBOX 360]
 RJEMUPRESET=Xenia
@@ -867,7 +882,7 @@ RJMULTIDISC=1
 RJEMUPRESET=Cxbx
 RJMULTIDISC=1
 
-[NEC - FM Towns]
+[Fujitsu - FM Towns]
 RJEMUPRESET=UNZ
 RJMAMENM=fmtowns
 RJMULTIDISC=1
@@ -888,6 +903,14 @@ RJMEDNM=pce
 RJMAMENM=tg16
 RJROMXT= .pce,.zip
 MAME?RJEMUOPTS=<pce -cart<|<tg16 -cart<
+RJROMXT=.bin,.pce,.zip
+
+[NEC - PC Engine - JAP]
+RJEMUPRESET=Mednafen
+RJMEDNM=pce
+RJMAMENM=pce
+RJROMXT= .pce,.zip
+MAME?RJEMUOPTS=<pce -cart<
 RJROMXT=.bin,.pce,.zip
 
 [NEC - PC Engine CD - TurboGrafx CD]
@@ -922,7 +945,7 @@ RJPOSTCFG=copy /y "%EMUL%\vaeg.ini" "%GAMDIR%"
 RJROMXT=.wav,.xdf,.hdm,.2hd,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.zip
 MAME?RJEMUOPTS=<pc88va2 -cart<|<pc88va2 -flop1<|<pc88va -cart<|<pc88va -flop1<|<pc8801 -cart<|<pc8801 -flop1<|<pc8801mc -cart<|<pc8801mc -flop1<|<pc8801mh -cart<|<pc8801mh -flop1<|<pc8801mk2fr -cart<|<pc8801mk2fr -flop1<|<pc8801mk2mr -cart<|<pc8801mk2mr -flop1<|<pc8801mk2sr -cart<|<pc8801mk2sr -flop1<|<pc8801mk2 -cart<|<pc8801mk2 -flop1<|<pc8801fa -cart<|<pc8801fa -flop1<|<pc8801ma -cart<|<pc8801ma -flop1<|<pc8801ma2 -cart<|<pc8801ma2 -flop1<
 
-[NEC - PC88]
+[NEC - PC8801]
 RJEMUPRESET=m88
 RJMAMENM=pc8801
 RJMULTIDISC=1
@@ -937,11 +960,17 @@ RJMULTIDISC=1
 RJROMXT=dsk,.ima,.img,.ufi,.360,.hdm,.fdi,.fdd,.dcp,.dcu,.dip,.nfd,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.zip
 MAME?RJEMUOPTS=<pc9821xs -hard<|<pc9821xs -cdrm<|<pc9821ne -flop1<|<pc9821ne -hard<|<pc9821ne -cdrm<|<pc9821ce2 -flop1<|<pc9821ce2 -hard<|<pc9821ce2 -cdrm<|<pc9821as -flop1<|<pc9821as -hard<|<pc9821as -cdrm<|<pc9821ap2 -flop1<|<pc9821ap2 -hard<|<pc9821ap2 -cdrm<|<pc9821 -flop1<|<pc9821 -hard<|<pc9821 -cdrm<|<pc9801vm -flop1<|<pc9801vm -hard<|<pc9801vm -cdrm<|<pc9801ux -flop1<|<pc9801ux -hard<|<pc9801ux -cdrm<|<pc9801rs -flop1<|<pc9801rs -hard<|<pc9801rs -cdrm<|<pc9801f -flop1<|<pc9801f -hard<|<pc9801bx2 -flop1<|<pc9801bx2 -hard<|<pc9801bx2 -cdrm<|<pc9821xs -flop1<
 
+[Nintendo - Nintendo 64DD]
+RJEMUPRESET=Project64
+RJMAMENM=n64dd
+RJROMXT=.n64,.d64,.z64,.zip,.usa,.rom,.pal,.chd,.hd
+MAME?RJEMUOPTS=<n64dd -cart<|<n64dd -disk<
+
 [Nintendo - Nintendo 64]
 RJEMUPRESET=Project64
 RJMAMENM=n64
 RJROMXT=.n64,.d64,.z64,.zip,.usa,.rom,.pal,.chd,.hd
-MAME?RJEMUOPTS=<n64dd -cart<|<n64dd -hard<|<n64 -cart<
+MAME?RJEMUOPTS=<n64 -cart<
 
 [Nintendo - Nintendo 3DS]
 RJEMUPRESET=Citra
@@ -1068,7 +1097,7 @@ RJMULTIDISC=1
 RJROMXT=.bin,.zip
 MAME?RJEMUOPTS=<pc2000 -cart<
 
-[Philips - VG 5000]
+[Philips - VG-5000]
 RJEMUPRESET=MAME - System
 RJMAMENM=vg5k
 RJMULTIDISC=1
@@ -1098,6 +1127,7 @@ RJEMUPRESET=NeoRaine
 
 [SNK - Neo Geo MVS]
 RJEMUPRESET=FinalBurnAlpha
+RJMAMENM=neogeo
 RJROMXT=.zip,.chd
 SETLST=
 NICEFLDR=1
@@ -1161,7 +1191,7 @@ RJEMUPRESET=SSF
 
 [Sega - Saturn]
 RJEMUPRESET=SSF
-RJMAMENM=saturn
+RJMAMENM=saturnu
 RJMEDNM=ss
 RJMULTIDISC=1
 RJDISCMNT=1
@@ -1301,15 +1331,22 @@ MAME?RJEMUOPTS=<ql -cass<|<ql_us -cart<|<ql_us -cass<|<ql_de -cart<|<ql_de -cass
 RJEMUPRESET=ZXSpin
 RJMAMENM=spec128
 RJMULTIDISC=1
-MAME?RJEMUOPTS=<spec128 -cass<|<spec128 -dump<|<spec128 -cart<
+MAME?RJEMUOPTS=<spec128 -cass<|<spec128 -dump<|<spec128 -cart<|<specpls3 -flop1<
 RJROMXT=.bin,.rom,.ach,.frz,.plusd.prg,.sem,.sit,.sna,.snp,.snx,.sp,.z80,.zx,.wav,.tzx,.tap,.blk,.zip
+
+[Sinclair - ZX80]
+RJEMUPRESET=ZXSpin
+RJMAMENM=zx80
+RJMULTIDISC=1
+RJROMXT=.wav,.p,.80,.tzx,.zip
+MAME?RJEMUOPTS=<zx80 -cass1<
 
 [Sinclair - ZX81]
 RJEMUPRESET=ZXSpin
 RJMAMENM=zx81
 RJMULTIDISC=1
 RJROMXT=.wav,.p,.81,.tzx,.zip
-MAME?RJEMUOPTS=<zx81 -cass<
+MAME?RJEMUOPTS=<zx81 -cass1<
 
 [Sony - Playstation 2]
 RJEMUPRESET=pcsx2
@@ -1400,6 +1437,7 @@ MAME?RJEMUOPTS=<to8 -flop1<|<to8 -cass<|<to8d -flop1<|<to8d -cass<|<to8d -cart<|
 [Tiger - Game.com]
 RJEMUPRESET=MAME - System
 RJMAMENM=gamecom
+MAME?RJEMUOPTS=<gamecom -cart<
 
 [Tomy - Tutor]
 RJEMUPRESET=MAME - System
@@ -1457,3 +1495,1296 @@ RJROMXT=.lnk,.exe,.bat,.cmd,.jar
 
 [WRITENAMETOBAT]
 RJROMINJ="%ROMFN%"
+
+[Sega - 32X - PAL]
+RJEMUPRESET=MAME - System
+RJMAMENM=32xe
+MAME?RJEMUOPTS=<32xe -cart<
+
+[Sega - 32X - JAP]
+RJEMUPRESET=MAME - System
+RJMAMENM=32xj
+MAME?RJEMUOPTS=<32xj -cart<
+
+[Atari - 2600 - PAL]
+RJEMUPRESET=MAME - System
+RJMAMENM=a2600p
+MAME?RJEMUOPTS=<a2600p -cart<
+
+Atari - 7800 - PAL]
+RJEMUPRESET=MAME - System
+RJMAMENM=a7800p
+MAME?RJEMUOPTS=<a7800p -cart<
+
+[Atari - 800]
+RJEMUPRESET=MAME - System
+RJMAMENM=a800
+MAME?RJEMUOPTS=<a800 -flop<
+
+[Atari - 800 - PAL]
+RJEMUPRESET=MAME - System
+RJMAMENM=a800pal
+MAME?RJEMUOPTS=<a800pal -flop<
+
+[Luxor - ABC 80]
+RJEMUPRESET=MAME - System
+RJMAMENM=abc80
+MAME?RJEMUOPTS=<abc80 -flop<
+
+[Luxor - ABC 1600]
+RJEMUPRESET=MAME - System
+RJMAMENM=abc1600
+MAME?RJEMUOPTS=<abc1600 -flop<
+
+[Coleco - ADAM]
+RJEMUPRESET=MAME - System
+RJMAMENM=adam
+MAME?RJEMUOPTS=<adam -flop<
+
+[Northstar - Advantage]
+RJEMUPRESET=MAME - System
+RJMAMENM=advantage
+MAME?RJEMUOPTS=<advantage -flop<
+
+[Entex - AdventureVision]
+RJEMUPRESET=MAME - System
+RJMAMENM=advision
+MAME?RJEMUOPTS=<advision -flop<
+
+[Rockwell - AIM 65]
+RJEMUPRESET=MAME - System
+RJMAMENM=aim65
+MAME?RJEMUOPTS=<aim65 -flop<
+
+[Patisonic - Aleste 520EX]
+RJEMUPRESET=MAME - System
+RJMAMENM=aleste
+MAME?RJEMUOPTS=<aleste -flop<
+
+[Matra - Alice 32]
+RJEMUPRESET=MAME - System
+RJMAMENM=alice32
+MAME?RJEMUOPTS=<alice32 -flop<
+
+[Matra - Alice 90]
+RJEMUPRESET=MAME - System
+RJMAMENM=alice90
+MAME?RJEMUOPTS=<alice90 -flop<
+
+[Triumph-Adler - Alphatronic PC]
+RJEMUPRESET=MAME - System
+RJMAMENM=alphatro
+MAME?RJEMUOPTS=<alphatro -flop<
+
+[Altos - Series 5]
+RJEMUPRESET=MAME - System
+RJMAMENM=altos5
+MAME?RJEMUOPTS=<altos5 -flop<
+
+[Ampro - Little Z80 Board]
+RJEMUPRESET=MAME - System
+RJMAMENM=ampro
+MAME?RJEMUOPTS=<ampro -flop<
+
+[NEC - Advanced Personal Computer]
+RJEMUPRESET=MAME - System
+RJMAMENM=apc
+MAME?RJEMUOPTS=<apc -flop<
+
+[APF - Imagination Machine]
+RJEMUPRESET=MAME - System
+RJMAMENM=apfimag
+MAME?RJEMUOPTS=<apfimag -flop<
+
+[APF - M-1000]
+RJEMUPRESET=MAME - System
+RJMAMENM=apfm1000
+MAME?RJEMUOPTS=<apfm1000 -flop<
+
+[Apogee - BK-01]
+RJEMUPRESET=MAME - System
+RJMAMENM=apogee
+MAME?RJEMUOPTS=<apogee -flop<
+
+[Apollo - Apollo]
+RJEMUPRESET=MAME - System
+RJMAMENM=apollo
+MAME?RJEMUOPTS=<apollo -flop<
+
+[Apple - I]
+RJEMUPRESET=MAME - System
+RJMAMENM=apple1
+MAME?RJEMUOPTS=<apple1 -flop<
+
+[Apple - III]
+RJEMUPRESET=MAME - System
+RJMAMENM=apple3
+MAME?RJEMUOPTS=<apple3 -flop<
+
+[ACT - Apricot PC-Xi]
+RJEMUPRESET=MAME - System
+RJMAMENM=apricot
+MAME?RJEMUOPTS=<apricot -flop<
+
+[Acorn - Atom]
+RJEMUPRESET=MAME - System
+RJMAMENM=atom
+MAME?RJEMUOPTS=<atom -flop<
+
+[Otrona - Attache]
+RJEMUPRESET=MAME - System
+RJMAMENM=attache
+MAME?RJEMUOPTS=<attache -flop<
+
+[BNPO - Bashkiria-2M]
+RJEMUPRESET=MAME - System
+RJMAMENM=b2m
+MAME?RJEMUOPTS=<b2m -flop<
+
+[BBC - Micro Model A]
+RJEMUPRESET=MAME - System
+RJMAMENM=bbca
+MAME?RJEMUOPTS=<bbca -flop<
+
+[BBC - Micro Model B]
+RJEMUPRESET=MAME - System
+RJMAMENM=bbcb
+MAME?RJEMUOPTS=<bbcb -flop<
+
+[BBC - Bridge Companion]
+RJEMUPRESET=MAME - System
+RJMAMENM=bbcbc
+MAME?RJEMUOPTS=<bbcbc -flop<
+
+[BBC - Master]
+RJEMUPRESET=MAME - System
+RJMAMENM=bbcm
+MAME?RJEMUOPTS=<bbcm -flop<
+
+[BBC - Master Compact]
+RJEMUPRESET=MAME - System
+RJMAMENM=bbcmc
+MAME?RJEMUOPTS=<bbcmc -flop<
+
+[Elektronika - BK-0010]
+RJEMUPRESET=MAME - System
+RJMAMENM=bk0010
+MAME?RJEMUOPTS=<bk0010 -flop<
+
+[Bondwell - Bondwell 12]
+RJEMUPRESET=MAME - System
+RJMAMENM=bw12
+MAME?RJEMUOPTS=<bw12 -flop<
+
+[Bondwell - Bondwell 14]
+RJEMUPRESET=MAME - System
+RJMAMENM=bw14
+MAME?RJEMUOPTS=<bw14 -flop<
+
+[Bondwell - Bondwell 2]
+RJEMUPRESET=MAME - System
+RJMAMENM=bw2
+MAME?RJEMUOPTS=<bw2 -flop<
+
+[Commodore BX256-80HP]
+RJEMUPRESET=MAME - System
+RJMAMENM=bx256hp
+MAME?RJEMUOPTS=<bx256hp -flop<
+
+[Commodore - VIC-10]
+RJEMUPRESET=MAME - System
+RJMAMENM=c128
+MAME?RJEMUOPTS=<c128 -flop<
+
+[Commodore - 65]
+RJEMUPRESET=MAME - System
+RJMAMENM=c65
+MAME?RJEMUOPTS=<c65 -flop<
+
+[Commodore - CBM-II]
+RJEMUPRESET=MAME - System
+RJMAMENM=cbm2
+MAME?RJEMUOPTS=<cbm2 -flop<
+
+[Commodore - PET - 8096]
+RJEMUPRESET=MAME - System
+RJMAMENM=cbm8096
+MAME?RJEMUOPTS=<cbm8096 -flop<
+
+[Commodore - PET - 8296]
+RJEMUPRESET=MAME - System
+RJMAMENM=cbm8296
+MAME?RJEMUOPTS=<cbm8296 -flop<
+
+[Texas Instruments - Compact Computer 40]
+RJEMUPRESET=MAME - System
+RJMAMENM=cc40
+MAME?RJEMUOPTS=<cc40 -flop<
+
+[EACA - Colour Genie EG2000]
+RJEMUPRESET=MAME - System
+RJMAMENM=cgenie
+MAME?RJEMUOPTS=<cgenie -flop<
+
+[Chess-Master - Diamond Modules]
+RJEMUPRESET=MAME - System
+RJMAMENM=chessmstdm
+MAME?RJEMUOPTS=<chessmstdm -flop<
+
+[Tandy - Radio Shack - Color Computer]
+RJEMUPRESET=MAME - System
+RJMAMENM=coco
+MAME?RJEMUOPTS=<coco -flop<
+
+[Coleco - Colecovision - PAL]
+RJEMUPRESET=MAME - System
+RJMAMENM=colecop
+MAME?RJEMUOPTS=<colecop -flop<
+
+[Compucolor - Compucolor II]
+RJEMUPRESET=MAME - System
+RJMAMENM=compclr2
+MAME?RJEMUOPTS=<compclr2 -flop<
+
+[Telenova - Compis]
+RJEMUPRESET=MAME - System
+RJMAMENM=compis
+MAME?RJEMUOPTS=<compis -flop<
+
+[COMX - 35]
+RJEMUPRESET=MAME - System
+RJMAMENM=comx35
+MAME?RJEMUOPTS=<comx35 -flop<
+
+[Yamaha - Sega - Copera]
+RJEMUPRESET=MAME - System
+RJMAMENM=copera
+MAME?RJEMUOPTS=<copera -flop<
+
+[Palson - CX 3000 Tele Computer]
+RJEMUPRESET=MAME - System
+RJMAMENM=cx3000tc
+MAME?RJEMUOPTS=<cx3000tc -flop<
+
+[DAI - Personal Computer]
+RJEMUPRESET=MAME - System
+RJMAMENM=dai
+MAME?RJEMUOPTS=<dai -flop<
+
+[Voltmace - Database]
+RJEMUPRESET=MAME - System
+RJMAMENM=database
+MAME?RJEMUOPTS=<database -flop<
+
+[Dragon - Alpha]
+RJEMUPRESET=MAME - System
+RJMAMENM=dgnalpha
+MAME?RJEMUOPTS=<dgnalpha -flop<
+
+[Dragon - Beta]
+RJEMUPRESET=MAME - System
+RJMAMENM=dgnbeta
+MAME?RJEMUOPTS=<dgnbeta -flop<
+
+[Dimension - 68000]
+RJEMUPRESET=MAME - System
+RJMAMENM=dim68k
+MAME?RJEMUOPTS=<dim68k -flop<
+
+[NCR - Decision Mate V]
+RJEMUPRESET=MAME - System
+RJMAMENM=dmv
+MAME?RJEMUOPTS=<dmv -flop<
+
+[Ithaca InterSystems - DPS-1]
+RJEMUPRESET=MAME - System
+RJMAMENM=dps1
+MAME?RJEMUOPTS=<dps1 -flop<
+
+[DGS - Dragon]
+RJEMUPRESET=MAME - System
+RJMAMENM=dragon
+MAME?RJEMUOPTS=<dragon -flop<
+
+[Acorn - FileStore]
+RJEMUPRESET=MAME - System
+RJMAMENM=e01
+MAME?RJEMUOPTS=<e01 -flop<
+
+[ES PEVM - EC 1841]
+RJEMUPRESET=MAME - System
+RJMAMENM=ec1841
+MAME?RJEMUOPTS=<ec1841 -flop<
+
+[Tatung - Einstein TC-01]
+RJEMUPRESET=MAME - System
+RJMAMENM=einstein
+MAME?RJEMUOPTS=<einstein -flop<
+
+[Epson - CPM Systems]
+RJEMUPRESET=MAME - System
+RJMAMENM=epson
+MAME?RJEMUOPTS=<epson -flop<
+
+[Exelvision - EXL 100]
+RJEMUPRESET=MAME - System
+RJMAMENM=exl100
+RJMULTIDISC=1
+RJROMXT=.bin,.rom,.zip
+MAME?RJEMUOPTS=<exl100 -cart<
+
+[Fidelity - Fidelity SCC]
+RJEMUPRESET=MAME - System
+RJMAMENM=fidel
+MAME?RJEMUOPTS=<fidel -cart<
+
+[Fujitsu - FM-77AV]
+RJEMUPRESET=MAME - System
+RJMAMENM=fm77av
+MAME?RJEMUOPTS=<fm77av -flop<
+
+[Philips - Videopac Plus G7400]
+RJEMUPRESET=MAME - System
+RJMAMENM=g7400
+MAME?RJEMUOPTS=<g7400 -cart<
+
+[Galaksija - Galaksija Plus]
+RJEMUPRESET=MAME - System
+RJMAMENM=galaxy
+MAME?RJEMUOPTS=<galaxy -cass<
+
+[Bit Corp - Gamate]
+RJEMUPRESET=MAME - System
+RJMAMENM=gamate
+MAME?RJEMUOPTS=<gamate -cart<
+
+[Sega - Game Gear - JAP]
+RJEMUPRESET=MAME - System
+RJMAMENM=gamegearj
+MAME?RJEMUOPTS=<gamegearj -cart<
+
+[TimeTop - GameKing]
+RJEMUPRESET=MAME - System
+RJMAMENM=gameking
+MAME?RJEMUOPTS=<gameking -cart<
+
+[TimeTop - GameKing 3]
+RJEMUPRESET=MAME - System
+RJMAMENM=gameking3
+MAME?RJEMUOPTS=<gameking3 -cart<
+
+[Epoch - Game Pocket Computer]
+RJEMUPRESET=MAME - System
+RJMAMENM=gamepock
+MAME?RJEMUOPTS=<gamepock -cart<
+
+[VTech - Genius 6]
+RJEMUPRESET=MAME - System
+RJMAMENM=genius6
+MAME?RJEMUOPTS=<genius<
+
+[Gimix - 6809 System]
+RJEMUPRESET=MAME - System
+RJMAMENM=gimix
+MAME?RJEMUOPTS=<gimix -flop1<
+
+[VTech - Genius Junior Movie]
+RJEMUPRESET=MAME - System
+RJMAMENM=gjmovie
+MAME?RJEMUOPTS=<gjmovie<
+
+[VTech - PreComputer 1000]
+RJEMUPRESET=MAME - System
+RJMAMENM=gl2000
+MAME?RJEMUOPTS=<gl2000<
+
+[VTech - Genius Leader 6000SL]
+RJEMUPRESET=MAME - System
+RJMAMENM=gl6000sl
+MAME?RJEMUOPTS=<gl6000sl -cart<
+
+[VTech - Genius Leader Color]
+RJEMUPRESET=MAME - System
+RJMAMENM=glcolor
+MAME?RJEMUOPTS=<glcolor<
+
+[GamePark - GP32]
+RJEMUPRESET=MAME - System
+RJMAMENM=gp32
+MAME?RJEMUOPTS=<gp32 -cart<
+
+[JPM - Give Us A Break]
+RJEMUPRESET=MAME - System
+RJMAMENM=guab
+MAME?RJEMUOPTS=<guab<
+
+[TRQ - Video Computer H-21]
+RJEMUPRESET=MAME - System
+RJMAMENM=h21
+MAME?RJEMUOPTS=<h21 -cart<
+
+[Northstar - Horizon]
+RJEMUPRESET=MAME - System
+RJMAMENM=horizon
+MAME?RJEMUOPTS=<horizon -flop1<
+
+[HP - Integral PC]
+RJEMUPRESET=MAME - System
+RJMAMENM=hp
+MAME?RJEMUOPTS=<hp -flop1<
+
+[HP - HP-85 Option]
+RJEMUPRESET=MAME - System
+RJMAMENM=hp85
+MAME?RJEMUOPTS=<hp85<
+
+[HP - HP 9835A-B Option]
+RJEMUPRESET=MAME - System
+RJMAMENM=hp9835a
+MAME?RJEMUOPTS=<hp9835a<
+
+[HP - HP 9845A-S Option]
+RJEMUPRESET=MAME - System
+RJMAMENM=hp9845a
+MAME?RJEMUOPTS=<hp9845a<
+
+[HP - HP 9845B-T-C Option]
+RJEMUPRESET=MAME - System
+RJMAMENM=hp9845b
+MAME?RJEMUOPTS=<hp9845b<
+
+[Hawthorne Technology - TinyGiant HT68k]
+RJEMUPRESET=MAME - System
+RJMAMENM=ht68k
+MAME?RJEMUOPTS=<ht68k -flop1<
+
+[Itautec - I-7000]
+RJEMUPRESET=MAME - System
+RJMAMENM=i7000
+MAME?RJEMUOPTS=<i7000 -card<
+
+[IBM - PC 5140]
+RJEMUPRESET=MAME - System
+RJMAMENM=ibm5140
+MAME?RJEMUOPTS=<ibm5140 -flop<
+
+[IBM - PC 5150]
+RJEMUPRESET=MAME - System
+RJMAMENM=ibm5150
+MAME?RJEMUOPTS=<ibm5150 -flop<
+
+[IBM - PC 5170]
+RJEMUPRESET=MAME - System
+RJMAMENM=ibm5170
+MAME?RJEMUOPTS=<ibm5170 -flop<
+
+[IBM - Displaywriter]
+RJEMUPRESET=MAME - System
+RJMAMENM=ibm6580
+MAME?RJEMUOPTS=<ibm6580 -flop1<
+
+[IBM - PC Jr]
+RJEMUPRESET=MAME - System
+RJMAMENM=ibmpcjr
+MAME?RJEMUOPTS=<ibmpcjr -cart<|<ibmpcjr -flop<
+
+[Interact - Family Computer]
+RJEMUPRESET=MAME - System
+RJMAMENM=interact
+MAME?RJEMUOPTS=<interact -cass<
+
+[Mattel - Intellivision ECS]
+RJEMUPRESET=MAME - System
+RJMAMENM=intvecs
+MAME?RJEMUOPTS=<intvecs -cart<
+
+[ZPA Novy Bor - IQ 151]
+RJEMUPRESET=MAME - System
+RJMAMENM=iq151
+MAME?RJEMUOPTS=<iq151 -flop<|<iq151 -cart<
+
+[Mattel - Juice Box]
+RJEMUPRESET=MAME - System
+RJMAMENM=juicebox
+MAME?RJEMUOPTS=<juicebox<
+
+[Tiger - K28 7-232]
+RJEMUPRESET=MAME - System
+RJMAMENM=k28m2
+MAME?RJEMUOPTS=<k28m2 -cart<
+
+[Kaypro - Kaypro II]
+RJEMUPRESET=MAME - System
+RJMAMENM=kayproii
+MAME?RJEMUOPTS=<kayproii -flop1<
+
+[VEB Mikroelektronik - KC 85]
+RJEMUPRESET=MAME - System
+RJMAMENM=kc
+MAME?RJEMUOPTS=<kc -flop<|<kc -cart<|<kc -cass<
+
+[MOS Technology - KIM-1]
+RJEMUPRESET=MAME - System
+RJMAMENM=kim1
+MAME?RJEMUOPTS=<kim1 -cass<
+
+[Korvet - PK8020 Korvet]
+RJEMUPRESET=MAME - System
+RJMAMENM=korvet
+MAME?RJEMUOPTS=<korvet -flop1<
+
+[Texas Instruments - Language Tutor]
+RJEMUPRESET=MAME - System
+RJMAMENM=lantutor
+MAME?RJEMUOPTS=<lantutor -cart<
+
+[V-Tech - Laser 2001]
+RJEMUPRESET=MAME - System
+RJMAMENM=laser2001
+MAME?RJEMUOPTS=<laser2001 -cart<
+
+[LeapFrog - Leapster]
+RJEMUPRESET=MAME - System
+RJMAMENM=leapster
+MAME?RJEMUOPTS=<leapster -cart<
+
+[Apple - Lisa]
+RJEMUPRESET=MAME - System
+RJMAMENM=lisa
+MAME?RJEMUOPTS=<lisa -flop1<|<lisa -flop2<
+
+[Apple - Lisa 2]
+RJEMUPRESET=MAME - System
+RJMAMENM=lisa2
+MAME?RJEMUOPTS=<lisa2 -flop1<|<lisa2 -flop2<
+
+[V. I. Lenin - PK-01 Lviv]
+RJEMUPRESET=MAME - System
+RJMAMENM=lviv
+MAME?RJEMUOPTS=<lviv -cass1<|<lviv -cass2<|<lviv -cass<
+
+[Sord - M5]
+RJEMUPRESET=MAME - System
+RJMAMENM=m5
+MAME?RJEMUOPTS=<m5 -cart<|<m5 -cass<|<m5 -flop<
+
+[Olivetti - M20]
+RJEMUPRESET=MAME - System
+RJMAMENM=m20
+MAME?RJEMUOPTS=<m20 -flop1<|<m20 -flop2<
+
+[Apple - Macintosh]
+RJEMUPRESET=MAME - System
+RJMAMENM=mac
+MAME?RJEMUOPTS=<mac -flop<|mac -hdd<
+
+[Sanyo - MBC-200 - 1200]
+RJEMUPRESET=MAME - System
+RJMAMENM=mbc200
+MAME?RJEMUOPTS=<mbc200 -flop1<
+
+[Sanyo - MBC-55x]
+RJEMUPRESET=MAME - System
+RJMAMENM=mbc55x
+MAME?RJEMUOPTS=<mbc55x -flop1<
+
+[Tandy - MC-10]
+RJEMUPRESET=MAME - System
+RJMAMENM=mc10
+MAME?RJEMUOPTS=<mc10 -cass1<
+
+[NPO - Elektronika MS 1502]
+RJEMUPRESET=MAME - System
+RJMAMENM=mc1502
+MAME?RJEMUOPTS=<mc1502 -flop1<
+
+[Morrow Designs - Micro Decision MD-2]
+RJEMUPRESET=MAME - System
+RJMAMENM=md2
+MAME?RJEMUOPTS=<md2 -flop1<
+
+[Sega - Mega Drive - PAL]
+RJEMUPRESET=MAME - System
+RJMAMENM=megadriv
+MAME?RJEMUOPTS=<megadriv -cart<
+
+[Amstrad - Mega PC]
+RJEMUPRESET=MAME - System
+RJMAMENM=megapc
+MAME?RJEMUOPTS=<megapc -flop1<
+
+[Sega - MegaTech]
+RJEMUPRESET=MAME - System
+RJMAMENM=megatech
+MAME?RJEMUOPTS=<megatech -cart<
+
+[Milton Bradley - MicroVision]
+RJEMUPRESET=MAME - System
+RJMAMENM=microvision
+MAME?RJEMUOPTS=<microvision -cart<
+
+[Mikro - Mikro-80]
+RJEMUPRESET=MAME - System
+RJMAMENM=mikro80
+MAME?RJEMUOPTS=<mikro80 -cass1<
+
+[Lianozovo Electromechanical Factory - Mikrosha]
+RJEMUPRESET=MAME - System
+RJMAMENM=mikrosha
+MAME?RJEMUOPTS=<mikrosha -cart<|<mikrosha -cass<
+
+[VTech - PreComputer 1000]
+RJEMUPRESET=MAME - System
+RJMAMENM=misterx
+MAME?RJEMUOPTS=<misterx<
+
+[MikroMikko - MikroMikko 1]
+RJEMUPRESET=MAME - System
+RJMAMENM=mm1
+MAME?RJEMUOPTS=<mm1 -flop1<
+
+[Thomson - MO5]
+RJEMUPRESET=MAME - System
+RJMAMENM=mo5
+MAME?RJEMUOPTS=<mo5 -flop1<|<mo5 -cass<|<mo5 -cart<|<mo5 -qd<
+
+[Thomson - MO6]
+RJEMUPRESET=MAME - System
+RJMAMENM=mo6
+MAME?RJEMUOPTS=<mo6 -flop1<|<mo6 -cass<
+
+[Acetronic - MPU-1000]
+RJEMUPRESET=MAME - System
+RJMAMENM=mpu1000
+MAME?RJEMUOPTS=<mpu1000 -cart<
+
+[Morrow Designs - Morrow MPZ80]
+RJEMUPRESET=MAME - System
+RJMAMENM=mpz80
+MAME?RJEMUOPTS=<mpz80 -flop<
+
+[Nichibutsu - My Vision]
+RJEMUPRESET=MAME - System
+RJMAMENM=myvision
+MAME?RJEMUOPTS=<myvision -cart<
+
+[Sharp - MZ-2000]
+RJEMUPRESET=MAME - System
+RJMAMENM=mz2000
+MAME?RJEMUOPTS=<mz2000 -flop1<|mz2000 -cass1<
+
+[Sharp - MZ-2500]
+RJEMUPRESET=MAME - System
+RJMAMENM=mz2500
+MAME?RJEMUOPTS=<mz2500 -flop1<
+
+[Sharp - MZ-700]
+RJEMUPRESET=MAME - System
+RJMAMENM=mz700
+MAME?RJEMUOPTS=<mz700 -cass<
+
+[Sharp - MZ-800]
+RJEMUPRESET=MAME - System
+RJMAMENM=mz800
+MAME?RJEMUOPTS=<mz800 -cass<
+
+[Nascom Microcomputers - Nascom 1 - 2]
+RJEMUPRESET=MAME - System
+RJMAMENM=nascom
+MAME?RJEMUOPTS=<nascom2 -flop1<|<nascom2 -socket<
+
+[Nintendo - Nintendo Entertainment System - PAL]
+RJEMUPRESET=MAME - System
+RJMAMENM=nespal
+MAME?RJEMUOPTS=<nespal -cart<
+
+[NeXT - NeXTStation]
+RJEMUPRESET=MAME - System
+RJMAMENM=next
+MAME?RJEMUOPTS=<nextstc -flop1<|<nextstc -flop2<
+
+[Research Machines - Nimbus]
+RJEMUPRESET=MAME - System
+RJMAMENM=nimbus
+MAME?RJEMUOPTS=<nimbus -flop1<
+
+[LSI - Octopus]
+RJEMUPRESET=MAME - System
+RJMAMENM=octopus
+MAME?RJEMUOPTS=<octopus -flop1<
+
+[Ondra - Ondra ViLi]
+RJEMUPRESET=MAME - System
+RJMAMENM=ondra
+MAME?RJEMUOPTS=<ondra -cass<
+
+[PEL Varazdin - Orao]
+RJEMUPRESET=MAME - System
+RJMAMENM=orao
+MAME?RJEMUOPTS=<orao -cass1<
+
+[Orion - Orion Pro]
+RJEMUPRESET=MAME - System
+RJMAMENM=orionpro
+MAME?RJEMUOPTS=<orionpro -disk<
+
+[Orion - Orion 128]
+RJEMUPRESET=MAME - System
+RJMAMENM=orionide
+MAME?RJEMUOPTS=<orionide -flop<|orionide -cass<|orionide -cart<
+
+[Osborne - Osborne-1]
+RJEMUPRESET=MAME - System
+RJMAMENM=osborne1
+MAME?RJEMUOPTS=<osborne1 -flop1<
+
+[Osborne - Osborne-2]
+RJEMUPRESET=MAME - System
+RJMAMENM=osborne2
+MAME?RJEMUOPTS=<osborne2 -flop1<
+
+[SAM SKB VM - Partner-01.01]
+RJEMUPRESET=MAME - System
+RJMAMENM=partner
+MAME?RJEMUOPTS=<partner -cass<|<partner -flop<
+
+[Koei - PasoGo]
+RJEMUPRESET=MAME - System
+RJMAMENM=pasogo
+MAME?RJEMUOPTS=<pasogo -cart<
+
+[Casio - PB-2000C]
+RJEMUPRESET=MAME - System
+RJMAMENM=pb2000c
+MAME?RJEMUOPTS=<pb2000c -cart<
+
+[Amstrad - PC1512 SD]
+RJEMUPRESET=MAME - System
+RJMAMENM=pc1512
+MAME?RJEMUOPTS=<pc1512 -flop<
+
+[Amstrad - PC1640 SD]
+RJEMUPRESET=MAME - System
+RJMAMENM=pc1640
+MAME?RJEMUOPTS=<pc1640 -flop<
+
+[NEC - PC-8201(A) Option]
+RJEMUPRESET=MAME - System
+RJMAMENM=pc8201
+MAME?RJEMUOPTS=<pc8201 -cart<
+
+[Amstrad - PcW]
+RJEMUPRESET=MAME - System
+RJMAMENM=pcw
+MAME?RJEMUOPTS=<pcw -flop1<
+
+[Amstrad - PcW16]
+RJEMUPRESET=MAME - System
+RJMAMENM=pcw16
+MAME?RJEMUOPTS=<pcw16 -flop<
+
+[Ei Nis - PeCom 32]
+RJEMUPRESET=MAME - System
+RJMAMENM=pecom32
+MAME?RJEMUOPTS=<pecom32 -cass<
+
+[Ei Nis - PeCom 64]
+RJEMUPRESET=MAME - System
+RJMAMENM=pecom64
+MAME?RJEMUOPTS=<pecom64 -cass<
+
+[Technosys - Aamber Pegasus]
+RJEMUPRESET=MAME - System
+RJMAMENM=pegasus
+MAME?RJEMUOPTS=<pegasus -cart<
+
+[Hanimex - Pencil II]
+RJEMUPRESET=MAME - System
+RJMAMENM=pencil2
+MAME?RJEMUOPTS=<pencil2 -cart<
+
+[Sanyo - PHC-25]
+RJEMUPRESET=MAME - System
+RJMAMENM=phc25
+MAME?RJEMUOPTS=<phc25 -cass<
+
+[Konami - Picno]
+RJEMUPRESET=MAME - System
+RJMAMENM=picno
+MAME?RJEMUOPTS=<picno -cart<
+
+[Commodore - PET]
+RJEMUPRESET=MAME - System
+RJMAMENM=pet64
+MAME?RJEMUOPTS=<pet64 -cass<|<pet64 -flop<|<pet64 -quik<|<pet64 -cart<
+
+[Apple - Bandai - Pippin]
+RJEMUPRESET=MAME - System
+RJMAMENM=pippin
+MAME?RJEMUOPTS=<pippin -cdrom<
+
+[Commodore - Plus4]
+RJEMUPRESET=MAME - System
+RJMAMENM=plus4
+MAME?RJEMUOPTS=<plus4 -cart<|<plus4 -cass<|<plus4 -flop<
+
+[Tesla - PMD-85]
+RJEMUPRESET=MAME - System
+RJMAMENM=pmd853
+MAME?RJEMUOPTS=<pmd853 -cass<
+
+[Benesse Corporation - Pocket Challenge V2]
+RJEMUPRESET=MAME - System
+RJMAMENM=pockchalv2
+MAME?RJEMUOPTS=<pockchalv2 -cart<
+
+[Benesse Corporation - Pocket Challenge W]
+RJEMUPRESET=MAME - System
+RJMAMENM=pockchalw
+MAME?RJEMUOPTS=<pockchalw -cart<
+
+[Atari - Portfolio]
+RJEMUPRESET=MAME - System
+RJMAMENM=pofo
+MAME?RJEMUOPTS=<pofo -card<
+
+[Electronmash - Poisk-1]
+RJEMUPRESET=MAME - System
+RJMAMENM=poisk1
+MAME?RJEMUOPTS=<poisk1 -flop1<
+
+[Tomy - Prin-C]
+RJEMUPRESET=MAME - System
+RJMAMENM=princ
+MAME?RJEMUOPTS=<princ<
+
+[Olivetti - Prodest PC 128]
+RJEMUPRESET=MAME - System
+RJMAMENM=pro128
+MAME?RJEMUOPTS=<pro128 -flop1<|<pro128 -cass<|<pro128 -cart<
+
+[Olivetti - Prodest PC 128S]
+RJEMUPRESET=MAME - System
+RJMAMENM=pro128s
+MAME?RJEMUOPTS=<pro128s -flop1<
+
+[Conitec - PROF-80]
+RJEMUPRESET=MAME - System
+RJMAMENM=prof80
+MAME?RJEMUOPTS=<prof80 -flop1<|<prof80 -flop2<
+
+[Conitec - PROF-180]
+RJEMUPRESET=MAME - System
+RJMAMENM=prof180
+MAME?RJEMUOPTS=<prof180 -flop1<|<prof180 -flop2<
+
+[Kontron - PSI98]
+RJEMUPRESET=MAME - System
+RJMAMENM=psi98
+MAME?RJEMUOPTS=<psi98 -flop1<
+
+[Psion - Organiser I]
+RJEMUPRESET=MAME - System
+RJMAMENM=psion1
+MAME?RJEMUOPTS=<psion1 -cart<
+
+[Psion - Organiser II]
+RJEMUPRESET=MAME - System
+RJMAMENM=psion2
+MAME?RJEMUOPTS=<psion2 -cart<
+
+[Peripheral Technology - PT68K2]
+RJEMUPRESET=MAME - System
+RJMAMENM=pt68k2
+MAME?RJEMUOPTS=<pt68k2 -flop1<
+
+[EPSON - PX-4]
+RJEMUPRESET=MAME - System
+RJMAMENM=px4
+MAME?RJEMUOPTS=<px4 -cart<
+
+[EPSON - PX-8]
+RJEMUPRESET=MAME - System
+RJMAMENM=px8
+MAME?RJEMUOPTS=<px8 -cart<
+
+[Mikroelektronika - Pyldin-601]
+RJEMUPRESET=MAME - System
+RJMAMENM=pyl601
+MAME?RJEMUOPTS=<pyl601 -disk<
+
+[Epson - QX-10]
+RJEMUPRESET=MAME - System
+RJMAMENM=qx10
+MAME?RJEMUOPTS=<qx10 -flop1<
+
+[ROLM - CBX 9751]
+RJEMUPRESET=MAME - System
+RJMAMENM=r9751
+MAME?RJEMUOPTS=<r9751 -flop<
+
+[Soviet - Radio-86RK]
+RJEMUPRESET=MAME - System
+RJMAMENM=radio86
+MAME?RJEMUOPTS=<radio86 -cass<
+
+[DEC - Rainbow 100]
+RJEMUPRESET=MAME - System
+RJMAMENM=rainbow
+MAME?RJEMUOPTS=<rainbow -flop1<|<rainbow -flop2<
+
+[Rowtron - Television Computer System]
+RJEMUPRESET=MAME - System
+RJMAMENM=rwtrntcs
+MAME?RJEMUOPTS=<rwtrntcs -cart<
+
+[Bandai - Gundam RX-78]
+RJEMUPRESET=MAME - System
+RJMAMENM=rx78
+MAME?RJEMUOPTS=<rx78 -cart<
+
+[Sage Technology - Sage II]
+RJEMUPRESET=MAME - System
+RJMAMENM=sage2
+MAME?RJEMUOPTS=<sage2 -flop1<|<sage2 -flop2<
+
+[San Bergmans - Izabella Malcolm - SITCOM]
+RJEMUPRESET=MAME - System
+RJMAMENM=sitcom
+MAME?RJEMUOPTS=<sitcom -flash1<
+
+[Sony - SMC777]
+RJEMUPRESET=MAME - System
+RJMAMENM=smc777
+MAME?RJEMUOPTS=<smc777 -flop1<
+
+[Mephisto - Super Mondial II]
+RJEMUPRESET=MAME - System
+RJMAMENM=smondial2
+MAME?RJEMUOPTS=<smondial2 -cart<
+
+[Sega - Mark III - JPN]
+RJEMUPRESET=MAME - System
+RJMAMENM=smsj
+MAME?RJEMUOPTS=<smsj -cart<
+
+[Sega - Master System - PAL]
+RJEMUPRESET=MAME - System
+RJMAMENM=smspal
+MAME?RJEMUOPTS=<smspal -cart<
+
+[Nintendo - Super Nintendo Entertainment System - PAL]
+RJEMUPRESET=MAME - System
+RJMAMENM=snespal
+MAME?RJEMUOPTS=<snespal -cart<
+
+[Bandai - Super Note Club]
+RJEMUPRESET=MAME - System
+RJMAMENM=snotec
+MAME?RJEMUOPTS=<snotec<
+
+[Texas Instruments - Speak and Read]
+RJEMUPRESET=MAME - System
+RJMAMENM=snread
+MAME?RJEMUOPTS=<snread -cart<
+
+[Texas Instruments - Speak and Spell]
+RJEMUPRESET=MAME - System
+RJMAMENM=snspell
+MAME?RJEMUOPTS=<snspell -cart<
+
+[Video Technology - Socrates]
+RJEMUPRESET=MAME - System
+RJMAMENM=socrates
+MAME?RJEMUOPTS=<socrates -cart<
+
+[Small Systems Engineering - SSE Softbox]
+RJEMUPRESET=MAME - System
+RJMAMENM=softbox
+MAME?RJEMUOPTS=<softbox -flop1<
+
+[Processor Technology Corporation - SOL-20]
+RJEMUPRESET=MAME - System
+RJMAMENM=sol20
+MAME?RJEMUOPTS=<sol20 -cass<
+
+[Exidy - Sorcerer]
+RJEMUPRESET=MAME - System
+RJMAMENM=sorcerer
+MAME?RJEMUOPTS=<sorcerer -flop<|<sorcerer -cart<|<sorcerer -cass<
+
+[Samsung - SPC-1000]
+RJEMUPRESET=MAME - System
+RJMAMENM=spc1000
+MAME?RJEMUOPTS=<spc1000 -cass<
+
+[Samsung - SPC-1500]
+RJEMUPRESET=MAME - System
+RJMAMENM=spc1500
+MAME?RJEMUOPTS=<spc1500 -cass<
+
+[Soviet - Specialist]
+RJEMUPRESET=MAME - System
+RJMAMENM=special
+MAME?RJEMUOPTS=<special -flop<|<special -cass<
+
+[RCA Studio II - Victory MPT-02]
+RJEMUPRESET=MAME - System
+RJMAMENM=studio2
+MAME?RJEMUOPTS=<studio2 -cart<
+
+[Sega - Titan Video]
+RJEMUPRESET=SSF
+RJMAMENM=stv
+MAME?RJEMUOPTS=<stv -cart<
+
+[ADC - Super Six]
+RJEMUPRESET=MAME - System
+RJMAMENM=super6
+MAME?RJEMUOPTS=<super6 -flop<
+
+[Dick Smith Electronics - Super-80]
+RJEMUPRESET=MAME - System
+RJMAMENM=super80
+MAME?RJEMUOPTS=<super80 -cass<
+
+[Bandai - Super Vision 8000]
+RJEMUPRESET=MAME - System
+RJMAMENM=sv8000
+MAME?RJEMUOPTS=<sv8000 -cart<
+
+[Spectravision - SVI-318]
+RJEMUPRESET=MAME - System
+RJMAMENM=svi318
+MAME?RJEMUOPTS=<svi318 -cass1<|<svi318 -cart<|<svi318 -flop<
+
+[Sega - Visual Memory Unit]
+RJEMUPRESET=directvms
+RJMAMENM=svmu
+MAME?RJEMUOPTS=<svmu -quik<
+
+[Tandy - 1000]
+RJEMUPRESET=MAME - System
+RJMAMENM=t1000
+MAME?RJEMUOPTS=<t1000 -flop1<
+
+[Tandy - 200 Option]
+RJEMUPRESET=MAME - System
+RJMAMENM=tandy200
+MAME?RJEMUOPTS=<tandy200 -cart<
+
+[Tandy - 2000]
+RJEMUPRESET=MAME - System
+RJMAMENM=tandy2k
+MAME?RJEMUOPTS=<tandy2k -flop1<
+
+[Tandy - 6000]
+RJEMUPRESET=MAME - System
+RJMAMENM=tandy6k
+MAME?RJEMUOPTS=<tandy6k -flop<
+
+[Tandberg - TDV 2324]
+RJEMUPRESET=MAME - System
+RJMAMENM=tdv2324
+MAME?RJEMUOPTS=<tdv2324 -flop<
+
+[Tektronix - Tektronix 4052]
+RJEMUPRESET=MAME - System
+RJMAMENM=tek4052
+MAME?RJEMUOPTS=<tek4052 -cart<
+
+[Texas Instruments - TI-74]
+RJEMUPRESET=MAME - System
+RJMAMENM=ti74
+MAME?RJEMUOPTS=<ti74 -cart<
+
+[Texas Instruments - TI-95]
+RJEMUPRESET=MAME - System
+RJMAMENM=ti95
+MAME?RJEMUOPTS=<ti95 -cart<
+
+[Texas Instruments - TI-99]
+RJEMUPRESET=MAME - System
+RJMAMENM=ti99
+MAME?RJEMUOPTS=<ti99 -cart<
+
+[Tiki Data A-S - TIKI 100]
+RJEMUPRESET=MAME - System
+RJMAMENM=tiki100
+MAME?RJEMUOPTS=<tiki100 -flop1<
+
+[Timex - Sinclair TS-2068 DOCK]
+RJEMUPRESET=MAME - System
+RJMAMENM=timex
+MAME?RJEMUOPTS=<timex -cart<
+
+[Texas Instruments - Touch and Tell]
+RJEMUPRESET=MAME - System
+RJMAMENM=tntell
+MAME?RJEMUOPTS=<tntell -cart<
+
+[Thomson - TO7]
+RJEMUPRESET=MAME - System
+RJMAMENM=to7
+MAME?RJEMUOPTS=<to7 -cass<|<to7 -cart<|<to7 -flop1<
+
+[Thomson - TO7 - TO7-70]
+RJEMUPRESET=MAME - System
+RJMAMENM=to770
+MAME?RJEMUOPTS=<to770 -cart<|<to770 -cass<|<to770 -flop1<
+
+[Thomson - TO7 - TO7-70A]
+RJEMUPRESET=MAME - System
+RJMAMENM=to770a
+MAME?RJEMUOPTS=<to770a -cass<|<to770a -flop1<|<to770a -cart<
+
+[Thomson - TO8]
+RJEMUPRESET=MAME - System
+RJMAMENM=to8
+MAME?RJEMUOPTS=<to8 -flop1<|<to8 -cass<
+
+[Tandy - TRS-80 Model II]
+RJEMUPRESET=MAME - System
+RJMAMENM=trs80m2
+MAME?RJEMUOPTS=<trs80m2 -flop1<
+
+[Tandy - TRS-80 Model 100 Option]
+RJEMUPRESET=MAME - System
+RJMAMENM=trsm100
+MAME?RJEMUOPTS=<trsm100 -cart<
+
+[Tomy - Tutor - Pyuuta]
+RJEMUPRESET=MAME - System
+RJMAMENM=tutor
+MAME?RJEMUOPTS=<tutor -cart<
+
+[Videoton - TVC 64]
+RJEMUPRESET=MAME - System
+RJMAMENM=tvc
+MAME?RJEMUOPTS=<tvc -cass1<|<tvc -flop1<|<tvc<
+
+[Unisonic - Champion 2711]
+RJEMUPRESET=MAME - System
+RJMAMENM=unichamp
+MAME?RJEMUOPTS=<unichamp -cart<
+
+[Soviet - UT-88]
+RJEMUPRESET=MAME - System
+RJMAMENM=ut88
+MAME?RJEMUOPTS=<ut88 -cass<
+
+[Belogic - Uzebox]
+RJEMUPRESET=MAME - System
+RJMAMENM=uzebox
+MAME?RJEMUOPTS=<uzebox -cart<
+
+[Visual Technology - Visual 1050]
+RJEMUPRESET=MAME - System
+RJMAMENM=v1050
+MAME?RJEMUOPTS=<v1050 -flop1<
+
+[Soviet - Vector 06c]
+RJEMUPRESET=MAME - System
+RJMAMENM=vector06
+MAME?RJEMUOPTS=<vector06 -flop<
+
+[Philips - VG-5000]
+RJEMUPRESET=MAME - System
+RJMAMENM=vg5k
+MAME?RJEMUOPTS=<vg5k -cass<
+
+[Commodore - VIC-10 - Max Machine - UltiMax]
+RJEMUPRESET=MAME - System
+RJMAMENM=vic10
+MAME?RJEMUOPTS=<vic10 -flop<
+
+[Commodore - VIC-1001]
+RJEMUPRESET=MAME - System
+RJMAMENM=vic1001
+MAME?RJEMUOPTS=<vic1001 -cass1<|<vic1001 -flop1<|<vic1001 -cart<|
+
+[Victor Business Products - Victor 9000 - ACT Sirius 1]
+RJEMUPRESET=MAME - System
+RJMAMENM=victor9k
+MAME?RJEMUOPTS=<victor9k -flop1<
+
+[VideoBrain Computer Company - VideoBrain Family Computer]
+RJEMUPRESET=MAME - System
+RJMAMENM=vidbrain
+MAME?RJEMUOPTS=<vidbrain -cart<
+
+[JungleTac Sport - Vii]
+RJEMUPRESET=MAME - System
+RJMAMENM=vii
+MAME?RJEMUOPTS=<vii -cart<
+
+[RCA - VIP]
+RJEMUPRESET=MAME - System
+RJMAMENM=vip
+MAME?RJEMUOPTS=<vip -cass<
+
+[Toshiba - Visicom]
+RJEMUPRESET=MAME - System
+RJMAMENM=visicom
+MAME?RJEMUOPTS=<visicom -cart<
+
+[Osborne 4 - Vixen]
+RJEMUPRESET=MAME - System
+RJMAMENM=vixen
+MAME?RJEMUOPTS=<vixen -flop1<
+
+[VTech - V.Smile]
+RJEMUPRESET=MAME - System
+RJMAMENM=vsmile
+MAME?RJEMUOPTS=<vsmile -cart<
+
+[Dick Smith - VZ-200-300]
+RJEMUPRESET=MAME - System
+RJMAMENM=vz
+MAME?RJEMUOPTS=<vz -cass1<
+
+[Wang Laboratories - Wang PC]
+RJEMUPRESET=MAME - System
+RJMAMENM=wangpc
+MAME?RJEMUOPTS=<wangpc -flop1<
+
+[PPG - Waveterm A]
+RJEMUPRESET=MAME - System
+RJMAMENM=waveterm
+MAME?RJEMUOPTS=<waveterm -flop1<
+
+[Millennium Systems - Wicat]
+RJEMUPRESET=MAME - System
+RJMAMENM=wicat
+MAME?RJEMUOPTS=<wicat -flop1<
+
+[WaveMate - Bullet]
+RJEMUPRESET=MAME - System
+RJMAMENM=wmbullet
+MAME?RJEMUOPTS=<wmbullet -flop1<
+
+[Canon - X-07]
+RJEMUPRESET=MAME - System
+RJMAMENM=x07
+MAME?RJEMUOPTS=<x07 -card<|<x07 -cass1<
+
+[Xerox - 820]
+RJEMUPRESET=MAME - System
+RJMAMENM=x820ii
+MAME?RJEMUOPTS=<x820ii -flop<
+
+[Nuova Elettronica - Z80NE]
+RJEMUPRESET=MAME - System
+RJMAMENM=z80ne
+MAME?RJEMUOPTS=<z80ne -cass1<
+
+[Cambridge Computers - Z88]
+RJEMUPRESET=MAME - System
+RJMAMENM=z88
+MAME?RJEMUOPTS=<z88 -cart1<
+
+[Telcon - Zorba]
+RJEMUPRESET=MAME - System
+RJMAMENM=zorba
+MAME?RJEMUOPTS=<zorba -flop1<
+

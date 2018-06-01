@@ -1552,6 +1552,7 @@ if (INITINCL = 1)
 						}
 				}
 				
+			exprt.= "FileInstall, 7zsd.sfx,7zsd.sfx" . "`n"	
 			exprt.= "FileInstall, Portable.bat,Portable.bat,1" . "`n"	
 			exprt.= "FileInstall, index.html,index.html,1" . "`n"	
 			exprt.= "FileInstall, skeletonKey.ahk,skeletonkey.ahk,1" . "`n"	

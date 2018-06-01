@@ -37,14 +37,14 @@ e64=E64=Enterprise - 64=.bin,.zip=MAME - System="%ROM_RAW%"
 electron=ABBC=Acorn - Electron=.bin,.zip=Electron="%ROM_RAW%"
 fds=FAMIC=Nintendo - Famicom=.fds,.bin,.nes,.zip=Nestopia="%ROM_RAW%"
 flash=FLASH=Adobe - Flash=.swf=Flashplayer="%ROM_RAW%"
-fmtowns=FMTOWN=NEC - FM Towns=.iso,.cue,.ccd,.nrg,.bin=UNZ="%ROM_RAW%"
-galeco=GALECO=Galeco=.zip=Demul=%BASENAME%
+fmtowns=FMTOWN=Fujitsu - FM Towns=.iso,.cue,.ccd,.nrg,.bin=UNZ="%ROM_RAW%"
+galeco=GALECO=Galeco - Galeco=.zip=Demul=%BASENAME%
 gamegear=SGG=Sega - Game Gear=.gg,.bin,.zip=Fusion="%ROM_RAW%"
 gb=NNGB=Nintendo - Game Boy=.gbc,.gb,.dmg,.sgb,.cgb,.zip=bgb="%ROM_RAW%"
 gba=NNGBA=Nintendo - Game Boy Advance=.gba,.gb,.gbc,.agb,.bin,.elf,.mb,.zip=VisualBoyAdvance="%ROM_RAW%"
 gbc=NNGBC=Nintendo - Game Boy Color=.gbc,.gb,.dmg,.sgb,.cgb,.zip=bgb="%ROM_RAW%"
 gc=NNGC=Nintendo - GameCube=.iso,.gcm,elf,.gcz,.tgc,.csiso=Dolphin="%ROM_RAW%"
-hikaru=HIKARU=Hikaru=.zip=Demul=%BASENAME%
+hikaru=HIKARU=Sega - Hikaru=.zip=Demul=%BASENAME%
 intellivision=MINTEL=Mattel - Intellivision=:=Nostalgia="%ROM_RAW%"
 loopy=CASLOOP=Casio - Loopy=.bin,.zip=MAME - System="%ROM_RAW%"
 mame=MAMARC=MAME - Arcade=.zip,.7z,.chd=MAME - Arcade=%BASENAME%
