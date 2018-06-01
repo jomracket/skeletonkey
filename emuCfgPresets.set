@@ -346,7 +346,7 @@ RJLNCHP=X
 
 [retroArch]
 RJPRECFG=
-RJEMUOPTS=<-L<"[libretrodir]\[coredll]"<
+RJEMUOPTS=<
 RJEXTRARC=0
 RJRUNDIR=0
 

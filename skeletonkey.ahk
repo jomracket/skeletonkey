@@ -4,11 +4,11 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-05-31 6:17 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-01 10:38 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-05-31 6:17 PM
+RELEASE= 2018-06-01 10:38 AM
 VERSION= 0.99.34.36
 RASTABLE= 1.7.3
 #Include tf.ahk
@@ -41,6 +41,7 @@ Loop %0%
 romf= %LongName%
 getport= %1%
 getpath= %2%
+fief= 
 OVRLKUPNM= OBSERVED_VOID
 ifinstring,getport,-run=
 	{
@@ -98,6 +99,7 @@ if (romf <> "")
 			}
 		if (RUNCOREOVERRIDE = "")
 			{
+				msgbox,,,k
 				gosub, extensionlookup
 			}
 			if (CHOSEN = "")
@@ -113,9 +115,9 @@ if (romf <> "")
 EnvGet, CHKPYTH,PATH
 Envget,CURSRPTH,USERPROFILE
 ifInString,CHKPYTH,Python
-{
-	PYEXIST= 1
-}
+	{
+		PYEXIST= 1
+	}
 
 GenSetQ:
 /*
@@ -3266,7 +3268,7 @@ Gui, Add, Button, x731 y426 w13 h19 vDELCORECFG gDeleteCoreCfg, X
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[ UTILITIES TAB ]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;SplashTextOn, ,skeletonKey,Loading Utilities ........,
-Progress, 62,Loading Utilities ........
+Progress, 88,Loading Utilities ........
 
 Gui, Tab, 11
 Gui, Tab, Util
@@ -3411,7 +3413,7 @@ Gui, Add, Text, x624 y488 vutltTXTL %utlvis%, utltTXTL
 Gui, Add, ListBox, x488 y330 w50 h50 vDropHideLBX gGuiDropFiles Hidden, Drop ROM here 
 ;;gosub GLPoP
 ;SplashTextOn, ,skeletonKey,skeletonKey GUI is initializing............,
-Progress, 92,skeletonKey GUI is initializing............
+Progress, 94,skeletonKey GUI is initializing............
 gosub, NetSET
 gosub, HideCoreUI
 gosub, ShowBB
@@ -9642,12 +9644,12 @@ if (SALIST = "Emulators")
 		guicontrol,show,EMUASIGN
 		guicontrol, show,ROMDTXT
 		guicontrol, show,ROMDEDT		
-		guicontrol,show,OPNSYS
-		guicontrol,show,ADDCORE
+		guicontrol,hide,OPNSYS
+		guicontrol,hide,ADDCORE
 		guicontrol,show,DAPP
 		guicontrol,show,EXDISPL
 	}
-
+guicontrol, , SYSNICK,| ||%preEmuCfg%
 Loop, Parse, EmuPartSet,`n`r
 	{
 	
@@ -9836,6 +9838,9 @@ gui, submit, nohide
 xtractmu= 
 MULTICHK= 
 MULTISYS= 
+guicontrol,,SYSNICK,| ||%preEmuCfg%
+guicontrol,,APPOPT,| ||%INJOPT%
+guicontrol,,APPARG,| ||%INJARG%
 ;;guicontrol,hide,EMUASIGN
 guicontrol,hide,OEMUDEL
 guicontrol,hide,OEMUSV
@@ -9936,8 +9941,8 @@ if (SALIST = "Emulators")
 		EAVAIL= %semu%
 		guicontrol,,EINSTLOC,%ksvel%
 		guicontrolget,SYSPOPD,,UAVAIL
-		guicontrol,,ADDCORE,|%SYSPOPD%||Select_A_System|%reasign%,
-		guicontrol,,SYSNICK,%SYSPOPD%
+		;;guicontrol,,ADDCORE,|%SYSPOPD%||Select_A_System|%reasign%,
+		guicontrol,,SYSNICK,|%SYSPOPD%||%PreEmuCfg%
 		gosub, DApp
 		guicontrol, hide,ROMDTXT	
 		guicontrol, hide,ROMDEDT
@@ -10182,6 +10187,7 @@ if (EINSTLOC = "")
 		guicontrol,,EINSTLOC,%EINSTLOC%
 	}
 guicontrolget,APPOPT,,APPOPT
+guicontrolget,OVRKND,,SYSNICK
 guicontrolget,APPARG,,APPARG
 guicontrolget,EMUPGC,,EMUPGC
 guicontrolget,LRUN,,LRUN
@@ -10190,38 +10196,50 @@ guicontrolget,OMITQ,,OMITQ
 guicontrolget,OMITPTH,,OMITPTH
 splitpath,EINSTLOC,EINSTFNM,EINSTDIR,EINSTX,EINSTNAM
 if (EINSTX = "exe")
-{
-	EINSTLOC:= EINSTDIR
-	emuxe:= EINSTFNM
-}
-guicontrol,,EINSTLOC,%EINSTLOC%\%emuxe%
-Loop, Parse, EAVAIL,|
 	{
-		guicontrolget,UNIQLNK,,UNIQLNK
-		if (UNIQLNK = 1)
+		EINSTLOC:= EINSTDIR
+		emuxe:= EINSTFNM
+	}
+guicontrol,,EINSTLOC,%EINSTLOC%\%emuxe%
+if (SALIST = "Emulators")
+	{
+		guicontrolget,semu,,UAVAIL
+		iniwrite, "%EINSTLOC%\%emuxe%",apps.ini,EMULATORS,%selfnd%
+		iniwrite, "%EINSTLOC%\%emuxe%",Assignments.ini,ASSIGNMENTS,%semu%
+		iniwrite, "%OVRKND%",Assignments.ini,OVERRIDES,%semu%
+		iniwrite, "%APPOPT%",AppParams.ini,%OVRKND%,options
+		if (APOPT = "")
 			{
+				iniwrite, "%A_Space%",AppParams.ini,%OVRKND%,options
+			}
+		iniwrite, "%APPARG%",AppParams.ini,%OVRKND%,arguments
+		iniwrite, "%NOEXTN%",AppParams.ini,%OVRKND%,extension
+		iniwrite, "%EMUPGC%",AppParams.ini,%OVRKND%,per_game_configurations
+		iniwrite, "%OMITQ%",AppParams.ini,%OVRKND%,no_quotes
+		iniwrite, "%OMITPTH%",AppParams.ini,%OVRKND%,no_path
+		iniwrite, "%LRUN%",AppParams.ini,%OVRKND%,run_location
+		gosub, ResetEmuList
+		gosub, UAvailSel
+		SB_SetText(" " semu " assigned ")
+		return
+	}
+Loop, Parse, semu,|
+	{
+;;		guicontrolget,UNIQLNK,,UNIQLNK
+;;		if (UNIQLNK = 1)
+;;			{
 				OVRKND= 
 				semu:= A_LoopField
 				gosub, MultiAssign
-			}
+;;			}
+/*
 		if (UNIQLNK = 0)
 			{
-				iniwrite, "%EINSTLOC%\%emuxe%",apps.ini,EMULATORS,%selfnd%
-				iniwrite, "%EINSTLOC%\%emuxe%",Assignments.ini,ASSIGNMENTS,%semu%
-				iniwrite, "%OVRKND%",Assignments.ini,OVERRIDES,%semu%
-				iniwrite, "%APPOPT%",AppParams.ini,%OVRKND%,options
-				if (APOPT = "")
-					{
-						iniwrite, " ",AppParams.ini,%OVRKND%,options
-					}
-				iniwrite, "%APPARG%",AppParams.ini,%OVRKND%,arguments
-				iniwrite, "%NOEXTN%",AppParams.ini,%OVRKND%,extension
-				iniwrite, "%EMUPGC%",AppParams.ini,%OVRKND%,per_game_configurations
-				iniwrite, "%OMITQ%",AppParams.ini,%OVRKND%,no_quotes
-				iniwrite, "%OMITPTH%",AppParams.ini,%OVRKND%,no_path
-				iniwrite, "%LRUN%",AppParams.ini,%OVRKND%,run_location
+
+			
 				reasign .= semu . "|"
 			}
+*/		
 		gosub, ResetEmuList
 		gosub, EAvailSel
 	}
@@ -10577,11 +10595,14 @@ return
 
 EMRad11B:
 gui,submit,nohide
-guicontrol,hide,EMBUTO
-guicontrol,hide,EMCBXH
-guicontrol,show,EMDDLP
-guicontrol,show,EMBUTG
-guicontrol,show,EMEDTO
+if (SALIST = "Systems")
+	{
+		guicontrol,hide,EMBUTO
+		guicontrol,hide,EMCBXH
+		guicontrol,show,EMDDLP
+		guicontrol,show,EMBUTG
+		guicontrol,show,EMEDTO
+	}
 CMDRO= EMPREOPT
 CMDRT= EMPRERUN
 CMDRS= EMPREW
@@ -11414,6 +11435,7 @@ return
 EMPRBUTA:
 gui,submit,nohide
 guicontrolget,EMPRDDL,,EMPRDDL
+iniread,ksiv,Assignments.ini,OVERRIDES,%semu%
 if (EMPRDDL = "Emulators")
 	{
 		return
@@ -11435,6 +11457,7 @@ return
 EMPRBUTU:
 gui,submit,nohide
 guicontrolget,emprcur,,EMPRLST
+iniread,ksiv,Assignments.ini,OVERRIDES,%semu%
 if (emprcur = "")
 	{
 		return
@@ -11458,6 +11481,7 @@ return
 EMPRBUTX:
 gui,submit,nohide
 guicontrolget,emprcur,,EMPRLST
+iniread,ksiv,Assignments.ini,OVERRIDES,%semu%
 if (emprcur = "")
 	{
 		return
@@ -11544,6 +11568,7 @@ if (EMUINSTLOCT= "")
 		return
 	}
 SplitPath,EMUINSTLOCT,emuxe,EINSTLOC,,emunm
+guicontrolget,EAVAIL,,EAVAIL
 guicontrolget,OVRKND,,SYSNICK
 guicontrolget,APPOPT,,APPOPT
 guicontrolget,APPARG,,APPARG
@@ -11562,14 +11587,14 @@ if (EINSTX = "exe")
 
 Loop, Parse, EAVAIL,|
 	{
-		guicontrolget,UNIQLNK,,UNIQLNK
-		if (UNIQLNK = 1)
-			{
+;;		guicontrolget,UNIQLNK,,UNIQLNK
+;;		if (UNIQLNK = 1)
+;;			{
 				OVRKND= 
 				semu:= A_LoopField
 				gosub, MultiAssign
-			}
-		
+;;			}
+		/*
 		if (UNIQLNK = 0)
 			{
 				iniwrite, "%OVRKND%",Assignments.ini,OVERRIDES,%semu%
@@ -11587,6 +11612,7 @@ Loop, Parse, EAVAIL,|
 				iniwrite, "%LRUN%",AppParams.ini,%OVRKND%,run_location
 				reasign .= semu . "|"
 				}
+			*/	
 	}
 
 guicontrol,enable,OEMUNICK
@@ -12521,14 +12547,29 @@ if (aparg = "")
 	}
 
 iniwrite, "%appasi%",Assignments.ini,ASSIGNMENTS,%sysni%
-iniwrite, "%sysni%",Assignments.ini,OVERRIDES,%ADDCORE%
+sysnitmp= 
+sysninj= %sysni%|
+iniread,sysnitmp,Assignments.ini,OVERRIDES,%ADDCORE%
+if sysnitmp is not digit
+	{
+		Loop, Parse, sysnitmp,|
+			{
+				if (A_LoopField = sysni)
+					{
+						continue
+					}
+				sysninj.= A_LoopField . "|"	
+			}
+	}
+guicontrol,,EMPRLST,|%sysninj%
+gosub, EMRAD11B
+iniwrite, "%sysninj%",Assignments.ini,OVERRIDES,%ADDCORE%
 iniwrite, "%aparg%",AppParams.ini,%sysni%,arguments
 iniwrite, "%NOEXTN%",AppParams.ini,%sysni%,extension
 iniwrite, "%EMUPGC%",AppParams.ini,%sysni%,per_game_configurations
 iniwrite, "%OMITQ%",AppParams.ini,%sysni%,no_quotes
 iniwrite, "%OMITPTH%",AppParams.ini,%sysni%,no_path
 iniwrite, "%LRUN%",AppParams.ini,%sysni%,run_location
-
 gosub, ResetRunList
 
 guicontrol,,JCORE,|%runlist%
@@ -12560,7 +12601,7 @@ Loop, parse, preEmuCfg, |
 		pemu.= A_LoopField . "|"		
 	}
 preemucfg= %pemu%	
-Guicontrol,,SYSNICK,|%preEmuCfg%
+Guicontrol,,SYSNICK,| ||%preEmuCfg%
 IniDelete, Assignments.ini,OVERRIDES,%sysni%
 IniDelete, Assignments.ini,ASSIGNMENTS,%sysni%
 IniDelete, AppParams.ini,%sysni%
@@ -12726,7 +12767,7 @@ if (Salist = "Emulators")
 			{
 				SYSPOPD= %PRECFGLIST%
 			}
-		guicontrol,,ADDCORE,|%SYSPOPD%||Select_A_System|%reasign%,
+		;;guicontrol,,ADDCORE,|%SYSPOPD%||Select_A_System|%reasign%,
 		guicontrol,,SYSNICK,|%SYSPOPD%||%preEmuCfg%
 	}
 
@@ -12942,9 +12983,8 @@ guicontrol,show,OMITQ
 guicontrol,show,OMITPTH
 guicontrol,show,OPTTXT
 guicontrol,show,ARGTXT
-guicontrol, , APPOPT,| ||
-guicontrol, , SYSNICK,|%preEmuCfg%
-guicontrol, , APPARG,| ||
+guicontrol, , APPOPT,| ||%INJOPT%
+guicontrol, , APPARG,| ||%INJARG%
 guicontrol,,OMITPTH, 0
 guicontrol,,OMITQ, 0
 guicontrol,,NOEXTN,0
@@ -13242,7 +13282,7 @@ Loop, Parse, EmuPartSet,`n`r
 				if (fetmp = "ERROR")
 					{
 						IniWrite, "%emupx1%",Assignments.ini,OVERRIDES,%emupx1%
-						IniWrite, "1",AppParams.ini,%emupx1%,per_game_configurations
+						IniWrite, "0",AppParams.ini,%emupx1%,per_game_configurations
 						IniWrite, "[CUSTMOPT]",AppParams.ini,%emupx1%,options
 						IniWrite, "",AppParams.ini,%emupx1%,arguments
 						IniWrite, "0",AppParams.ini,%emupx1%,extension
@@ -13285,11 +13325,11 @@ Loop, Parse, EmuPartSet,`n`r
 											{
 												if (fie2 = 0)
 													{
-														IniWrite, "0",AppParams.ini,%emupx1%,extension
+														IniWrite, "1",AppParams.ini,%emupx1%,extension
 													}
 												if (fie2 = 1)
 													{
-														IniWrite, "1",AppParams.ini,%emupx1%,extension
+														IniWrite, "0",AppParams.ini,%emupx1%,extension
 													}
 											}
 										if (fie1 = "RJQUOTES")
@@ -13391,7 +13431,7 @@ Loop, parse, farvr,`n
 								IniWrite, "%emuxefp%",Assignments.ini,ASSIGNMENTS,%splemu1%
 							}
 						iniread, siiv,emuCfgPresets.set,%splemu1%
-						IniWrite, "1",AppParams.ini,%splemu1%,per_game_configurations
+						IniWrite, "0",AppParams.ini,%splemu1%,per_game_configurations
 						IniWrite, "[CUSTMOPT]",AppParams.ini,%splemu1%,options
 						IniWrite, "",AppParams.ini,%splemu1%,arguments
 						IniWrite, "0",AppParams.ini,%splemu1%,extension
@@ -51225,6 +51265,10 @@ return
 LNCH:
 gui,submit,nohide
 guicontrolget,lcore,,LCORE
+if (OVRLKUPNM <> "OBSERVED_VOID")
+	{
+		lcore= %fiin%
+	}
 coreselv= %lcore%
 ifinstring,lcore,_libretro.dll
 	{
