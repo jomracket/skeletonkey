@@ -75,15 +75,15 @@ catalog=
 cen64=[EMUPTH]/cen64-qt.exe
 ddiplrom=
 pifrom=
-roms=[ROMPTH]
+roms=[ROMPATH]
 
 [Saves]
-directory=[ROMPTH]/.Mem
-eeprom16k=[ROMPTH]/.Mem
-eeprom4k=[ROMPTH]/.Mem
-flash=[ROMPTH]/.Mem
-individualsave=[ROMPTH]/.Mem
-sram=[ROMPTH]/.Mem
+directory=[ROMPATH]/.Mem
+eeprom16k=[ROMPATH]/.Mem
+eeprom4k=[ROMPATH]/.Mem
+flash=[ROMPATH]/.Mem
+individualsave=[ROMPATH]/.Mem
+sram=[ROMPATH]/.Mem
 
 [Table]
 columns=Filename|Size

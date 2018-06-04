@@ -64,7 +64,7 @@ wrpResolution=4
 wrpVRAM=0
 
 [Recent File]
-Recent Rom 0=[ROMPTH]\[ROM]
+Recent Rom 0=[ROMPATH]\[ROM]
 
 [DirectInput-Controller 0]
 A=46
@@ -167,15 +167,15 @@ Type=2
 Z=0
 
 [Directory]
-Instant Save=[ROMPTH]\.sstates\
+Instant Save=[ROMPATH]\.sstates\
 Instant Save - Use Selected=1
 Plugin=[EMUPTH]\Plugin\
 Plugin - Use Selected=1
-Save=[ROMPTH]\.Mem\
+Save=[ROMPATH]\.Mem\
 Save - Use Selected=1
-Snap Shot=[ROMPTH]\.snaps\
+Snap Shot=[ROMPATH]\.snaps\
 Snap Shot - Use Selected=1
-Texture Dir=[ROMPTH]\.Mem\
+Texture Dir=[ROMPATH]\.Mem\
 Texture Dir - Use Selected=1
 
 [Direct3D8]

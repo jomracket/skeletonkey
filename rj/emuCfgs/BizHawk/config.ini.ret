@@ -6,7 +6,7 @@
     ".img": ""
   },
   "UseRecentForROMs": false,
-  "LastRomPath": "[ROMPTH]",
+  "LastRomPath": "[ROMPATH]",
   "PathEntries": {
     "Paths": [
       {
@@ -1109,7 +1109,7 @@
   "DispUserFilterPath": "[EMUPTH]\\BizScanlines.cgp",
   "RecentRoms": {
     "recentlist": [
-      "*OpenRom*[ROMPTH]\\[ROM]"
+      "*OpenRom*[ROMPATH]\\[ROM]"
     ],
     "MAX_RECENT_FILES": 10,
     "AutoLoad": false,

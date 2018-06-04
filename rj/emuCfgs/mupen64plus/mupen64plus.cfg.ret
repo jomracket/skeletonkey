@@ -44,11 +44,11 @@ EnableDebugger = False
 # Save state slot (0-9) to use when saving/loading the emulator state
 CurrentStateSlot = 0
 # Path to directory where screenshots are saved. If this is blank, the default value of ${UserConfigPath}/screenshot will be used
-ScreenshotPath = "[ROMPTH]\.snaps"
+ScreenshotPath = "[ROMPATH]\.snaps"
 # Path to directory where emulator save states (snapshots) are saved. If this is blank, the default value of ${UserConfigPath}/save will be used
-SaveStatePath = "[ROMPTH]\.sstates"
+SaveStatePath = "[ROMPATH]\.sstates"
 # Path to directory where SRAM/EEPROM data (in-game saves) are stored. If this is blank, the default value of ${UserConfigPath}/save will be used
-SaveSRAMPath = "[ROMPTH]\.Mem"
+SaveSRAMPath = "[ROMPATH]\.Mem"
 # Path to a directory to search when looking for shared data files
 SharedDataPath = "C:\emulators\m64py"
 # Delay interrupt after DMA SI read/write

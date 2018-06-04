@@ -364,11 +364,11 @@ EmuSpeed=29
 ; "C:\Games\SNES" for example is incorrect.
 ; "C:\\Games\\SNES" is correct.
 
-ROMPath="[ROMPTH]"
+ROMPath="[ROMPATH]"
 ; Save states & SRAMs, snapshots, SPCs
-SRAMPath="[ROMPTH]\.sstates\"
-SnapPath="[ROMPTH]\.snaps\"
-SPCPath="[ROMPTH]\.Mem\"
+SRAMPath="[ROMPATH]\.sstates\"
+SnapPath="[ROMPATH]\.snaps\"
+SPCPath="[ROMPATH]\.Mem\"
 ; BIOS/base carts (BS-X, Sufami Turbo, Same Game & SD Gundam G-Next)
 BSXPath="[EMUPTH]\"
 STPath="[EMUPTH]\"

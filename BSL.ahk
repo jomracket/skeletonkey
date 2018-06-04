@@ -18,7 +18,18 @@ WinMinimize, LaunchBox
 WinMinimize, PLAYNITE
 WinMinimize, HyperSpin
 WinMinimize, Cabrio
+BSLDIR= %A_ScriptDir%
 RUNPROGRAM= %1%
+FETYP= %2%	
+JYTP= %3%	
+JYZ= %4%	
+DMT= %5%	
+CFG= %6%	
+CDMDA= %8%	
+CDMDB= %9%	
+CDMDY= %10%	
+CDMDZ= %11%
+
 SplitPath,RUNPROGRAM,RUNROM,RUNPTH,RUNXT,RUNAME
 if (RUNXT = "lnk")
 	{
@@ -31,22 +42,22 @@ IniRead,EMUZ,%RUNPTH%\%RUNROM%,INIVARS,EMUZ
 IniRead,CMDLINE,%RUNPTH%\%RUNROM%,RUNVARS,CMDLINE
 
 
-IfNotExist, BSL.ini
+IfNotExist, %BSLDIR%\BSL.ini
 	{
-		FileAppend,[OPTIONS]`n,BSL.ini
-		FileAppend,frontend=MediaCenter`n,BSL.ini
-		FileAppend,Joystick=`n,BSL.ini
-		FileAppend,Xpadder=`n,BSL.ini
-		FileAppend,Daemon_Tools=`n,BSL.ini
-		FileAppend,configurations=`n,BSL.ini
-		FileAppend,jacket_inject=`n,BSL.ini
-		FileAppend,custom_A=`n,BSL.ini
-		FileAppend,custom_B=`n,BSL.ini
-		FileAppend,custom_Y=`n,BSL.ini
-		FileAppend,custom_Z=`n,BSL.ini
+		FileAppend,[OPTIONS]`n,%BSLDIR%\BSL.ini
+		FileAppend,frontend=MediaCenter`n,%BSLDIR%\BSL.ini
+		FileAppend,Joystick=`n,%BSLDIR%\BSL.ini
+		FileAppend,Xpadder=`n,%BSLDIR%\BSL.ini
+		FileAppend,Daemon_Tools=`n,%BSLDIR%\BSL.ini
+		FileAppend,configurations=`n,%BSLDIR%\BSL.ini
+		FileAppend,jacket_inject=`n,%BSLDIR%\BSL.ini
+		FileAppend,custom_A=`n,%BSLDIR%\BSL.ini
+		FileAppend,custom_B=`n,%BSLDIR%\BSL.ini
+		FileAppend,custom_Y=`n,%BSLDIR%\BSL.ini
+		FileAppend,custom_Z=`n,%BSLDIR%\BSL.ini
 	}
 
-Loop, Read, BSL.ini
+Loop, Read, %BSLDIR%\BSL.ini
 	{
 		gbsl1= 
 		gbsl2= 
@@ -61,41 +72,41 @@ Loop, Read, BSL.ini
 	}
 if (Jacket_inject = 1)
 	{
-		FileRead,
+;;		FileRead,
 	}
-if (frontend = "")
+if ((frontend = "")&&(FETYP = ""))
 	{
 		FETYP= .
 	}
-if (Joystick = "")
+if ((Joystick = "")&&(JYTP = ""))
 	{
 		JYTP= .
 	}
-if (Xpadder = "")
+if ((Xpadder = "")&&(JYZ = ""))
 	{
 		JYZ= .
 	}
-if (DaemonTools = "")
+if ((DaemonTools = "")&&(DMT = ""))
 	{
 		DMT= .
 	}
-if (configurations = "")
+if ((configurations = "")&&(CFG = ""))
 	{
 		CFG= .
 	}
-if (customA = "")
+if ((customA = "")&&(CCMDA = ""))
 	{
 		CCMDA= .
 	}
-if (customB = "")
+if ((customB = "")&&(CCMDB = ""))
 	{
 		CCMDB= .
 	}
-if (customY = "")
+if ((customY = "")&&(CCMDY = ""))
 	{
 		CCMDY= .
 	}
-if (customZ = "")
+if ((customZ = "")&&(CCMDZ = ""))
 	{
 		CCMDZ= .
 	}
@@ -248,8 +259,12 @@ else
 	{
 		Process_Suspend("Hyperspin.exe")
 	}
+;msgbox,,,"%FETYP%" "%JYTP%" "%JYZ%" "%DMT%" "%CFG%" "%CCMDA%" "%CCMDB%" "%CCMDY%" "%CCMDZ%"	
 
-Runwait, "%1%" %FETYP% %JYTYP% %JYZ% %DMT% %CFG% %CCMDA% %CCMDB% %CCMDY% %CCMDZ%,%RUNPTH% ,Hide UseErrorLevel
+
+;Runwait, %1% "%FETYP%" "%JYTP%" "%JYZ%" "%DMT%" "%CFG%" "%CCMDA%" "%CCMDB%" "%CCMDY%" "%CCMDZ%",%RUNPTH% 
+Runwait, %1% "%FETYP%" "%JYTP%" "%JYZ%" "%DMT%" "%CFG%" "%CCMDA%" "%CCMDB%" "%CCMDY%" "%CCMDZ%",%RUNPTH% ,Hide UseErrorLevel
+
 if (ErrorLevel = "ERROR")
 	{
 	}

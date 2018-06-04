@@ -320,7 +320,7 @@
         <cheats>
             <auto-load>no</auto-load>
             <auto-save>no</auto-save>
-            <directory>[ROMPTH]\.cheats\</directory>
+            <directory>[ROMPATH]\.cheats\</directory>
         </cheats>
         <fds>
             <bios />
@@ -334,34 +334,34 @@
         <patches>
             <auto-apply>no</auto-apply>
             <bypass-validation>no</bypass-validation>
-            <directory>[ROMPTH]\.patches\</directory>
+            <directory>[ROMPATH]\.patches\</directory>
         </patches>
         <recent>
             <directories>
-                <directory>[ROMPTH]\</directory>
-                <directory>[ROMPTH]\</directory>
+                <directory>[ROMPATH]\</directory>
+                <directory>[ROMPATH]\</directory>
                 <locked>no</locked>
             </directories>
             <files>
-                <file>[ROMPTH]\[ROM]</file>
+                <file>[ROMPATH]\[ROM]</file>
                 <locked>no</locked>
             </files>
         </recent>
         <samples>
-            <directory>[ROMPTH]\.snaps\</directory>
+            <directory>[ROMPATH]\.snaps\</directory>
         </samples>
         <saves>
-            <directory>[ROMPTH]\.Mem\</directory>
+            <directory>[ROMPATH]\.Mem\</directory>
             <force-read-only>no</force-read-only>
         </saves>
         <screenshots>
-            <directory>[ROMPTH]\.snaps\</directory>
+            <directory>[ROMPATH]\.snaps\</directory>
             <format>png</format>
         </screenshots>
         <states>
             <auto-export>yes</auto-export>
             <auto-import>yes</auto-import>
-            <directory>[ROMPTH]\.sstates\</directory>
+            <directory>[ROMPATH]\.sstates\</directory>
             <use-compression>yes</use-compression>
         </states>
         <tapes>

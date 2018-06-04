@@ -117,13 +117,13 @@ CurrentSaveSlot            = 0
 MaxRecentGames             = 1     # max recent games to show in the recent games menu (must be <= 32)
 
 [Settings\Win\Files]
-Dir:Roms         = [ROMPTH]                                            # directory where the Open ROM dialog will start
-Dir:Screenshots  = [ROMPTH]\.snaps                                     # directory where screenshots will be saved
-Dir:Movies       = [ROMPTH]\.snaps                                          # the default directory for recorded movie (.smv) files
-Dir:SPCs         = [ROMPTH]\.Mem                                            # directory where SPCs will be saved
-Dir:Savestates   = [ROMPTH]\.sstates                                          # directory where savestates will be created and loaded from
-Dir:SRAM         = [ROMPTH]\.Mem                                           # directory where battery saves will be created and loaded from
-Dir:Patches      = [ROMPTH]\.cheats                                          # directory in which ROM patches (.ips files) and cheats (.cht files) will be looked for
+Dir:Roms         = [ROMPATH]                                            # directory where the Open ROM dialog will start
+Dir:Screenshots  = [ROMPATH]\.snaps                                     # directory where screenshots will be saved
+Dir:Movies       = [ROMPATH]\.snaps                                          # the default directory for recorded movie (.smv) files
+Dir:SPCs         = [ROMPATH]\.Mem                                            # directory where SPCs will be saved
+Dir:Savestates   = [ROMPATH]\.sstates                                          # directory where savestates will be created and loaded from
+Dir:SRAM         = [ROMPATH]\.Mem                                           # directory where battery saves will be created and loaded from
+Dir:Patches      = [ROMPATH]\.cheats                                          # directory in which ROM patches (.ips files) and cheats (.cht files) will be looked for
 Dir:Bios         = [EMUPTH]\BIOS                                            # directory where BIOS files (such as "BS-X.bios") will be located
 Dir:Lock         = FALSE                                             # true to prevent Snes9x from changing configured directories when you browse to a new location
 Rom:RecentGame1  = 

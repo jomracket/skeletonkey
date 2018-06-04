@@ -2,7 +2,7 @@
 WindposX=293
 WindposY=243
 Win_Snap=true
-FDfolder=[ROMPTH]\[ROM]
+FDfolder=[ROMPATH]\[ROM]
 HDfolder=
 bmap_Dir=
 fontfile=

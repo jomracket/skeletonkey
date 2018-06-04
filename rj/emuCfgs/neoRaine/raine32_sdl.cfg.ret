@@ -37,7 +37,7 @@ ogl_save = 1
 ogl_shader = [SHADR]
 
 [neocd]
-neocd_dir = [ROMPTH]
+neocd_dir = [ROMPATH]
 neocd_bios = [BIOS]
 music_volume = 80
 sfx_volume = 70
@@ -51,10 +51,10 @@ disable_irq1 = 0
 capture_new_pictures = 0
 
 [Directories]
-ScreenShots = [ROMPTH]\.snaps\
+ScreenShots = [ROMPATH]\.snaps\
 emudx = [EMUPTH]\
-artwork = [ROMPTH]\
-rom_dir_0 = [ROMPTH]\
+artwork = [ROMPATH]\
+rom_dir_0 = [ROMPATH]\
 
 [default_game_key_config]
 Def_Coin_A = 53

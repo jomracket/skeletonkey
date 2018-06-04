@@ -1,6 +1,6 @@
 [Recent]
 
-Recent0=[ROMPTH]\[ROM]
+Recent0=[ROMPATH]\[ROM]
 Recent1=
 Recent2=
 Recent3=
@@ -75,7 +75,7 @@ User_Key1=62
 User_Device1=0
 User_Modifier1=56
 [Console]
-Save.Path=[ROMPTH]\.sstates
+Save.Path=[ROMPATH]\.sstates
 Window.Left=0
 Window.Top=0
 Window.Right=[AT78X]

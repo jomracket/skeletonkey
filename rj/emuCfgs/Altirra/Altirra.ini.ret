@@ -170,21 +170,21 @@
 [Pane layouts]
 "Standard" = "{1*}"
 [Saved filespecs]
-"6c6f6164" = "[ROMPTH]\"
+"6c6f6164" = "[ROMPATH]\"
 "63617274" = ""
-"6469736b" = "[ROMPTH]\"
-"72766964" = "[ROMPTH]\.snaps\"
-"7363726e" = "[ROMPTH]\.snaps\"
+"6469736b" = "[ROMPATH]\"
+"72766964" = "[ROMPATH]\.snaps\"
+"7363726e" = "[ROMPATH]\.snaps\"
 
 [MRU List]
-"A" = "[ROMPTH]\[ROM]"
+"A" = "[ROMPATH]\[ROM]"
 "Order" = "ABC"
-"B" = "[ROMPTH]\[ROMB]"
-"C" = "[ROMPTH]\[ROMC]"
+"B" = "[ROMPATH]\[ROMB]"
+"C" = "[ROMPATH]\[ROMC]"
 [Mounted Images]
-"Disk 0" = "[ROMPTH]\[ROM]"
-"Disk 1" = "[ROMPTH]\[ROMB]"
-"Disk 2" = "[ROMPTH]\[ROMC]"
+"Disk 0" = "[ROMPATH]\[ROM]"
+"Disk 1" = "[ROMPATH]\[ROMB]"
+"Disk 2" = "[ROMPATH]\[ROMC]"
 
 [User\AccelTables2\0]
 "00000077" = "Debug.RunStop"

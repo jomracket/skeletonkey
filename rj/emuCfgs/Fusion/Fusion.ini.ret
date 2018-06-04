@@ -33,10 +33,10 @@ SMSJAPBIOS=
 SMSEURBIOS=
 GGBIOS=
 SF7000IPL=
-SxMFiles=[ROMPTH]\.Mem
-SMSStateFiles=[ROMPTH]\.sstates
-SMSPatchFiles=[ROMPTH]\.patches
-GGPatchFiles=[ROMPTH]\.patches
+SxMFiles=[ROMPATH]\.Mem
+SMSStateFiles=[ROMPATH]\.sstates
+SMSPatchFiles=[ROMPATH]\.patches
+GGPatchFiles=[ROMPATH]\.patches
 SMSSpriteLimitDisable=0
 YM2413Disable=0
 SMSBIOSDisable=0
@@ -49,9 +49,9 @@ GameGearFull=1
 ;---------------------------------
 
 LastGenesisROM=
-SRMFiles=[ROMPTH]\.Mem
-StateFiles=[ROMPTH]\.sstates
-PatchFiles=[ROMPTH]\.patches
+SRMFiles=[ROMPATH]\.Mem
+StateFiles=[ROMPATH]\.sstates
+PatchFiles=[ROMPATH]\.patches
 GenesisBIOS=
 AutoChecksums=0
 GenBorderDisable=1
@@ -69,7 +69,7 @@ DefaultDrive=X:X:X None
 CDReadAhead=4
 CD+GMode=0
 ForceASPI=0
-BRMFiles=[ROMPTH]\.Mem
+BRMFiles=[ROMPATH]\.Mem
 BRMPerGame=1
 LEDEnabled=1
 PerfectSync=1
@@ -134,9 +134,9 @@ NetplayBandwidth=1
 ; General Settings
 ;---------------------------------
 
-WAVFilesPath=[ROMPTH]\.snaps\*.wav
-VGMFilesPath=[ROMPTH]\.snaps\*.vgm
-ScreenshotPath=[ROMPTH]\.snaps
+WAVFilesPath=[ROMPATH]\.snaps\*.wav
+VGMFilesPath=[ROMPATH]\.snaps\*.vgm
+ScreenshotPath=[ROMPATH]\.snaps
 ScreenshotType=0
 ScreenshotMode=1
 CurrentCountry=0

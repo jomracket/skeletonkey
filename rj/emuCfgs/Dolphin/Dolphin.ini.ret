@@ -1,14 +1,14 @@
 [General]
-LastFilename = [ROMPTH]\[ROM]
+LastFilename = [ROMPATH]\[ROM]
 GCMPathes = 1
-GCMPath0 = [ROMPTH]
+GCMPath0 = [ROMPATH]
 RecursiveGCMPaths = False
 NANDRoot = ./User/Wii
 WirelessMac = 
 ShowLag = False
 ShowFrameCount = False
 ISOPaths = 1
-ISOPath0 = [ROMPTH]
+ISOPath0 = [ROMPATH]
 RecursiveISOPaths = False
 NANDRootPath = 
 [Interface]
@@ -158,8 +158,8 @@ EnableCheats = [CHEATS]
 SelectedLanguage = 0
 DPL2Decoder = False
 Latency = 2
-MemcardAPath = [ROMPTH]\.Mem\MemoryCardA.USA.raw
-MemcardBPath = [ROMPTH]\.Mem\MemoryCardB.USA.raw
+MemcardAPath = [ROMPATH]\.Mem\MemoryCardA.USA.raw
+MemcardBPath = [ROMPATH]\.Mem\MemoryCardB.USA.raw
 SlotA = 1
 SlotB = 255
 SerialPort1 = 255

@@ -148,14 +148,14 @@ bEnableSound = TRUE
 bEnableSoundSync = FALSE
 nPlaybackFreq = 44100
 nSdlAudioBufferSize = 0
-szYMCaptureFileName = [ROMPTH]\.snaps\hatari.wav
+szYMCaptureFileName = [ROMPATH]\.snaps\hatari.wav
 YmVolumeMixing = 2
 
 [Memory]
 nMemorySize = 14
 bAutoSave = TRUE
-szMemoryCaptureFileName = [ROMPTH]\.Mem\
-szAutoSaveFileName = [ROMPTH]\.sstates\auto.sav
+szMemoryCaptureFileName = [ROMPATH]\.Mem\
+szAutoSaveFileName = [ROMPATH]\.sstates\auto.sav
 
 [Floppy]
 bAutoInsertDiskB = TRUE
@@ -165,24 +165,24 @@ szDiskAZipPath =
 szDiskAFileName =
 szDiskBZipPath =
 szDiskBFileName =
-szDiskImageDirectory = [ROMPTH]\
+szDiskImageDirectory = [ROMPATH]\
 
 [HardDisk]
 bBootFromHardDisk = FALSE
 bUseHardDiskDirectory = FALSE
-szHardDiskDirectory = [ROMPTH]
+szHardDiskDirectory = [ROMPATH]
 nWriteProtection = 0
 bUseHardDiskImage = FALSE
-szHardDiskImage = [ROMPTH]
+szHardDiskImage = [ROMPATH]
 bUseIdeMasterHardDiskImage = FALSE
 bUseIdeSlaveHardDiskImage = FALSE
-szIdeMasterHardDiskImage = [ROMPTH]
-szIdeSlaveHardDiskImage = [ROMPTH]
+szIdeMasterHardDiskImage = [ROMPATH]
+szIdeSlaveHardDiskImage = [ROMPATH]
 
 [ROM]
 szTosImageFileName = [EMUPTH]\tos.img
 bPatchTos = TRUE
-szCartridgeImageFileName = [ROMPTH]\[ASTROM]
+szCartridgeImageFileName = [ROMPATH]\[ASTROM]
 
 [RS232]
 bEnableRS232 = FALSE
@@ -213,5 +213,5 @@ bFastForward = FALSE
 [Video]
 AviRecordVcodec = 2
 AviRecordFps = 0
-AviRecordFile = [ROMPTH]\.snaps\hatari.avi
+AviRecordFile = [ROMPATH]\.snaps\hatari.avi
 

@@ -1,6 +1,7 @@
 FileCreateDir, gam
 FileCreateDir, gam\MAME - Systems
 FileCreateDir, joyImg
+FileCreateDir, sysico
 IfNotExist, rj
 {
 FileCreateDir, rj
@@ -880,6 +881,108 @@ FileInstall,Helper.ico,Helper.ico,1
 FileInstall,Install.ico,Install.ico,1
 FileInstall,key.ico,key.ico,1
 FileInstall,lnch.ico,lnch.ico,1
+FileInstall,sysico\Acorn - Archimedes.ico,sysico\Acorn - Archimedes.ico,1
+FileInstall,sysico\Acorn - BBC.ico,sysico\Acorn - BBC.ico,1
+FileInstall,sysico\Acorn - Electron.ico,sysico\Acorn - Electron.ico,1
+FileInstall,sysico\Adobe - Flash.ico,sysico\Adobe - Flash.ico,1
+FileInstall,sysico\Amstrad - CPC.ico,sysico\Amstrad - CPC.ico,1
+FileInstall,sysico\Amstrad - GX4000.ico,sysico\Amstrad - GX4000.ico,1
+FileInstall,sysico\Apple - IIe.ico,sysico\Apple - IIe.ico,1
+FileInstall,sysico\Apple - IIgs.ico,sysico\Apple - IIgs.ico,1
+FileInstall,sysico\Atari - 2600.ico,sysico\Atari - 2600.ico,1
+FileInstall,sysico\Atari - 5200.ico,sysico\Atari - 5200.ico,1
+FileInstall,sysico\Atari - 7800.ico,sysico\Atari - 7800.ico,1
+FileInstall,sysico\Atari - 800.ico,sysico\Atari - 800.ico,1
+FileInstall,sysico\Atari - Jaguar CD.ico,sysico\Atari - Jaguar CD.ico,1
+FileInstall,sysico\Atari - Jaguar.ico,sysico\Atari - Jaguar.ico,1
+FileInstall,sysico\Atari - Lynx.ico,sysico\Atari - Lynx.ico,1
+FileInstall,sysico\Atari - ST.ico,sysico\Atari - ST.ico,1
+FileInstall,sysico\Bally - Astrocade.ico,sysico\Bally - Astrocade.ico,1
+FileInstall,sysico\Bandai - WonderSwan Color.ico,sysico\Bandai - WonderSwan Color.ico,1
+FileInstall,sysico\Bandai - WonderSwan.ico,sysico\Bandai - WonderSwan.ico,1
+FileInstall,sysico\Camputers - Lynx.ico,sysico\Camputers - Lynx.ico,1
+FileInstall,sysico\Capcom Play System - CPS II.ico,sysico\Capcom Play System - CPS II.ico,1
+FileInstall,sysico\Capcom Play System - CPS III.ico,sysico\Capcom Play System - CPS III.ico,1
+FileInstall,sysico\Capcom Play System - CPS.ico,sysico\Capcom Play System - CPS.ico,1
+FileInstall,sysico\Casio - Loopy.ico,sysico\Casio - Loopy.ico,1
+FileInstall,sysico\Casio - PV-1000.ico,sysico\Casio - PV-1000.ico,1
+FileInstall,sysico\Coleco - ColecoVision.ico,sysico\Coleco - ColecoVision.ico,1
+FileInstall,sysico\Commodore - 64.ico,sysico\Commodore - 64.ico,1
+FileInstall,sysico\Commodore - Amiga CD32.ico,sysico\Commodore - Amiga CD32.ico,1
+FileInstall,sysico\Commodore - Amiga.ico,sysico\Commodore - Amiga.ico,1
+FileInstall,sysico\Commodore - VIC20.ico,sysico\Commodore - VIC20.ico,1
+FileInstall,sysico\Daphne - Daphne Laser Disc.ico,sysico\Daphne - Daphne Laser Disc.ico,1
+FileInstall,sysico\DOS.ico,sysico\DOS.ico,1
+FileInstall,sysico\Emerson - Arcadia 2001.ico,sysico\Emerson - Arcadia 2001.ico,1
+FileInstall,sysico\Entech - Adventure Vision.ico,sysico\Entech - Adventure Vision.ico,1
+FileInstall,sysico\Enterprise - 64.ico,sysico\Enterprise - 64.ico,1
+FileInstall,sysico\Epoch - Super Cassette Vision.ico,sysico\Epoch - Super Cassette Vision.ico,1
+FileInstall,sysico\Fairchild - Channel F.ico,sysico\Fairchild - Channel F.ico,1
+FileInstall,sysico\Fujitsu - FM Towns.ico,sysico\Fujitsu - FM Towns.ico,1
+FileInstall,sysico\Fujitsu - FM-7.ico,sysico\Fujitsu - FM-7.ico,1
+FileInstall,sysico\Funtech - Super A'can.ico,sysico\Funtech - Super A'can.ico,1
+FileInstall,sysico\GCE - Vectrex.ico,sysico\GCE - Vectrex.ico,1
+FileInstall,sysico\Interon - Interton VC 4000.ico,sysico\Interon - Interton VC 4000.ico,1
+FileInstall,sysico\Magnavox - Odyseey2.ico,sysico\Magnavox - Odyseey2.ico,1
+FileInstall,sysico\MAME - Arcade.ico,sysico\MAME - Arcade.ico,1
+FileInstall,sysico\Mattel - Aquarius.ico,sysico\Mattel - Aquarius.ico,1
+FileInstall,sysico\Mattel - Intellivision.ico,sysico\Mattel - Intellivision.ico,1
+FileInstall,sysico\Memotech - MTX.ico,sysico\Memotech - MTX.ico,1
+FileInstall,sysico\MGT - Sam Coupe.ico,sysico\MGT - Sam Coupe.ico,1
+FileInstall,sysico\Microsoft - MSX.ico,sysico\Microsoft - MSX.ico,1
+FileInstall,sysico\Microsoft - MSX2.ico,sysico\Microsoft - MSX2.ico,1
+FileInstall,sysico\NEC - PC Engine - TurboGrafx 16.ico,sysico\NEC - PC Engine - TurboGrafx 16.ico,1
+FileInstall,sysico\NEC - PC Engine CD - TurboGrafx CD.ico,sysico\NEC - PC Engine CD - TurboGrafx CD.ico,1
+FileInstall,sysico\NEC - PC Engine SuperGrafx.ico,sysico\NEC - PC Engine SuperGrafx.ico,1
+FileInstall,sysico\NEC - PC-FX.ico,sysico\NEC - PC-FX.ico,1
+FileInstall,sysico\NEC - PC98.ico,sysico\NEC - PC98.ico,1
+FileInstall,sysico\Nintendo - Famicom.ico,sysico\Nintendo - Famicom.ico,1
+FileInstall,sysico\Nintendo - Game Boy Advance.ico,sysico\Nintendo - Game Boy Advance.ico,1
+FileInstall,sysico\Nintendo - Game Boy Color.ico,sysico\Nintendo - Game Boy Color.ico,1
+FileInstall,sysico\Nintendo - Game Boy.ico,sysico\Nintendo - Game Boy.ico,1
+FileInstall,sysico\Nintendo - GameCube.ico,sysico\Nintendo - GameCube.ico,1
+FileInstall,sysico\Nintendo - Nintendo 3DS.ico,sysico\Nintendo - Nintendo 3DS.ico,1
+FileInstall,sysico\Nintendo - Nintendo 64.ico,sysico\Nintendo - Nintendo 64.ico,1
+FileInstall,sysico\Nintendo - Nintendo DS.ico,sysico\Nintendo - Nintendo DS.ico,1
+FileInstall,sysico\Nintendo - Nintendo Entertainment System.ico,sysico\Nintendo - Nintendo Entertainment System.ico,1
+FileInstall,sysico\Nintendo - Super Nintendo Entertainment System.ico,sysico\Nintendo - Super Nintendo Entertainment System.ico,1
+FileInstall,sysico\Nintendo - Virtual Boy.ico,sysico\Nintendo - Virtual Boy.ico,1
+FileInstall,sysico\Nintendo - Wii U.ico,sysico\Nintendo - Wii U.ico,1
+FileInstall,sysico\Nintendo - Wii.ico,sysico\Nintendo - Wii.ico,1
+FileInstall,sysico\Philips - CD-I.ico,sysico\Philips - CD-I.ico,1
+FileInstall,sysico\Sammy - Atomiswave.ico,sysico\Sammy - Atomiswave.ico,1
+FileInstall,sysico\Sega - 32X.ico,sysico\Sega - 32X.ico,1
+FileInstall,sysico\Sega - Dreamcast.ico,sysico\Sega - Dreamcast.ico,1
+FileInstall,sysico\Sega - Game Gear.ico,sysico\Sega - Game Gear.ico,1
+FileInstall,sysico\Sega - Master System - Mark III.ico,sysico\Sega - Master System - Mark III.ico,1
+FileInstall,sysico\Sega - Mega Drive - Genesis.ico,sysico\Sega - Mega Drive - Genesis.ico,1
+FileInstall,sysico\Sega - Model 2.ico,sysico\Sega - Model 2.ico,1
+FileInstall,sysico\Sega - Model 3.ico,sysico\Sega - Model 3.ico,1
+FileInstall,sysico\Sega - NAOMI.ico,sysico\Sega - NAOMI.ico,1
+FileInstall,sysico\Sega - PICO.ico,sysico\Sega - PICO.ico,1
+FileInstall,sysico\Sega - Saturn.ico,sysico\Sega - Saturn.ico,1
+FileInstall,sysico\Sega - SC-3000.ico,sysico\Sega - SC-3000.ico,1
+FileInstall,sysico\Sega - SG-1000.ico,sysico\Sega - SG-1000.ico,1
+FileInstall,sysico\Sharp - X1.ico,sysico\Sharp - X1.ico,1
+FileInstall,sysico\Sharp - X68000.ico,sysico\Sharp - X68000.ico,1
+FileInstall,sysico\Sinclair - ZX Spectrum.ico,sysico\Sinclair - ZX Spectrum.ico,1
+FileInstall,sysico\SNK - Neo Geo CD.ico,sysico\SNK - Neo Geo CD.ico,1
+FileInstall,sysico\SNK - Neo Geo MVS.ico,sysico\SNK - Neo Geo MVS.ico,1
+FileInstall,sysico\SNK - Neo Geo Pocket Color.ico,sysico\SNK - Neo Geo Pocket Color.ico,1
+FileInstall,sysico\SNK - Neo Geo Pocket.ico,sysico\SNK - Neo Geo Pocket.ico,1
+FileInstall,sysico\Sony - Playstation 2.ico,sysico\Sony - Playstation 2.ico,1
+FileInstall,sysico\Sony - Playstation 3.ico,sysico\Sony - Playstation 3.ico,1
+FileInstall,sysico\Sony - Playstation Portable.ico,sysico\Sony - Playstation Portable.ico,1
+FileInstall,sysico\Sony - Playstation Vita.ico,sysico\Sony - Playstation Vita.ico,1
+FileInstall,sysico\Sony - Playstation.ico,sysico\Sony - Playstation.ico,1
+FileInstall,sysico\Sord - M5.ico,sysico\Sord - M5.ico,1
+FileInstall,sysico\Taito - Taito Type X 2.ico,sysico\Taito - Taito Type X 2.ico,1
+FileInstall,sysico\Tangerine - Oric Amos.ico,sysico\Tangerine - Oric Amos.ico,1
+FileInstall,sysico\The 3DO Company - 3DO.ico,sysico\The 3DO Company - 3DO.ico,1
+FileInstall,sysico\Touhou.ico,sysico\Touhou.ico,1
+FileInstall,sysico\VTech - CreatiVision.ico,sysico\VTech - CreatiVision.ico,1
+FileInstall,sysico\Watara - SuperVision.ico,sysico\Watara - SuperVision.ico,1
+FileInstall,sysico\Windows Games.ico,sysico\Windows Games.ico,1
 FileInstall,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.set,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.set,1
 FileInstall,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.xml.Begin.set,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.xml.Begin.set,1
 FileInstall,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.xml.End.set,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.xml.End.set,1

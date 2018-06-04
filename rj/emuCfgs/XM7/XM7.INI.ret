@@ -1,7 +1,7 @@
 [General]
-DiskImageDir=[ROMPTH]\
-TapeImageDir=[ROMPTH]\
-StateFileDir=[ROMPTH]\.sstates
+DiskImageDir=[ROMPATH]\
+TapeImageDir=[ROMPATH]\
+StateFileDir=[ROMPATH]\.sstates
 BMPFileDir=[EMUPTH]
 WAVFileDir=[EMUPTH]
 Version=2
@@ -234,10 +234,10 @@ File7=
 File8=
 [Tape]
 Mount=1
-File0=[ROMPTH]\[DSK]
-File1=[ROMPTH]\[DSK2]
-File2=[ROMPTH]\[DSK3]
-File3=[ROMPTH]\[DSK4]
+File0=[ROMPATH]\[DSK]
+File1=[ROMPATH]\[DSK2]
+File2=[ROMPATH]\[DSK3]
+File3=[ROMPATH]\[DSK4]
 File4=
 File5=
 File6=

@@ -8,31 +8,31 @@ writeconfig               1
 # CORE SEARCH PATH OPTIONS
 #
 rompath                   roms
-hashpath                  [ROMPTH]\.hash
-samplepath                [ROMPTH]\.samples
-artpath                   [ROMPTH]\.artwork
-ctrlrpath                 [ROMPTH]\.ctrlr
-inipath                   [ROMPTH]\.ini
-fontpath                  [ROMPTH]
-cheatpath                 [ROMPTH]\.cheats
-crosshairpath             [ROMPTH]\crosshair
+hashpath                  [ROMPATH]\.hash
+samplepath                [ROMPATH]\.samples
+artpath                   [ROMPATH]\.artwork
+ctrlrpath                 [ROMPATH]\.ctrlr
+inipath                   [ROMPATH]\.ini
+fontpath                  [ROMPATH]
+cheatpath                 [ROMPATH]\.cheats
+crosshairpath             [ROMPATH]\crosshair
 
 #
 # CORE OUTPUT DIRECTORY OPTIONS
 #
-cfg_directory             [ROMPTH]
-nvram_directory           [ROMPTH]\.Mem
-memcard_directory         [ROMPTH]\.Mem
-input_directory           [ROMPTH]\.inp
-state_directory           [ROMPTH]\.sstates
-snapshot_directory        [ROMPTH]\.snaps
-diff_directory            [ROMPTH]\.patches
-comment_directory         [ROMPTH]\.comments
+cfg_directory             [ROMPATH]
+nvram_directory           [ROMPATH]\.Mem
+memcard_directory         [ROMPATH]\.Mem
+input_directory           [ROMPATH]\.inp
+state_directory           [ROMPATH]\.sstates
+snapshot_directory        [ROMPATH]\.snaps
+diff_directory            [ROMPATH]\.patches
+comment_directory         [ROMPATH]\.comments
 
 #
 # CORE OUTPUT DIRECTORY OPTIONS
 #
-hiscore_directory         [ROMPTH]\.hi
+hiscore_directory         [ROMPATH]\.hi
 
 #
 # CORE STATE/PLAYBACK OPTIONS

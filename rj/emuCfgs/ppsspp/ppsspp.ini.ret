@@ -13,7 +13,7 @@ Language = en_US
 ForceLagSync = False
 NumWorkerThreads = 2
 ReportHost = report.ppsspp.org
-Recent = [ROMPTH]\[ROMP]
+Recent = [ROMPATH]\[ROMP]
 AutoSaveSymbolMap = False
 TopMost = True
 WindowX = 0
@@ -202,7 +202,7 @@ SkipDeadbeefFilling = False
 FuncHashMap = False
 [Recent]
 MaxRecent = 30
-FileName0 = [ROMPTH]\[ROMP]	
+FileName0 = [ROMPATH]\[ROMP]	
 [SpeedHacks]
 PrescaleUV = False
 DisableAlphaTest = False

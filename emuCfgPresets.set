@@ -61,7 +61,7 @@ RJPOSTCFG=
 
 [*************************************************************************]
 [MAME]
-RJEMUARGS=<-rp "[EMUPATH]\roms"|<-rp "[ROMPTH]"
+RJEMUARGS=<-rp "[EMUPATH]\roms"|<-rp "[ROMPATH]"
 RJQUOTES=1
 RJPATH=1
 RJRUNDIR=1
@@ -71,7 +71,7 @@ RJSUBDS=.cheats:1|.patches:1|.snaps:1|.sstates:1|.Man:1|.Mem:1|.cfg:1|.ctrl:1|.h
 RJEXTRARC=0
 
 [MAME - Arcade]
-RJEMUARGS=<-rp "[ROMPTH]"|<-rp "[EMUPATH]\roms"|<
+RJEMUARGS=<-rp "[ROMPATH]"|<-rp "[EMUPATH]\roms"|<
 RJQUOTES=0
 NICEFLD=1
 RJPATH=0
@@ -85,7 +85,7 @@ RJSUBDS=.cheats:1|.patches:1|.snaps:1|.sstates:1|.Man:1|.Mem:1|.cfg:1|.ctrl:1|.h
 
 
 [MAME - System]
-RJEMUARGS=<-rp "[ROMPTH]"|<-rp "[EMUPATH]\roms"|<
+RJEMUARGS=<-rp "[ROMPATH]"|<-rp "[EMUPATH]\roms"|<
 RJQUOTES=1
 RJPATH=1
 RJRUNDIR=0

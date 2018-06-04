@@ -1,7 +1,7 @@
 [directory]
-save_dir=[ROMPTH]\.Mem\
+save_dir=[ROMPATH]\.Mem\
 save_rom_dir=1
-last_dir=[ROMPTH]\
+last_dir=[ROMPATH]\
 plugin_lng_dir=.\plugin\
 plugin_mapper_dir=.\plugin\
 plugin_filter_n_dir=.\plugin\

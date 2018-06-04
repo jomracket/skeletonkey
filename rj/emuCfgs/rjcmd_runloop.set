@@ -20,6 +20,8 @@ ROMFN="[ROMFN]"
 
 [INIVARSEND]
 
+:REDEF
+exit /b
 
 :REPROM
 for %%a in ("%FETYPE%") do (

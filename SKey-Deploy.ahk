@@ -58,13 +58,13 @@ if ("%1%" = "show")
 		rntp= max
 	}
 
-IfNotExist, skopt.ini
+IfNotExist, skopt.cfg
 	{
 		INIT= 1
 		gosub, SelDir
 	}
 	
-Loop, Read, skopt.ini
+Loop, Read, skopt.cfg
 	{
 		curvl1= 
 		curvl2= 
@@ -556,7 +556,7 @@ Loop, %NSISD%\makensis.exe
 if (nsisexists = 1)
 	{
 		NSIS:= NSIST
-		iniwrite, %NSIS%,skopt.ini,GLOBAL,NSIS
+		iniwrite, %NSIS%,skopt.cfg,GLOBAL,NSIS
 		return
 	}
 Msgbox,5,makensis,makensis.exe not found
@@ -586,7 +586,7 @@ if (BUILDWT = "")
 BUILDW= %BUILDWT%	
 FileCopy, %BUILDIR%\Working.ahk,%BUILDIR%\Working.bak,1
 FileCopy, %BUILDWT%,%BUILDIR%\Working.ahk,1
-IniWrite, %BUILDW%,skopt.ini,GLOBAL,Working_file
+IniWrite, %BUILDW%,skopt.cfg,GLOBAL,Working_file
 return
 
 GitRoot:
@@ -605,7 +605,7 @@ if (GITROOT <> "")
 if (GITROOTT <> "")
 	{
 		GITROOT:= GITROOTT
-		iniwrite, %GITROOT%,skopt.ini,GLOBAL,Git_Root
+		iniwrite, %GITROOT%,skopt.cfg,GLOBAL,Git_Root
 		return
 	}
 Msgbox,5,Github Root,Github Directory not found
@@ -640,7 +640,7 @@ Loop, %BUILDIT%\skdeploy.set
 if (bldexists = 1)
 	{
 		BUILDIR:= BUILDIT
-		iniwrite, %BUILDIR%,skopt.ini,GLOBAL,Build_Directory
+		iniwrite, %BUILDIR%,skopt.cfg,GLOBAL,Build_Directory
 		FileRead, nsiv, %BUILDIR%\skdeploy.set
 		StringReplace, nsiv, nsiv,[SOURCE],%SKELD%,All
 		StringReplace, nsiv, nsiv,[INSTYP],-installer,All
@@ -667,7 +667,7 @@ if (SHDRPURL = "")
 	{
 		SHDRPRUL= %SHDRPURLT%
 	}
-iniwrite,%SHDRPURL%,skopt.ini,GLOBAL,shader_url
+iniwrite,%SHDRPURL%,skopt.cfg,GLOBAL,shader_url
 return
 
 GetIpAddr:
@@ -680,7 +680,7 @@ if (GETIPADR = "")
 	{
 		GETIPADR= %GETIPADRT%
 	}
-IniWrite,%GETIPADR%,skopt.ini,GLOBAL,net_ip
+IniWrite,%GETIPADR%,skopt.cfg,GLOBAL,net_ip
 return
 
 UpdateURL:
@@ -693,7 +693,7 @@ if (UPDTURL = "")
 	{
 		UPDTURL= %UPDTURLT%
 	}
-IniWrite,%UPDTURL%,skopt.ini,GLOBAL,update_url
+IniWrite,%UPDTURL%,skopt.cfg,GLOBAL,update_url
 return
 
 UpdateFILE:
@@ -706,7 +706,7 @@ if (UPDTFILE = "")
 	{
 		UPDTFILE= %UPDTFILET%
 	}
-IniWrite,%UPDTFILE%,skopt.ini,GLOBAL,update_file
+IniWrite,%UPDTFILE%,skopt.cfg,GLOBAL,update_file
 return
 
 GitSRC:
@@ -719,7 +719,7 @@ if (GitSRC = "")
 	{
 		GitSRC= %GitSRCT%
 	}
-IniWrite,%GitSRC%,skopt.ini,GLOBAL,git_url
+IniWrite,%GitSRC%,skopt.cfg,GLOBAL,git_url
 return
 
 RepoUrl:
@@ -734,7 +734,7 @@ if (REPOURL = "")
 		REPOURL= %REPOURLT%
 		UPDTFILE= %UPDTFILE%
 	}
-IniWrite,%REPOURL%,skopt.ini,GLOBAL,repository_url
+IniWrite,%REPOURL%,skopt.cfg,GLOBAL,repository_url
 return
 
 NewLobby:
@@ -747,7 +747,7 @@ if (NLOB = "")
 	{
 		NLOB= %NLOBT%
 	}
-IniWrite,%NLOB%,skopt.ini,GLOBAL,lobby_url
+IniWrite,%NLOB%,skopt.cfg,GLOBAL,lobby_url
 return
 
 GetUpdate:
@@ -778,7 +778,7 @@ if (DEPL <> "")
 	}
 
 		DEPL:= DEPLT
-		iniwrite, %DEPL%,skopt.ini,GLOBAL,Deployment_Directory
+		iniwrite, %DEPL%,skopt.cfg,GLOBAL,Deployment_Directory
 		return
 Msgbox,5,index.html,Deployment Environment not found
 IfMsgBox, Abort
@@ -808,7 +808,7 @@ Loop, %AHKDIT%\Ahk2Exe.exe
 if (compexists = 1)
 	{
 		AHKDIR:= AHKDIT
-		iniwrite, %AHKDIR%,skopt.ini,GLOBAL,Compiler_Directory
+		iniwrite, %AHKDIR%,skopt.cfg,GLOBAL,Compiler_Directory
 		return
 	}
 Msgbox,5,Ahk2Exe.exe,AutoHotkey Compiler not found
@@ -838,7 +838,7 @@ Loop, %SKELT%\skeletonkey.ahk
 if (skelexists = 1)
 	{
 		SKELD:= SKELT
-		iniwrite, %SKELD%,skopt.ini,GLOBAL,Source_Directory
+		iniwrite, %SKELD%,skopt.cfg,GLOBAL,Source_Directory
 		return
 	}
 Msgbox,5,skeletonkey.ahk,skeletonkey source file not found
@@ -893,7 +893,7 @@ if (GITRLST = "")
 			
 	}
 GITRLS= %GITRLST%
-iniwrite, %GITRLS%,skopt.ini,GLOBAL,git_rls
+iniwrite, %GITRLS%,skopt.cfg,GLOBAL,git_rls
 return
 
 GetGPAC:
@@ -909,7 +909,7 @@ if (GITPAT <> "")
 			}
 	}
 GITPAT= %GITPATT%	
-iniwrite, %GITPAT%,skopt.ini,GLOBAL,git_token
+iniwrite, %GITPAT%,skopt.cfg,GLOBAL,git_token
 return
 
 
@@ -925,7 +925,7 @@ if (GITUSER <> "")
 			}
 	}
 GITUSER= %GITUSERT%	
-iniwrite, %GITUSER%,skopt.ini,GLOBAL,Git_username
+iniwrite, %GITUSER%,skopt.cfg,GLOBAL,Git_username
 filecreatedir, %gitroot%\%GITUSER%.github.io
 return
 
@@ -949,11 +949,11 @@ Loop, %GITT%\skeletonkey.ahk
 if (gitexists = 1)
 	{
 		GITD:= GITT
-		iniwrite, %GITD%,skopt.ini,GLOBAL,Git_Directory
+		iniwrite, %GITD%,skopt.cfg,GLOBAL,Git_Directory
 		FileDelete, %GITD%\gitcommit.bat
 		FileAppend,cd "%GITD%"`n,%GITD%\gitcommit.bat
 		FileAppend,git add .`n,%GITD%\gitcommit.bat
-		FileAppend,git commit -m `%1`%`n,%GITD%\gitcommit.bat
+		FileAppend,git commit -m `%1`%.`n,%GITD%\gitcommit.bat
 		FileAppend,git push origin master`n,%GITD%\gitcommit.bat
 		return
 	}
@@ -1121,7 +1121,7 @@ if (RESDD = "Deployer")
 			{
 				FileDelete, %GITD%\gitcommit.bat
 				FileDelete, %BUILDIR%\skdeploy.nsi				
-				FileDelete, %BUILDIR%\skopt.ini
+				FileDelete, %BUILDIR%\skopt.cfg
 				FileDelete, %BUILDIR%\ltc.txt
 				FileDelete, %BUILDIR%\insts.sha1
 				ExitApp
@@ -1460,6 +1460,7 @@ if (INITINCL = 1)
 			exprt.= "FileCreateDir, gam" . "`n"
 			exprt.= "FileCreateDir, gam\MAME - Systems" . "`n"
 			exprt.= "FileCreateDir, joyImg" . "`n"
+			exprt.= "FileCreateDir, sysico" . "`n"
 	exprt.= "IfNotExist, rj" . "`n" . "{" . "`n" . "FileCreateDir, rj" . "`n" . "FILEINS= 1" . "`n" . "}" . "`n"
 	exprt.= "If (INITIAL = 1)" . "`n" . "{" . "`n" . "FILEINS= 1" . "`n" . "}" . "`n"
 			exprt.= "If (FILEINS = 1)" . "`n" . "{" . "`n" 
@@ -1507,6 +1508,12 @@ if (INITINCL = 1)
 					exprt.= "FileInstall," . ain . "," . ain . ",1" . "`n"
 				}
 			Loop, files, *.ico
+				{
+					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
+					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
+					exprt.= "FileInstall," . ain . "," . ain . ",1" . "`n"
+				}
+			Loop, files, %SKELD%\sysico\*.ico
 				{
 					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
 					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
@@ -1596,6 +1603,7 @@ Loop, %SKELD%\*
 				continue
 			FileAppend, "%A_LoopFileFullPath%"`n,ltc.txt
 		}
+FileAppend,:%SKELD%\sysico\*.ico`n,ltc.txt
 FileAppend,:%SKELD%\rj\ES\*.set`n,ltc.txt
 FileAppend,:%SKELD%\joyImg`n,ltc.txt
 FileAppend,:%SKELD%\rj\joycfgs`n,ltc.txt
@@ -1688,15 +1696,27 @@ if (GitPush = 1)
 				PushNotes= %date% %TimeString%
 			}
 		FileDelete, %SKELD%\!gitupdate.cmd
-		FileAppend, rd /s/q "%GITD%\rj\netArt" "%GITD%"`n,%SKELD%\!gitupdate.cmd
-		FileAppend, rd /s/q "%GITD%\rj\sysCfgs" "%GITD%"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, mkdir "%GITD%\rj\scrapeArt"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, mkdir "%GITD%\rj\netArt"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, mkdir "%GITD%\rj\ES"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, mkdir "%GITD%\rj\emuCfgs"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, mkdir "%GITD%\rj\KODI\ADVL"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, mkdir "%GITD%\rj\KODI\AEL"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, mkdir "%GITD%\rj\KODI\IARL"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, mkdir "%GITD%\rj\KODI\RCB"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, mkdir "%GITD%\joyimg"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, mkdir "%GITD%\sysico"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, rd /s/q "%GITD%\rj\netArt"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, rd /s/q "%GITD%\rj\sysCfgs"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, robocopy gam "%GITD%\gam" /s /e /w:1 /r:1`n,%SKELD%\!gitupdate.cmd
 		FileAppend, del /q "%GITD%\rj\*.tdb"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, del /q "%GITD%\rj\*.tmp"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, del /q "%GITD%\rj\*.ini"`n,%SKELD%\!gitupdate.cmd
-		FileAppend, rd /s /q "%GITD%\rj\netArt\*"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, del /s /q "%GITD%\rj\netArt\*"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, robocopy rj "%GITD%\rj" /s /e /w:1 /r:1 /xf syscfgs`n,%SKELD%\!gitupdate.cmd
 		FileAppend, robocopy joyimg "%GITD%\joyimg" /s /e /w:1 /r:1`n,%SKELD%\!gitupdate.cmd
+		FileAppend, robocopy joyimg "%GITD%\rj\emuCfgs" /s /e /w:1 /r:1`n,%SKELD%\!gitupdate.cmd
+		FileAppend, copy /y "rj\scrapeArt\*.set" "%GITD%\rj\scrapeArt"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "rj\scrapeArt\*.7z" "%GITD%\rj\scrapeArt"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "*.exe" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "*.set" "%GITD%"`n,%SKELD%\!gitupdate.cmd
@@ -1709,6 +1729,11 @@ if (GitPush = 1)
 		FileAppend, copy /y "AHKsock.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "SKey-Deploy.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "skeletonkey.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, copy /y "rj\KODI\RCB\*.set" "%GITD%\rj\KODI\RCB"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, copy /y "rj\KODI\AEL\*.set" "%GITD%\rj\KODI\AEL"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, copy /y "rj\KODI\IARL\*.set" "%GITD%\rj\KODI\IARL"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, copy /y "rj\KODI\AEL\*.set" "%GITD%\rj\KODI\AEL"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, copy /y "sysico\*.ico" "%GITD%\sysico"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "*.ico" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "*.png" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "ReadMe.md" "%GITD%"`n,%SKELD%\!gitupdate.cmd

@@ -99,7 +99,7 @@ nLoadMenuShowX 268435456
 nLoadMenuBoardTypeFilter 0
 nLoadMenuGenreFilter 0
 nLoadMenuFamilyFilter 0
-szAppRomPaths[0] [ROMPTH]\
+szAppRomPaths[0] [ROMPATH]\
 szAppRomPaths[1] 
 szAppRomPaths[2] 
 szAppRomPaths[3] 
@@ -119,13 +119,13 @@ szAppRomPaths[16]
 szAppRomPaths[17] 
 szAppRomPaths[18] 
 szAppRomPaths[19] roms/
-szNeoCDGamesDir [ROMPTH]
+szNeoCDGamesDir [ROMPATH]
 szAppPreviewsPath support/previews/
 szAppTitlesPath support/titles/
-szAppCheatsPath [ROMPTH]\.cheats/
+szAppCheatsPath [ROMPATH]\.cheats/
 szAppHiscorePath support/hiscores/
 szAppSamplesPath support/samples/
-szAppIpsPath [ROMPTH]\.patches/
+szAppIpsPath [ROMPATH]\.patches/
 szAppIconsPath support/icons/
 szNeoCDCoverDir support/neocdz/
 nBurnDrvSelect[0] (null)

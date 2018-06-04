@@ -5,7 +5,7 @@
 
 [general]
 
-rompath=[ROMPTH]
+rompath=[ROMPATH]
 datpath=.\romdata\
 neogeoarcade=0
 showfps=0

@@ -18,10 +18,10 @@ Core:
     []
 VFS:
   $(EmulatorDir): "[EMUPTH]"
-  /dev_hdd0/: [ROMPTH]/dev_hdd0/
-  /dev_hdd1/: [ROMPTH]/dev_hdd1/
-  /dev_flash/: [ROMPTH]/dev_flash/
-  /dev_usb000/: [ROMPTH]/dev_usb000/
+  /dev_hdd0/: [ROMPATH]/dev_hdd0/
+  /dev_hdd1/: [ROMPATH]/dev_hdd1/
+  /dev_flash/: [ROMPATH]/dev_flash/
+  /dev_usb000/: [ROMPATH]/dev_usb000/
   /dev_bdvd/: ""
   /app_home/: ""
   Enable /host_root/: false

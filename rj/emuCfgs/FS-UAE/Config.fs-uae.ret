@@ -49,8 +49,8 @@ joystick_port_1 = [JOYSTICK]
 joystick_port_2 = [JOYSTICK #2]
 
 kickstart_file = [KICKSTARTPTH]
-save_states_dir = [ROMPTH]\.sstates
-screenshots_output_dir = [ROMPTH]\.snaps
+save_states_dir = [ROMPATH]\.sstates
+screenshots_output_dir = [ROMPATH]\.snaps
 
 hard_drive_0 = [HDD]
 
@@ -71,5 +71,5 @@ floppy_image_12 = [DSK12]
 floppy_image_13 = [DSK13]
 floppy_image_14 = [DSK14]
 floppy_image_15 = [DSK15]
-base_dir = [ROMPTH]
-floppies_dir = [ROMPTH]
+base_dir = [ROMPATH]
+floppies_dir = [ROMPATH]

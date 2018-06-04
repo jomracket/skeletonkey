@@ -1,8 +1,8 @@
 [Paths]
-SaveStatePath=[ROMPTH]\.sstates
-MemoryCardPath=[ROMPTH]\.Mem
-CDImagePath=[ROMPTH]
-ScreenShotsPath=[ROMPTH]\.Snaps
+SaveStatePath=[ROMPATH]\.sstates
+MemoryCardPath=[ROMPATH]\.Mem
+CDImagePath=[ROMPATH]
+ScreenShotsPath=[ROMPATH]\.Snaps
 [BIOS]
 PS1=bios\
 PS2=bios\
@@ -186,7 +186,7 @@ SubcodeReading=-1
 XPosition=92
 YPosition=244
 [Cards]
-Card1=[ROMPTH]\.Mem\Card1.bin
-Card2=[ROMPTH]\.Mem\Card2.bin
+Card1=[ROMPATH]\.Mem\Card1.bin
+Card2=[ROMPATH]\.Mem\Card2.bin
 [Language]
 CurrentLanguage=45006e0067006c006900730068000000

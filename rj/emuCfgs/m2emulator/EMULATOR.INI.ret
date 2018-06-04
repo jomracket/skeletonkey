@@ -7,7 +7,7 @@
 ;(remove the ; form Dir1)
 [RomDirs]
 Dir1=[SOURCE]
-Dir2=[ROMPTH]
+Dir2=[ROMPATH]
 
 [Renderer]
 SoftwareVertexProcessing=[VTX]	
