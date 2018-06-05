@@ -64,7 +64,7 @@ wrpResolution=4
 wrpVRAM=0
 
 [Recent File]
-Recent Rom 0=[ROMPATH]\[ROM]
+Recent Rom 0=[ROMPATH]\[ROMF]
 
 [DirectInput-Controller 0]
 A=46
@@ -169,7 +169,7 @@ Z=0
 [Directory]
 Instant Save=[ROMPATH]\.sstates\
 Instant Save - Use Selected=1
-Plugin=[EMUPTH]\Plugin\
+Plugin=[EMUPATH]\Plugin\
 Plugin - Use Selected=1
 Save=[ROMPATH]\.Mem\
 Save - Use Selected=1

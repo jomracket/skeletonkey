@@ -61,7 +61,7 @@ Full Screen=true
 Maximised=false
 
 [CPCDOS]
-Path=[EMUPTH]\
+Path=[EMUPATH]\
 
 
 [ROMS]

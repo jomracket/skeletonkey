@@ -1,8 +1,8 @@
 [ADAMEm]
-ADAMEmPath=[EMUPTH]\ADAMEM.EXE
-EOSImage=[EMUPTH]\EOS.ROM
-WPImage=[EMUPTH]\WP.ROM
-OS7Image=[EMUPTH]\OS7.ROM
+ADAMEmPath=[EMUPATH]\ADAMEM.EXE
+EOSImage=[EMUPATH]\EOS.ROM
+WPImage=[EMUPATH]\WP.ROM
+OS7Image=[EMUPATH]\OS7.ROM
 StartupDirectory=
 CassetteA=
 CassetteB=
@@ -50,7 +50,7 @@ TDOSVideoMode=0
 Palette=0
 AutoSnap=0
 [ADAMEmMam]
-cwd=[EMUPTH]
+cwd=[EMUPATH]
 Left=84
 Top=84
 Page=1

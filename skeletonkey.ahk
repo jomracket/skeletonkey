@@ -4,11 +4,11 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-03 9:46 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-04 5:10 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-06-03 9:46 PM
+RELEASE= 2018-06-04 5:10 PM
 VERSION= 0.99.34.38
 RASTABLE= 1.7.3
 #Include tf.ahk
@@ -3077,7 +3077,7 @@ Gui, Add, Button, x276 y465 w60 h23 vRJADDQ gRJADDQ Disabled, ADD
 Gui, Add, Button, x477 y436 w21 h23 vRJREMQSYS gRJREMQSYS, X
 Gui, Add, Text, x340 y468 h15 v vRJTXTAB, %RJQNUM% Systems
 CNFRMT= Disabled
-if (RJQNUM > 0)
+if (RJQNUM > 0)	
 {
 	CNFRMT= 
 }
@@ -21072,7 +21072,7 @@ splitpath,RUNROMCBX,EDTRMF,EDTRMP,EDTRMX,EDTRMFN
 if (ASVRM = "")
 	{
 		RVLKUP= %RJSYSDD%
-		indvcp= rj\sysCfgs\%RJSYSDD%
+		indvcp= rj\sysCfgs\%curjf%
 	}
 if (ASVRM = 1)
 	{
@@ -21152,7 +21152,6 @@ Loop, rj\emuCfgs\%EMUSN%\*.*
 		if (cfgext = "ret")
 			{
 				snmr= 
-				snmx=
 				SplitPath,cfgtc,,,,snmr
 				%SHRTNM%CFGR.= snmr . "|"
 				ifnotexist, %indvcp%\%thecfg%
@@ -21165,7 +21164,7 @@ Loop, rj\emuCfgs\%EMUSN%\*.*
 			{				
 				snmf= 
 				SplitPath,cfgtc,,,,snmf
-				%SHRTNM%CFGF.= snmf . "|"
+				%SHRTNM%CFGR.= snmf . "|"
 				ifnotexist, %indvcp%\%thecfg%
 					{
 						FileCopy,%CFGFPATH%,%indvcp%\%thecfg%
@@ -21187,6 +21186,19 @@ guicontrol,enable,RUNROMCBX
 return
 
 ;};;;;
+
+
+PEREMUINJ:
+try, gosub, inj%emuname%cfg
+	catch 
+		{
+		}
+return
+
+injMAMEcfg:
+cinjr= %curomfd%
+stringreplace,curomcpl,curomcpl,[SOURCE],%RJSYSTEMS%\%curjf%\SOURCE,All
+return
 
 ;{;;;;;  EMU GUI CREATION  ;;;;;
 
@@ -31927,6 +31939,11 @@ QItems:= LVGetCheckedItems("", "ahk_id" . RJLV)
 guicontrolget,CDELNCH,,RJCHKL
 guicontrolget,CDELCFG,,RJCHKM
 guicontrolget,CDELJOY,,RJCHKP
+if (CDELNCH + CDELCFG + CDELJOY = 0)
+	{
+		SB_SetText("You must select components to delete")
+		return
+	}
 Msgbox,3,Delete Confirmation,Are you sure you wish to delete these components from the selected Folders?
 	ifMsgBox,Yes
 		{
@@ -32903,7 +32920,7 @@ Loop, rj\*.jak
 		curjf:= divrm1
 		RVLKUP= %curtjf%
 		gosub, SHRTNMLkUp
-		%SHRTNM%CFGF= 
+		%SHRTNM%CFGR= 
 ;{;;;;  template launcher creation ;;;;;;
 		IniRead,RJABSOLROM,rj\%curjf%.ini,%curjf%,RJABSOLROM
 		IniRead,emuname,rj\%curjf%.ini,%curjf%,RJEMUPRESET
@@ -32971,7 +32988,11 @@ Loop, rj\*.jak
 		StringReplace, toapa,toapa,[EMUL],%emulocd%,All
 		StringReplace, toapa,toapa,[EMUZ],%emuxe%,All
 		StringReplace, toapa,toapa,[AMC],%AMCK%,All
-		StringReplace, toapa,toapa,[XPD],%XPDK%,All
+		StringReplace, toapa,toapa,[XPD],%XPDK%,All		
+		If (RJKEYMON = 0)
+			{
+				stringReplace, toapa,toapa,[JOYENB],REM%A_Space%,All
+			}
 		if (RJKEYMAPPER = "Antimicro")
 				{
 					StringReplace, toapa,toapa,[XPALT],1,All			
@@ -33246,7 +33267,7 @@ Loop, rj\*.jak
 							}
 						if (ninto2 <> "")
 							{
-								inclfl.= ninto2 . "`n"
+								inclfl.= ninto2 . ">" . ninto1 . "`n"
 								;;FileAppend, %ninto2%`n,rj\%curjf%_inclfl.tdb
 							}
 						if (ninto2 = "")
@@ -33254,10 +33275,10 @@ Loop, rj\*.jak
 								mvrom= %ibjn1%
 								nwjak= %mvrom%
 								FileCreateDir, %RJSYSTEMS%\%curjf%\%nwjak%
-								inclfl.= nwjak . "`n"
+								inclfl.= nwjak . ">" . ninto1 . "`n"
 								;;FileAppend, %nwjak%`n,rj\%curjf%_inclfl.tdb
 							}
-						
+						/*
 						Loop, Parse, subdls,|
 							{		
 								subda1= 
@@ -33269,7 +33290,7 @@ Loop, rj\*.jak
 										FileSetAttrib,+H,%RJSYSTEMS%\%curjf%\%nwjak%\%subda1%,2
 									}
 							}
-						
+						*/
 								nwjakxtr= 
 								SplitPath,ibjn2,nwjakf,nwjakd,nwjakx,nwjakn
 								if (nwjakx = "zip")
@@ -33327,140 +33348,8 @@ Loop, rj\*.jak
 																
 					}
 			}
-				gosub, EMUCFGCOPY
-				;;Loop, Read, rj\%curjf%_inclfl.tdb
-				Loop, Parse, inclfl,`n`r
-					{
-						if (A_LoopField = "")
-							{
-								continue
-							}
-						curomfd= %A_LoopField%
-						if (RJLNCHCFG <> 0)
-							{
-								if (RJABSOLROM = 1)
-									{	
-										if (RJROMXT = "*.*")
-											{
-												continue
-											}
-										FileRead, newlnch, rj\sysCfgs\%curjf%\lnch.cmd
-										FileMove, rj\sysCfgs\%curjf%\lnch.cmd,rj\sysCfgs\%curjf%\lnch.orig,1
-										extpvr= %RJROMSPL%
-										stringreplace,extpvr,extpvr,.,,All
-										stringsplit,extpvx,extpvr,`,
-										ar := Object()
-										Loop, %extpvx0%
-											{
-												new= % (extpvx%a_index%)
-												if (extpvx%a_index% <> "")
-													{
-														ar.insert(new)
-													}
-											}
-										Loop, %RJSYSTEMS%\%curjf%\%curomfd%\*.*
-											{
-												injromn= "*.*"
-												ext= %A_LoopFileExt%
-												for k, v in ar
-													{
-														extm:= v
-														if (ext = extm)
-															{
-																injromn= %A_LoopFileFullPath%
-																stringreplace,newlnch,newlnch,[ABSOLROM],"%injromn%",All
-																splitpath,injromn,xinjromf,xinjromd,xinjromx,xinjromn,xinjromd
-																StringReplace, newlnch,newlnch,[ROM],%xinjrom%,All
-																StringReplace, newlnch,newlnch,[ROMF],%xinjromf%,All
-																StringReplace, newlnch,newlnch,[ROMX],%xinjromx%,All
-																StringReplace, newlnch,newlnch,[ROMFN],%xinjromn%,All
-																break
-															}
-													}
-											}
-										FileAppend, %newlnch%,rj\sysCfgs\%curjf%\lnch.cmd
-									}
-								FileCopy, rj\sysCfgs\%curjf%\lnch.cmd,%RJSYSTEMS%\%curjf%\%curomfd%\%curomfd%.bat,%RJLNCHCFGOW%
-								FileMove, rj\sysCfgs\%curjf%\lnch.orig,rj\sysCfgs\%curjf%\lnch.cmd,1
-							}
-						if (RJEMUCFG <> 0)
-							{
-								jsinvf= % %SHRTNM%CFGF
-								jsinvr= % %SHRTNM%CFGR
-								jsinvk= % %SHRTNM%NFP
-								jsicpl:= jsinvf . jsinvr
-								Loop, Parse, jsinvf,|
-									{
-										fileCopy, rj\sysCfgs\%curjf%\%A_LoopField%,%RJSYSTEMS%\%curjf%\%curomfd%
-									}		
-								Loop, Parse, jsinvr,|
-									{
-										FileRead, romrpl,rj\sysCfgs\%curjf%\%A_LoopField%
-										stringreplace, romrpl,romrpl,[ROMPATH],%RJSYSTEMS%\%curjf%\%curomfd%,All
-										cinjr= %curomfd%
-										Loop, Parse, CURTDB,`n`r
-											{
-												stringsplit,injrom,A_LoopField,|,:
-												if (injrom1 = curomfd)
-													{
-														splitpath,injrom2,,,,cinjr
-														break
-													}
-											}
-										stringreplace, romrpl,romrpl,[ROM],%cinjr%,All
-										FileAppend,%romrpl%,%RJSYSTEMS%\%curjf%\%A_LoopField%
-									}
-
-							}
-						If (RJKEYMON = 1)
-						
-							{
-								if (RJMP1LC = 1)
-									{
-										curjoyf= %curjf%
-										if (RJMAP1ROFTYP = 0)
-											{
-												joysubt= Joystick
-											}
-										if (RJMAP1ROFTYP = 1)
-											{
-												joysubt= Keyboard
-											}
-										if (RJMAP1ROFTYP = 2)
-											{
-												joysubt= Blank
-												curjoyf= All
-											}
-										FileCopy, rj\joyCfgs\%RJKEYMAPPER%\%joysubt%\%curjoyf%\Player1.*,%RJSYSTEMS%\%curjf%\%curomfd%,%RJKEYOW%
-									}
-								if (RJMP1LC = "")
-									{
-										FileCopy, %RJMAP1P%,%RJSYSTEMS%\%curjf%\%curomfd%,%RJKEYOW%	
-									}
-								if (RJMP2LC = 1)
-									{
-										curjoyf= %curjf%
-										if (RJMAP2ROFTYP = 0)
-											{
-												joysubt= Joystick
-											}
-										if (RJMAP2ROFTYP = 1)
-											{
-												joysubt= Keyboard
-											}
-										if (RJMAP2ROFTYP = 2)
-											{
-												joysubt= Blank
-												curjoyf= All
-											}
-										FileCopy, rj\joyCfgs\%RJKEYMAPPER%\%joysubt%\%curjoyf%\Player2.*,%RJSYSTEMS%\%curjf%\%curomfd%,%RJKEYOW%
-									}
-								if (RJMP2LC = "")
-									{
-										FileCopy, %RJMAP2P%,%RJSYSTEMS%\%curjf%\%curomfd%,%RJKEYOW%	
-									}
-							}		
-					}
+			
+		
 		if (NICEFLDR = 1)
 			{
 				SETGAM= MAME_C.gam
@@ -33491,7 +33380,7 @@ Loop, rj\*.jak
 							{
 								mvrom= %ninto2%
 								nwjak= %mvrom%
-								inclfl.= nwjak . "`n"
+								inclfl.= nwjak . ">" ninto1 . "`n"
 								continue
 								;;FileAppend, %nwjak%`n,rj\%curjf%_inclfl.tdb
 							}
@@ -33514,20 +33403,8 @@ Loop, rj\*.jak
 							}	
 						gosub, nicemove
 						FileCreateDir, %RJSYSTEMS%\%curjf%\%nwjak%
-						inclfl.= nwjak . "`n"
-						;;FileAppend, %nwjak%`n,rj\%curjf%_inclfl.tdb
-						Loop, Parse, subdls,|
-							{		
-								subda1= 
-								subda2= 
-								StringSplit,subda,A_LoopField,:
-								FileCreateDir, %RJSYSTEMS%\%curjf%\%nwjak%\%subda1%
-								if (subda2 = 1)
-									{
-										FileSetAttrib,+H,%RJSYSTEMS%\%curjf%\%nwjak%\%subda1%,2
-									}
-							}
-						
+						inclfl.= nwjak . ">" ninto1 . "`n"
+						;;FileAppend, %nwjak%`n,rj\%curjf%_inclfl.tdb						
 						nwjrs= %mvrom%
 						if (RJCONSOLID = "Individuate")
 							{
@@ -33577,12 +33454,32 @@ Loop, rj\*.jak
 							{
 								continue
 							}
-						nwinclfl= %A_LoopField%
+						stringsplit,inclfspl,A_LoopField,>						
+						if (inclfspl1 = "")
+							{
+								continue
+							}
+						nwinclfl= %inclfspl1%
 						if (RJLNCHCFG <> 0)
 							{
 								FileCopy, rj\sysCfgs\%curjf%\lnch.cmd,%RJSYSTEMS%\%curjf%\%nwinclfl%\%nwinclfl%.bat,%RJLNCHCFGOW%
 							}
-						
+						Loop, Parse, subdls,|
+							{
+								if (A_LoopField = "")
+									{
+										continue
+									}
+								subda1= 
+								subda2= 
+								StringSplit,subda,A_LoopField,:
+								FileCreateDir, %RJSYSTEMS%\%curjf%\%nwinclfl%\%subda1%
+								if (subda2 = 1)
+									{
+										FileSetAttrib,+H,%RJSYSTEMS%\%curjf%\%nwinclfl%\%subda1%,2
+									}
+							}
+						/*
 						if (RJEMUCFG <> 0)
 							{
 								jsinvf= % %SHRTNM%CFGF
@@ -33608,6 +33505,7 @@ Loop, rj\*.jak
 										FileAppend,%romrpl%,%RJSYSTEMS%\%curjf%\%nwinclfl%
 									}
 							}
+						*/	
 						If (RJKEYMON = 1)
 							{
 								if (RJMP1LC = 1)
@@ -33657,6 +33555,199 @@ Loop, rj\*.jak
 							}
 					}			
 			}
+		gosub, EMUCFGCOPY
+		;;Loop, Read, rj\%curjf%_inclfl.tdb
+		Loop, Parse, inclfl,`n`r
+			{
+				stringsplit,inclfspl,A_LoopField,>	
+				if (inclfspl1 = "")
+					{
+						continue
+					}
+				curomfd= %inclfspl1%
+				Loop, Parse, subdls,|
+					{
+						if (A_LoopField = "")
+							{
+								continue
+							}		
+						subda1= 
+						subda2= 
+						StringSplit,subda,A_LoopField,:
+						FileCreateDir, %RJSYSTEMS%\%curjf%\%curomfd%\%subda1%
+						if (subda2 = 1)
+							{
+								FileSetAttrib,+H,%RJSYSTEMS%\%curjf%\%curomfd%\%subda1%,2
+							}
+					}
+				if (RJLNCHCFG <> 0)
+					{
+						if (RJABSOLROM = 1)
+							{	
+								if (RJROMXT = "*.*")
+									{
+										continue
+									}
+								FileRead, newlnch, rj\sysCfgs\%curjf%\lnch.cmd
+								FileMove, rj\sysCfgs\%curjf%\lnch.cmd,rj\sysCfgs\%curjf%\lnch.orig,1
+								extpvr= %RJROMSPL%
+								stringreplace,extpvr,extpvr,.,,All
+								stringsplit,extpvx,extpvr,`,
+								ar := Object()
+								Loop, %extpvx0%
+									{
+										new= % (extpvx%a_index%)
+										if (extpvx%a_index% <> "")
+											{
+												ar.insert(new)
+											}
+									}
+								Loop, %RJSYSTEMS%\%curjf%\%curomfd%\*.*
+									{
+										injromn= "*.*"
+										ext= %A_LoopFileExt%
+										for k, v in ar
+											{
+												extm:= v
+												if (ext = extm)
+													{
+														injromn= %A_LoopFileFullPath%
+														stringreplace,newlnch,newlnch,[ABSOLROM],"%injromn%",All
+														splitpath,injromn,xinjromf,xinjromd,xinjromx,xinjromn,xinjromd
+														StringReplace, newlnch,newlnch,[ROM],%xinjrom%,All
+														StringReplace, newlnch,newlnch,[ROMF],%xinjromf%,All
+														StringReplace, newlnch,newlnch,[ROMX],%xinjromx%,All
+														StringReplace, newlnch,newlnch,[ROMFN],%xinjromn%,All
+														break
+													}
+											}
+									}
+								FileAppend, %newlnch%,rj\sysCfgs\%curjf%\lnch.cmd
+							}
+						FileCopy, rj\sysCfgs\%curjf%\lnch.cmd,%RJSYSTEMS%\%curjf%\%curomfd%\%curomfd%.bat,%RJLNCHCFGOW%
+						FileMove, rj\sysCfgs\%curjf%\lnch.orig,rj\sysCfgs\%curjf%\lnch.cmd,1
+					}
+				if (RJEMUCFG <> 0)
+					{
+					/*   ;;;;;wut;;;;
+						jsinvf= % %SHRTNM%CFGF
+						jsinvr= % %SHRTNM%CFGR
+						jsinvk= % %SHRTNM%NFP
+						jsicpl:= jsinvf . jsinvr
+						Loop, Parse, jsinvf,|
+							{
+								if (A_LoopField = "")
+									{
+										continue
+									}
+								fileCopy, rj\sysCfgs\%curjf%\%A_LoopField%,%RJSYSTEMS%\%curjf%\%curomfd%
+							}		
+						Loop, Parse, jsinvr,|
+							{
+								if (A_LoopField = "")
+									{
+										continue
+									}
+								msgbox,,,jsinvf=%jsinvf%`njsinvr=%jsinvr%`njsinvk=%jsinvk%`ncurjf=%curjf%`ncuromfd=%curomfd%
+								FileRead, romrpl,rj\sysCfgs\%curjf%\%A_LoopField%
+								stringreplace, romrpl,romrpl,[ROMPATH],%RJSYSTEMS%\%curjf%\%curomfd%,All
+								cinjr= %curomfd%
+								Loop, Parse, CURTDB,`n`r
+									{
+										stringsplit,injrom,A_LoopField,|,:
+										if (injrom1 = curomfd)
+											{
+												splitpath,injrom2,,,,cinjr
+												break
+											}
+									}
+								stringreplace, romrpl,romrpl,[ROM],%cinjr%,All
+								FileAppend,%romrpl%,%RJSYSTEMS%\%curjf%\%A_LoopField%
+							}
+
+					}
+					*/
+						jsinvr= % %SHRTNM%CFGR
+						;;cinjr= %curomfd%
+						cinjr= %inclfsp2%
+						Loop, Parse, jsinvr,|
+							{
+								if (A_LoopField = "")
+									{
+										continue
+									}
+								;;msgbox,,,loop=%A_LoopField%`njsinvr=%jsinvr%`njsinvk=%jsinvk%`ncurjf=%curjf%`ncuromfd=%curomfd%
+								FileRead,romrpl%A_Index%,rj\sysCfgs\%curjf%\%A_LoopField%
+								ini_%A_Index%= %A_LoopField%
+							}
+							Loop
+								{
+									curininx= % ini_%A_Index% 
+									curomcpl= % romrpl%A_Index%
+									if (curomcpl = "")
+										{
+											break
+										}
+									stringreplace,curomcpl,curomcpl,[EMUPATH],%emulocd%,All
+									stringreplace,curomcpl,curomcpl,[ROMPATH],%RJSYSTEMS%\%curjf%\%curomfd%,All
+									stringreplace,curomcpl,curomcpl,[ROMF],%cinjr%,All
+									;;msgbox,,,pcfg=%PEREMUCFG%`nemu=%emuname%`nfile=%curininx%
+									if (PEREMUCFG = 1)
+										{
+											gosub, PEREMUINJ
+										}
+									FileAppend,%curomcpl%,%RJSYSTEMS%\%curjf%\%curomfd%\%curininx%
+								}
+
+					}
+				If (RJKEYMON = 1)
+					{
+						if (RJMP1LC = 1)
+							{
+								curjoyf= %curjf%
+								if (RJMAP1ROFTYP = 0)
+									{
+										joysubt= Joystick
+									}
+								if (RJMAP1ROFTYP = 1)
+									{
+										joysubt= Keyboard
+									}
+								if (RJMAP1ROFTYP = 2)
+									{
+										joysubt= Blank
+										curjoyf= All
+									}
+								FileCopy, rj\joyCfgs\%RJKEYMAPPER%\%joysubt%\%curjoyf%\Player1.*,%RJSYSTEMS%\%curjf%\%curomfd%,%RJKEYOW%
+							}
+						if (RJMP1LC = "")
+							{
+								FileCopy, %RJMAP1P%,%RJSYSTEMS%\%curjf%\%curomfd%,%RJKEYOW%	
+							}
+						if (RJMP2LC = 1)
+							{
+								curjoyf= %curjf%
+								if (RJMAP2ROFTYP = 0)
+									{
+										joysubt= Joystick
+									}
+								if (RJMAP2ROFTYP = 1)
+									{
+										joysubt= Keyboard
+									}
+								if (RJMAP2ROFTYP = 2)
+									{
+										joysubt= Blank
+										curjoyf= All
+									}
+								FileCopy, rj\joyCfgs\%RJKEYMAPPER%\%joysubt%\%curjoyf%\Player2.*,%RJSYSTEMS%\%curjf%\%curomfd%,%RJKEYOW%
+							}
+						if (RJMP2LC = "")
+							{
+								FileCopy, %RJMAP2P%,%RJSYSTEMS%\%curjf%\%curomfd%,%RJKEYOW%	
+							}
+					}		
+			}	
 	}
 guicontrol,,RJTXTAB, %RJQNUM% Systems
 guicontrol,,RJPROCQ, CONFIRM %RJQNUM%	
@@ -34310,6 +34401,10 @@ subdna=
 IniRead,cursubd,rj\cur.ini,%RJSYSDD%,RJSUBDS
 Loop, parse, SUBDLST,|
 		{
+		if (A_LoopField = "")
+			{
+				continue
+			}
 		subda1= 
 		subda2= 
 		stringsplit,subda,A_LoopField,:
@@ -36025,7 +36120,7 @@ return
 RJSYSRADB:
 gui,submit,nohide
 Iniread,syspref,emuCfgPresets.set,%RJSYSDD%
-if syspref <> "ERROR")
+if (syspref <> "ERROR")
 	{
 		loop, parse, syspref,`n
 			{
@@ -36676,6 +36771,15 @@ return
 RJKEYOW:
 gui,submit,nohide
 guicontrol,,RJOVKM,%rjaval2%
+return
+
+PEREMUCFG:
+gui,submit,nohide
+if (rjaval2 <> "")
+	{
+		PEREMUCFG= %rjaval2%
+	}
+IniWrite, %rjaval2%,rj\cur.ini,%RJSYSDD%,PEREMUCFG
 return
 
 RJMASTERPROF:

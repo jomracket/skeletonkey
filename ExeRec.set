@@ -1673,7 +1673,6 @@ FileInstall,rj\emucfgs\m2emulator\P1kbP2kb.input.set,rj\emucfgs\m2emulator\P1kbP
 FileInstall,rj\emucfgs\m5\m5.ini.set,rj\emucfgs\m5\m5.ini.set,1
 FileInstall,rj\emucfgs\m88x\M88x.ini.set,rj\emucfgs\m88x\M88x.ini.set,1
 FileInstall,rj\emucfgs\MAME\default.cfg.set,rj\emucfgs\MAME\default.cfg.set,1
-FileInstall,rj\emucfgs\MAME\input.cfg.set,rj\emucfgs\MAME\input.cfg.set,1
 FileInstall,rj\emucfgs\MAME\mame.ini.ret,rj\emucfgs\MAME\mame.ini.ret,1
 FileInstall,rj\emucfgs\map1010\map1010.ini.set,rj\emucfgs\map1010\map1010.ini.set,1
 FileInstall,rj\emucfgs\mastersystem\mastersystem.ini.set,rj\emucfgs\mastersystem\mastersystem.ini.set,1

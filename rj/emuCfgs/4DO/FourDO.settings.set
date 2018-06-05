@@ -20,13 +20,13 @@
   <AutoOpenGameFile>True</AutoOpenGameFile>
   <SaveStateSlot>0</SaveStateSlot>
   <WindowFullScreenDevice>0</WindowFullScreenDevice>
-  <BiosRomFile>[EMUPTH]\[BIOS3DO]</BiosRomFile>
+  <BiosRomFile>[EMUPATH]\[BIOS3DO]</BiosRomFile>
   <AutoLoadLastSave>True</AutoLoadLastSave>
   <WindowAutoCrop>False</WindowAutoCrop>
   <RenderHighResolution>False</RenderHighResolution>
   <VoidAreaBorder>False</VoidAreaBorder>
   <SelectedOptionTab>1</SelectedOptionTab>
-  <GameRomFile>[ROMPATH]\[ROM]
+  <GameRomFile>[ROMPATH]\[ROMF]
   </GameRomFile>
   <VoidAreaPattern>0</VoidAreaPattern>
   <Language>

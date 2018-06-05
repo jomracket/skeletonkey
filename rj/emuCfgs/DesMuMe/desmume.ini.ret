@@ -1,6 +1,6 @@
 [General]
 Language=0
-Recent Rom 0=[ROM]
+Recent Rom 0=[ROMPATH]\[ROMF]
 Recent Rom 1=
 Recent Rom 2=
 Recent Rom 3=
@@ -48,7 +48,7 @@ AviFiles=[ROMPATH]\.snaps
 Cheats=[ROMPATH]\.cheats
 R4format=1043
 SoundSamples=[ROMPATH]\.snaps
-Firmware=[EMUPTH]
+Firmware=[EMUPATH]
 Lua=.\Lua
 format=%f_%s_%r
 lastVisit=1

@@ -48,8 +48,8 @@ Enhancements.AspectRatioMode=[ASPCT]
 [ImageReader]
 PatchRegion=0
 LoadDefaultImage=1
-DefaultImage=[ROMPATH]\[ROM]
-LastImage=[ROMPATH]\[ROM]
+DefaultImage=[ROMPATH]\[ROMF]
+LastImage=[ROMPATH]\[ROMF]
 
 [nullAica]
 BufferSize=2048

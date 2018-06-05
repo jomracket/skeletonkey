@@ -23,9 +23,8 @@ if "%JYTP%"=="." set JYTP=[XPALT]
 if "%JYTP%"=="" set JYTP=[XPALT]
 if "%FETYPE%"=="" set FETYPE=[Mediacenter]
 if "%FETYPE%"=="." set FETYPE=[Mediacenter]
-SET JYX=REM 
-if "%JYZ%"=="" set JYX=
-if "%JYZ%"=="." set JYX=
+SET JYX=[JOYENB]
+if "%JYZ%" NEQ "" set JYX=%JYX% && if "%JYTYP%" NEQ "." set JYX=
 SET DMX=REM 
 if "%DMT%"=="1" set DMX=
 SET XFG=REM 

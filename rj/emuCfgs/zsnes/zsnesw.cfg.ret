@@ -370,15 +370,15 @@ SRAMPath="[ROMPATH]\.sstates\"
 SnapPath="[ROMPATH]\.snaps\"
 SPCPath="[ROMPATH]\.Mem\"
 ; BIOS/base carts (BS-X, Sufami Turbo, Same Game & SD Gundam G-Next)
-BSXPath="[EMUPTH]\"
-STPath="[EMUPTH]\"
-SGPath="[EMUPTH]\"
-GNextPath="[EMUPTH]\"
+BSXPath="[EMUPATH]\"
+STPath="[EMUPATH]\"
+SGPath="[EMUPATH]\"
+GNextPath="[EMUPATH]\"
 ; SPC7110 graphic paks
-FEOEZPath="[EMUPTH]\"
-SJNSPath="[EMUPTH]\"
-MDHPath="[EMUPTH]\"
-SPL4Path="[EMUPTH]\"
+FEOEZPath="[EMUPATH]\"
+SJNSPath="[EMUPATH]\"
+MDHPath="[EMUPATH]\"
+SPL4Path="[EMUPATH]\"
 
 ;  ----
 ; -- GUI --

@@ -258,7 +258,7 @@
         </keys>
     </input>
     <language>
-        <file>[EMUPTH]\language\english.nlg</file>
+        <file>[EMUPATH]\language\english.nlg</file>
     </language>
     <launcher>
         <search>
@@ -328,7 +328,7 @@
             <save-method>patch</save-method>
         </fds>
         <images>
-            <directory>[EMUPTH]</directory>
+            <directory>[EMUPATH]</directory>
             <use-recent-directory>yes</use-recent-directory>
         </images>
         <patches>
@@ -343,7 +343,7 @@
                 <locked>no</locked>
             </directories>
             <files>
-                <file>[ROMPATH]\[ROM]</file>
+                <file>[ROMPATH]\[ROMF]</file>
                 <locked>no</locked>
             </files>
         </recent>

@@ -177,12 +177,12 @@
 "7363726e" = "[ROMPATH]\.snaps\"
 
 [MRU List]
-"A" = "[ROMPATH]\[ROM]"
+"A" = "[ROMPATH]\[ROMF]"
 "Order" = "ABC"
 "B" = "[ROMPATH]\[ROMB]"
 "C" = "[ROMPATH]\[ROMC]"
 [Mounted Images]
-"Disk 0" = "[ROMPATH]\[ROM]"
+"Disk 0" = "[ROMPATH]\[ROMF]"
 "Disk 1" = "[ROMPATH]\[ROMB]"
 "Disk 2" = "[ROMPATH]\[ROMC]"
 

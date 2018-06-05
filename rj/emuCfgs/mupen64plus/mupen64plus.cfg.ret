@@ -300,7 +300,7 @@ Y Axis = ""
 # Mupen64Plus UI-Console config parameter set version number.  Please don't change this version number.
 Version = 1
 # Directory in which to search for plugins
-PluginDir = "[EMUPTH]"
+PluginDir = "[EMUPATH]"
 # Filename of video plugin
 VideoPlugin = "[GFX]"
 # Filename of audio plugin

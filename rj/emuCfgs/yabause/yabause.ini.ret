@@ -1,6 +1,6 @@
 [0.9.11]
 Input\Port\1\Id\1\Type=2
-General\Bios=[EMUPTH]/SS - BIOS V1.01.bin
+General\Bios=[EMUPATH]/SS - BIOS V1.01.bin
 General\EnableEmulatedBios=false
 General\CdRom=2
 General\CdRomISO=F:/
@@ -114,7 +114,7 @@ Shortcuts\%26Emulation=
 Shortcuts\toolBar=
 Shortcuts\Log=
 Sound\Volume=100
-Recents\ISOs=[ROMPATH]/[ROM]
+Recents\ISOs=[ROMPATH]/[ROMF]
 General\Geometry=@ByteArray(\x1\xd9\xd0\xcb\0\x2\0\0\0\0\x1\x34\0\0\0\x91\0\0\x3\xc3\0\0\x2\xc6\0\0\x1<\0\0\0\xb0\0\0\x3\xbb\0\0\x2\xbe\0\0\0\0\0\0\0\0\a\x80)
 General\Translation=
 Video\OSDCore=2

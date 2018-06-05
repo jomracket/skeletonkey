@@ -72,7 +72,7 @@ parameters=
 
 [Paths]
 catalog=
-cen64=[EMUPTH]/cen64-qt.exe
+cen64=[EMUPATH]/cen64-qt.exe
 ddiplrom=
 pifrom=
 roms=[ROMPATH]

@@ -62,6 +62,8 @@ RJPOSTCFG=
 [*************************************************************************]
 [MAME]
 RJEMUARGS=<-rp "[EMUPATH]\roms"|<-rp "[ROMPATH]"
+RJPRECFG=copy /Y "mame.ini" "%EMUL%\mame.ini"|copy /y "default.cfg" "%EMUL%\ctrlr"
+RJPOSTCFG=copy /Y "%EMUL%\mame.ini" "%GAMDIR%"|copy /y "%EMUL%\ctrlr\default.cfg" "%GAMDIR%"
 RJQUOTES=1
 RJPATH=1
 RJRUNDIR=1
@@ -69,9 +71,12 @@ RJEXT=1
 RJROMINJ=%ROMF%
 RJSUBDS=.cheats:1|.patches:1|.snaps:1|.sstates:1|.Man:1|.Mem:1|.cfg:1|.ctrl:1|.hi:1|.ini:1|.inp:1|
 RJEXTRARC=0
+PEREMUCFG=1
 
 [MAME - Arcade]
 RJEMUARGS=<-rp "[ROMPATH]"|<-rp "[EMUPATH]\roms"|<
+RJPRECFG=copy /Y "mame.ini" "%EMUL%\mame.ini"|copy /y "default.cfg" "%EMUL%\ctrlr"
+RJPOSTCFG=copy /Y "%EMUL%\mame.ini" "%GAMDIR%"|copy /y "%EMUL%\ctrlr\default.cfg" "%GAMDIR%"
 RJQUOTES=0
 NICEFLD=1
 RJPATH=0
@@ -82,10 +87,13 @@ RJARCLOC=0
 RJROMINJ=%ROM%
 RJCONSOLID=Individuate
 RJSUBDS=.cheats:1|.patches:1|.snaps:1|.sstates:1|.Man:1|.Mem:1|.cfg:1|.ctrl:1|.hi:1|.ini:1|.inp:1|
+PEREMUCFG=1
 
 
 [MAME - System]
 RJEMUARGS=<-rp "[ROMPATH]"|<-rp "[EMUPATH]\roms"|<
+RJPRECFG=copy /Y "mame.ini" "%EMUL%\mame.ini"|copy /y "default.cfg" "%EMUL%\ctrlr"
+RJPOSTCFG=copy /Y "%EMUL%\mame.ini" "%GAMDIR%"|copy /y "%EMUL%\ctrlr\default.cfg" "%GAMDIR%"
 RJQUOTES=1
 RJPATH=1
 RJRUNDIR=0
@@ -93,6 +101,7 @@ RJEXT=1
 RJROMINJ=%ROMF%
 RJSUBDS=.cheats:1|.patches:1|.snaps:1|.sstates:1|.Man:1|.Mem:1|.cfg:1|.ctrl:1|.hi:1|.ini:1|.inp:1|
 RJEXTRARC=0
+PEREMUCFG=1
 
 [WinApe]
 RJPRECFG=copy /Y "WinAPE.ini" "%EMUL%"
@@ -327,10 +336,12 @@ RJEMUOPTS=<-fs 1<|<
 RJPRECFG=copy /y "mednafen*.cfg" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\mednafen*.cfg" "%GAMDIR%"
 RJRUNDIR=1
+PEREMUCFG=1
 
 [Fusion]
 RJRUNDIR=1
 RJEMUOPTS=<-FullScreen<|<
+PEREMUCFG=1
 
 [Nostalgia]
 RJPRECFG=copy /y "input.cfg" "%EMUL%"|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "Capture Folder" /t REG_SZ /d "%GAMDIR%\.snaps"|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "Hide on Run" /t REG_DWORD /d 1|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "Images Folder" /t REG_SZ /d "%GAMDIR%"|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "Manuals Folder" /t REG_SZ /d "%GAMDIR%"|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "SaveGame Folder" /t REG_SZ /d "%GAMDIR%\.sstates"
@@ -563,6 +574,7 @@ RJROMXT=.zip
 SETLST=
 NICEFLDR=1
 RJEXTRARC=0
+PEREMUCFG=1
 
 [Casio - Loopy]
 RJEMUPRESET=MAME - System

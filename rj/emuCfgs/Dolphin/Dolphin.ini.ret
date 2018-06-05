@@ -1,5 +1,5 @@
 [General]
-LastFilename = [ROMPATH]\[ROM]
+LastFilename = [ROMPATH]\[ROMF]
 GCMPathes = 1
 GCMPath0 = [ROMPATH]
 RecursiveGCMPaths = False
@@ -151,7 +151,7 @@ DSPThread = [AUDIOCORE]
 DSPHLE = [HLEAUDIO]
 SkipIdle = True
 LockThreads = False
-DefaultGCM = [ROM]
+DefaultGCM = [ROMPATH]\[ROMF]
 DVDRoot = 
 Apploader = 
 EnableCheats = [CHEATS]

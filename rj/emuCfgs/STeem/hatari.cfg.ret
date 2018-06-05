@@ -1,6 +1,6 @@
 [Log]
-sLogFileName = [EMUPTH]\stderr
-sTraceFileName = [EMUPTH]\stderr
+sLogFileName = [EMUPATH]\stderr
+sTraceFileName = [EMUPATH]\stderr
 nTextLogLevel = 4
 nAlertDlgLogLevel = 1
 bConfirmQuit = TRUE
@@ -180,23 +180,23 @@ szIdeMasterHardDiskImage = [ROMPATH]
 szIdeSlaveHardDiskImage = [ROMPATH]
 
 [ROM]
-szTosImageFileName = [EMUPTH]\tos.img
+szTosImageFileName = [EMUPATH]\tos.img
 bPatchTos = TRUE
 szCartridgeImageFileName = [ROMPATH]\[ASTROM]
 
 [RS232]
 bEnableRS232 = FALSE
-szOutFileName = [EMUPTH]\/dev/modem
-szInFileName = [EMUPTH]\/dev/modem
+szOutFileName = [EMUPATH]\/dev/modem
+szInFileName = [EMUPATH]\/dev/modem
 
 [Printer]
 bEnablePrinting = FALSE
-szPrintToFileName = [EMUPTH]\hatari.prn
+szPrintToFileName = [EMUPATH]\hatari.prn
 
 [Midi]
 bEnableMidi = FALSE
-sMidiInFileName = [EMUPTH]\/dev/snd/midiC1D0
-sMidiOutFileName = [EMUPTH]\/dev/snd/midiC1D0
+sMidiInFileName = [EMUPATH]\/dev/snd/midiC1D0
+sMidiOutFileName = [EMUPATH]\/dev/snd/midiC1D0
 
 [System]
 nCpuLevel = 0

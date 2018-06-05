@@ -52,7 +52,7 @@ capture_new_pictures = 0
 
 [Directories]
 ScreenShots = [ROMPATH]\.snaps\
-emudx = [EMUPTH]\
+emudx = [EMUPATH]\
 artwork = [ROMPATH]\
 rom_dir_0 = [ROMPATH]\
 

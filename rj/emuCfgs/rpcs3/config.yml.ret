@@ -17,7 +17,7 @@ Core:
   Load libraries:
     []
 VFS:
-  $(EmulatorDir): "[EMUPTH]"
+  $(EmulatorDir): "[EMUPATH]"
   /dev_hdd0/: [ROMPATH]/dev_hdd0/
   /dev_hdd1/: [ROMPATH]/dev_hdd1/
   /dev_flash/: [ROMPATH]/dev_flash/

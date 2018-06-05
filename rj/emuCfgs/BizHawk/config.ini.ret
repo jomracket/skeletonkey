@@ -1106,10 +1106,10 @@
   "TargetScanlineFilterIntensity": 128,
   "TargetDisplayFilter": 3,
   "DispFinalFilter": 0,
-  "DispUserFilterPath": "[EMUPTH]\\BizScanlines.cgp",
+  "DispUserFilterPath": "[EMUPATH]\\BizScanlines.cgp",
   "RecentRoms": {
     "recentlist": [
-      "*OpenRom*[ROMPATH]\\[ROM]"
+      "*OpenRom*[ROMPATH]\\[ROMF]"
     ],
     "MAX_RECENT_FILES": 10,
     "AutoLoad": false,

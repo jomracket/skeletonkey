@@ -74,7 +74,7 @@ port3 = -1
 port4 = -1
 
 [plugins]
-directory = [EMUPTH]\plugins\
+directory = [EMUPATH]\plugins\
 gdr = gdrCHD.dll
 gpu = [GPUPLUG]
 spu = spuDemul.dll
@@ -84,6 +84,6 @@ net = netDemul.dll
 
 [files]
 nvram = [ROMPATH]\.Mem\
-roms0 = [EMUPTH]\roms\
+roms0 = [EMUPATH]\roms\
 roms1 = [ROMPATH]\
 romsPathsCount = 2

@@ -24,7 +24,7 @@
         <Filter type="int" val="0" />
     </Video>
     <roms>
-        <bios type="string" val="[EMUPTH]\[3DOBIOS]" />
+        <bios type="string" val="[EMUPATH]\[3DOBIOS]" />
     </roms>
     <cdrom>
         <iso type="string" val="" />
