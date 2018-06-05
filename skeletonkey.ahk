@@ -4,11 +4,11 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-04 5:10 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-04 7:53 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-06-04 5:10 PM
+RELEASE= 2018-06-04 7:53 PM
 VERSION= 0.99.34.38
 RASTABLE= 1.7.3
 #Include tf.ahk
@@ -32865,6 +32865,10 @@ Loop, rj\*_q.tdb
 							{
 								indiv1= %consolid%
 							}
+						if (indiv1 = "")
+							{
+								indiv1= %consolid%
+							}
 						romcnt= 
 						Loop, Read, %curq%
 							{
@@ -33257,18 +33261,22 @@ Loop, rj\*.jak
 						ninto2= 
 						ibjn1= 
 						ibjn2= 
-						stringsplit,ibjn,A_LoopField,|
-						stringsplit,ninto,ibjn1,:
-						mvrom= %ninto2%
-						nwjak= %mvrom%
+						stringreplace,cursysfld,cursysfld,:,,All
+						stringsplit,ibjn,cursysfld,|
+						mvrom= %ibjn2%
+;;						nwjak= %mvrom%
+						nwjak= %ibjn1%
+						inclfl.= nwjak . ">" . mvrom . "`n"
+/*
 						if (nwjak = "")
 							{
-								continue
+								nwjak= %ninto1%
+								mvrom= %ninto1%
 							}
 						if (ninto2 <> "")
 							{
 								inclfl.= ninto2 . ">" . ninto1 . "`n"
-								;;FileAppend, %ninto2%`n,rj\%curjf%_inclfl.tdb
+								
 							}
 						if (ninto2 = "")
 							{
@@ -33278,19 +33286,7 @@ Loop, rj\*.jak
 								inclfl.= nwjak . ">" . ninto1 . "`n"
 								;;FileAppend, %nwjak%`n,rj\%curjf%_inclfl.tdb
 							}
-						/*
-						Loop, Parse, subdls,|
-							{		
-								subda1= 
-								subda2= 
-								StringSplit,subda,A_LoopField,:
-								FileCreateDir, %RJSYSTEMS%\%curjf%\%nwjak%\%subda1%
-								if (subda2 = 1)
-									{
-										FileSetAttrib,+H,%RJSYSTEMS%\%curjf%\%nwjak%\%subda1%,2
-									}
-							}
-						*/
+*/
 								nwjakxtr= 
 								SplitPath,ibjn2,nwjakf,nwjakd,nwjakx,nwjakn
 								if (nwjakx = "zip")
@@ -33319,7 +33315,11 @@ Loop, rj\*.jak
 														FileDelete,%RJSYSTEMS%\%curjf%\%ibjn2%
 													}
 											}
-										FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,%RJSYSTEMS%\%curjf%\%nwjak%\%ibjn2%
+										ifnotexist,%RJSYSTEMS%\%curjf%\%nwjak%
+											{
+												filecreatedir,%RJSYSTEMS%\%curjf%\%nwjak%
+											}
+										FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,%RJSYSTEMS%\%curjf%\%nwjak%
 										If (errorlevel > 0)
 											{
 												FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,tmp\%curjf%\%ibjn2%,1
@@ -33339,12 +33339,16 @@ Loop, rj\*.jak
 									}
 								IF (nwjakxtr = "")
 									{
-												FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,%RJSYSTEMS%\%curjf%\%nwjak%\%ibjn2%
-												If (errorlevel > 0)
-													{
-														FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,tmp\%curjf%\%ibjn2%,1
-													}
+										ifnotexist,%RJSYSTEMS%\%curjf%\%nwjak%
+											{
+												filecreatedir,%RJSYSTEMS%\%curjf%\%nwjak%
 											}
+										FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,%RJSYSTEMS%\%curjf%\%nwjak%
+										If (errorlevel > 0)
+											{
+												FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,tmp\%curjf%\%ibjn2%,1
+											}
+									}
 																
 					}
 			}
@@ -33813,7 +33817,7 @@ Loop, rj\*_q.tdb
 		SYSTMQ.= dbqueue . "|"
 	}
 
-Loop, Parse, SYSTMQ, |
+Loop, Parse, SYSTMQ,|
 	{
 		if (RJSYSDD = A_LoopField)
 			{
@@ -33845,7 +33849,7 @@ FileMove,rj\%RJSYSDD%_incl.tdb, rj\%RJSYSDD%_q.tdb,1
 
 guicontrol,,RJTXTAB,%RJQNUM%-Systems
 guicontrol,,RJQLSTDD,|QUEUE||%SYSTMQ%
-guicontrol,,RJSYSDD,|Systems||%systmfldrs%
+guicontrol,,RJSYSDD,|Systems|%RJSYSDD%||%systmfldrs%
 SB_SetText("Adding " RJSYSDD " to the system queue")
 guicontrol,disable,RJADDQ
 Guicontrol,,RJPROCQ,CONFIRM %RJQNUM%
@@ -33863,6 +33867,7 @@ return
 
 ;{;;;;  REMOVE SYSTEM FROM QUEUE  ;;;;;
 DELRJQ:
+guicontrolget,RJSYSDD,,RJSYSDD
 Msgbox,8452,Clear the Queue,Delete All Systems in the queue?
 		IfMsgBox, Yes
 			{
@@ -33871,7 +33876,7 @@ Msgbox,8452,Clear the Queue,Delete All Systems in the queue?
 				guicontrol,,RJQLSTDD,|QUEUE||
 				RJQNUM:= 0
 				guicontrol,,RJTXTAB,%RJQNUM%-Systems
-				guicontrol,,RJSYSDD,|Systems||%systmfldrs%
+				guicontrol,,RJSYSDD,|Systems|%RJSYSDD%||%systmfldrs%
 				guicontrol,,RJINCEXCL,|All||A-Z|#
 				SB_SetText("cleared the system queue")
 				Guicontrol,,RJPROCQ,CONFIRM

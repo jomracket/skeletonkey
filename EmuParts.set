@@ -1,6 +1,6 @@
 3doplay=3doplay/3doplay.7z=3DOplay.exe=
 4DO=4DO/4DO.7z=4DO.exe=Settings\FourDO.settings|Settings\JohnnyInputBindings.xml
-Altirra=Altirra/Altirra.7z=Altirra.exe=Altirra.ini=|=*.altstate
+Altirra=Altirra/Altirra.7z=Altirra[ARCH].exe=Altirra.ini=|=*.altstate
 Anex86=Anex86/Anex86.7z=Anex86.exe=Anex86.cmd
 AppleWin=AppleWin/AppleWin.7z=AppleWin.exe=DELREG.inf|AppleWin.cmd
 Arculator=Arculator/Arculator.7z=Arculator.exe=
