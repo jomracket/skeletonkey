@@ -4,11 +4,11 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-04 7:53 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-05 9:28 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-06-04 7:53 PM
+RELEASE= 2018-06-05 9:28 PM
 VERSION= 0.99.34.38
 RASTABLE= 1.7.3
 #Include tf.ahk
@@ -12423,6 +12423,8 @@ if (KARC= 0)
 	}
 
 return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;;;;;;    REASSIGNMENT FUNCTIONS    ;;;;;;;;;;;;;;
@@ -31184,7 +31186,6 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-
 ;{;;;;;;;;;;;;;;;;;;;;;    UTILITY-OPTION FUNCTIONS    ;;;;;;;;;;;;;;;;;;
 
 Executable_util:
@@ -35446,10 +35447,19 @@ if (syspref <> "")
 											rjemuspl=
 											Loop, Parse, sysqv2,|
 												{
-													rjemuspl= %A_LoopField%
+													if (A_Index = 1)
+														{
+															rjemusprio= %A_LoopField%
+															continue
+														}
+													rjemuspl.= A_LoopField . "|"
 												}
+												if (rjemuspl <> rjemusprio)
+													{
+														rjemuspl.= rjemusprio . "|" 
+													}
 											stringreplace,rjemuspl,rjemuspl,%A_Space%,<,All	
-											Iniwrite, "%rjemuspl%",rj\dflt.ini,%RJSYSDD%,RJEMUOPTS
+											Iniwrite, %rjemuspl%,rj\dflt.ini,%RJSYSDD%,RJEMUOPTS
 											;;Iniwrite, %sysqv2%%sysqv3%%sysqv4%%sysqv5%%sysqv6%,rj\dflt.ini,%RJSYSDD%,RJEMUOPTS
 											continue
 										}
@@ -35460,11 +35470,20 @@ if (syspref <> "")
 										{
 											rjargspl=
 											Loop, Parse, sysqv2,|
-												{
-													rjargspl= %A_LoopField%
+												{	
+													if (A_Index = 1)
+														{
+															rjemusprio= %A_LoopField%
+															continue
+														}
+													rjargspl.= A_LoopField . "|"
 												}
+											if (rjemuspl <> rjemusprio)
+												{
+													rjemuspl.= rjemusprio . "|" 
+												}	
 											stringreplace,rjargspl,rjargspl,%A_Space%,<,All	
-											Iniwrite, "%rjargspl%",rj\dflt.ini,%RJSYSDD%,RJEMUARGS
+											Iniwrite, %rjargspl%,rj\dflt.ini,%RJSYSDD%,RJEMUARGS
 											;;Iniwrite, %sysqv2%%sysqv3%%sysqv4%%sysqv5%%sysqv6%,rj\dflt.ini,%RJSYSDD%,RJEMUARGS
 											continue
 										}
@@ -35804,7 +35823,7 @@ if (lkupa = "ERROR")
 
 if (lkupa <> "ERROR")
 	{
-		guicontrol,,RJEOPTSCBX,|%lkupa%||%INJOPT%
+		guicontrol,,RJEOPTSCBX,|%lkupa%|%INJOPT%
 		guicontrolget,RJEOPTSCBX,,RJEOPTSCBX
 		iniWrite, %RJEOPTSCBX%,rj\cur.ini,%RJSYSDD%,RJEMUOPTS
 	}
@@ -35812,7 +35831,11 @@ if (lkupa <> "ERROR")
 iniread, lkupax, emuCfgPresets.set, %RJSYSDD%,%RJEMUTG%?RJEMUOPTS
 if (lkupax <> "ERROR")
 	{
-		guicontrol,,RJEOPTSCBX,|%lkupax%||%INJOPT%
+		if (lkupa <> "")
+			{
+				lkupax= %lkupa%|%lkupax%
+			}
+		guicontrol,,RJEOPTSCBX,|%lkupax%|%INJOPT%
 		guicontrolget,RJEOPTSCBX,,RJEOPTSCBX
 		iniWrite, %lkupax%,rj\cur.ini,%RJSYSDD%,RJEMUOPTS
 	}
@@ -36525,11 +36548,11 @@ return
 
 RJEMUOPTS:
 gui,submit,nohide
-guicontrol,,RJEOPTSCBX,|%rjaval2%||%INJOPT%
+guicontrol,,RJEOPTSCBX,|%rjaval2%|%INJOPT%
 return
 
 RJEMUARGS:
-guicontrol,,RRJEARGSCBX,|%rjaval2%||%INJARG%
+guicontrol,,RRJEARGSCBX,|%rjaval2%|%INJARG%
 gui,submit,nohide
 return
 
@@ -52744,6 +52767,17 @@ Loop, %RJSYSTEMS%\*,2
 			}
 		dwnlfldrs .= A_LoopFileName . "|"
 		systmfldrs .= A_LoopFileName . "|"
+	}
+guicontrol,,RJSYDD,|Systems||%systmfldrs%
+guicontrol,,RUNSYSDDL,|:=:System List:=:||%systmfldrs%
+guicontrol,,SRCHLOCDDL,|:=:System List:=:||%systmfldrs%	
+guicontrol,,ESDWNLPOS,|%systmfldrs%
+guicontrol,,OVDLDS,|Matching||%systmfldrs%
+guicontrol,,DWNLPOS,|%systmfldrs%
+guicontrol,,ESPLXMP,|%systmfldrs%|%escommon%
+if (NETDWNL = 1)
+	{
+		guicontrol,,SRCHLOCDDL,|:=:System List:=:||%systmfldrs%
 	}
 return
 

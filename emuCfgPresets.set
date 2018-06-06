@@ -99,6 +99,7 @@ RJPATH=1
 RJRUNDIR=0
 RJEXT=1
 RJROMINJ=%ROMF%
+RJEMUOPTS=<[RJMAMESYS] -[RJROMTYPE]<
 RJSUBDS=.cheats:1|.patches:1|.snaps:1|.sstates:1|.Man:1|.Mem:1|.cfg:1|.ctrl:1|.hi:1|.ini:1|.inp:1|
 RJEXTRARC=0
 PEREMUCFG=1
@@ -130,7 +131,7 @@ RJPOSTCFG=copy /y "%EMUL%\vice.ini" "%GAMDIR%"
 [Neko]
 RJPRECFG=copy /y "*.ini" "%EMUL%"|copy /y ".sstates\*.sav" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\*.ini" "%GAMDIR%"|move /y "%EMUL%\.sav" "%GAMDIR%\.sstates"
-RJEMUOPTS=<[fs] "[DSK]" "[DSK2]"
+RJEMUOPTS=<[fs] "[DSK]" "[DSK2]"|<
 RJLNCHP=X
 
 [Kegs32]
@@ -177,7 +178,7 @@ RJROMINJ=%ROM%
 
 [WinArcadia]
 RJRUNDIR=1
-RJEMUOPTS=<MACHINE=ARCADIA SETTINGS="WA.CFG" FULLSCREEN=ON AUTOSAVE=ON TITLEBAR=OFF TOOLBAR=OFF STRETCH=ON FILE=<
+RJEMUOPTS=<MACHINE=ARCADIA SETTINGS="WA.CFG" FULLSCREEN=ON AUTOSAVE=ON TITLEBAR=OFF TOOLBAR=OFF STRETCH=ON FILE=
 RJPRECFG=copy /Y "WA.cfg" "%EMUL%\Configs"
 RJPOSTCFG=copy /Y "%EMUL%\Confgs\WA.cfg" "%GAMDIR%"
 
@@ -223,7 +224,7 @@ RJPOSTCFG=copy /y "%EMUL%\config*.yml" "%GAMDIR%"|fsutil reparsepoint delete "%E
 [XM6]
 RJPRECFG=copy /Y "XM6.ini" "%EMUL%"|copy /Y ".sstates\STATE.XM6" "%EMUL%"
 RJPOSTCFG=copy /Y "%EMUL%\XM6.ini" "%GAMDIR%"|move /Y "%EMUL%\STATE.XM6" "%GAMDIR%\.sstates"
-RJEMUOPTS=<"[DSK1]" "[DSK2]"
+RJEMUOPTS=<"[DSK1]" "[DSK2]"|<
 RJLNCHP=X
 
 [VisualBoyAdvance]
@@ -324,6 +325,7 @@ RJEXTRARC=0
 RJPRECFG=attrib +h "fba*.ini"|copy /Y "%GAMDIR%\.Mem\*.nv" "%EMUL%\config\games"|copy /Y "%GAMDIR%\.sstates\*.fs" "%EMUL%\savestates"|copy /Y "*.ini" "%EMUL%\config\games"|attrib -h "fba*.ini"|copy /Y "fba*.ini" "%EMUL%\config"
 RJPOSTCFG=copy /Y "%EMUL%\config\fba*.ini" "%GAMDIR%"|move /Y "%EMUL%\config\games\*.ini" "%GAMDIR%"|move /Y "%EMUL%\savestates\%ROM%*.fs" "%GAMDIR%\.sstates"|move /Y "%EMUL%\config\games\%ROM%*.nv" "%GAMDIR%\.Mem"|move /Y "%EMUL%\screenshots\*.png" "%GAMDIR%\.snaps"
 RJQUOTES=0
+RJEMUARGS=<[XRES]x[YRES]x[BITDEPTH]|<
 RJPATH=0
 NICEFLD=1
 RJRUNDIR=0
@@ -332,7 +334,7 @@ RJROMINJ=%ROM%
 RJEXTRARC=0
 
 [Mednafen]
-RJEMUOPTS=<-fs 1<|<
+RJEMUOPTS=<[FS]<|<-fs 1<|<
 RJPRECFG=copy /y "mednafen*.cfg" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\mednafen*.cfg" "%GAMDIR%"
 RJRUNDIR=1
@@ -340,14 +342,14 @@ PEREMUCFG=1
 
 [Fusion]
 RJRUNDIR=1
-RJEMUOPTS=<-FullScreen<|<
+RJEMUOPTS=<[FS]<|<-FullScreen<|<
 PEREMUCFG=1
 
 [Nostalgia]
 RJPRECFG=copy /y "input.cfg" "%EMUL%"|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "Capture Folder" /t REG_SZ /d "%GAMDIR%\.snaps"|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "Hide on Run" /t REG_DWORD /d 1|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "Images Folder" /t REG_SZ /d "%GAMDIR%"|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "Manuals Folder" /t REG_SZ /d "%GAMDIR%"|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "SaveGame Folder" /t REG_SZ /d "%GAMDIR%\.sstates"
 RJPOSTCFG=copy /y "%EMUL%\input.cfg" "%GAMDIR%"
 RJRUNDIR=1
-RJEMUOPTS=<[fs]<
+RJEMUOPTS=<[fs]<|<
 
 [XM7]
 RJPRECFG=copy /y "*.ini" "%EMUL%"
@@ -357,7 +359,7 @@ RJLNCHP=X
 
 [retroArch]
 RJPRECFG=
-RJEMUOPTS=<
+RJEMUOPTS=<-L [libretrodirectory]\[core]<|<
 RJEXTRARC=0
 RJRUNDIR=0
 
@@ -379,7 +381,7 @@ RJPRECFG=copy /y "*.ini" "%EMUL%"|copy /y ".sstates\*.sav" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\*.ini" "%GAMDIR%"|move /y "%EMUL%\.sav" "%GAMDIR%\.sstates"
 RJRUNDIR=1
 RJLNCHP=X
-RJEMUOPTS=<[fs]<
+RJEMUOPTS=<[fs]<|<
 
 [*************************************************************************]
 [APF - Imagination Machine]
@@ -400,14 +402,14 @@ RJEMUPRESET=BeebEm
 RJMAMENM=bbca
 RJMULTIDISC=1
 RJROMXT=.ssd,.bbc,.img,.dsd,.fsd,.wav,.csw,.uef,.bin,.rom,.zip
-MAME?RJEMUOPTS=<bbca -cass<|<bbca -cart1<
+MAME?RJEMUOPTS=<bbca -[RJROMTYPE]<|<bbca -cass<|<bbca -cart1<
 
 [Acorn - Electron]
 RJEMUPRESET=ElecEM
 RJMAMENM=electron
 RJMULTIDISC=1
 RJROMXT=.ssd,.bbc,.img,.dsd,.adf,.ads,.adm,.adl,.wav,.csw,.uef,.bin,.zip
-MAME?RJEMUOPTS=<electron -cass<|<electron -cart<|<electron -flop<
+MAME?RJEMUOPTS=<electron -[RJROMTYPE]<|<electron -cass<|<electron -cart<|<electron -flop<
 
 [Adobe - Flash]
 RJEMUPRESET=FlashPlayer
@@ -420,7 +422,7 @@ RJMULTIDISC=1
 RJROMXT=.dsc,.dsk,.arc,.cdt,.tzx,.czx,.voc,.wav,.cpr,.bin,.d77,.d88,.1dd,.dfi,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.zip
 RJEMUARGS=</A|<
 MAME?RJEMUARGS=<
-MAME?RJEMUOPTS=<cpc6128p -cass<|cpc6128p -flop<
+MAME?RJEMUOPTS=<cpc6128p -[RJROMTYPE]<|<cpc6128p -cass<|cpc6128p -flop<
 
 [Amstrad - GX4000]
 RJEMUPRESET=WinApe
@@ -434,14 +436,14 @@ RJEMUPRESET=AppleWin
 RJMAMENM=apple2e
 RJMULTIDISC=1
 RJROMXT=.bin,.dsk,.zip,.nib,.iie,.d,.po,.gz,.2img,.2mg,.hdv,.rti,.edd,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.wav
-MAME?RJEMUOPTS=<apple2e -cass<|<apple2e -flop1<
+MAME?RJEMUOPTS=<apple2e -[RJROMTYPE]<|<apple2e -cass<|<apple2e -flop1<
 
 [Apple - II]
 RJEMUPRESET=MAME - System
 RJMAMENM=apple2
 RJMULTIDISC=1
 RJROMXT=.bin,.dsk,.zip,.nib,.iie,.d,.po,.gz,.2img,.2mg,.hdv,.rti,.edd,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.wav
-MAME?RJEMUOPTS=<apple2 -cass<|<apple2 -flop1<
+MAME?RJEMUOPTS=<apple2 -[RJROMTYPE]<|<apple2 -cass<|<apple2 -flop1<
 
 [Apple - IIgs]
 RJEMUPRESET=Kegs32
@@ -460,7 +462,7 @@ RJMULTIDISC=1
 RJEMUPRESET=Stella
 RJMAMENM=a2600
 RJROMXT=.z26,.a26,.zip,.bin,.rom,.zip
-MAME?RJEMUOPTS=<a2600 -cart<|<a2600p -cart<
+MAME?RJEMUOPTS=<a2600 -[RJROMTYPE]<|<a2600p -cart<|<a2600 -cart<
 
 [Atari - 5200]
 RJEMUPRESET=Altirra
@@ -481,20 +483,20 @@ RJEMUPRESET=Altirra
 RJMAMENM=a800xl
 RJMULTIDISC=1
 RJROMXT=.atr,.dsk,.xfd,.bin,.rom,.car,.xex,.wav,.bas,.cas,.bin,.zip,.atx,.pro,.obx,.com,.zip
-MAME?RJEMUOPTS=<a800xl -flop1<a800xl -cart<|<a800xlp -flop1<a800xlp -cart<|<a800 -flop1<|<a800 -cart<|<a800pal -flop1<a800pal -cart<|<a800xe -flop1<a800xe -cart<
+MAME?RJEMUOPTS=<a800xl -[RJROMTYPE]<|<a800xl -flop1<|<a800xl -cart<|<a800xlp -flop1<|<a800xlp -cart<|<a800 -flop1<|<a800 -cart<|<a800pal -flop1<|<a800pal -cart<|<a800xe -flop1<|<a800xe -cart<
 
 [Atari - 8Bit]
 RJEMUPRESET=Altirra
 RJMAMENM=a800xl
 RJMULTIDISC=1
 RJROMXT=.atr,.dsk,.xfd,.bin,.rom,.car,.xex,.wav,.bas,.cas,.bin,.zip,.atx,.pro,.obx,.com,.zip
-MAME?RJEMUOPTS=<a800xl -flop1<a800xl -cart<|<a800xlp -flop1<a800xlp -cart<|<a800 -flop1<|<a800 -cart<|<a800pal -flop1<a800pal -cart<|<a800xe -flop1<a800xe -cart<
+MAME?RJEMUOPTS=<a800xl -[RJROMTYPE]<|<a800xl -flop1<|<a800xl -cart<|<a800xlp -flop1<|<a800xlp -cart<|<a800 -flop1<|<a800 -cart<|<a800pal -flop1<|<a800pal -cart<|<a800xe -flop1<|<a800xe -cart<
 
 [Atari - Jaguar CD]
 RJEMUPRESET=ProjectTempest
 RJMAMENM=jaguarcd
 RJROMXT=.iso,.bin,.cue,.img,.ccd,.cdi,.bin,.rom,.abs,.jag,.j64,.prg,.cof,.zip
-MAME?RJEMUOPTS=<jaguarcd -cart<|<jaguarcd -cdrom<
+MAME?RJEMUOPTS=<jaguarcd -cdrom<
 
 [Atari - Jaguar]
 RJEMUPRESET=virtualJaguar
@@ -514,20 +516,20 @@ RJEMUPRESET=STeem
 RJMULTIDISC=1
 RJMAMENM=st
 RJROMXT=.stx,.st,.msa,.zip,.ipf
-MAME?RJMAMEOPTS=<st -cart<|<st -flop1<
+MAME?RJMAMEOPTS=<st -[RJROMTYPE]<|<st -cart<|<st -flop1<
 
 [Atari - XE]
 RJEMUPRESET=Altirra
 RJMAMENM=xegs
 RJMULTIDISC=1
 RJROMXT=.atr,.dsk,.xfd,.bin,.rom,.car,.zip
-MAME?RJEMUOPTS=<a800xlp -flop1<a800xlp -cart<|<a800 -flop1<|<a800 -cart<|<a800pal -flop1<a800pal -cart<|<a800xe -flop1<a800xe -cart<|<a800xl -flop1<a800xl -cart<|<xegs -cass1<|<xegs -flop1<
+MAME?RJEMUOPTS=<xegs -[RJROMTYPE]<|<a800xlp -flop1<|<a800xlp -cart<|<a800 -flop1<|<a800 -cart<|<a800pal -flop1<|<a800pal -cart<|<a800xe -flop1<|<a800xe -cart<|<a800xl -flop1<|<a800xl -cart<|<xegs -cass1<|<xegs -flop1<
 
 [Bally - Bally Astrocade]
 RJEMUPRESET=MAME - System
 RJMAMENM=astrocde
 RJROMXT=.bin,.zip
-MAME?RJEMUOPTS=<astrocdw -cart<|<astrocdl -cart<|<astrocde -cart<
+MAME?RJEMUOPTS=<astrocde -cart<|<astrocdw -cart<|<astrocdl -cart<|<astrocde -cart<
 
 [Bandai - WonderSwan Color]
 RJEMUPRESET=Mednafen
@@ -552,7 +554,7 @@ RJEMUPRESET=MAME - System
 RJMAMENM=lynx128
 RJMULTIDISC=1
 RJROMXT=.wav,.tap,.ldf,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.zip
-MAME?RJEMUOPTS=<lynx128k -cass<|<lynx128k -flop1<
+MAME?RJEMUOPTS=<lynx128k -[RJROMTYPE]<|<lynx128k -cass<|<lynx128k -flop1<
 
 [Capcom Play System - CPS III]
 RJEMUPRESET=cps3emulator
@@ -594,7 +596,7 @@ MAME?RJEMUOPTS=<pv1000 -cart<
 RJEMUPRESET=MAME - System
 RJMAMENM=pv2000
 RJMULTIDISC=1
-MAME?RJEMUOPTS=<pv2000 -cart<|<pv2000 -cass<
+MAME?RJEMUOPTS=<pv2000 -[RJROMTYPE]<|<pv2000 -cart<|<pv2000 -cass<
 
 [Cave Systems - Cave]
 RJEMUOPTS=<[RJMAMENM] -[MAMEMEDIA]<
@@ -609,13 +611,13 @@ RJEXTRARC=0
 [Coleco - ADAM]
 RJEMUPRESET=MAME - System
 RJMAMENM=adam
-MAME?RJEMUOPTS=<adam -flop1<|<adam -cass1<|<adam -cart1<
+MAME?RJEMUOPTS=<adam -[RJROMTYPE]<|<adam -flop1<|<adam -cass1<|<adam -cart1<
 
 [Coleco - ColecoVision]
 RJEMUPRESET=BlueMSX
 RJMAMENM=coleco
 BlueMSX?RJEMUOPTS=</fullscreen /machine "COL - Colecovision" /rom1<|</machine "COL - Colecovision" /rom1zip<|</fullscreen /machine "COL - Colecovision" /rom1zip<|</machine "COL - Colecovision" /rom1<
-MAME?RJEMUOPTS=<coleco -cart<|<colecop -cart<
+MAME?RJEMUOPTS=<coleco -cart<|<colecp -cart<|<coleco -cart<
 
 [Commodore - 64]
 RJEMUPRESET=WinVICE
@@ -623,7 +625,7 @@ RJMAMENM=c64
 RJMULTIDISC=1
 WinVice?RJEMUOPTS=<-autostart<
 RJROMXT=.x64,.t64,.d64,.g64,.fdi,.p00,.prg,.tap,.wav,.80,.a0,.e0,.crt,.g41,.d77,.d88,.1dd,.dfi,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.zip
-MAME?RJEMUOPTS=<c64 -cass<|<c64 -cart<|<c64 -flop<
+MAME?RJEMUOPTS=<c64 -[RJROMTYPE]<|<c64 -cass<|<c64 -cart<|<c64 -flop<
 
 [Commodore - Amiga CD32]
 RJEMUPRESET=WinVICE
@@ -633,19 +635,19 @@ MAME?RJEMUOPTS=<cd32 -flop<|<cd32 -cdrom<
 [Commodore - Amiga CDTV]
 RJEMUPRESET=FS-UAE
 RJMAMENM=cdtv
-MAME?RJEMUOPTS=<cdtv -cdrom<|<cdtv -flop<|<cdtvn -cdrom<|<cdtvn -flop<
+MAME?RJEMUOPTS=<cdtv -[RJROMTYPE]<|<cdtv -cdrom<|<cdtv -flop<|<cdtvn -cdrom<|<cdtvn -flop<
 
 [Commodore - Amiga]
 RJEMUPRESET=FS-UAE
 RJMAMENM=a500n
 RJMULTIDISC=1
-MAME?RJEMUOPTS=<a500 -flop<|<a500n -flop<|<a500pn -flop<|<a3000n -flop<|<a1200n -flop<
+MAME?RJEMUOPTS=<a500n -flop<|<a500 -flop<|<a500n -flop<|<a500pn -flop<|<a3000n -flop<|<a1200n -flop<
 
 [Commodore - Amiga 1000]
 RJEMUPRESET=FS-UAE
 RJMAMENM=a1000n
 RJMULTIDISC=1
-MAME?RJEMUOPTS=<a1000 -flop<|<a1000n -flop<
+MAME?RJEMUOPTS=<a1000n -flop<|<a1000 -flop<|<a1000n -flop<
 
 [Commodore - Amiga 1200]
 RJEMUPRESET=FS-UAE
@@ -858,7 +860,7 @@ RJROMXT=.mtx,.wav,.zip
 RJEMUPRESET=BlueMSX
 RJMAMENM=fsa1st
 RJMULTIDISC=1
-BlueMSX?RJEMUOPTS=</fullscreen /machine "MSXturboR" /rom1<|</machine "MSXturboR" /rom1zip<|</fullscreen /machine "MSXturboR" /rom1zip<|</machine "MSXturboR" /diskA<|</fullscreen /machine "MSXturboR" /diskA<|</machine "MSXturboR" /cas<|</fullscreen /machine "MSXturboR" /cas<|</machine "MSXturboR" /caszip<|</fullscreen /machine "MSXturboR" /caszip<|</machine "MSXturboR" /rom1<
+BlueMSX?RJEMUOPTS=</fullscreen /machine "MSXturboR" /[RJROMTYPE]<</fullscreen /machine "MSXturboR" /rom1<|</machine "MSXturboR" /rom1zip<|</fullscreen /machine "MSXturboR" /rom1zip<|</machine "MSXturboR" /diskA<|</fullscreen /machine "MSXturboR" /diskA<|</machine "MSXturboR" /cas<|</fullscreen /machine "MSXturboR" /cas<|</machine "MSXturboR" /caszip<|</fullscreen /machine "MSXturboR" /caszip<|</machine "MSXturboR" /rom1<
 RJROMXT=.dsk,.dmk,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.mx1,.bin,.rom,.wav,.tap,.cas.zip
 MAME?RJEMUOPTS=<fsa1st -cart1<|<fsa1st -cass<|<fsa1st -flop<
 
@@ -866,7 +868,7 @@ MAME?RJEMUOPTS=<fsa1st -cart1<|<fsa1st -cass<|<fsa1st -flop<
 RJEMUPRESET=BlueMSX
 RJMAMENM=canonv30f
 RJMULTIDISC=1
-BlueMSX?RJEMUOPTS=</fullscreen /machine "MSX2+" /rom1<|</machine "MSX2+" /rom1zip<|</fullscreen /machine "MSX2+" /rom1zip<|</machine "MSX2+" /diskA<|</fullscreen /machine "MSX2+" /diskA<|</machine "MSX2+" /caszip<|</fullscreen /machine "MSX2+" /caszip<|</machine "MSX2+" /cas<|</fullscreen /machine "MSX2+" /cas<|</machine "MSX2+" /rom1<
+BlueMSX?RJEMUOPTS=</fullscreen /machine "MSX2+" /[RJROMTYPE]<|</fullscreen /machine "MSX2+" /rom1<|</machine "MSX2+" /rom1zip<|</fullscreen /machine "MSX2+" /rom1zip<|</machine "MSX2+" /diskA<|</fullscreen /machine "MSX2+" /diskA<|</machine "MSX2+" /caszip<|</fullscreen /machine "MSX2+" /caszip<|</machine "MSX2+" /cas<|</fullscreen /machine "MSX2+" /cas<|</machine "MSX2+" /rom1<
 RJROMXT=.dsk,.dmk,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.mx1,.bin,.rom,.wav,.tap,.cas.zip
 MAME?RJEMUOPTS=<canonv30f -cart1<|<canonv30f -cass<|<canonv30f -flop1<
 
@@ -874,7 +876,7 @@ MAME?RJEMUOPTS=<canonv30f -cart1<|<canonv30f -cass<|<canonv30f -flop1<
 RJEMUPRESET=BlueMSX
 RJMAMENM=hbf9sp
 RJMULTIDISC=1
-BlueMSX?RJEMUOPTS=</fullscreen /machine "MSX2+" /rom1<|</machine "MSX2+" /rom1zip<|</fullscreen /machine "MSX2+" /rom1zip<|</machine "MSX2+" /diskA<|</fullscreen /machine "MSX2+" /diskA<|</machine "MSX2+" /caszip<|</fullscreen /machine "MSX2+" /caszip<|</machine "MSX2+" /cas<|</fullscreen /machine "MSX2+" /cas<|</machine "MSX2+" /rom1<
+BlueMSX?RJEMUOPTS=</fullscreen /machine "MSX2+" /[RJROMTYPE]<|</fullscreen /machine "MSX2+" /rom1<|</machine "MSX2+" /rom1zip<|</fullscreen /machine "MSX2+" /rom1zip<|</machine "MSX2+" /diskA<|</fullscreen /machine "MSX2+" /diskA<|</machine "MSX2+" /caszip<|</fullscreen /machine "MSX2+" /caszip<|</machine "MSX2+" /cas<|</fullscreen /machine "MSX2+" /cas<|</machine "MSX2+" /rom1<
 RJROMXT=.dsk,.dmk,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.mx1,.bin,.rom,.wav,.tap,.cas.zip
 MAME?RJEMUOPTS=<hbf9sp -flop<
 
@@ -882,7 +884,7 @@ MAME?RJEMUOPTS=<hbf9sp -flop<
 RJEMUPRESET=BlueMSX
 RJMAMENM=canonv8
 RJMULTIDISC=1
-BlueMSX?RJEMUOPTS=</fullscreen /machine "MSX" /diskA<|</machine "MSX" /cas<|</fullscreen /machine "MSX" /cas<|</machine "MSX" /caszip<|</fullscreen /machine "MSX" /caszip<|</machine "MSX" /rom1<|</fullscreen /machine "MSX" /rom1<|</machine "MSX" /rom1zip<|</fullscreen /machine "MSX" /rom1zip<|</machine "MSX" /diskA<
+BlueMSX?RJEMUOPTS=</machine "MSX" /[RJROMTYPE]<|</fullscreen /machine "MSX" /diskA<|</machine "MSX" /cas<|</fullscreen /machine "MSX" /cas<|</machine "MSX" /caszip<|</fullscreen /machine "MSX" /caszip<|</machine "MSX" /rom1<|</fullscreen /machine "MSX" /rom1<|</machine "MSX" /rom1zip<|</fullscreen /machine "MSX" /rom1zip<|</machine "MSX" /diskA<
 RJROMXT=.dsk,.dmk,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.mx1,.bin,.rom,.wav,.tap,.cas.zip
 MAME?RJEMUOPTS=<canonv8 -cart1<|<canonv8 -cass<|<canonv8 -flop1<
 
