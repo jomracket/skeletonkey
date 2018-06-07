@@ -569,7 +569,7 @@ optiterate= all_users_control_menu|aspect_ratio_index|audio_driver|audio_enable|
 
 menuiterate= dpi_override_enable|dpi_override_value|fps_show|input_overlay_enable_autopreferred|input_overlay_enable|input_overlay_hide_in_menu|input_overlay_opacity|input_overlay_show_physical_inputs|input_overlay_show_physical_inputs_port|input_overlay_scale|menu_dynamic_wallpaper_enable|menu_entry_hover_color|menu_entry_normal_color|menu_battery_level_enable|menu_footer_opacity|menu_header_opacity|menu_linear_filter|menu_mouse_enable|menu_navigation_browser_filter_supported_extensions_enable|menu_navigation_wraparound_enable|menu_pause_libretro|menu_shader_pipeline|menu_show_advanced_settings|menu_throttle_framerate|menu_thumbnails|menu_timedate_enable|menu_title_color|menu_wallpaper_opacity|ui_companion_enable|video_font_enable|video_font_size|video_message_color|video_message_pos_x|video_message_pos_y|xmb_alpha_factor|xmb_font|xmb_menu_color_theme|xmb_scale_factor|xmb_shadows_enable|xmb_show_history|xmb_show_images|xmb_show_music|xmb_show_settings|xmb_show_video|xmb_theme|xmb_show_add|input_axis_threshold|savestate_Thumbnail_Enable|menu_swap_ok_cancel_buttons|menu_show_configurations|menu_show_core_updater|menu_show_help|menu_show_information|menu_show_load_content|menu_show_load_core|menu_show_online_updater|menu_show_quit_retroarch|menu_show_reboot|menu_swap_ok_cancel_buttons|video_msg_bgcolor_blue|video_msg_bgcolor_enable|video_msg_bgcolor_green|video_msg_bgcolor_opacity|video_msg_bgcolor_red
 
-INJOPT=  [CUSTMOPT]| -b -e | /b -e | --windowed-fullscreen || --fullscreen | /f | -f | -FullScreen | -fs 1 | -d1 | /fullscreen /machine "COL - Colecovision" /rom1 | /fullscreen /machine "MSX" /rom1 | /fullscreen /machine "MSX2+" /rom1 | /fullscreen /machine "MSXturboR" /rom1 | /fullscreen /machine "SEGA -SG-1000" /rom1 | /fullscreen /machine "SEGA -SF-7000" /rom1 | /f/hardware 5200 | /fullscreen /machine "SEGA -SC-3000" /rom1 | /fullscreen /machine "SVI - Spectravideo SVI-328 MK2" /rom1 | --startLoadFile | run=dc -image=| -run=awave -rom=| -nogui -loadbin | -run=naomi -rom=| -autostart -cartcrt | -ntsc +confirmexit -saveres +warp -fullscreen -cartgeneric | -autoload | apfimag -cart | bbcm512 -cart1 | electron -flop | cpc464 -cart | gx4000 -cart | appl2cp -flop1 | apple2gs -flop1 | apple1 -cass | a2600 -cart | a5200 -cart | a7800 -cart | a800xe -flop1 | jaguar -cart | lynx -cart | xegs -cart | astrocde -cart | wswan -cart | wscolor -cart | lynx128k -flop1 | casloopy -cart | pv1000 -cart | pv2000 -cart | adam -cart1 | coleco -cart | c64 -flop | a500n -flop | a1200n -flop | a3000n -flop | cd32n -cdrm | vic20 -cart | d64plus -cart | cdtvn -cdrm | exl100 -cart | arcadia -cart | advision -cart | ep128 -cart | ep64 -cart | scv -cart | channelf -cart | fm7 -flop1 | supracan -cart | vectrex -cart | gmaster -cart | ibmpcjr -flop | vc4000 -cart | jupace -cass | samcoupe -flop1 | odyssey2 -cart | odyssey3 -cart | aquarius -cart | intv -cart | megaduck -cart | mtx512 -cass | fsa1gt -cart1 | pce -cart | tg16 -cart | sgx -cart | pce -cdrm | tg16 -cdrm | pc6001 -cart1 | pcfx | pc8801mk2 -flop1 | pc9821xs -flop1 | n64 -cart | nes -cart | famicom -cart | fds -flop | gameboy -cart | gbcolor -cart | gba -cart | vboy -cart | pokemini -cart | snes -cart | cdimono2 -cdrm | pc2000 -cart | vg5k -cass | videopac -cart | studio2 -cart | neocd -cdrm | neogeo -cart1 | aes -cart | ngp -cart | ngpc -cart | pico -cart | sc3000 -cart | sf7000 -flop | sg1000 -cart | stvbios -cart1 | 32xe -cart | 32xj -cart | 32x -cart | segacd2 -cdrm | megacd2 -cdrm | megacd2j -cdrm | dc -cdrm | dceu -cdrm | dcjp -cdrm | gamegear -cart | gamegeaj -cart | gamecom -cart1 | mz700 -cass | mz800 -cass | x1 -cart | x86kxvi -flop1 | ql_us -cass1 | psa -cdrm | pse -cdrm | psj -cdrm | psu -cdrm | pockstat -cart | m5 -flop | microtan -cart | oric -cass | mo5 -cass | 3do -cdrm | 3do_pal -cdrm | to7 -cass | crvision -cart | crvisio2 -cart | crvisioj -cart | laser200 -cass | laser310 -cass | vsmile -cart | vidbrain -cart | svisionn -cart | svisionp -cart | genesis -cart | megadriv -cart | expertdx -cart1 | canonv20s -cart1 | fmtmarty2 -cdrm | MACHINE=ARCADIA SETTINGS="WA.CFG" FULLSCREEN=ON AUTOSAVE=ON TITLEBAR=OFF TOOLBAR=OFF STRETCH=ON FILE= | -5200 -cart |  -Fullscreen 1 -MenuEnabled 0 -Region auto | --chromeless | --StartLoadFile | -32X | -sms | -scd | -gg | -md | -gen | -res=1024,768 -input-system=xinput -fullscreen | -p -f -u -c=studio -s 
+INJOPT=  [CUSTMOPT]| -b -e | /b -e | --windowed-fullscreen || --fullscreen | /f | -f | -FullScreen | -fs 1 | -d1 | /fullscreen /machine "COL - Colecovision" /rom1 | /fullscreen /machine "MSX" /rom1 | /fullscreen /machine "MSX2+" /rom1 | /fullscreen /machine "MSXturboR" /rom1 | /fullscreen /machine "SEGA -SG-1000" /rom1 | /fullscreen /machine "SEGA -SF-7000" /rom1 | /f /hardware:5200 /kernel:5200lle | /fullscreen /machine "SEGA -SC-3000" /rom1 | /fullscreen /machine "SVI - Spectravideo SVI-328 MK2" /rom1 | --startLoadFile | run=dc -image=| -run=awave -rom=| -nogui -loadbin | -run=naomi -rom=| -autostart -cartcrt | -ntsc +confirmexit -saveres +warp -fullscreen -cartgeneric | -autoload | apfimag -cart | bbcm512 -cart1 | electron -flop | cpc464 -cart | gx4000 -cart | appl2cp -flop1 | apple2gs -flop1 | apple1 -cass | a2600 -cart | a5200 -cart | a7800 -cart | a800xe -flop1 | jaguar -cart | lynx -cart | xegs -cart | astrocde -cart | wswan -cart | wscolor -cart | lynx128k -flop1 | casloopy -cart | pv1000 -cart | pv2000 -cart | adam -cart1 | coleco -cart | c64 -flop | a500n -flop | a1200n -flop | a3000n -flop | cd32n -cdrm | vic20 -cart | d64plus -cart | cdtvn -cdrm | exl100 -cart | arcadia -cart | advision -cart | ep128 -cart | ep64 -cart | scv -cart | channelf -cart | fm7 -flop1 | supracan -cart | vectrex -cart | gmaster -cart | ibmpcjr -flop | vc4000 -cart | jupace -cass | samcoupe -flop1 | odyssey2 -cart | odyssey3 -cart | aquarius -cart | intv -cart | megaduck -cart | mtx512 -cass | fsa1gt -cart1 | pce -cart | tg16 -cart | sgx -cart | pce -cdrm | tg16 -cdrm | pc6001 -cart1 | pcfx | pc8801mk2 -flop1 | pc9821xs -flop1 | n64 -cart | nes -cart | famicom -cart | fds -flop | gameboy -cart | gbcolor -cart | gba -cart | vboy -cart | pokemini -cart | snes -cart | cdimono2 -cdrm | pc2000 -cart | vg5k -cass | videopac -cart | studio2 -cart | neocd -cdrm | neogeo -cart1 | aes -cart | ngp -cart | ngpc -cart | pico -cart | sc3000 -cart | sf7000 -flop | sg1000 -cart | stvbios -cart1 | 32xe -cart | 32xj -cart | 32x -cart | segacd2 -cdrm | megacd2 -cdrm | megacd2j -cdrm | dc -cdrm | dceu -cdrm | dcjp -cdrm | gamegear -cart | gamegeaj -cart | gamecom -cart1 | mz700 -cass | mz800 -cass | x1 -cart | x86kxvi -flop1 | ql_us -cass1 | psa -cdrm | pse -cdrm | psj -cdrm | psu -cdrm | pockstat -cart | m5 -flop | microtan -cart | oric -cass | mo5 -cass | 3do -cdrm | 3do_pal -cdrm | to7 -cass | crvision -cart | crvisio2 -cart | crvisioj -cart | laser200 -cass | laser310 -cass | vsmile -cart | vidbrain -cart | svisionn -cart | svisionp -cart | genesis -cart | megadriv -cart | expertdx -cart1 | canonv20s -cart1 | fmtmarty2 -cdrm | MACHINE=ARCADIA SETTINGS="WA.CFG" FULLSCREEN=ON AUTOSAVE=ON TITLEBAR=OFF TOOLBAR=OFF STRETCH=ON FILE= | -5200 -cart |  -Fullscreen 1 -MenuEnabled 0 -Region auto | --chromeless | --StartLoadFile | -32X | -sms | -scd | -gg | -md | -gen | -res=1024,768 -input-system=xinput -fullscreen | -p -f -u -c=studio -s 
 
 INJARG= [CUSTMARG]| -rp "[ROMPATH]" | -rp "[EMUPATH]\roms" | --startFullScreen | -no-printscreen-dlg | -d2 | --StartFullScreen | /A
 
@@ -8448,7 +8448,7 @@ return
 
 
 PREFERON:
-msgbox,3,Re-Assign,Set system association priorities to prefer retroArch cores?`nThis can be set later
+msgbox,3,Re-Assign,Set system association priorities to prefer retroArch cores?`nThis can be set later,5
 ifmsgbox, yes
 	{
 		guicontrol,,LNCHPT,0
@@ -16662,7 +16662,8 @@ if (ESTHTMP = "")
 	{
 		return
 	}
-espethumbnail= %ESTHTMP%	
+espethumbnail= %ESTHTMP%
+stringreplace,espethumbnailx,espethumnail,\,/,All	
 ESREPL= 	
 Loop, Parse, ESGAMP,`n`r
 	{
@@ -16676,7 +16677,7 @@ Loop, Parse, ESGAMP,`n`r
 		stringsplit,clut,A_LoopField,<>
 		if (clut2 = "thumbnail")
 			{
-				ESREPL.= "<thumbnail>" . espethumbnail . "</thumbnail>" . "`n"
+				ESREPL.= "<thumbnail>" . espethumbnailx . "</thumbnail>" . "`n"
 				continue
 			}
 		ESREPL.= A_LoopField . "`n"
@@ -16698,7 +16699,8 @@ if (ESTHTMP = "")
 	{
 		return
 	}
-espemarquee= %ESTHTMP%	
+espemarquee= %ESTHTMP%
+stringreplace,espemarqueex,espemarquee,\,/,All	
 ESREPL= 	
 Loop, Parse, ESGAMP,`n`r
 	{
@@ -16712,7 +16714,7 @@ Loop, Parse, ESGAMP,`n`r
 		stringsplit,clut,A_LoopField,<>
 		if (clut2 = "marquee")
 			{
-				ESREPL.= "<marquee>" . espemarquee . "</marquee>" . "`n"
+				ESREPL.= "<marquee>" . espemarqueex . "</marquee>" . "`n"
 				continue
 			}
 		ESREPL.= A_LoopField . "`n"
@@ -16734,7 +16736,8 @@ if (ESTHTMP = "")
 	{
 		return
 	}
-espevideo= %ESTHTMP%	
+espevideo= %ESTHTMP%
+stringreplace,espevideo,espevideo,\,/,All
 ESREPL= 	
 Loop, Parse, ESGAMP,`n`r
 	{
@@ -16766,6 +16769,7 @@ if (ESTHTMP = "")
 		return
 	}
 espeimage= %ESTHTMP%	
+stringreplace,espeimagex,espeimage,\,/,All
 ESREPL= 	
 Loop, Parse, ESGAMP,`n`r
 	{
@@ -16779,7 +16783,7 @@ Loop, Parse, ESGAMP,`n`r
 		stringsplit,clut,A_LoopField,<>
 		if (clut2 = "image")
 			{
-				ESREPL.= "<image>" . espeimage . "</image>" . "`n"
+				ESREPL.= "<image>" . espeimagex . "</image>" . "`n"
 				continue
 			}
 		ESREPL.= A_LoopField . "`n"
@@ -17156,16 +17160,19 @@ Loop, Parse, ESGAMP,`n`r
 		if (clut2 = "image")
 			{
 				espeimage= %clut3%	
+				stringreplace,espeimagex,espeimage,/,\,All
 				continue					
 			}
 		if (clut2 = "thumbnail")
 			{
 				espethumbnail= %clut3%
+				stringreplace,espethumbnailx,espethumbnail,/,\,All
 				continue						
 			}
 		if (clut2 = "marquee")
 			{
 				espemarquee= %clut3%
+				stringreplace,espemarqueex,espemarquee,/,\,All
 				continue
 			}
 		if (clut2 = "kidgame")
@@ -17198,6 +17205,7 @@ Loop, Parse, ESGAMP,`n`r
 		if (clut2 = "video")
 			{
 				espevideo= %clut3%
+				stringreplace,espevideox,espevideo,/,\,All
 				continue
 			}
 		if (clut2 = "desc")
@@ -17286,10 +17294,10 @@ Loop, Parse, ESGAMP,`n`r
 				guicontrol,,ESPTHEDT,%espepath%
 				guicontrol,,ESNAMEDT,%ren%
 				guicontrol,,ESRATSLD,%esperatsld%
-				guicontrol,,ESTHUMBP,%espethumbnail%
-				guicontrol,,ESOPNIMGPTHTXT,%espeimage%
-				guicontrol,,ESVIDPTHTXT,%espevideo%
-				guicontrol,,ESMARQPTHTXT,%espemarquee%
+				guicontrol,,ESTHUMBP,%espethumbnailx%
+				guicontrol,,ESOPNIMGPTHTXT,%espeimagex%
+				guicontrol,,ESVIDPTHTXT,%espevideox%
+				guicontrol,,ESMARQPTHTXT,%espemarqueex%
 				guicontrol,,ESDDPLNUM,%espelayers%||1|2|3|4|5|6|7|8
 				guicontrol,,ESDESCEDT,%espedeedt%
 				continue
@@ -17306,10 +17314,10 @@ Loop, Parse, ESGAMP,`n`r
 				guicontrol,,ESPTHEDT,%espepath%
 				guicontrol,,ESNAMEDT,%espename%
 				guicontrol,,ESRATSLD,%esperating%
-				guicontrol,,ESTHUMBP,%espethumbnail%
-				guicontrol,,ESOPNIMGPTHTXT,%espeimage%
-				guicontrol,,ESVIDPTHTXT,%espevideo%
-				guicontrol,,ESMARQPTHTXT,%espemarquee%
+				guicontrol,,ESTHUMBP,%espethumbnailx%
+				guicontrol,,ESOPNIMGPTHTXT,%espeimagex%
+				guicontrol,,ESVIDPTHTXT,%espevideox%
+				guicontrol,,ESMARQPTHTXT,%espemarqueex%
 				guicontrol,,ESDDPLNUM,%espelayers%||1|2|3|4|5|6|7|8
 				guicontrol,,ESDESCEDT,%espedesc%
 				continue

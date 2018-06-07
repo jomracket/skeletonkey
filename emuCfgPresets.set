@@ -140,6 +140,12 @@ RJPOSTCFG=copy /Y "%EMUL%\config.kegs" "%GAMDIR%"
 RJRUNDIR=1
 RJLNCHP=X
 
+[WinUAE]
+RJPRECFG=copy /y "winuae.ini" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\winuae.ini" "%GAMDIR%"
+RJEMUOPTS=<-s use_gui=no -s gfx_fullscreen_amiga=true -0<
+RJLNCHP=X
+
 [FS-UAE]
 RJPRECFG=copy /y "Config.fs-uae" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\Config.fs-uae" "%GAMDIR%"

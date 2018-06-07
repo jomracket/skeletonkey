@@ -68,7 +68,7 @@ VisualBoyAdvance-M=VisualBoyAdvance-M/VisualBoyAdvance-Mx[ARCH].7z=VisualBoyAdva
 WinAPE=WinAPE/WinAPE.7z=WinAPE.exe=WinAPE.ini=|=*.sna
 WinArcadia=WinArcadia/WinArcadia.7z=wa.exe=|=*.NVR=*.COS
 WinKawaks=WinKawaks/winkawaks.7z=WinKawaks.exe=
-WinUAE=WinUAE/WinUAE.7z=WinUAE.exe=
+WinUAE=WinUAE/WinUAE[ARCH].7z=WinUAE[ARCH].exe=
 WinVICE=WinVICE/WinVICE-[ARCH].7z=winvice.exe=
 WinVICE=WinVICE/WinVICE.7z=x64.exe=ini
 WinX68k=WinX68k/WinX68k.7z=WinX68kHighSpeed_eng.exe=winx68k.ini
