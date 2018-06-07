@@ -251,7 +251,8 @@ FileCreateDir,rj\emuCfgs\virtpanajr
 FileCreateDir,rj\emuCfgs\virtualapf
 FileCreateDir,rj\emuCfgs\virtualJaguar
 FileCreateDir,rj\emuCfgs\VirtualNES
-FileCreateDir,rj\emuCfgs\visualboyAdvance
+FileCreateDir,rj\emuCfgs\visualboyadvance
+FileCreateDir,rj\emuCfgs\visualboyAdvance-M
 FileCreateDir,rj\emuCfgs\vivanono
 FileCreateDir,rj\emuCfgs\WinApe
 FileCreateDir,rj\emuCfgs\WinArcadia
@@ -1861,7 +1862,9 @@ FileInstall,rj\emucfgs\virtualJaguar\P2K_DEFAULT.set,rj\emucfgs\virtualJaguar\P2
 FileInstall,rj\emucfgs\virtualJaguar\P2_POST.cmd.set,rj\emucfgs\virtualJaguar\P2_POST.cmd.set,1
 FileInstall,rj\emucfgs\virtualJaguar\PRE.cmd.set,rj\emucfgs\virtualJaguar\PRE.cmd.set,1
 FileInstall,rj\emucfgs\VirtualNES\VirtuaNES.ini.ret,rj\emucfgs\VirtualNES\VirtuaNES.ini.ret,1
-FileInstall,rj\emucfgs\visualboyAdvance\vbam.ini.ret,rj\emucfgs\visualboyAdvance\vbam.ini.ret,1
+FileInstall,rj\emucfgs\visualboyadvance\vba.ini.ret,rj\emucfgs\visualboyadvance\vba.ini.ret,1
+FileInstall,rj\emucfgs\visualboyadvance\VisualBoyAdvance.cfg.set,rj\emucfgs\visualboyadvance\VisualBoyAdvance.cfg.set,1
+FileInstall,rj\emucfgs\visualboyAdvance-M\vbam.ini.ret,rj\emucfgs\visualboyAdvance-M\vbam.ini.ret,1
 FileInstall,rj\emucfgs\vivanono\settings.xml.set,rj\emucfgs\vivanono\settings.xml.set,1
 FileInstall,rj\emucfgs\WinApe\WinAPE.ini.set,rj\emucfgs\WinApe\WinAPE.ini.set,1
 FileInstall,rj\emucfgs\WinArcadia\WA.CFG.ret,rj\emucfgs\WinArcadia\WA.CFG.ret,1
@@ -3013,6 +3016,7 @@ FileInstall,rj\joyCfgs\Xpadder\Keyboard\Windows Games\Player2.xpadderprofile,rj\
 FileInstall, 7zsd.sfx,7zsd.sfx
 FileInstall, Portable.bat,Portable.bat,1
 FileInstall, index.html,index.html,1
+FileInstall, working.ahk,working.ahk,1
 FileInstall, skeletonKey.ahk,skeletonkey.ahk,1
 FileInstall, SKey-Deploy.ahk,SKey-Deploy.ahk,1
 FileInstall, BSL.ahk,BSL.ahk,1

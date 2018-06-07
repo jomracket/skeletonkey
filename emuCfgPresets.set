@@ -234,6 +234,20 @@ RJPOSTCFG=copy /Y "%EMUL%\vba*.ini" "%GAMDIR%"
 #RJPOSTCFG=copy /Y "%EMUL%\vba*.ini" "%GAMDIR%"|move /Y "%EMUL%\%ROM%*.sav" "%GAMDIR%\.Mem"|move /Y "%EMUL%\%ROM%*.sgm" "%GAMDIR%\.sstates"
 RJRUNDIR=1
 
+[VisualBoyAdvance]
+RJPRECFG=copy /Y vba*.ini" "%EMUL%"|copy /Y visualboyadvance.cfg" "%EMUL%"
+#RJPRECFG=copy /Y "vba*.cfg" "%EMUL%"|copy /Y "vba*.ini" "%EMUL%"|copy /Y ".Mem\*.*" "%EMUL%"|copy /Y ".sstates\*.*" "%EMUL%"
+RJPOSTCFG=copy /Y "%EMUL%\vba*.ini" "%GAMDIR%"|copy /y "%EMUL%\visualboyadvance.cfg" "%GAMDIR%"
+#RJPOSTCFG=copy /Y "%EMUL%\vba*.ini" "%GAMDIR%"|move /Y "%EMUL%\%ROM%*.sav" "%GAMDIR%\.Mem"|move /Y "%EMUL%\%ROM%*.sgm" "%GAMDIR%\.sstates"
+RJRUNDIR=1
+
+[VisualBoyAdvance-M]
+RJPRECFG=copy /Y vba*.ini" "%EMUL%"
+#RJPRECFG=copy /Y "vba*.cfg" "%EMUL%"|copy /Y "vba*.ini" "%EMUL%"|copy /Y ".Mem\*.*" "%EMUL%"|copy /Y ".sstates\*.*" "%EMUL%"
+RJPOSTCFG=copy /Y "%EMUL%\vba*.ini" "%GAMDIR%"
+#RJPOSTCFG=copy /Y "%EMUL%\vba*.ini" "%GAMDIR%"|move /Y "%EMUL%\%ROM%*.sav" "%GAMDIR%\.Mem"|move /Y "%EMUL%\%ROM%*.sgm" "%GAMDIR%\.sstates"
+RJRUNDIR=1
+
 [Dolphin]
 RJEMUOPTS=<--batch --exec<
 
@@ -298,6 +312,12 @@ RJLNCHP=X
 RJPRECFG=copy /y "steem.ini" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\steem.ini" "%GAMDIR%"
 RJRUNDIR=1
+
+[NullDc]
+RJPRECFG=copy /y "nulldc.cfg" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\nulldc.cfg" "%GAMDIR%"
+RJEMUOPTS=<-config  -config ImageReader:LoadDefaultImage=1 -config ImageReader:defaultImage=|<-config nullDC_GUI:Fullscreen=1  -config ImageReader:LoadDefaultImage=1 -config ImageReader:defaultImage=
+RJRUNDIR=0
 
 [Demul]
 RJPRECFG=copy /y "*.ini" "%EMUL%"|copy /y ".sstates\*" "%EMUL%\sstates"|copy /y ".scache\*" "%EMUL%\scache"
@@ -1020,7 +1040,7 @@ RJROMXT=.nes,.unif,.unf,.nsf,.fam,.fds,.bin,.zip
 MAME?RJEMUOPTS=<famitwin -flop<|<fds -flop<|<famitwin -cart<
 
 [Nintendo - Game Boy Advance]
-RJEMUPRESET=VisualBoyAdvance
+RJEMUPRESET=VisualBoyAdvance-M
 RJMEDNM=gba
 RJMAMENM=gba
 RJROMXT=.gba,.gb,.gbc,.agb,.bin,.elf,.mb,.zip

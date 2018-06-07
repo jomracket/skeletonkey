@@ -83,6 +83,10 @@ VisualBoyAdvance=vgba=mednafen=retroarch\system=:gba_bios.bin:81977335>
 VisualBoyAdvance=vgba=mednafen=retroarch\system=:gba-jap [fastboot mode][h].bin:3363015D
 VisualBoyAdvance=vgba=mednafen=retroarch\system=:gba-jap.bin:15E1F676
 
+VisualBoyAdvance-M=vgba=mednafen=retroarch\system=:gba_bios.bin:81977335>
+VisualBoyAdvance-M=vgba=mednafen=retroarch\system=:gba-jap [fastboot mode][h].bin:3363015D
+VisualBoyAdvance-M=vgba=mednafen=retroarch\system=:gba-jap.bin:15E1F676
+
 
 
 mednafen=retroarch\system=:lynxboot.img:0D973C9D

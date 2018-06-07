@@ -41,7 +41,7 @@ fmtowns=FMTOWN=Fujitsu - FM Towns=.iso,.cue,.ccd,.nrg,.bin=UNZ="%ROM_RAW%"
 galeco=GALECO=Galeco - Galeco=.zip=Demul=%BASENAME%
 gamegear=SGG=Sega - Game Gear=.gg,.bin,.zip=Fusion="%ROM_RAW%"
 gb=NNGB=Nintendo - Game Boy=.gbc,.gb,.dmg,.sgb,.cgb,.zip=bgb="%ROM_RAW%"
-gba=NNGBA=Nintendo - Game Boy Advance=.gba,.gb,.gbc,.agb,.bin,.elf,.mb,.zip=VisualBoyAdvance="%ROM_RAW%"
+gba=NNGBA=Nintendo - Game Boy Advance=.gba,.gb,.gbc,.agb,.bin,.elf,.mb,.zip=VisualBoyAdvance-M="%ROM_RAW%"
 gbc=NNGBC=Nintendo - Game Boy Color=.gbc,.gb,.dmg,.sgb,.cgb,.zip=bgb="%ROM_RAW%"
 gc=NNGC=Nintendo - GameCube=.iso,.gcm,elf,.gcz,.tgc,.csiso=Dolphin="%ROM_RAW%"
 hikaru=HIKARU=Sega - Hikaru=.zip=Demul=%BASENAME%

@@ -1562,6 +1562,7 @@ if (INITINCL = 1)
 			exprt.= "FileInstall, 7zsd.sfx,7zsd.sfx" . "`n"	
 			exprt.= "FileInstall, Portable.bat,Portable.bat,1" . "`n"	
 			exprt.= "FileInstall, index.html,index.html,1" . "`n"	
+			exprt.= "FileInstall, working.ahk,working.ahk,1" . "`n"	
 			exprt.= "FileInstall, skeletonKey.ahk,skeletonkey.ahk,1" . "`n"	
 			exprt.= "FileInstall, SKey-Deploy.ahk,SKey-Deploy.ahk,1" . "`n"	
 			exprt.= "FileInstall, BSL.ahk,BSL.ahk,1" . "`n"	
@@ -1581,6 +1582,7 @@ FileDelete,%SKELD%\*.tmp
 FileDelete,%SKELD%\version.txt
 FileDelete,ltc.txt
 FileAppend, "%SKELD%\skeletonkey.ahk"`n,ltc.txt
+FileAppend, "%SKELD%\working.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\SKey-Deploy.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\BSL.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\AHKsock.ahk"`n,ltc.txt
@@ -1728,7 +1730,9 @@ if (GitPush = 1)
 		FileAppend, copy /y "tf.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "AHKsock.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "SKey-Deploy.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, copy /y "working.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "skeletonkey.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, copy /y "working.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "rj\KODI\RCB\*.set" "%GITD%\rj\KODI\RCB"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "rj\KODI\AEL\*.set" "%GITD%\rj\KODI\AEL"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "rj\KODI\IARL\*.set" "%GITD%\rj\KODI\IARL"`n,%SKELD%\!gitupdate.cmd
