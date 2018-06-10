@@ -23,7 +23,7 @@ if "%JYTP%"=="." set JYTP=1
 if "%JYTP%"=="" set JYTP=1
 if "%FETYPE%"=="" set FETYPE=
 if "%FETYPE%"=="." set FETYPE=
-SET JYX=[JOYENB]
+SET JYX=REM 
 if "%JYZ%" NEQ "" set JYX=%JYX% && if "%JYTYP%" NEQ "." set JYX=
 SET DMX=REM 
 if "%DMT%"=="1" set DMX=
@@ -96,7 +96,7 @@ PLYRN2=""
 %XPALT%%JYX%%XPSTRT% "%ANTIMIC%" --hidden --profile-controller 1 --profile "%GAMDIR%\%PLYRN1%.amgp" %AMCP2% %AMCV%
 %XPALT%%JYX%popd
 
-for /f "delims=" %%a in ('dir /B /A-D "*.bin" "*.a78" "*.rom" "*.zip"') do (
+for /f "delims=" %%a in ('dir /B /A-D "*.*"') do (
 set ROMF=%%~a
 set ROM=%%~na
 set ROMX=%%~xa
@@ -109,7 +109,7 @@ exit /b
 [RUNVARS]
 CMDLINE=""
 CMDXTN="[CMDLINEGET]"
-RUNOPTS=" a7800p -cart | a7800 -cart "
+RUNOPTS=""
 RUNARGS=" -rp "[ROMPATH]""
 ROMF="[ROMF]"
 ROM="[ROM]"
@@ -134,7 +134,7 @@ exit /b
 %CCMDB%
 %RLOC%pushd "%EMUL%"
 %DMX%"%DAMVAR%" -mount dt, 0, "[ROMINLP]"
-%LAUNCH% "%EMUL%\%EMUZ%.exe" a7800p -cart | a7800 -cart "%GAMDIR%\%ROMF%" -rp "%GAMDIR%"
+%LAUNCH% "%EMUL%\%EMUZ%.exe" "%GAMDIR%\%ROMF%" -rp "%GAMDIR%"
 %CCMDY%
 %RLOC%popd
 %XFG%copy /Y "%EMUL%\mame.ini" "%GAMDIR%"

@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-06 7:12 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-10 12:54 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-06-06 7:12 PM
-VERSION= 0.99.35.02
+RELEASE= 2018-06-10 12:54 PM
+VERSION= 0.99.35.72
 RASTABLE= 1.7.3
 #Include tf.ahk
 #Include lbex.ahk
@@ -17,7 +17,7 @@ RASTABLE= 1.7.3
 #Include AHKsock.ahk
 ;#Include LBEX.ahk
 ;#NoTrayIcon
-
+DetectHiddenWindows, On
 IniRead,iniversion,Settings.ini,GLOBAL,version
 if (iniversion <> VERSION)
 	{
@@ -257,6 +257,15 @@ Loop, Read, Settings.ini
 					}
 				MIRDDLOC.= mirlocv1 . "|"
 			}
+Loop, Parse, SysEmuSet,`n`r
+	{
+		stringsplit,gaminsl,A_LoopField,|
+		ifinstring,gaminsl1,%syspfl%
+			{
+				syssub= %gaminsl1%
+			}
+	}
+
 			
 	}
 CMIR1= Mirror_1
@@ -422,7 +431,7 @@ Loop, Parse, scrsup,/
 		ifinstring,SysEmuSet,%A_LoopField%=
 		dispsup.= A_LoopField . "|"
 	}
-systoemu= 	
+systoemu=
 Loop, Parse, SysEmuSet,`n`r
 	{
 		if (A_LoopField = "")
@@ -517,6 +526,7 @@ Loop, gam\MAME - Systems\*.gam
 					{
 						if (aeif2 = einv)
 							{
+								MAME_%aeif2%= %einv%
 								mame_syst.= ecfsysn . "|"
 								mamad= 1
 								break
@@ -557,6 +567,8 @@ omitxt:= omitxi
 rjdexcl= .Mem|.Man|backdrops|.sstates|.snaps|.patches|.cheats|
 rjfexcl= Folder.png|Folder.jpg|Backdrop.jpg|Backdrop.png|Banner.png|Banner.jpg|Logo.png|Logo.jpg|marquee.png|marquee.jpg|back.jpg|back.png|title.png|title.jpg|Cover.png|Cover.jpg|BoxFront.jpg|BoxFront.png|BoxBack.png|BoxBack.jpg|Spine.jpg|Spine.png|Disc.png|Disc.jpg
 
+omtiall:= omitxt . "|" . rjdexcl
+
 StringReplace, omitxtv, omitxt, |,`,,All
 omitxj:= omitxtv
 
@@ -569,7 +581,7 @@ optiterate= all_users_control_menu|aspect_ratio_index|audio_driver|audio_enable|
 
 menuiterate= dpi_override_enable|dpi_override_value|fps_show|input_overlay_enable_autopreferred|input_overlay_enable|input_overlay_hide_in_menu|input_overlay_opacity|input_overlay_show_physical_inputs|input_overlay_show_physical_inputs_port|input_overlay_scale|menu_dynamic_wallpaper_enable|menu_entry_hover_color|menu_entry_normal_color|menu_battery_level_enable|menu_footer_opacity|menu_header_opacity|menu_linear_filter|menu_mouse_enable|menu_navigation_browser_filter_supported_extensions_enable|menu_navigation_wraparound_enable|menu_pause_libretro|menu_shader_pipeline|menu_show_advanced_settings|menu_throttle_framerate|menu_thumbnails|menu_timedate_enable|menu_title_color|menu_wallpaper_opacity|ui_companion_enable|video_font_enable|video_font_size|video_message_color|video_message_pos_x|video_message_pos_y|xmb_alpha_factor|xmb_font|xmb_menu_color_theme|xmb_scale_factor|xmb_shadows_enable|xmb_show_history|xmb_show_images|xmb_show_music|xmb_show_settings|xmb_show_video|xmb_theme|xmb_show_add|input_axis_threshold|savestate_Thumbnail_Enable|menu_swap_ok_cancel_buttons|menu_show_configurations|menu_show_core_updater|menu_show_help|menu_show_information|menu_show_load_content|menu_show_load_core|menu_show_online_updater|menu_show_quit_retroarch|menu_show_reboot|menu_swap_ok_cancel_buttons|video_msg_bgcolor_blue|video_msg_bgcolor_enable|video_msg_bgcolor_green|video_msg_bgcolor_opacity|video_msg_bgcolor_red
 
-INJOPT=  [CUSTMOPT]| -b -e | /b -e | --windowed-fullscreen || --fullscreen | /f | -f | -FullScreen | -fs 1 | -d1 | /fullscreen /machine "COL - Colecovision" /rom1 | /fullscreen /machine "MSX" /rom1 | /fullscreen /machine "MSX2+" /rom1 | /fullscreen /machine "MSXturboR" /rom1 | /fullscreen /machine "SEGA -SG-1000" /rom1 | /fullscreen /machine "SEGA -SF-7000" /rom1 | /f /hardware:5200 /kernel:5200lle | /fullscreen /machine "SEGA -SC-3000" /rom1 | /fullscreen /machine "SVI - Spectravideo SVI-328 MK2" /rom1 | --startLoadFile | run=dc -image=| -run=awave -rom=| -nogui -loadbin | -run=naomi -rom=| -autostart -cartcrt | -ntsc +confirmexit -saveres +warp -fullscreen -cartgeneric | -autoload | apfimag -cart | bbcm512 -cart1 | electron -flop | cpc464 -cart | gx4000 -cart | appl2cp -flop1 | apple2gs -flop1 | apple1 -cass | a2600 -cart | a5200 -cart | a7800 -cart | a800xe -flop1 | jaguar -cart | lynx -cart | xegs -cart | astrocde -cart | wswan -cart | wscolor -cart | lynx128k -flop1 | casloopy -cart | pv1000 -cart | pv2000 -cart | adam -cart1 | coleco -cart | c64 -flop | a500n -flop | a1200n -flop | a3000n -flop | cd32n -cdrm | vic20 -cart | d64plus -cart | cdtvn -cdrm | exl100 -cart | arcadia -cart | advision -cart | ep128 -cart | ep64 -cart | scv -cart | channelf -cart | fm7 -flop1 | supracan -cart | vectrex -cart | gmaster -cart | ibmpcjr -flop | vc4000 -cart | jupace -cass | samcoupe -flop1 | odyssey2 -cart | odyssey3 -cart | aquarius -cart | intv -cart | megaduck -cart | mtx512 -cass | fsa1gt -cart1 | pce -cart | tg16 -cart | sgx -cart | pce -cdrm | tg16 -cdrm | pc6001 -cart1 | pcfx | pc8801mk2 -flop1 | pc9821xs -flop1 | n64 -cart | nes -cart | famicom -cart | fds -flop | gameboy -cart | gbcolor -cart | gba -cart | vboy -cart | pokemini -cart | snes -cart | cdimono2 -cdrm | pc2000 -cart | vg5k -cass | videopac -cart | studio2 -cart | neocd -cdrm | neogeo -cart1 | aes -cart | ngp -cart | ngpc -cart | pico -cart | sc3000 -cart | sf7000 -flop | sg1000 -cart | stvbios -cart1 | 32xe -cart | 32xj -cart | 32x -cart | segacd2 -cdrm | megacd2 -cdrm | megacd2j -cdrm | dc -cdrm | dceu -cdrm | dcjp -cdrm | gamegear -cart | gamegeaj -cart | gamecom -cart1 | mz700 -cass | mz800 -cass | x1 -cart | x86kxvi -flop1 | ql_us -cass1 | psa -cdrm | pse -cdrm | psj -cdrm | psu -cdrm | pockstat -cart | m5 -flop | microtan -cart | oric -cass | mo5 -cass | 3do -cdrm | 3do_pal -cdrm | to7 -cass | crvision -cart | crvisio2 -cart | crvisioj -cart | laser200 -cass | laser310 -cass | vsmile -cart | vidbrain -cart | svisionn -cart | svisionp -cart | genesis -cart | megadriv -cart | expertdx -cart1 | canonv20s -cart1 | fmtmarty2 -cdrm | MACHINE=ARCADIA SETTINGS="WA.CFG" FULLSCREEN=ON AUTOSAVE=ON TITLEBAR=OFF TOOLBAR=OFF STRETCH=ON FILE= | -5200 -cart |  -Fullscreen 1 -MenuEnabled 0 -Region auto | --chromeless | --StartLoadFile | -32X | -sms | -scd | -gg | -md | -gen | -res=1024,768 -input-system=xinput -fullscreen | -p -f -u -c=studio -s 
+INJOPT=  [CUSTMOPT]| -b -e | /b -e | --windowed-fullscreen | --fullscreen | /f | -f | -FullScreen | -fs 1 | -d1 | /fullscreen /machine "COL - Colecovision" /rom1 | /fullscreen /machine "MSX" /rom1 | /fullscreen /machine "MSX2+" /rom1 | /fullscreen /machine "MSXturboR" /rom1 | /fullscreen /machine "SEGA -SG-1000" /rom1 | /fullscreen /machine "SEGA -SF-7000" /rom1 | /f /hardware:5200 /kernel:5200lle | /fullscreen /machine "SEGA -SC-3000" /rom1 | /fullscreen /machine "SVI - Spectravideo SVI-328 MK2" /rom1 | --startLoadFile | run=dc -image=| -run=awave -rom=| -nogui -loadbin | -run=naomi -rom=| -autostart -cartcrt | -ntsc +confirmexit -saveres +warp -fullscreen -cartgeneric | -autoload | apfimag -cart | bbcm512 -cart1 | electron -flop | cpc464 -cart | gx4000 -cart | appl2cp -flop1 | apple2gs -flop1 | apple1 -cass | a2600 -cart | a5200 -cart | a7800 -cart | a800xe -flop1 | jaguar -cart | lynx -cart | xegs -cart | astrocde -cart | wswan -cart | wscolor -cart | lynx128k -flop1 | casloopy -cart | pv1000 -cart | pv2000 -cart | adam -cart1 | coleco -cart | c64 -flop | a500n -flop | a1200n -flop | a3000n -flop | cd32n -cdrm | vic20 -cart | d64plus -cart | cdtvn -cdrm | exl100 -cart | arcadia -cart | advision -cart | ep128 -cart | ep64 -cart | scv -cart | channelf -cart | fm7 -flop1 | supracan -cart | vectrex -cart | gmaster -cart | ibmpcjr -flop | vc4000 -cart | jupace -cass | samcoupe -flop1 | odyssey2 -cart | odyssey3 -cart | aquarius -cart | intv -cart | megaduck -cart | mtx512 -cass | fsa1gt -cart1 | pce -cart | tg16 -cart | sgx -cart | pce -cdrm | tg16 -cdrm | pc6001 -cart1 | pcfx | pc8801mk2 -flop1 | pc9821xs -flop1 | n64 -cart | nes -cart | famicom -cart | fds -flop | gameboy -cart | gbcolor -cart | gba -cart | vboy -cart | pokemini -cart | snes -cart | cdimono2 -cdrm | pc2000 -cart | vg5k -cass | videopac -cart | studio2 -cart | neocd -cdrm | neogeo -cart1 | aes -cart | ngp -cart | ngpc -cart | pico -cart | sc3000 -cart | sf7000 -flop | sg1000 -cart | stvbios -cart1 | 32xe -cart | 32xj -cart | 32x -cart | segacd2 -cdrm | megacd2 -cdrm | megacd2j -cdrm | dc -cdrm | dceu -cdrm | dcjp -cdrm | gamegear -cart | gamegeaj -cart | gamecom -cart1 | mz700 -cass | mz800 -cass | x1 -cart | x86kxvi -flop1 | ql_us -cass1 | psa -cdrm | pse -cdrm | psj -cdrm | psu -cdrm | pockstat -cart | m5 -flop | microtan -cart | oric -cass | mo5 -cass | 3do -cdrm | 3do_pal -cdrm | to7 -cass | crvision -cart | crvisio2 -cart | crvisioj -cart | laser200 -cass | laser310 -cass | vsmile -cart | vidbrain -cart | svisionn -cart | svisionp -cart | genesis -cart | megadriv -cart | expertdx -cart1 | canonv20s -cart1 | fmtmarty2 -cdrm | MACHINE=ARCADIA SETTINGS="WA.CFG" FULLSCREEN=ON AUTOSAVE=ON TITLEBAR=OFF TOOLBAR=OFF STRETCH=ON FILE= | -5200 -cart |  -Fullscreen 1 -MenuEnabled 0 -Region auto | --chromeless | --StartLoadFile | -32X | -sms | -scd | -gg | -md | -gen | -res=1024,768 -input-system=xinput -fullscreen | -p -f -u -c=studio -s 
 
 INJARG= [CUSTMARG]| -rp "[ROMPATH]" | -rp "[EMUPATH]\roms" | --startFullScreen | -no-printscreen-dlg | -d2 | --StartFullScreen | /A
 
@@ -1195,7 +1207,7 @@ IfExist,apps.ini
 			}
 						
 		IniRead,emultl,apps.ini,EMULATORS
-		emulist= 
+		emulist= MAME - System|MAME - Arcade| 
 		emunumtot:= 0
 		Loop, Parse, emultl,`n
 			{
@@ -1290,8 +1302,8 @@ if (INITIAL = 1)
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-Sort, INJOPT , Alphabetically D|
-Sort, INJARG , Alphabetically D|
+;Sort, INJOPT , Alphabetically D|
+;Sort, INJARG , Alphabetically D|
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -1587,7 +1599,7 @@ Gui, Add, ComboBox, x459 y22 w100 vCUSTMOPTS gCustmOpts hidden, |%INJOPT%
 Gui, Add, ComboBox, x560 y22 w100 vCUSTMARGS gCustmArgs hidden, |%INJARG%
 
 Gui, Add, Button, x418 y0 w41 h21 vGROM gGetROM, ROM
-Gui, Add, DropDownList, x525 y0 w135 vLCORE gLnchCore,
+Gui, Add, ComboBox, x525 y0 w135 vLCORE gLnchCore,
 Gui, Add, DropDownList, x540 y0 w135 vJCORE gRJCORE hidden,
 ;;Gui, Add, DropDownList, x540 y24 w135 vJCORE gRJCORE hidden,
 Gui, Font, Bold
@@ -2520,6 +2532,9 @@ Gui, Add, Text, x19 y64 w120 h13 vESPTHTXT hidden,Path
 Gui, Add, Edit, x30 y79 w370 h21 vESPTHEDT gESPTHEDT hidden,
 Gui, Add, Button, x403 y79 w39 h20 vESROMPTHBUT gESROMPTHBUT hidden, . . .
 
+Gui, Add, Button, x457 y42 w59 h20 vESROMADDBUT gESROMADDBUT hidden, Add ROM
+Gui, Add, Button, x457 y65 w59 h20 vESFLDADDBUT gESFLDADDBUT hidden, Add PATH
+
 Gui, Add, Text, x20 y103 w120 h13 vESDESCTXT hidden,Description
 Gui, Add, Edit, x18 y120 w421 h99 vESDESCEDT gESDESCEDT hidden,
 
@@ -2904,8 +2919,8 @@ Progress, 70,Loading Jacketizing Interface .........
 Gui, Tab, 8
 Gui, Tab, Jackets
 
-Gui, Add, DropDownList, x14 y12 w245 vRJSYSDD gRJSYSDD, Systems||%systmfldrs%
-Gui, Add, Button, x260 y11 w20 h23 vRJButA gRJButA, +
+Gui, Add, DropDownList, x14 y12 w245 vRJSYSDD gRJSYSDD disabled, Systems||%systmfldrs%
+;;Gui, Add, Button, x260 y11 w20 h23 vRJButA gRJButA, +
 Gui, Add, DropDownList, x13 y36 w64 vRJINCEXCL gRJINCEXCL, All||A-Z|#
 Gui, Add, Button, x79 y35 w37 h23 vRJSETRANGE gRJSETRANGE hidden, Range
 Gui, Add, Text, x83 y40 h23 vRJRNGTXT, Range
@@ -2938,7 +2953,7 @@ Gui, Add, GroupBox, x278 y26 w107 h88 vRJGRPA, System Settings
 Gui,Font, Normal
 
 Gui, Add, CheckBox, x301 y12 h13 vRJCHKG gRJCHKG Checked, Auto-Pop
-Gui, Add, Radio,x296 y45 h13 vRJSYSRADA gRJSYSRAD checked, Existing
+Gui, Add, Radio,x296 y45 h13 vRJSYSRADA gRJSYSRAD checked, Reset
 Gui, Add, Radio, x296 y60 h13 vRJSYSRADB gRJSYSRAD, Default ;Settings
 Gui, Add, Radio, x296 y76 h13 vRJSYSRADC gRJSYSRAD, Custom ;Settings
 Gui, Add, Button, x281 y89 w42 h20 vRJSYSLOAD gRJSYSLOAD, Load ;Settings
@@ -3061,13 +3076,15 @@ Gui, Add, CheckBox, x383 y315 h17 vRJCHKU gRJCHKU checked, Quotes
 Gui, Add, CheckBox, x440 y315 h17 vRJCHKT gRJCHKT checked, Path
 Gui, Add, CheckBox, x487 y315 h17 vRJCHKS gRJCHKS checked, Extension
 
-Gui, Add, ComboBox, x284 y345 w158 vRJEOPTSCBX gRJEOPTSCBX, %rjemuopt%
-Gui, Add, Text, x454 y349 h17 vRJTXTZ, options
-Gui, Add, ComboBox, x284 y369 w158 vRRJEARGSCBX gRRJEARGSCBX, %rjemuarg%
-Gui, Add, Text, x456 y370 h17 vRJTXT1A, arguments
+Gui, Add, ComboBox, x284 y340 w158 vRJEOPTSCBX gRJEOPTSCBX, %rjemuopt%
+Gui, Add, Text, x454 y344 h17 vRJTXTZ, options
+Gui, Add, ComboBox, x284 y364 w158 vRRJEARGSCBX gRRJEARGSCBX, %rjemuarg%
+Gui, Add, Text, x456 y365 h17 vRJTXT1A, arguments
 
-Gui, Add, Radio, x284 y410 h18 vRJRAD1A gRJRAD1A checked, Run from Emulator Directory
-Gui, Add, Radio, x284 y392 h18  vRJRAD1B gRJRAD1B, Run from ROM Directory
+Gui, Add, CheckBox, x430 y392 h17 vRJZJP gRJZJP checked, Zip-Peek
+
+Gui, Add, Radio, x284 y415 h18 vRJRAD1A gRJRAD1A checked, Run from Emulator Directory
+Gui, Add, Radio, x284 y397 h18  vRJRAD1B gRJRAD1B, Run from ROM Directory
 
 
 ;;gui, Add, Edit, x270 y416 w228 h39 vRJEDTA gRJEDTA ReadOnly, output
@@ -3877,7 +3894,7 @@ RJCHKR_TT :="Enable Searching for multi-disk ROMs."
 RJCBXJ_TT :="comma seperate strings to search for."
 CLRNETP_TT :="Clear Netplay paramaters`nTEMPORARY"
 RJEDTA_TT :="command line output"
-
+RJZJP_TT :="Searches inside the zipped ROM for supported extensions.`nNeeded for dynamic meidatype assignments"
 RJQLSTDD_TT :="System queue"
 RJADDQ_TT :="Adds the selected ROMs in the ''Include'' ROM-List to the system's queue"
 RJREMQSYS_TT :="Remove system from queue"
@@ -4077,6 +4094,12 @@ if (INITIAL = 1)
 	{
 		iniWrite, "%VERSION%",Settings.ini,GLOBAL,version
 	}
+ifexist, lm.ini
+	{
+		fileread,mamelistedmedia,lm.ini
+		gosub, MAMELMREAD
+	}
+guicontrol,enable,RJSYSDD	
 return
 
 ;{;;;;;;;;;;;;;;;;;;  LOADING IMAGE PROC   ;;;;;;;;;;;;;;;;;;;;;
@@ -4319,7 +4342,84 @@ ifmsgbox,Cancel
 }
 return
 
+StdoutToVar_CreateProcess(sCmd, bStream="", sDir="", sInput="")
+   {
+   bStream=   ; not implemented
+   sDir=      ; not implemented
+   sInput=    ; not implemented
+   
+   DllCall("CreatePipe","Ptr*",hStdInRd
+                       ,"Ptr*",hStdInWr
+                       ,"Uint",0
+                       ,"Uint",0)
+   DllCall("CreatePipe","Ptr*",hStdOutRd
+                       ,"Ptr*",hStdOutWr
+                       ,"Uint",0
+                       ,"Uint",0)
+   DllCall("SetHandleInformation","Ptr",hStdInRd
+                                ,"Uint",1
+                                ,"Uint",1)
+   DllCall("SetHandleInformation","Ptr",hStdOutWr
+                                ,"Uint",1
+                                ,"Uint",1)
 
+   if A_PtrSize=4
+      {
+      VarSetCapacity(pi, 16, 0)
+      sisize:=VarSetCapacity(si,68,0)
+      NumPut(sisize,    si,  0, "UInt")
+      NumPut(0x100,     si, 44, "UInt")
+      NumPut(hStdInRd , si, 56, "Ptr")
+      NumPut(hStdOutWr, si, 60, "Ptr")
+      NumPut(hStdOutWr, si, 64, "Ptr")
+      }
+   else if A_PtrSize=8
+      {
+      VarSetCapacity(pi, 24, 0)
+      sisize:=VarSetCapacity(si,96,0)
+      NumPut(sisize,    si,  0, "UInt")
+      NumPut(0x100,     si, 60, "UInt")
+      NumPut(hStdInRd , si, 80, "Ptr")
+      NumPut(hStdOutWr, si, 88, "Ptr")
+      NumPut(hStdOutWr, si, 96, "Ptr")
+      }
+
+   DllCall("CreateProcess", "Uint", 0
+                           , "Ptr", &sCmd
+                          , "Uint", 0
+                          , "Uint", 0
+                           , "Int", True
+                          , "Uint", 0x08000000
+                          , "Uint", 0
+                          , "Uint", 0
+                           , "Ptr", &si
+                           , "Ptr", &pi)
+
+   DllCall("CloseHandle","Ptr",NumGet(pi,0))
+   DllCall("CloseHandle","Ptr",NumGet(pi,A_PtrSize))
+   DllCall("CloseHandle","Ptr",hStdOutWr)
+   DllCall("CloseHandle","Ptr",hStdInRd)
+   DllCall("CloseHandle","Ptr",hStdInWr)
+
+   VarSetCapacity(sTemp,4095)
+   nSize:=0
+   loop
+      {
+      result:=DllCall("Kernel32.dll\ReadFile", "Uint", hStdOutRd
+                                             ,  "Ptr", &sTemp
+                                             , "Uint", 4095
+                                             ,"UintP", nSize
+                                              ,"Uint", 0)
+      if (result="0")
+         break
+      else
+         sOutput:= sOutput . StrGet(&sTemp,nSize,"CP850")
+      }
+
+   DllCall("CloseHandle","Ptr",hStdOutRd)
+   Return,sOutput
+   }
+return
 
 GuiContextMenu:
 gui,submit,nohide
@@ -10146,6 +10246,93 @@ if (UAVAIL = "Antimicro")
 	}
 return
 
+;{;;;;;;;;;;;;;;;;;  READ MAMELM  ;;;;;;;;;;;;;;;;
+
+MAMELMREAD:
+SB_SetText(" Reading mame listed media ")
+loop,parse,mamelistedmedia,`n
+	{
+		if (A_index < 3)
+			{
+				continue	
+			}
+		ifinstring,A_LoopField,-
+			{
+				continue
+			}
+		ifinstring,A_LoopField,(None)
+			{
+				continue
+			}
+		ifinstring,A_LoopField,(prin
+			{
+				continue
+			}
+		ifinstring,A_LoopField,(serl
+			{
+				continue
+			}
+		if (A_Index = 10000)
+			{
+				emuprgpl+=15
+				guicontrol,,emuPRGA,%emuprgpl%
+			}
+		if (A_Index = 20000)
+			{
+				emuprgpl+=15
+				guicontrol,,emuPRGA,%emuprgpl%
+			}
+		if (A_Index = 30000)
+			{
+				emuprgpl+=15
+				guicontrol,,emuPRGA,%emuprgpl%
+			}
+		if (A_Index = 39000)
+			{
+				emuprgpl+=15
+				guicontrol,,emuPRGA,%emuprgpl%
+			}
+		af= %A_loopField%	
+		stringsplit,and,af,)
+		ccrm:= and2
+		Loop, 20	
+			{
+				stringreplace,af,af,%A_Space%%A_Space%,%A_space%,All
+				stringreplace,af,af,`n,,All		
+				stringreplace,af,af,`r,,All		
+			}
+		if (af = "")
+			{
+				continue
+			}
+		stringsplit,nni,af,%A_Space%
+		ifnotinstring,nni2,(
+			{
+				med= %nni3%
+				oldf= %nni1%
+				stringreplace,med,med,)
+				stringreplace,med,med,(
+			}
+		ifinstring,nni2,(
+			{
+				nni1= %oldf%	
+				stringreplace,med,nni2,(
+				stringreplace,med,med,)
+			}	
+		and2= %and2%
+		stringreplace,and2,and2,%A_space%%A_space%,%A_space%,,All
+		stringreplace,and2,and2,%A_space%,`,,All
+		stringreplace,and2,and2,`n,,All
+		stringreplace,and2,and2,`r,,All
+		MAME_%nni1%_SHRTN= %nni1%
+		MAME_%nni1%_%med%_extyp= %and2%
+		MAME_%nni1%_medtyps.= med . "|"
+	}
+SB_SetText(" Mame listed media indexing complete ")
+mlmed= 1	
+return
+
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;;;;;;;;;;  SYSTEM LIST  ;;;;;;;;;;;;;;;;
 EAvailSel:
@@ -14172,6 +14359,8 @@ guicontrol,%opntog%,ESGENEDT
 guicontrol,%opntog%,ESDDPLNUM
 guicontrol,%opntog%,ESPLNUMTXT
 guicontrol,%opntog%,ESROMPTHBUT
+guicontrol,%opntog%,ESROMADDBUT
+guicontrol,%opntog%,ESFLDADDBUT
 guicontrol,%opntog%,ESKIDG
 guicontrol,%opntog%,ESFAV
 guicontrol,%opntog%,ESHIDDEN
@@ -14279,6 +14468,8 @@ guicontrol,%opltog%,ESGENEDT
 guicontrol,%opltog%,ESDDPLNUM
 guicontrol,%opltog%,ESPLNUMTXT
 guicontrol,%opltog%,ESROMPTHBUT
+guicontrol,%opltog%,ESROMADDBUT
+guicontrol,%opltog%,ESFLDADDBUT
 guicontrol,%opltog%,ESKIDG
 guicontrol,%opltog%,ESFAV
 guicontrol,%opltog%,ESHIDDEN
@@ -16027,12 +16218,30 @@ if (ESGAMLOTMP = "")
 	{
 		return
 	}
-splitpath,ESGAMLOTMP,,ESGAMLOD,
+
+splitpath,ESGAMLOTMP,ESGAMLOMN,ESGAMLOD,,ESGAMLODIR
 splitpath,ESGAMLOD,,,,syspfl
 ifnotexist,rj\es\%syspfl%
 	{
 		FileCreateDir,rj\es\%syspfl%
 	}
+
+splitpath,ESGSAMLOD,EsGamLstF,
+
+Loop, Parse, SysEmuSet,`n`r
+	{
+		stringsplit,gaminsl,A_LoopField,|
+		Loop, Parse, SysEmuSet,`n`r
+			{
+				stringsplit,gaminsl,A_LoopField,|
+				ifinstring,gaminsl1,%syspfl%
+					{
+						syssub= %gaminsl1%
+					}
+			}
+
+	}
+
 FileDelete,rj\es\%syspfl%\*.ini
 FileDelete,rj\es\n.xml
 
@@ -17403,10 +17612,105 @@ FileDelete,rj\ES\%syssub%\*.ini
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;{;;;;;;;;;;;;;;;;;  ADD NEW ROM BUTTON  ;;;;;;;;;;;;;;;
+ESROMADDBUT:
+gui,submit,nohide
+guicontrol,,ESNAMEDT,
+guicontrol,,ESPTHEDT,
+guicontrol,,ESDESCEDT,
+guicontrol,,ESPUBEDT,
+guicontrol,,ESDEVEDT,
+guicontrol,,ESGENEDT,
+presel= %RJSYSTEMS%\%syssub%
+ESROMRSEL:
+ESTHTMP=
+FileSelectFile,ESTHTMP,3,,Select a ROM
+if (ESTHTMP = "")
+	{
+			if ((presel = "") && (ESTHTMP = ""))
+			{
+				return
+			}
+		presel= 
+		goto, ESROMRSEL
+return
+	}
+espepath= %ESTHTMP%	
+splitpath,espepath,,,,espepnam
+gamesel= %espepnam%
+if (syssub = "")
+	{
+		guicontrolget,syssub,,ESPLXMP
+	}
+ESINIPOP.= gamesel . ":" . syssub . "|"
+FileAppend,<game>`n,rj\ES\%syssub%\%gamesel%.ini
+FileAppend,<name>%espepnam%</name>`n,rj\ES\%syssub%\%gamesel%.ini
+FileAppend,<path>%espepath%</path>`n,rj\ES\%syssub%\%gamesel%.ini
+FileAppend,</game>`n,rj\ES\%syssub%\%gamesel%.ini
+guicontrol,,ESPTHEDT,%espepath%
+guicontrol,,ESNAMEDT,%espepnam%
+guicontrol,,CURPLST,|%ESINIPOP%
+gosub, CURPLST
+return
+
+;};;;;;;;;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;;;;  ADD NEW FOLDER BUTTON  ;;;;;;;;;;;;;;;
+ESFLDADDBUT:
+gui,submit,nohide
+guicontrol,,ESNAMEDT,
+guicontrol,,ESPTHEDT,
+guicontrol,,ESDESCEDT,
+guicontrol,,ESPUBEDT,
+guicontrol,,ESDEVEDT,
+guicontrol,,ESGENEDT,
+presel= %RJSYSTEMS%\%syssub%
+ESFLDRSEL:
+ESTHTMP= 
+FileSelectFolder,ESTHTMP,%presel%,3,Select a FOLDER
+sysrepth= %syssub%
+if (ESTHTMP = "")
+	{
+		if ((presel = "") && (ESTHTMP = ""))
+			{
+				return
+			}
+		presel= 
+		goto, ESFLDRSEL
+	}		
+esperpath= %ESTHTMP%
+splitpath,esperpath,,,,espepnam
+ifnotinstring,syssub,%esperpnam%
+	{
+		sysrrepth= %esperpnam%
+	}
+stringreplace,esperpath,esperpath,%RJSYSTEMS%\%syssub%,,All
+stringreplace,esperpath,esperpath,%RJSYSTEMS%\%sysrepth%,,All
+stringreplace,esperpath,esperpath,\,/,All
+esperpath= .%esperpath%
+gamesel= %esperpnam%
+if (syssub = "")
+	{
+		guicontrolget,syssub,,ESPLXMP
+	}
+ESINIPOP.= gamesel . ":" . syssub . "|"
+FileAppend,<folder>`n,rj\ES\%syssub%\%gamesel%.ini
+FileAppend,<name>%espepnam%</name>`n,rj\ES\%syssub%\%gamesel%.ini
+FileAppend,<path>%espepath%</path>`n,rj\ES\%syssub%\%gamesel%.ini
+FileAppend,</folder>`n,rj\ES\%syssub%\%gamesel%.ini
+guicontrol,,ESPTHEDT,%espepath%
+guicontrol,,ESNAMEDT,%espepnam%
+guicontrol,,CURPLST,|%ESINIPOP%
+gosub, CURPLST
+return
+
+;};;;;;;;;;;;;;;;;;;;;;;
+
+
 ESROMPTHBUT:
 ;{;;;;;;;;;;;;;;;;;  GAMELISTXML ROMPATH BUTTON  ;;;;;;;;;;;;;;;;
 jtf=
 gui,submit,nohide
+
 Loop, Parse, ESGAMP,`n`r
 	{
 		if (A_LoopField = "")
@@ -20208,12 +20512,14 @@ if (subemuname <> "")
 											}
 									}
 								}
+						guicontrol,enable,OPNCORE		
 						return
 					}
 			}
 		emutog= hide
 		gosub, EMUUNPOP
 	}
+guicontrol,enable,OPNCORE	
 return
 
 ;{;;;; ~~~OPTION-gui functions~~~  ;;;;;
@@ -21098,6 +21404,7 @@ if (EMUSN = "")
 		guicontrol,enable,RUNROMCBX
 		return
 	}
+	
 Loop, rj\emuCfgs\%EMUSN%\*.*
 	{
 		appndum= 
@@ -21155,8 +21462,132 @@ try, gosub, inj%emuname%cfg
 return
 
 injMAMEcfg:
-cinjr= %curomfd%
-stringreplace,curomcpl,curomcpl,[SOURCE],%RJSYSTEMS%\%curjf%\SOURCE,All
+Loop, Parse, jsinvr,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		FileRead,romrpl%A_Index%,rj\sysCfgs\%curjf%\%A_LoopField%
+		ini_%A_Index%= %A_LoopField%
+	}	
+if (inclfspl1 = inclfspl2)
+	{
+		sb_settext("match " inclfspl1 " = " inclfspl2 "")
+		ifexist,%RJSYSTEMS%\%curjf%\%curomfd%\
+			{
+				stringleft,shtls,inclfspl1,2
+				Loop, %RJSYSTEMS%\%curjf%\%curomfd%\*.*
+					{
+						if (A_LoopFileExt = "zip")
+							{
+								inclfspl2= %A_LoopFileName%
+								break
+							}
+						ifinstring,RJROMSPL,%A_LoopFileExt%
+							{
+								inclfspl2= %A_LoopFileName%
+								xtnv= %A_LoopFileExt%
+								break
+							}
+						ifnotinstring,omtiall,%A_LoopFileExt%
+							{
+								inclfspl2= %A_LoopFileName%
+								xtnv= %A_LoopFileExt%
+								break
+								
+							}
+					}
+			}
+	}
+splitpath,inclfspl2,fnm,,fext
+
+xtnv= %fext%
+
+Loop
+	{
+		curininx= % (ini_%A_Index%)
+		curomcpl= % (romrpl%A_Index%)
+		if (curomcpl = "")
+			{
+				break
+			}
+		stringreplace,curomcpl,curomcpl,[SOURCE],%RJSYSTEMS%\%curjf%\SOURCE,All
+		stringreplace,curomcpl,curomcpl,[EMUPATH],%emulocd%,All
+		stringreplace,curomcpl,curomcpl,[ROMPATH],%RJSYSTEMS%\%curjf%\%curomfd%,All
+		if (inclfspl1 <> inclfspl2)
+			{
+				stringreplace,curomcpl,curomcpl,[ROMF],%cinjr%,All										
+			}
+		FileAppend,%curomcpl%,%RJSYSTEMS%\%curjf%\%curomfd%\%curininx%
+		CFGCOMPLETE= 1
+	}
+	
+if (RJZIPPEEK = 1)
+	{
+		if (fext = "zip")
+			{
+				exeu= "%A_Scriptdir%\7za.exe"
+				lstyp= l -slt
+				fiel= "%RJSYSTEMS%\%curjf%\%inclfspl1%\%fnm%"
+				concatcmd= "%A_Scriptdir%\7za.exe" l -slt "%RJSYSTEMS%\%curjf%\%inclfspl1%\%inclfspl2%"
+				StdOut := StdoutToVar_CreateProcess(concatcmd)
+				partition= 
+				if (StdOut <> "")
+					{
+						xtnv= 	
+						Loop, Parse, StdOut,`n`r
+							{
+								stvi1= 
+								stvi2=
+								stringsplit,evrx,A_loopfield,=
+								ifinstring,evrx1,----------
+									{
+										partition+=1
+										continue
+									}
+								if (partition > 1)
+									{
+										ifinstring,evrx1,Path
+											{
+												splitpath,evrx2,evrfn,evrfd,xtnv
+												break
+											}
+									}
+							}
+						if (xtnv = "")
+							{
+								xtnv= %fext%
+							}
+					}
+			}
+	}
+
+nwextfnd= % MAME_%RJMAMENM%_medtyps
+
+Loop, Parse, nwextfnd,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		MEDP= %A_LoopField%
+		nweinxtf= % (MAME_%RJMAMENM%_%MEDP%_extyp)
+		ifinstring,nweinxtf,%xtnv%
+			{
+				batchfile= %RJSYSTEMS%\%curjf%\%curomfd%\%curomfd%.bat
+				if (RJLNCHCFGOW = 1)
+					{
+						FileRead, sysrep, %batchfile%
+						stringreplace,sysrep,sysrep,[RJRTYP],%A_LoopField%,All
+						stringreplace,sysrep,sysrep,[RJMAMESYS],%RJMAMENM%,All
+						FileDelete, %batchfile%
+						fileappend,%sysrep%,%batchfile%
+						break
+					}
+			}
+	}
+
 return
 
 ;{;;;;;  EMU GUI CREATION  ;;;;;
@@ -22554,13 +22985,75 @@ return
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+
+MAMEBUTJ:
+gui,submit,nohide
+
+return
+
+
 ;};;;;;;;;;;;;;;;;;;;;;
 
 MAMEGUI:
+eguex= 1
+moptog= hide
+raoptgl= hide
+srchtog= hide
+
+gosub, TOGRAOPTS
+gosub, TOGSKELGUI
+gosub, TOGSKELONLY
+gosub, TOGGLESEARCHBOX
+guicontrolget,uuniv,,FNDGUI
+if (uuniv = "X")
+	{
+		srchtog= hide
+		gosub, TOGGLESEARCHBOX
+		guicontrol,move,FNDGUI, x720 y516 w42 h19
+		guicontrol,,FNDGUI,find
+	}
+guicontrol, %emutog%, emuBUTJ
+guicontrol, move, emuBUTJ,x694 y486 w66 h23
+guicontrol,,emuBUTJ,BUILD
+guicontrol, %emutog%, emuPRGA
+guicontrol,,emuPRGA,0
+
 gosub, EMUCFGCOPY
 return
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  NOGUI YET ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+MAMETOG:
+guicontrol, %fndtog%, emuBUTJ
+guicontrol, %fndtog%, emuPRGA
+emuprgpl=0
+emuprgpl+=10
+ifnotexist,lm.ini
+	{
+		guicontrol,,emuPRGA,%emuprgpl%
+		iniread,mame_verx,Apps.ini,EMULATORS,MAME
+		if (mame_verx = "ERROR")
+			{
+				SB_SetText(" MAME NOT FOUND ")
+				return
+			}	
+		RunWait,%comspec% /c "%mame_verx%" -lm >lm.ini,%A_WorkingDir%,Min
+		guicontrol,,emuPRGA,%emuprgpl%
+	}
+emuprgpl+=40
+fileread,mamelistedmedia,lm.ini
+ifexist,lm.ini
+	{
+		if (mlmed = "")
+			{
+				gosub, MAMELMREAD
+			}
+	}
+guicontrol,,emuPRGA, 0
+SB_SetText(" COMPLETE ")
+
+return
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;  NOGUI YET ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 NOGUI:
 gosub, EMUCFGCOPY
 return
@@ -32883,10 +33376,12 @@ Loop, rj\*.jak
 		RVLKUP= %curtjf%
 		gosub, SHRTNMLkUp
 		%SHRTNM%CFGR= 
+		
 ;{;;;;  template launcher creation ;;;;;;
 		IniRead,RJABSOLROM,rj\%curjf%.ini,%curjf%,RJABSOLROM
+		IniRead,RJZIPPEEK,rj\%curjf%.ini,%curjf%,RJZIPPEEK
 		IniRead,emuname,rj\%curjf%.ini,%curjf%,RJEMUPRESET
-		EMUSN= %RJEMUPRESET%
+		EMUSN= %emuname%
 		IniRead,RJKEYOW,rj\%curjf%.ini,%curjf%,RJKEYOW
 		IniRead,RJKEYMON,rj\%curjf%.ini,%curjf%,RJKEYON
 		IniRead,RJMAP1ROFTYP,rj\%curjf%.ini,%curjf%,RJMAP1ROFTYP
@@ -32896,6 +33391,7 @@ Loop, rj\*.jak
 		IniRead,RJMAP1PL,rj\%curjf%.ini,%curjf%,RJPLYR1
 		;;IniRead,optparse,rj\%curjf%.ini,%curjf%
 		IniRead,RJROMINJ,rj\%curjf%.ini,%curjf%,RJROMINJ
+		IniRead,PEREMUCFG,rj\%curjf%.ini,%curjf%,PEREMUCFG
 		IniRead,RJQUOTES,rj\%curjf%.ini,%curjf%,RJQUOTES
 		IniRead,RJPATH,rj\%curjf%.ini,%curjf%,RJPATH
 		IniRead,RJEXT,rj\%curjf%.ini,%curjf%,RJEXT
@@ -33222,91 +33718,70 @@ Loop, rj\*.jak
 						stringreplace,cursysfld,cursysfld,:,,All
 						stringsplit,ibjn,cursysfld,|
 						mvrom= %ibjn2%
-;;						nwjak= %mvrom%
 						nwjak= %ibjn1%
 						inclfl.= nwjak . ">" . mvrom . "`n"
-/*
-						if (nwjak = "")
+						nwjakxtr= 
+						SplitPath,ibjn2,nwjakf,nwjakd,nwjakx,nwjakn
+						if (nwjakx = "zip")
 							{
-								nwjak= %ninto1%
-								mvrom= %ninto1%
+								nwjakxtr= 1
 							}
-						if (ninto2 <> "")
+						if (nwjakx = "rar")
 							{
-								inclfl.= ninto2 . ">" . ninto1 . "`n"
-								
+								nwjakxtr= 1
 							}
-						if (ninto2 = "")
+						if (nwjakx = "7z")
 							{
-								mvrom= %ibjn1%
-								nwjak= %mvrom%
-								FileCreateDir, %RJSYSTEMS%\%curjf%\%nwjak%
-								inclfl.= nwjak . ">" . ninto1 . "`n"
-								;;FileAppend, %nwjak%`n,rj\%curjf%_inclfl.tdb
+								nwjakxtr= 1
 							}
-*/
-								nwjakxtr= 
-								SplitPath,ibjn2,nwjakf,nwjakd,nwjakx,nwjakn
-								if (nwjakx = "zip")
+						IF (nwjakxtr = 1)
+							{
+								if (RJEXTRARC = 1)
 									{
-										nwjakxtr= 1
-									}
-								if (nwjakx = "rar")
-									{
-										nwjakxtr= 1
-									}
-								if (nwjakx = "7z")
-									{
-										nwjakxtr= 1
-									}
-								IF (nwjakxtr = 1)
-									{
-										if (RJEXTRARC = 1)
-											{
-												RunWait, %comspec% /c "7za.exe e -y "%RJSYSTEMS%\%curjf%\%ibjn2%" -O"%RJSYSTEMS%\%curjf%\%nwjakn%" ",,hide
-												if (RJARCLOC = 0)
-													{
-														FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,tmp\%curjf%\%ibjn2%,1
-													}
-												if (RJARCLOC = 2)
-													{
-														FileDelete,%RJSYSTEMS%\%curjf%\%ibjn2%
-													}
-											}
-										ifnotexist,%RJSYSTEMS%\%curjf%\%nwjak%
-											{
-												filecreatedir,%RJSYSTEMS%\%curjf%\%nwjak%
-											}
-										FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,%RJSYSTEMS%\%curjf%\%nwjak%
-										If (errorlevel > 0)
+										RunWait, %comspec% /c "7za.exe e -y "%RJSYSTEMS%\%curjf%\%ibjn2%" -O"%RJSYSTEMS%\%curjf%\%nwjakn%" ",,hide
+										if (RJARCLOC = 0)
 											{
 												FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,tmp\%curjf%\%ibjn2%,1
 											}
-										if (RJEXTRARC = 2)
+										if (RJARCLOC = 2)
 											{
-												RunWait, %comspec% /c "7za.exe e -y "%RJSYSTEMS%\%curjf%\%nwjak%\%ibjn2%" -O"%RJSYSTEMS%\%curjf%\%nwjak%" ",,hide
-													if (RJARCLOC = 0)
-														{
-															FileMove,%RJSYSTEMS%\%curjf%\%nwjak%\%ibjn2%,tmp\%curjf%\%ibjn2%,1
-														}
-													if (RJARCLOC = 2)
-														{
-															FileDelete,%RJSYSTEMS%\%curjf%\%nwjak%\%ibjn2%
-														}
-											}	
+												FileDelete,%RJSYSTEMS%\%curjf%\%ibjn2%
+											}
 									}
-								IF (nwjakxtr = "")
+								ifnotexist,%RJSYSTEMS%\%curjf%\%nwjak%
 									{
-										ifnotexist,%RJSYSTEMS%\%curjf%\%nwjak%
-											{
-												filecreatedir,%RJSYSTEMS%\%curjf%\%nwjak%
-											}
-										FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,%RJSYSTEMS%\%curjf%\%nwjak%
-										If (errorlevel > 0)
-											{
-												FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,tmp\%curjf%\%ibjn2%,1
-											}
+										filecreatedir,%RJSYSTEMS%\%curjf%\%nwjak%
 									}
+								FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,%RJSYSTEMS%\%curjf%\%nwjak%
+								If (errorlevel > 0)
+									{
+										FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,tmp\%curjf%\%ibjn2%,1
+									}
+								if (RJEXTRARC = 2)
+									{
+										RunWait, %comspec% /c "7za.exe e -y "%RJSYSTEMS%\%curjf%\%nwjak%\%ibjn2%" -O"%RJSYSTEMS%\%curjf%\%nwjak%" ",,hide
+											if (RJARCLOC = 0)
+												{
+													FileMove,%RJSYSTEMS%\%curjf%\%nwjak%\%ibjn2%,tmp\%curjf%\%ibjn2%,1
+												}
+											if (RJARCLOC = 2)
+												{
+													FileDelete,%RJSYSTEMS%\%curjf%\%nwjak%\%ibjn2%
+												}
+									}	
+							}
+						IF (nwjakxtr = "")
+							{
+								ifnotexist,%RJSYSTEMS%\%curjf%\%nwjak%
+									{
+										filecreatedir,%RJSYSTEMS%\%curjf%\%nwjak%
+									}
+								FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,%RJSYSTEMS%\%curjf%\%nwjak%
+								If (errorlevel > 0)
+									{
+										FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,tmp\%curjf%\%ibjn2%,1
+									}
+							}
 																
 					}
 			}
@@ -33441,33 +33916,7 @@ Loop, rj\*.jak
 										FileSetAttrib,+H,%RJSYSTEMS%\%curjf%\%nwinclfl%\%subda1%,2
 									}
 							}
-						/*
-						if (RJEMUCFG <> 0)
-							{
-								jsinvf= % %SHRTNM%CFGF
-								jsinvr= % %SHRTNM%CFGR
-								jsicpl:= jsinvf . jsinvr
-								Loop, Parse, jsinvf,|
-									{
-										if (A_LoopField = "")
-											{
-												continue
-											}
-										fileCopy, rj\sysCfgs\%curjf%\%A_LoopField%,%RJSYSTEMS%\%curjf%\%nwinclfl%,%RJEMUCFGOV%
-									}
-								Loop, Parse, jsinvr,|
-									{
-										if (A_LoopField = "")
-											{
-												continue
-											}
-										FileRead, romrpl,rj\sysCfgs\%curjf%\%A_LoopField%
-										stringreplace, romrpl,romrpl,[ROMPATH],%RJSYSTEMS%\%curjf%\%nwinclfl%,All
-										stringreplace, romrpl,romrpl,[ROM],%nwinclfl%,All
-										FileAppend,%romrpl%,%RJSYSTEMS%\%curjf%\%nwinclfl%
-									}
-							}
-						*/	
+							
 						If (RJKEYMON = 1)
 							{
 								if (RJMP1LC = 1)
@@ -33517,8 +33966,8 @@ Loop, rj\*.jak
 							}
 					}			
 			}
+		
 		gosub, EMUCFGCOPY
-		;;Loop, Read, rj\%curjf%_inclfl.tdb
 		Loop, Parse, inclfl,`n`r
 			{
 				stringsplit,inclfspl,A_LoopField,>	
@@ -33589,78 +34038,45 @@ Loop, rj\*.jak
 						FileCopy, rj\sysCfgs\%curjf%\lnch.cmd,%RJSYSTEMS%\%curjf%\%curomfd%\%curomfd%.bat,%RJLNCHCFGOW%
 						FileMove, rj\sysCfgs\%curjf%\lnch.orig,rj\sysCfgs\%curjf%\lnch.cmd,1
 					}
+					;;
 				if (RJEMUCFG <> 0)
 					{
-					/*   ;;;;;wut;;;;
-						jsinvf= % %SHRTNM%CFGF
-						jsinvr= % %SHRTNM%CFGR
-						jsinvk= % %SHRTNM%NFP
-						jsicpl:= jsinvf . jsinvr
-						Loop, Parse, jsinvf,|
-							{
-								if (A_LoopField = "")
-									{
-										continue
-									}
-								fileCopy, rj\sysCfgs\%curjf%\%A_LoopField%,%RJSYSTEMS%\%curjf%\%curomfd%
-							}		
-						Loop, Parse, jsinvr,|
-							{
-								if (A_LoopField = "")
-									{
-										continue
-									}
-								msgbox,,,jsinvf=%jsinvf%`njsinvr=%jsinvr%`njsinvk=%jsinvk%`ncurjf=%curjf%`ncuromfd=%curomfd%
-								FileRead, romrpl,rj\sysCfgs\%curjf%\%A_LoopField%
-								stringreplace, romrpl,romrpl,[ROMPATH],%RJSYSTEMS%\%curjf%\%curomfd%,All
-								cinjr= %curomfd%
-								Loop, Parse, CURTDB,`n`r
-									{
-										stringsplit,injrom,A_LoopField,|,:
-										if (injrom1 = curomfd)
-											{
-												splitpath,injrom2,,,,cinjr
-												break
-											}
-									}
-								stringreplace, romrpl,romrpl,[ROM],%cinjr%,All
-								FileAppend,%romrpl%,%RJSYSTEMS%\%curjf%\%A_LoopField%
-							}
-
-					}
-					*/
 						jsinvr= % %SHRTNM%CFGR
 						;;cinjr= %curomfd%
-						cinjr= %inclfsp2%
-						Loop, Parse, jsinvr,|
+						cinjr= %inclfspl2%						
+						CFGCOMPLETE=
+						if (PEREMUCFG = 1)
 							{
-								if (A_LoopField = "")
-									{
-										continue
-									}
-								;;msgbox,,,loop=%A_LoopField%`njsinvr=%jsinvr%`njsinvk=%jsinvk%`ncurjf=%curjf%`ncuromfd=%curomfd%
-								FileRead,romrpl%A_Index%,rj\sysCfgs\%curjf%\%A_LoopField%
-								ini_%A_Index%= %A_LoopField%
+								gosub, PEREMUINJ
 							}
-							Loop
-								{
-									curininx= % ini_%A_Index% 
-									curomcpl= % romrpl%A_Index%
-									if (curomcpl = "")
-										{
-											break
-										}
-									stringreplace,curomcpl,curomcpl,[EMUPATH],%emulocd%,All
-									stringreplace,curomcpl,curomcpl,[ROMPATH],%RJSYSTEMS%\%curjf%\%curomfd%,All
-									stringreplace,curomcpl,curomcpl,[ROMF],%cinjr%,All
-									;;msgbox,,,pcfg=%PEREMUCFG%`nemu=%emuname%`nfile=%curininx%
-									if (PEREMUCFG = 1)
-										{
-											gosub, PEREMUINJ
-										}
-									FileAppend,%curomcpl%,%RJSYSTEMS%\%curjf%\%curomfd%\%curininx%
-								}
-
+						if (CFGCOMPLETE <> 1)
+							{
+								Loop, Parse, jsinvr,|
+									{
+										if (A_LoopField = "")
+											{
+												continue
+											}
+										FileRead,romrpl%A_Index%,rj\sysCfgs\%curjf%\%A_LoopField%
+										ini_%A_Index%= %A_LoopField%
+									}
+								Loop
+									{
+										curininx= % (ini_%A_Index%)
+										curomcpl= % (romrpl%A_Index%)
+										if (curomcpl = "")
+											{
+												break
+											}
+										stringreplace,curomcpl,curomcpl,[EMUPATH],%emulocd%,All
+										stringreplace,curomcpl,curomcpl,[ROMPATH],%RJSYSTEMS%\%curjf%\%curomfd%,All
+										if (inclfspl1 <> inclfspl2)
+											{
+												stringreplace,curomcpl,curomcpl,[ROMF],%cinjr%,All										
+											}
+										FileAppend,%curomcpl%,%RJSYSTEMS%\%curjf%\%curomfd%\%curininx%
+									}
+							}
 					}
 				If (RJKEYMON = 1)
 					{
@@ -33711,6 +34127,7 @@ Loop, rj\*.jak
 					}		
 			}	
 	}
+SB_SetText("Jacketizing Complete")
 guicontrol,,RJTXTAB, %RJQNUM% Systems
 guicontrol,,RJPROCQ, CONFIRM %RJQNUM%	
 return
@@ -34752,6 +35169,13 @@ gui,submit,nohide
 
 return
 
+
+RJZJP:
+gui,submit,nohide
+guicontrolget,RJZJP,,RJZJP
+iniwrite, "%RJZJP%",rj\cur.ini,%RJSYSDD%,RJZIPPEEK
+return
+
 RJCHKJ:
 gui,submit,nohide
 
@@ -35119,6 +35543,7 @@ guicontrol,hide,RRJEARGSCBX
 guicontrol,hide,RJEMUXTCBX
 guicontrol,hide,RJRAD1A
 guicontrol,hide,RJRAD1B
+guicontrol,hide,RJZJP
 guicontrol,hide,RJCHKU
 guicontrol,hide,RJCHKT
 guicontrol,hide,RJCHKS
@@ -35205,6 +35630,7 @@ guicontrol,show,RRJEARGSCBX
 guicontrol,show,RJEMUXTCBX
 guicontrol,show,RJRAD1A
 guicontrol,show,RJRAD1B
+guicontrol,show,RJZJP
 guicontrol,show,RJCHKU
 guicontrol,show,RJCHKT
 guicontrol,show,RJCHKS
@@ -35244,6 +35670,8 @@ if (quryad = 1)
 		ncfnd= 3
 	}
 gui,submit,nohide
+sleep, 1000
+guicontrol,disable,RJADDQ
 EMUSN= 
 guicontrol,,RJLSTYP,|Jackets+ROMs||Jackets ONLY|ROMs ONLY|All files
 guicontrolget,RJSYSDD,,RJSYSDD
@@ -35254,35 +35682,46 @@ if (RJSYSDD = "Systems")
 			{
 				guicontrol, ,RJSYSDD,|%RJSYSDN%||%systmfldrs%
 				RJSYSDD= %RJSYSDN%
+				guicontrol,enable,RJADDQ
 				return
 			}
 		FileDelete, rj\%RJSYSDD%.tdb
 		Gui, ListView, RJLSTV
 		LV_Delete()
+		guicontrol,enable,RJADDQ
 		return
 	}
+QUEUEOPTIONSRESET:
 guicontrol,,RJQLSTDD,|QUEUE||%SYSTMQ%
-IfNotExist, rj\%RJSYSDD%.ini
+IfNotExist, rj\%RJSYSDN%.ini
 	{
 				if (RJSYSDD <> RJSYSDN)
 					{
 								if (RJSYSDN <> "Systems")
 									{
-										MsgBox,% ncfnd,No config found,This configuration has not been saved.`nWould you like to save now?
-										IfMsgBox,Yes
+										fileread,a,rj\dflt.ini
+										fileread,v,rj\cur.ini
+										if (a <> v)
 											{
-												FileCopy,rj\cur.ini,rj\%RJSYSDD%.ini,1
-											}
-										IfMsgBox,Cancel
-											{
-												gui,submit, nohide
-												guicontrol,,RJSYSDD,|%RJSYSDD%||Systems|%systmfldrs%
-												return
-											}
-										IfMsgBox,No  
-											{
-												gui,submit, nohide
-												guicontrol,,RJSYSDD,|%RJSYSDD%||Systems|%systmfldrs%
+												MsgBox,3,No %RJSYSDN% config found,This configuration has not been saved.`nWould you like to save now?
+												IfMsgBox,Yes
+													{
+														FileCopy,rj\cur.ini,rj\%RJSYSDN%.ini,1
+														guicontrol,,RJSYSDD,|%RJSYSDD%||Systems|%systmfldrs%
+													}
+												IfMsgBox,Cancel
+													{
+														gui,submit, nohide
+														guicontrol,,RJSYSDD,|%RJSYSDN%||Systems|%systmfldrs%
+														return
+													}
+												IfMsgBox,No  
+													{
+														gui,submit, nohide
+														filedelete,rj\dflt.ini
+														filedelete,rj\cur.ini
+														guicontrol,,RJSYSDD,|%RJSYSDD%||Systems|%systmfldrs%
+													}
 											}
 									}
 					}
@@ -35310,7 +35749,7 @@ gosub, OPENJACKOPT
 EXSTCFG= rj\dflt.ini
 ifexist, rj\%RJSYSDD%.ini
 	{
-		guicontrol,,RJSYSRADA,1
+		guicontrol,,RJSYSRADC,1
 		EXSTCFG= rj\%RJSYSDD%.ini
 	}
 
@@ -35397,50 +35836,28 @@ if (syspref <> "")
 							{
 								sysqv6= =%sysqv6%
 							}
-						if (sysqv1 = "RJEMUOPTS")
+						if (sysqv2 = "RJEMUOPTS")
 								{
 									if (QARP1 = RJEMURMPG)
-										{
-											rjemuspl=
-											Loop, Parse, sysqv2,|
-												{
-													if (A_Index = 1)
-														{
-															rjemusprio= %A_LoopField%
-															continue
-														}
-													rjemuspl.= A_LoopField . "|"
-												}
-												if (rjemuspl <> rjemusprio)
-													{
-														rjemuspl.= rjemusprio . "|" 
-													}
-											stringreplace,rjemuspl,rjemuspl,%A_Space%,<,All	
-											Iniwrite, %rjemuspl%,rj\dflt.ini,%RJSYSDD%,RJEMUOPTS
+										{											
+											ejespl1=
+											stringreplace,sysqv2,sysqv2,%A_Space%,<,All	
+											stringsplit,ejespl,sysqv2,|
+											Iniwrite, %ejespl1%,rj\dflt.ini,%RJSYSDD%,RJEMUOPTS
+											guicontrol,,RJEOPTSCBX,|%ejespl1%||%sysqv2%|%INJOPT%
 											;;Iniwrite, %sysqv2%%sysqv3%%sysqv4%%sysqv5%%sysqv6%,rj\dflt.ini,%RJSYSDD%,RJEMUOPTS
 											continue
 										}
 								}
-						if (sysqv2 = "RJEMUARGS")
+						if (sysqv2= "RJEMUARGS")
 								{
 									if (QARP1 = RJEMUPRECFG)
 										{
-											rjargspl=
-											Loop, Parse, sysqv2,|
-												{	
-													if (A_Index = 1)
-														{
-															rjemusprio= %A_LoopField%
-															continue
-														}
-													rjargspl.= A_LoopField . "|"
-												}
-											if (rjemuspl <> rjemusprio)
-												{
-													rjemuspl.= rjemusprio . "|" 
-												}	
-											stringreplace,rjargspl,rjargspl,%A_Space%,<,All	
-											Iniwrite, %rjargspl%,rj\dflt.ini,%RJSYSDD%,RJEMUARGS
+											ejespl1=
+											stringreplace,sysqv2,sysqv2,%A_Space%,<,All	
+											stringsplit,ejespl,sysqv2,|
+											Iniwrite, %ejespl1%,rj\dflt.ini,%RJSYSDD%,RJEMUARGS
+											guicontrol,,RJEARGSCBX,|%ejespl1%||%sysqv2%|%INJARG%
 											;;Iniwrite, %sysqv2%%sysqv3%%sysqv4%%sysqv5%%sysqv6%,rj\dflt.ini,%RJSYSDD%,RJEMUARGS
 											continue
 										}
@@ -35483,7 +35900,7 @@ if (syspref <> "")
 RJEMUPRESET= 
 Iniread,RJEMUPRESET,%EXSTCFG%,%RJSYSDD%,RJEMUPRESET
 
-if(SWTCHINEMU <> "")
+if (SWTCHINEMU <> "")
 	{
 		RJEMUPRESET= %RJEMUPRECFG%
 	}
@@ -35534,7 +35951,7 @@ if (RJSYSDD = "Systems")
 		guicontrol,disable,RJADDQ
 		return
 	}
-
+guicontrol,disable,RJADDQ
 SB_SetText("Populating " RJSYSDD " ")
 TOTFN= 
 TOTRN= 
@@ -35612,6 +36029,7 @@ IfExist,rj\%RJSYSDD%_q.tdb
 				FileRead,RJSYSDD_TDB,rj\%RJSYSDD%_q.tdb
 				SB_SetText(" Populated " RJSYSDD " . ")
 			}
+		guicontrol,enable,RJADDQ
 		return
 	}
 
@@ -35658,7 +36076,6 @@ Loop, SYSTMQ,|
 
 LSTCTRLS= enable
 gosub, LSTCTRLS	
-guicontrol,enable,RJADDQ
 return
 
 LSTCTRLS:
@@ -35710,26 +36127,31 @@ FileRead, RJSYSDD_TDB,rj\%RJSYSDD%.tdb
 return			
 
 RJFLTROMS:
-FileDelete, rj\%RJSYSDD%.tdb
+FileDelete,rj\%RJSYSDD%.tdb
 RJALLFILES= 
+SB_SetText("...Iterating " RJSYSDD " database...")
 Loop, %RJSYSTEMS%\%RJSYSDD%\*, 2
+	{
+		if A_LoopFileAttrib contains H
+			continue
+		TOTFN+=1
+		FileAppend,:%A_LoopFileName%|1`n,rj\%RJSYSDD%.tdb
+		if (LPLST = "")
 			{
-				if A_LoopFileAttrib contains H
-					continue
-				TOTFN+=1
-				FileAppend,:%A_LoopFileName%|1`n,rj\%RJSYSDD%.tdb
-				if (LPLST = "")
-					{
-						FileDelete,rj\%RJSYSDD%.tdb
-						break
-					}
-			}		
+				FileDelete,rj\%RJSYSDD%.tdb
+				break
+			}
+		SB_SetText("..... Iterating " RJSYSDD " database .....")	
+	}		
+
+
 Loop, %RJSYSTEMS%\%RJSYSDD%\*.*
 	{
 		if A_LoopFileAttrib contains H
 			continue
 		ext= %A_LoopFileExt%
 		noapl= 
+		SB_SetText("...building...")
 		for k, v in ar
 			{
 				extm:= v
@@ -35747,6 +36169,7 @@ Loop, %RJSYSTEMS%\%RJSYSDD%\*.*
 						FileDelete,rj\%RJSYSDD%.tdb
 						break
 					}
+				SB_SetText(".. building ..")	
 			}
 	}
 FileRead, RJSYSDD_TDB,rj\%RJSYSDD%.tdb		
@@ -35771,32 +36194,43 @@ lkupd=
 lkupe= 
 lkupf= 
 iniread, lkupa, emuCfgPresets.set, %RJEMUTG%, RJEMUOPTS
+ejespl1=
+if (lkupa <> "ERROR")
+	{
+		stringsplit,ejespl,lkupa,|
+		guicontrol,,RJEOPTSCBX,|%ejespl1%||%lkupa%|%INJOPT%
+		guicontrolget,RJEOPTSCBX,,RJEOPTSCBX
+		iniWrite, %ejespl1%,rj\cur.ini,%RJSYSDD%,RJEMUOPTS
+	}
 if (lkupa = "ERROR")
 	{
 		lkupa= 
 		guicontrol,,RJEOPTSCBX,||%INJOPT%
 		inidelete,RJEMUOPTS,rj\cur.ini,%RJSYSDD%
 	}
-
-if (lkupa <> "ERROR")
-	{
-		guicontrol,,RJEOPTSCBX,|%lkupa%|%INJOPT%
-		guicontrolget,RJEOPTSCBX,,RJEOPTSCBX
-		iniWrite, %RJEOPTSCBX%,rj\cur.ini,%RJSYSDD%,RJEMUOPTS
-	}
 	
+ejespl1=
 iniread, lkupax, emuCfgPresets.set, %RJSYSDD%,%RJEMUTG%?RJEMUOPTS
 if (lkupax <> "ERROR")
 	{
 		if (lkupa <> "")
 			{
-				lkupax= %lkupa%|%lkupax%
+				lkupax:= lkupa . "|" . lkupax
 			}
-		guicontrol,,RJEOPTSCBX,|%lkupax%|%INJOPT%
+		stringsplit,ejespl,lkupax,|
+		guicontrol,,RJEOPTSCBX,|%ejespl1%||%lkupax%|%INJOPT%
 		guicontrolget,RJEOPTSCBX,,RJEOPTSCBX
-		iniWrite, %lkupax%,rj\cur.ini,%RJSYSDD%,RJEMUOPTS
+		iniWrite, %RJEOPTSCBX%,rj\cur.ini,%RJSYSDD%,RJEMUOPTS
 	}
 iniread, lkupb, emuCfgPresets.set, %RJEMUTG%, RJEMUARGS
+ejespl1=
+if (lkupb <> "ERROR")
+	{	
+		stringsplit,ejespl,lkupa,|
+		guicontrol,,RRJEARGSCBX,|%ejespl1%||%lkupb%|%INJARG%
+		guicontrolget,RRJEARGSCBX,,RRJEARGSCBX
+		iniWrite, %RRJEARGSCBX%,rj\cur.ini,%RJSYSDD%,RJEMUARGS
+	}
 if (lkupb = "ERROR")
 	{
 		lkupb= 
@@ -35804,16 +36238,16 @@ if (lkupb = "ERROR")
 		inidelete,RJEMUARGS,rj\cur.ini,%RJSYSDD%
 	}
 	
-if (lkupb <> "ERROR")
-	{	
-		guicontrol,,RRJEARGSCBX,|%lkupb%||%INJARG%
-		guicontrolget,RRJEARGSCBX,,RRJEARGSCBX
-		iniWrite, %RRJEARGSCBX%,rj\cur.ini,%RJSYSDD%,RJEMUARGS
-	}
 iniread, lkupbx, emuCfgPresets.set, %RJSYSDD%, %RJEMUTG%?RJEMUARGS
+ejespl1=
 if (lkupbx <> "ERROR")
 	{
-		guicontrol,,RRJEARGSCBX,|%lkupbx%|%INJARG%
+		if (lkupb <> "")
+			{
+				lkupbx:= lkupbx . "|" . lkupb
+			}
+		stringsplit,ejespl,lkupbx,|			
+		guicontrol,,RRJEARGSCBX,|%ejespl1%||%lkupbx%|%INJARG%
 		guicontrolget,RRJEARGSCBX,,RRJEARGSCBX
 		iniWrite, %RRJEARGSCBX%,rj\cur.ini,%RJSYSDD%,%RJEMUTG%?RJEMUARGS
 	}
@@ -36153,11 +36587,15 @@ gui,submit,nohide
 return
 
 RJSYSRAD:
+
 gui,submit,nohide
 guicontrolget,RJSYSRADA,,RJSYSRADA
+
 if (RJSYSRADA = 1)
 	{
-		EXSTCFG= rj\%RJSYSDD%.ini
+		FileDelete,rj\%RJSYSDD%.ini
+		gosub, QUEUEOPTIONSRESET
+		EXSTCFG= rj\dflt.ini
 	}
 if (RJSYSRADB = 1)
 	{
@@ -36166,6 +36604,10 @@ if (RJSYSRADB = 1)
 if (RJSYSRADC = 1)
 	{
 		EXSTCFG= rj\cur.ini
+		ifexist,rj\%RJSYSDD%.ini
+			{
+				EXSTCFG= rj\%RJSYSDD%.ini
+			}
 	}
 gosub, LOADRJINI
 return
@@ -36488,34 +36930,42 @@ return
 
 RJSYSCFG:
 gui,submit,nohide
-guicontrol,,RJSYSRADB,1
 if (rjaval2 = 0)
 	{
-		guicontrol,,RJSYSRADA,1
+		guicontrol,,RJSYSRADC,1
+		return
 	}
 if (rjaval2 = 1)
 	{
 		guicontrol,,RJSYSRADB,1
+		return
 	}
 if (rjaval2 = 2)
 	{
 		guicontrol,,RJSYSRADC,1
+		return
 	}
+guicontrol,,RJSYSRADB,1
 return
 
 RJEMUOPTS:
 gui,submit,nohide
-guicontrol,,RJEOPTSCBX,|%rjaval2%|%INJOPT%
+guicontrol,,RJEOPTSCBX,|%rjaval2%||%INJOPT%
 return
 
 RJEMUARGS:
-guicontrol,,RRJEARGSCBX,|%rjaval2%|%INJARG%
+guicontrol,,RRJEARGSCBX,|%rjaval2%||%INJARG%
 gui,submit,nohide
+return
+
+RJZIPPEEK:
+gui,submit,nohide
+guicontrol,,RJZJP,%rjaval2%
 return
 
 RJQUOTES:
 gui,submit,nohide
-guicontrol,,RJCHKU,%rjaval2%
+guicontrol,,RJCHKU,%rjaval2%`
 return
 
 RJPATH:
@@ -51193,133 +51643,166 @@ return
 ;{;;;;;;;;;;;;;;;;;;;;;;    LAUNCHING RETROARCH   ;;;;;;;;;;;;;;;;;;;;;;;
 
 LnchCore:
+guicontrol,enable,LCORE
 indexCONSOLE= 
 BCSTO= 
 BCSTA= 
 USRCORE= 1
 CoreAuto:
+sleep, 300
 guicontrolget,tmpcc,,LCORE
 if (tmpcc = "")
 	{
 		guicontrol,disable,LNCHBUT
 		return
 	}
-if (GENCFGOVRD = "")
+if (tmpcc = "")	
 	{
-;;		if (tmpcc = coreselv)
-		if (tmpcc = LCORE)
+		;;guicontrol,,LCORE,||%runlist%
+		return
+	}
+ifinstring,systoemu,tmpcc|
+	{
+		if (GENCFGOVRD = "")
 			{
-				SB_SetText(" " LCORE " GUI Loaded")
-				return
-			}
-	}
-ifinstring,tmpcc,.dll
-	{
-		ifinstring,LCORE,.dll
-			{
-				return
-			}
-	}
-guicontrolget,tmpsys,,RUNSYSDDL
-
-MEDNFSYS= 
-/*
-	
-
-if (dlx2 = "dll")
-	{
-		skptog= 1
-	}
-*/
-Gui, Submit, NoHide
-
-moptog= hide
-ASVRM= 1
-dlx2= 
-SWAPLOC= %RJSYSTEMS%
-SWAPNAM= :=:System List:=:
-SWAPPOP= %systmfldrs%
-guicontrolget,LCORE,,LCORE
-splitpath, LCORE , , , dlx, , 
-coreselv= %LCORE%
-SB_SetText(" " LCORE " ")
-guicontrol,hide,JCORE
-guicontrol,enable,CNCTBUT
-guicontrol,enable,HostButton
-guicontrol,enable,OPNCORE
-guicontrolget,RUNFLRAD,,RUNFLRAD
-
-if (uuniv = "X")
-	{
-		srchtog= hide
-		gosub, TOGGLESEARCHBOX
-		guicontrol,move,FNDGUI, x720 y516 w42 h19
-		guicontrol,,FNDGUI,find
-	}
-
-if (dlx <> "dll")
-	{
-			runningcore= emulator
-			emutog= hide
-			raoptgl= hide
-			moptog= show
-			gosub, OPNCORE
-			JOYCORE= %LCORE%
-			guicontrolget,RUNFLRAD,,RUNFLRAD
-			APLN= 1
-			if (SRCHFLRAD = 1)
-				{
-					guicontrol,,SRCHLOCDDL,|%SWAPNAM%||%SWAPPOP%
-				}
-		rdfiw=		
-		gosub, MEDCCLRE
-		guicontrol,,JOYCORE,|%saixn%||%runlist%
-		gosub, JOYEMUCORE
-		;;guicontrol,show,JCORE
-		;;guicontrol,,JCORE,|%LCORE%||%runlist%
-	}
-if (dlx = "dll")
-		{
-			runningcore= core
-			emutog= hide	
-			moptog= hide
-			raoptgl= show
-			gosub, TOGSKELONLY
-			gosub, TOGRAOPTS
-			gosub, EMUUNPOP
-			guicontrol,show,SWHOST
-			guicontrol,show,LCORE
-			guicontrolget,RUNFLRAD,,RUNFLRAD
-			JOYCORE= Global
-			if (PGM = 1)
-				{
-					JOYCORE= %LCORE%
-				}
-			guicontrol,,JOYCORE,|%JOYCORE%||%runlist%
-			gosub, JoyCore
-			/*
-			SWAPLOC= %coreassetsDirectory%
-			SWAPNAM= Downloads
-			SWAPPOP= %dwnlfldrs%
-			*/
-			APLN= 
-		}
-		
-if (RUNFLRAD = 1)
-	{
-		if (USRCORE = 1)
-			{
-				guicontrol,,RUNSYSDDL,|:=:System List:=:||%systmfldrs%
-				ifexist, %SWAPLOC%\%tmpsys%
+		;;		if (tmpcc = coreselv)
+				if (tmpcc = LCORE)
 					{
-						guicontrol,,RUNSYSDDL,|:=:System List:=:|%tmpsys%||%systmfldrs%
+						SB_SetText(" " LCORE " GUI Loaded")
+						return
 					}
 			}
+		ifinstring,tmpcc,.dll
+			{
+				ifinstring,LCORE,.dll
+					{
+						return
+					}
+			}
+		guicontrolget,tmpsys,,RUNSYSDDL
+
+		MEDNFSYS= 
+		/*
+			
+
+		if (dlx2 = "dll")
+			{
+				skptog= 1
+			}
+		*/
+		Gui, Submit, NoHide
+
+		moptog= hide
+		ASVRM= 1
+		dlx2= 
+		SWAPLOC= %RJSYSTEMS%
+		SWAPNAM= :=:System List:=:
+		SWAPPOP= %systmfldrs%
+		guicontrolget,LCORE,,LCORE
+		splitpath, LCORE , , , dlx, , 
+		coreselv= %LCORE%
+		SB_SetText(" " LCORE " ")
+		guicontrol,hide,JCORE
+		guicontrol,enable,CNCTBUT
+		guicontrol,enable,HostButton
+		guicontrol,enable,OPNCORE
+		guicontrolget,RUNFLRAD,,RUNFLRAD
+
+		if (uuniv = "X")
+			{
+				srchtog= hide
+				gosub, TOGGLESEARCHBOX
+				guicontrol,move,FNDGUI, x720 y516 w42 h19
+				guicontrol,,FNDGUI,find
+			}
+		LnchListAll:
+		if (dlx <> "dll")
+			{
+					runningcore= emulator
+					emutog= hide
+					raoptgl= hide
+					moptog= show
+					gosub, OPNCORE
+					JOYCORE= %LCORE%
+					guicontrolget,RUNFLRAD,,RUNFLRAD
+					APLN= 1
+					if (SRCHFLRAD = 1)
+						{
+							guicontrol,,SRCHLOCDDL,|%SWAPNAM%||%SWAPPOP%
+						}
+				rdfiw=
+				gosub, MEDCCLRE
+				guicontrol,,JOYCORE,|%saixn%||%runlist%
+				gosub, JOYEMUCORE
+				;;guicontrol,show,JCORE
+				;;guicontrol,,JCORE,|%LCORE%||%runlist%
+			}
+		if (dlx = "dll")
+				{
+					runningcore= core
+					emutog= hide	
+					moptog= hide
+					raoptgl= show
+					gosub, TOGSKELONLY
+					gosub, TOGRAOPTS
+					gosub, EMUUNPOP
+					guicontrol,show,SWHOST
+					guicontrol,show,LCORE
+					guicontrolget,RUNFLRAD,,RUNFLRAD
+					JOYCORE= Global
+					if (PGM = 1)
+						{
+							JOYCORE= %LCORE%
+						}
+					guicontrol,,JOYCORE,|%JOYCORE%||%runlist%
+					gosub, JoyCore
+					/*
+					SWAPLOC= %coreassetsDirectory%
+					SWAPNAM= Downloads
+					SWAPPOP= %dwnlfldrs%
+					*/
+					APLN= 
+				}
+				
+		if (RUNFLRAD = 1)
+			{
+				if (USRCORE = 1)
+					{
+						guicontrol,,RUNSYSDDL,|:=:System List:=:||%systmfldrs%
+						ifexist, %SWAPLOC%\%tmpsys%
+							{
+								guicontrol,,RUNSYSDDL,|:=:System List:=:|%tmpsys%||%systmfldrs%
+							}
+					}
+			}
+			
+		USRCORE= 		
+		iniwrite, "%LCORE%", Settings.ini,GLOBAL,last_core
+		gosub, LNCHCHK
 	}
-	
-USRCORE= 		
-iniwrite, "%LCORE%", Settings.ini,GLOBAL,last_core
-gosub, LNCHCHK
+restru= 
+if (tmpcc <> bltm) 
+	{
+		guicontrol,enable,LCORE	
+		return
+	}
+ifinstring,systoemu,tmpcc
+	{
+		guicontrol,disable,LCORE
+		guicontrol,,LCORE,|searching
+		Loop,Parse,systoemu,`n
+			{
+				avr= 
+				ifinstring,A_LoopField,tmpcc
+					{
+						avr.= A_LoopField
+						guicontrol,,LCORE,|%avr%
+						;;guicontrol,select,LCORE
+					}
+			}
+		guicontrol,enable,LCORE	
+	}
+bltm= %tmpcc%	
 return
 
 AutoLaunch:
@@ -52627,7 +53110,7 @@ return
 
 resetEmuList:
 IniRead,emultl,apps.ini,EMULATORS
-		emulist= 
+		emulist= MAME - System|MAME - Arcade|
 		Loop, Parse, emultl,`n
 			{
 				emulti1= 

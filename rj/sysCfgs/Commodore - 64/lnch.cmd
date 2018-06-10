@@ -23,7 +23,7 @@ if "%JYTP%"=="." set JYTP=1
 if "%JYTP%"=="" set JYTP=1
 if "%FETYPE%"=="" set FETYPE=
 if "%FETYPE%"=="." set FETYPE=
-SET JYX=[JOYENB]
+SET JYX=REM 
 if "%JYZ%" NEQ "" set JYX=%JYX% && if "%JYTYP%" NEQ "." set JYX=
 SET DMX=REM 
 if "%DMT%"=="1" set DMX=
@@ -96,7 +96,7 @@ PLYRN2=""
 %XPALT%%JYX%%XPSTRT% "%ANTIMIC%" --hidden --profile-controller 1 --profile "%GAMDIR%\%PLYRN1%.amgp" %AMCP2% %AMCV%
 %XPALT%%JYX%popd
 
-for /f "delims=" %%a in ('dir /B /A-D "*.bin" "*.a78" "*.rom" "*.zip"') do (
+for /f "delims=" %%a in ('dir /B /A-D "*.x64" "*.t64" "*.d64" "*.g64" "*.fdi" "*.p00" "*.prg" "*.tap" "*.wav" "*.80" "*.a0" "*.e0" "*.crt" "*.g41" "*.d77" "*.d88" "*.1dd" "*.dfi" "*.imd" "*.ipf" "*.mfi" "*.mfm" "*.td0" "*.cqm" "*.cqi" "*.dsk" "*.zip"') do (
 set ROMF=%%~a
 set ROM=%%~na
 set ROMX=%%~xa
@@ -109,8 +109,8 @@ exit /b
 [RUNVARS]
 CMDLINE=""
 CMDXTN="[CMDLINEGET]"
-RUNOPTS=" a7800p -cart | a7800 -cart "
-RUNARGS=" -rp "[ROMPATH]""
+RUNOPTS=" c64 -[RJRTYP] "
+RUNARGS=" -rp "[EMUPATH]\roms""
 ROMF="[ROMF]"
 ROM="[ROM]"
 ROMX="[ROMX]"
@@ -134,7 +134,7 @@ exit /b
 %CCMDB%
 %RLOC%pushd "%EMUL%"
 %DMX%"%DAMVAR%" -mount dt, 0, "[ROMINLP]"
-%LAUNCH% "%EMUL%\%EMUZ%.exe" a7800p -cart | a7800 -cart "%GAMDIR%\%ROMF%" -rp "%GAMDIR%"
+%LAUNCH% "%EMUL%\%EMUZ%.exe" c64 -[RJRTYP] "%GAMDIR%\%ROMF%" -rp "%EMUL%\roms"
 %CCMDY%
 %RLOC%popd
 %XFG%copy /Y "%EMUL%\mame.ini" "%GAMDIR%"

@@ -45,8 +45,8 @@ if "%JYTP%"=="1" set XPALT=
 
 pushd "%~dp0"
 
-for %%A in ("C:\Emulators\BlueMSX") do SET EMUL=%%~A&if not exist "%%~A" echo.NO EMULATOR>RJerror.log&EXIT /b
-for %%A in ("C:\Emulators\BlueMSX\BlueMSX.exe") do SET EMUZ=%%~nA&if not exist "%%~A" echo.NO EMULATOR EXE>RJerror.log&EXIT /b
+for %%A in ("C:\Emulators\Mame") do SET EMUL=%%~A&if not exist "%%~A" echo.NO EMULATOR>RJerror.log&EXIT /b
+for %%A in ("C:\Emulators\Mame\Mame64.exe") do SET EMUZ=%%~nA&if not exist "%%~A" echo.NO EMULATOR EXE>RJerror.log&EXIT /b
 for %%A in ("%~dpn0") do SET GAMNAM=%%~A
 for %%A in ("%EMUL:~0,2%") do SET EMUDIR=%%~A
 for %%A in ("%CD%") do SET GAMDIR=%%~A
@@ -70,8 +70,8 @@ If "%PLYRN2%"=="" SET PLYRN2=Player2
 goto :CPY
 
 [INIVARS]
-EMUL="C:\Emulators\BlueMSX"
-EMUZ="BlueMSX.exe"
+EMUL="C:\Emulators\Mame"
+EMUZ="Mame64.exe"
 GAMNAM="[GAMNAM]"
 ANTIMIC="C:\Emulators\Antimicro\antimicro.exe"
 XPADDER="C:\Emulators\Xpadder\XPadder.exe"
@@ -81,8 +81,8 @@ PLYRN2=""
 [INIVAREND]
 
 :CPY
-%XFG%copy /y "%EMUZ%*.ini" "%EMUL%"
-%XFG%copy /y "%EMUZ%*.config" "%EMUL%\Keyboard Config"
+%XFG%copy /Y "mame.ini" "%EMUL%\mame.ini"
+%XFG%copy /y "default.cfg" "%EMUL%\ctrlr"
 %JYX%%XPSTRT% "%XPADDER%" /m "%GAMDIR%\%PLYRN1%.xpadderprofile" "%GAMDIR%\%PLYRN2%.xpadderprofile"
 
 
@@ -109,8 +109,8 @@ exit /b
 [RUNVARS]
 CMDLINE=""
 CMDXTN="[CMDLINEGET]"
-RUNOPTS=" /fullscreen /machine "MSX2+" /rom "
-RUNARGS=""
+RUNOPTS=" canonv30f -cart1 | canonv30f -cass | canonv30f -flop1 "
+RUNARGS=" -rp "[ROMPATH]""
 ROMF="[ROMF]"
 ROM="[ROM]"
 ROMX="[ROMX]"
@@ -134,11 +134,11 @@ exit /b
 %CCMDB%
 %RLOC%pushd "%EMUL%"
 %DMX%"%DAMVAR%" -mount dt, 0, "[ROMINLP]"
-%LAUNCH% "%EMUL%\%EMUZ%.exe" /fullscreen /machine "MSX2+" /rom "%GAMDIR%\%ROMF%"
+%LAUNCH% "%EMUL%\%EMUZ%.exe" canonv30f -cart1 | canonv30f -cass | canonv30f -flop1 "%GAMDIR%\%ROMF%" -rp "%GAMDIR%"
 %CCMDY%
 %RLOC%popd
-%XFG%copy /y "%EMUL%\%EMUZ%.ini" "%GAMDIR%"
-%XFG%copy /y "%EMUL%\Keyboard Config\%EMUZ%*.config" "GAMDIR%"
+%XFG%copy /Y "%EMUL%\mame.ini" "%GAMDIR%"
+%XFG%copy /y "%EMUL%\ctrlr\default.cfg" "%GAMDIR%"
 %JYX%%XPSTRT% "%XPADDER%" /m "%FETYPE%.xpadderprofile" nolayout2
 
 %XPALT%%JYX%pushd "%AMDIR%"
