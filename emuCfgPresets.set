@@ -747,7 +747,7 @@ RJMULTIDISC=1
 RJROMXT=.d80,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.wav,.tap,.bin,.rom,.zip
 MAME?RJEMUOPTS=<pet8032 -[RJRTYP]<|<pet8032 -cart1<|<pet8032 -cass<|<pet8032 -flop1<
 
-[Commodore - VIC20]
+[Commodore - VIC-20]
 RJEMUPRESET=WinVICE
 RJMAMENM=vic20
 RJMULTIDISC=1

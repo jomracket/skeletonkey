@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-10 12:54 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-11 9:58 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-06-10 12:54 PM
-VERSION= 0.99.35.72
+RELEASE= 2018-06-11 9:58 AM
+VERSION= 0.99.35.73
 RASTABLE= 1.7.3
 #Include tf.ahk
 #Include lbex.ahk
@@ -10250,6 +10250,7 @@ return
 
 MAMELMREAD:
 SB_SetText(" Reading mame listed media ")
+
 loop,parse,mamelistedmedia,`n
 	{
 		if (A_index < 3)
@@ -10264,13 +10265,16 @@ loop,parse,mamelistedmedia,`n
 			{
 				continue
 			}
-		ifinstring,A_LoopField,(prin
+		af= %A_loopField%	
+		stringsplit,and,af,)
+		stringsplit,vir,and1,(
+		med= %vir2%
+		ccrm:= and2
+		Loop, 20	
 			{
-				continue
-			}
-		ifinstring,A_LoopField,(serl
-			{
-				continue
+				stringreplace,af,af,%A_Space%%A_Space%,%A_space%,All
+				stringreplace,af,af,`n,,All		
+				stringreplace,af,af,`r,,All		
 			}
 		if (A_Index = 10000)
 			{
@@ -10292,42 +10296,42 @@ loop,parse,mamelistedmedia,`n
 				emuprgpl+=15
 				guicontrol,,emuPRGA,%emuprgpl%
 			}
-		af= %A_loopField%	
-		stringsplit,and,af,)
-		ccrm:= and2
-		Loop, 20	
-			{
-				stringreplace,af,af,%A_Space%%A_Space%,%A_space%,All
-				stringreplace,af,af,`n,,All		
-				stringreplace,af,af,`r,,All		
-			}
 		if (af = "")
 			{
 				continue
 			}
+			
 		stringsplit,nni,af,%A_Space%
-		ifnotinstring,nni2,(
-			{
-				med= %nni3%
-				oldf= %nni1%
-				stringreplace,med,med,)
-				stringreplace,med,med,(
-			}
 		ifinstring,nni2,(
 			{
 				nni1= %oldf%	
-				stringreplace,med,nni2,(
-				stringreplace,med,med,)
-			}	
+			}
+		ifnotinstring,nni2,(
+			{
+				oldf= %nni1%
+			}
+		ifinstring,A_LoopField,(prin
+			{
+				continue
+			}
+		ifinstring,A_LoopField,(serl
+			{
+				continue
+			}
 		and2= %and2%
 		stringreplace,and2,and2,%A_space%%A_space%,%A_space%,,All
 		stringreplace,and2,and2,%A_space%,`,,All
 		stringreplace,and2,and2,`n,,All
 		stringreplace,and2,and2,`r,,All
-		MAME_%nni1%_SHRTN= %nni1%
-		MAME_%nni1%_%med%_extyp= %and2%
-		MAME_%nni1%_medtyps.= med . "|"
+		MAME_%oldf%_SHRTN= %nni1%
+		MAME_%oldf%_%med%_extyr.= ("mame_" . oldf . "_" . med . "_extyp" . "=" . and2 . "`n")
+		MAME_%oldf%_%med%_extyp= %and2%
+		aav= % MAME_%oldf%_%med%_extyr
+		viinn.= aav
+		MAME_%oldf%_medtyps.= med . "|"
 	}
+filedelete,C:\users\romjacket\desktop\n.txt
+fileappend,%viinn%,C:\users\romjacket\desktop\n.txt
 SB_SetText(" Mame listed media indexing complete ")
 mlmed= 1	
 return
@@ -10421,7 +10425,7 @@ if (MULTICHK = 2)
 		guicontrol,hide,DCORE
 		guicontrol,disable,ADDCORE
 		guicontrol,hide,ARDCORE
-		guicontrol,hide,OVLIST
+		guicontrol,hide,OVLIST00
 		guicontrol,show,SELAPP
 		guicontrol,hide,DAPP
 		guicontrol,hide,DELNICK
@@ -12903,6 +12907,7 @@ if (sysni = "")
 		SB_SetText("Cannot Save Empty Nickname")
 		return
 	}
+	
 gosub,AppOpt
 gosub,AppArg
 gosub,OmitQ
@@ -12921,6 +12926,7 @@ if (SALIST = "Systems")
 				return
 			}
 	}
+
 if (SALIST = "Emulators")
 	{
 		guicontrolget,ksvel,,EINSTLOC
@@ -12956,6 +12962,7 @@ Loop, Parse, semu,|
 		sysnitmp= 
 		sysninj= %sysni%|
 		iniread,sysnitmp,Assignments.ini,OVERRIDES,%ADDCORE%
+		msgbox,,,sysnitmp=%sysnitmp%`nksiv=%ksiv%
 		if sysnitmp is not digit
 			{
 				Loop, Parse, sysnitmp,|
@@ -21563,7 +21570,10 @@ if (RJZIPPEEK = 1)
 			}
 	}
 
-nwextfnd= % MAME_%RJMAMENM%_medtyps
+nwextfnd= % (MAME_%RJMAMENM%_medtyps)
+
+;;if (nwextfnd = "")
+;;  msgbox,,,MAME_RJMAMENM_medtyps`nrjmamenm=%RJMAMENM%`nmedp=%medp%`nxtnv=%xtnv%`nnwextfnd=%nwextfnd%`n---------------
 
 Loop, Parse, nwextfnd,|
 	{
@@ -21572,10 +21582,17 @@ Loop, Parse, nwextfnd,|
 				continue
 			}
 		MEDP= %A_LoopField%
+		stringreplace,MEDP,MEDP,%A_Space%,,All
+		stringreplace,MEDP,MEDP,`n,,All
+		stringreplace,MEDP,MEDP,`r,,All
 		nweinxtf= % (MAME_%RJMAMENM%_%MEDP%_extyp)
+		batchfile= %RJSYSTEMS%\%curjf%\%curomfd%\%curomfd%.bat
+		ifnotexist,%batchfile%
+		if (mweinxtf = "")
+		msgbox,,,no mame_%RJMAMENM%_%MEDP%_extyp`nloop=%A_LoopField%=MEDP`n
+			
 		ifinstring,nweinxtf,%xtnv%
 			{
-				batchfile= %RJSYSTEMS%\%curjf%\%curomfd%\%curomfd%.bat
 				if (RJLNCHCFGOW = 1)
 					{
 						FileRead, sysrep, %batchfile%
@@ -35639,7 +35656,6 @@ guicontrol,show,RJCHKR
 guicontrol,show,RJCHKJ
 return
 
-
 RJXTRARCDD:
 gui,submit,nohide
 guicontrolget, RJXTRARCDD,,RJXTRARCDD
@@ -35691,6 +35707,7 @@ if (RJSYSDD = "Systems")
 		guicontrol,enable,RJADDQ
 		return
 	}
+	
 QUEUEOPTIONSRESET:
 guicontrol,,RJQLSTDD,|QUEUE||%SYSTMQ%
 IfNotExist, rj\%RJSYSDN%.ini
@@ -35939,7 +35956,7 @@ if (emupref <> "")
 	}
 
 FileCopy, %EXSTCFG%, rj\cur.ini,1
-
+gosub, RJEMUPRECFG
 gosub, RJSYSRAD
 
 Gui,listview,RJLSTV
@@ -36141,17 +36158,16 @@ Loop, %RJSYSTEMS%\%RJSYSDD%\*, 2
 				FileDelete,rj\%RJSYSDD%.tdb
 				break
 			}
-		SB_SetText("..... Iterating " RJSYSDD " database .....")	
 	}		
 
 
+SB_SetText("...building...")
 Loop, %RJSYSTEMS%\%RJSYSDD%\*.*
 	{
 		if A_LoopFileAttrib contains H
 			continue
 		ext= %A_LoopFileExt%
 		noapl= 
-		SB_SetText("...building...")
 		for k, v in ar
 			{
 				extm:= v
@@ -36169,7 +36185,6 @@ Loop, %RJSYSTEMS%\%RJSYSDD%\*.*
 						FileDelete,rj\%RJSYSDD%.tdb
 						break
 					}
-				SB_SetText(".. building ..")	
 			}
 	}
 FileRead, RJSYSDD_TDB,rj\%RJSYSDD%.tdb		

@@ -109,8 +109,8 @@ exit /b
 [RUNVARS]
 CMDLINE=""
 CMDXTN="[CMDLINEGET]"
-RUNOPTS=" pv2000 -[RJROMTYPE] | pv2000 -cart | pv2000 -cass "
-RUNARGS=" -rp "[ROMPATH]""
+RUNOPTS=" pv2000 -[RJRTYP] "
+RUNARGS=""
 ROMF="[ROMF]"
 ROM="[ROM]"
 ROMX="[ROMX]"
@@ -134,7 +134,7 @@ exit /b
 %CCMDB%
 %RLOC%pushd "%EMUL%"
 %DMX%"%DAMVAR%" -mount dt, 0, "[ROMINLP]"
-%LAUNCH% "%EMUL%\%EMUZ%.exe" pv2000 -[RJROMTYPE] | pv2000 -cart | pv2000 -cass "%GAMDIR%\%ROMF%" -rp "%GAMDIR%"
+%LAUNCH% "%EMUL%\%EMUZ%.exe" pv2000 -[RJRTYP] "%GAMDIR%\%ROMF%"
 %CCMDY%
 %RLOC%popd
 %XFG%copy /Y "%EMUL%\mame.ini" "%GAMDIR%"

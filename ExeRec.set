@@ -911,7 +911,7 @@ FileInstall,sysico\Coleco - ColecoVision.ico,sysico\Coleco - ColecoVision.ico,1
 FileInstall,sysico\Commodore - 64.ico,sysico\Commodore - 64.ico,1
 FileInstall,sysico\Commodore - Amiga CD32.ico,sysico\Commodore - Amiga CD32.ico,1
 FileInstall,sysico\Commodore - Amiga.ico,sysico\Commodore - Amiga.ico,1
-FileInstall,sysico\Commodore - VIC20.ico,sysico\Commodore - VIC20.ico,1
+FileInstall,sysico\Commodore - VIC-20.ico,sysico\Commodore - VIC-20.ico,1
 FileInstall,sysico\Daphne - Daphne Laser Disc.ico,sysico\Daphne - Daphne Laser Disc.ico,1
 FileInstall,sysico\DOS.ico,sysico\DOS.ico,1
 FileInstall,sysico\Emerson - Arcadia 2001.ico,sysico\Emerson - Arcadia 2001.ico,1

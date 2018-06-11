@@ -109,8 +109,8 @@ exit /b
 [RUNVARS]
 CMDLINE=""
 CMDXTN="[CMDLINEGET]"
-RUNOPTS=" canonv30f -cart1 | canonv30f -cass | canonv30f -flop1 "
-RUNARGS=" -rp "[ROMPATH]""
+RUNOPTS=" canonv30f -[RJRTYP] "
+RUNARGS=""
 ROMF="[ROMF]"
 ROM="[ROM]"
 ROMX="[ROMX]"
@@ -134,7 +134,7 @@ exit /b
 %CCMDB%
 %RLOC%pushd "%EMUL%"
 %DMX%"%DAMVAR%" -mount dt, 0, "[ROMINLP]"
-%LAUNCH% "%EMUL%\%EMUZ%.exe" canonv30f -cart1 | canonv30f -cass | canonv30f -flop1 "%GAMDIR%\%ROMF%" -rp "%GAMDIR%"
+%LAUNCH% "%EMUL%\%EMUZ%.exe" canonv30f -[RJRTYP] "%GAMDIR%\%ROMF%"
 %CCMDY%
 %RLOC%popd
 %XFG%copy /Y "%EMUL%\mame.ini" "%GAMDIR%"
