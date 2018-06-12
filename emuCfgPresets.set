@@ -93,8 +93,26 @@ PEREMUCFG=1
 RJZIPPEEK=0
 
 
-[MAME - System]
+[Arcade]
 RJEMUARGS=<-rp "[ROMPATH]"|<-rp "[EMUPATH]\roms"|<
+RJPRECFG=copy /Y "mame.ini" "%EMUL%\mame.ini"|copy /y "default.cfg" "%EMUL%\ctrlr"
+RJPOSTCFG=copy /Y "%EMUL%\mame.ini" "%GAMDIR%"|copy /y "%EMUL%\ctrlr\default.cfg" "%GAMDIR%"
+RJQUOTES=0
+NICEFLD=1
+RJPATH=0
+RJRUNDIR=0
+RJEXT=0
+RJEXTRARC=0
+RJARCLOC=0
+RJROMINJ=%ROM%
+RJCONSOLID=Individuate
+RJSUBDS=.cheats:1|.patches:1|.snaps:1|.sstates:1|.Man:1|.Mem:1|.cfg:1|.ctrl:1|.hi:1|.ini:1|.inp:1|
+PEREMUCFG=1
+RJZIPPEEK=0
+
+
+[MAME - System]
+RJEMUARGS=<-rp "[EMUPATH]\roms"|<-rp "[ROMPATH]"|<-rp "[EMUPATH]\roms"|<
 RJPRECFG=copy /Y "mame.ini" "%EMUL%\mame.ini"|copy /y "default.cfg" "%EMUL%\ctrlr"
 RJPOSTCFG=copy /Y "%EMUL%\mame.ini" "%GAMDIR%"|copy /y "%EMUL%\ctrlr\default.cfg" "%GAMDIR%"
 RJQUOTES=1
@@ -580,7 +598,7 @@ RJEMUPRESET=Mednafen
 RJMEDNM=wswan
 RJMAMENM=wscolor
 RJROMXT=.bin,.zip,.ws,.wsc
-MAME?RJEMUOPTS=<wsawan -cart<
+MAME?RJEMUOPTS=<wswan -cart<
 RJZIPPEEK=0
 
 [Bandai - WonderSwan]
@@ -588,7 +606,7 @@ RJEMUPRESET=Mednafen
 RJMEDNM=wswan
 RJMAMENM=wswan
 RJROMXT=.bin,.zip,.ws
-MAME?RJEMUOPTS=<wsawan -cart<
+MAME?RJEMUOPTS=<wswan -cart<
 RJZIPPEEK=0
 
 [Beats of Rage]
