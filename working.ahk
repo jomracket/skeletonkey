@@ -19,6 +19,8 @@ RASTABLE= 1.7.3
 ;#NoTrayIcon
 DetectHiddenWindows, On
 IniRead,iniversion,Settings.ini,GLOBAL,version
+stringreplace,iniversion,iniversion,",,All
+;"
 if (iniversion <> VERSION)
 	{
 		#Include ExeRec.set
@@ -119,6 +121,11 @@ ifInString,CHKPYTH,Python
 	}
 
 GenSetQ:
+
+if (INITIAL <> 1)
+	{
+		TrayTip, skeletonKey,version=%VERSION%`n...  Initializing   ...,20
+	}
 /*
 ifnotexist, config.cfg
 {
@@ -1468,7 +1475,7 @@ Menu,SHORTRUN,Add,
 Menu, ARCSHORT, Add,Run With:=->, AQRUN
 Menu,ARCSHORT,Add, 
 
-Menu, ASOCRUN, Add, Associate with System, ASRUN
+Menu, ASOCRUN, Add, Associate with System+, ASRUN
 Menu, ASOCRUN, Add, Configure Emulator, ASEMUCFG
 Menu,ASOCRUN,Add, 
 
@@ -1606,9 +1613,10 @@ Gui, Add, DropdownList, x525 y0 w135 vLCORE gLnchCore,
 Gui, Add, DropDownList, x540 y0 w135 vJCORE gRJCORE hidden,
 ;;Gui, Add, DropDownList, x540 y24 w135 vJCORE gRJCORE hidden,
 Gui, Font, Bold
-Gui, Add, Button, x662 y3 w16 h17 vOPNCORE gOpnCore, C
+Gui, Add, Button, x661 y3 w16 h17 vOPNCORE gOpnCore, C
 Gui, Add, Button, x661 y0 w78 h29 vHLNCHBUT gRUNTABHOSTING hidden, HOST
-Gui, Add, Button, x680 y0 w78 h29 vLNCHBUT gLNCH, LAUNCH
+Gui, Add, Button, x677 y0 w60 h29 vLNCHBUT gLNCH, LAUNCH
+Gui, Add, Button, x737 y0 w25 h29 vRCLLNCH gRCLLNCH,::>
 Gui, Add, Button, x740 y30 w16 h17 vCLRCUROM gCLREDT, X
 gui, font, bold
 Gui, Add, Button, x740 y30 w16 h17 vRETAL gRETAL hidden, >
@@ -3964,7 +3972,7 @@ MENSHOWLDCR_TT :="shows load-core menu"
 MENSHOWONLUP_TT :="shows online-updater menu"
 MENSHOWQUIT_TT :="shows quit menu item"
 MENSHOWREB_TT :="shows reboot-menu item"
-
+RCLLNCH_TT :="Quick-Launch Presets"
 SETEMUD_TT :="Sets the emulators directory"
 SETJKD_TT :="Sets the systems directory"
 SKRAEXE_TT :="Sets the retroarch directory"
@@ -4045,10 +4053,10 @@ if (SETPORTABLE = 1)
 }
 
 if (locfnd = 1)
-{
-	TrayTip,Installer,Install RetroArch and any cores you may desire,20,48
-	GuiControl, Choose, TABMENU, 3
-}
+	{
+		TrayTip,Installer,Install RetroArch and any cores you may desire,20,48
+		GuiControl, Choose, TABMENU, 3
+	}
 
 gosub, IPDisplay
 gosub, GetIniVars
@@ -4535,6 +4543,11 @@ GuiScrapeMenu:
 
 	if A_GuiControl = LNCHBUT
 		{
+			if (RCLLNCH = 1)
+				{
+					Menu, SHORTRUN, Show, 746 5
+					return
+				}
 			Menu, SHORTRUN, Show, %A_GuiX% %A_GuiY%
 			return
 		}
@@ -4806,8 +4819,34 @@ gosub,SYSNICK
 
 ASRUN:
 guicontrolget,CHKRUNS,,RUNSYSDDL
-stringreplace,CHKRUNS,CHKRUNS,.lpl,,All
 guicontrolget,CHKRUNE,,LCORE
+iniread,CHRFFMP,Assignments.ini,OVERRIDES,%CHKRUNS%
+ifinstring,CHRFFMP,%CHKRUNE%
+	{
+		CHKRMP=
+		Loop, Parse, CHRFFMP,|
+			{
+				if (A_Index = 1)
+					{
+						if (A_LoopField <> CHKRUNE)
+							{
+								CHKRMP.= CHKRUNE . A_LoopField . "|"
+								continue
+							}
+					}
+				if (A_LoopField <> CHKRUNE)
+					{
+						CHKRMP.= A_LoopField . "|"
+					}
+			}	
+		CHKRUNE= %CHKRMP%
+		CHRFFMP= 
+	}
+if (CHKRMP = "")
+		{
+			CHKRUNE.= "|" CHRFFMP	
+		}
+stringreplace,CHKRUNS,CHKRUNS,.lpl,,All
 ifinstring,CHKRUNE,_libretro.dll
 	{
 		iniwrite,"%CHKRUNE%",Assignments.ini,ASSIGNMENTS,%CHKRUNS%
@@ -5051,6 +5090,9 @@ Loop, Parse, SysLLst,`n`r
 	}
 return
 
+RCLLNCH:
+RCLLNCH= 1
+
 SQRUN:
 guicontrolget,curiasn,,LCORE
 ControlGet,curpllst, List,,,ahk_id %insel%
@@ -5072,6 +5114,7 @@ ifinstring,RUNSYSDDL,.lpl
 	{
 		stringtrimright,RUNSYSDDL,RUNSYSDDL,4
 	}
+
 Loop, Parse, SysLLst,`n`r
 	{
 		stringsplit,aie,A_loopField,=,`n`r
@@ -5104,8 +5147,14 @@ Loop, Parse, SysLLst,`n`r
 							}
 					}
 				mousegetpos,Ngx,Ngy
+				if (RCLCNCH = 1)
+					{
+						Ngx:= 747
+						Ngy:= 5
+					}
 				Menu,SQRUN, Show, %Ngx% %Ngy%
 				Menu,SQRUN,DeleteAll
+				RCLCNCH= 
 				break
 			}
 	}
@@ -5124,12 +5173,14 @@ Loop, Parse, romf,`n|
 				break
 			}
 	}
+
 Menu,Emulator_Add, Add
 if (multisel <> 1)
 	{
 		SB_SetText("Select a single item only")	
 		return
 	}
+
 if (multisel = 1)
 	{
 		Loop, Parse, runlist,|
@@ -6929,14 +6980,17 @@ guicontrolget,lnchrc,,RUNROMCBX
 if (lnchrc = "")
 	{
 		guicontrol,disable,LNCHBUT
+		guicontrol,disable,RCLLNCH
 		return
 	}
 if (lnchcc = "")
 	{
 		guicontrol,disable,LNCHBUT
+		guicontrol,disable,RCLLNCH
 		return
 	}
 guicontrol,enable,LNCHBUT
+guicontrol,enable,RCLLNCH
 return
 
 RUNPLRAD:
@@ -7289,12 +7343,14 @@ guicontrolget,SWHOST,,SWHOST
 if (SWHOST = 1)
 	{
 		guicontrol,hide,LNCHBUT 
+		guicontrol,hide,RCLLNCH 
 		guicontrol,show,HLNCHBUT 
 	}
 if (SWHOST = 0)
 	{
 		guicontrol,hide,HLNCHBUT 
-		guicontrol,show,LNCHBUT 
+		guicontrol,show,LNCHBUT  
+		guicontrol,show,RCLLNCH  
 	}
 return
 
@@ -10394,7 +10450,6 @@ return
 
 MAMELMREAD:
 SB_SetText(" Reading mame listed media ")
-
 loop,parse,mamelistedmedia,`n
 	{
 		if (A_index < 3)
@@ -10463,8 +10518,8 @@ loop,parse,mamelistedmedia,`n
 				continue
 			}
 		and2= %and2%
-		stringreplace,and2,and2,%A_space%%A_space%,%A_space%,,All
-		stringreplace,and2,and2,%A_space%,`,,All
+		stringreplace,and2,and2,%A_space%,,All
+		stringreplace,and2,and2,.,.`,,All
 		stringreplace,and2,and2,`n,,All
 		stringreplace,and2,and2,`r,,All
 		MAME_%oldf%_SHRTN= %nni1%
@@ -10474,8 +10529,6 @@ loop,parse,mamelistedmedia,`n
 		viinn.= aav
 		MAME_%oldf%_medtyps.= med . "|"
 	}
-filedelete,C:\users\romjacket\desktop\n.txt
-fileappend,%viinn%,C:\users\romjacket\desktop\n.txt
 SB_SetText(" Mame listed media indexing complete ")
 mlmed= 1	
 return
@@ -15161,6 +15214,7 @@ Loop, %omitxtn0%
 				ar.insert(new)
 			}
 	}
+
 Loop,%RJSYSTEMS%\%DWNLPOS%\*.*,,%RECURSE%
 	{
 		ext= %A_LoopFileExt%
@@ -15407,7 +15461,16 @@ return
 
 CopyToPl:
 coreInJV= DETECT
+guicontrolget, ESPLXMP,,ESDWNLPOS
+guicontrol,,ESPLXMP,|%ESPLXMP%|%systmfldrs%|%escommon%
 guicontrolget, coreInJV,,plcore
+pldelim= >
+if (PLISTTYP = "EmulationStation")
+	{
+		plswap= %ESPLPLST%
+		pldelim= :
+		coreInJV= %ESPLXMP%
+	}
 if (DETECTCORE = 1)
 	{
 		coreInJV= DETECT
@@ -15417,11 +15480,10 @@ passlist=
 guicontrolget, passlist, ,ROMPOP 
 Loop, Parse, passlist,|
 	{
-		existlst.= A_LoopField . ">" . coreInJV . "|"
+		existlst.= A_LoopField . pldelim . coreInJV . "|"
 	}
 guicontrol,,CURPLST, |%existlst%
-		;;msgbox,,d,%existlst%
-;;existlst= %passlist%
+
 gui, submit, nohide
 return
 
@@ -20610,6 +20672,7 @@ guicontrol,disable,CNCTBUT
 guicontrol,disable,HostButton
 guicontrol,,SWHOST,0
 guicontrol,show,LNCHBUT
+guicontrol,show,RCLLNCH
 guicontrol,hide,HLNCHBUT
 
 APLN= 1
@@ -21238,6 +21301,7 @@ guicontrol,%moptog%,RUNROMCBX
 guicontrol,%moptog%,GROM
 guicontrol,%moptog%,OPNCORE
 guicontrol,%moptog%,LNCHBUT
+guicontrol,%moptog%,RCLLNCH
 guicontrol,%moptog%,CLRCUROM
 
 TOGSKELOPTS:
@@ -24057,6 +24121,7 @@ if (raoptgl = "show")
 				guicontrol,%raoptgl%,GROM
 				guicontrol,%raoptgl%,OPNCORE
 				guicontrol,%raoptgl%,LNCHBUT
+				guicontrol,%raoptgl%,RCLLNCH
 				guicontrol,%raoptgl%,CLRCUROM
 			}
 	}
@@ -24073,6 +24138,7 @@ if (raoptgl = "hide")
 				guicontrol,%raoptgl%,GROM
 				guicontrol,%raoptgl%,OPNCORE
 				guicontrol,%raoptgl%,LNCHBUT
+				guicontrol,%raoptgl%,RCLLNCH
 				guicontrol,%raoptgl%,CLRCUROM
 			}
 	}
@@ -38696,6 +38762,7 @@ if (ASVRM = 1)
 		guicontrol,show,GROM
 		guicontrol,show,OPNCORE
 		guicontrol,show,LNCHBUT
+		guicontrol,show,RCLLNCH
 		guicontrol,show,CLRCUROM
 	}
 return
@@ -51882,6 +51949,7 @@ guicontrolget,tmpcc,,LCORE
 if (tmpcc = "")
 	{
 		guicontrol,disable,LNCHBUT
+		guicontrol,disable,RCLLNCH
 		return
 	}
 if (tmpcc = "")	
@@ -52128,9 +52196,10 @@ ifinstring,RunOptions,[
 			{
 				ifinstring,coreselv,mame
 					{
-						ifinstring,CUSTMOPT,[RJ
+						ifinstring,CSTINJOPT,[RJ
 							{
 								nwextfnd= % (MAME_%RJMAMENM%_medtyps)
+								splitpath,romf,,,xtnv
 								ifinstring,romf,.zip
 									{
 										stringsplit, romfj, romf,#
@@ -52145,62 +52214,59 @@ ifinstring,RunOptions,[
 												concatcmd= "%A_Scriptdir%\7za.exe" l -slt "%romf%"
 												StdOut := StdoutToVar_CreateProcess(concatcmd)
 												partition= 
+												fext= %xtnv%
 												gosub, zpkproc
 											}
-										Loop, Parse, nwextfnd,|
-											{
-												if (A_LoopField = "")
-													{
-														continue
-													}
-												MEDP= %A_LoopField%
-												stringreplace,MEDP,MEDP,%A_Space%,,All
-												stringreplace,MEDP,MEDP,`n,,All
-												stringreplace,MEDP,MEDP,`r,,All
-												nweinxtf= % (MAME_%RJMAMENM%_%MEDP%_extyp)
-												if (nweinxtf = "")
-													{
-														SB_SetText(" SYSTEM NOT FOUND ")
-														continue
-													}
-												ifinstring,nweinxtf,%xtnv%
-													{
-														if (RJLNCHCFGOW = 1)
-															{
-																stringreplace,CUSTMOPT,CUSTMOPT,[RJMAMESYS],%RJMAMENM%,All
-																stringreplace,CUSTMOPT,CUSTMOPT,[RJRTYP],%MEDP%,All,UseErrorLevel
-																if (ERRORLEVEL <> 0)
-																	{
-																		CUSTMOPT= %RJMAMENM% -%MEDP%
-																		break
-																	}
-															}
-													}
-											} 
 									}
-							}
-
-						stringright,cstchk,CUSTMOPT,1
-						if (CUSTMOPT <> "")
-							{
-								if (cstchk <> A_Space)
+								Loop, Parse, nwextfnd,|
 									{
-										stringleft,fea,CUSTMOPT,1
-										if (fea = A_Space)
+										if (A_LoopField = "")
 											{
-												StringTrimLeft,CUSTMOPT,CUSTMOPT,1
+												continue
 											}
-										stringright,fea,CUSTMOPT,1
-										if (fea = A_Space)
+										MEDP= %A_LoopField%
+										stringreplace,MEDP,MEDP,%A_Space%,,All
+										stringreplace,MEDP,MEDP,`n,,All
+										stringreplace,MEDP,MEDP,`r,,All
+										nweinxtf= % (MAME_%RJMAMENM%_%MEDP%_extyp)
+										if (nweinxtf = "")
 											{
-												StringTrimRight,CUSTMOPT,CUSTMOPT,1
+												SB_SetText(" SYSTEM NOT FOUND ")
+												continue
 											}
-										stringreplace,RunOptions,RunOptions,[CUSTMOPT],%A_SPACE%%CUSTMOPT%%A_Space%,All
+										ifinstring,nweinxtf,%xtnv%
+											{
+												MSGBOX,,,xtnv=%xtnv% in nweinxtf=%nweinxtf%`ncstinjopt=%cstinjopt%`nrjrtyp=%medp%
+												stringreplace,CSTINJOPT,CSTINJOPT,[RJRTYP],%MEDP%,All,UseErrorLevel
+												if (ERRORLEVEL <> 0)
+													{
+														CSTINJOPT= %RJMAMENM% -%MEDP%
+														break
+													}
+												stringreplace,CSTINJOPT,CSTINJOPT,[RJMAMESYS],%RJMAMENM%,All
+											}
+									} 
+							}
+					}
+				stringright,cstchk,CSTINJOPT,1
+				if (CSTINJOPT <> "")
+					{
+						if (cstchk <> A_Space)
+							{
+								stringleft,fea,CSTINJOPT,1
+								if (fea = A_Space)
+									{
+										StringTrimLeft,CSTINJOPT,CSTINJOPT,1
 									}
+								stringright,fea,CSTINJOPT,1
+								if (fea = A_Space)
+									{
+										StringTrimRight,CSTINJOPT,CSTINJOPT,1
+									}	
+								stringreplace,RunOptions,RunOptions,[CUSTMOPT],%A_SPACE%%CSTINJOPT%%A_Space%,All
 								CSTINJOPT= 
 							}
 					}
-				
 			}
 	}
 
@@ -52218,8 +52284,8 @@ if (CSTINJOPT <> "")
 				stringtrimright,CUSTMOPT,CUSTMOPT,1
 			}
 		stringreplace,RunOptions,RunOptions,[CUSTMOPT],%A_Space%%CUSTMOPT%%A_Space%,All
+		CSTINJOPT= 
 	}
-CSTINJOPT= 
 
 ;;msgbox,,,runopts="%RunOptions%"`ncustmopt="%custmopt%"`n
 
@@ -52371,6 +52437,7 @@ if (EPGC = 1)
 	}
 splitpath,OvrExtAs,xenm,xenmp
 guicontrol, Disable, LNCHBUT
+guicontrol, Disable, RCLLNCH
 guicontrol, Disable, CNCTBUT
 guicontrol, Disable, HostButton
 
@@ -52422,6 +52489,7 @@ if (EPGC = 1)
 			}
 	}
 guicontrol, Enable, LNCHBUT
+guicontrol, Enable, RCLLNCH
 guicontrol, Enable, CNCTBUT
 guicontrol, Enable, HostButton
 	
@@ -52699,6 +52767,7 @@ if (romf = "")
 		LNCHCORE=
 		LNCHROM= 
 	}
+guicontrol, Disable, RCLLNCH
 guicontrol, Disable, LNCHBUT
 guicontrol, Disable, CNCTBUT
 guicontrol, Disable, HostButton
@@ -52714,6 +52783,7 @@ if (SAVEXIT = 1)
 
 lastcore= %coreselv%
 guicontrol, Enable, LNCHBUT
+guicontrol, Enable, RCLLNCH
 guicontrol, Enable, CNCTBUT
 guicontrol, Enable, HostButton
 IniWrite, "%coreselv%", Settings.ini,GLOBAL,last_core
@@ -52742,6 +52812,7 @@ if (CPORTNUM = "")
 	{
 		return
 	}
+guicontrol, Disable, RCLLNCH
 guicontrol, Disable, LNCHBUT
 guicontrol, Disable, NETCONNECT
 guicontrol, Disable, ARCNCT
@@ -52815,6 +52886,7 @@ lastcore= %coreselv%
 gosub, RecentWrite
 guicontrol,,INVADE,0
 guicontrol, Enable, LNCHBUT
+guicontrol, Enable, RCLLNCH
 guicontrol, Enable, NETCONNECT
 guicontrol, enable, ARCHOST
 guicontrol, Enable, ARCNCT
@@ -52874,6 +52946,7 @@ stringreplace, ccv, coreselv,_libretro.dll, ,All
 
 SB_SetText("Hosting. " romf " ")
 guicontrol, Disable, LNCHBUT
+guicontrol, Disable, RCLLNCH
 guicontrol, Disable, CNCTBUT
 guicontrol, Disable, HostButton
 guicontrol, Disable, ARCHOST
@@ -52906,6 +52979,7 @@ if (SAVEXIT = 1)
 gosub, RecentWrite
 AHKsock_Close()
 guicontrol, Enable, LNCHBUT
+guicontrol, Enable, RCLLNCH
 guicontrol, Enable, CNCTBUT
 guicontrol, Enable, HostButton
 guicontrol, Enable, ARCHOST

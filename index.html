@@ -171,7 +171,9 @@
 <p>It may be desireable to specify an emulator-preset to override the assocation from the command-line.</p>
 <p>SkeletonKey accepts the option <code>-run=</code> followed by the nickname of the emulator preset followed by the path to the rom. Any options specified by the preset are respected.<br></p>
 <p>SkeletonKey launched from the command line <em>without</em> this option functions identically to drag'n drop.</p>
-<p><u>..\..\skeletonkey&gt;</u><code> skeletonKey.exe -run=NickName &quot;C:\Library\Console Name\Rom Name\rom file.rom&quot;</code><br>
+<p> <em>
+  <strong>..\..\skeletonkey&gt;</strong>
+</em><code> skeletonKey.exe -run=NickName &quot;C:\Library\Console Name\Rom Name\rom file.rom&quot;</code><br>
 	<span style="font-size: small"> eg:<code> skeleonKey.exe -run=snes9x "C:\path..\to..\supermarioworld.sfc"</code></span><br><span style="font-size: x-small">**Nicknames must not contain spaces**</span></p>
 <h3>Forking</h3>
  
@@ -187,10 +189,10 @@
     <h4>Auto-Load Per-Game Settings</h4>
     <p>SkeletonKey will automatically load any per-game settings previously created and create settings for that title upon launch if none are found.</p>
     <h4>Systems Directory</h4>
-    <p>By default, ROMs are <em>[categorically]</em> stored by system-name in the<code> <em>(retroarch install folder)</em>\downloads\<em>[SYSTEM NAME]</em></code> folder. The <code>\downloads\</code> directory is by default also retroArch's <code>"core_assets_directory"</code>. <br>
+    <p>By default, ROMs are <em>[categorically]</em> stored by system-name in the<code> <em>..[CONSOLE ROOT]</em>\<em>[SYSTEM NAME]</em></code> folder.<br> RetroArch's <code>"core_assets_directory"</code> should be assigned to the <code>[CONSOLE ROOT]</code> folder. <br>
       Archive.org ROMs will be downloaded to the corresponding system name which follows the no-intro naming nomenclature.    </p>
     <h4>Emulators Directory</h4>
-    <p>By default, all emulators will be installed to the Emulator Directory. Upon assigning a directory to the Emulators Directory, skeletonKey will search subdirectories for known emulators not currently identified or manually assigned.</p>
+    <p>By default, all emulators will be installed to the Emulator Directory. Upon assigning a directory to the Emulators Directory, skeletonKey will search subdirectories for previously installed known emulators not currently identified or manually assigned.</p>
     <h4>BSL - Batch-Script-Launcher</h4>
     <p>Typically, a frontend will assign an emluator to a directory containing a set of ROMs with a list of supported extensions. (eg: nestopia.exe will open all .nes, .zip, and .fds files in the NES folder)</p>
     <p>In this case the BSL.exe is used as the &quot;emulator&quot; where &quot;.bat&quot; or &quot;.lnk&quot; is the extension for any ROM-Jacket library. The BSL will execute the ROM-Jacket launcher while assisting the visibility and state of other assets.<br> 
@@ -280,6 +282,7 @@
 <p>Specifying <code>[ROMPATH]</code> &amp; <code>[EMUPATH]</code>  will be parsed in the options and arguments to specify the ROM's path or emulaor path respecively. The executing command output will update to refletct the options and settings. The output should be referenced against the emulator's documentation.</p>
 <p><code>[CUSTMOPT]</code> &amp; <code>[CUSTMARG]</code> are special tags designed for use with custom options assigned at to the skeletonkey launcher. These custom tags can be harnessed by eneabling the "switches" checkbox found in the archive-tab and in the Main tab. many MAME systems and several supported emulators options and argumnts are available as presets for custom options &amp; arguments. Special tags and switches are only enabled for emulator applications.</p>
 <h4>Per-Game Configurations:</h4>
+  <a id="ASSOC"></a>
 <p>SkeletonKey can retain emulator settings for each game (configuration files, save-states, battery-saves/nvram) under supported emulators. Any changes that are made during gameplay will be saved.</p>
 <p><strong>Operational Layout:</strong><br>
   SkeletonKey copies and moves these configuration files back and forth between the emulator's folder and the per-game configuration folder before and after the emulator runs. <br>
@@ -502,7 +505,7 @@
      RoM-Jackets are folders which contain a ROM, any individual settings it may have for emulators, artwork, assets and a launcher to maintain  files contained in the jacket indipendently from other titles for any given system or emulator.  <br>
       </p>
       <p>Subdirectories for common emulator files such as save-states, battery/memory-saves, screenshots, manuals, and videos are created for each jacket. </p>
-      <p>It should be noted that <a href="#ASSOC">skeletonKey's Launcher settings</a> have their own set of per-game settings which operate indipendently from RoM-Jackets (even when using the same ROM file).</p>
+      
       It is desireable to create RoM-Jackets for libraries where<br> 
         <ul>
         <li>Many emulators may be used</li>
@@ -645,14 +648,16 @@
     </p>
     <br>
         <h3>PER-GAME</h3>
-        <br>
-    Each ROM retains all unique emulator configuration files.<br>
-    Paradigm:<br>
-    All settings, quick-saves, save-files &amp; snapshots for the emulator are saved in the ROM-directory.<br>
-    The ROM's configuration for the emulator is copied to the proper location upon execution of the launcher.<br>
-    Caveats:<br>
-    Some consoles use the same emulator and these consoles should use either Per-Game or Global settings (not both). <br>
-    <br>
+        <p><br>
+          Each ROM retains all unique emulator configuration files.<br>
+          Paradigm:<br>
+          All settings, quick-saves, save-files &amp; snapshots for the emulator are saved in the ROM-directory.<br>
+        The ROM's configuration for the emulator is copied to the proper location upon execution of the launcher.
+        <br>It should be noted that <a href="#ASSOC">skeletonKey's Launcher settings</a> have their own set of per-game settings which operate indipendently from RoM-Jackets (even when using the same ROM file).<br></p>
+          Caveats:<br>
+          Some consoles use the same emulator and these consoles should use either Per-Game or Global settings (not both). <br>
+          <br>
+        </p>
         <h3>GLOBAL</h3>
         <p><br>
           All games using the assigned emulator have configurations and settings governed and maintained by the emulator.<br>

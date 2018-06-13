@@ -473,7 +473,7 @@ Gui, Add, CheckBox, x90 y113 w154 h13 vDATBLD gDatBld, Database Recompile
 Gui, Add, Progress, x12 y135 w388 h8 vprogb -Smooth, 0
 
 Gui, Add, StatusBar, x0 y151 w488 h18, Compiler Status
-Gui, Show, w488 h194,, Deploy skeletonKey
+Gui, Show, w488 h194,,_DEV_	
 GuiControl, Choose, TABMENU, 2
 Return
 
@@ -2044,6 +2044,32 @@ return
 
 
 esc::
+#IfWinActive _DEV_
+FDME:= 8452
+quitnum+=1
+if (quitnum = 3)
+	{
+		FDME:= 8196
+	}
+if (quitnum > 3)
+	{
+		goto, QUITOUT
+	}
+sleep,250
+msgbox,% FDME,Exiting, Would you like to close the publisher?
+ifmsgbox, yes
+	{
+		gosub, QUITOUT
+	}
+ifmsgbox, no
+	{
+		DWNCNCL= 
+		return
+	}
+return
+QUITOUT:
+WinGet, PEFV,PID,_DEV_
+Process, close, %PEFV%
 GuiEscape:
 GuiClose:
 ExitApp
