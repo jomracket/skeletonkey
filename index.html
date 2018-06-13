@@ -182,8 +182,8 @@
 <hr>
   <h1 class='elegantshadow'>: SETTINGS :</h1>
   <div id="inner">
-    <h3>Global Settings</h3>
-    <p>Global settings and skeletonKey program settings such as locations for emulators, your systems, overrides for the batch-script launcher and other options can be adjusted in the settings tab and can be accessed from the file menu at any time.</p>
+    <h3>Program Settings</h3>
+    <p>Program settings such as the root location for your systems, overrides for the batch-script launcher and other operational options can be adjusted in the settings tab.</p>
     <h4>Auto-Load Per-Game Settings</h4>
     <p>SkeletonKey will automatically load any per-game settings previously created and create settings for that title upon launch if none are found.</p>
     <h4>Systems Directory</h4>
@@ -204,7 +204,7 @@
   <h1 class='elegantshadow'>:=: Main :=:</h1>
   <div id="inner">
     <p>Options are categorized by type. The Launch tab is responsive and will populate options for the currently selected supported emulator. Any previous settings for the currently selected ROM are loaded.</p>
-    <h3>Launch-Menu items</h3>
+    <h3>Global-Launch-Menu</h3>
     <p>The Launch menu items persist across emulator settings populated in the Main tab. These items are at the top of the window and are necessary to browse your library and launch a ROM. </p>
          The <u>Launch-Menu</u> includes:<br> <ul>
          
@@ -288,7 +288,7 @@
 <p>ROMs dropped to the desktop icon which are not identified as belonging exclusively to a core/emulator will bring up a menu allowing users to quickly select a core/emulaor preset.</p>
 <h2><strong>Emulator Associations</strong></h2>
 <p>Emulator Associations will appear for all detected and created emulators in the core/emulator dropdown of the Launch-menu and in the search-window's right-click menu in the options-tab. Emulator associations can be created for quickly and many are preset with compatible and configurable presets. By default, most systems will have <code><strong>[CUSTMOPT]</strong></code> and <code><strong>[CUSTMARGS]</strong></code> which will enable the custom-switch option (found in the launch-menu of the options-tab and the archive tab.) to be set at runtime.<br> 
-  Each emulator has options for command-line needs. Unlike System-Associations, Emulator-Associations are presets for dynamic (via skeletonKey) launching of ROMs. Over 200 emulators can be installed via skeletonKey. </p>
+  Each emulator has options for command-line needs. Unlike System-Associations, Emulator-Associations are presets for  skeletonKey launching ROMs. Over 200 emulators can be installed via skeletonKey. </p>
 </div>
 </div>
  <div id="outer"><h1 class='elegantshadow'>Drivers</h1>
@@ -304,7 +304,7 @@
         <h3>Daemon Tools</h3>
 <br>      <h3>XBox360 Drivers</h3>
 <br>
-    <p>This installs the XBox 360 Joystick drivers from Microsoft. These are needed for Windows Vista and 7. Install these if you're not using Windows XP or Windows 8x - 10.</p>
+    <p>This installs the XBox 360 Joystick drivers from Microsoft. These are needed for Windows Vista and 7.</p>
 <br>
         <h3>SCP Wrapper for Dualshock Joysticks</h3>
 <br>
@@ -473,7 +473,8 @@
     <h1 class='elegantshadow'>:=: Netplay :=:</h1>
   <div id="inner">
     <h4><a>Netplay Options</a> </h4>
-    <p>It is recommended for users to create playlists containing all ROMs on their computer that they wish to play online. Selecting "All_Playlists" from the drop-down menu will allow skeletonKey to find a matching hash or ROM name from all of your playlists.</p>
+    <p>It is recommended <u><em>(not required) </em></u>for retroArch netplay users to create playlists containing all ROMs on their computer that they wish to play online. <br>
+    SkeletonKey employs unique matching methods which enable users to connect dynamically however, selecting "All_Playlists" from the drop-down menu will allow skeletonKey to find a matching hash or ROM name from all of your playlists.</p>
     <h3>Hosting:</h3>
     <p>In the Main tab, settings such as delay-frames, port number and file-server port can be adjusted.</p>
     <p>Enabling the file-server will compress the ROM in zip format and copy it to the <code>\...\systems\netplay\</code> directory prior to hosting. (if it isn't already zip-compressed.) <br>
@@ -510,8 +511,9 @@
           <li>Region-free &amp; curated frontends</li> 
       </ul>
           To achieve this, each jacket's batch-script-launcher copies its emulator-configuration files and any changes made to the emulator during gameplay will be saved back to the jacket after exiting.
-          <p>For those interested in developing for the RoM-Jacket spec, a few guidelines should be observed:</p>
-          <p>Launchers should be executable natively by Windows, make no changes to the system environment and any augmenting behavior beyond the emulator should be disabled unless specifically detected (ie: the launcher should require no user interaction irrespective of any errors the script may encounter.).
+          <p>For those interested in developing for the RoM-Jacket spec, a few principles should be observed:</p>
+          <p>Launchers should be executable natively by the operating system, make no changes to the system environment and any augmenting behavior beyond the emulator should be disabled unless specifically detected <br>
+          (ie: the launcher should require no user interaction irrespective of any errors the script may encounter).
           <br>
         Titles which contain many files and folders (DOS Titles) should be placed inside a subdirectory of the Jacket.<br>Guidelines forthcoming...</p>
           <p><br>
@@ -742,7 +744,7 @@ Caveats:<br>
     <p><strong>Question: </strong>I'm having trouble with a feature.  Can you Help?</p>
     <p><strong>Answer:</strong> Use the form at the <a href="#COMMENT">top of the page</a> or create an issue on github</p>
     <p><strong>Question: </strong>Does this work in linux?</p>
-    <p><strong>Answer:</strong> All functions seemed to work in a WINEbox I tested this in, even netplay. I'm very interested in those who can write .sh bash-script launchers.</p>
+    <p><strong>Answer:</strong> All functions seemed to work in a WINEbox I tested this in, even netplay. I'm very interested in programmable bash-script launchers.</p>
     <p><strong>Question:</strong> I want to see a feature implemented or  do something with skeletonKey it cannot currently do.</p>
     <p><strong>Answer:</strong> <a href="https://www.paypal.me/romjacket">Donate</a></p>
 	  </div></div>

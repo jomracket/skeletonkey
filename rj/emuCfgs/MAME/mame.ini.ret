@@ -7,7 +7,7 @@ writeconfig               1
 #
 # CORE SEARCH PATH OPTIONS
 #
-rompath                   [SOURCE]
+rompath                   roms;[SOURCE]
 hashpath                  [ROMPATH]\.hash
 samplepath                [ROMPATH]\.samples
 artpath                   [ROMPATH]\.artwork
@@ -116,7 +116,7 @@ lightgun                  0
 multikeyboard             0
 multimouse                0
 steadykey                 0
-ui_active                 0
+ui_active                 1
 offscreen_reload          0
 joystick_map              auto
 joystick_deadzone         0.3
@@ -158,7 +158,7 @@ skip_gameinfo             0
 uifont                    default
 ramsize                   
 confirm_quit              0
-ui_mouse                  0
+ui_mouse                  1
 autoboot_command          
 autoboot_delay            2
 autoboot_script           

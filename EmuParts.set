@@ -8,7 +8,7 @@ Atari800=Atari800/Atari800.7z=Atari800.exe=.atari800.cfg=|=*.state
 Atari800win=Atari800win/Atari800Win.7z=Atari800Win.exe=
 BSL=BSL/BSL.7z=BSL.exe=BSL.ini
 BeebEm=BeebEm/BeebEm.7z=BeebEm.exe=UserData\Preferences.cfg=|=UserData\BeebState\*.*
-Bizhawk=Bizhawk/Bizhawk.7z=bizhawk.exe
+Bizhawk=Bizhawk/Bizhawk.7z=bizhawk.exe=
 Bliss=Bliss/bliss.7z=Bliss32.exe=
 BlueMSX=BlueMSX/BlueMSX.7z=BlueMSX.exe=bluemsx.ini=SRAM\*.sram=QuickSave\*.*
 CD-I=CD-I/CD-I.7z=CD-I.exe=cdiroms.ini

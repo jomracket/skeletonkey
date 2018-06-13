@@ -136,10 +136,10 @@ RJPOSTCFG=copy /y "%APPDATA%\electrem.cfg" "%GAMDIR%"
 
 [AppleWin]
 RJPRECFG=call PREPREF.cmd|REG ADD "HKEY_CURRENT_USER\Software\AppleWin\CurrentVersion\Configuration" /f /v "Save State Filename" /t REG_SZ /d "%GAMDIR%\.sstates\%GAMDNM%.aws"|REG ADD "HKEY_CURRENT_USER\Software\AppleWin\CurrentVersion\Preferences" /f /v "Starting Directory" /t REG_SZ /d "%GAMDIR%"|REG ADD "HKEY_CURRENT_USER\Software\AppleWin\CurrentVersion\Preferences" /f /v "HDV Starting Directory" /t REG_SZ /d "%GAMDIR%"
-RJPOSTCFG=REG ADD "HKEY_CURRENT_USER\Software\AppleWin\CurrentVersion\Preferences" /f /v "Last Disk Image 1" /t REG_SZ /d "[CMDLINELOC]"|REG ADD "HKEY_CURRENT_USER\Software\AppleWin\CurrentVersion\Preferences" /f /v "Last Disk Image 2" /t REG_SZ /d "%GAMDIR%\[DISK2]"
+RJPOSTCFG=REG ADD "HKEY_CURRENT_USER\Software\AppleWin\CurrentVersion\Preferences" /f /v "Last Disk Image 1" /t REG_SZ /d "[CMDLINELOC]"|REG ADD "HKEY_CURRENT_USER\Software\AppleWin\CurrentVersion\Preferences" /f /v "Last Disk Image 2" /t REG_SZ /d "%GAMDIR%\[DSK2]"
 RJMULTIDISC=1
 RJEMUOPTS=<-f -fs=best -d1<
-RJEMUARGS=<[-d2] [DISK2] -no-printscreen-dlg
+RJEMUARGS=<[-d2] [DSK2] -no-printscreen-dlg
 RJZIPPEEK=0
 
 [Altirra]
@@ -154,7 +154,7 @@ RJPOSTCFG=copy /y "%EMUL%\vice.ini" "%GAMDIR%"
 [Neko]
 RJPRECFG=copy /y "*.ini" "%EMUL%"|copy /y ".sstates\*.sav" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\*.ini" "%GAMDIR%"|move /y "%EMUL%\.sav" "%GAMDIR%\.sstates"
-RJEMUOPTS=<[fs] "[DSK]" "[DSK2]"|<
+RJEMUOPTS=<|<-fullscreen<|<-fullscreen "[DSK]" "[DSK2]"|<"[DSK]" "[DSK2]"|<
 RJLNCHP=X
 
 [Kegs32]
@@ -386,7 +386,7 @@ RJEXTRARC=0
 RJZIPPEEK=0
 
 [Mednafen]
-RJEMUOPTS=<[FS]<|<-fs 1<|<
+RJEMUOPTS=<|<-fs 1<|<
 RJPRECFG=copy /y "mednafen*.cfg" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\mednafen*.cfg" "%GAMDIR%"
 RJRUNDIR=1
@@ -394,14 +394,14 @@ PEREMUCFG=1
 
 [Fusion]
 RJRUNDIR=1
-RJEMUOPTS=<[FS]<|<-FullScreen<|<
+RJEMUOPTS=<|<-FullScreen<|<
 PEREMUCFG=1
 
 [Nostalgia]
 RJPRECFG=copy /y "input.cfg" "%EMUL%"|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "Capture Folder" /t REG_SZ /d "%GAMDIR%\.snaps"|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "Hide on Run" /t REG_DWORD /d 1|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "Images Folder" /t REG_SZ /d "%GAMDIR%"|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "Manuals Folder" /t REG_SZ /d "%GAMDIR%"|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "SaveGame Folder" /t REG_SZ /d "%GAMDIR%\.sstates"
 RJPOSTCFG=copy /y "%EMUL%\input.cfg" "%GAMDIR%"
 RJRUNDIR=1
-RJEMUOPTS=<[fs]<|<
+RJEMUOPTS=<-f<|<
 
 [XM7]
 RJPRECFG=copy /y "*.ini" "%EMUL%"
@@ -433,7 +433,7 @@ RJPRECFG=copy /y "*.ini" "%EMUL%"|copy /y ".sstates\*.sav" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\*.ini" "%GAMDIR%"|move /y "%EMUL%\.sav" "%GAMDIR%\.sstates"
 RJRUNDIR=1
 RJLNCHP=X
-RJEMUOPTS=<[fs]<|<
+RJEMUOPTS=<|<-F<|<
 
 [*************************************************************************]
 [APF - Imagination Machine]
@@ -543,6 +543,7 @@ RJMAMENM=a800xl
 RJMULTIDISC=1
 RJROMXT=.atr,.dsk,.xfd,.bin,.rom,.car,.xex,.wav,.bas,.cas,.bin,.zip,.atx,.pro,.obx,.com,.zip
 MAME?RJEMUOPTS=<a800xl -[RJRTYP]<|<a800xl -flop1<|<a800xl -cart<|<a800xlp -flop1<|<a800xlp -cart<|<a800 -flop1<|<a800 -cart<|<a800pal -flop1<|<a800pal -cart<|<a800xe -flop1<|<a800xe -cart<
+Altirra?RJEMUOPTS=</hardware:800xl</disk<|</hardware:800xl</tape<|</hardware:800xl</cart<
 
 [Atari - 8Bit]
 RJEMUPRESET=Altirra
@@ -550,6 +551,7 @@ RJMAMENM=a800xl
 RJMULTIDISC=1
 RJROMXT=.atr,.dsk,.xfd,.bin,.rom,.car,.xex,.wav,.bas,.cas,.bin,.zip,.atx,.pro,.obx,.com,.zip
 MAME?RJEMUOPTS=<a800xl -[RJRTYP]<|<a800xl -flop1<|<a800xl -cart<|<a800xlp -flop1<|<a800xlp -cart<|<a800 -flop1<|<a800 -cart<|<a800pal -flop1<|<a800pal -cart<|<a800xe -flop1<|<a800xe -cart<
+Altirra?RJEMUOPTS=</hardware:800xl</disk<|</hardware:800xl</tape<|</hardware:800xl</cart<
 
 [Atari - Jaguar CD]
 RJEMUPRESET=ProjectTempest
@@ -586,6 +588,7 @@ RJMAMENM=xegs
 RJMULTIDISC=1
 RJROMXT=.atr,.dsk,.xfd,.bin,.rom,.car,.zip
 MAME?RJEMUOPTS=<xegs -[RJRTYP]<|<a800xlp -flop1<|<a800xlp -cart<|<a800 -flop1<|<a800 -cart<|<a800pal -flop1<|<a800pal -cart<|<a800xe -flop1<|<a800xe -cart<|<a800xl -flop1<|<a800xl -cart<|<xegs -cass1<|<xegs -flop1<
+Altirra?RJEMUOPTS=</hardware:800xl</disk<|</hardware:800xl</tape<|</hardware:800xl</cart<
 
 [Bally - Bally Astrocade]
 RJEMUPRESET=MAME
@@ -769,7 +772,7 @@ MAME?RJEMUOPTS=<pet8032 -[RJRTYP]<|<pet8032 -cart1<|<pet8032 -cass<|<pet8032 -fl
 RJEMUPRESET=WinVICE
 RJMAMENM=vic20
 RJMULTIDISC=1
-WinVice?RJEMUOPTS=<-ntsc +confirmexit -saveres +warp [fs] -cartgeneric<|<-ntsc +confirmexit -saveres +warp -cartgeneric<
+WinVice?RJEMUOPTS=<-ntsc +confirmexit -saveres +warp -fullscreen -cartgeneric<|<-ntsc +confirmexit -saveres +warp -cartgeneric<
 RJROMXT=.wav,.tap,.d64,.g64,.g41,.d77,.d88,.1dd,.dfi,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk .p00,.prg,.20,.40,.60,.70,.a0,.b0,.crt,.zip
 MAME?RJEMUOPTS=<vic20 -[RJRTYP]<|<vic20 -cass<|<vic20 -cart<|<vic20 -flop<
 
