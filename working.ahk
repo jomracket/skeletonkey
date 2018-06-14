@@ -121,12 +121,12 @@ ifInString,CHKPYTH,Python
 	}
 
 GenSetQ:
+/*
 
 if (INITIAL <> 1)
 	{
 		TrayTip, skeletonKey,version=%VERSION%`n...  Initializing   ...,20
 	}
-/*
 ifnotexist, config.cfg
 {
 	INITIAL:= 1
@@ -635,7 +635,7 @@ CoreMI= DDLB|DDLC|DDLD|DDLE|DDLF|DDLG|DDLH|DDLI|DDLJ|DDLK|DDLL|RadA|RadB|CMBA|Ra
 
 supCoreLst= mgba|genesisplusgx|mame|desmume|ppsspp|nestopia|mesen|mednafenpcefast|mednafensaturn|redream|reicast|blusemsx|dosbox|picodrive|snes9x|mednafenPsx|mednafenngp|mednafensupergrafx|mednafenvb|fceumm|mame2014|fba|fbalpha2012|fbalpha2012neogeo|fbalpha2012cps2|fbalphacps2012|mupen64plus|4do|gambatte|mame2000|mame2010|mame|bsnes|yabause|fuse|fmsx
 
-COREVARS= mgba_solar_sensor_level|mgba_allow_opposing_directions|mgba_use_bios|mgba_skip_bios|mgba_idle_optimization|genesis_plus_gx_system_hw|genesis_plus_gx_region_detect|genesis_plus_gx_force_dtack|genesis_plus_gx_bios|genesis_plus_gx_bram|genesis_plus_gx_addr_error|genesis_plus_gx_lock_on|genesis_plus_gx_ym2413|genesis_plus_gx_dac_bits|genesis_plus_gx_blargg_ntsc_filter|genesis_plus_gx_lcd_filter|genesis_plus_gx_overscan|genesis_plus_gx_gg_extra|genesis_plus_gx_render|genesis_plus_gx_gun_cursor|genesis_plus_gx_invert_mouse|mame2014_read_config|mame2014_write_config|mame2014_saves|mame2014_auto_save|mame2014_mouse_enable|mame2014_throttle|mame2014_cheats_enable|mame2014_hide_nagscreen|mame2014_hide_gameinfo|mame2014_hide_warnings|mame2014_alternate_renderer|mame2014_softlists_enable|mame2014_softlists_auto_media|mame2014_media_type|mame2014_boot_to_bios|mame2014_boot_to_osd|mame2014_boot_from_cli|ume2014_read_config|ume2014_write_config|ume2014_saves|ume2014_auto_save|ume2014_mouse_enable|ume2014_throttle|ume2014_cheats_enable|ume2014_hide_nagscreen|ume2014_hide_gameinfo|ume2014_hide_warnings|ume2014_alternate_renderer|ume2014_softlists_enable|ume2014_softlists_auto_media|ume2014_media_type|ume2014_boot_to_bios|ume2014_boot_to_osd|ume2014_boot_from_cli|mame_read_config|mame_write_config|mame_saves|mame_auto_save|mame_mouse_enable|mame_throttle|mame_cheats_enable|mame_hide_nagscreen|mame_hide_gameinfo|mame_hide_warnings|mame_alternate_renderer|mame_softlists_enable|mame_softlists_auto_media|mame_media_type|mame_boot_to_bios|mame_boot_to_osd|mame_boot_from_cli|desmume_internal_resolution|desmume_num_cores|desmume_cpu_mode|desmume_jit_block_size|desmume_screens_layout|desmume_pointer_mouse|desmume_pointer_type|desmume_pointer_colour|desmume_pointer_device|desmume_pointer_device_deadzone|desmume_pointer_device_acceleration_mod|desmume_pointer_stylus_pressure|desmume_pointer_stylus_jitter|desmume_load_to_memory|desmume_advanced_timing|desmume_firmware_language|desmume_frameskip|desmume_screens_gap|desmume_gfx_edgemark|desmume_gfx_linehack|desmume_gfx_txthack|desmume_mic_force_enable|desmume_mic_mode|desmume_hybrid_layout_scale|ppsspp_cpu_core|ppsspp_locked_cpu_speed|ppsspp_language|ppsspp_rendering_mode|ppsspp_auto_frameskip|ppsspp_frameskip|ppsspp_framerate_limit|ppsspp_force_max_fps|ppsspp_audio_latency|ppsspp_internal_resolution|ppsspp_output_resolution|ppsspp_button_preference|ppsspp_fast_memory|ppsspp_set_rounding_mode|ppsspp_block_transfer_gpu|ppsspp_texture_scaling_level|ppsspp_texture_scaling_type|ppsspp_texture_anisotropic_filtering|ppsspp_texture_deposterize|ppsspp_internal_shader|ppsspp_gpu_hardware_transform|ppsspp_vertex_cache|ppsspp_prescale_uv|ppsspp_separate_io_thread|ppsspp_unsafe_func_replacements|ppsspp_sound_speedhack|ppsspp_threaded_input|nestopia_blargg_ntsc_filter|nestopia_palette|nestopia_nospritelimit|nestopia_fds_auto_insert|nestopia_overscan_v|nestopia_overscan_h|nestopia_aspect|nestopia_genie_distortion|nestopia_favored_system|nestopia_ram_power_state|pce_fast_cdimagecache|pce_nospritelimit|pce_ocmultiplier|pce_hoverscan|pce_initial_scanline|pce_last_scanline|pce_cddavolume|pce_adpcmvolume|pce_cdpsgvolume|pce_cdspeed|Turbo_Delay|p0_turbo_I_enable|p0_turbo_II_enable|p1_turbo_I_enable|p1_turbo_II_enable|p2_turbo_I_enable|p2_turbo_II_enable|p3_turbo_I_enable|p3_turbo_II_enable|p4_turbo_I_enable|p4_turbo_II_enable|beetle_saturn_cdimagecache|beetle_saturn_initial_scanline|beetle_saturn_initial_scanline_pal|beetle_saturn_last_scanline|beetle_saturn_last_scanline_pal|reicast_cpu_mode|reicast_boot_to_bios|reicast_internal_resolution|reicast_mipmapping|reicast_widescreen_hack|reicast_audio_buffer_size|reicast_cable_type|reicast_broadcast|reicast_region|reicast_precompile_shaders|reicast_enable_rtt|reicast_enable_purupuru|bluemsx_msxtype|bluemsx_vdp_synctype|bluemsx_ym2413_enable|dosbox_machine_type|dosbox_emulated_mouse|dosbox_cpu_cycles_0|dosbox_cpu_cycles_1|dosbox_cpu_cycles_2|dosbox_cpu_cycles_3|dosbox_mapper_y|dosbox_mapper_x|dosbox_mapper_b|dosbox_mapper_a|dosbox_mapper_l|dosbox_mapper_r|dosbox_mapper_up|dosbox_mapper_down|dosbox_mapper_left|dosbox_mapper_right|dosbox_mapper_select|dosbox_mapper_start|picodrive_input1|picodrive_input2|picodrive_sprlim|picodrive_ramcart|picodrive_region|picodrive_region_fps|picodrive_aspect|snes9x_overclock|snes9x_layer_1|snes9x_layer_2|snes9x_layer_3|snes9x_layer_4|snes9x_layer_5|snes9x_gfx_clip|snes9x_gfx_transp|snes9x_sndchan_1|snes9x_sndchan_2|snes9x_sndchan_3|snes9x_sndchan_4|snes9x_sndchan_5|snes9x_sndchan_6|snes9x_sndchan_7|snes9x_sndchan_8|beetle_psx_renderer|beetle_psx_renderer_software_fb|beetle_psx_cdimagecache|beetle_psx_cpu_overclock|beetle_psx_skipbios|beetle_psx_widescreen_hack|beetle_psx_internal_resolution|beetle_psx_filter|beetle_psx_internal_color_depth|beetle_psx_scale_dither|beetle_psx_wireframe|beetle_psx_display_vram|beetle_psx_dither_mode|beetle_psx_pgxp_mode|beetle_psx_pgxp_caching|beetle_psx_pgxp_texture|beetle_psx_use_mednafen_memcard0_method|beetle_psx_enable_memcard1|beetle_psx_shared_memory_cards|beetle_psx_analog_calibration|beetle_psx_initial_scanline|beetle_psx_initial_scanline_pal|beetle_psx_last_scanline|beetle_psx_last_scanline_pal|beetle_psx_analog_toggle|beetle_psx_enable_multitap_port1|beetle_psx_enable_multitap_port2|beetle_psx_frame_duping_enable|beetle_psx_display_internal_framerate|beetle_psx_crop_overscan|beetle_psx_image_offset|beetle_psx_image_crop|ngp_language|fceumm_palette|fceumm_nospritelimit|fceumm_overclocking|fceumm_overscan|fceumm_aspect|mame2014_read_config|mame2014_auto_save|mame2014_mouse_enable|mame2014_throttle|mame2014_cheats_enable|mame2014_hide_nagscreen|mame2014_hide_infoscreen|mame2014_hide_warnings|mame2014_alternate_renderer|mame2014_boot_to_osd|mame2014_boot_from_cli|mame2016_read_config|mame2016_auto_save|mame2016_mouse_enable|mame2016_throttle|mame2016_cheats_enable|mame2016_hide_nagscreen|mame2016_hide_infoscreen|mame2016_hide_warnings|mame2016_alternate_renderer|mame2016_boot_to_osd|mame2016_boot_from_cli|fba-diagnostics|fba-unibios|fba-cpu-speed-adjust|fba-controls|fba-aspect|fba-controls-p1|fba-controls-p2|fba-sh2-mode|fba-hiscores|fba-lr-controls-p1|fba-lr-controls-p2|fba-neogeo-mode|fba-neogeo-controls-p1|fba-neogeo-controls-p2|mupen64-cpucore|mupen64-audio-buffer-size|mupen64-astick-deadzone|mupen64-pak1|mupen64-pak2|mupen64-pak3|mupen64-pak4|mupen64-disable_expmem|mupen64-gfxplugin-accuracy|mupen64-gfxplugin|mupen64-rspplugin|mupen64-screensize|mupen64-aspectratiohint|mupen64-filtering|mupen64-polyoffset-factor|mupen64-polyoffset-units|mupen64-angrylion-vioverlay|mupen64-virefresh|mupen64-bufferswap|mupen64-framerate|mupen64-vcache-vbo|mupen64-boot-device|mupen64-64dd-hardware|reicast_volume_modifier_mode|reicast_framerate|4do_high_resolution|gambatte_gb_colorization|gambatte_gb_internal_palette|gambatte_gbc_color_correction|gambatte_gb_hwmode|gambatte_gb_link_mode|gambatte_gb_link_network_port|gambatte_gb_link_network_server_ip_octet1|gambatte_gb_link_network_server_ip_octet2|gambatte_gb_link_network_server_ip_octet3|gambatte_gb_link_network_server_ip_octet4|mame_current_mouse_enable|mame_current_videoapproach1_enable|mame_current_skip_nagscreen|mame_current_skip_gameinfo|mame_current_skip_warnings|mame2003-frameskip|mame2003-dcs-speedhack|mame2003-skip_disclaimer|mame2003-skip_warnings|mame2003-samples|mame2003-sample_rate|mame2003-cheats|mame2003-dialsharexy|mame2003-mouse_device|mame2003-rstick_to_btns|mame2000-skip_disclaimer|mame2000-show_gameinfo|cpu-speed-adjust|diagnostics|vbam_layer_1|vbam_layer_2|vbam_layer_3|vbam_layer_4|vbam_layer_5|vbam_layer_6|vbam_layer_7|vbam_layer_8|vbanext_bios|yabause_frameskip|yabause_force_hle_bios|yabause_addon_cart|handy_rot|bsnes_violate_accuracy|bsnes_chip_hle|bsnes_superfx_overclock|vb_anaglyph_preset |vb_color_mode|fuse_machine|fuse_hide_border|fuse_fast_load|fuse_load_sound|fuse_speaker_type|fuse_ay_stereo_separation|fuse_key_ovrlay_transp|fuse_key_hold_time|fmsx_mode|fmsx_video_mode|fmsx_mapper_type_mode|glupen64-cpucore|glupen64-rspmode|glupen64-43screensize|glupen64-169screensize|glupen64-aspect|glupen64-BilinearMode|glupen64-EnableFBEmulation|glupen64-UseNativeResolutionFactor|glupen64-EnableCopyAuxiliaryToRDRAM|glupen64-EnableCopyColorToRDRAM|glupen64-EnableCopyDepthToRDRAM|glupen64-EnableCopyColorFromRDRAM|glupen64-EnableHWLighting|glupen64-CorrectTexrectCoords|glupen64-EnableNativeResTexrects|glupen64-EnableLegacyBlending|glupen64-astick-deadzone|glupen64-pak1|glupen64-pak2|glupen64-pak3|glupen64-pak4|virtualjaguar_usefastblitter|virtualjaguar_doom_res_hack|vice_Statusbar|vice_Drive8Type|vice_DriveTrueEmulation|vice_RetroJoy|vice_Controller|px68k_cpuspeed|px68k_ramsize|px68k_analog|px68k_joytype1|px68k_joytype2
+COREVARS= mgba_solar_sensor_level|mgba_allow_opposing_directions|mgba_use_bios|mgba_skip_bios|mgba_idle_optimization|genesis_plus_gx_system_hw|genesis_plus_gx_region_detect|genesis_plus_gx_force_dtack|genesis_plus_gx_bios|genesis_plus_gx_bram|genesis_plus_gx_addr_error|genesis_plus_gx_lock_on|genesis_plus_gx_ym2413|genesis_plus_gx_dac_bits|genesis_plus_gx_blargg_ntsc_filter|genesis_plus_gx_lcd_filter|genesis_plus_gx_overscan|genesis_plus_gx_gg_extra|genesis_plus_gx_render|genesis_plus_gx_gun_cursor|genesis_plus_gx_invert_mouse|mame2014_read_config|mame2014_write_config|mame2014_saves|mame2014_auto_save|mame2014_mouse_enable|mame2014_throttle|mame2014_cheats_enable|mame2014_hide_nagscreen|mame2014_hide_gameinfo|mame2014_hide_warnings|mame2014_alternate_renderer|mame2014_softlists_enable|mame2014_softlists_auto_media|mame2014_media_type|mame2014_boot_to_bios|mame2014_boot_to_osd|mame2014_boot_from_cli|ume2014_read_config|ume2014_write_config|ume2014_saves|ume2014_auto_save|ume2014_mouse_enable|ume2014_throttle|ume2014_cheats_enable|ume2014_hide_nagscreen|ume2014_hide_gameinfo|ume2014_hide_warnings|ume2014_alternate_renderer|ume2014_softlists_enable|ume2014_softlists_auto_media|ume2014_media_type|ume2014_boot_to_bios|ume2014_boot_to_osd|ume2014_boot_from_cli|mame_read_config|mame_write_config|mame_saves|mame_auto_save|mame_mouse_enable|mame_throttle|mame_cheats_enable|mame_hide_nagscreen|mame_hide_gameinfo|mame_hide_warnings|mame_alternate_renderer|mame_softlists_enable|mame_softlists_auto_media|mame_media_type|mame_boot_to_bios|mame_boot_to_osd|mame_boot_from_cli|desmume_internal_resolution|desmume_num_cores|desmume_cpu_mode|desmume_jit_block_size|desmume_screens_layout|desmume_pointer_mouse|desmume_pointer_type|desmume_pointer_colour|desmume_pointer_device|desmume_pointer_device_deadzone|desmume_pointer_device_acceleration_mod|desmume_pointer_stylus_pressure|desmume_pointer_stylus_jitter|desmume_load_to_memory|desmume_advanced_timing|desmume_firmware_language|desmume_frameskip|desmume_screens_gap|desmume_gfx_edgemark|desmume_gfx_linehack|desmume_gfx_txthack|desmume_mic_force_enable|desmume_mic_mode|desmume_hybrid_layout_scale|ppsspp_cpu_core|ppsspp_locked_cpu_speed|ppsspp_language|ppsspp_rendering_mode|ppsspp_auto_frameskip|ppsspp_frameskip|ppsspp_framerate_limit|ppsspp_force_max_fps|ppsspp_audio_latency|ppsspp_internal_resolution|ppsspp_output_resolution|ppsspp_button_preference|ppsspp_fast_memory|ppsspp_set_rounding_mode|ppsspp_block_transfer_gpu|ppsspp_texture_scaling_level|ppsspp_texture_scaling_type|ppsspp_texture_anisotropic_filtering|ppsspp_texture_deposterize|ppsspp_internal_shader|ppsspp_gpu_hardware_transform|ppsspp_vertex_cache|ppsspp_prescale_uv|ppsspp_separate_io_thread|ppsspp_unsafe_func_replacements|ppsspp_sound_speedhack|ppsspp_threaded_input|nestopia_blargg_ntsc_filter|nestopia_palette|nestopia_nospritelimit|nestopia_fds_auto_insert|nestopia_overscan_v|nestopia_overscan_h|nestopia_aspect|nestopia_genie_distortion|nestopia_favored_system|nestopia_ram_power_state|pce_fast_cdimagecache|pce_nospritelimit|pce_ocmultiplier|pce_hoverscan|pce_initial_scanline|pce_last_scanline|pce_cddavolume|pce_adpcmvolume|pce_cdpsgvolume|pce_cdspeed|Turbo_Delay|p0_turbo_I_enable|p0_turbo_II_enable|p1_turbo_I_enable|p1_turbo_II_enable|p2_turbo_I_enable|p2_turbo_II_enable|p3_turbo_I_enable|p3_turbo_II_enable|p4_turbo_I_enable|p4_turbo_II_enable|beetle_saturn_cdimagecache|beetle_saturn_initial_scanline|beetle_saturn_initial_scanline_pal|beetle_saturn_last_scanline|beetle_saturn_last_scanline_pal|reicast_cpu_mode|reicast_boot_to_bios|reicast_internal_resolution|reicast_mipmapping|reicast_widescreen_hack|reicast_audio_buffer_size|reicast_cable_type|reicast_broadcast|reicast_region|reicast_precompile_shaders|reicast_enable_rtt|reicast_enable_purupuru|bluemsx_msxtype|bluemsx_vdp_synctype|bluemsx_ym2413_enable|dosbox_machine_type|dosbox_emulated_mouse|dosbox_cpu_cycles_0|dosbox_cpu_cycles_1|dosbox_cpu_cycles_2|dosbox_cpu_cycles_3|dosbox_mapper_y|dosbox_mapper_x|dosbox_mapper_b|dosbox_mapper_a|dosbox_mapper_l|dosbox_mapper_r|dosbox_mapper_up|dosbox_mapper_down|dosbox_mapper_left|dosbox_mapper_right|dosbox_mapper_select|dosbox_mapper_start|picodrive_input1|picodrive_input2|picodrive_sprlim|picodrive_ramcart|picodrive_region|picodrive_region_fps|picodrive_aspect|snes9x_overclock|snes9x_layer_1|snes9x_layer_2|snes9x_layer_3|snes9x_layer_4|snes9x_layer_5|snes9x_gfx_clip|snes9x_gfx_transp|snes9x_sndchan_1|snes9x_sndchan_2|snes9x_sndchan_3|snes9x_sndchan_4|snes9x_sndchan_5|snes9x_sndchan_6|snes9x_sndchan_7|snes9x_sndchan_8|beetle_psx_renderer|beetle_psx_renderer_software_fb|beetle_psx_cdimagecache|beetle_psx_cpu_overclock|beetle_psx_skipbios|beetle_psx_widescreen_hack|beetle_psx_internal_resolution|beetle_psx_filter|beetle_psx_internal_color_depth|beetle_psx_scale_dither|beetle_psx_wireframe|beetle_psx_display_vram|beetle_psx_dither_mode|beetle_psx_pgxp_mode|beetle_psx_pgxp_caching|beetle_psx_pgxp_texture|beetle_psx_use_mednafen_memcard0_method|beetle_psx_enable_memcard1|beetle_psx_shared_memory_cards|beetle_psx_analog_calibration|beetle_psx_initial_scanline|beetle_psx_initial_scanline_pal|beetle_psx_last_scanline|beetle_psx_last_scanline_pal|beetle_psx_analog_toggle|beetle_psx_enable_multitap_port1|beetle_psx_enable_multitap_port2|beetle_psx_frame_duping_enable|beetle_psx_display_internal_framerate|beetle_psx_crop_overscan|beetle_psx_image_offset|beetle_psx_image_crop|ngp_language|fceumm_palette|fceumm_nospritelimit|fceumm_overclocking|fceumm_overscan|fceumm_aspect|mame2014_read_config|mame2014_auto_save|mame2014_mouse_enable|mame2014_throttle|mame2014_cheats_enable|mame2014_hide_nagscreen|mame2014_hide_infoscreen|mame2014_hide_warnings|mame2014_alternate_renderer|mame2014_boot_to_osd|mame2014_boot_from_cli|mame2016_read_config|mame2016_auto_save|mame2016_mouse_enable|mame2016_throttle|mame2016_cheats_enable|mame2016_hide_nagscreen|mame2016_hide_infoscreen|mame2016_hide_warnings|mame2016_alternate_renderer|mame2016_boot_to_osd|mame2016_boot_from_cli|fba-diagnostics|fba-unibios|fba-cpu-speed-adjust|fba-controls|fba-aspect|fba-controls-p1|fba-controls-p2|fba-sh2-mode|fba-hiscores|fba-lr-controls-p1|fba-lr-controls-p2|fba-neogeo-mode|fba-neogeo-controls-p1|fba-neogeo-controls-p2|mupen64-cpucore|mupen64-audio-buffer-size|mupen64-astick-deadzone|mupen64-pak1|mupen64-pak2|mupen64-pak3|mupen64-pak4|mupen64-disable_expmem|mupen64-gfxplugin-accuracy|mupen64-gfxplugin|mupen64-rspplugin|mupen64-screensize|mupen64-aspectratiohint|mupen64-filtering|mupen64-polyoffset-factor|mupen64-polyoffset-units|mupen64-angrylion-vioverlay|mupen64-virefresh|mupen64-bufferswap|mupen64-framerate|mupen64-vcache-vbo|mupen64-boot-device|mupen64-64dd-hardware|reicast_volume_modifier_mode|reicast_framerate|4do_high_resolution|gambatte_gb_colorization|gambatte_gb_internal_palette|gambatte_gbc_color_correction|gambatte_gb_hwmode|gambatte_gb_link_mode|gambatte_gb_link_network_port|gambatte_gb_link_network_server_ip_octet1|gambatte_gb_link_network_server_ip_octet2|gambatte_gb_link_network_server_ip_octet3|gambatte_gb_link_network_server_ip_octet4|mame_current_mouse_enable|mame_current_videoapproach1_enable|mame_current_skip_nagscreen|mame_current_skip_gameinfo|mame_current_skip_warnings|mame2003-frameskip|mame2003-dcs-speedhack|mame2003-skip_disclaimer|mame2003-skip_warnings|mame2003-samples|mame2003-sample_rate|mame2003-cheats|mame2003-dialsharexy|mame2003-mouse_device|mame2003-rstick_to_btns|mame2000-skip_disclaimer|mame2000-show_gameinfo|cpu-speed-adjust|diagnostics|vbam_layer_1|vbam_layer_2|vbam_layer_3|vbam_layer_4|vbam_layer_5|vbam_layer_6|vbam_layer_7|vbam_layer_8|vbanext_bios|yabause_frameskip|yabause_force_hle_bios|yabause_addon_cart|handy_rot|bsnes_violate_accuracy|bsnes_chip_hle|bsnes_superfx_overclock|vb_anaglyph_preset|vb_color_mode|fuse_machine|fuse_hide_border|fuse_fast_load|fuse_load_sound|fuse_speaker_type|fuse_ay_stereo_separation|fuse_key_ovrlay_transp|fuse_key_hold_time|fmsx_mode|fmsx_video_mode|fmsx_mapper_type_mode|glupen64-cpucore|glupen64-rspmode|glupen64-43screensize|glupen64-169screensize|glupen64-aspect|glupen64-BilinearMode|glupen64-EnableFBEmulation|glupen64-UseNativeResolutionFactor|glupen64-EnableCopyAuxiliaryToRDRAM|glupen64-EnableCopyColorToRDRAM|glupen64-EnableCopyDepthToRDRAM|glupen64-EnableCopyColorFromRDRAM|glupen64-EnableHWLighting|glupen64-CorrectTexrectCoords|glupen64-EnableNativeResTexrects|glupen64-EnableLegacyBlending|glupen64-astick-deadzone|glupen64-pak1|glupen64-pak2|glupen64-pak3|glupen64-pak4|virtualjaguar_usefastblitter|virtualjaguar_doom_res_hack|vice_Statusbar|vice_Drive8Type|vice_DriveTrueEmulation|vice_RetroJoy|vice_Controller|px68k_cpuspeed|px68k_ramsize|px68k_analog|px68k_joytype1|px68k_joytype2
 
 FAN1ART= Backdrops
 FAN2ART= Backdrops
@@ -3057,8 +3057,8 @@ Gui,Font,Bold
 Gui, Add, GroupBox, x524 y340 w235 h86 vRJGRPD, Disk Mounting
 Gui,Font,Normal
 Gui, Add, CheckBox, x627 y349 h13 vRJENDMNT gRJENDMNT, Enable ;Disc Mounting
-Gui, Add, DropDownList, x530 y364 w172 vRJDMNTDD gRJDMNTDD Disabled, DaemonTools||Other
-Gui, Add, Button, x704 y364 w47 h22 vRJDIMGET gRJDIMGET Disabled, Browse
+Gui, Add, DropDownList, x530 y364 w132 vRJDMNTDD gRJDMNTDD Disabled, DaemonTools||Native|Other
+Gui, Add, Button, x704 y324 w47 h22 vRJDIMGET gRJDIMGET Disabled, Browse
 Gui, Add, Radio, x536 y390 h13 vRJRad8A gRJRad8A Disabled checked, pre-Emulator Run
 Gui, Add, Radio, x536 y406 h13 vRJRad8B gRJRad8B Disabled, post-Emulator Run
 Gui, Add, Checkbox, x671 y386 h17 vRJENDMOV +0x20 gRJENDMOV Disabled, Disk Override
@@ -5326,7 +5326,7 @@ if (FEDDLE = "Marquee")
 	{
 		jaksdname= Logo
 	}
-iif (FEDDLE = "Boxart")
+if (FEDDLE = "Boxart")
 	{
 		jaksdname= Folder
 	}
@@ -10247,7 +10247,11 @@ return
 INST_Daemon_Tools:
 guicontrol,enable,CNCLDWN
 dtdrvinst= 
-Loop, apps\%semu%\DTLite.exe
+if (xtractmfp = "")
+	{
+		xtractmfp= tmp\DTLite.exe
+	}
+Loop, %xtractmfp%
 	{
 		dtdrvinst:= A_LoopFileFullPath
 	}
@@ -10257,7 +10261,7 @@ ifnotexist, %dtdrvinst%
 	}
 if (xtractmul = "")
 	{
-		xtractmul= %A_ProgramFiles%
+		xtractmul= %RJEMUD%\Daemon Tools
 	}
 Runwait,"%dtdrvinst%" /S /nogadget /notoolbar /sptd /D="%xtractmul%",,,inspid
 RegWrite, REG_SZ, HKEY_LOCAL_MACHINE\SOFTWARE\TestKey, MyValueName, Test Value
@@ -10504,9 +10508,15 @@ loop,parse,mamelistedmedia,`n
 		ifinstring,nni2,(
 			{
 				nni1= %oldf%	
+				ifinstring,oldf,%nni1%
+					{
+						%RJMAMENM%lmfam.= afe1 . "|"
+					}
 			}
 		ifnotinstring,nni2,(
 			{
+				stringsplit,afe,vir1,%A_Space%
+				%RJMAMENM%lmfam:= afe1 . "|"
 				oldf= %nni1%
 			}
 		ifinstring,A_LoopField,(prin
@@ -10841,6 +10851,12 @@ Loop, Parse,UrlIndex,`n`r
 					}
 				sb_settext(" " URLFILE " ")	
 				save=%urloc2%
+				if (selfnd = "Daemon_Tools")
+					{
+						save= %A_Scriptdir%\tmp
+						xtractmu= %A_Scriptdir%\tmp
+						xtractmfp= %A_Scriptdir%\tmp\DTLite.exe
+					}
 				if (xtractmu = "")
 					{
 						;;break
@@ -10925,7 +10941,8 @@ Loop, Parse,UrlIndex,`n`r
 							}
 						if (selfnd = "Daemon_Tools")
 							{
-								DAMVAR= %xtractmfp%
+								DAMZIL= %xtractmfp%
+								gosub, INST_Daemon_Tools
 							}
 						if (selfnd = "Antimicro")
 							{
@@ -15819,7 +15836,6 @@ Loop,Parse,SysEmuSet,`n`r
 									}
 							}
 					}
-					
 				break	
 			}
 	}
@@ -15842,11 +15858,10 @@ if (CLActive = 1)
 	}
 return
 
-
 MatchSyst:
 Loop, Parse, libMatSet,`n`r
 	{
-		stringsplit, symt,A_LoopField,|
+		stringsplit,symt,A_LoopField,|
 		if (symt2 = ARCSYS)
 			{
 				ifexist, %libretroDirectory%\%symt1%
@@ -18490,27 +18505,6 @@ if (ARCSYS = "ScummVM")
 	{
 		cmdfun= 1
 	}
-
-/*
-if ARCSTS = "MAME - Arcade")
-	{
-		loop, Read, gam\%ARCSYS%.gam
-			{
-				stringsplit,romarray,A_LoopReadLine,=,`n`r
-				if (romarray2 = "")
-					{
-						continue
-					}	
-				splitpath,romnmspl1,,,fne,,
-				fnn_list .= fnne . "|"
-				pop_list .= romarray2 . "|"
-			}
-		Sort,fnn_list,D|
-		gosub, pdlist
-		return
-	}
-*/
-
 pop_list= 
 if (MAMESWCHK = 1)
 	{	
@@ -18549,9 +18543,6 @@ loop, Read, gam\%ARCSYS%.gam
 			{
 				continue
 			}
-/*
-		pop_list .= (A_Index == 1 ? "" : "|") . romarray2
-*/		
 		pop_list .= romarray2 . "|"
 	}
 pdlist= %pop_list%
@@ -18583,10 +18574,6 @@ if (ARCSYS = "MAME - Arcade")
 	{
 		guicontrol,,EXTRURL,0
 	}
-if (ARCSYS = "MAME - Arcade")
-	{
-		guicontrol,,EXTRURL,0
-	}
 if (ARCSYS = "MAME - BIOS")
 	{
 		OVDCHK= MAME - Arcade
@@ -18595,6 +18582,14 @@ if (ARCSYS = "MAME - BIOS")
 		guicontrol,,OVDCHK,1
 		guicontrol,,DOWNONLY,1
 		gosub, DOWNONLY
+		guicontrol,,EXTRURL,0
+	}
+
+if (ARCSYS = "MAME_C")
+	{
+		OVDCHK= MAME - Arcade
+		guicontrol,,OVDLDS,|MAME - Arcade|Matching|%SWAPPOP%
+		guicontrol,,OVDTXT,%SWAPLOC%\MAME - Arcade
 		guicontrol,,EXTRURL,0
 	}
 return
@@ -33567,7 +33562,7 @@ if (RJDIMGOT = "")
 		return
 	}
 ROMINLP= %RJDIMGOT%
-iniwrite,rj\cur.ini,%ROMINLP%,%RJSYSDD%,ROMINLP
+iniwrite,%ROMINLP%,rj\cur.ini,%RJSYSDD%,ROMINLP
 return
 
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  PROCESS QUEUE  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -33693,6 +33688,7 @@ Loop, rj\*.jak
 		IniRead,RJKEYMAPPER,rj\%curjf%.ini,%curjf%,RJKEYMAPPER
 		IniRead,RJPATH,rj\%curjf%.ini,%curjf%,RJPATH
 		IniRead,RJRUNDIR,rj\%curjf%.ini,%curjf%,RJRUNDIR
+		IniRead,DAEMTO,rj\%curjf%.ini,%curjf%,RJDISCMNT
 		IniRead,RJPRERUN,rj\%curjf%.ini,%curjf%,RJPRERUN
 		IniRead,RJPOSTRUN,rj\%curjf%.ini,%curjf%,RJPOSTRUN
 		IniRead,RJPOSTOPT,rj\%curjf%.ini,%curjf%,RJPOSTOPT
@@ -33867,6 +33863,35 @@ Loop, rj\*.jak
 			{
 				RJEMUOPTS:= A_Space
 			}
+		if (DAEMTO = 1)
+			{
+				stringreplace,toapd,toapd,[RUNOPTS][ROMIN][RUNARGS],[NXIX],All
+				stringreplace,toapd,toapd,[ROMINLP],[ROMIN],All
+				
+				optav= 	
+				Loop, Parse, RJEMUOPTS,|
+					{
+						if (A_LoopField = "<")
+							{
+								continue
+							}
+						if (A_LoopField = " ")
+							{
+								continue
+							}
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						optav= 1	
+						break
+					}
+				if (optav = "")
+					{
+						stringreplace,toapd,toapd,[NXIX],[RUNOPTS][ROMIN][RUNARGS],All
+					}
+				stringreplace,toapd,toapd,[NXIX],,All	
+			}
 		StringReplace,toapd,toapd,[RUNOPTS],%RJEMUOPTS%,All
 		StringReplace,toapd,toapd,[RUNARGS],%RJEMUARGS%,All
 		
@@ -33975,7 +34000,17 @@ Loop, rj\*.jak
 		FileAppend,%toapb%,rj\sysCfgs\%curjf%\lnch.cmd
 		FileAppend,%preruni%,rj\sysCfgs\%curjf%\lnch.cmd
 		FileAppend,%toapc%,rj\sysCfgs\%curjf%\lnch.cmd
+		
+		IF (RJDMNTDD = "Native")
+			{
+				Fileappend,`%LAUNCH`% powershell.exe "Mount-DiskImage ""`%GAMDIR`%"""`n,rj\sysCfgs\%curjf%\lnch.cmd
+			}
 		FileAppend,%toapd%,rj\sysCfgs\%curjf%\lnch.cmd
+		
+		IF (RJDMNTDD = "Native")
+			{
+				Fileappend,`%LAUNCH`% powershell.exe "Dismount-DiskImage ""`%GAMDIR`%"""`n,rj\sysCfgs\%curjf%\lnch.cmd
+			}
 		FileAppend,%postruni%,rj\sysCfgs\%curjf%\lnch.cmd
 
 		Loop, Parse, RJPOSTCFG,|
@@ -35315,7 +35350,7 @@ if (RJENDMNT = 0)
 			guicontrol,disable,RJRAD8B
 			guicontrol,disable,RJDIMGET
 		}
-
+iniwrite,%RJENDMNT%,rj\cur.ini,%RJSYSDD%,RJDISCMNT
 return
 
 RJCHKA:
@@ -35704,11 +35739,9 @@ IniRead, ADDFN,rj\cur.ini,%RJSYSDD%,%CMDRT%
 guicontrol,,RJDDLP,|%ADDFN%	
 return
 
-
-
 RJDMNTDD:
 gui,submit,nohide
-
+guicontrolget,RJDMNTDD,,RJDMNTDD
 return
 
 RJCNSLDD:
@@ -37819,160 +37852,196 @@ corcfgnam= %ccv%
 if (ccv = "bsnes_accuracy")
 	{
 		corcfgnam= bSNES
-	}
+	    return
+    }
 if (ccv = "bsnes_balanced")
 	{
 		corcfgnam= bSNES
-	}
+	    return
+    }
 if (ccv = "bsnes_cplusplus98")
 	{
 		corcfgnam= bSNES
-	}
+	    return
+    }
 if (ccv = "bsnes mercury_accuracy")
 	{
 		corcfgnam= bsnes_mercury
-	}
+	    return
+    }
 if (ccv = "bsnes_mercury_balanced")
 	{
 		corcfgnam= bsnes-mercury
-	}
+	    return
+    }
 if (ccv = "bsnes_mercury_performance")
 	{
 		corcfgnam= bsnes-mercury
-	}
+	    return
+    }
 if (ccv = "bsnes_performance")
 	{
 		corcfgnam= bSNES
-	}
+	    return
+    }
 if (ccv = "bzsnes")
 	{
 		corcfgnam= bZSNES
-	}
+	    return
+    }
 if (ccv = "catsfc")
 	{
 		corcfgnam= CATSFC(SNES9x)
-	}
+	    return
+    }
 if (ccv = "emux_chip8")
 	{
 		corcfgnam= emux-chip8
-	}
+	    return
+    }
 if (ccv = "emux_gb")
 	{
 		corcfgnam= emux-gb
-	}
+	    return
+    }
 if (ccv = "crocods")
 	{
 		corcfgnam= crocods
-	}
+	    return
+    }
 if (ccv = "emux_nes")
 	{
 		corcfgnam= emux-nes
-	}
+	    return
+    }
 if (ccv = "dolphin")
 	{
 		corcfgnam= Dolphin
-	}
+	    return
+    }
 if (ccv = "DeSmuME")
 	{
 		corcfgnam= DeSmuME
-	}
+	    return
+    }
 if (ccv = "Citra")
 	{
 		corcfgnam= Citra
-	}
+	    return
+    }
 if (ccv = "emux_sms")
 	{
 		corcfgnam= emux-sms
-	}
+	    return
+    }
 if (ccv = "fbalpha2012_cps1")
 	{
 		szip= 1
 		corcfgnam= FB Alpha 2012 CPS-1
-	}
+	    return
+    }
 if (ccv = "fbalpha2012_cps2")
 	{
 		szip= 1
 		corcfgnam= FB Alpha 2012 CPS-2
-	}
+	    return
+    }
 if (ccv = "fbalpha2012")
 	{
 		szip= 1
 		corcfgnam= FB Alpha 2012
-	}
+	    return
+    }
 if (ccv = "fbalpha2012_neogeo")
 	{
 		szip= 1
 		corcfgnam= FB Alpha 2012 NeoGeo
-	}
+	    return
+    }
 if (ccv = "fbalpha")
 	{
 		szip= 1
 		corcfgnam= FB Alpha
-	}
+	    return
+    }
 if (ccv = "fba")
 	{
 		szip= 1
 		corcfgnam= FB Alpha
-	}
+	    return
+    }
 if (ccv = "fb_alpha_cps2")
 	{
 		szip= 1
 		corcfgnam= FB Alpha CPS2
-	}
+	    return
+    }
 if (ccv = "fb_alpha")
 	{
 		szip= 1
 		corcfgnam= FB Alpha
-	}
+	    return
+    }
 if (ccv = "fb_alpha_neo")
 	{
 		szip= 1
 		corcfgnam= FB Alpha NeoGeo
-	}
+	    return
+    }
 if (ccv = "fuse")
 	{
 		szip= 1
 		corcfgnam= Sinclair ZX Spectrum
-	}
+	    return
+    }
 if (ccv = "freeintv")
 	{
 		szip= 1
 		corcfgnam= FreeIntv
-	}
+	    return
+    }
 if (ccv = "81")
 	{
 		szip= 1
 		corcfgnam= Sinclair ZX 81
-	}
+	    return
+    }
 if (ccv = "gpSP")
 	{
 		szip= 1
 		corcfgnam= gpSP
-	}
+	    return
+    }
 if (ccv = "gambatte_gbc")
 	{
 		corcfgnam= Gambatte-GBC
-	}
+	    return
+    }
 if (ccv = "genesis_plus_gx_gg")
 	{
 		corcfgnam= Genesis Plus GX - Game Gear
-	}
+	    return
+    }
 if (ccv = "genesis_plus_gx")
 	{
 		corcfgnam= Genesis Plus GX
-	}
+	    return
+    }
 if (ccv = "genesis_plus_gx_segacd")
 	{
 		corcfgnam= Genesis Plus GX - Sega CD
-	}
+	    return
+    }
 if (ccv = "genesis_plus_gx_sms")
 	{
 		corcfgnam= Genesis Plus GX - SMS
-	}
+	    return
+    }
 if (ccv = "parallel_n64")
 	{
 		corcfgnam= ParaLLEl N64
-	}
+	    return
+    }
 if (ccv = "glupen64")
 	{
 		glpndr= OpenGL
@@ -37981,179 +38050,221 @@ if (ccv = "glupen64")
 				glpndr= Vulkan
 			}
 corcfgnam= GlupeN64 %glpndr%
-	}
+	    return
+    }
 if (ccv = "mame2000")
 	{
 		szip= 1
 		corcfgnam= MAME 2000
-	}
+	    return
+    }
 if (ccv = "mame2003")
 	{
 		szip= 1
 		corcfgnam= MAME 2003
-	}
+	    return
+    }
 if (ccv = "mame 2010")
 	{
 		szip= 1
 		corcfgnam= MAME 2010
-	}
+	    return
+    }
 if (ccv = "mame2016")
 	{
 		szip= 1
 		corcfgnam= MAME 2016
-	}
+	    return
+    }
 if (ccv = "mame2014")
 	{
 		szip= 1
 		corcfgnam= MAME 2014
-	}
+	    return
+    }
 if (ccv = "mame")
 	{
 		szip= 1
 		corcfgnam= MAME
-	}
+	    return
+    }
 if (ccv = "mednafen_gba")
 	{
 		corcfgnam= Mednafen GBA
-	}
+	    return
+    }
 if (ccv = "mednafen_lynx")
 	{
 		corcfgnam= Mednafen Lynx
-	}
+	    return
+    }
 if (ccv = "mednafen_ngp")
 	{
 		corcfgnam= Mednafen NeoPop
-	}
+	    return
+    }
 if (ccv = "mednafen_pce_fast")
 	{
 		corcfgnam= Mednafen PCE Fast
-	}
+	    return
+    }
 if (ccv = "mednafen_pcfx")
 	{
 		corcfgnam= Mednafen PC-FX
-	}
+	    return
+    }
 if (ccv = "mednafen_psx_hw")
 	{
 		corcfgnam= Beetle PSX-HW
-	}
+	    return
+    }
 if (ccv = "pcsx_rearmed")
 	{
 		corcfgnam= PCSX-ReARMed
-	}
+	    return
+    }
 if (ccv = "mednafen_psx")
 	{
 		corcfgnam= Beetle PSX
-	}
+	    return
+    }
 if (ccv = "mednafen_saturn")
 	{
 		corcfgnam= Mednafen Saturn
-	}
+	    return
+    }
 if (ccv = "mednafen_snes")
 	{
 		corcfgnam= Mednafen Snes
-	}
+	    return
+    }
 if (ccv = "mednafen_supergrafx")
 	{
 		corcfgnam= Mednafen SuperGrafx
-	}
+	    return
+    }
 if (ccv = "mednafen_vb")
 	{
 		corcfgnam= Mednafen VB
-	}
+	    return
+    }
 if (ccv = "mednafen_wswan")
 	{
 		corcfgnam= Mednafen WonderSwan
-	}
+	    return
+    }
 if (ccv = "mess2014")
 	{
 		szip= 1
 		corcfgnam= MESS 2014
-	}
+	    return
+    }
 if (ccv = "px68k")
 	{
 		corcfgnam= PX68K
-	}
+	    return
+    }
 if (ccv = "puae")
 	{
 		corcfgnam= PUAE
-	}
+	    return
+    }
 if (ccv = "fuse")
 	{
 		corcfgnam= fuse
-	}
+	    return
+    }
 if (ccv = "bluemsx")
 	{
 		corcfgnam= Blue-MSX
-	}
+	    return
+    }
 if (ccv = "quicknes")
 	{
 		corcfgnam= QuickNES
-	}
+	    return
+    }
 if (ccv = "reicast_OIT")
 	{
 		corcfgnam= Reicast OIT
-	}
+	    return
+    }
 if (ccv = "reicast")
 	{
 		corcfgnam= Reicast
-	}
+	    return
+    }
 if (ccv = "redream")
 	{
 		corcfgnam= Redream
-	}
+	    return
+    }
 if (ccv = "scummvm")
 	{
 		corcfgnam= ScummVM
-	}
+	    return
+    }
 if (ccv = "snes9x2002")
 	{
 		corcfgnam= Snes9x 2002
-	}
+	    return
+    }
 if (ccv = "snes9x2005")
 	{
 		corcfgnam= Snes9x 2005
-	}
+	    return
+    }
 if (ccv = "snes9x2005_plus")
 	{
 		corcfgnam= Snes9x 2005 plus
-	}
+	    return
+    }
 if (ccv = "snes9x2010")
 	{
 		corcfgnam= Snes9x 2010
-	}
+	    return
+    }
 if (ccv = "snes9x")
 	{
 		corcfgnam= Snes9x
-	}
+	    return
+    }
 if (ccv = "snes9x_next")
 	{
 		corcfgnam= Snes9x Next
-	}
+	    return
+    }
 if (ccv = "stella")
 	{
 		corcfgnam= Stella
-	}
+	    return
+    }
 if (ccv = "tgbdual")
 	{
 		corcfgnam= TGB Dual
-	}
+	    return
+    }
 if (ccv = "ume2014")
 	{
 		szip= 1
 		corcfgnam= UME 2014
-	}
+	    return
+    }
 if (ccv = "vbam")
 	{
 		corcfgnam= VBA-M
-	}
+	    return
+    }
 if (ccv = "vba_next")
 	{
 		corcfgnam= VBA Next
-	}
+	    return
+    }
 if (ccv = "vecx")
 	{
 		corcfgnam= VecX
-	}
+	    return
+    }
 if (ccv = "virtualjaguar")
 	{
 		corcfgnam= Virtual Jaguar
@@ -38179,26 +38290,28 @@ if (syslk = "bSNES")
 				corelk= bsnes_balanced
 			}
 		ifInString,corever,Performance
-		{
-		ifInString,corever,v095
 			{
-				corelk= bsnes_performance
+				ifInString,corever,v095
+					{
+						corelk= bsnes_performance
+					}
+				ifInString,corever,v085
+					{
+						corelk= bsnes_cplusplus98
+					}
 			}
-		ifInString,corever,v085
-			{
-				corelk= bsnes_cplusplus98
-			}
-		}
 		ifInString,corever,Accuracy
-		{
-			corelk= bsnes_accuracy
-		}
+			{
+				corelk= bsnes_accuracy
+			}
+	    return
 	}
 if (syslk = "mednafenbSNES")
 	{
 		ASPOP= Nintendo - Super Nintendo Entertainment System
 		corelk= mednafen_snes
 
+	    return
 	}
 if (syslk = "bsnes-mercury")
 	{
@@ -38215,495 +38328,587 @@ if (syslk = "bsnes-mercury")
 			{
 				corelk= bsnes_mercury_performance
 			}
-	}
+	    return
+}
 if (syslk = "bZSNES")
 	{
 	ASPOP= Nintendo - Super Nintendo Entertainment System
 	corelk= bzsnes
-	}
+	    return
+}
 if (syslk = "CATSFC(SNES9x)")
 	{
 		ASPOP= Nintendo - Super Nintendo Entertainment System
 		corelk= catsfc
-	}
+	    return
+}
 if (syslk = "emux-chip8")
 	{
 		corelk= emux_chip8
-	}
+	    return
+}
 if (syslk = "emux-gb")
 	{
 		ASPOP= Nintendo - Game Boy
 		corelk= emux_gb
-	}
+	    return
+}
 if (syslk = "crocods")
 	{
 		ASPOP= Amstrad - CPC
 		corelk= crocods
-	}
+	    return
+}
 if (syslk = "emux-nes")
 	{
 		ASPOP= Nintendo - Nintendo Entertainment System
 		corelk= emux_nes
-	}
+	    return
+}
 if (syslk = "FreeIntv")
 	{
 		ASPOP= Mattel - Intellivision
 		corelk= freeintv
-	}
+	    return
+}
 if (syslk = "Dolphin")
 	{
 		ASPOP= Nintendo - Gamecube
 		corelk= dolphin
-	}
+	    return
+}
 if (syslk = "emux-sms")
 	{
 		ASPOP= Sega - Master System - Mark III
 		corelk= emux_sms
-	}
+	    return
+}
 if (syslk = "ProSystem")
 	{
 		ASPOP= Atari - 7800
 		corelk= prosystem
-	}
+	    return
+}
 if (syslk = "FB Alpha 2012 CPS1")
 	{
 		ASPOP= Capcom Play System - CPS
 		szip= 1
 		corelk= fbalpha2012_cps1
-	}
+	    return
+}
 if (syslk = "FB Alpha 2012 CPS-2")
 	{
 		ASPOP= Capcom Play System - CPS II
 		szip= 1
 		corelk= fbalpha2012_cps2
-	}
+	    return
+}
 if (syslk = "FB Alpha 2012 CPS2")
 	{
 		ASPOP= Capcom Play System - CPS II
 		szip= 1
 		corelk= fbalpha2012_cps2
-	}
+	    return
+}
 if (syslk = "FB Alpha 2012")
 	{
 		ASPOP= MAME - Arcade
 		szip= 1
 		corelk= fbalpha2012
-	}
+	    return
+}
 if (syslk = "FB Alpha 2012 NeoGeo")
 	{
 		ASPOP= SNK - Neo Geo MVS
 		szip= 1
 		corelk= fbalpha2012_neogeo
-	}
+	    return
+}
 if (syslk = "FB Alpha")
 	{
 		ASPOP= MAME - Arcade
 		szip= 1
 		corelk= fbalpha
-	}
+	    return
+}
 if (syslk = "final burn alpha")
 	{
 		ASPOP= MAME - Arcade
 		szip= 1
 		corelk= fba
-	}
+	    return
+}
 if (syslk = "Mednafen GBA")
 	{
 		ASPOP= Nintendo - Game Boy Color
 		corelk= mednafen_gba
-	}
+	    return
+}
 if (syslk = "Gambatte-GBC")
 	{
 		ASPOP= Nintendo - Game Boy Color
 		corelk= gambatte_gbc
-	}
+	    return
+}
 if (syslk = "Gambatte")
 	{
 		ASPOP= Nintendo - Game Boy
 		corelk= gambatte
-	}
+	    return
+}
 if (syslk = "DesMuME")
 	{
 		ASPOP= Nintendo - Nintendo DS
 		corelk= desmume
-	}
+	    return
+}
 if (syslk = "Citra")
 	{
 		ASPOP= Nintendo - Nintendo 3DS
 		corelk= citra
-	}
+	    return
+}
 if (syslk = "Genesis Plus GX - Game Gear")
 	{
 		ASPOP= Sega - Game Gear
 		corelk= genesis_plus_gx_gg
-	}
+	    return
+}
 if (syslk = "Genesis Plus GX")
 	{
 		ASPOP= Sega - Mega Drive - Genesis
 		corelk= genesis_plus_gx
-	}
+	    return
+}
 if (syslk = "Genesis Plus GX - Sega CD")
 	{
 		ASPOP= Sega - Mega-CD - Sega CD
 		szip= 0
 		corelk= genesis_plus_gx_segacd
-	}
+	    return
+}
 if (syslk = "Genesis Plus GX - SMS")
 	{
 		ASPOP= Sega - Master System - Mark III
 		corelk= genesis_plus_gx_sms
-	}
+	    return
+}
 if (syslk = "Genesis Plus GX - GG")
 	{
 		ASPOP= Sega - Game Gear
 		corelk= genesis_plus_gx_gg
-	}
+	    return
+}
 if (syslk = "GlupeN64 OpenGL")
 	{
 		ASPOP= Nintendo - Nintendo 64
 		corelk= glupen64
-	}
+	    return
+}
 if (syslk = "Mupen64Plus OpenGL")
 	{
 		ASPOP= Nintendo - Nintendo 64
 		corelk= mupen64plus
-	}
+	    return
+}
 if (syslk = "ParaLLEl N64")
 	{
 		ASPOP= Nintendo - Nintendo 64
 		corelk= parallel_n64
-	}
+	    return
+}
 if (syslk = "GlupeN64 Vulkan")
 	{
 		ASPOP= Nintendo - Nintendo 64
 		corelk= glupen64
-	}
+	    return
+}
 if (syslk = "MAME 2000")
 	{
 		ASPOP= MAME - Arcade
 		szip= 1
 		corelk= mame2000
-	}
+	    return
+}
 if (syslk = "MAME 2003")
 	{
 		ASPOP= MAME - Arcade
 		szip= 1
 		corelk= mame2003
-	}
+	    return
+}
 if (syslk = "MAME 2010")
 	{
 		ASPOP= MAME - Arcade
 		szip= 1
 		corelk= mame 2010
-	}
+	    return
+}
 if (syslk = "MAME 2014")
 	{
 		ASPOP= MAME - Arcade
 		szip= 1
 		corelk= mame2014
-	}
+	    return
+}
 if (syslk = "MAME 2016")
 	{
 		ASPOP= MAME - Arcade
 		szip= 1
 		corelk= mame2016
-	}
+	    return
+}
 if (syslk = "MAME")
 	{
 		ASPOP= MAME - Arcade
 		szip= 1
 		corelk= mame
-	}
+	    return
+}
 if (syslk = "Mr.Boom")
 	{
 		ASPOP= Mr. Boom	
 		szip= 1
 		corelk= mrboom
-	}
+	    return
+}
 if (syslk = "Mednafen GBA")
 	{
 		ASPOP= Nintendo - Game Boy Advance
 		corelk= mednafen_gba
-	}
+	    return
+}
 if (syslk = "gpSP")
 	{
 		ASPOP= Nintendo - Game Boy Advance
 		corelk= gpSP
-	}
+	    return
+}
 if (syslk = "Mednafen Lynx")
 	{
 		ASPOP= Atari - Lynx
 		corelk= mednafen_lynx
-	}
+	    return
+}
 if (syslk = "Mednafen NeoPop")
 	{
 		ASPOP= SNK - Neo Geo Pocket
 		corelk= mednafen_ngp
-	}
+	    return
+}
 if (syslk = "Mednafen PCE Fast")
 	{
 		ASPOP= NEC - PC Engine - TurboGrafx 16
 		corelk= mednafen_pce_fast
-	}
+	    return
+}
 if (syslk = "Mednafen/Beetle PCE Fast")
 	{
 		ASPOP= NEC - PC Engine - TurboGrafx 16
 		corelk= mednafen_pce_fast
-	}
+	    return
+}
 if (syslk = "Mednafen PC-FX")
 	{
 		ASPOP= NEC - PC-FX
 		corelk= mednafen_pcfx
-	}
+	    return
+}
 if (syslk = "Mednafen PSX HW")
 	{
 		ASPOP= Sony - Playstation
 		szip= 0
 		corelk= mednafen_psx_hw
-	}
+	    return
+}
 if (syslk = "Mednafen PSX")
 	{
 		ASPOP= Sony - Playstation
 		szip= 0
 		corelk= mednafen_psx
-	}
+	    return
+}
 if (syslk = "PCSX-ReARMed")
 	{
 		ASPOP= Sony - Playstation
 		szip= 0
 		corelk= pcsx_rearmed
-	}
+	    return
+}
 if (syslk = "Mednafen Saturn")
 	{
 		ASPOP= Sega - Saturn
 		szip= 0
 		corelk= mednafen_saturn
-	}
+	    return
+}
 if (syslk = "Mednafen Snes")
 	{
 		ASPOP= Nintendo - Super Nintendo Entertainment System
 		corelk= mednafen_snes
-	}
+	    return
+}
 if (syslk = "PicoDrive")
 	{
 		ASPOP= Sega - Mega Drive - Genesis
 		corelk= picodrive
-	}
+	    return
+}
 if (syslk = "Mednafen SuperGrafx")
 	{
 		ASPOP= NEC - PC Engine SuperGrafx
 		corelk= mednafen_supergrafx
-	}
+	    return
+}
 if (syslk = "Mednafen VB")
 	{
 		ASPOP= Nintendo - Virtual Boy
 		corelk= mednafen_vb
-	}
+	    return
+}
 if (syslk = "Mednafen WonderSwan")
 	{
 		ASPOP= Bandai - WonderSwan
 		corelk= mednafen_wswan
-	}
+	    return
+}
 if (syslk = "MESS 2014")
 	{
 		szip= 1
 		corelk= mess2014
-	}
+	    return
+}
 if (syslk = "PUAE")
 	{
 		ASPOP= Commodore - Amiga
 		szip= 0
 		corelk= puae
-	}
+	    return
+}
 if (syslk = "PX68K")
 	{
 		ASPOP= Sharp - X68000
 		szip= 0
 		corelk= px68k
-	}
+	    return
+}
 if (syslk = "QuickNES")
 	{
 		ASPOP= Nintendo - Nintendo Entertainment System
 		corelk= quicknes
-	}
+	    return
+}
 if (syslk = "bnes")
 	{
 		ASPOP= Nintendo - Nintendo Entertainment System
 		corelk= bnes
-	}
+	    return
+}
 if (syslk = "Mesen")
 	{
 		ASPOP= Nintendo - Nintendo Entertainment System
 		corelk= mesen
-	}
+	    return
+}
 if (syslk = "Nestopia")
 	{
 		ASPOP= Nintendo - Nintendo Entertainment System
 		corelk= nestopia
-	}
+	    return
+}
 if (syslk = "PPSSPP")
 	{
 		ASPOP= Sony - Playstation Portable
 		corelk= ppsspp
-	}
+	    return
+}
 if (syslk = "Reicast OIT")
 	{
 		ASPOP= Sega - Dreamcast
 		szip= 0
 		corelk= reicast
-	}
-iif (syslk = "Reicast")
+	    return
+}
+if (syslk = "Reicast")
 	{
 		ASPOP= Sega - Dreamcast
 		szip= 0
 		corelk= reicast
-	}
+	    return
+}
 if (syslk = "Redream")
 	{
 		ASPOP= Sega - Dreamcast
 		szip= 0
 		corelk= redream
-	}
+	    return
+}
 if (syslk = "ScummVM")
 	{
 		corelk= scummvm
-	}
+	    return
+}
 if (syslk = "Snes9x 2002")
 	{
 		ASPOP= Nintendo - Super Nintendo Entertainment System
 		corelk= snes9x2002
-	}
+	    return
+}
 if (syslk = "Snes9x 2005")
 	{
 		ASPOP= Nintendo - Super Nintendo Entertainment System
 		corelk= snes9x2005
-	}
+	    return
+}
 if (syslk = "Snes9x 2005 plus")
 	{
 		ASPOP= Nintendo - Super Nintendo Entertainment System
 		corelk= snes9x2005_plus
-	}
+	    return
+}
 if (syslk = "Snes9x 2010")
 	{
 		ASPOP= Nintendo - Super Nintendo Entertainment System
 		corelk= snes9x2010
-	}
+	    return
+}
 if (syslk = "Snes9x")
 	{
 		ASPOP= Nintendo - Super Nintendo Entertainment System
 		corelk= snes9x
-	}
+	    return
+}
 if (syslk = "Snes9x Next")
 	{
 		ASPOP= Nintendo - Super Nintendo Entertainment System
 		corelk= snes9x_next
-	}
+	    return
+}
 if (syslk = "Stella")
 	{
 		ASPOP= Atari - 2600
 		corelk= stella
-	}
+	    return
+}
 if (syslk = "Sinclair ZX 81")
 	{
 		ASPOP= Sinclair - ZX 81
 		corelk= 81
-	}
+	    return
+}
 if (syslk = "Sinclair ZX Spectrum")
 	{
 		ASPOP= Sinclair - ZX Spectrum
 		corelk= fuse
-	}
+	    return
+}
 if (syslk = "TGB Dual")
 	{
 		ASPOP= Nintendo - Game Boy
 		corelk= tgbdual
-	}
+	    return
+}
 if (syslk = "UME 2014")
 	{
 		ASPOP= MAME - Arcade
 		szip= 1
 		corelk= ume2014
-	}
+	    return
+}
 if (syslk = "VBA-M")
 	{
 		ASPOP= Nintendo - Game Boy Advance
 		corelk= vbam
-	}
+	    return
+}
 if (syslk = "mGBA")
 	{
 		ASPOP= Nintendo - Game Boy Advance
 		corelk= mgba
-	}
+	    return
+}
 if (syslk = "VBA Next")
 	{
 		ASPOP= Nintendo - Game Boy Advance
 		corelk= vba_next
-	}
+	    return
+}
 if (syslk = "VecX")
 	{
 		ASPOP= GCE - Vectrex
 		corelk= vecx
-	}
+	    return
+}
 if (syslk = "Virtual Jaguar")
 	{
 		ASPOP= Atari - Jaguar
 		szip= 2
 		corelk= virtualjaguar
-	}
+	    return
+}
 if (syslk = "4do")
 	{
 		ASPOP= The 3DO Company - 3DO
 		szip= 0
 		corelk= 4do
-	}
+	    return
+}
 if (syslk = "Blue MSX")
 	{
 		ASPOP= Microsoft - MSX
 		szip= 0
 		corelk= bluemsx
-	}
+	    return
+}
 if (syslk = "FCEUmm")
 	{
 		ASPOP= Nintendo - Nintendo Entertainment System
 		szip= 0
 		corelk= fceumm
-	}
+	    return
+}
 if (syslk = "fmsx")
 	{
 		ASPOP= Microsoft - MSX
 		szip= 0
 		corelk= fmsx
-	}
+	    return
+}
 if (syslk = "Blue-MSX")
 	{
 		ASPOP= Microsoft - MSX
 		szip= 0
 		corelk= bluemsx
-	}
+	    return
+}
 if (syslk = "handy")
 	{
 		ASPOP= Atari - Lynx
 		szip= 0
 		corelk= handy
-	}
+	    return
+}
 if (syslk = "hatari")
 	{
 		ASPOP= Atari - ST
 		szip= 0
 		corelk= hatari
-	}
+	    return
+}
 if (syslk = "x64")
 	{
 		ASPOP= Commodore - 64
 		szip= 0
 		corelk= x64
-	}
+	    return
+}
 if (syslk = "Vice")
 	{
 		ASPOP= Commodore - 64
 		szip= 0
 		corelk= vice_x64
-	}
+	    return
+}
 if (syslk = "yabause")
 	{
 		ASPOP= Sega - Saturn
@@ -45295,16 +45500,8 @@ if (NETPLIST = 1)
 							{
 								intitle2 := intitle1
 							}
-						;;if (LTA = 1)
-						;;	{
-						;;		plistadd.= intitle2 . "|"
-						;;		plistplus.= "PL" . PLNUM . "=" . intitle2 . "|"
-						;;	}
-						;;else if (LTA <> 1)
-						;;	{
-								plistadd.= intitle2 . "|"
-								plistplus:= plistadd
-						;;	}
+						plistadd.= intitle2 . "|"
+						plistplus:= plistadd
 					}
 				if (PLineAdd =  6)
 					{
@@ -46351,7 +46548,9 @@ FindInArc:
 guicontrol,,MAMESWCHK,0
 guicontrol,,DOWNONLY,0
 guicontrol,,ARCSYS,|%ASPOP%||%syslist%
+
 gosub, ArchiveSystems
+
 gui, submit, nohide
 SB_SetText(" Matching " HOSTINGROMS " in cloud")
 guicontrol,disable,ARCPOP
@@ -46563,7 +46762,7 @@ if (romext = "zip")
 	}	
 ifnotexist, %RJSYSTEMS%\Netplay\%romname%.zip
 	{
-		SB_SetText(" Compressing ROM file ")
+		SB_SetText(" Compressing ROM file " romf " ")
 		runwait, %comspec% cmd /c "7za.exe a "%RJSYSTEMS%\Netplay\%romname%.zip" "%romf%" ", ,hide
 		SB_SetText(" Compression complete ")
 	}
@@ -52236,7 +52435,6 @@ ifinstring,RunOptions,[
 											}
 										ifinstring,nweinxtf,%xtnv%
 											{
-												MSGBOX,,,xtnv=%xtnv% in nweinxtf=%nweinxtf%`ncstinjopt=%cstinjopt%`nrjrtyp=%medp%
 												stringreplace,CSTINJOPT,CSTINJOPT,[RJRTYP],%MEDP%,All,UseErrorLevel
 												if (ERRORLEVEL <> 0)
 													{

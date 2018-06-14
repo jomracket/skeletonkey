@@ -519,7 +519,7 @@ RJZIPPEEK=0
 RJEMUPRESET=Stella
 RJMAMENM=a2600
 RJROMXT=.z26,.a26,.zip,.bin,.rom,.zip
-MAME?RJEMUOPTS=<a2600 -[RJRTYP]<|<a2600p -cart<|<a2600 -cart<
+MAME?RJEMUOPTS=<a2600p -cart<|<a2600 -cart<
 
 [Atari - 5200]
 RJEMUPRESET=Altirra
