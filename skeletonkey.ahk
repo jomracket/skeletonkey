@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-14 1:27 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-14 9:01 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-06-14 1:27 PM
-VERSION= 0.99.36.34
+RELEASE= 2018-06-14 9:01 PM
+VERSION= 0.99.36.35
 RASTABLE= 1.7.3
 #Include tf.ahk
 #Include lbex.ahk
@@ -2475,7 +2475,8 @@ Gui, Add, CheckBox, x621 y52 h23 vDETECTCORE gDetectCore Checked, Detect
 Gui, Add, Button,x679 y77 w60 h21 vSVPLST gSaveToPl, Create
 Gui, Add, Button, x701 y30 w36 h23 vOPNPLST gOpnPlst, Open
 Gui, Add, CheckBox, x521 y81 h14 vPGCONFG gPLPerGameConfig, Per-Game-Configs
-Gui, Add, Button, x703 y54 w35 h23 vSVASPLST gSvAsPlst hidden, Save
+Gui, Add, Button, x703 y54 w35 h23 vSVASPLST gSaveToPl hidden, Save
+;;Gui, Add, Button, x703 y54 w35 h23 vSVASPLST gSvAsPlst hidden, Save
 Gui, Add, Button, x457 y78 w54 h19 vSVAPLST gAltTempl, Template
 
 
@@ -5412,15 +5413,16 @@ guicontrol,focus,NETHOSTLIST
 RowNum := LV_GetNext(,"Focused")
 LV_GetText(SELECTEDUSER,RowNum,1)
 LV_GetText(HOSTINGIPS,RowNum,7)
-LV_GetText(HOSTINGPORTS,RowNum,8)gosub, PortCheck
+LV_GetText(HOSTINGPORTS,RowNum,8)
+gosub, PortCheck
 if (PORTOPEN = 1)
 	{
 		LV_Modify(RowNum,"Col8","Yes")
 		SB_SetText(" "SELECTEDUSER " CAN HOST ON PORT: " HOSTINGPORTS " "),4
 		return
 	}
-		LV_Modify(RowNum,"Col8","No")
-		SB_SetText(" "SELECTEDUSER "'S PORT: " HOSTINGPORTS " is NOT open"),4
+LV_Modify(RowNum,"Col8","No")
+SB_SetText(" "SELECTEDUSER "'S PORT: " HOSTINGPORTS " is NOT open"),4
 Return
 
 RecentRead:
@@ -14887,6 +14889,7 @@ return
 
 CorePLInfo:
 gui, submit, nohide
+
 guicontrolget,plcortmp,,PLCORE
 stringtrimright,ccv,plcortmp,13`
 splitpath,plcortmp,slkp,,dlx
@@ -14918,6 +14921,7 @@ PlaylistAppend:
 return
 
 SvAsPlst:
+SB_SetText("Saving Playlist ... ")
 gui,submit,nohide
 svplst=
 FileSelectFile,svplst,S2,%playlistDirectory%,Save Playlist File,*.lpl
@@ -14947,20 +14951,14 @@ FileCopy,%popAList%,%popPth%\tmp.lpl,1
 popPlist= %popPth%\tmp.lpl
 SplitPath, popPlist,,,,popPname
 plopen= 1
-popnum= 1
+popnum:= 1
 SB_SetText(" " popPname ".lpl currently selected ")
-guicontrol,disable,ROMPOP
-guicontrol,disable,DWNLPOS
-guicontrol,disable,SVPLST
-guicontrol,disable,BRADD
-guicontrol,disable,CPYPL
-guicontrol,disable,PLAPPND
+guicontrol,,PLNAMEDT,|%popPname%||%systmfldrs%
+
+guicontrol,,PLOVR,1
 guicontrol,disable,PLOVR
-guicontrol,disable,PLCORE
-guicontrol,disable,DETECTCORE
 guicontrol,disable,PLNAMEDT
 guicontrol,enable,SVASPLST
-guicontrol,show,SVASPLST
 guicontrol,hide,OPNPLST
 guicontrol,disable,OPNPLST
 guicontrol,,CURPLST, 
@@ -14972,9 +14970,15 @@ Loop, Read, %popPlist%
 			}
 		if (popnum = 1)
 			{
-				poptl.= A_LoopReadLine . "|"
+				vinbar= %A_LoopReadLine%
 			}
-		popnum+=1
+		if (popnum = 3)
+			{
+				pntcore= 
+				splitpath,A_LoopReadLine,pntcore
+				poptl.= vinbar . ">" . pntcore . "|"
+			}
+		popnum+= 1
 	}
 guicontrol,,CURPLST,|%poptl%
 ;;guicontrol,enable,ROMPOP
@@ -14993,6 +14997,7 @@ guicontrol,,CURPLST,|%poptl%
 ;;guicontrol,enable,OPNPLST
 ;;guicontrol,enable,PGCONFG
 ;;guicontrol,enable,SVAPLST
+ControlGet,curpllst, List,,,ahk_id %insel%
 return
 
 ExtParsed:
@@ -15631,7 +15636,12 @@ Loop, Parse, existlst,|
 		ApndCRC=
 		taih1=
 		taih2=
-		stringsplit,taih,A_LoopField,>
+		splvar= >
+		if (PLISTTYP = "EmulationStation")
+			{
+				splvar= :
+			}
+		stringsplit,taih,A_LoopField,%splvar%
 		coreselv= %taih2%
 		CrCFLN= %taih1%
 		if (A_LoopField = "")
@@ -15886,8 +15896,22 @@ return
 
 
 AddToPL:
+gui,submit,nohide
+guicontrolget,plcore,,PLCORE
 addedfiles= 
 FileSelectFile,AddToPl,M3,,Add ROMs,
+pldelim= >
+if (PLISTTYP = "EmulationStation")
+	{
+		plswap= %ESPLPLST%
+		pldelim= :
+		coreInJV= %ESPLXMP%
+	}
+if (DETECTCORE = 1)
+	{
+		coreInJV= DETECT
+	}
+
 if (AddToPl = "")
 	{
 		return
@@ -15900,15 +15924,12 @@ Loop, Parse,AddToPl,`n
 			}
 		If (A_index <> 1)
 			{
-				addedFiles .= FPTH . "\" . A_LoopField . "|"
+				addedFiles .= FPTH . "\" . A_LoopField . pldelim . plcore . "|"
 			}
 	}
 ControlGet,curpllst, List,,,ahk_id %insel%
 existlst= 
-Loop, Parse,curplLst,`n`r
-	{
-		existlst .= (A_Index == 1 ? "" : "|") . A_LoopField
-	}
+stringreplace,existlst,curplLst,`n,|
 newplst .= existlst . "|" . addedFiles
 guicontrol,,CURPLST, |%newplst%
 return
@@ -38448,6 +38469,12 @@ if (syslk = "Gambatte-GBC")
 	{
 		ASPOP= Nintendo - Game Boy Color
 		corelk= gambatte_gbc
+	    return
+}
+if (syslk = "SameBoy")
+	{
+		ASPOP= Nintendo - Game Boy
+		corelk= gambatte
 	    return
 }
 if (syslk = "Gambatte")
