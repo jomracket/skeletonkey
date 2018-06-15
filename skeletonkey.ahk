@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-14 9:01 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-15 9:10 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-06-14 9:01 PM
-VERSION= 0.99.36.35
+RELEASE= 2018-06-15 9:10 AM
+VERSION= 0.99.36.36
 RASTABLE= 1.7.3
 #Include tf.ahk
 #Include lbex.ahk
@@ -2435,7 +2435,7 @@ Progress, 30,Loading Playlist Interface ....
 Gui, Tab, 5
 Gui, Tab, Playlists
 Gui, Add, DropDownList,x24 y22 w283 vDWNLPOS gPopDownloads, :=:System List:=:||%systmfldrs%
-Gui, Add, CheckBox, x325 y15 w15 h16 vRECURSE gRECURSE hidden
+Gui, Add, CheckBox, x325 y15 w15 h16 vRECURSE gRECURSE
 Gui, Add, Text, x312 y31 w39 h13 vRECURTX hidden, Recurse
 
 Gui, Add, Radio, x22 y46 vEXCLBOOL gINCLBool hidden checked, exclude
@@ -2454,16 +2454,17 @@ Gui, Add, GroupBox, x356 y140 w58 h91 vPLGBA
 Gui, Add, GroupBox, x391 y295 w58 h126 vPLGBB
 
 Gui,Font,%fontXsm% Bold
-Gui, Add, Button, x312 y22 w30 h21 vPLALSYSBUT gPLALSYSBUT, ALL
+Gui, Add, Button, x312 y22 w30 h21 vPLALSYSBUT gPLALSYSBUT hidden, ALL
 Gui, Add, GroupBox, x447 y0 w304 h500 Right vPLGBC, Frontend
 Gui, Add, GroupBox, x11 y4 w346 h493 +0x400000 vPLGBD, Drag and Drop ROMs here
 Gui,Font,%fontXsm% Norm
 Gui, Add, ListBox, x449 y100 w300 h394 HWNDinsel vCURPLST gCURPLST Multi +HScroll,
 
-Gui, Add, GroupBox, x362 y3 w81 h74 vAPNDTYPGRP
-Gui, Add, Radio, x365 y31 h13 vPLAPPND gPlaylistAppend, Append
-Gui, Add, Radio, x365 y16 h13 vPLOVR gPlaylistAppend Checked, Overwrte
-Gui, Add, CheckBox, x367 y46 h23 vZIPSEEK gZipSeek checked, Zip-Search
+Gui, Add, GroupBox, x362 y0 w81 h74 vAPNDTYPGRP
+Gui, Add, Radio, x365 y25 h13 vPLAPPND gPlaylistAppend, Append
+Gui, Add, Radio, x365 y10 h13 vPLOVR gPlaylistAppend Checked, Overwrte
+Gui, Add, CheckBox, x367 y45 h14 vZIPSEEK gZipSeek checked, Zip-Search
+Gui, Add, CheckBox, x367 y60 h14 vCRCENBL gCRCEnbl checked, CRC-Index
 
 ;;  Gui, Add, DropDownList, x457s y0 w120 vPLISTTYP gPLISTYP,XMB||%FELIST%
 Gui,Font,%fontXmed% Bold
@@ -2480,7 +2481,7 @@ Gui, Add, Button, x703 y54 w35 h23 vSVASPLST gSaveToPl hidden, Save
 Gui, Add, Button, x457 y78 w54 h19 vSVAPLST gAltTempl, Template
 
 
-Gui Add, Text, x361 y77 w35 h15 vPLSELTXT, Select
+Gui Add, Text, x361 y79 w35 h15 vPLSELTXT, Select
 Gui Add, Button, x360 y94 w32 h15 +0x100 vPLLISTALL gPLLISTALL, All
 Gui Add, Button, x361 y108 w32 h15 +0x100 vPLLISTN gPLLISTN, None
 Gui Add, Button, x416 y100 w32 h15 +0x200 vPLLISTSORT gPLLISTSORT, Sort
@@ -2490,7 +2491,10 @@ Gui, Add, Text, x360 y170 vPLADPTXT, Add
 Gui, Add, Button, x358 y191 w40 h19 vCLRPP gClearROMPop, 0=-->x
 Gui, Add, Text, x365 y211 vPLCLRPTXT, Clear
 
-Gui, Add, Button, x392 y305 w55 h24 vBRADD gAddToPL, Open...>
+
+Gui, Add, Button,x428 y230 w17 h16 vMVPLOU gMVPLOU,^
+Gui, Add, Button,x428 y250 w17 h16 vMVPLOD gMVPLOD,v
+Gui, Add, Button,x392 y305 w55 h24 vBRADD gAddToPL, Open...>
 Gui, Add, Text, x391 y334 w59 h2 0x10 vFENWTXT
 Gui, Add, Button,x396 y339 w50 h18 vREMPL gRemFromPL, x---<---o
 Gui, Add, Text, x401 y357 vPLRMVTXT, Remove
@@ -2515,10 +2519,10 @@ Gui, Add, CheckBox, x572 y40 w97 h13 vESCPYSCR gESCPYSCR hidden disabled, `& cop
 Gui, Add, DropDownList,x24 y22 w283 vESDWNLPOS gESPopDownloads,%systmfldrs%
 
 Gui, Add, Radio, x22 y46 vESRPOPDL gESRPopJ checked hidden, Jackets
-Gui, Add, Radio, x80 y46 vESRPOPPL gESRPopMir hidden, Mirrors
-Gui, Add, Radio, x135 y46 vESRPOPROM gESRPopRom hidden, ROMs
+Gui, Add, Radio, x85 y46 vESRPOPPL gESRPopMir hidden, Mirrors
+Gui, Add, Radio, x139 y46 vESRPOPROM gESRPopRom hidden, ROMs
 Gui, Add, DropDownList, x195 y44 vESMIRSEL gESMIRSEL hidden,|%CMIR1%||%MIRDDLOC%
-Gui, Add, Button, x195 y44 w25 h19 vESROMROOT gESROMROOT hidden,. . .
+Gui, Add, Button, x197 y44 w25 h19 vESROMROOT gESROMROOT hidden, .Dir.
 Gui, Add, Text, x230 y46 w125 h19 vESRRTXT hidden, NOT SET
 Gui, Add, Button, x450 y78 w46 h19 vESBOXSRCHBUT gESBOXSRCHBUT hidden, Boxarts
 Gui, Add, CheckBox, x497 y81 w14 h14 disabled hidden vESBOXCHK
@@ -3858,6 +3862,9 @@ RJENXTRARC_TT :="Extracts .7z, .zip and .rar files"
 RJXTRARCA_TT :="Archives are extracted before jackets are created."
 RJXTRARCB_TT :="Archives are extracted after jackets are created."
 RJXTRARCDD_TT :="Store will move archives to skeletonKey's temp directory`nDelete will delete the archive after extraction`nKeep will not delete or move the archive"
+
+MVPLOU_TT :="Moves an item up in the playlist."
+MVPLOD_TT :="Moves an item down in the playlist."
 
 RJRad11A_TT :="File is in the jacket`nLocal path: eg: run.cmd"
 RJRad11B_TT :="File is anywhere`nAbsolute path: eg: C:\run.cmd"
@@ -14447,6 +14454,8 @@ if (fenam = "XMB")
 		guicontrol,%xmbtog%,FENWTXT
 		guicontrol,%xmbtog%,REMPL
 		guicontrol,%xmbtog%,PLRMVTXT
+		guicontrol,%xmbtog%,MVPLOU
+		guicontrol,%xmbtog%,MVPLOD
 		guicontrol,%xmbtog%,CLRPL
 		guicontrol,%xmbtog%,PLCLRTXT
 		guicontrol,%xmbtog%,PLINIT
@@ -14494,18 +14503,20 @@ if (fenam = "EmulationStation")
 				stringsplit,ffa,A_LoopField,=	
 				escommon.=	ffa1 . "|"
 			}
+		stringreplace,ESPLPLST,ESPLPLST,||,|,All
+		stringreplace,escommon,escommon,||,|,All
 		if (ESRPOPPL = 1)
 			{
 				guicontrol,%ofetog%,ESMIRSEL
 			}
+		guicontrol,,ESDWNLPOS,|%systmfldrs%
+		guicontrol,,ESPLXMP,|%ESPLPLST%|%systmfldrs%|%escommon%
 		if (ESRPOPROM = 1)
 			{
 				guicontrol,,ESPLXMP,|%ESPLPLST%|%escommon%				
 				guicontrol,%ofetog%,ESROMROOT
 				guicontrol,%ofetog%,ESRRTXT
 			}
-		guicontrol,,ESDWNLPOS,|%systmfldrs%
-		guicontrol,,ESPLXMP,|%ESPLPLST%|%systmfldrs%|%escommon%
 		guicontrol,%pltog%,RECURSE
 		guicontrol,%pltog%,RECURTX
 		guicontrol,%pltog%,EXCLBOOL
@@ -14550,6 +14561,8 @@ if (fenam = "EmulationStation")
 		guicontrol,%ofetog%,FENWTXT
 		guicontrol,%ofetog%,REMPL
 		guicontrol,%ofetog%,PLRMVTXT
+		guicontrol,%ofetog%,MVPLOD
+		guicontrol,%ofetog%,MVPLOU
 		guicontrol,%ofetog%,CLRPL
 		guicontrol,%ofetog%,PLCLRTXT
 		;;;;;;;;;
@@ -14754,7 +14767,10 @@ PLALSYSBUT:
 guicontrol,,Fltxt
 Loop, Files, %RJSYSTEMS%\*,DR
 	{
-		
+		if (A_LoopFilename = "")
+			{
+			
+			}
 	}
 return
 
@@ -14792,6 +14808,7 @@ return
 
 RPopPl:
 gui,submit,nohide
+guicontrol, hide, RECURSE
 guicontrol,,DWNLPOS,|Playlists||%plistfiles%
 return
 
@@ -14803,7 +14820,7 @@ guicontrolget,fenam,,PLISTTYP
 SWAPLOC= %RJSYSTEMS%
 SWAPNAM= :=:System List:=:
 SWAPPOP= %systmfldrs%
-
+guicontrol, show, RECURSE
 guicontrol,,DWNLPOS,|%SWAPNAM%||%SWAPPOP%
 return
 
@@ -14981,23 +14998,9 @@ Loop, Read, %popPlist%
 		popnum+= 1
 	}
 guicontrol,,CURPLST,|%poptl%
-;;guicontrol,enable,ROMPOP
-;;guicontrol,enable,DWNLPOS
-;;guicontrol,enable,SVPLST
-;;guicontrol,enable,BRADD
-;;guicontrol,enable,CPYPL
-;;guicontrol,enable,PLAPPND
-;;guicontrol,enable,PLOVR
-;;guicontrol,enable,PLCORE
-;;guicontrol,enable,DETECTCORE
-;;guicontrol,enable,PLNAMEDT
-;;guicontrol,enable,SVASPLST
-;;guicontrol,show,SVASPLST
-;;guicontrol,hide,OPNPLST
-;;guicontrol,enable,OPNPLST
-;;guicontrol,enable,PGCONFG
-;;guicontrol,enable,SVAPLST
-ControlGet,curpllst, List,,,ahk_id %insel%
+existlst= %poptl%
+popPlist= %poptl%
+newplst= %poptl%
 return
 
 ExtParsed:
@@ -15028,6 +15031,13 @@ return
 
 FltXt:
 gui,submit,nohide
+guicontrol,disable,FLTXT
+guicontrol,disable,RPopDl
+guicontrol,disable,RPopPl
+guicontrol,disable,ROMPOP
+guicontrol,disable,PARSEALL
+guicontrol,disable,EXTPARSED
+guicontrol,disable,RECURSE
 guicontrolget,EXCLBOOL,,EXCLBOOL
 guicontrolget, filtxtnl, ,EXTPARSED
 guicontrolget, popfiltlst, ,ROMPOP
@@ -15043,10 +15053,24 @@ POPLDWN=
 if (EXCLBOOL = 1)
 	{
 		gosub, OutList
+		guicontrol,enable,RPopDl
+		guicontrol,enable,RPopPl
+		guicontrol,enable,ROMPOP
+		guicontrol,enable,PARSEALL
+		guicontrol,enable,EXTPARSED
+		guicontrol,enable,RECURSE
+		guicontrol,enable,FLTXT
 		return
 	}
 
 gosub, FilterTargetButton
+guicontrol,enable,RPopDl
+guicontrol,enable,RPopPl
+guicontrol,enable,ROMPOP
+guicontrol,enable,PARSEALL
+guicontrol,enable,EXTPARSED
+guicontrol,enable,RECURSE
+guicontrol,enable,FLTXT
 return
 
 PopFolders:
@@ -15098,6 +15122,13 @@ return
 
 PopDownloads:
 gui, submit, nohide
+guicontrol,enable,RPopDl
+guicontrol,enable,RPopPl
+guicontrol,enable,PARSEALL
+guicontrol,enable,EXTPARSED
+guicontrol,enable,RECURSE
+guicontrol,enable,FLTXT
+return
 omitxtv= 
 guicontrolget,RPOPDL,,RPOPDL
 guicontrolget, EXCLBOOL,,EXCLBOOL
@@ -15236,7 +15267,6 @@ Loop, %omitxtn0%
 				ar.insert(new)
 			}
 	}
-
 Loop,%RJSYSTEMS%\%DWNLPOS%\*.*,,%RECURSE%
 	{
 		ext= %A_LoopFileExt%
@@ -15255,6 +15285,7 @@ Loop,%RJSYSTEMS%\%DWNLPOS%\*.*,,%RECURSE%
 			}
 	}
 guicontrol,,ROMPOP,|%POPLDWN%
+SB_SetText("")
 return
 
 PopPLpl:
@@ -15336,6 +15367,125 @@ Loop,%RJSYSTEMS%\%DWNLPOS%\*.*,,%RECURSE%
 	}
 guicontrol,,ROMPOP,|%POPLDWN%
 return
+
+MVPLOU:
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   MOVE ORDER UP  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+SB_SetText("")
+ControlGet, existlst, List, , , ahk_id %insel%
+stringreplace,existlst,existlst,`n,|,All
+Loop, Parse, CURPLST,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		snfind= %A_LoopField%
+		newnum= 
+		olnum= 
+		Loop, Parse, existlst,|
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				olnum+=1
+				systmv= A_LoopField
+				if (A_LoopField = snfind)
+					{
+						newnum:= olnum-1
+					}
+			}
+		if (newnum = 0)
+			{
+				sb_settext("Cannot move up")
+				return
+			}
+		TCURPLST=
+		olnum=  
+		Loop, Parse, existlst,|
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				olnum+=1
+				if (A_LoopField = snfind)
+					{
+						continue
+					}
+				if (olnum = newnum)
+					{
+						TCURPLST.= snfind . "|"
+					}
+				TCURPLST.= A_LoopField . "|"
+			}
+	}
+existlst= %TCURPLST%	
+guicontrol,,CURPLST,|%existlst%
+LBEX_SetSel(insel,newnum)
+LBEX_SetFocus(insel,newnum)
+return
+
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+MVPLOD:
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;    MOVE ORDER DOWN   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ControlGet, existlst, List, , , ahk_id %insel%
+stringreplace,existlst,existlst,`n,|,All
+Loop, Parse, CURPLST,|
+	{	
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		SB_SetText("")
+		mvnum= 
+		mvtm= 
+		snfind= %A_LoopField%
+		Loop, Parse, existlst,|
+			{	
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				mvnum+=1
+				if (A_loopField = snfind)
+					{
+						mvtm:= mvnum+1
+					}
+			}
+		totord:= mvnum	
+		if (mvtm > totord)
+			{
+				SB_SetText(" Cannot Move further down.")
+				return
+			}
+		TCURPLST=
+		mvnum=  	
+		Loop, Parse, existlst,|
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				mvnum+=1
+				if (A_LoopField = snfind)
+					{
+						continue
+					}
+				TCURPLST.= A_LoopField . "|"
+				if (mvtm = mvnum)
+					{
+						TCURPLST.= snfind . "|"
+					}
+			}
+	}
+existlst= %TCURPLST%
+guicontrol,,CURPLST,|%existlst%
+LBEX_SetSel(insel,mvtm)
+LBEX_SetFocus(insel,mvtm)
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ParseAll:
 gui, submit, nohide
@@ -15449,9 +15599,9 @@ return
 
 PLLISTSORT:
 gui,submit,nohide
+
 PLLISTSORT=
 GuiControl, Choose, CURPLST, 0
-
 ControlGet, CURPLST, List, , , ahk_id %insel%
 stringreplace,PLLISTSORT,CURPLST,`n,|,All
 incr= 
@@ -15497,6 +15647,7 @@ if (DETECTCORE = 1)
 	{
 		coreInJV= DETECT
 	}
+
 ToPlFromSRCH:
 passlist= 
 guicontrolget, passlist, ,ROMPOP 
@@ -15505,7 +15656,6 @@ Loop, Parse, passlist,|
 		existlst.= A_LoopField . pldelim . coreInJV . "|"
 	}
 guicontrol,,CURPLST, |%existlst%
-
 gui, submit, nohide
 return
 
@@ -15564,6 +15714,8 @@ guicontrolget,ZIPSEEK,,ZIPSEEK
 PlaylistSaving:
 guicontrol, disable, CLRPP
 guicontrol, disable, PLINIT
+guicontrol, disable, MVPLOU
+guicontrol, disable, MVPLOD
 guicontrol, disable, CLRPL
 guicontrol, disable, BRADD
 guicontrol, disable, CPYPL
@@ -15690,7 +15842,11 @@ Loop, Parse, existlst,|
 				FileAppend,%romname%`n,tmp.lpl
 				FileAppend,%CRDETECT%`n,tmp.lpl
 				FileAppend,%NMDETECT%`n,tmp.lpl
+				ApndCRC= 0000000
+				if (CRCENBL = 1)
+					{
 						gosub, CRC32GET
+					}
 				FileAppend,%ApndCRC%|crc`n,tmp.lpl
 				
 				FileAppend,[PLSYS]`n,tmp.lpl
@@ -15731,6 +15887,8 @@ if (PGCONFG = 1)
 	}
 guicontrol, enable, CLRPP
 guicontrol, enable, CLRPL
+guicontrol, enable, MVPLOU
+guicontrol, enable, MVPLOD
 guicontrol, enable, PLINIT
 guicontrol, enable, BRADD
 guicontrol, enable, CPYPL
@@ -15746,6 +15904,11 @@ if (rbldb = 1)
 		return
 	}
 gosub, ApndPL
+return
+
+CRCENBL:
+gui,submit,nohide
+
 return
 
 ZipSeek:
@@ -15929,7 +16092,7 @@ Loop, Parse,AddToPl,`n
 	}
 ControlGet,curpllst, List,,,ahk_id %insel%
 existlst= 
-stringreplace,existlst,curplLst,`n,|
+stringreplace,existlst,curplLst,`n,|,All
 newplst .= existlst . "|" . addedFiles
 guicontrol,,CURPLST, |%newplst%
 return
@@ -15975,6 +16138,7 @@ Loop, Read, 7z.ini
 					}
 			}
 	}
+
 ifexist, adpl.ini
 	{
 		FileRead,adpl,adpl.ini
@@ -15992,6 +16156,10 @@ ifexist, adpl.ini
 				zipp= 
 				StringSplit,zipspl,A_LoopField,=
 				SplitPath,zipspl1,zipt,zipp,zipxt,ziprn
+				if (CRCENBL = 1)
+					{
+						zipspl2= 0000000
+					}
 				FileAppend, %CrCFLN%#%zipt%`n,tmp.lpl
 				FileAppend,%ziprn%`n,tmp.lpl
 				FileAppend,%CRDETECT%`n,tmp.lpl
@@ -16000,7 +16168,7 @@ ifexist, adpl.ini
 				FileAppend,[PLSYS]`n,tmp.lpl
 			}
 	}
-	return
+return
 
 
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;  EMULATIONSTATION PLAYLIST FUNCTIONS  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -16080,6 +16248,8 @@ guicontrol,disable,ROMPOP
 guicontrol,disable,CURPLST
 guicontrol,disable,CLRPP
 guicontrol,disable,PLINIT
+guicontrol,disable,MVPLOD
+guicontrol,disable,MVPLOU
 guicontrol,disable,CLRPL
 guicontrol,disable,BRADD
 guicontrol,disable,CPYPL
@@ -16469,6 +16639,8 @@ guicontrol,enable,ROMPOP
 guicontrol,enable,CURPLST
 guicontrol,enable,CLRPP
 guicontrol,enable,PLINIT
+guicontrol,enable,MVPLOU
+guicontrol,enable,MVPLOD
 guicontrol,enable,CLRPL
 guicontrol,enable,BRADD
 guicontrol,enable,CPYPL

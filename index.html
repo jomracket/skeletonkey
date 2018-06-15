@@ -189,7 +189,8 @@
     <h4>Auto-Load Per-Game Settings</h4>
     <p>SkeletonKey will automatically load any per-game settings previously created and create settings for that title upon launch if none are found.</p>
     <h4>Systems Directory</h4>
-    <p>By default, ROMs are <em>[categorically]</em> stored by system-name in the<code> <em>..[CONSOLE ROOT]</em>\<em>[SYSTEM NAME]</em></code> folder.<br> RetroArch's <code>"core_assets_directory"</code> should be assigned to the <code>[CONSOLE ROOT]</code> folder. <br>
+    <p>By default, ROMs are <em>[categorically]</em> stored by system-name in the<code> <em>..[Systems ROOT]</em>\<em>[SYSTEM NAME]</em></code> folder.<br>
+       RetroArch's <code>"core_assets_directory"</code> should be assigned to the <code>[Systems ROOT]</code> folder. <br>
       Archive.org ROMs will be downloaded to the corresponding system name which follows the no-intro naming nomenclature.    </p>
     <h4>Emulators Directory</h4>
     <p>By default, all emulators will be installed to the Emulator Directory. Upon assigning a directory to the Emulators Directory, skeletonKey will search subdirectories for previously installed known emulators not currently identified or manually assigned.</p>
@@ -207,13 +208,12 @@
   <div id="inner">
     <p>Options are categorized by type. The Launch tab is responsive and will populate options for the currently selected supported emulator. Any previous settings for the currently selected ROM are loaded.</p>
     <h3>Global-Launch-Menu</h3>
-    <p>The Launch menu items persist across emulator settings populated in the Main tab. These items are at the top of the window and are necessary to browse your library and launch a ROM. </p>
+    <p>The Launch menu items persist across emulator settings populated in the Main tab. These items are at the top of the window and are necessary to browse directories, navigate playlists and launch a ROM. </p>
          The <u>Launch-Menu</u> includes:<br> <ul>
          
       <li>the System List dropdown for directories &amp; toggle for playlists</li>   
-      <li> the ROM selector button</li>   <li> the EMU dropdown menu</li>   <li>the&quot;swtiches&quot; toggle</li>   <li> the editable selection menu containing items in the currently selected playlist or directory</li> <li>the "C" configure button</li><li> the LAUNCH button</li> 
-    
-    </ul>
+      <li> the ROM selector button</li>   <li> the EMU dropdown menu</li>   <li>the&quot;swtiches&quot; toggle</li>   <li> the editable selection menu containing items in the currently selected playlist or directory</li> <li>the "C" configure button</li>
+      <li> A split <strong><code>LAUNCH ::&gt;</code></strong> button</li></ul>
     <h3>System List</h3>
   <p>The folder/playlist toggle will toggle this dropdown between retroarch playlist files and the current system libraries.<br>
   Changing the system will automatically change the emulator/core dropdown to the associated nickname and populate the tab with options for that system's associated emulator.<br>
@@ -221,7 +221,13 @@
    <p>The switches toggle will expose options &amp; arguments fields for emulators. These are pre-packed with many options and arguments, however spaces should be observed when plugging in your own switches.</p>
     <h3>LAUNCH</h3>
     <p>The ROM currently in ROM-List will be launched by the emulator/core in the EMU-List.<br>
-    A quick-selection set of <u>currently installed</u> emulators and cores <u>compatible with the selected system</u> can be accessed via right-clicking on the LAUNCH button.</p>
+    <blockquote>
+     <blockquote>
+      <h3><code>::></code></h3>
+</blockquote>
+         </blockquote>
+      <p>A quick-selection set of all assigned presets and known compatible presets will appear in a dropdown menu<br>
+  This menu can also be accessed via right-clicking on the LAUNCH button.</p>
     <h3>ROM List</h3>
     <p>The editable dropdown menu contains a list of all ROMs in the current system/playlist dropdown menu.
     <br>Whenever a new ROM is selected, a new configuration will be generated in the ROMs' configuration folder
@@ -278,9 +284,11 @@
     The system's core can be changed to any core or  standalone emulator executable. A nickname is used to identify the system for different systems using the same emulator.  Because an emulator may have multiple system-assocations, each system associated to an emulator should have a unique &quot;system identifier&quot; nickname.<br>
     <span style="font-size: xx-small">  Extensions which are shared by multiple systems <em>(e.g: MANY systems support the extension ''<strong>.bin</strong>'')</em> can be assigned to any core or emulator. 4 sets of extensions are available.</span> <br>
   </p>
-<p>Options, arguments, quotes, rompaths and the extension can be adjusted to suit an emulator's needs.</p>
+<p>Options, arguments, quotes, ROM-paths and the extension can be adjusted to suit an emulator's needs.</p>
 <p>Specifying <code>[ROMPATH]</code> &amp; <code>[EMUPATH]</code>  will be parsed in the options and arguments to specify the ROM's path or emulaor path respecively. The executing command output will update to refletct the options and settings. The output should be referenced against the emulator's documentation.</p>
-<p><code>[CUSTMOPT]</code> &amp; <code>[CUSTMARG]</code> are special tags designed for use with custom options assigned at to the skeletonkey launcher. These custom tags can be harnessed by eneabling the "switches" checkbox found in the archive-tab and in the Main tab. many MAME systems and several supported emulators options and argumnts are available as presets for custom options &amp; arguments. Special tags and switches are only enabled for emulator applications.</p>
+<p><strong><code>[CUSTMOPT]</code></strong> &amp; <strong><code>[CUSTMARG]</code></strong> are  special tags assigned to MAME and other emulators which allow the passing of overriding options and arguments at runtime via the &quot;switches&quot; checkbox in the Global-Launch-Menu or Repository-Systems-Menu.<br>
+  !!!!Enabling the &quot;switches&quot; override will deactivate preset options such as auto-system and ROM-type detection!!!!<br> 
+  Many MAME systems and several supported emulators options and arguments are available as presets for custom options &amp; arguments.</p>
 <h4>Per-Game Configurations:</h4>
   <a id="ASSOC"></a>
 <p>SkeletonKey can retain emulator settings for each game (configuration files, save-states, battery-saves/nvram) under supported emulators. Any changes that are made during gameplay will be saved.</p>
@@ -351,23 +359,22 @@
     <h1 class='elegantshadow'>:=: Playlists :=:</h1>
     
   <div id="inner">
-    <p>Drag and Drop ROMs to dynamically add files to playlists. Each playlist is unique to the frontend it is created for, however retroArch playlist files can be loaded to export to other frontends.<br>
+    <p>Drag and Drop ROMs to dynamically add files to playlists. Each playlist is unique to the frontend it is created for however skeletonkey can convert retroArch and emulationStation playlists.<br>
     </p>
     <h2>XMB
       : retroArch</h2>
     <p>Each item added to the playlist contains the name of the ROM, the path of the ROM, the crc hash of the ROM, the core/emulator name, path assignment, &amp; the name of the playlist.</p>
     <p>The core/emulator dropdown is assigned to the selected items when they are added to the playlist. </p><h3>RetroArch's Per-Game Configuration Files</h3>
-    <p>A template config file can be specified for the retroArch's per-game configuration files, otherwise current skeletonKey settings are used. Opening a retroArch playlist <em>(.lpl)</em> will allow users to delete items quickly.</p>
+    <p>A template config file can be specified for the retroArch's per-game configuration files, otherwise current skeletonKey settings are used. </p>
     <h4><a>Playlist Options</a></h4>
-    <p>Right-Clicking in the Playlist-Menu will allow selected items to change the core/emulator assignment for selected items..</p>
-    <h3>EmulationStation Playlists</h3>
-    <p>EmulationStation playlists are xml files which contain standard metadata tags. Absolute paths to assets such as images and video files are accepted, however relative paths are also accepted, making the entire frontend portable across platforms (*nix/apple/windows). Assets can be arranged &amp; named uniquely, however skeletonKey propagates assets to an emulationStation deployment which follows common layout and naming options as such:</p>
+    <p> Right-Clicking in the Playlist-Menu will allow selected items to change the core/emulator assignment for selected items.</p>
+    <h3>EmulationStation Gamelists</h3>
+    <p>Like emulationStation's system-list, emulationStation gamelists are xml files which contain standard metadata tags. Absolute paths to assets such as images and video files are accepted, however relative paths are also accepted, making the entire frontend portable across platforms (*nix/apple/windows). Assets can be arranged &amp; named uniquely, however skeletonKey propagates assets to an emulationStation deployment which follows common layout and naming options as such:</p>
     <p>Box-Art files: ~/downloaded_images/[ROM_TITLE]-image.png<br>
 	Marquee images: ~/downloaded_images/[ROM_TITLE]-marquee.png<br>
     Thumbnail images: ~/downloaded_images/[ROM_TITLE]-thumb.png<br>
     Marquee images: ~/downloaded_images/[ROM_TITLE]-marquee.png<br>
     Video snaps: ~/downloaded_images/[ROM_TITLE]-video.mp4<br></p>
-    <h4><a>Playlist Options</a> </h4>
   </div>
   </div>
 <br>
