@@ -209,9 +209,12 @@
     <p>Options are categorized by type. The Launch tab is responsive and will populate options for the currently selected supported emulator. Any previous settings for the currently selected ROM are loaded.</p>
     <h3>Global-Launch-Menu</h3>
     <p>The Launch menu items persist across emulator settings populated in the Main tab. These items are at the top of the window and are necessary to browse directories, navigate playlists and launch a ROM. </p>
-         The <u>Launch-Menu</u> includes:<br> <ul>
-         
-      <li>the System List dropdown for directories &amp; toggle for playlists</li>   
+         <p><img src="Global-Launch-Menu.png" width="959" height="223" alt=""/></p>
+         <p>The <u>Launch-Menu</u> includes:<br> 
+         </p>
+         <ul>
+           
+           <li>the System List dropdown for directories &amp; toggle for playlists</li>   
       <li> the ROM selector button</li>   <li> the EMU dropdown menu</li>   <li>the&quot;swtiches&quot; toggle</li>   <li> the editable selection menu containing items in the currently selected playlist or directory</li> <li>the "C" configure button</li>
       <li> A split <strong><code>LAUNCH ::&gt;</code></strong> button</li></ul>
     <h3>System List</h3>
@@ -225,7 +228,7 @@
      <blockquote>
       <h3><code>::></code></h3>
 </blockquote>
-         </blockquote>
+      </blockquote>
       <p>A quick-selection set of all assigned presets and known compatible presets will appear in a dropdown menu<br>
   This menu can also be accessed via right-clicking on the LAUNCH button.</p>
     <h3>ROM List</h3>
@@ -361,13 +364,18 @@
   <div id="inner">
     <p>Drag and Drop ROMs to dynamically add files to playlists. Each playlist is unique to the frontend it is created for however skeletonkey can convert retroArch to/from emulationStation playlists.<br>
     </p>
+    
     <h2>XMB
       : retroArch</h2>
     <p>Each item added to the playlist contains the name of the ROM, the path of the ROM, the crc hash of the ROM, the core/emulator name, path assignment, &amp; the name of the playlist.</p>
     <p>The core/emulator dropdown is assigned to the selected items when they are added to the playlist. </p><h3>RetroArch's Per-Game Configuration Files</h3>
     <p>A template config file can be specified for the retroArch's per-game configuration files, otherwise current skeletonKey settings are used. </p>
     <h4><a>Playlist Options</a></h4>
-    <p> Right-Clicking in the Playlist-Menu will allow selected items to change the core/emulator assignment for selected items. </p>
+    <p> Right-Clicking in the Playlist-Menu will allow selected items to change the core/emulator assignment for selected items.</p>
+    <br>
+<h3>Playlist Database</h3>
+    <p> The playlist database is a compiled collection of all playlists which allows netplay-matches and searching for ROMs in very large libraries very fast.</p>
+    <p>&nbsp;</p>
     <h3>EmulationStation Gamelists</h3>
     <p>Like emulationStation's system-list, emulationStation gamelists are xml files which contain standard metadata tags. Absolute paths to assets such as images and video files are accepted, however relative paths are also accepted, making the entire frontend portable across platforms (*nix/apple/windows). Assets can be arranged &amp; named uniquely, however skeletonKey propagates assets to an emulationStation deployment which follows a local-layout and naming options as such:</p>
     <p>Box-Art files: ~/downloaded_images/[ROM_TITLE]-image.png<br>
@@ -388,9 +396,9 @@
      <p>Options to download into a ROM-Jacket, manual overrides and extraction settings for compressed files Most options available in the Main tab's Launch-menu are available.</p>
      <p>Enabling the &quot;Download Only&quot; option will allow multiple files to be selected and queued.<br>MAME ROM-sets can also be easily accessed, although these often contain ROMs which are incompatible with other emulators.  
      </p>
-     <p>&nbsp;</p>
-  </div>
-</div>
+     <p>The archive.org global-prefix can be overridden to the ftp or http host of your archives, allowing anyone to easily create custom repositories. eg: <code>http://myhost.com/myfolder</code></p>
+     <p>Files in the <em>skeletonkey\gam</em> folder contain <strong><code>.gam</code></strong> files which contain the <u>relative path</u> to global-prefix followed by a <strong><code>:</code></strong> followed by the name of the ROM. eg: <code>/system-name/game_name.zip:game_name</code></p>
+     <p>Adding the <u>full http url</u> path to the ROM file in a <strong><code>.gam</code></strong>  file will override the global download prefix. eg: <code>http://crazyurl.com/fileindex/html/some_game.zip:some_game</code></p></div></div>
 <br>
  
   <a id="FRONTENDS"></a>
@@ -518,8 +526,7 @@
         <li>Many emulators may be used</li>
           <li>ROMs require an emulator to deviate from conventional settings</li>
           <li>Settings must be maintained between sessions</li>
-          <li>Region-free &amp; curated frontends</li> 
-      </ul>
+          <li>native windows mechanisms and abstractions will be used to design/curate HTPC environments</li></ul>
           To achieve this, each jacket's batch-script-launcher copies its emulator-configuration files and any changes made to the emulator during gameplay will be saved back to the jacket after exiting.
           <p>For those interested in developing for the RoM-Jacket spec, a few principles should be observed:</p>
           <p>Launchers should be executable natively by the operating system, make no changes to the system environment and any augmenting behavior beyond the emulator should be disabled unless specifically detected <br>
