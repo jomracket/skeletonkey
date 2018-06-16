@@ -407,7 +407,7 @@ if (raexefile = "NOT-FOUND.exe")
 		SKCCTXT= Not Found	
 	}
 gosub, RBLDRUNLST	
-
+;;msgbox,,,410addemu=%addemu%
 FileRead, RepoLst,RepoList.ini
 stringreplace, RepoLst,RepoLst,`n,|,All
 FileRead, LibMatSet, libmatch.set
@@ -415,6 +415,8 @@ FileRead, ArcOrgSet, arcorg.set
 FileRead, EsLkUp, eslkup.set
 FileRead, UrlIndex, Urls.set
 stringreplace,UrlIndex,UrlIndex,[ARCH],%ARCH%,All
+iniread,origasi,Assignments.set,ASSIGNMENTS,
+iniread,origsys,Assignments.set,OVERRIDES,
 FileRead, UTILst, Utilities.set
 FileRead, KMPLst, Keymappers.set
 FileRead, FELst, Frontends.set
@@ -1510,6 +1512,7 @@ Menu, ARCART, Add
 Gui, Add, StatusBar, vSTATUS, Helpy Helperton
 Gui,Font,Bold
 Gui, Add, Tab2, x0 y0 w765 h535 vTABMENU Bottom, Settings||:=: MAIN :=:|Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Netplay|Cores|Util
+
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;   ~~~~~GLOBAL SKELEOTNKEY~~~~~   ;;;;;;;;;;;
 Gui, Tab, 1
@@ -1976,9 +1979,8 @@ Gui, Add, Text, x504 y416 vemuTXTS %tmpvis%, emuTXTS
 Gui, Add, Text, x504 y432 vemuTXTT %tmpvis%, emuTXTT
 
 
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[ INSTALL TAB ]]     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 Gui, Tab, 3
 Gui Tab, Emu:=:Sys
 ;;Gui, Add, Picture, x526 y405 w189 h90, ins.png
@@ -1996,7 +1998,7 @@ Gui, Add, Button, x258 y341 w48 h20 vUPDCL gGetCoreList hidden, Refresh
 Gui, Add, Button, x377 y340 w80 h26 vGCUPDT gGCUpdt hidden, Update Cores
 Gui, Add, Progress, x746 y8 w9 h465 Vertical -Smooth vDWNPRGRS, 0
 
-Gui, Add, ListBox, x282 y433 w175 h69 vEMPRLST gEMPRLST, 
+Gui, Add, ListBox, x282 y433 w175 h69 HWNDprisl vEMPRLST gEMPRLST, 
 Gui, Add, Button, x422 y413 w16 h17 vEMPRBUTA gEMPRBUTA, +
 Gui, Add, DropDownList, x283 y411 w125 vEMPRDDL gEMPRDDL, Emulators|%addemu%
 Gui, Add, Button, x458 y433 w16 h17 vEMPRBUTU gEMPRBUTU, P
@@ -2010,7 +2012,7 @@ Gui, Add, GroupBox, x553 y396 w194 h112 vEMGRPF, Pre Cmd/ Post Cmd
 Gui, Font, Normal
 ;;Gui, Add, Button, x556 y451 w21 h23 vEMBUTV gEMBUTV disabled, ~
 ;;Gui, Add, Radio, x630 y416 w48 h13 vEMRad11A gEMRad11A disabled, Local
-Gui, Add, Radio, x682 y416 w63 h13 vEMRad11B gEMRad11B Checked disabled, Absolute
+Gui, Add, Radio, x682 y416 w63 h13 vEMRad11B gEMRad11B Checked disabled hidden, Absolute
 Gui, Add, CheckBox, x561 y432 w40 h18 vEMCHKW gEMCHKW +0x20 disabled, Wait
 Gui, Add, DropDownList, x603 y430 w118 vEMDDLF gEMDDLF disabled, Pre-Command||Post-Command
 Gui, Add, Button, x723 y429 w21 h23 vEMBUTG gEMBUTG disabled, +
@@ -2494,7 +2496,7 @@ Gui, Add, Button, x358 y191 w40 h19 vCLRPP gClearROMPop, 0=-->x
 Gui, Add, Text, x365 y211 vPLCLRPTXT, Clear
 
 
-Gui, Add, Button,x428 y230 w17 h16 vMVPLOU gMVPLOU,↑
+Gui, Add, Button,x428 y230 w17 h16 vMVPLOU gMVPLOU,^
 Gui, Add, Button,x428 y250 w17 h16 vMVPLOD gMVPLOD,v
 Gui, Add, Button,x392 y305 w55 h24 vBRADD gAddToPL, Open...>
 Gui, Add, Text, x391 y334 w59 h2 0x10 vFENWTXT
@@ -3907,6 +3909,8 @@ RJADDPOSTCFG_TT :="Add Post-run Cfg "
 RJREMPOSTCFG_TT :="Remove Post-run Cfg"
 
 ;;RJCHKK_TT :="Brings forth a checkbox listview window for each system's`n jackets which are to be created prior to queue processing." 
+EMEDTO_TT :="options to pass for the current pre/post command."
+
 
 RJEMUXTCBX_TT :="Extensions- seperate by comma. do not include periods."
 
@@ -4671,18 +4675,34 @@ Loop,Parse,emuj,`n
 		emup2= 	
 		stringsplit,emup,A_LoopField,=,"
 		;"
-		if (emup1 = 4)
-			{
-				PBEGN= 1
-				continue
-			}
-		if (PBEGN <> 1)
+		ifinstring,origasi,%emup1%=
 			{
 				continue
 			}
-		runlist.= emup1 . "|"
 		addemu.= emup1 . "|"
 }
+runlist:= corelist . addemu
+IniRead,emuj,Assignments.ini,OVERRIDES
+Loop,Parse,emuj,`n
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		emup2= 	
+		stringsplit,emup,A_LoopField,=,"
+		;"
+		ifinstring,origsys,%emup1%=
+			{
+				continue
+			}	
+		ifinstring,addemu,%emup1%|
+			{
+				continue
+			}
+		addemu.= emup1 . "|"
+}
+runlist:= corelist . addemu
 return
 
 SCBUILDEMULST:
@@ -8842,8 +8862,6 @@ LNCHPT:
 gui,submit,nohide
 guicontrolget,LNCHPRDDL,,LNCHPRDDL
 guicontrolget,LNCHPT,,LNCHPT
-iniread,origasi,Assignments.set,ASSIGNMENTS,
-iniread,origsys,Assignments.set,OVERRIDES,
 iniread,smuemu,apps.ini,EMULATORS
 stringreplace,smuemu,smuemu,`n,|,All
 stringreplace,smuemu,smuemu,=,|,All
@@ -10063,7 +10081,7 @@ if (SALIST = "Systems")
 		guicontrol,hide,EMGRPF
 		;;guicontrol,show,EMBUTV
 		guicontrol,show,EMRAD11A
-		guicontrol,show,EMRAD11B
+		;;guicontrol,show,EMRAD11B
 		guicontrol,show,EMCHKW
 		guicontrol,show,EMDDLF
 		guicontrol,show,EMBUTG
@@ -11175,28 +11193,14 @@ Loop, Parse,UrlIndex,`n`r
 											emuxe= %emuprt3%
 											OVRKND= %emuprt1%
 											iniwrite, "%xtractmu%\%emuxe%",apps.ini,EMULATORS,%selfnd%
-											ovrktm= 
-											iniread,ovrktm,Assignments.ini,OVERRIDES,%semu%
-											EMPRLT= %OVRKND%|
-											Loop, parse, ovrktm,|
+											ifnotinstring,preEmuCfg,%selfnd%
 												{
-													if (A_LoopField <= 1)
-														{
-															continue
-														}
-													if (A_LoopField = "")
-														{
-															continue
-														}
-													if (A_LoopField = OVRKND)
-														{
-															continue
-														}
-													EMPRLT.= A_LoopField . "|"
+													preEmuCfg.= selfnd . "|"
 												}
-											iniwrite, "%EMPRLT%",Assignments.ini,OVERRIDES,%semu%
-											iniwrite, "%semu%",Assignments.ini,OVERRIDES,%semu%
+											guicontrol,,EMPRDDL,|%selfnd%||%addemu%
+											gosub, EMPRBUTASPLIT
 											iniwrite, "%xtractmu%\%emuxe%",Assignments.ini,ASSIGNMENTS,%OVRKND%
+											break
 										}
 								}
 							gosub, ResetRunList
@@ -12079,7 +12083,8 @@ return
 
 InstEmuDDL:
 gui,submit,nohide
-guicontrol,,EINSTLOC
+EINSTLOC= 
+guicontrol,,EINSTLOC,
 guicontrol,show,EMUINST
 guicontrol,show,CHEMUINST
 guicontrol,show,EMUASIGN
@@ -12229,6 +12234,8 @@ return
 EMPRLST:
 gui,submit,nohide
 guicontrolget,emprcur,,EMPRLST
+ControlGet, ksiv, List, , , ahk_id %prisl%
+stringreplace,ksiv,ksiv,`n|,All
 if (EMPRLST = "")
 	{
 		return
@@ -12238,6 +12245,7 @@ return
 EMPRBUTA:
 gui,submit,nohide
 guicontrolget,semu,,EAVAIL
+EMPRBUTASPLIT:
 guicontrolget,EMPRDDL,,EMPRDDL
 iniread,ksiv,Assignments.ini,OVERRIDES,%semu%
 
@@ -12250,6 +12258,7 @@ if (semu = "")
 	{
 		return
 	}
+
 EMPRLT= %EMPRDDL%|
 Loop, parse, ksiv,|
 	{
@@ -12268,9 +12277,8 @@ Loop, parse, ksiv,|
 			}
 		EMPRLT.= A_LoopField . "|"
 	}
-guicontrol,,EMPRLST,|%EMPRLT%	
+guicontrol,,EMPRLST,|%EMPRLT%
 iniwrite,"%EMPRLT%",Assignments.ini,OVERRIDES,%semu%
-iniwrite,"%EMPRDDL%",Assignments.ini,ASSIGNMENTS,%semu%
 return
 
 EMPRBUTU:
@@ -12487,9 +12495,13 @@ Loop, Parse, semu,|
 	}
 Loop, Parse,SysLLst,`n`r
 	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
 		LKUP1= 
 		LKUP2= 
-		stringsplit, LKUP, A_LoopField, =
+		stringsplit,LKUP,A_LoopField,=,`n`r
 		if (semu = LKUP1)
 			{
 				OVRKSC= %LKUP2%
@@ -12500,8 +12512,8 @@ Loop, Parse,SysLLst,`n`r
 	}
 if (OVRKND = "")
 	{
-		stringsplit,SHRTMP,LKUP1,%A_Space%,-
-		StringRight,SHK,SHRTMP,7
+		stringsplit,SHRTMP,LKUP1,A_Space,-
+		StringRight,SHK,SHRTMP1,7
 		OVRKND= %SHK%Z				
 	}
 splitpath,EINSTLOC,EINSTFNM,EINSTDIR,EINSTX,EINSTNAM
@@ -12547,7 +12559,6 @@ Loop, Parse, preEmuCfg,|
 	}
 preEmuCfg:= empr . selfnd	
 iniwrite, "%EMPRLT%",Assignments.ini,OVERRIDES,%semu%
-iniwrite, "%selfnd%",Assignments.ini,ASSIGNMENTS,%semu%
 iniwrite, "%EINSTLOC%",Assignments.ini,ASSIGNMENTS,%selfnd%
 iniwrite, "%APPOPT%",AppParams.ini,%selfnd%,options
 if (APOPT = "")
@@ -13447,7 +13458,7 @@ Loop, Parse, semu,|
 						nwadmm.= sysni . "|"
 						nwadmi:= sysninj . "|" . sysni
 						addemu.= "|" . sysni
-						guicontrol,,EMPRDDL,|%sysni%|%nwadmi%%runlist%
+						guicontrol,,EMPRDDL,|%sysni%|%addemu%
 						runlist:= corelist . addemu
 						guicontrol,,LCORE,|%runlist%
 						guicontrol,,PLCORE,|%runlist%
@@ -13479,12 +13490,6 @@ Loop, Parse, semu,|
 							}
 						EMPRLT.= A_LoopField . "|"
 					}
-		
-		if sysninj is not digit
-				{
-					guicontrol,,EMPRLST,|%EMPRLT%
-				}
-		iniwrite, "%sysninj%",Assignments.ini,OVERRIDES,%ADDCORE%
 		iniwrite, "%aparg%",AppParams.ini,%sysni%,arguments
 		iniwrite, "%NOEXTN%",AppParams.ini,%sysni%,extension
 		iniwrite, "%EMUPGC%",AppParams.ini,%sysni%,per_game_configurations
