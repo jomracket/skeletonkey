@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-16 4:21 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-17 4:52 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-06-16 4:21 PM
-VERSION= 0.99.36.38
+RELEASE= 2018-06-17 4:52 PM
+VERSION= 0.99.46.00
 RASTABLE= 1.7.3
 #Include tf.ahk
 #Include lbex.ahk
@@ -214,6 +214,46 @@ If (raexeloc = "")
 	{
 		gosub, NORA
 	}
+	
+IniRead,playlistloctmp,Settings.ini,GLOBAL,playlist_location
+If (playlistloctmp <> "ERROR")
+	{
+		playlistloc= %playlistloctmp%
+		ifnotexist, %playlistloctmp%
+			{
+				playlistloctmp= ERROR
+				ifexist,%raexeloc%\playlists\
+					{
+						playlistloctmp= %raexeloc%\playlists
+						playlistloc= %playlistloctmp%
+					}
+			}
+	}
+If (playlistloctmp = "ERROR")
+	{
+		gosub, NOFNDPL
+	}
+	
+IniRead,historyloctmp,Settings.ini,GLOBAL,history_location
+If (historyloctmp <> "ERROR")
+	{
+		historyloc= %historyloctmp%
+		ifnotexist, %historyloctmp%
+			{
+				historyloctmp= ERROR
+				ifexist,%raexeloc%\content_history.lpl
+					{
+						historyloctmp= %raexeloc%\content_history.lpl
+						historyloc= %historyloctmp%
+					}
+			}
+	}
+	
+If (historyloctmp = "ERROR")
+	{
+		gosub, NoHistoryFile
+	}
+
 /*
 ifnotexist,%raexeloc%
 {
@@ -406,7 +446,6 @@ if (raexefile = "NOT-FOUND.exe")
 		CORETABNAME=
 		SKCCTXT= Not Found	
 	}
-gosub, RBLDRUNLST	
 ;;msgbox,,,410addemu=%addemu%
 FileRead, RepoLst,RepoList.ini
 stringreplace, RepoLst,RepoLst,`n,|,All
@@ -430,6 +469,7 @@ stringreplace, SysEmuSet, SysEmuSet,",,All
 FileRead, EmuPartSet, EmuParts.set
 stringreplace,EmuPartSet,EmuPartSet,[ARCH],%ARCH%,All
 IniRead,repoloc,Settings.ini,GLOBAL,Emulator_Repository
+gosub, RBLDRUNLST	
 	if (repoloc = "ERROR")
 		{
 		FileReadLine,repoloc,arcorg.set,2
@@ -461,8 +501,8 @@ Loop, Parse, EmuPartSet,`n`r
 			{
 				continue
 			}
-			stringsplit,kvar,A_LoopField,=
-			emuinstpop.= kvar1 . "|"
+	stringsplit,kvar,A_LoopField,=
+	emuinstpop.= kvar1 . "|"
 	}
 sort,emuinstpop,D|
 if (INITIAL = 1)
@@ -1061,7 +1101,7 @@ gosub, DefPaths
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 netplayRomLocation= 2
-netplayPlaylistDirectory= %playlistDirectory%
+netplayPlaylistDirectory= %playlistLoc%
 netplayCoreAssetsDirectory= %RJSYSTEMS%
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -1127,7 +1167,7 @@ ifNotExist, hashdb.ini
 
 joycfg= %curcfg%
 
-Loop, %playlistDirectory%\*.lpl,
+Loop, %playlistLoc%\*.lpl,
 	{
 		plistfiles .= A_LoopFileName . "|"
 		SplitPath,A_LoopFileName,,,,plistNam
@@ -1315,6 +1355,7 @@ if (INITIAL = 1)
 ;Sort, INJARG , Alphabetically D|
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 DCHINST=Not Found
 if (DCHANGER <> "0")
@@ -1531,31 +1572,41 @@ Gui, Add, Text, x75 y415 vSKEMUDTXT, Emulators Directory
 Gui, Add, CheckBox, x28 y155 vSKFILTSUP gSKFILTSUP, Filter Unsupported
 Gui,Font,Normal
 
+Gui, Font, Bold
+Gui Add, GroupBox, x162 y183 w300 h64 Right, Playlists
+Gui Add, Button, x418 y209 w43 h23 vplaylset gplaylset,SET
+Gui, Font, normal
+Gui Add, Edit, x165 y198 w253 h41 Right vplaylisttxt ReadOnly, %playlistloc%
+
+Gui, Font, Bold
+Gui Add, GroupBox, x162 y243 w300 h61 Right, History
+Gui Add, Button, x418 y269 w43 h23 vhistset ghistset,SET
+Gui, Font, normal
+Gui Add, Edit, x164 y254 w253 h44 Right vhisttxt ReadOnly, %historyloc%
+
 Gui, Add, Button, x200 y94 w45 h18 vSYSDETECT gSysDetect, Detect
 Gui, Add, CheckBox, x255 y94 h19 vSYSAZ gSYSAZ %FUZENB%, fuzzy-Rename
 Gui, Add, Button, x215 y480 w45 h18 vEMUDETECT gEmuDetect, Detect
 Gui, Add, Text, x303 y480 vSKDSETXT, Detected Supported Emulators: %emunumtot%
 Gui, Add, Text, x240 y160 vSKDETSTXT, Detected Systems: %totsys% supported and %allsys% total
-Gui, Add, Text,x217 y295 w146 h29 vRAVERTXT, version:  %RAVERS%`nbuild:  %RAVBLD%
-Gui, Add, Button, x215 y326 w45 h17 vGRAVER gGRAVER, version
+Gui, Add, Text,x215 y310 w130 h29 vRAVERTXT, version:  %RAVERS%  build:  %RAVBLD%
+Gui, Add, Button,x215 y344 w45 h17 vGRAVER gGRAVER, version
 Gui, Add, Text, x601 y68 vSKPRFJTXT, Overrides
 Gui, Add, Text, x33 y214 vSKDTTXT, Daemon Tools is %DAMINST%
 Gui, Add, DropDownList, x23 y12 w163 vSKRESDDL gSKRESDDL, All||Session|Jacket-Presets|Retroarch|Associations|Core-Cfgs|Playlist-DB
 Gui, Add, Button, x187 y12 w55 h20 vSKRESET gSKRESET, RESET
 Gui, Add, Edit, x27 y114 w443 h40 Multi ReadOnly vSKSYSDISP, %RJSYSTEMS%
 Gui, Add, Text, x30 y324 vSKIMPRATXT, Import Retroarch.cfg
-Gui, Add, Button, x129 y319 w75 h23 vSKRAIMP gIMPRTCFG, Import
+Gui, Add, Button, x32 y304 w51 h18 vSKRAIMP gIMPRTCFG, Import
 Gui, Add, Text, x368 y349 vSKSAVTXT, Save for skeletonKey
 Gui, Add, Button, x379 y324 w75 h23 vSKSAVE gMenuSave, SAVE
 Gui, Add, Button, x454 y329 w13 h17 vSKSVAS gSAVECFG, v
 ;;Gui, Add, CheckBox, x33 y480 h19 vLNCHPT gLNCHPT %LNCHPRIO%, Auto-Assign Emulators
-Gui, Add, Button, x33 y481 w42 h18 vLNCHPT gLNCHPT ,Priority
-Gui, Add, DropDownList, x83 y480 w70 vLNCHPRDDL gLNCHPRDDL,Emulators||retroarch|mame|mednafen
-Gui, Add, CheckBox, x33 y231 h19 vHOVPREV gHovPrev %hovvalue%, Hover-Preview
-Gui, Add, CheckBox, x33 y248 h19 vSRCHCOMPLIO gSRCHCOMPL %SRCHCOMPLIO%, Auto-Populate Search-Window
-Gui, Add, CheckBox, x33 y267 h19 vAUTOPGS gAUTOPGS %AUTOPGSIO%, Auto-Load Per-Game Settings
+Gui, Add, CheckBox, x244 y5 vHOVPREV gHovPrev %hovvalue%, Hover-Preview
+Gui, Add, CheckBox,x244 y22 vSRCHCOMPLIO gSRCHCOMPL %SRCHCOMPLIO%, Auto-Populate Search-Window
+Gui, Add, CheckBox, x412 y22 vAUTOPGS gAUTOPGS %AUTOPGSIO%, Auto-Load Per-Game Settings
 
-Gui, Add, Text, x277 y330 vSKCCTXT, %SKCCTXT%
+Gui, Add, Text, x288 y341 vSKCCTXT, %SKCCTXT%
 Gui, Add, Text, x219 y59 vSKRJQTXT, %RJQNUM% systems
 Gui, Add, Text, x33 y201 vSKDISPLCHTXT, DisplayChanger is %DCHINST%
 Gui, Add, Edit, x30 y434 w439 h40 Multi ReadOnly vSKEMUDISP, %RJEMUD%
@@ -2005,6 +2056,9 @@ Gui, Add, Button, x458 y433 w16 h17 vEMPRBUTU gEMPRBUTU, P
 Gui, Add, Button, x458 y459 w16 h17 vEMPRBUTX gEMPRBUTX, X
 Gui, Add, Button, x487 y481 w36 h17 vDELCFGPGC gDELCFGPGC, Clean
 
+
+
+
 ;;Gui, Add, Button, x458 y485 w16 h17 vEMPRBUTD gEMPRBUTD, v
 ;;gui, Add, Button,x714 y482 w43 h23 vCNCLDWN gCancelDown Disabled, Cancel
 Gui, Font,Bold
@@ -2044,12 +2098,14 @@ Gui,Font,%fontXsm% Norm
 Gui, Add, Radio, x123 y463 h14 vEXELIST gExeList hidden, Parts
 Gui, Add, Radio, x71 y463 h14 Checked vRALIST gRaList hidden, Cores
 Gui,Font,%fontXmed% Bold
-Gui, Add, DropDownList, x9 y484 w239 vSaList gSaList,Systems||Emulators|RetroArch|Utilities|Frontends
-;;gui, Add, Radio, x134 y486 h14 vSALIST gSaList, Standalone Emulators
+Gui, Add, DropDownList, x9 y484 w110 vSaList gSaList,Systems||Emulators|RetroArch|Utilities|Frontends
 Gui,Font,%fontXsm% Bold
+;;gui, Add, Radio, x134 y486 h14 vSALIST gSaList, Standalone Emulators
 
 Gui, Add, GroupBox, x466 y5 w275 h379 vSKRAstch, Skeletonkey-System-Associations
 Gui,Font,%fontXsm% Norm
+Gui, Add, DropDownList, x288 y477 w77 vLNCHPRDDL gLNCHPRDDL hidden,Emulators||retroarch|mame|mednafen
+Gui, Add, Button, x368 y477 w42 h22 vLNCHPT gLNCHPT hidden,Priority
 Gui, Add, DropDownList, x470 y26 w251 vADDCORE gAddCore, Select_A_System||%reasign%
 Gui, Add, Button, x723 y25 w12 vOPNSYS gOpnSyS,+
 Gui, Add, DropDownList, x503 y73 w42 vOVLIST gOvList Disabled, ||1|2|3|4|5
@@ -4055,6 +4111,7 @@ XMBSCL_TT :="Scales the XMB display"
 XMBTHM_TT :="Icon theme number"
 XMENU_TT :="Playstation-style GUI.  The Default"
 ZIPSEEK_TT :="Searches within archives (.zip/.7z) for files.`nturn this off for Arcade/MAME-Style ROMs and archives." 
+ZIPSEEK_TT :="Gets and writes the CRC Hash number of ROMs to the playlist.`nThis can be expensive for CD/DVD systems.`nturn this off for Arcade/MAME-Style ROMs and archives." 
 ZMENU_TT :="dunno.  might work."
 SHDEN_TT :="Toggles shader"
 SKFILTSUP_TT :="Any dropdown listing the contents of your ''systems'' directory`n will filter out any directories which have not been detected or assigned"
@@ -4701,7 +4758,7 @@ Loop,Parse,emuj,`n
 				continue
 			}
 		addemu.= emup1 . "|"
-}
+	}
 runlist:= corelist . addemu
 return
 
@@ -5223,13 +5280,13 @@ if (SRCHPLRAD = 1)
 			{
 				gamsplv= %A_LoopField%
 				stringsplit,gamspli,gamsplv,>
-				Loop, Read, %playlistdirectory%\%SRCHLOCDDL%				
+				Loop, Read, %playlistLoc%\%SRCHLOCDDL%				
 					{
 						readah= %A_Index%
 						if (gamspli1 = A_LoopReadLine)
 							{
 								aef:= readah + 2
-								FileReadLine,ccoreLBX,%playlistdirectory%\%SRCHLOCDDL%,%aef%
+								FileReadLine,ccoreLBX,%playlistLoc%\%SRCHLOCDDL%,%aef%
 								splitpath,ccoreLBX,givxe,givxd,givxtn,givxn
 								if (givxe <> gamspli2)
 									{
@@ -5673,7 +5730,7 @@ if (OPTYP = "History")
 	{
 		curline= 0
 		guicontrolget,HISROM,, RUNROMCBX
-		Loop, Read, %contentHistoryPath%
+		Loop, Read, %historyLoc%
 			{	
 				curline+=1
 				if (A_LoopReadLine = HISROM)
@@ -5684,7 +5741,7 @@ if (OPTYP = "History")
 			}
 		if (coreline <> "")
 			{
-				FileReadLine, stcl, %contentHistoryPath%,%coreline%
+				FileReadLine, stcl, %historyLoc%,%coreline%
 				SplitPath, stcl, coreselv
 				guicontrol,,LCORE,|%coreselv%||%runlist%
 			}
@@ -5706,7 +5763,7 @@ guicontrolget,PLROM,, RUNROMCBX
 ttnf1=
 ttnf2= 
 StringSplit,ttnf,PLROM,#
-Loop, Read, %playlistDirectory%\%RSYSDL%
+Loop, Read, %playlistLoc%\%RSYSDL%
 	{	
 		curline+=1
 		plrls1= 
@@ -5718,7 +5775,7 @@ Loop, Read, %playlistDirectory%\%RSYSDL%
 				break
 			}
 	}
-FileReadLine, stcl, %playlistDirectory%\%RSYSDL%,%coreline%
+FileReadLine, stcl, %playlistLoc%\%RSYSDL%,%coreline%
 if (stcl <> "DETECT")
 	{
 		SplitPath, stcl, coreselv
@@ -5813,24 +5870,24 @@ if (SHRTNM = "")
 return
 
 RecentWrite:
-ifnotexist,%contentHistoryPath%
+ifnotexist,%historyLoc%
 	{
 		return
 	}
 rlin= 1
 HISTORY=
 curline= 1
-Loop, Read, %contentHistoryPath%
+Loop, Read, %historyLoc%
 	{	
 		if (romf = "")
 			{
 				romf = %A_LoopReadLine%
 				coreline := curline+2
-				FileReadLine,popcore,%contentHistoryPath%,%coreline%
+				FileReadLine,popcore,%historyLoc%,%coreline%
 				splitpath,popcore,coreselv
 			}
 		newvl= 
-		FilereadLine, newvl, %contentHistoryPath%,%rlin%
+		FilereadLine, newvl, %historyLoc%,%rlin%
 		if (newvl = "")
 			{
 				break
@@ -6276,6 +6333,52 @@ if (coreassetsdirectory <> RJSYSTEMS)
 							}
 			}
 	}
+if (playlistDirectory <> playlistLoc)
+	{
+		MsgBox,3,Set playlist_directory,Would you like to set the retroArch ''playlists'' directory to`n %playlistLoc%`n..`n...`nplaylist_directory = ''%playlistdirectory%''`n
+		ifMsgBox,Yes
+			{
+					Loop, %playlistdirectory%\*.lpl
+						{	
+							ARBNMB+=1
+							dwnltom.= A_LoopField . "|"
+							break
+						}
+					MsgBox,3,Import,Would you like to import your retroArch playlist files into your playlist location?`n      This will - MOVE - all content.
+					IfMsgBox,Yes
+						{
+							Loop, Parse, dwntom,|
+								{
+									FLBND= 
+									cnimp= 
+									ccsyst= %A_LoopField%
+									FileMove, %A_LoopFileFullPath%,%playlistloc%
+									if (errorlevel <> 0)
+										{
+											if (FLBND > 5)
+												{
+													if (FLBND = 6)
+														{
+															cnimp.= cnimp . "|" . "...more..."
+														}
+														continue
+												}
+											FLBND+=1
+											cnimp.= A_LoopFileFullPath . "|"
+										}
+								}
+						}
+			}
+		playlistDirectory= %playlistLoc%
+		iniwrite, "%playlistDirectory%",%curcfg%,OPTIONS,playlist_directory
+		If (FLBND <> "")
+			{
+				stringreplace,cnimp,cnimp,|,`n,all
+				Msgbox,0,,Import Notice,Some playlists were not overwritten:`n%cnimp%:`n%cnimp%,
+				return
+			}
+		MsgBox,1,Success,playlists imported successfully,10
+	}
 return
 
 SETEMUD:
@@ -6583,6 +6686,57 @@ Process,close,Invader.exe
 Process,close,skeletonKey.exe
 Exitapp
 Return
+
+
+histset:
+hstmp= %contentHistoryPath%
+gui,submit,nohide
+historytry= 
+historyloctmp= 
+histreset:
+historytry+=1
+FileSelectFile,historyloctmp,3,%hstmp%,history Location,*.*
+if (historyloctmp <> "")
+	{
+		historyloc= %historyloctmp%
+		SB_SetText(" history location set to " historyloc " ")
+		guicontrol,,histtxt,%historyloc%
+		iniwrite, "%historyloc%",Settings.ini,GLOBAL,history_location
+		return
+		if (historytry > 1)
+			{
+				return
+			}
+		hstmp= 
+		goto, histreset
+	}
+guicontrol,,histtxt,%historyloc%
+return
+
+playlset:
+pltmp= %playlistDirectory%
+gui,submit,nohide
+pltry= 
+playlistloctmp= 
+plreset:
+pltry+=1
+FileSelectFolder,playlistloctmp,3,Playlist Location,%pltmp%,
+if (playlistloctmp <> "")
+	{
+		playlistloc= %playlistloctmp%
+		SB_SetText(" Playlist location set to " playlistloc " ")
+		guicontrol,,playlisttxt,%playlistloc%
+		iniwrite, "%playlistloc%",Settings.ini,GLOBAL,playlist_location
+		return
+		if (pltry > 1)
+			{
+				return
+			}
+		pltmp= 
+		goto, plreset
+	}
+guicontrol,,playlisttxt,%playlistloc%
+return
 
 SYSDETECT:
 FuzzySystems:
@@ -7293,7 +7447,7 @@ if (OPTDLT = 1)
 		PLineAdd= 
 		splitpath,OPTYP, , , ,DDLUX
 		finumb= 
-		Loop, Read, %playlistDirectory%\%OPTYP%,|
+		Loop, Read, %playlistLoc%\%OPTYP%,|
 			{
 				PLineNum+=1
 				PLineAdd+=1	
@@ -7320,7 +7474,7 @@ if (OPTDLT = 1)
 			}
 			romfj1= 
 			romfj2= 
-			filereadline,tolcr,%playlistDirectory%\%OPTYP%,%finumb%
+			filereadline,tolcr,%playlistLoc%\%OPTYP%,%finumb%
 			splitpath,tolcr,coreselv
 			
 			stringsplit, romfj, romf,#
@@ -7827,7 +7981,7 @@ if (SRCHPLRAD = 1)
 			}
 		lsrchpop=	
 		plnuminc=	
-		Loop, Read, %playlistDirectory%\%SRCHLOCDDL%
+		Loop, Read, %playlistLoc%\%SRCHLOCDDL%
 			{
 				plnuminc+=1
 				if (plnuminc = 1)
@@ -9866,6 +10020,8 @@ if (EXELIST = 1)
 		guicontrol,,CACGRP,RetroArch Components
 	}
 
+guicontrol, hide, LNCHPT
+guicontrol, hide, LNCHPRDDL
 guicontrol,hide,EMUINST
 guicontrol,hide,MULTLNK
 guicontrol,hide,UNIQLNK
@@ -10074,6 +10230,8 @@ if (SALIST = "Systems")
 		guicontrol,show,EAVAIL
 		guicontrol,hide,GRPDROPBIOS
 		guicontrol,hide,UPDBTN
+		guicontrol,hide,LNCHPRDDL
+		guicontrol,hide,LNCHPT
 		guicontrol, hide, RALIST
 		guicontrol, hide, EXELIST
 		;;guicontrol,hide,KARC
@@ -10136,6 +10294,9 @@ if (SALIST = "Frontends")
 		guicontrol,hide,GRPDROPBIOS
 		guicontrol, hide, RALIST
 		guicontrol, hide, EXELIST
+		guicontrol,hide,LNCHPRDDL
+		guicontrol,hide,LNCHPT
+
 		;;guicontrol,hide,KARC
 		guicontrol,hide,UPDCL
 		guicontrol,hide,GCUPDT
@@ -10198,6 +10359,8 @@ if (SALIST = "Utilities")
 		guicontrol,hide,GRPDROPBIOS
 		guicontrol, hide, RALIST
 		guicontrol, hide, EXELIST
+		guicontrol,hide,LNCHPRDDL
+		guicontrol,hide,LNCHPT
 		;;guicontrol,hide,KARC
 		guicontrol,hide,UPDCL
 		guicontrol,hide,GCUPDT
@@ -10275,6 +10438,8 @@ if (SALIST = "Emulators")
 		guicontrol, hide, AVAIL
 		guicontrol, hide, BCKCORE
 		guicontrol, show, UAVAIL
+		guicontrol, show, LNCHPT
+		guicontrol, show, LNCHPRDDL
 		guicontrol, show,EINSTTXT
 		guicontrol, show,EINSTLOC
 		guicontrol, show,CHEMUINST
@@ -15210,7 +15375,7 @@ SvAsPlst:
 SB_SetText("Saving Playlist ... ")
 gui,submit,nohide
 svplst=
-FileSelectFile,svplst,S2,%playlistDirectory%,Save Playlist File,*.lpl
+FileSelectFile,svplst,S2,%playlistLoc%,Save Playlist File,*.lpl
 if (svplst = "")
 	{
 		return
@@ -15228,7 +15393,7 @@ plopen=
 popAlist= 
 popBPlist= 
 vividx=
-FileSelectFile,popAlist,3,%playlistDirectory%
+FileSelectFile,popAlist,3,%playlistLoc%
 if (popAlist = "")
 	{
 		return
@@ -15583,7 +15748,7 @@ PLineNum=
 PLineAdd=
 poptadd= 
 splitpath,DWNLPOS, , , ,DDLUX
-Loop, Read, %playlistDirectory%\%DWNLPOS%,|
+Loop, Read, %playlistLoc%\%DWNLPOS%,|
 	{
 		PLineNum+=1
 		PLineAdd+=1
@@ -15970,7 +16135,7 @@ if (plsave = "")
 		plsave= %raexeloc%\playlists
 	}
 coreloc= %libretroDirectory%
-plstdir= %playlistDirectory%
+plstdir= %playlistLoc%
 ifnotexist, %plstdir%
 	{
 		FileCreateDir,%plstdir%
@@ -20930,7 +21095,7 @@ if (XMBPL =1)
 	{
 		rlin= 2
 		GUIplstl= 
-		Loop, Read, %playlistDirectory%\%MNUSYS%.lpl
+		Loop, Read, %playlistLoc%\%MNUSYS%.lpl
 			{	
 				if (A_Index = rlin)
 				{
@@ -45986,7 +46151,7 @@ if (NETPLIST = 1)
 		PlayLP:
 		PLineNum= 
 		PLineAdd= 
-		Loop, Read, %playlistDirectory%\%NETLPARSE%,|
+		Loop, Read, %playlistLoc%\%NETLPARSE%,|
 			{
 				PLineNum+=1
 				if (HOSTSELECT <> "")
@@ -46266,7 +46431,7 @@ if (NETPLIST = 1)
 				NETLPARSE:= % (%prsdl1%)
 				NAMEDROM:= prsdl2
 			}
-		Loop, Read, %playlistdirectory%\%NETLPARSE%
+		Loop, Read, %playlistLoc%\%NETLPARSE%
 			{
 				rominc+=1
 				romtitle= 
@@ -46339,7 +46504,7 @@ if (AUTSYS = 1)
 						guicontrol,,NETROMLIST
 						return
 					}
-				ifexist, %playlistdirectory%\%ASPOP%.lpl
+				ifexist, %playlistLoc%\%ASPOP%.lpl
 					{
 						SB_SetText("Switching to "ASPOP " ")
 						guicontrol,,NETCOREASSETS,|%ASPOP%.lpl|||All_Playlists|%plistfiles%
@@ -46378,7 +46543,7 @@ return
 ;;;;;;;;;;;;;;;;;;;;;;    JUST POPULATE   ;;;;;;;;;;;;;;;;;;;;;;;;
 
 JustPop:
-Loop, Read, %playlistDirectory%\%NETLPARSE%,|
+Loop, Read, %playlistLoc%\%NETLPARSE%,|
 	{
 		PLineNum+=1
 		if (HOSTSELECT <> "")
@@ -46643,7 +46808,7 @@ Loop, Parse, matchlist,|
 				if (NETPLIST = 1)
 					{
 						netPLnm=
-					Loop, Read, %playlistDirectory%\%NETLPARSE%
+					Loop, Read, %playlistLoc%\%NETLPARSE%
 						{
 							lmname= 
 							intitle1= 
@@ -46661,7 +46826,7 @@ Loop, Parse, matchlist,|
 									if (recNum = 1)
 										{
 											;;netPLnm-=1
-											FileReadLine, romf, %playlistDirectory%\%NETLPARSE%,%netPLnm%
+											FileReadLine, romf, %playlistLoc%\%NETLPARSE%,%netPLnm%
 											SB_SetText(" NAME-MATCH " lmpln " found!!! ") 
 											if (lmpln = HOSTINGROMS)
 												{
@@ -46757,8 +46922,8 @@ guicontrol,,FORCEROM,0
 guicontrol,enable,NETCONNECT
 
 plinecnt= 
-FileReadLine, romdp,%playlistDirectory%\%NETLPARSE%,%SUBRLINE%
-FileReadLine, romf,%playlistDirectory%\%NETLPARSE%,%SUBFROM%
+FileReadLine, romdp,%playlistLoc%\%NETLPARSE%,%SUBRLINE%
+FileReadLine, romf,%playlistLoc%\%NETLPARSE%,%SUBFROM%
 guicontrol,,RETROM,0
 SB_SetText(" CRC-MATCH " romf " found!! ! ")
 return
@@ -46952,7 +47117,7 @@ guicontrol,,RETROM,0
 guicontrol,,NETROMLIST,|
 initdwn= All_Playlists
 guicontrolget,dwnlft,,NETCOREASSETS
-ifexist, %playlistDirectory%\%dwnlft%.lpl
+ifexist, %playlistLoc%\%dwnlft%.lpl
 	{
 		NETLPARSE= %dwnlft%.lpl
 		initdwn= %dwnlft%.lpl
@@ -52415,21 +52580,21 @@ if (OPTYP = "History")
 	{
 		curline= 0
 		guicontrolget,HISROM,, RUNROMCBX
-		Loop, Read, %contentHistoryPath%
+		Loop, Read, %historyLoc%
 			{	
 				curline+=1
 				if (A_LoopReadLine = HISROM)
 					{
 						runline := curline+3
 						coreline := curline+2
-						filereadline,agie,%contentHistoryPath%,%coreline%
+						filereadline,agie,%historyLoc%,%coreline%
 						ifinstring,agie,_libretro.dll
 							{
 								splitpath,agie,coreselv
 								guicontrol,,LCORE,%coreselv%
 								break
 							}
-						filereadline,coreselv,%contentHistoryPath%,%runline%
+						filereadline,coreselv,%historyLoc%,%runline%
 						guicontrol,,LCORE,%coreselv%
 						break
 					}	
@@ -52441,7 +52606,7 @@ optnt= 1
 opcnt=
 ifinstring,OPTYP,.lpl
 	{
-		Loop, Read, %playlistDirectory%\%OPTYP%
+		Loop, Read, %playlistLoc%\%OPTYP%
 			{				
 				ttnf1= 
 				ttnf2= 		
@@ -52453,7 +52618,7 @@ ifinstring,OPTYP,.lpl
 						lnumfnd:= opcnt+2
 						if (optnt = 1)
 							{
-								filereadline,coreselv,%playlistDirectory%\%OPTYP%,%lnumfnd%
+								filereadline,coreselv,%playlistLoc%\%OPTYP%,%lnumfnd%
 								splitpath,coreselv,coreselv
 								if (coreselv <> "DETECT")
 									{
@@ -52464,7 +52629,7 @@ ifinstring,OPTYP,.lpl
 							}
 						if (romindnum = optnt)
 							{
-								filereadline,coreselv,%playlistDirectory%\%OPTYP%,%lnumfnd%
+								filereadline,coreselv,%playlistLoc%\%OPTYP%,%lnumfnd%
 								splitpath,coreselv,coreselv
 								if (coreselv <> "DETECT")
 									{
@@ -53722,6 +53887,56 @@ guicontrol,,RUNROMCBX, |%romf%||%HISTORY%
 Gui, submit, nohide
 return
 
+NoHistoryFile:
+historyLoctmp= 
+iniread,historyloctmp,config.cfg,OPTIONS,contentHistoryPath
+if historyloctmp = "ERROR")
+	{
+		historyloc= %A_WorkingDirectory%\content_history.lpl
+		guicontrol,,historytxt,%A_WorkingDirectory%\content_history.lpl
+		iniwrite, "%A_WorkingDirectory%\content_history.lpl",Settings.ini,GLOBAL,history_location
+		return
+	}
+if (historyloctmp <> "")
+	{
+		historyloc= %historyloctmp%
+		iniwrite, "%historyloc%",Settings.ini,GLOBAL,history_location
+		guicontrol,,historytxt,%historyloc%
+		ifexist,%historyLoc%
+			{
+				return
+			}
+	}
+historyloc= %A_WorkingDirectory%\content_history.lpl
+guicontrol,,historytxt,%A_WorkingDirectory%\content_history.lpl
+iniwrite, "%A_WorkingDirectory%\content_history.lpl",Settings.ini,GLOBAL,history_location
+return
+
+NoFNDPL:
+playlistloctmp=
+iniread,playlistloctmp,config.cfg,OPTIONS,playlist_directory
+if playlistloctmp = "ERROR")
+	{
+		playlistloc= %A_WorkingDirectory%\cfg
+		guicontrol,,playlisttxt,%A_WorkingDirectory%\cfg
+		iniwrite, "%A_WorkingDirectory%\cfg",Settings.ini,GLOBAL,playlist_location
+		return
+	}
+if (playlistloctmp <> "")
+	{
+		playlistloc= %playlistloctmp%
+		iniwrite, "%playlistloc%",Settings.ini,GLOBAL,playlist_location
+		guicontrol,,playlisttxt,%playlistloc%
+		ifexist,%PlaylistLoc%
+			{
+				return
+			}
+	}
+playlistloc= %A_WorkingDirectory%\cfg
+guicontrol,,playlisttxt,%A_WorkingDirectory%\cfg
+iniwrite, "%A_WorkingDirectory%\cfg",Settings.ini,GLOBAL,playlist_location
+return
+
 NORA:
 if (locfnd = 1)
 	{
@@ -53988,7 +54203,7 @@ joypadAutoconfigDir= %raexeloc%\autoconfig
 libretroDirectory= %raexeloc%\cores
 oskOverlayDirectory= %raexeloc%\overlays
 overlayDirectory= %raexeloc%\overlays
-playlistDirectory= %raexeloc%\playlists
+playlistDirectory= %playlistLoc%
 recordingConfigDirectory= %raexeloc%\config
 rguiBrowserDirectory= default
 rguiConfigDirectory= %raexeloc%\config
@@ -54005,7 +54220,7 @@ return
 DefPaths:
 cheatDatabasePath= %raexeloc%\cheats
 contentDatabasePath= %raexeloc%\database\rdb
-contentHistoryPath= %raexeloc%\content_history.lpl
+contentHistoryPath= %historyLoc%
 contentImageHistoryPath= %raexeloc%\content_image_history.lpl
 contentMusicHistoryPath= %raexeloc%\content_music_history.lpl
 contentVideoHistoryPath= %raexeloc%\content_video_history.lpl
@@ -54394,7 +54609,7 @@ FileDelete,hashdb.ini
 SB_SetText("...Initializing Playlist Database...")
 plistfiles= 
 plistNamz= 
-Loop, %playlistdirectory%\*.lpl
+Loop, %playlistLoc%\*.lpl
 	{
 		plistfiles .= A_LoopFileName . "|"
 		SplitPath,A_LoopFileName,,,,plistNam
@@ -54431,7 +54646,7 @@ return
 resetPlaylists:
 plistfiles= 
 plistNamz= 
-Loop, %playlistDirectory%\*.lpl,
+Loop, %playlistLoc%\*.lpl,
 	{
 		plistfiles .= A_LoopFileName . "|"
 		SplitPath,A_LoopFileName,,,,plistNam
@@ -57943,6 +58158,10 @@ stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
 		contentHistoryPath := raexeloc . SubStr(rewtmpd,2,255)
+		ifnotexist,%contenthistorypath%
+			{
+				contentHistoryPath= %historyLoc%
+			}
 	}
 
 return
@@ -60069,4 +60288,4 @@ ifmsgbox, no
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;}##########################################
+;}###########################################
