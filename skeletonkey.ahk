@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-18 5:03 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-18 8:37 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-06-18 5:03 PM
-VERSION= 0.99.46.01
+RELEASE= 2018-06-18 8:37 PM
+VERSION= 0.99.46.02
 RASTABLE= 1.7.3
 #Include tf.ahk
 #Include lbex.ahk
@@ -51,12 +51,10 @@ ifinstring,getport,-run=
 		OVRLKUPNM:= fief2
 		romf= %getpath%
 	}
-iniread,fiin,Assignments.ini,OVERRIDES,%OVRLKUPNM%
+iniread,fiin,Assignments.ini,ASSIGNMENTS,%OVRLKUPNM%
 if (fiin <> "ERROR")
 	{
-		stringsplit,aij,fiin,|
-		fiin= %aij1%
-		RUNCOREOVERRIDE= %fiin%	
+		RUNCOREOVERRIDE= %OVRLKUPNM%
 	}
 if (RUNCOREOVERRIDE <> "")
 	{
@@ -1601,8 +1599,8 @@ Gui, Add, Edit, x27 y114 w443 h40 Multi ReadOnly vSKSYSDISP, %RJSYSTEMS%
 Gui, Add, Text, x30 y324 vSKIMPRATXT, Import Retroarch.cfg
 Gui, Add, Button, x32 y304 w51 h18 vSKRAIMP gIMPRTCFG, Import
 Gui, Add, Text, x368 y349 vSKSAVTXT, Save for skeletonKey
-Gui, Add, Button, x379 y324 w75 h23 vSKSAVE gMenuSave, SAVE
-Gui, Add, Button, x454 y329 w13 h17 vSKSVAS gSAVECFG, v
+Gui, Add, Button, x379 y325 w40 h22 vSKSAVE gMenuSave,Save
+Gui, Add, Button, x418 y325 w20 h22 vSKSVAS gSAVECFG,As
 ;;Gui, Add, CheckBox, x33 y480 h19 vLNCHPT gLNCHPT %LNCHPRIO%, Auto-Assign Emulators
 Gui, Add, CheckBox, x244 y5 vHOVPREV gHovPrev %hovvalue%, Hover-Preview
 Gui, Add, CheckBox,x244 y22 vSRCHCOMPLIO gSRCHCOMPL %SRCHCOMPLIO%, Auto-Populate Search-Window
@@ -2953,9 +2951,10 @@ Gui, Add, ComboBox, x88 y78 w126 vCUSTMOPT gCustmOpt hidden,|%INJOPT%
 Gui, Add, ComboBox, x218 y78 w123 vCUSTMARG gCustmArg hidden,|
 Gui, Add, CheckBox, x26 y75 w61 h17 vCUSTSWITCH gCustSwitch, switches
 
-Gui, Add, Button, x88 y243 w45 h20 vALTURLSET gAltURLSet hidden, URL
+;;Gui, Add, Button, x88 y243 w45 h20 vALTURLSET gAltURLSet hidden, URL
+
 Gui, Add, Checkbox, x24 y263 vALTURL gEnableAltUrl, Override
-Gui, Add, Text, x88 y263 w155 h13 vUrlTxt, %ArcSite%
+Gui, Add, Edit, x88 y258 w225 h21 vUrlTxt gREPOUrlEdt Readonly, %ArcSite%
 Gui, Add, Edit, x24 y215 w159 h21 vARCLOGIN gArcLogin hidden,
 Gui, Add, Edit, x187 y215 w154 h21 Password vARCPASS gArcPass hidden,
 Gui, Add, CheckBox, x240 y238 h15 vSAVPASS gSavPass hidden, save
@@ -18831,8 +18830,14 @@ guicontrol,enable,ARCHOST
 norun= 
 return
 
+REPOUrlEdt:
+gui,submit,nohide
+guicontrolget,ArcSite,,UrlTxt
+iniwrite, "%ArcSite%",Settings.ini,GLOBAL,RemoteRepository
+return
 
 EnableAltURL:
+guicontrol,-ReadOnly,UrlTxt
 gui, submit, nohide
 guicontrolget,ALTURL,,ALTURL
 if (ALTURL = 1)
@@ -18842,7 +18847,12 @@ if (ALTURL = 1)
 		guicontrol,show,SAVPASS
 		guicontrol,show,ARCUTXT
 		guicontrol,show,ARCPTXT
+		guicontrol,enable,UrlTxt
 		IniRead, ArcSite,Settings.ini,Global,RemoteRepository
+		if (ARCSITE <> "ERROR")
+			{
+				guicontrol,,UrlTxt,%ARCSITE%
+			}
 		guicontrol,show,ALTURLSET
 	}
 if (ALTURL = 0)
@@ -18854,6 +18864,11 @@ if (ALTURL = 0)
 		guicontrol,hide,ARCPTXT
 		guicontrol,,ALTURL,0
 		guicontrol,hide,ALTURLSET
+		guicontrol,disable,UrlTxt
+		guicontrol,,UrlTxt,%cloudloc%
+		IniWrite, "%cloudLoc%"Settings.ini,GLOBAL,RemoteRepository
+		ARCSITE= %cloudloc%
+		
 	}
 return
 
