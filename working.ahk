@@ -1508,6 +1508,8 @@ Menu, RJRCLMENU, Add, Add Selection, ADDRJSEL
 
 Menu, RJRCLMENU, Add, Remove Selection, REMRJSEL
 
+Menu, delctxtmenu, Add, Delete Emulator Settings, DelCfg_Add
+
 Menu, RUNMENU, Add, Run Menu, RUNMENU
 Menu, RUNMENU, Add
 
@@ -4577,8 +4579,19 @@ If A_GuiControlEvent RightClick
 				}
 		}
 	*/
-
-GuiScrapeMenu:
+	if A_GuiControl = CLRCUROM
+		{
+			guicontrolget,SRCHROMLVI,,RUNROMCBX
+			ifnotexist,%SRCHROMLVI%
+				{
+					SB_SetText(" ROM not found ")
+					return
+				}
+			menu, delctxtmenu, show, %A_GuiX% %A_GuiY%
+			ClrCfgT= 1
+			return		
+		}
+	GuiScrapeMenu:
 	URLFILE= 
 	save= 
 	IMTG= 
@@ -5270,13 +5283,20 @@ return
 DelCfg_Add:
 gui,submit,nohide
 itmlst= 
-guicontrolget,SRCHLOCDDL,,SRCHLOCDDL
+guicontrolget,SRCHLOCVI,,SRCHLOCDDL
 guicontrolget,ccoreLBX,,LCORE
-guicontrolget,SRCHROMLBX,,SRCHROMLBX
+guicontrolget,SRCHROMLVI,,SRCHROMLBX
+if (ClrCfgT = 1)
+	{
+		guicontrolget,SRCHLOCVI,,RUNSYSDDL
+		guicontrolget,SRCHROMLVI,,RUNROMCBX
+		ClrCfgT= 
+	}
+
 if (SRCHPLRAD = 1)
 	{
 		gamfnd= 
-		Loop, Parse, SRCHROMLBX,|
+		Loop, Parse, SRCHROMLVI,|
 			{
 				gamsplv= %A_LoopField%
 				stringsplit,gamspli,gamsplv,>
@@ -5305,12 +5325,15 @@ if (SRCHPLRAD = 1)
 				goto, srchplinj
 			}
 	}
+
 if (ccoreLBX = "")
 	{
 		ccoreLBX= DETECT
 	}
+
 srchplinj:	
 iniread,givn,Assignments.ini,ASSIGNMENTS,%ccoreLBX%
+
 if (givn <> "ERROR")
 		{
 			givxe= 
@@ -5323,7 +5346,7 @@ if (givn <> "ERROR")
 				}
 		}
 cfgwstr= 
-ifnotinstring,emupartset,\%givxe%=
+ifnotinstring,emupartset,%givxe%=
 	{
 		iniread,givxn,Assignments.ini,ASSIGNMENTS,%SRCHLOCDDL%
 		if (givxn <> "ERROR")
@@ -5354,7 +5377,8 @@ ifnotinstring,emupartset,\%givxe%=
 					SB_SetText(" using " givn " presets")	
 				}
 	}
-Loop, Parse, SRCHROMLBX,|
+
+Loop, Parse, SRCHROMLVI,|
 	{
 		if (A_LoopField = "")
 			{
@@ -5362,7 +5386,8 @@ Loop, Parse, SRCHROMLBX,|
 			}
 		stringsplit,gamspli,A_LoopField,>
 		gamnm= %gamspli1%
-		Loop, Parse,emupartset,`n
+		splitpath,gamnm,gamfxe,gamfdir,gamfxt,gamcnam,
+		Loop, Parse,emupartset,`n`r
 			{
 				if (A_LoopField = "")
 					{
@@ -5371,6 +5396,10 @@ Loop, Parse, SRCHROMLBX,|
 				Loop, 7
 					{
 						fein%A_Index%= 
+					}
+				ifnotinstring,A_LoopField,%givxe%=
+					{
+						continue
 					}
 				stringsplit,fein,A_LoopField,=				
 				if (cfgwstr = 1)
@@ -5383,7 +5412,7 @@ Loop, Parse, SRCHROMLBX,|
 						Loop, parse, fein4,|
 							{
 								splitpath,A_LoopField,svin
-								FileDelete,cfg\%SRCHLOCDDL%\%gamnm%\%givxn%\%svin%
+								FileDelete,cfg\%SRCHLOCVI%\%givxn%\%gamcnam%\%svin%
 							}
 					}
 				if (fein5 <> "")
@@ -5391,7 +5420,7 @@ Loop, Parse, SRCHROMLBX,|
 						Loop, parse, fein5,|
 							{
 								splitpath,A_LoopField,svin
-								FileDelete,cfg\%SRCHLOCDDL%\%gamnm%\%givxn%\.sstates\%svin%
+								FileDelete,cfg\%SRCHLOCVI%\%givxn%\%gamcnam%\.sstates\%svin%
 							}
 					}
 				if (fein6 <> "")
@@ -5399,7 +5428,7 @@ Loop, Parse, SRCHROMLBX,|
 						Loop, parse, fein6,|
 							{
 								splitpath,A_LoopField,svin
-								FileDelete,cfg\%SRCHLOCDDL%\%gamnm%\%givxn%\.Mem\%svin%
+								FileDelete,cfg\%SRCHLOCVI%\%givxn%\%gamcnam%\.Mem\%svin%
 							}
 					}
 				if (fein7 <> "")
@@ -5407,11 +5436,11 @@ Loop, Parse, SRCHROMLBX,|
 						Loop, parse, fein7,|
 							{
 								splitpath,A_LoopField,svin
-								FileDelete,cfg\%SRCHLOCDDL%\%gamnm%\%givxn%\.Mem\%svin%
+								FileDelete,cfg\%SRCHLOCVI%\%givxn%\%gamcnam%\.Mem\%svin%
 							}
 					}
 			}				
-				SB_SetText("deleted " ccoreLBX " config files for " gamnm " ")
+		SB_SetText("deleted " ccoreLBX " config files for " gamcnam " ")				
 	}
 return
 		
@@ -5747,7 +5776,7 @@ if (OPTYP = "History")
 			}
 		APLN= 
 		APLA= 
-		splitpath,coreselv,,,dlx		
+		splitpath,coreselv,,,dlx
 		gosub, CoreAuto
 		if (dlx <> "dll")
 			{
@@ -5756,7 +5785,6 @@ if (OPTYP = "History")
 		SB_SetText(" indexing complete ")	
 		return
 	}
-
 curline= 
 coreline= 
 guicontrolget,PLROM,, RUNROMCBX
@@ -6694,22 +6722,33 @@ gui,submit,nohide
 historytry= 
 historyloctmp= 
 histreset:
-historytry+=1
 FileSelectFile,historyloctmp,3,%hstmp%,history Location,*.*
 if (historyloctmp <> "")
-	{
+	{		
 		historyloc= %historyloctmp%
 		SB_SetText(" history location set to " historyloc " ")
 		guicontrol,,histtxt,%historyloc%
 		iniwrite, "%historyloc%",Settings.ini,GLOBAL,history_location
-		return
-		if (historytry > 1)
-			{
-				return
-			}
+	}
+historytry+=1
+if ((historyloctmp = "") && (historytry < 1))
+	{
 		hstmp= 
 		goto, histreset
 	}
+if (historytry > 1)
+	{
+		return
+	}
+ifnotexist,%historyloctmp%
+	{
+		historyLoc= %A_WorkingDir%\content_history.lpl
+		ifnotexist,%historyloc%
+			{
+				FileAppend,,%historyloc%
+			}
+	}
+iniwrite, "%historyLoc%",Settings.ini,GLOBAL,history_location
 guicontrol,,histtxt,%historyloc%
 return
 
@@ -12410,6 +12449,11 @@ return
 EMPRBUTA:
 gui,submit,nohide
 guicontrolget,semu,,EAVAIL
+if (semu = "")
+	{
+		guicontrolget,semu,,ADDCORE		
+	}
+
 EMPRBUTASPLIT:
 guicontrolget,EMPRDDL,,EMPRDDL
 iniread,ksiv,Assignments.ini,OVERRIDES,%semu%
@@ -53892,24 +53936,32 @@ historyLoctmp=
 iniread,historyloctmp,config.cfg,OPTIONS,contentHistoryPath
 if historyloctmp = "ERROR")
 	{
-		historyloc= %A_WorkingDirectory%\content_history.lpl
-		guicontrol,,historytxt,%A_WorkingDirectory%\content_history.lpl
-		iniwrite, "%A_WorkingDirectory%\content_history.lpl",Settings.ini,GLOBAL,history_location
+		historyloc= %A_WorkingDir%\content_history.lpl
+		guicontrol,,histtxt,%A_WorkingDir%\content_history.lpl
+		ifnotexist, %historyloc%
+			{
+				FileAppend,,%historyloc%
+			}
+		iniwrite, "%A_WorkingDir%\content_history.lpl",Settings.ini,GLOBAL,history_location
 		return
 	}
 if (historyloctmp <> "")
 	{
 		historyloc= %historyloctmp%
 		iniwrite, "%historyloc%",Settings.ini,GLOBAL,history_location
-		guicontrol,,historytxt,%historyloc%
+		guicontrol,,histtxt,%historyloc%
 		ifexist,%historyLoc%
 			{
 				return
 			}
 	}
-historyloc= %A_WorkingDirectory%\content_history.lpl
-guicontrol,,historytxt,%A_WorkingDirectory%\content_history.lpl
-iniwrite, "%A_WorkingDirectory%\content_history.lpl",Settings.ini,GLOBAL,history_location
+historyloc= %A_WorkingDir%\content_history.lpl
+ifnotexist, %historyloc%
+	{
+		FileAppend,,%historyloc%
+	}
+guicontrol,,histtxt,%A_WorkingDir%\content_history.lpl
+iniwrite, "%A_WorkingDir%\content_history.lpl",Settings.ini,GLOBAL,history_location
 return
 
 NoFNDPL:
@@ -53917,9 +53969,9 @@ playlistloctmp=
 iniread,playlistloctmp,config.cfg,OPTIONS,playlist_directory
 if playlistloctmp = "ERROR")
 	{
-		playlistloc= %A_WorkingDirectory%\cfg
-		guicontrol,,playlisttxt,%A_WorkingDirectory%\cfg
-		iniwrite, "%A_WorkingDirectory%\cfg",Settings.ini,GLOBAL,playlist_location
+		playlistloc= %A_WorkingDir%\cfg
+		guicontrol,,playlisttxt,%A_WorkingDir%\cfg
+		iniwrite, "%A_WorkingDir%\cfg",Settings.ini,GLOBAL,playlist_location
 		return
 	}
 if (playlistloctmp <> "")
@@ -53932,9 +53984,9 @@ if (playlistloctmp <> "")
 				return
 			}
 	}
-playlistloc= %A_WorkingDirectory%\cfg
-guicontrol,,playlisttxt,%A_WorkingDirectory%\cfg
-iniwrite, "%A_WorkingDirectory%\cfg",Settings.ini,GLOBAL,playlist_location
+playlistloc= %A_WorkingDir%\cfg
+guicontrol,,playlisttxt,%A_WorkingDir%\cfg
+iniwrite, "%A_WorkingDir%\cfg",Settings.ini,GLOBAL,playlist_location
 return
 
 NORA:
