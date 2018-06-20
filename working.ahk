@@ -2040,7 +2040,7 @@ Gui,Font,%fontXsm% Bold
 Gui, Add, GroupBox, x7 y5 w268 h478 vCACGRP, Systems
 Gui,Font,%fontXsm% Norm
 
-Gui, Add, ListBox,x15 y29 w253 h446 vUAVAIL gUAvailSel hidden, %systoemu%
+Gui, Add, ListBox,x15 y29 w253 h446 HWNDtrxvail vUAVAIL gUAvailSel hidden, %systoemu%
 
 Gui, Add, ListBox, Multi x15 y29 w253 h446 HWNDeavlbx vEAVAIL gEAvailSel, %systoemu%
 Gui, Add, ListBox, Multi x15 y23 w227 h433 hwndAVWIND vAVAIL gAvailSel Hidden, %corezips%
@@ -2104,7 +2104,7 @@ Gui,Font,%fontXsm% Bold
 
 Gui, Add, GroupBox, x466 y5 w275 h379 vSKRAstch, Skeletonkey-System-Associations
 Gui,Font,%fontXsm% Norm
-Gui, Add, DropDownList, x288 y477 w77 vLNCHPRDDL gLNCHPRDDL hidden,Emulators||retroarch|mame|mednafen
+Gui, Add, DropDownList, x288 y477 w77 vLNCHPRDDL gLNCHPRDDL hidden,Emulators||retroarch
 Gui, Add, Button, x368 y477 w42 h22 vLNCHPT gLNCHPT hidden,Priority
 Gui, Add, DropDownList, x470 y26 w251 vADDCORE gAddCore, Select_A_System||%reasign%
 Gui, Add, Button, x723 y25 w12 vOPNSYS gOpnSyS,+
@@ -4189,6 +4189,7 @@ ifexist, lm.ini
 		fileread,mamelistedmedia,lm.ini
 		gosub, MAMELMREAD
 	}
+INITIAL= 	
 guicontrol,enable,RJSYSDD	
 return
 
@@ -4750,14 +4751,14 @@ Loop,Parse,emuj,`n
 			}
 		addemu.= emup1 . "|"
 }
-runlist:= corelist . addemu
+runlist:= corelist . "|" . addemu
 IniRead,emuj,Assignments.ini,OVERRIDES
 Loop,Parse,emuj,`n
 	{
 		if (A_LoopField = "")
 			{
 				continue
-			}
+			} 
 		emup2= 	
 		stringsplit,emup,A_LoopField,=,"
 		;"
@@ -4771,7 +4772,7 @@ Loop,Parse,emuj,`n
 			}
 		addemu.= emup1 . "|"
 	}
-runlist:= corelist . addemu
+runlist:= corelist . "|" . addemu
 return
 
 SCBUILDEMULST:
@@ -4923,12 +4924,24 @@ ifinstring,SEMURUN,_libretro.dll
 
 guicontrol,choose,TABMENU,3
 guicontrol,,SALIST,|Emulators||Systems|RetroArch|Utilities|Frontends
+if (ksvel = "")
+	{
+		iniread,ksvel,Assignments.ini,ASSIGNMENTS,%SEMURUN%
+		if (ksvel <> "ERROR")
+			{
+				guicontrol,,EINSTLOC,%ksvel%
+			}
+	}
+
 gosub, SALIST
 guicontrol,,ADDCORE,|%SEMURUN%||Select_A_System|%reasign%
 gosub, ADDCORE
 guicontrol,,SYSNICK,|%SEMURUN%||%preEmuCfg%
 gosub,SYSNICK
 
+LBEX_SELECTSTRING(trxvail,SEMURUN)
+guicontrol, Focus, UAVAIL
+gosub, UAvailSel
 ASRUN:
 guicontrolget,CHKRUNS,,RUNSYSDDL
 guicontrolget,CHKRUNE,,LCORE
@@ -5291,7 +5304,7 @@ if (ClrCfgT = 1)
 		guicontrolget,SRCHROMLVI,,RUNROMCBX
 		ClrCfgT= 
 	}
-
+splitpath,SRCHROMLVI,,,,romfnm
 if (SRCHPLRAD = 1)
 	{
 		gamfnd= 
@@ -5344,6 +5357,7 @@ if (givn <> "ERROR")
 					SB_SetText(" " givxn " Preset found ")
 				}
 		}
+
 cfgwstr= 
 ifnotinstring,emupartset,%givxe%=
 	{
@@ -5373,10 +5387,22 @@ ifnotinstring,emupartset,%givxe%=
 							SB_SetText(" Cannot find emulator presets ")
 							return
 						}
-					SB_SetText(" using " givn " presets")	
+					SB_SetText(" using " givn " presets")
 				}
 	}
-
+ifinstring,ccoreLBX,_libretro.dll
+	{
+		stringreplace,ccv,ccoreLBX,_libretro.dll,,All
+		gosub, getCREN
+		FileDelete,%raexeloc%\config\%corcfgnam%\%romfnm%.cfg
+		if (ERRORLEVEL > 0)
+			{
+				SB_SetText("could not delete " romfnm " retroArch config file")
+				return
+			}
+		SB_SetText("" romfnm " retroArch config file deleted")
+		return
+	}
 Loop, Parse, SRCHROMLVI,|
 	{
 		if (A_LoopField = "")
@@ -5438,8 +5464,8 @@ Loop, Parse, SRCHROMLVI,|
 								FileDelete,cfg\%SRCHLOCVI%\%givxn%\%gamcnam%\.Mem\%svin%
 							}
 					}
+				SB_SetText("deleted " ccoreLBX " config files for " gamcnam " ")				
 			}				
-		SB_SetText("deleted " ccoreLBX " config files for " gamcnam " ")				
 	}
 return
 		
@@ -6481,19 +6507,15 @@ IfNotExist,%RJEMUD%\BSL\BSL.exe
 
 IniWrite, "%RJEMUD%",Settings.ini,GLOBAL,emulators_directory
 SB_SetText("Use the ''Detect'' button to add emulators to the available index.")
+
 if (INITIAL = 1)
 	{
-		SplashTextOn, ,skeletonKey,DETECTING EMULATORS		
-	}
-gosub, emuDetect
-gosub, resetEmuList
-if (INITIAL = 1)
-	{
-		SplashTextOn, ,skeletonKey,Emulators Indexed
 		SplashTextOff
 		Progress,off
 		return
 	}
+gosub, emuDetect
+gosub, resetEmuList
 guicontrol,,SKDSETXT, Detected Supported Emulators: %emunumtot%
 guicontrol,,SKEMUDISP,%RJEMUD%
 return
@@ -8014,6 +8036,7 @@ if (SRCHPLRAD = 1)
 							}
 					}
 					guicontrol,,SRCHROMLBX, |%lsrchpop%
+;;					guicontrol,,RUNROMCBX, |%lsrchpop%
 					guicontrol,enable,SRCHROMBUT
 				return
 			}
@@ -8043,6 +8066,7 @@ if (SRCHPLRAD = 1)
 					plnuminc= 
 				}
 			}
+;;		guicontrol,,RUNROMCBX, |%lsrchpop%	
 		guicontrol,,SRCHROMLBX, |%lsrchpop%	
 		guicontrol,enable,SRCHROMBUT
 		return
@@ -8088,6 +8112,7 @@ Loop,%LOCSRCHFLDR%\*%SRCHROMEDT%*,,%SRCHRCRSCHK%
 			}
 	}
 guicontrolget, existingpop,,SRCHROMLBX
+;;guicontrol,,RUNROMCBX,|%existingpop%|%lsrchpop%
 guicontrol,,SRCHROMLBX,|%existingpop%|%lsrchpop%
 SB_SetText("Search Complete")
 guicontrol,enable,SRCHROMBUT
@@ -8238,7 +8263,11 @@ Loop, Parse, romOVf,|
 							}
 					}
 			}
-	}	
+	}
+if (poptadd = "")
+	{
+		poptadd= %lsrchpop%
+	}
 guicontrol,,RUNROMCBX,|%romfj1%||%poptadd%
 gosub, EDTROM
 gui,submit,nohide
@@ -9154,7 +9183,6 @@ if (raexefile = "NOT-FOUND.exe")
 	}
 return
 
-
 PREFERON:
 msgbox,3,Re-Assign,Set system association priorities to prefer retroArch cores?`nThis can be set later,5
 ifmsgbox, yes
@@ -9172,7 +9200,6 @@ ifmsgbox, yes
 	}
 return
 	
-
 HovPrev:
 gui, submit, nohide
 IniWrite, %HOVPREV%,Settings.ini,GLOBAL,hover_preview
@@ -9821,8 +9848,14 @@ DownloadFile(UrlToFile, _SaveFileAs, Overwrite := True, UseProgressBar := True) 
 QINSTALL:
 GuiControl, Enable, CNCLDWN
 GuiControl, Disable, AVAIL
+GuiControl, Disable, LOCEMUIN
+GuiControl, Disable, EMUINST
+GuiControl, Disable, MULTINST
+GuiControl, Disable, INSTEMUDDL
 GuiControl, Disable, UPDBTN
 GuiControl, Disable, EXELIST
+GuiControl, Disable, EAVAIL
+GuiControl, Disable, SaList
 MsgBox,4100,Quick Install,Install RetroArch and popular emulator cores?
 IfMsgBox, Yes
 	{
@@ -9843,10 +9876,17 @@ IfMsgBox, Yes
 				SLCTCORES .= "|" . "reicast_libretro.dll.zip" . "|" . "dolphin_libretro.dll.zip" . "|" . "mednafen_saturn_libretro.dll.zip" . "|" . "nekop2_libretro.dll.zip" . "|" . "citra_libretro.dll.zip"
 			}
 		gosub, UpdateCores
+		SB_SetText(" complete ")
 	}
 GuiControl, Disable, CNCLDWN
 GuiControl, Enable, AVAIL
+GuiControl, Enable, LOCEMUIN
+GuiControl, Enable, EMUINST
+GuiControl, Enable, MULTINST
+GuiControl, Enable, INSTEMUDDL
 GuiControl, Enable, UPDBTN
+GuiControl, enable, EAVAIL
+GuiControl, enable, SaList
 GuiControl, Enable, EXELIST
 return
 
@@ -12612,7 +12652,7 @@ Loop, Parse, UAVAIL,|
 				if (ahri = "")
 					{
 						addemu.= "|" . semu
-						runlist:= corelist . addemu
+						runlist:= corelist . "|" . addemu
 						guicontrol,,EMPRDDL,|%addemu%
 					}
 			}
@@ -13237,8 +13277,32 @@ if (BCKCORE = 1)
 				FileCopy,%raexeloc%\retroarch.exe,%raexeloc%\retroarch.exe%bak%,1
 			}
 	}
+raexefile= retroarch.exe 
 runwait, %comspec% cmd /c "7za.exe x -y "%save%" -x"!*.cfg" -O"%XTRACTLOC%" ", ,hide
 SB_SetText(" " save " " "was extracted")
+iniwrite, "%raexefile%",Settings.ini,GLOBAL,retroarch_executable
+iniread,racht,Apps.ini,EMULATORS,retroarch
+if (racht = "ERROR")
+	{
+		iniwrite, "%raexeloc%\%raexefile%",Apps.ini,EMULATORS,retroarch
+	}
+ifinstring,racht,NOT-FOUND
+	{
+		iniwrite, "%raexeloc%\%raexefile%",Apps.ini,EMULATORS,retroarch
+	}
+if (KARC= 0)
+	{
+		filedelete, %save%
+	}
+iniread,racht,Assignments.ini,ASSIGNMENTS,retroarch
+if (racht = "ERROR")
+	{
+		iniwrite, "%raexeloc%\%raexefile%",Assignments.ini,ASSIGNMENTS,retroarch
+	}
+ifinstring,racht,NOT-FOUND
+	{
+		iniwrite, "%raexeloc%\%raexefile%",Assignments.ini,ASSIGNMENTS,retroarch
+	}
 if (KARC= 0)
 	{
 		filedelete, %save%
@@ -13593,7 +13657,7 @@ if (SALIST = "Systems")
 	}
 
 if (SALIST = "Emulators")
-	{
+	{		
 		guicontrolget,ksvel,,EINSTLOC
 		if (ksvel = "")
 			{
@@ -13667,7 +13731,7 @@ Loop, Parse, semu,|
 						nwadmi:= sysninj . "|" . sysni
 						addemu.= "|" . sysni
 						guicontrol,,EMPRDDL,|%sysni%|%addemu%
-						runlist:= corelist . addemu
+						runlist:= corelist . "|" . addemu
 						guicontrol,,LCORE,|%runlist%
 						guicontrol,,PLCORE,|%runlist%
 						guicontrol,,ARCCORES,|Select_a_Core||%runlist%
@@ -14406,6 +14470,7 @@ guicontrol,,RJSYSDD,|Systems||%systmfldrs%
 return
 
 ;{;;;;;;;;;;;;;; Emulator detection ;;;;;;;;;;;;;;;;;;;;
+
 EmuDetect:
 emucnt= 0
 fecnt= 0
@@ -14530,6 +14595,7 @@ Loop, Parse, EmuPartSet,`n`r
 				iniread,fetmp,Assignments.ini,OVERRIDES,%emupx1%
 				if (fetmp = "ERROR")
 					{
+							
 						IniWrite, "%emupx1%",Assignments.ini,OVERRIDES,%emupx1%
 						/*
 						IniWrite, "0",AppParams.ini,%emupx1%,per_game_configurations
@@ -14548,6 +14614,7 @@ Loop, Parse, EmuPartSet,`n`r
 						*/
 						SB_SetText(" " emupx1 " found ")
 					}
+					
 				fetmp=
 				iniread,fetmp,Assignments.ini,ASSIGNMENTS,%emupx1%
 				if (fetmp = "ERROR")
@@ -14611,6 +14678,10 @@ Loop, parse, farvr,`n
 							{
 								IniWrite, "%splemu1%",Assignments.ini,OVERRIDES,%splemu1%
 							}
+						if (alrj <> "ERROR")
+							{
+								IniWrite, "%splemu1%",Assignments.ini,OVERRIDES,%splemu1%
+							}	
 						stringsplit,aij,alrj,|
 						alrj= %aij1%
 						iniread, alrk,Assignments.ini,ASSIGNMENTS,%splemu1%
@@ -18461,7 +18532,15 @@ Loop, Parse, ESGAMP,`n`r
 				guicontrol,,ESPUBEDT,%espepublisher%
 				guicontrol,,ESDEVEDT,%espedeveloper%
 				guicontrol,,ESGENEDT,%espegenre%
-				guicontrol,,ESPTHEDT,%espepath%
+				stringreplace,systid,syssub,_,,All
+				esperpath= %espepath%
+				guicontrol,,ESPTHEDT,%espepath%						
+				stringreplace,esperpath,espepath,%RJSYSTEMS%\%systid%,.,All						
+				if (esperpath <> espepath)
+					{
+						stringreplace,esperpath,esperpath,\,/,All
+						guicontrol,,ESPTHEDT,%esperpath%
+					}
 				guicontrol,,ESNAMEDT,%ren%
 				guicontrol,,ESRATSLD,%esperatsld%
 				guicontrol,,ESTHUMBP,%espethumbnailx%
@@ -18481,7 +18560,15 @@ Loop, Parse, ESGAMP,`n`r
 				guicontrol,,ESPUBEDT,%espepublisher%
 				guicontrol,,ESDEVEDT,%espedeveloper%
 				guicontrol,,ESGENEDT,%espegenre%
+				esperpath= %espepath%
 				guicontrol,,ESPTHEDT,%espepath%
+				stringreplace,systid,syssub,_
+				stringreplace,esperpath,espepath,%RJSYSTEMS%\%systid%,.,All						
+				if (esperpath <> espepath)
+					{
+						stringreplace,esperpath,esperpath,\,/,All
+						guicontrol,,ESPTHEDT,%esperpath%
+					}
 				guicontrol,,ESNAMEDT,%espename%
 				guicontrol,,ESRATSLD,%esperating%
 				guicontrol,,ESTHUMBP,%espethumbnailx%
@@ -18626,7 +18713,15 @@ FileAppend,<game>`n,rj\ES\%syssub%\%gamesel%.ini
 FileAppend,<name>%espepnam%</name>`n,rj\ES\%syssub%\%gamesel%.ini
 FileAppend,<path>%espepath%</path>`n,rj\ES\%syssub%\%gamesel%.ini
 FileAppend,</game>`n,rj\ES\%syssub%\%gamesel%.ini
+esperpath= %espepath%
 guicontrol,,ESPTHEDT,%espepath%
+stringreplace,systid,syssub,_
+stringreplace,esperpath,espepath,%RJSYSTEMS%\%systid%,.,All						
+if (epserpath <> espepath)
+	{
+		stringreplace,esperpath,esperpath,\,/,All
+		guicontrol,,ESPTHEDT,%esperpath%
+	}
 guicontrol,,ESNAMEDT,%espepnam%
 guicontrol,,CURPLST,|%ESINIPOP%
 gosub, CURPLST
@@ -18664,10 +18759,14 @@ ifnotinstring,syssub,%esperpnam%
 	{
 		sysrrepth= %esperpnam%
 	}
-stringreplace,esperpath,esperpath,%RJSYSTEMS%\%syssub%,,All
+stringreplace,systid,syssub,_,,All
+stringreplace,esperpath,esperpath,%RJSYSTEMS%\%systid%,,All
 stringreplace,esperpath,esperpath,%RJSYSTEMS%\%sysrepth%,,All
-stringreplace,esperpath,esperpath,\,/,All
-esperpath= .%esperpath%
+if (esperpath <> ESTHTMP)
+	{
+		stringreplace,esperpath,esperpath,\,/,All
+		esperpath= .%esperpath%
+	}
 gamesel= %esperpnam%
 if (syssub = "")
 	{
@@ -18678,7 +18777,15 @@ FileAppend,<folder>`n,rj\ES\%syssub%\%gamesel%.ini
 FileAppend,<name>%espepnam%</name>`n,rj\ES\%syssub%\%gamesel%.ini
 FileAppend,<path>%espepath%</path>`n,rj\ES\%syssub%\%gamesel%.ini
 FileAppend,</folder>`n,rj\ES\%syssub%\%gamesel%.ini
-guicontrol,,ESPTHEDT,%espepath%
+stringreplace,systid,syssub,_,,All
+esperpath= %espepath%
+guicontrol,,ESPTHEDT,.%espepath%						
+stringreplace,esperpath,espepath,%RJSYSTEMS%\%systid%,.,All						
+if (esperpath <> espepath)
+	{
+		stringreplace,esperpath,esperpath,\,/,All
+		guicontrol,,ESPTHEDT,%esperpath%
+	}
 guicontrol,,ESNAMEDT,%espepnam%
 guicontrol,,CURPLST,|%ESINIPOP%
 gosub, CURPLST
@@ -18739,7 +18846,14 @@ Loop, Parse, ESGAMP,`n`r
 ESGAMP= %ESREPL%
 FileDelete,rj\ES\%syssub%\%gamesel%.ini
 FileAppend,%ESGAMP%,rj\ES\%syssub%\%gamesel%.ini
-guicontrol,,ESPTHEDT,%espepath%
+stringreplace,systid,syssub,_,,All
+esperpath= %espepath%
+ifexist,%RJSYSTEMS%\%systid%\
+	{
+		stringreplace,esperpath,espepath,%RJSYSTEMS%\%systid%,,All
+		stringreplace,esperpath,esperpath,\,/,All
+	}
+guicontrol,,ESPTHEDT,%esperpath%
 return
 
 ESFSFLD:
@@ -18771,7 +18885,14 @@ ESGAMP= %ESREPL%
 FileDelete,rj\ES\%syssub%\%gamesel%.ini
 FileAppend,%ESGAMP%,rj\ES\%syssub%\%gamesel%.ini
 previmg= %espepath%
-guicontrol,,ESPTHEDT,%espepath%
+stringreplace,systid,syssub,_,,All
+esperpath= %espepath%
+ifexist,%RJSYSTEMS%\%systid%\
+	{
+		stringreplace,esperpath,espepath,%RJSYSTEMS%\%systid%,,All						
+		stringreplace,esperpath,esperpath,\,/,All
+	}
+guicontrol,,ESPTHEDT,.%esperpath%
 return
 ;};;;;;;;;;;;;
 
@@ -31575,7 +31696,12 @@ ifNotExist, %sysma%\%curms%
 	}
 ifnotexist,%CICOLOC%\%curms%.ico
 		{
-			FileCopy, lnch.ico, %CICOLOC%\%curms%\%curms%.ico
+			icosrc= lnch.ico
+			ifexist,sysico\%curms%.ico
+				{
+					icosrc= sysico\%curms%.ico
+				}
+			FileCopy, %icosrc%, %CICOLOC%\%curms%\%curms%.ico
 		}
 Loop, Parse, FEItems,`n`r
 	{
@@ -31757,8 +31883,13 @@ Loop, Parse, FEItems,`n`r
 				FileCreateDir, %sysma%\%A_LoopField%
 			}
 		ifnotexist,%CICOLOC%\%curms%.ico
-				{
-					FileCopy, lnch.ico, %CICOLOC%\%curms%\%curms%.ico
+				{					
+					icosrc= lnch.ico
+					ifexist,sysico\%curms%.ico
+						{
+							icosrc= sysico\%curms%.ico
+						}
+					FileCopy,%icosrc%,%CICOLOC%\%curms%\%curms%.ico
 				}
 		Loop, %RJSYSTEMS%\%curms%\*,2
 			{
@@ -51138,7 +51269,7 @@ DewDrop:
 tstxtn= .%inputext%
 iniread,apov,Assignments.ini,OVERRIDES,
 runadd= 
-overDD= 
+overDD= 	
 siv=
 Loop, Parse, apov,`n
 	{
@@ -51167,7 +51298,7 @@ Loop, Parse, apov,`n
 						overDD .= appn1 . "|"
 						if (appn2 <> 1)
 							{
-								runadd .="|" . appn2
+								runadd .= "|" . appn2
 							}
 					}
 				siv= %appn2%	
@@ -52615,7 +52746,7 @@ if (romf = "")
 		iniread, romf, Settings.ini,GLOBAL,last_rom
 	}
 
-if  (romf = "")
+if (romf = "")
 	{
 		gosub, LNCHCHK
 		RUNSYSCHNG= 
@@ -52725,7 +52856,42 @@ ifinstring,TRPTYP,:=:
 	
 romfj1= 
 romfj2= 
-stringsplit, romfj, romf,#
+
+romtf= 
+ziprom= 
+izinc= 
+izfr= 
+ifinstring,romf,.zip#
+	{
+		stringsplit,romfj,romf,#
+		ainc= 
+		Loop,%romfj0%
+			{
+				ainc+=1
+				repn= % romfj%A_Index%
+				stringright,ziptfj,repn,4
+				if (ziptfj = ".zip")
+					{
+						romtf:= repn
+						if (ainc > 1)
+							{
+								romtf:= romfrn . "#" . repn
+								romf= %romtf%
+								ziprom:= romtf
+							}
+						ainc= 
+						continue
+					}
+				romfrn.= repn . "#"
+				if (romtf <> "")
+					{
+						izfr= % romfj%A_Index%
+						ziprom:= izinc . "#" . izfr
+						izinc.= "#" . izfr
+					}
+			}
+	}
+
 stringmid,romhnck,romf,2,1
 if (romhnck <> ":")
 	{
@@ -52739,10 +52905,11 @@ if (romhnck <> ":")
 			}
 	}
 SplitPath,romf,romtitle,rompth,romxt,romname
-
+guicontrolget,coreselv,,LCORE
 if (indexCONSOLE = "")
 	{	
 		gosub, RecentRead
+		guicontrolget,coreselv,,LCORE
 	}
 if (coreselv = "")
 	{
@@ -54067,28 +54234,49 @@ CORETABNAME= |Cores
 FileSelectFile, RaExePath, 3, , Select a retroarch.exe, retroarch exe(*.exe)
 if (RaExePath = "")
 	{
-		RaExefile= NOT-FOUND.exe
 		CORETABNAME= 
 		LNCHPT= 1
 		if (INITIAL = 1)
 			{
-				gosub, selRaLoc
+				raexeloc= %RJEMUD%\retroArch
+				RaExefile= NOT-FOUND.exe
+				locfnd= 1
+				ifnotexist,%raexeloc%
+					{
+						FileCreateDir,%raexeloc%
+					}
+				iniwrite, "%raexeloc%",Settings.ini,GLOBAL,retroarch_location
+				iniwrite, "%raexefile%",Settings.ini,GLOBAL,retroarch_executable
+				ifexist,%raexeloc%\retroarch.cfg
+					{
+						gosub, IMPRTCFG
+					}
+				TrayTip, skeletonkey, skeletonKey is initializing settings`nPlease be patient,999,48
+				return
+				;;gosub, selRaLoc
 			}
 		if (raexeloc <> "")
 			{
-				if (INITIAL <> 1)
-					{
-						MsgBox,3,Clear,Clear the current retroarch assignment?
-						ifmsgbox,Yes
-							{								
-								raexeloc= 
+				MsgBox,3,Clear,Clear the current retroarch assignment?
+				ifmsgbox,Yes
+					{								
+						raexeloc= %RJEMUD%\retroarch
+						ifnotexist, %raexeloc%\
+							{
+								FileCreateDir, %raexeloc%
 							}
-						ifmsgbox,No
-						return
-						ifmsgbox,Cancel
+						raexefile= NOT-FOUND.exe
+						raexepath= %raexeloc%\%raexefile%
+					}
+				ifmsgbox,No
+					{
 						return
 					}
-				}
+				ifmsgbox,Cancel
+					{
+						return
+					}
+			}
 		if (raexeloc = "")
 			{
 				if (raexepath = "")
@@ -54112,15 +54300,6 @@ if (locfnd = 1)
 	}
 
 guicontrol,,SKRADISP,%raexeloc%
-if (INITIAL = 1)
-	{
-		ifexist,%raexeloc%\retroarch.cfg
-			{
-				gosub, IMPRTCFG
-			}
-		TrayTip, skeletonkey, skeletonKey is initializing settings`nPlease be patient,999,48
-		return
-	}
 SB_SetText("Initializing retroarch interface")
 gosub, RAInit
 gosub, resetOVR
@@ -54132,11 +54311,18 @@ gosub, CoreOptInit
 return
 
 selRaLoc:
-FileSelectFolder, raexeloctmp,,3,Select the destination folder to create a retroarch directory
+racrtmp= %RJEMUD%
+raresetloc:
+FileSelectFolder, raexeloctmp,%racrtmp%,3,Select the destination folder to create a retroarch directory
 if (raexeloctmp = "")
 	{
 		if (INITIAL = 1)
 			{
+				if (racrtmp <> "")
+					{
+						racrtmp= 
+						goto, raresetloc
+					}
 				locfnd= 
 				raexeloc= %RJEMUD%\retroarch		
 				iniwrite, "%raexeloc%",Settings.ini,GLOBAL,retroarch_location
@@ -54476,7 +54662,7 @@ Loop,Parse,emuj,`n
 				siv= %emup2%
 			}
 	}
-runlist:= corelist . addemu
+runlist:= corelist . "|" . addemu
 
 
 guicontrol,enable,GCUPDT
@@ -54630,6 +54816,7 @@ Loop, Files, %OverlayDirectory%\*.cfg, R
 		ovr_list .= (A_Index == 1 ? "" : "|") . jstpth
 	}
 SB_SetText("Overlay cache created")	
+Menu,Tray,Tip, Overlay cache Created
 return
 
 

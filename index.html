@@ -158,14 +158,6 @@
 <h3>Overview</h3>
 <p>After skeletonKey is installed, an &quot;emulators directory&quot;, a &quot;systems directory&quot; and the retroArch are defined- whereupon a quick-setup wizard can automatically install retroArch with several cores.</p>
 <p>RetroArch is tightly integrated into skeletonKey with an <em>exhaustive</em> set of options and exclusive features for netplay. By default the most compatible core is selected as the skeletonkey's primary association for most of retroarch's supported systems. The GUI interface for retroArch is dynamic, responding after any changes made during gameplay.</p>
-<h3>Portable Mode</h3>
-
-
-<p>Skeletonkey can be run from a thumbdrive or other portable drive. The Portable.bat file should be run from the portable device when first starting skeletonKey from a portable drive on a new computer or if the drive letter of the portable device has changed. </p>
-<p>Many users may desire to transfer an existing skeletonKey installation to a portable drive and the portable utility should facilitate the conifiguration migration. Migration options for the portable utility include localization of items to the drive for playlists and simple search &amp; replace. Retroarch and skletonKey's other emulators' per-game settings are updated to reflect the new portable skeletonKey location.</p>
-<p>If you already have skeletonKey and retroArch intalled, copy the folders to your portable drive and run the Portable.bat in the skeletonKey folder on the portable drive.</p>
-
-
 <h3>Command-Line</h3>
 <p>It may be desireable to specify an emulator-preset to override the assocation from the command-line.</p>
 <p>SkeletonKey accepts the option <code>-run=</code> followed by the nickname of the emulator preset followed by the path to the rom. Any options specified by the preset are respected.<br></p>
@@ -174,6 +166,16 @@
   <strong>..\..\skeletonkey&gt;</strong>
 </em><code> skeletonKey.exe -run=NickName &quot;C:\Library\Console Name\Rom Name\rom file.rom&quot;</code><br>
 	<span style="font-size: small"> eg:<code> skeleonKey.exe -run=snes9x "C:\path..\to..\supermarioworld.sfc"</code></span><br><span style="font-size: x-small">**Nicknames must not contain spaces**</span></p>
+	
+	<h3>Portable Mode</h3>
+
+
+<p>Skeletonkey can be run from a thumbdrive or other portable drive. The Portable.bat file should be run from the portable device when first starting skeletonKey from a portable drive on a new computer or if the drive letter of the portable device has changed. </p>
+<p>Many users may desire to transfer an existing skeletonKey installation to a portable drive and the portable utility should facilitate the conifiguration migration. Migration options for the portable utility include localization of items to the drive for playlists and simple search &amp; replace. Retroarch and skletonKey's other emulators' per-game settings are updated to reflect the new portable skeletonKey location.</p>
+<p>If you already have skeletonKey and retroArch intalled, copy the folders to your portable drive and run the Portable.bat in the skeletonKey folder on the portable drive.</p>
+
+
+
 <h3>Forking</h3>
  
 <p>A deployment tool is available for users who wish to publish a skeletonKey. SKey-Deploy.ahk can be compiled to build, maintain and deploy a skeletonKey source-code versioning project, website and binaries.  </p>
@@ -186,7 +188,7 @@
     <h3>Program Settings</h3>
     <p>Program settings such as the root location for your systems, overrides for the batch-script launcher and other operational options can be adjusted in the settings tab.</p>
     <h4>Auto-Load Per-Game Settings</h4>
-    <p>SkeletonKey will automatically load any per-game settings previously created and create settings for that title upon launch if none are found.</p>
+    <p>SkeletonKey will automatically load any per-game settings previously created and create settings for that title upon launch if none are found. </p>
     <h4>Systems Directory</h4>
     <p>By default, ROMs are <em>[categorically]</em> stored by system-name in the<code> <em>..[Systems ROOT]</em>\<em>[SYSTEM NAME]</em></code> folder.<br>
        RetroArch's <code>"core_assets_directory"</code> should be assigned to the <code>[Systems ROOT]</code> folder. <br>
@@ -244,6 +246,8 @@
     <p>The EMU list is a core/emulator dropdown which contains a list of all cores, all nicknames for system-associations, and all emuators.<br>
       Changing the core/emulator dropdown will populate the  Main tab with options for the emulator/core (if supported) and any load existing settings the title may have.<br>
       Right-Clicking on this menu enables assignment and configuration.</p>
+    <h3>[X] Clear button</h3>
+    <p>Clears all current launch options. Right-click on this to delete ROM settings for the emultor in the EMU List.</p>
     <h3>Emulator Options </h3>
     <p>These options are dynamically loaded for each emulator. Settings changed by the user at run-time should load and populate the GUI after lauching.</p>
     <h3>Drag &amp; Drop</h3>
@@ -305,7 +309,7 @@
 <p><code>:\ ..\skeletonKey\cfg\Nintendo - Game Boy Advance\vbam\The Minish Cap\vbam.ini</code></p>
 <p>ROMs dropped to the desktop icon which are not identified as belonging exclusively to a core/emulator will bring up a menu allowing users to quickly select a core/emulaor preset.</p>
 <h2><strong>Emulator Associations</strong></h2>
-<p>Emulator Associations will appear for all detected and created emulators in the core/emulator dropdown of the Launch-menu and in the search-window's right-click menu in the options-tab. Emulator associations can be created for quickly and many are preset with compatible and configurable presets. By default, most systems will have <code><strong>[CUSTMOPT]</strong></code> and <code><strong>[CUSTMARGS]</strong></code> which will enable the custom-switch option (found in the launch-menu of the options-tab and the archive tab.) to be set at runtime.<br> 
+<p>Emulator Associations will appear for all detected and created emulators in the core/emulator dropdown of the Launch-menu and in the search-window's right-click/::&gt; menu in the options-tab. Emulator associations can be created for quickly and many are preset with compatible and configurable presets. By default, most systems will have <code><strong>[CUSTMOPT]</strong></code> and <code><strong>[CUSTMARGS]</strong></code> which will enable the custom-switch option (found in the launch-menu of the options-tab and the archive tab.) to be set at runtime.<br> 
   Each emulator has options for command-line needs. Unlike System-Associations, Emulator-Associations are presets for  skeletonKey launching ROMs. Over 200 emulators can be installed via skeletonKey. </p>
 </div>
 </div>
@@ -316,10 +320,9 @@
 <br>
     <p>Many emulators require these runtimes</p>
 <br>
-        <h3>DirectX</h3>
-<br>
-     
-        <h3>Daemon Tools</h3>
+        <h3>DirectX<br>
+        </h3>
+        <h3>Disc Mounting</h3>
 <br>      <h3>XBox360 Drivers</h3>
 <br>
     <p>This installs the XBox 360 Joystick drivers from Microsoft. These are needed for Windows Vista and 7.</p>
@@ -333,7 +336,7 @@
 <br>
     <p>DS4Windows is a Sony DualShock 4 driver for windows. It is installed however the configuration of this driver is left to the user.</p>
 		<h2>Daemon Tools</h2>
-    <p>Skeletonkey can automatically install this program through the command-line which will NOT install the included toolbar or any additional software.</p>
+    <p>For systems windowsXP-&gt;windows 8.x, skeletonKey can automatically install this program through the command-line which will NOT install the included toolbar or any additional software. Windows 10 users who need Daemon Tools should be download and install it separately. </p>
     <p>The Daemon Tools program is needed for the SSF Sega Saturn emulator, the UNZ FM-Towns emulator and may be required for any emulator which cannot directly read cd/dvd image files. Mounting disc images with Daemon Tools is desireable for users who wish to switch disks reliably or have discs in formats unreadable by the emulator.<br>
     </p>
     <p>!!!!IMPORTANT!!!!<br>
@@ -401,7 +404,7 @@
      <p>Enabling the &quot;Download Only&quot; option will allow multiple files to be selected and queued.<br>MAME ROM-sets can also be easily accessed, although these often contain ROMs which are incompatible with other emulators.  
      </p>
      <p>The global-prefix can be overridden to an ftp or http host, allowing for dynamic custom repositories. eg: <code>http://myhost.com/ROMs/No-Intro</code></p><p>Files in the <em>skeletonkey\gam</em> folder contain <strong><code>.gam</code></strong> files which contain the <u>relative path</u> to global-prefix followed by a <strong><code>:</code></strong> followed by the name of the ROM. eg: <code>/system-name/game_name.zip:game_name</code></p>
-     <p>The <u>full http url</u> path to the ROM file in a <strong><code>.gam</code></strong>  file will override the global download prefix. eg: <code>http://crazyurl.com/fileindex/html/some_game.zip:some_game</code></p></div></div>
+     <p>A <u>full http url</u> path to the ROM file in a <strong><code>.gam</code></strong>  file will override and ignore the global download prefix.</p></div></div>
 <br>
  
   <a id="FRONTENDS"></a>
@@ -413,10 +416,12 @@
       <h2>Media</h2>
       <p>Asset-Management is the primary component of skeletonKey. Deploying a frontend means creating a unique data-structure, and because the arrangement and naming of assets and artwork vary from emulator to frontend, skeletonKey opts to prioritize a local-storage system (ROM-Jackets) to enable migration and deployment indipendently of any proprietary layout or scheme needed by a frontend.</p>
       <p>SkeletonKey has a repository of photographic icons, full-HD images and large logos for 100 systems and can also "scrape" artwork from a multitude of hosts. Several databases are searched to obtain a multitude of image-types, video-snaps and metadata for thousands of titles spanning arcade, computer &amp; console-systems.</p>
-      <p>Selecting &quot;Systems&quot; in the Media interface will enable icons, logos, backdrops, videos and other media to be downloaded for selected systems. Alternatively, sets of these items can be downloaded. Themes for these items can be selected using the &quot;Artwork Theme&quot; dropdown.</p>
-      <p>Selecting &quot;Jackets&quot; in the Media interface will enable items to be downloaded for the selected ROM-Jackets. </p>
-      <p>Selecting &quot;ROMs&quot; in the Media interface will enable ROM-paths to be defined for supported systems.</p>
-      <p>Caveats: Python must be installed to download videos from youtube.</p>
+      <p>Selecting &quot;<strong>Systems</strong>&quot; in the Media interface will enable icons, logos, backdrops, videos and other media to be downloaded for selected systems. Alternatively, sets of these items can be downloaded. Themes for these items can be selected using the &quot;Artwork Theme&quot; dropdown.</p>
+      <p>Selecting &quot;<strong>Jackets</strong>&quot; in the Media interface will enable items to be downloaded for the selected ROM-Jackets. </p>
+      <p>Selecting &quot;<strong>ROMs</strong>&quot; in the Media interface will enable ROM-paths to be defined for supported systems.</p>
+      <blockquote>
+        <p>Caveats: Python must be installed to download videos from youtube.</p>
+      </blockquote>
 <h4><a>Media Options</a> </h4>
     <h2>XMB</h2>
     <p>XMB is retroArch's premiere GUI with thumnail support. <br>
@@ -427,11 +432,14 @@
       <p>EmulationStation is a lightweight frontend that has metadata, boxart and video-snap capabilities.<br>
       </p>
       <p>SkeletonKey can configure emulationStation to use Jackets (batchscript launchers), mirrors (shortcuts), ROM files or any combination of these types of elements. Additionally, skeletonKey can load existing configuration files (es_systems.cfg), gamelist files (gamelist.xml) to add, remove, edit and reorder games and systems.  </p>
-      <p>The Paradigm:<br>
-        Like Media Browser, emulationStation automatically adds any ROMs found in a directory to its database, however it can be fine-tuned to parse xml lists which skeletonKey can generate.<br>
-        Caveats:<br>
-      </p>
-      <h4><a>EmulationStation Menu Options</a> </h4>
+      <blockquote>
+        The Paradigm: Like Media Browser, emulationStation automatically adds any ROMs found in a directory to its database, however skeletonkey can edit and create gamelist.xml playlist-files to explicitly parse.   
+        <p> 
+          Caveats:<br>
+        </p>
+      </blockquote>
+
+        <h4><a>EmulationStation Menu Options</a> </h4>
       <h2>Mirrored Links </h2>
       <p>Mirrored Links are Windows shortcuts.<br>
       </p>
@@ -507,8 +515,7 @@
     <p><br>
     </p>
     <h5>Tips for Netplay:</h5>
-    In the Main tab, uncheck "Pause In Background" &amp; in the Frontends tab, select &quot;XMB&quot; and uncheck "Pause In Menu". <br>
-    This will keep gameplay active and will help maintain a synced connection while you adjust any settings during a netplay sesssion. <br>
+    In the Main tab, uncheck "Pause In Background" &amp; in the Frontends tab, select &quot;XMB&quot; and uncheck "Pause In Menu" to keep gameplay active and will help maintain a synced connection while adjusting settings. <br>
   </div>
   </div>
   <a id="ROMJACKETS"></a>
@@ -543,7 +550,9 @@
     <p>By default, skeletonKey will assign  retroArch's <code>core_assets_directory or (downloads directory)</code>, to the &quot;Systems&quot; directory location, however users may define these from main options screen by selecting &quot;Options&quot; from the file menu. </p>
     <h2>Jackets</h2>
     <p>Jackets are created for ROMs using the title or file-name of ROMs. </p>
-    <p><strong>Consolidate vs. Individuate</strong></p>
+    <blockquote>
+      <p><strong><em>Consolidate vs. Individuate</em></strong></p>
+    </blockquote>
     <p>ROM-Jackets are individuated by default, however the abundance of releases a title may have seen throughout the world is multiplied by versions the developer  released and again multiplied by  ROM-dumps. Subsequently many ROM-collections and system-libraries are simply too large and unwieldy for practical purposes. In the interest of bringing forth functional libraries it may be desireable to consolidate each title without regard for region or version. </p>
     <p><strong>Consolidate ( )[]</strong></p>
     <p>This will consolidate ROMs containing the same base-name, grouping each ROMs regional counterparts and multi-disc ROMs together into a single jacket. The base-name is the ROM's filename without any text in parenthesis or brackets. </p>
@@ -722,7 +731,7 @@ The Local option enables any file (including a file not currently available via 
     <br>
         <h3>Keyboard</h3>
       <br>
-    Emulators in the factory state will map keyboard keys to the system's buttons and joystick directions. SkeletonKey can create profiles for these keys as they correspond to the native joystick layout of the machine. If the chosen console is a custom/unsupported system, a generic and multipurpose configuration is created.
+    Emulators in the initialized (default) state will map keyboard keys to the system's buttons and joystick directions. SkeletonKey can create profiles for these keys as they correspond for pc-joysticks to the native joystick layout of the machine. If the chosen console is a custom/unsupported system, a generic and multipurpose configuration is created.
 <br>
              <h3>Blank</h3>
       <br>
