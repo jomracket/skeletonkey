@@ -1163,6 +1163,19 @@ ifNotExist, hashdb.ini
 		gosub, PlaylistInit
 	}
 
+iniread,cacheloc,Settings.ini,GLOBAL,temp_location
+if (cacheloc = "ERROR")
+		{
+			iniread, cachedirectory,%curcfg%,OPTIONS,cache_directory
+			cacheloc= %cachedirectory%
+			iniWrite, "%cacheloc%",Settings.ini,GLOBAL,temp_location
+		}
+ifnotexist,%cacheloc%
+	{
+		cacheloc= %A_Temp%
+		iniWrite, "%cacheloc%",Settings.ini,GLOBAL,temp_location		
+	}
+	
 joycfg= %curcfg%
 
 Loop, %playlistLoc%\*.lpl,
@@ -1265,6 +1278,7 @@ IfExist,apps.ini
 				emulist.= emulti1 . "|"
 			}						
 	}
+	
 IniRead,RJSYSTMP,Settings.ini,GLOBAL,systems_directory
 if (RJSYSTMP = "ERROR")
 	{
@@ -1558,82 +1572,56 @@ Gui, Add, Tab2, x0 y0 w765 h535 vTABMENU Bottom, Settings||:=: MAIN :=:|Emu:=:Sy
 ;{;;;;;;;   ~~~~~GLOBAL SKELEOTNKEY~~~~~   ;;;;;;;;;;;
 Gui, Tab, 1
 Gui Tab, Settings
-Gui, Add, GroupBox, x14 y49 w467 h460 vSKSUMGB, Summary
-Gui, Add, Link, x493 y472 w45 h18 vDONATELNK gDONATE, <a href="https://www.paypal.me/romjacket">Donate</a>
-Gui, Add, Link, x710 y472 w45 h18 vHelpLink gHelp, <a href="index.html">Help</a>
+Gui, Add, GroupBox, x566 y14 w195 h321 vSKSUMGB, Summary
+Gui, Add, Link,x712 y484 w45 h18 vDONATELNK gDONATE, <a href="https://www.paypal.me/romjacket">Donate</a>
+Gui, Add, Link,x629 y465 w45 h18 vHelpLink gHelp, <a href="index.html">Help</a>
 Gui,Font,%fontXmed% Bold
-Gui ,Add, Picture, x493 y212 w254 h254, key.png
-Gui, Add, Button, x29 y410 w43 h23 vSETEMUD gSETEMUD, SET
-Gui, Add, Button, x26 y90 w43 h23 vSETJKD gSETJKD, SET
-Gui, Add, Button, x28 y344 w43 h23 vSKRAEXE gRAEXE, SET
-Gui, Add, Text, x74 y97 h16 vSKSYSTXT, Systems ROOT
-Gui, Add, Text, x71 y348 vSKRAXETXT, Retroarch Location
-Gui, Add, Text, x75 y415 vSKEMUDTXT, Emulators Directory
-Gui, Add, CheckBox, x28 y155 vSKFILTSUP gSKFILTSUP, Filter Unsupported
+Gui ,Add, Picture, x627 y338 w122 h121, key.png
+Gui, Add, Button, x74 y136 w43 h23 vSETEMUD gSETEMUD, SET
+Gui, Add, Button, x74 y53 w43 h23 vSETJKD gSETJKD, SET
+Gui, Add, Text, x4 y81 vSKSYSTXT, Systems ROOT
+Gui, Add, Text, x4 y163 vSKEMUDTXT, Emulators Dir
+Gui, Add, CheckBox,  x174 y105 vSKFILTSUP gSKFILTSUP, Filter Unsupported
 Gui,Font,Normal
 
 Gui, Font, Bold
-Gui Add, GroupBox, x162 y183 w300 h64 Right, Playlists
-Gui Add, Button, x418 y209 w43 h23 vplaylset gplaylset,SET
+Gui Add, GroupBox, x260 y270 w300 h64 Right, Playlists
+Gui Add, Button, x516 y296 w43 h23 vplaylset gplaylset,SET
 Gui, Font, normal
-Gui Add, Edit, x165 y198 w253 h41 Right vplaylisttxt ReadOnly, %playlistloc%
+Gui Add, Edit, x263 y285 w253 h41 Right vplaylisttxt ReadOnly, %playlistloc%
 
 Gui, Font, Bold
-Gui Add, GroupBox, x162 y243 w300 h61 Right, History
-Gui Add, Button, x418 y269 w43 h23 vhistset ghistset,SET
+Gui Add, GroupBox, x260 y333 w300 h61 Right, History
+Gui Add, Button, x516 y361 w43 h23 vhistset ghistset,SET
 Gui, Font, normal
-Gui Add, Edit, x164 y254 w253 h44 Right vhisttxt ReadOnly, %historyloc%
+Gui Add, Edit, x262 y346 w253 h44 Right vhisttxt ReadOnly, %historyloc%
 
-Gui, Add, Button, x200 y94 w45 h18 vSYSDETECT gSysDetect, Detect
-Gui, Add, CheckBox, x255 y94 h19 vSYSAZ gSYSAZ %FUZENB%, fuzzy-Rename
-Gui, Add, Button, x215 y480 w45 h18 vEMUDETECT gEmuDetect, Detect
-Gui, Add, Text, x303 y480 vSKDSETXT, Detected Supported Emulators: %emunumtot%
-Gui, Add, Text, x240 y160 vSKDETSTXT, Detected Systems: %totsys% supported and %allsys% total
-Gui, Add, Text,x215 y310 w130 h29 vRAVERTXT, version:  %RAVERS%  build:  %RAVBLD%
-Gui, Add, Button,x215 y344 w45 h17 vGRAVER gGRAVER, version
-Gui, Add, Text, x601 y68 vSKPRFJTXT, Overrides
-Gui, Add, Text, x33 y214 vSKDTTXT, Daemon Tools is %DAMINST%
+Gui, Add, Button, x124 y88 w45 h18 vSYSDETECT gSysDetect, Detect
+Gui, Add, CheckBox, x174 y86 w89 h18 vSYSAZ gSYSAZ %FUZENB%, fuzzy-Rename
+Gui, Add, Button, x120 y171 w45 h18 vEMUDETECT gEmuDetect, Detect
+Gui, Add, Text, x172 y173 vSKDSETXT, Detected Supported Emulators: %emunumtot%
+Gui, Add, Text, x331 y89 vSKDETSTXT, Detected Systems: %totsys% supported and %allsys% total
+Gui, Add, Text,  x582 y101 vSKDTTXT, Daemon Tools is %DAMINST%
 Gui, Add, DropDownList, x23 y12 w163 vSKRESDDL gSKRESDDL, All||Session|Jacket-Presets|Retroarch|Associations|Core-Cfgs|Playlist-DB
 Gui, Add, Button, x187 y12 w55 h20 vSKRESET gSKRESET, RESET
-Gui, Add, Edit, x27 y114 w443 h40 Multi ReadOnly vSKSYSDISP, %RJSYSTEMS%
-Gui, Add, Text, x30 y324 vSKIMPRATXT, Import Retroarch.cfg
-Gui, Add, Button, x32 y304 w51 h18 vSKRAIMP gIMPRTCFG, Import
-Gui, Add, Text, x368 y349 vSKSAVTXT, Save for skeletonKey
-Gui, Add, Button, x379 y325 w40 h22 vSKSAVE gMenuSave,Save
-Gui, Add, Button, x418 y325 w20 h22 vSKSVAS gSAVECFG,As
+Gui, Add, Edit, x117 y45 w443 h40 Multi ReadOnly vSKSYSDISP, %RJSYSTEMS%
 ;;Gui, Add, CheckBox, x33 y480 h19 vLNCHPT gLNCHPT %LNCHPRIO%, Auto-Assign Emulators
 Gui, Add, CheckBox, x244 y5 vHOVPREV gHovPrev %hovvalue%, Hover-Preview
 Gui, Add, CheckBox,x244 y22 vSRCHCOMPLIO gSRCHCOMPL %SRCHCOMPLIO%, Auto-Populate Search-Window
-Gui, Add, CheckBox, x412 y22 vAUTOPGS gAUTOPGS %AUTOPGSIO%, Auto-Load Per-Game Settings
+Gui, Add, CheckBox, x347 y7 vAUTOPGS gAUTOPGS %AUTOPGSIO%, Auto-Load Per-Game Settings
 
-Gui, Add, Text, x288 y341 vSKCCTXT, %SKCCTXT%
-Gui, Add, Text, x219 y59 vSKRJQTXT, %RJQNUM% systems
-Gui, Add, Text, x33 y201 vSKDISPLCHTXT, DisplayChanger is %DCHINST%
-Gui, Add, Edit, x30 y434 w439 h40 Multi ReadOnly vSKEMUDISP, %RJEMUD%
-Gui, Add, Edit, x29 y367 w440 h40 Multi ReadOnly vSKRADISP, %RAEXELOC%
+Gui, Add, Text, x577 y42 vSKRJQTXT, %RJQNUM% systems
+Gui, Add, Text, x582 y86 vSKDISPLCHTXT, DisplayChanger is %DCHINST%
+Gui, Add, Edit, x116 y129 w441 h40 Multi ReadOnly vSKEMUDISP, %RJEMUD%
 
-Gui, Add, Button, x429 y60 w46 h20 vSKCLRQ gDELRJQ, CLEAR
-Gui, Add, Text, x308 y59 vSKCLRTXT, in the RoM-Jacket queue
+Gui, Add, Button, x706 y61 w46 h20 vSKCLRQ gDELRJQ, CLEAR
+Gui, Add, Text, x627 y41 vSKCLRTXT, in the RoM-Jacket queue
 
-Gui,Font,Bold
-Gui, Add, GroupBox, x486 y50 w269 h140 Center vSKBSRLGRP, BSL - (ROM-Jacket-Launcher)
-Gui,Font,Normal
+Gui, Add, Edit, x193 y433 w253 h44 vtmpdispl Multi ReadOnly, %cacheloc%
+Gui, Add, Button, x148 y442 w43 h23 vSETTMPD gSETTMPD, SET
+Gui, Add, Text, x115 y466 w75 h23 vTMPDIRTXT, Temp Directory
+Gui, Add, GroupBox, x4 y-5 w560 h207 vBLNKGRP
 
-Gui, Add, CheckBox, x489 y124 w14 h18 vSKENBF gSKENBF disabled
-Gui, Add, Button, x506 y123 w44 h19 vSKBEFCMD gSKBEFCMD disabled, SET
-Gui, Add, Text, x555 y126 vSKRBFTXT disabled, Run .cmd before
-Gui, Add, CheckBox, x489 y144 w14 h18 vSKENAF gSKENAF disabled
-Gui, Add, Button, x506 y141 w44 h19 vSKAFTCMD gSKAFTCMD disabled, SET
-Gui, Add, Text, x555 y144 vSKRAFTXT disabled, Run .cmd after
-Gui, Add, CheckBox, x510 y168 h17 vDISCFG gDISCFG disabled,Disable Jacket Configurations
-
-Gui, Add, CheckBox, x510 y83 h16 vSKOVRJM gSKOVRJM disabled, override
-Gui, Add, Radio, x645 y83 h17 vSKXPADOV gSKXPADOV disabled, Xpadder
-Gui, Add, Radio, x575 y83 h17 vSKAMOV gSKAMOV disabled checked, Antimicro
-Gui, Add, Button, x715 y82 w38 h20 vSKPROFOV gSKPROFOV disabled, profile
-
-Gui, Add, CheckBox, x510 y105 h16 vSKFROV gSKFROV disabled, override
-Gui, Add, DropDownList, x579 y103 w163 vSKFROVDD gSKFROVDD disabled, FRONTENDS||
 
 ;};;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[ MAIN TAB ]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -2056,9 +2044,6 @@ Gui, Add, Button, x458 y433 w16 h17 vEMPRBUTU gEMPRBUTU, P
 Gui, Add, Button, x458 y459 w16 h17 vEMPRBUTX gEMPRBUTX, X
 Gui, Add, Button, x487 y481 w36 h17 vDELCFGPGC gDELCFGPGC, Clean
 
-
-
-
 ;;Gui, Add, Button, x458 y485 w16 h17 vEMPRBUTD gEMPRBUTD, v
 ;;gui, Add, Button,x714 y482 w43 h23 vCNCLDWN gCancelDown Disabled, Cancel
 Gui, Font,Bold
@@ -2158,6 +2143,47 @@ Gui, Add, Button, x382 y277 w75 h23 vMROMDLOC gMRomDLoc hidden, MULTI-SET
 Gui, Add, Text, x288 y282 h17 vROMDTXT, Set ROM Directory
 Gui, Add, Edit, x285 y304 w171 h53 vROMDEDT Multi ReadOnly,
 
+;;;;;;;;;;;;;;;;;;;;  RETROARCH UI  ;;;;;;;;;;;;;;;;;
+Gui, Add, Button, x473 y57 w43 h23 vSKRAEXE gRAEXE hidden, SET
+Gui, Add, Text, x515 y42 w109 h13 vSKRAXETXT hidden, Retroarch Location
+Gui, Add, Edit, x516 y58 w203 h40 Multi ReadOnly vSKRADISP hidden, %RAEXELOC%
+Gui, Add, Text, x519 y123 vSKIMPRATXT hidden, Import Retroarch.cfg
+Gui, Add, Button, x516 y100 w51 h18 vSKRAIMP gIMPRTCFG hidden, Import
+Gui, Add, Text, x659 y123 vSKSAVTXT hidden,retroarch cfg
+Gui, Add, Button, x660 y100 w40 h22 vSKSAVE gMenuSave hidden,Save
+Gui, Add, Button, x699 y100 w20 h22 vSKSVAS gSAVECFG hidden,As
+Gui, Add, Text, x644 y42 vSKCCTXT hidden, %SKCCTXT%
+Gui, Add, Text,x589 y154 w130 h29 vRAVERTXT hidden, version:  %RAVERS%  build:  %RAVBLD%
+Gui, Add, Button,x533 y158 w45 h17 vGRAVER gGRAVER hidden, version
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;;;;;;;;;;;;;;;  BSL ;;;;;;;;;;;;;;;;;;;;;;;;
+
+Gui,Font,Bold
+Gui, Add, GroupBox, x468 y50 w269 h140 Center vSKBSRLGRP hidden, BSL - (ROM-Jacket-Launcher)
+Gui,Font,Normal
+
+Gui, Add, CheckBox, x474 y124 w14 h18 vSKENBF gSKENBF disabled hidden
+Gui, Add, Button, x491 y123 w44 h19 vSKBEFCMD gSKBEFCMD disabled hidden, SET
+Gui, Add, Text, x540 y126 vSKRBFTXT disabled hidden, Run .cmd before
+Gui, Add, CheckBox, x474 y144 w14 h18 vSKENAF gSKENAF disabled hidden
+Gui, Add, Button, x491 y141 w44 h19 vSKAFTCMD gSKAFTCMD disabled hidden, SET
+Gui, Add, Text, x540 y144 vSKRAFTXT disabled hidden, Run .cmd after
+Gui, Add, CheckBox, x495 y168 h17 vDISCFG gDISCFG disabled hidden,Disable Jacket Configurations
+
+Gui, Add, CheckBox, x495 y83 h16 vSKOVRJM gSKOVRJM disabled hidden, override
+Gui, Add, Radio, x630 y83 h17 vSKXPADOV gSKXPADOV disabled hidden, Xpadder
+Gui, Add, Radio, x560 y83 h17 vSKAMOV gSKAMOV disabled checked hidden, Antimicro
+Gui, Add, Button, x696 y82 w38 h20 vSKPROFOV gSKPROFOV disabled hidden, profile
+
+Gui, Add, Text, x586 y68 vSKPRFJTXT, Overrides
+Gui, Add, CheckBox, x495 y105 h16 vSKFROV gSKFROV disabled hidden, override
+Gui, Add, DropDownList, x564 y103 w163 vSKFROVDD gSKFROVDD disabled hidden, FRONTENDS||
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -2190,7 +2216,7 @@ Gui,Font,%fontXsm% Bold
 Gui, Add, GroupBox, x46 y259 w216 h120 vLASTKGRP, Left Analog Stick
 Gui, Add, GroupBox, x512 y259 w216 h120 vRASTKGRP, Right Analog Stick
 Gui, Add, GroupBox, x46 y386 w215 h90 vDPADGRP, Directional Pad
-Gui, Add, GroupBox, x523 y101 w232 h91 vCIREMAPGRP, Core-input-remapping
+Gui, Add, GroupBox, x523 y101 w232 h91 vCIREMAPGRP, Input-remapping
 Gui,Font,%fontXsm% Norm 
 JOYCFGMODE= core
 Gui,Font,%fontXmed% Bold
@@ -3687,6 +3713,11 @@ EMPRBUTU_TT :="Prioritises the selected preset in the list."
 EMPRBUTX_TT :="Removes the selected preset from the list."
 DELCFGPGC_TT :="Deletes all per-game skeletetonkey-configurations for the selected emulator."
 DPIOVR_TT :="Override the dpi of the video font"
+
+TMPDISPL_TT :="The temp directory location"
+SETTMPD_TT :="Set the location for temp files."
+
+
 DSND_TT :="The default sound driver"
 DTCOMP_TT :="Toggles desktop compositing.`n Works in windows 7 and older only"
 DUTYCYCLE_TT :="How long the period of a turbo-enabled button should be.`nNumbers are in frames"
@@ -4733,8 +4764,9 @@ RBLDRUNLST:
 addemu=
 glbsysa= 
 glbsysn= 
+addemu= 
+runlist= 
 siv=
-runlist:= corelist . "|"
 IniRead,emuj,Assignments.ini,ASSIGNMENTS
 Loop,Parse,emuj,`n
 	{
@@ -5090,6 +5122,7 @@ gosub, ArcLaunch
 return
 
 RunRCL:
+;;msgbox,,,runlist=%runlist%
 gui,submit,nohide
 guicontrol,,LCORE,|%A_ThisMenuItem%||%runlist%
 qmen= 1
@@ -6046,10 +6079,10 @@ if ( (A_GuiX >= cRegionX) && (A_GuiX <= cRegionX+cRegionW) && (A_GuiY >= cRegion
 				FileDelete, bios.ini
 				FileAppend, %A_GuiEvent%, bios.ini
 				arcdec= 
-				ifnotexist, tmp\bios
+				ifnotexist, %cacheloc%\bios
 					{
-						FileCreateDir, tmp\bios
-						FileCreateDir, tmp\arc
+						FileCreateDir, %cacheloc%\bios
+						FileCreateDir, %cacheloc%\arc
 					}
 				Loop,Read,bios.ini
 					{
@@ -6059,21 +6092,21 @@ if ( (A_GuiX >= cRegionX) && (A_GuiX <= cRegionX+cRegionW) && (A_GuiY >= cRegion
 							{
 								arcdec= 1
 								SB_SetText("extracting " A_LoopReadLine " ")
-								Runwait, %comspec% cmd /c "7za.exe e -y "%A_LoopReadLine%" -O"%A_WorkingDir%\tmp\bios" ",,hide
+								Runwait, %comspec% cmd /c "7za.exe e -y "%A_LoopReadLine%" -O"%A_WorkingDir%\%cacheloc%\bios" ",,hide
 							}
 						if (biosxt = "7z")
 							{
 								arcdec= 1
 								SB_SetText("extracting " A_LoopReadLine " ")
-								Runwait, %comspec% cmd /c "7za.exe e -y "%A_LoopReadLine%" -O"%A_WorkingDir%\tmp\bios" ",,hide
+								Runwait, %comspec% cmd /c "7za.exe e -y "%A_LoopReadLine%" -O"%A_WorkingDir%\%cacheloc%\bios" ",,hide
 							}
 						if (biosxt = "rar")
 							{
 								arcdec= 1
 								SB_SetText("extracting " A_LoopReadLine " ")
-								Runwait, %comspec% cmd /c "UnRAR.exe e -y "%A_LoopReadLine%" "*" +o "%A_WorkingDir%\tmp\bios" ",,hide
+								Runwait, %comspec% cmd /c "UnRAR.exe e -y "%A_LoopReadLine%" "*" +o "%A_WorkingDir%\%cacheloc%\bios" ",,hide
 							}
-						FileCopy,%A_LoopReadLine%,tmp\bios\%biosfile%,1
+						FileCopy,%A_LoopReadLine%,%cacheloc%\bios\%biosfile%,1
 					}
 				gosub, BiosProc
 			}
@@ -6904,22 +6937,22 @@ return
 
 getupdate:
 upcnt=
-loop, tmp\sk*.zip
+loop, %cacheloc%\sk*.zip
 	{
 		upcnt+=1
 	}
 upcnt+=1
 URLFILE= %UPDATEFILE%/skeletonKey.zip
-save= tmp\sk%upcnt%.zip
+save= %cacheloc%\sk%upcnt%.zip
 DownloadFile(URLFILE, save, True, True)
 IfNotExist, tmp
 	{
 		FileCreateDir, tmp
 	}
-ifexist,tmp\sk%upcnt%.zip
+ifexist,%cacheloc%\sk%upcnt%.zip
 	{
-		Runwait, %comspec% cmd /c "7za.exe x -y "tmp\sk%upcnt%.zip" -O"tmp" ",,hide
-		Run, tmp\skeletonkey_Install.exe
+		Runwait, %comspec% cmd /c "7za.exe x -y "%cacheloc%\sk%upcnt%.zip" -O"%cacheloc%" ",,hide
+		Run, %cacheloc%\skeletonkey_Install.exe
 		Process, close, Invader.exe
 		Process, close, skeletonKey.exe
 		gosub, QUITOUT
@@ -6955,7 +6988,7 @@ Loop, Parse, bsys,`n,`r
 		kbemu.= A_loopField . "`n"
 	}
 biosnum= 0
-Loop, Files, tmp\bios\*,
+Loop, Files, %cacheloc%\bios\*,
 	{	
 		ApndCRC= 
 		CrCFLN= %A_LoopFileFullPath%
@@ -7039,7 +7072,7 @@ Loop, Parse, curbios, `n
 	}
 					
 SB_SetText(" Found " biosnum " bios files ")
-;;FileDelete,tmp\bios\*
+;;FileDelete,%cacheloc%\bios\*
 return
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -9140,13 +9173,15 @@ if (LNCHPRDDL <> "retroarch")
 				stringsplit,fei,A_LoopField,=
 				Loop, Parse, SysEmuSet,`n`r
 					{
+						sysfnd= 
 						sdspl1= 
 						sdspl2= 
 						stringsplit,sdspl,A_LoopField,:
 						StringSplit,sysplit,sdspl1,|
-						sysfnd= 
 						if (sysplit1 = fei1)
 							{
+								reaptot=
+								repaden= 
 								Loop, Parse, sdspl1,|
 									{
 										if (A_Index = 1)
@@ -9159,18 +9194,23 @@ if (LNCHPRDDL <> "retroarch")
 												repwith= %A_LoopField%
 											}
 										ifinstring,smuemu,|%repwith%|
-											{
-												iniwrite, "%repwith%",Assignments.ini,OVERRIDES,%fei1%
-												iniwrite, "%repwith%",Assignments.ini,ASSIGNMENTS,%fei1%											
-												sysfnd= 1
-												break
+											{										
+												sysfnd+= 1
+												if (sysfnd = 1)
+													{
+														reapri= %repwith%
+														continue
+													}
 											}
 									}
-								if (sysfnd = 1)
+								if (sysfnd > 1)
 									{
-										break
+										repaden.= repwith . "|"
 									}
+								reaptot:= reapri . "|" . repaden
+								iniwrite, "%reaptot%",Assignments.ini,OVERRIDES,%fei1%
 							}
+						;;iniwrite, "%repwith%",Assignments.ini,ASSIGNMENTS,%fei1%	
 					}
 			}
 		iniwrite, 1,Settings.ini,GLOBAL,Launcher_Priority
@@ -10078,6 +10118,22 @@ return
 
 RaList:
 gui,submit,nohide
+
+
+
+guicontrol,show,SKRAEXE
+guicontrol,show,SKRAXETXT
+guicontrol,show,SKSAVTXT
+guicontrol,show,SKIMPRATXT
+guicontrol,show,SKRAIMP
+guicontrol,show,GRAVER
+guicontrol,show,RAVERTXT
+guicontrol,show,SKCCTXT
+guicontrol,show,SKSVAS
+guicontrol,show,SKSAVE
+guicontrol,show,SKRADISP
+
+
 guicontrol,show,RALIST
 guicontrol,show,EXELIST
 guicontrol,show,UPDBTN
@@ -10221,6 +10277,22 @@ guicontrol,hide,EMPRBUTU
 guicontrol,hide,EMPRBUTD
 guicontrol,hide,EMPRBUTX
 guicontrol,hide,DELCFGPGC
+
+
+guicontrol,hide,SKRAEXE
+guicontrol,hide,SKRAXETXT
+guicontrol,hide,SKSAVTXT
+guicontrol,hide,SKRAIMP
+guicontrol,hide,SKIMPRATXT
+guicontrol,hide,GRAVER
+guicontrol,hide,RAVERTXT
+guicontrol,hide,SKCCTXT
+guicontrol,hide,SKSVAS
+guicontrol,hide,SKSAVE
+guicontrol,hide,SKRADISP
+
+
+
 ;;guicontrol,hide,CRNTCORS
 ;;guicontrol,hide,OPNSYS
 ;;guicontrol,hide,ADDCORE
@@ -10249,6 +10321,22 @@ guicontrol,hide,UNIQLNK
 guicontrol,hide,MULTLNK
 guicontrol,hide,MULTINST
 guicontrol, hide,EMUASIGN
+
+guicontrol, hide,SKPRFJTXT
+guicontrol, hide,SKBSRLGRP
+guicontrol, hide,SKENBF
+guicontrol, hide,SKBEFCMD
+guicontrol, hide,SKRBFTXT
+guicontrol, hide,SKENAF
+guicontrol, hide,SKAFTCMD
+guicontrol, hide,SKRAFTXT
+guicontrol, hide,DISCFG
+guicontrol, hide,SKOVRJM
+guicontrol, hide,SKXPADOV
+guicontrol, hide,SKAMOV
+guicontrol, hide,SKPROFOV
+guicontrol, hide,SKFROV
+guicontrol, hide,SKFROVDD
 
 guicontrol, hide,ROMDLOC
 guicontrol, hide,MROMDLOC
@@ -10390,6 +10478,23 @@ if (SALIST = "Frontends")
 		guicontrol, show,EINSTTXT
 		guicontrol, show,EINSTLOC
 		guicontrol, show,CHEMUINST
+
+		guicontrol, show,SKPRFJTXT
+		guicontrol, show,SKBSRLGRP
+		guicontrol, show,SKENBF
+		guicontrol, show,SKBEFCMD
+		guicontrol, show,SKRBFTXT
+		guicontrol, show,SKENAF
+		guicontrol, show,SKAFTCMD
+		guicontrol, show,SKRAFTXT
+		guicontrol, show,DISCFG
+		guicontrol, show,SKOVRJM
+		guicontrol, show,SKXPADOV
+		guicontrol, show,SKAMOV
+		guicontrol, show,SKPROFOV
+		guicontrol, show,SKFROV
+		guicontrol, show,SKFROVDD
+
 		guicontrol, show,EMUINST
 		guicontrol, show,INSTEMUDDL
 		guicontrol, show,LOCEMUIN
@@ -10710,7 +10815,7 @@ guicontrol,enable,CNCLDWN
 dtdrvinst= 
 if (xtractmfp = "")
 	{
-		xtractmfp= tmp\DTLite.exe
+		xtractmfp= %cacheloc%\DTLite.exe
 	}
 Loop, %xtractmfp%
 	{
@@ -11314,9 +11419,9 @@ Loop, Parse,UrlIndex,`n`r
 				save=%urloc2%
 				if (selfnd = "Daemon_Tools")
 					{
-						save= %A_Scriptdir%\tmp
-						xtractmu= %A_Scriptdir%\tmp
-						xtractmfp= %A_Scriptdir%\tmp\DTLite.exe
+						save= %cacheloc%
+						xtractmu= %cacheloc%
+						xtractmfp= %cacheloc%\DTLite.exe
 					}
 				if (xtractmu = "")
 					{
@@ -14492,7 +14597,7 @@ ifexist, Assignments.ini
 					{
 						ifmsgbox,yes
 							{
-								TrayTip, skeletonkey, skeletonKey is indexing emulators,999,48 
+								TrayTip, skeletonkey, skeletonKey is indexing emulators,5,48 
 								FileCopy,Assignments.set, Assignments.ini,1
 								FileDelete,Apps.ini
 								farvr=	
@@ -32048,10 +32153,19 @@ if (MIRSLV = "Mirrors")
 		return
 	}
 MRNTMP= 
-FileSelectFolder,MRNTMP,%A_ScriptDir%\tmp,3,Select the location for the mirrors
+ainc=
+fief= %cacheloc%
+mirlocrst:
+FileSelectFolder,MRNTMP,%fief%,3,Select the location for the mirrors
 if (MRNTMP = "")
 	{
-		return
+		if (ainc > 1)
+			{
+				return
+			}
+		fief= 	
+		ainc+= 1	
+		goto, mirlocrst	
 	}
 mirnvl1=	
 mirnvl2=	
@@ -32068,10 +32182,19 @@ if (MIRSLV = "Mirrors")
 		return
 	}
 ICNTMP= 
-FileSelectFolder,ICNTMP,%A_ScriptDir%\tmp,3,Select the location for icons to be stored for %MIRSLV%
+ainc=
+fief= %cacheloc%
+icolocrst:
+FileSelectFolder,ICNTMP,%fief%,3,Select the location for icons to be stored for %MIRSLV%
 if (ICNTMP = "")
 	{
-		return
+		if (ainc > 1)
+			{
+				return
+			}
+		fief= 	
+		ainc+= 1	
+		goto, icolocrst	
 	}
 mirnvl1=	
 mirnvl2=	
@@ -34576,7 +34699,7 @@ Loop, rj\*.jak
 		IniRead,RJEXTRARC,rj\%curjf%.ini,%curjf%,RJEXTRARC
 		IniRead,RJARCLOC,rj\%curjf%.ini,%curjf%,RJARCLOC
 		FileCreateDir,rj\sysCfgs\%curjf%
-		FileCreateDir,tmp\%curjf%
+		FileCreateDir,%cacheloc%\%curjf%
 		RJROMXTINJ= 
 		Loop, Parse, RJROMSPL,`,
 			{
@@ -34936,7 +35059,7 @@ Loop, rj\*.jak
 										RunWait, %comspec% /c "7za.exe e -y "%RJSYSTEMS%\%curjf%\%ibjn2%" -O"%RJSYSTEMS%\%curjf%\%nwjakn%" ",,hide
 										if (RJARCLOC = 0)
 											{
-												FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,tmp\%curjf%\%ibjn2%,1
+												FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,%cacheloc%\%curjf%\%ibjn2%,1
 											}
 										if (RJARCLOC = 2)
 											{
@@ -34950,14 +35073,14 @@ Loop, rj\*.jak
 								FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,%RJSYSTEMS%\%curjf%\%nwjak%
 								If (errorlevel > 0)
 									{
-										FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,tmp\%curjf%\%ibjn2%,1
+										FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,%cacheloc%\%curjf%\%ibjn2%,1
 									}
 								if (RJEXTRARC = 2)
 									{
 										RunWait, %comspec% /c "7za.exe e -y "%RJSYSTEMS%\%curjf%\%nwjak%\%ibjn2%" -O"%RJSYSTEMS%\%curjf%\%nwjak%" ",,hide
 											if (RJARCLOC = 0)
 												{
-													FileMove,%RJSYSTEMS%\%curjf%\%nwjak%\%ibjn2%,tmp\%curjf%\%ibjn2%,1
+													FileMove,%RJSYSTEMS%\%curjf%\%nwjak%\%ibjn2%,%cacheloc%\%curjf%\%ibjn2%,1
 												}
 											if (RJARCLOC = 2)
 												{
@@ -34974,7 +35097,7 @@ Loop, rj\*.jak
 								FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,%RJSYSTEMS%\%curjf%\%nwjak%
 								If (errorlevel > 0)
 									{
-										FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,tmp\%curjf%\%ibjn2%,1
+										FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,%cacheloc%\%curjf%\%ibjn2%,1
 									}
 							}
 																
@@ -35073,7 +35196,7 @@ Loop, rj\*.jak
 						FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,%RJSYSTEMS%\%curjf%\%nicedir%\%ibjn2%
 						if (errorlevel > 0)
 							{
-								FileMove,%RJSYSTEMS%\%curjf%\%mvrom%,tmp\%curjf%,1
+								FileMove,%RJSYSTEMS%\%curjf%\%mvrom%,%cacheloc%\%curjf%,1
 							}
 						if (nicesrc = 1)
 							{
@@ -35434,6 +35557,54 @@ gosub,OPENJACKOPT
 gosub, RJSYSDD
 return
 ;};;;;;;;;;;;;;;;;;;;;;;
+
+SETTMPD:
+cachetmp= %cacheDirectory%
+gui,submit,nohide
+cachetry= 
+cacheloctmp= 
+cachereset:
+cachetry+=1
+FileSelectFolder,cacheloctmp,3,Temp Location,%pltmp%,
+if (cacheloctmp <> "")
+	{
+		cacheloc= %cacheloctmp%
+		SB_SetText(" Temp location set to " cacheloc " ")
+		guicontrol,,tmpdispl,%cacheloc%
+		iniwrite, "%cacheloc%",Settings.ini,GLOBAL,temp_location
+		ifnotexist,%raexeloc%\%raexefile%
+			{
+				if (raexeloc <> "")
+					{
+						cacheDirectory= %cacheloc%
+					}
+			}
+		ifnotexist,%cacheloc%
+			{
+				cacheloc= %A_WorkingDir%\tmp
+				iniwrite, "%cacheloc%",Settings.ini,GLOBAL,temp_location
+			}
+		if (cacheloc <> cachedirectory)
+			{
+				MsgBox,3,Set cache_directory,Set the retroarch cache directory to the temp location?
+				ifmsgbox,yes
+					{
+						iniwrite, "%cacheloc%",%curcfg%,OPTIONS,cache_directory
+						cacheDirectory= %cacheloc%
+					}
+			}
+		return	
+	}
+cacheloc= %A_WorkingDir%\tmp
+iniwrite, "%cacheloc%",Settings.ini,GLOBAL,temp_location	
+if (cachetry > 1)
+	{
+		return
+	}
+	
+cachetmp= 
+goto, cachereset
+
 
 ;{;;;;  REMOVE SYSTEM FROM QUEUE  ;;;;;
 DELRJQ:
@@ -39493,7 +39664,21 @@ if (syslk = "Mednafen PSX HW")
 		corelk= mednafen_psx_hw
 	    return
 }
+if (syslk = "Beetle PSX HW")
+	{
+		ASPOP= Sony - Playstation
+		szip= 0
+		corelk= mednafen_psx_hw
+	    return
+}
 if (syslk = "Mednafen PSX")
+	{
+		ASPOP= Sony - Playstation
+		szip= 0
+		corelk= mednafen_psx
+	    return
+}
+if (syslk = "Beetle PSX")
 	{
 		ASPOP= Sony - Playstation
 		szip= 0
@@ -53188,6 +53373,7 @@ if (tmpcc <> bltm)
 		guicontrol,enable,LCORE	
 		return
 	}
+
 ifinstring,systoemu,tmpcc
 	{
 		guicontrol,disable,LCORE
@@ -53203,9 +53389,11 @@ ifinstring,systoemu,tmpcc
 						break
 					}
 			}
+		;;msgbox,,,|%avr%||`n%runlist%
 		guicontrol,,LCORE,|%avr%||%runlist%
 		guicontrol,enable,LCORE	
 	}
+
 bltm= %tmpcc%	
 return
 
@@ -54733,7 +54921,8 @@ emup2=
 emuj= 
 siv=
 PBEGN=
-runlist:= corelist . "|"
+runlist= 
+addemu= 
 IniRead,emuj,Assignments.ini,ASSIGNMENTS
 Loop,Parse,emuj,`n
 	{
@@ -54753,9 +54942,9 @@ Loop,Parse,emuj,`n
 			{
 				continue
 			}
-		runlist.= emup1 . "|"
 		addemu.= emup1 . "|"
 }
+runlist:= corelist . "|" . addemu
 /*
 IniRead,emuj,Assignments.ini,OVERRIDES,
 Loop,Parse,emuj,`n
