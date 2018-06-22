@@ -2,16 +2,17 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>SKELETONKEY</title>
-<style type="text/css"></style>
-</head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-</head><main>
-  <body bgcolor="#e7e5e4">
+<title>SKELETONKEY</title>
+</head>
+</head>
+  <body>
+  
   <div class="container">
-    <div id="navbar"> <a><img src="key.png" height="20"></a> <a href="#DOWNLOAD">Download</a> <a href="#USE">General Use</a> <a href="#FRONTENDS">Frontends</a> <a href="#JOYSTICKS">Joysticks</a> <a href="#ROMJACKETS">ROM Jackets</a> <a href="#NETPLAY">Netplay</a> <a href="#UTILITIES">Utilities</a>
+   
+    <div id="navbar"> <a><img src="key.png" alt="Key-Logo" height="20"></a> <a href="#DOWNLOAD">Download</a> <a href="#USE">General Use</a> <a href="#FRONTENDS">Frontends</a> <a href="#JOYSTICKS">Joysticks</a> <a href="#ROMJACKETS">ROM Jackets</a> <a href="#NETPLAY">Netplay</a> <a href="#UTILITIES">Utilities</a>
       <div class="dropdown">
-        <button class="dropbtn" onclick="myFunction()">Help </button>
+        <button class="dropbtn" onclick="myFunction()">Help </button>
         <div class="dropdown-content" id="myDropdown"> <a href="#TUTORIALS">Tutorials</a> <a href="#FAQS">FAQs</a> <a href="#RESOURCES">Resources</a> </div>
       </div>
     </div>
@@ -22,18 +23,18 @@
       <table width="100%" border="0" cellspacing="10">
         <tbody>
           <tr>
-            <td width="38%" height="234" align="center" valign="bottom"><h1 class='elegantshadow'>˚       skeletonKey       ˚</h1>
-              </p>
+            <td width="38%" height="234" align="center" valign="bottom"><h1 class='elegantshadow'>˚       skeletonKey       ˚</h1>
+             
               <p>A unified interface for ROMs, emulators and frontends.</p>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-  </p>
-  </td>
   <div id="outer">
-    <div id="inner"> <strong>
+    <div id="inner">
+     
+    <strong>
       <h99>[CURV]</h99>
       </strong><br>
       <em>for Windows</em><br>
@@ -42,8 +43,9 @@
         <button class="button button4">[WEBURL]/index.html</button>
         </a> </blockquote>
       <strong>Source code:</strong>&nbsp;<br>
+          <a id="COMMENT"></a>
+
       <blockquote> <a href="[GITSRC]">
-    <a id="COMMENT"></a>
         <button class="button button4">Github Page</button>
         </a> </blockquote>
       <p> (Repo)</p>
@@ -75,21 +77,18 @@
         </a>
         <p>Database files containting metadata. Extract this archive into your installation folder.</p>
       </blockquote>
-      <blockquote>
     </div>
+    
+  </div><p align="center">
     <br />
     <strong>Released :</strong>
     <h66>[RDATE]</h66>
-    <br />
-    </p>
-  </div>
-  </div>
-  </div>
+    <br /></p>
   <div align="center"> <a href="https://www.paypal.me/romjacket"><img src="tip.png" width="64" height="67" alt=""/></a><br>
     tip-jar<br>
     <input type="hidden" name="cmd" value="_s-xclick" />
     <input type="hidden" name="hosted_button_id" value="BEVC56LWSH6SU" />
-    <a href="https://www.paypal.me/romjacket"><strong>Click here for a good time</strong></a><br>
+    <a href="https://www.paypal.me/romjacket"><strong>Click here, you depraved deviants</strong></a><br>
     </form>
   </div>
   <div id="grad1">
@@ -113,23 +112,38 @@
   <div id="outer">
     <div id="inner">
       <h3>To Do:</h3>
-      <p>please leave a comment with your suggestions</p>
-    </div>
+    <blockquote>Mednafen Joystick calibrations.  Executable creation.  MAME configuration (softlist integration).  Auto-Emulator/core installation.
+</blockquote>    </div>
   </div>
-  <div> <a id="TUTORIALS"></a>
+   <div> <a id="TUTORIALS"></a>
     
     <div id="grad1" align="center">
+     
       <h1 class='deepshadow'><br>
         USAGE</h1>
-      <div align="center"> <a href="#img1">
-        <button class="button button4">Setup Tutorial</button>
-        </a> <a href="#img2">
+		<div align="center"> <a href="https://www.youtube.com/embed/64liF2VuLxI?showinfo=0" class="lightbox">
+        <button class="button button4  ">Setup Tutorial</button>
+        
+        </a> <a href="https://www.youtube.com/embed/xlcywgEMuGI?showinfo=0" class="lightbox">
         <button class="button button4">Launching ROMs</button>
-        </a> <a href="#img3">
+        </a> <a href="https://www.youtube.com/embed/S27w6sNVcCQ?showinfo=0" class="lightbox">
         <button class="button button4">Creating ROM-Jackets</button>
-        </a> <a href="#img4">
+        </a> <a href="https://www.youtube.com/embed/bnsUkE8i0tU?showinfo=0" class="lightbox">
         <button class="button button4">Deploying an HTPC Gaming Frontend</button>
-        </a> </div>
+        </a> 
+        
+        
+        </div>
+        
+    
+    <div id="youtubelightbox" class="parent">
+	<div class="centeredchild">
+		<div class="videowrapper">
+		<div id="playerdiv"></div>
+		</div>
+	</div>
+</div>
+        
       <a id="USE"></a>
       <p>&nbsp;</p>
       <p><br>
@@ -137,6 +151,7 @@
         <br>
       </p>
     </div>
+   
     <div id="outer">
     <div id="inner">
       <p>SkeletonKey functions both as a ROM launcher and as a backend configuration tool for HTPC frontends.</p>
@@ -165,15 +180,31 @@
       <p>An emulator-preset can be specified to override any assocation from the command-line.</p>
       <p>SkeletonKey accepts the option <code>-run=</code> followed by the nickname of the emulator preset followed by the path to the rom. Any options specified by the preset are respected.<br>
       </p>
+                        <div class="wrapper">  
+     <div class="tab">
+      <input id="tab-cli" type="checkbox" name="tabs">
+      <label for="tab-cli">CLI Details }></label>
+      <div class="tab-content">
       <p>SkeletonKey launched from the command line <em>without</em> this option functions identically to drag'n drop.</p>
       <p> <em> ...nkey&gt; </em><code> skeletonKey.exe -run=NickName &quot;C:\Library\Console Name\Rom Name\rom file.rom&quot;</code><br>
-      <blockquote><span style="font-size: x-small"> **Nicknames must not contain spaces**</span>
-        </p>
+      <span style="font-size: x-small"> **Nicknames must not contain spaces**</span>
+		 </div></div></div>
+        </p><blockquote>
         <h3>Portable Mode</h3>
       </blockquote>
-      <p>Skeletonkey can be run from a thumbdrive or other portable drive. The Portable.bat file should be run from the portable device when first starting skeletonKey from a portable drive on a new computer or if the drive letter of the portable device has changed. </p>
-      <p>Many users may desire to transfer an existing skeletonKey installation to a portable drive and the portable utility should facilitate the conifiguration migration. Migration options for the portable utility include localization of items to the drive for playlists and simple search &amp; replace. Retroarch and skletonKey's other emulators' per-game settings are updated to reflect the new portable skeletonKey location.</p>
+      <p>Skeletonkey can be run from a thumbdrive or other portable drive. Many users may desire to transfer an existing skeletonKey installation to a portable drive and the portable utility should facilitate the conifiguration migration. </p>
+      
+                         <div class="wrapper">  
+     <div class="tab">
+      <input id="tab-portable" type="checkbox" name="tabs">
+      <label for="tab-portable">Portable Details }></label>
+      <div class="tab-content">
+      
+      <p> The Portable.bat file should be run from the portable device when first starting skeletonKey from a portable drive on a new computer or if the drive letter of the portable device has changed. <br>Migration options for the portable utility include localization of items to the drive for playlists and simple search &amp; replace. Retroarch and skletonKey's other emulators' per-game settings are updated to reflect the new portable skeletonKey location.</p>
       <p>If you already have skeletonKey and retroArch intalled, copy the folders to your portable drive and run the Portable.bat in the skeletonKey folder on the portable drive.</p>
+		 </div>
+		 </div>
+		 </div>
       <blockquote>
         <h3>Forking</h3>
       </blockquote>
@@ -195,7 +226,7 @@
       <blockquote>
         <h4>Systems Directory</h4>
       </blockquote>
-      <p>By default, ROMs are <em>[categorically]</em> stored by system-name in the<code> <em>..[Systems ROOT]</em>\<em>[SYSTEM NAME]</em></code> folder.<br>
+      <p>By default, ROMs are <em>[categorically]</em> stored by system-name in the<code> <em>..[Systems ROOT]</em>\<em>[SYSTEM NAME]</em></code> folder.<br>
         RetroArch's <code>"core_assets_directory"</code> should be assigned to the <code>[Systems ROOT]</code> folder. <br>
         Archive.org ROMs will be downloaded to the corresponding system name which follows the no-intro naming nomenclature. </p>
       <blockquote>
@@ -205,10 +236,19 @@
       <blockquote>
         <h4>BSL - Batch-Script-Launcher</h4>
       </blockquote>
-      <p>Typically, a frontend will assign an emluator to a directory containing a set of ROMs with a list of supported extensions. (eg: nestopia.exe will open all .nes, .zip, and .fds files in the NES folder)</p>
-      <p>In this case the BSL.exe is used as the &quot;emulator&quot; where &quot;.bat&quot; or &quot;.lnk&quot; is the extension for any ROM-Jacket library. The BSL will execute the ROM-Jacket launcher while assisting the visibility and state of other assets.<br>
-        BSL can override settings defined by ROM-Jacket launchers  and provides a convenient way to enable custom tools to accomodate new HTPC frontends.<br>
+      <p>The BSL can override settings defined by ROM-Jacket launchers  and provides a convenient way to enable custom tools to accomodate new HTPC frontends. The BSL will execute the ROM-Jacket launcher while assisting the visibility and state of other assets.</p>
+                      <div class="wrapper">  
+     <div class="tab">
+      <input id="tab-bsl" type="checkbox" name="tabs">
+      <label for="tab-bsl">BSL Details }></label>
+      <div class="tab-content">
+
+       <p>Typically, a frontend will assign an emluator to a directory containing a set of ROMs with a list of supported extensions. (eg: nestopia.exe will open all .nes, .zip, and .fds files in the NES folder)<br>In this case the BSL.exe is used as the &quot;emulator&quot; where &quot;.bat&quot; or &quot;.lnk&quot; is the extension for any ROM-Jacket library. <br>
+        <br>
       </p>
+    </div>
+    </div>
+    </div>
     </div>
   </div>
     
@@ -275,8 +315,10 @@
         <h3>[X] Clear button</h3>
       </blockquote>
       <p>Clears all current launch options. Right-click on this to delete ROM settings for the emultor in the EMU List.</p>
+    </div>
+     <div id="inner">
       <blockquote>
-        <h3>Emulator Options </h3>
+        <h2 style="">Emulator Options </h2>
       </blockquote>
       <p>These options are dynamically loaded for each emulator. Settings changed by the user at run-time should load and populate the GUI after lauching.</p>
       <blockquote>
@@ -305,7 +347,7 @@
       <blockquote>
         <h3>Installing RetroArch &amp; cores</h3>
       </blockquote>
-      <p>RetroArch and components can be installed separately or as a single package (stable). The "RetroArch" list item includes all components needed by retroArch. The most recent nightly build as well as the stable version are available. A core-upate button will check for cores with updates to upgrade en-masse. </p>
+      <p>RetroArch and components can be installed separately or as a single package (stable). The "RetroArch" list item includes all components needed by retroArch. The most recent nightly build as well as the stable version are available. A core-upate button will check for cores with updates to upgrade en-masse. </p>
       <blockquote>
         <h3>Installing BIOS Files</h3>
       </blockquote>
@@ -331,45 +373,66 @@
       <p> The Associations section of the Install tab can be used to change the association of a system to a core, an emulator or nickname. </p>
       <p>Skeletonkey can detect and assign emulators or a designated retroArch core to a system/s, however it may be desireable to create and configure systems and associations manually. A unique system-identifier or &quot;nickname&quot; can be created to create custom systems and associated emulator-presets.</p><p>Associating an emulator to a system creates a unique set of preferences for the emulator and assigns this set a nickname which can also be assigned to other systems. Right clicking on the System List or emu/core dropdowns will bring up menus to quickly configure or associate systems with emulators and cores. </p>
       <p>The default association defines how skeletonKey will automatically launch ROMs categorically, however multiple nicknames/emulators can be assigned to a system to populate ::&gt;/r-click.</p>
+                 <div class="wrapper">  
+     <div class="tab">
+      <input id="tab-asoc" type="checkbox" name="tabs">
+      <label for="tab-asoc">Association Details }></label>
+      <div class="tab-content">
+
       <blockquote>
         <blockquote>
-          <p> Systems are defined in part by file-extensions exclusive to the system. 
-            <em>(eg: nestopia.exe [and retroarch's nestopia_libretro.dll core] by default are to assigned to the NES) &amp; (eg: ONLY the Nintendo Entertainment System uses the <strong>.nes</strong> file-extension)</em><br>
+          <p> Systems are defined in part by file-extensions exclusive to the system. 
+            <em>(eg: nestopia.exe [and retroarch's nestopia_libretro.dll core] by default are to assigned to the NES) &amp; (eg: ONLY the Nintendo Entertainment System uses the <strong>.nes</strong> file-extension)</em><br>
             Because an emulator may have multiple system-assocations, some will require a unique &quot;system identifier&quot; nickname.<br>
-            <span style="font-size: xx-small"> Extensions which are shared by multiple systems <em>(e.g: MANY systems support the extension ''<strong>.bin</strong>'')</em> can be assigned to any core or emulator. 4 sets of extensions are available.</span> <br>
+            <span style="font-size: xx-small"> Extensions which are shared by multiple systems <em>(e.g: MANY systems support the extension ''<strong>.bin</strong>'')</em> can be assigned to any core or emulator. 4 sets of extensions are available.</span> <br>
           </p>
         </blockquote>
       </blockquote>
-      <p>Options, arguments, quotes, ROM-paths and the extension can be adjusted to suit an emulator's needs. <br>
-        <strong>Spaces are observed</strong> for options, arguments and command-lines.<br>
-        The <code>&lt;</code> charachter must be escaped <code>`&lt;</code> or it will be converted to a space.</p>
-<blockquote>
+		 </div>
+				   </div>
+		</div>
+      <p>Options, arguments, quotes, ROM-paths and the extension can be adjusted to suit an emulator's needs.</p>
+           <div class="wrapper">  
+     <div class="tab">
+      <input id="tab-opt" type="checkbox" name="tabs">
+      <label for="tab-opt">Option Details }></label>
+      <div class="tab-content">
+
+       <blockquote>
         <blockquote>
-          <p><strong><code>[CUSTMOPT]</code></strong> &amp; <strong><code>[CUSTMARG]</code></strong> are  special tags assigned to MAME and other emulators which allow the passing of overriding options and arguments at runtime via the &quot;switches&quot; checkbox in the Global-Launch-Menu or Repository-Systems-Menu.<br>
+          <p>
+Spaces are observed for options, arguments and command-lines.<br>
+The  charachter must be escaped  or it will be converted to a space.<br><strong><code>[CUSTMOPT]</code></strong> &amp; <strong><code>[CUSTMARG]</code></strong> are  special tags assigned to MAME and other emulators which allow the passing of overriding options and arguments at runtime via the &quot;switches&quot; checkbox in the Global-Launch-Menu or Repository-Systems-Menu.<br>
             !!!!Enabling the &quot;switches&quot; override will deactivate preset options such as auto-system and ROM-type detection!!!!<br>
             Many MAME systems and several supported emulators options and arguments are available as presets for custom options &amp; arguments.</p>
         </blockquote>
+	      </div>
+   		     </div>
+      </div>
         <h4>Per-Game Configurations:</h4>
-      </blockquote>
       <a id="ASSOC"></a>
       <p>SkeletonKey can retain emulator settings for each game (configuration files, save-states, battery-saves/nvram) under supported emulators. Any changes that are made during gameplay will be saved.</p>
-      <blockquote>
-        <blockquote>
+           <div class="wrapper">  
+     <div class="tab">
+      <input id="tab-pgdt" type="checkbox" name="tabs">
+      <label for="tab-pgdt">Per-Game Details }></label>
+      <div class="tab-content">
           <blockquote>
             <p><strong>Operational Details:</strong><br>
-              SkeletonKey copies and moves these configuration files back and forth between the emulator's folder and the per-game configuration folder before and after the emulator runs. <br>
+              SkeletonKey copies and moves these configuration files back and forth between the emulator's folder and the per-game configuration folder before and after the emulator runs. <br>
               Configuration files are stored inside a folder of the ROM's name. A folder for each system can be located in the skeletonKey installation folder under the "cfg" directory. EG:
       <br>
       <code>\...\skeletonKey\cfg\System - Name\emulator\ROM Title\config.ini</code><br>
         For retroArch, per-game settings are stored in <br>
         <code>retroarch-folder\config</code>\core name\ROM Title.cfg
         </p>
-         
-          </blockquote>
-        </blockquote>
-      </blockquote>
+            </blockquote>
+              
       <p>ROMs dropped to the desktop icon which are not identified as belonging exclusively to a core/emulator will bring up a menu allowing users to quickly select a core/emulaor preset.</p>
 </div>
+  </div>
+  </div>
+  </div>
   </div>
     <h1 class='elegantshadow'>Drivers</h1>
   <div id="outer">
@@ -377,47 +440,50 @@
       <blockquote>
         <h3>Visual C++</h3>
       </blockquote>
-      <br>
       <p>Many emulators require these runtimes</p>
       <br>
       <blockquote>
-        <h3>DirectX<br>
+        <h3>DirectX
         </h3>
-        <h3>Disc Mounting</h3>
-      </blockquote>
+      </blockquote>Required by many emulators.<br>
       <br>
       <blockquote>
         <h3>XBox360 Drivers</h3>
       </blockquote>
-      <br>
       <p>This installs the XBox 360 Joystick drivers from Microsoft. These are needed for Windows Vista and 7.</p>
       <br>
       <blockquote>
         <h3>SCP Wrapper for Dualshock Joysticks</h3>
       </blockquote>
-      <br>
-      <p>This installs the SCP Wrapper for Sony Dualshock joysticks.</p>
-      <p>This is the most reliable and easiest way for DS3/4 users to use their joysticks in Windows 7/8x-10.</p>
+      <p>The SCP Wrapper is a driver for bluetooth Sony Dualshock joysticks.<br>
+      This is the most reliable and easiest way for DS3/4 users to use their joysticks in Windows 7/8x-10.</p>
       <br>
       <blockquote>
         <h3>DS4Windows</h3>
       </blockquote>
-      <br>
       <p>DS4Windows is a Sony DualShock 4 driver for windows. It is installed however the configuration of this driver is left to the user.</p>
       <blockquote>
         <h2  class="inset">Daemon Tools</h2>
       </blockquote>
-      <p>For systems windowsXP-&gt;windows 8.x, skeletonKey can automatically install this program through the command-line which will NOT install the included toolbar or any additional software. Windows 10 users who need Daemon Tools should be download and install it separately. </p>
+      <p>For systems windowsXP-&gt;windows 8.x, skeletonKey can automatically install this program through the command-line which will NOT install the included toolbar or any additional software. Windows 10 users who need Daemon Tools should be download and install it separately. </p>
       <p>The Daemon Tools program is needed for the SSF Sega Saturn emulator, the UNZ FM-Towns emulator and may be required for any emulator which cannot directly read cd/dvd image files. Mounting disc images with Daemon Tools is desireable for users who wish to switch disks reliably or have discs in formats unreadable by the emulator.<br>
       </p>
-      <p>!!!!IMPORTANT!!!!<br>
+                        <div class="wrapper">  
+     <div class="tab">
+      <input id="tab-bsl" type="checkbox" name="tabs">
+      <label for="tab-bsl">Daemon Tools Details }></label>
+      <div class="tab-content">
+       <p>!!!!IMPORTANT!!!!<br>
         Open the Daemon Tools program.<br>
-        If you do not have a SCSI drive in the list, add a SCSI drive. <br>
+        If you do not have a SCSI drive in the list, add a SCSI drive. <br>
         Right click on the new drive icon.<br>
         select Device Paramaters<br>
         <br>
         Uncheck Auto insert notification<br>
       </p>
+		 </div>
+						  </div>
+		</div>
       <blockquote>
         <h2  class="inset">Joystick Drivers</h2>
       </blockquote>
@@ -439,9 +505,9 @@
     <div id="inner">
       <p>Up to 16 Joysticks are supported (through multiaps). Each core can also have input_remaps.</p>
       <blockquote>
-        <h4><a>Joystick Options</a> </h4>
+        <h4><a>Joystick Options</a> </h4>
       </blockquote>
-      <p>Joystick options are dynamic and respond to the currently selected input-remap system.</p>
+      <p>Joystick options are dynamic and respond to the currently selected input-remap system. </p>
     </div>
   </div>
   <br>
@@ -472,17 +538,31 @@
       </blockquote>
       <p> The playlist database is a compiled collection of all playlists which allows netplay-matches and searching for ROMs in very large libraries very fast.</p>
       <p>&nbsp;</p>
-      <blockquote>
+  </div>
+     <div id="inner">
+  <blockquote>
         <h2  class="inset">EmulationStation</h2>
       </blockquote>
-      <p>Like emulationStation's system-list, emulationStation gamelists are xml files which contain standard metadata tags. Absolute paths to assets such as images and video files are accepted, however relative paths are also accepted, making the entire frontend portable across platforms (*nix/apple/windows). Assets can be arranged &amp; named uniquely, however skeletonKey propagates assets to an emulationStation deployment which follows a local-layout and naming options as such:</p>
-      <p>Box-Art files: ~/downloaded_images/[ROM_TITLE]-image.png<br>
-        Marquee images: ~/downloaded_images/[ROM_TITLE]-marquee.png<br>
-        Thumbnail images: ~/downloaded_images/[ROM_TITLE]-thumb.png<br>
-        Marquee images: ~/downloaded_images/[ROM_TITLE]-marquee.png<br>
-        Video snaps: ~/downloaded_images/[ROM_TITLE]-video.mp4<br>
-      </p>
-    </div>
+      <p>SkeletonKey can create and edit gamelist.xml files which can be to used cull ROM directories and display custom playlists. The existing es_systems.cfg will be loaded and inherited systems' directories will become available. Several options exist to populate gamelist.xml files with artwork and ROM metadata.</p>
+      <div class="wrapper">
+        <div class="tab">
+      <input id="tab-esex" type="checkbox" name="tabs">
+      <label for="tab-esex">EmulationStation Layout }></label>
+      <div class="tab-content">
+
+       
+       <div class="wrapper"></div>
+       <p>Like emulationStation's es_systems.cfg, emulationStation gamelists are xml files which contain standard metadata tags. Absolute paths to assets such as images and video files are accepted, however relative paths are also accepted, making the entire frontend portable across platforms (*nix/apple/windows). Assets can be arranged &amp; named uniquely, however skeletonKey propagates assets to an emulationStation deployment which follows a local-layout. </p>
+       <p>Box-Art files: ~/downloaded_images/[ROM_TITLE]-image.png<br>
+         Marquee images: ~/downloaded_images/[ROM_TITLE]-marquee.png<br>
+         Thumbnail images: ~/downloaded_images/[ROM_TITLE]-thumb.png<br>
+         Marquee images: ~/downloaded_images/[ROM_TITLE]-marquee.png<br>
+         Video snaps: ~/downloaded_images/[ROM_TITLE]-video.mp4<br>
+       </p>
+      </div>
+      </div>
+      </div>
+      </div>
   </div>
   <br>
   
@@ -490,7 +570,7 @@
   <div id="outer">
     <div id="inner"> Remote repositories such as archive.org's ROM libraries can be launched and hosted via this tab.  The Archive Tab can be used to list, search, download and emulate the ROMs available on remote repositories such as archive.org. This tab is brought forward automatically under certain conditions while connecting to players listed in the netplay tab.
       <blockquote>
-        <h4><a>Repository Options</a> </h4>
+        <h4><a>Repository Options</a> </h4>
       </blockquote>
       <p>Options to download into a ROM-Jacket, manual overrides and extraction settings for compressed files Most options available in the Main tab's Launch-menu are available.</p>
       <p>Enabling the &quot;Download Only&quot; option will allow multiple files to be selected and queued.<br>
@@ -520,13 +600,13 @@
       <p>Selecting &quot;<strong>ROMs</strong>&quot; in the Media interface will enable ROM-paths to be defined for supported systems.</p>
       <blockquote>
         <p>Caveats: Python must be installed to download videos from youtube.</p>
-        <h4><a>Media Options</a> </h4>
+        <h4><a>Media Options</a> </h4>
         <h2  class="inset">XMB</h2>
       </blockquote>
-      <p>XMB is retroArch's premiere GUI with thumnail support. <br>
+      <p>XMB is retroArch's premiere GUI with thumnail support. <br>
         Using skeletonKey users can easily see which thumnails have been downloaded and copy any image to match the names corresponding to the unmatched ROMs .</p>
       <blockquote>
-        <h4><a>XMB Menu Options</a> </h4>
+        <h4><a>XMB Menu Options</a> </h4>
       </blockquote>
       <div>
         <blockquote>
@@ -538,31 +618,35 @@
         <blockquote> The Paradigm: Like Media Browser, emulationStation automatically adds any ROMs found in a directory to its database, however skeletonkey can edit and create gamelist.xml playlist-files to explicitly parse.
           <p> Caveats:<br>
           </p>
-          <h4><a>EmulationStation Menu Options</a> </h4>
+          <h4><a>EmulationStation Menu Options</a> </h4>
           <h2  class="inset">Mirrored Links </h2>
         </blockquote>
         <p>Mirrored Links are Windows shortcuts.<br>
         </p>
         <p>Leveraging Windows shortcuts allows for easy customization of frontends.  As these files can be moved, copied and deleted without affecting launchers or ROM-Jackets, creating custom playlists is as easy as navigating Windows Explorer.</p>
         <blockquote>
-          <h4><a>Mirrored Links Menu Options</a> </h4>
+          <h4><a>Mirrored Links Menu Options</a> </h4>
         </blockquote>
         <p>Each Mirrored file can be assigned an icon found </p>
         
-        <blockquote><span style="font-size: xx-small">
+                <div class="wrapper">  
+     <div class="tab">
+      <input id="tab-fes" type="checkbox" name="tabs">
+      <label for="tab-fes">In Development</label>
+      <div class="tab-content">
+         <blockquote>
           <h2  class="inset">Media Browser</h2>
-          </span></blockquote>
-        <span style="font-size: xx-small"> Media Browser for Windows Media Center
-        </p>
-        </span>
-        <blockquote><span style="font-size: xx-small">
-          <h2  class="inset">Hyperspin </h2>
-          </span></blockquote>
-        <span style="font-size: xx-small"> <a>Hyperspin</a>
+        </blockquote>
+         Media Browser for Windows Media Center
+        
+        <blockquote>
+            <h2  class="inset">Hyperspin </h2>
+        </blockquote>
+         <a>Hyperspin</a>
           <blockquote>
             <h2  class="inset">retroFE</h2>
           </blockquote>
-          <p><a>retro-FE</a></p>
+          <a>retro-FE</a>
         <div>
           <blockquote>
             <h2  class="inset">KODI/XBMC</h2>
@@ -586,10 +670,10 @@
           </li>
         </ul>
         The Internet Archive ROM Launcher (IARL). </span>
-        <div id="outer2">
-          <h2>&nbsp;</h2>
         </div>
-      </div>
+                  </div>
+          </div>
+        </div>
     </div>
     <p>&nbsp;</p>
   </div>
@@ -600,7 +684,7 @@
     <div id="inner">
       <p>Configure Cores and create core-configuration overrides.</p>
       <blockquote>
-        <h4><a>Retroarch Core Options</a> </h4>
+        <h4><a>Retroarch Core Options</a> </h4>
       </blockquote>
     </div>
   </div>
@@ -611,28 +695,36 @@
   <div id="outer"> <br>
       <div id="inner">
         <blockquote>
-          <h4><a>Netplay Options</a> </h4>
+          <h4><a>Netplay Options</a> </h4>
         </blockquote>
-        <p>It is recommended <u><em>(not required) </em></u>for retroArch netplay users to create playlists containing all ROMs on their computer that they wish to play online. <br>
-          SkeletonKey employs unique matching methods which enable users to connect dynamically however, selecting "All_Playlists" from the drop-down menu will allow skeletonKey to find a matching hash or ROM name from all of your playlists.</p>
+        <p>It is recommended <u><em>(not required) </em></u>for retroArch netplay users to create playlists containing all ROMs on their computer that they wish to play online. .</p>
         <blockquote>
           <h3>Hosting:</h3>
         </blockquote>
         <p>In the Main tab, settings such as delay-frames, port number and file-server port can be adjusted.</p>
-        <p>Enabling the file-server will compress the ROM in zip format and copy it to the <code>\...\systems\netplay\</code> directory prior to hosting. (if it isn't already zip-compressed.) <br>
-          In the Archive tab, users can select any ROM from the archive to host. <br>
-          SkeletonKey hosts with the file-server option enabled wll appear with the port number in brackets prefixed to their username. <br>
-          This <code>[tag]</code> is automatically detected by skeletonKey clients which will enable the "Recieve ROM" option to download the file from the host to play automatically. <br>
-        </p>
+        <p>In the Archive tab, users can select any ROM from the archive to host.        </p>
         <blockquote>
           <h3>Connecting:</h3>
         </blockquote>
-        <p>In the Netplay Tab, refreshing the hosts will populate the lobby with currently hosted ROMs. Selecting a host will allow skeletonKey to look in the currently selected ROM directory or playlist file for a matching ROM. If a matching CRC hash to the host's ROM file is not automatically detected, skeletonKey will try to match the name of the ROM's title. Users may opt to force a connection to a host using any ROM populated in the ROM list or browse to select a ROM. If the ROM is not located in the current local setup, enabling the &quot;web-lookup&quot; option will select a ROM from the Archve tab and make a connecting available.</p>
+        <p>In the Netplay Tab, refreshing the hosts will populate the lobby with currently hosted ROMs. If the ROM is not located on disk, enabling the &quot;web-lookup&quot; option will select a ROM from the Archve tab and make a connecting available.</p>
         <p><br>
         </p>
-        <h5>Tips for Netplay:</h5>
-        In the Main tab, uncheck "Pause In Background" &amp; in the Frontends tab, select &quot;XMB&quot; and uncheck "Pause In Menu" to keep gameplay active and will help maintain a synced connection while adjusting settings. <br>
+              <div class="wrapper">  
+     <div class="tab">
+      <input id="tab-netplt" type="checkbox" name="tabs">
+      <label for="tab-netplt">Netplay Details }></label>
+      <div class="tab-content">
+           
+SkeletonKey employs unique matching methods which enable users to connect dynamically however, selecting "All_Playlists" from the drop-down menu will allow skeletonKey to find a matching hash or ROM name from all of your playlists<br>
+            In the Main tab, uncheck "Pause In Background" &amp; in the Frontends tab, select &quot;XMB&quot; and uncheck "Pause In Menu" to keep gameplay active and will help maintain a synced connection while adjusting settings. <br>Selecting a host will allow skeletonKey to look in the currently selected ROM directory or playlist file for a matching ROM.<br> If a matching CRC hash to the host's ROM file is not automatically detected, skeletonKey will try to match the name of the ROM's title. Users may opt to force a connection to a host using any ROM populated in the ROM list or browse to select a ROM.
+        Enabling the file-server will compress the ROM in zip format and copy it to the \...\systems\netplay\ directory prior to hosting. (if it isn't already zip-compressed.) <br>
+SkeletonKey hosts with the file-server option enabled wll appear with the port number in brackets prefixed to their username. <br>
+This [tag] is automatically detected by skeletonKey clients which will enable the "Recieve ROM" option to download the file from the host to play automatically. 
       </div>
+            </div>
+      </div>
+      </div>
+
     </div>
     <a id="ROMJACKETS"></a>
     
@@ -643,11 +735,9 @@
       </div>
       <div id="inner">
         <blockquote>
-          <h2  class="inset"><a>Jacket Options</a> </h2>
+          <h2  class="inset"><a>Jacketizing Options</a> </h2>
           <blockquote>
-            <blockquote>
-              <p><strong>Overview</strong> </p>
-            </blockquote>
+              <h3>Overview</h3>
           </blockquote>
         </blockquote>
         <p> RoM-Jackets are folders which contain a ROM, any individual settings it may have for emulators, artwork, assets and a launcher to maintain  files contained in the jacket indipendently from other titles for any given system or emulator. <br>
@@ -660,6 +750,12 @@
           <li>Settings must be maintained between sessions</li>
           <li>native windows mechanisms and abstractions will be used to design/curate HTPC environments</li>
         </ul>
+               <div class="wrapper">  
+     <div class="tab">
+      <input id="tab-devm" type="checkbox" name="tabs">
+      <label for="tab-devm">Operational Details }></label>
+      <div class="tab-content">
+
         To achieve this, each jacket's batch-script-launcher copies its emulator-configuration files and any changes made to the emulator during gameplay will be saved back to the jacket after exiting.
         <p>For those interested in developing for the RoM-Jacket spec, a few principles should be observed:</p>
         <p>Launchers should be executable natively by the operating system, make no changes to the system environment and any augmenting behavior beyond the emulator should be disabled unless specifically detected <br>
@@ -668,11 +764,17 @@
           Guidelines forthcoming...</p>
         <p><br>
         </p>
+		 </div>
+			     </div>
+		  </div>
+	  </div>
+     <div id="inner">
         <blockquote>
           <h2  class="inset">Systems</h2>
         </blockquote>
-        <p>When a system is loaded into the Jacket tab, the ROMs and Jackets contained within the system's directory will populate and can be filtered into the list on the left side of the tab. Settings in the Jacket tab can be saved for each system. Each system has a default emulator associated with it which will populate with previously slected options or a configuraiton which is designed to be compatible with a very low-spec PC. </p>
-        <p>By default, skeletonKey will assign  retroArch's <code>core_assets_directory or (downloads directory)</code>, to the &quot;Systems&quot; directory location, however users may define these from main options screen by selecting &quot;Options&quot; from the file menu. </p>
+        <p>When a system is loaded into the Jacket tab, the ROMs and Jackets contained within the system's directory will populate and can be filtered into the list on the left side of the tab. Settings in the Jacket tab can be saved for each system. Each system has a default emulator associated with it which will populate with previously slected options or a configuraiton which is designed to be compatible with a very low-spec PC.	  </p>
+     </div>
+     <div id="inner">
         <blockquote>
           <h2  class="inset">Jackets</h2>
         </blockquote>
@@ -681,10 +783,16 @@
           <p><strong><em>Consolidate vs. Individuate</em></strong></p>
         </blockquote>
         <p>ROM-Jackets are individuated by default, however the abundance of releases a title may have seen throughout the world is multiplied by versions the developer  released and again multiplied by  ROM-dumps. Subsequently many ROM-collections and system-libraries are simply too large and unwieldy for practical purposes. In the interest of bringing forth functional libraries it may be desireable to consolidate each title without regard for region or version. </p>
-        <blockquote>
+         <blockquote>
           <p><strong>Consolidate ( )[]</strong></p>
         </blockquote>
         <p>This will consolidate ROMs containing the same base-name, grouping each ROMs regional counterparts and multi-disc ROMs together into a single jacket. The base-name is the ROM's filename without any text in parenthesis or brackets. </p>
+               <div class="wrapper">  
+     <div class="tab">
+      <input id="tab-consolid" type="checkbox" name="tabs">
+      <label for="tab-consolid">Consolidation Example }></label>
+      <div class="tab-content">
+
         <p>eg: region, disk-number, rom-revision, &amp; any other superflous information is pruned to the game title.</p>
         <blockquote>
           <p><code>Folder: <strong>Game Title</strong>\</code></p>
@@ -705,8 +813,18 @@
           </blockquote>
         </blockquote>
         <p>Effectively, this will help eliminate the need to scroll through many different versions of games in a library and will help wrangle multi-disc games. This is the preferred method of folder-generation for users wishing to tame their library and generate friendly-names for their frontend. Launchers created for each consolidated jacket will be named with the base-name and the first alphabetical or [!] ROM will be launched by default.</p>
+</div>
+</div>
+</div>
+       
         <p><strong>Individuate</strong></p>
         <p>This will simply jacketize each ROM using the name of the file without the extension.</p>
+          <div class="wrapper">  
+     <div class="tab">
+      <input id="tab-indv" type="checkbox" name="tabs">
+      <label for="tab-indv">Individuate Example }&gt;</label>
+      <div class="tab-content">
+
         <p>eg: </p>
         <blockquote>
           <p><code>Folder: <strong>Game Title (USA)[v-1]</strong>\</code></p>
@@ -782,7 +900,9 @@
         </blockquote>
         <p><br>
         </p>
-        <h3>&nbsp;</h3>
+		 </div>
+	        </div>
+</div>
         <blockquote>
           <p><br>
             <br>
@@ -811,38 +931,59 @@
         <blockquote>
           <h3>PER-GAME</h3>
         </blockquote>
-        <p><br>
+        <p>
           Each ROM retains all unique emulator configuration files.<br>
-          Paradigm:<br>
-          All settings, quick-saves, save-files &amp; snapshots for the emulator are saved in the ROM-directory.<br>
-          The ROM's configuration for the emulator is copied to the proper location upon execution of the launcher. <br>
-          It should be noted that <a href="#ASSOC">skeletonKey's Launcher settings</a> have their own set of per-game settings which operate indipendently from RoM-Jackets (even when using the same ROM file).<br>
+          <br>
         </p>
+               <div class="wrapper">  
+     <div class="tab">
+      <input id="tab-pgcad" type="checkbox" name="tabs">
+      <label for="tab-pgcad">Per-Game Details }&gt;</label>
+      <div class="tab-content">
+
         <blockquote>
-          <p> <em>Caveats</em>:<br>
-            Some consoles use the same emulator and these consoles should use either Per-Game or Global settings (not both). <br>
+          <p> Paradigm:<br>
+All settings, quick-saves, save-files &amp; snapshots for the emulator are saved in the ROM-directory.<br>
+The ROM's configuration for the emulator is copied to the proper location upon execution of the launcher. <br>
+It should be noted that <a href="#ASSOC">skeletonKey's Launcher settings</a> have their own set of per-game settings which operate indipendently from RoM-Jackets (even when using the same ROM file).<br>Caveats:<br>
+            Some consoles use the same emulator and these consoles should use either Per-Game or Global settings (not both). <br>
             <br>
           </p>
           </p>
+		 </div>
+			     </div>
+</div>
+          <blockquote>
           <h3>GLOBAL</h3>
         </blockquote>
-        <p><br>
+        <p>
           All games using the assigned emulator have configurations and settings governed and maintained by the emulator.<br>
           Paradigm:<br>
           All settings, quick-saves, save-files &amp; snapshots for the emulator are saved in locations set by the emulator in its default state and any changes made to a game's settings in the console's set will be respected by all games using the global option.</p>
-        <blockquote>
-          <blockquote>
-            <p> <em>Caveats</em>:<br>
+                   <div class="wrapper">  
+     <div class="tab">
+      <input id="tab-gblcav" type="checkbox" name="tabs">
+      <label for="tab-gblcav">Global Details }&gt;</label>
+      <div class="tab-content">
+
+             <p> <em>Caveats</em>:<br>
               Any and all changes made to the emulator's settings will affect all other games.<br>
               Any multi-system emulator must be using a global option for all systems. </p>
-          </blockquote>
+		 </div>
+				     </div>
+</div>
           <h2  class="inset">Pre-Command / Post-Command</h2>
-          <h4>Local/Absolute</h4>
-        </blockquote>
+          <h3>Local/Absolute</h3>
         The Absolute option enables selecting a file via a file dialog box to be run.<br>
         The Local option enables any file (including a file not currently available via a dialog box)
         to be designated.<br>
         </p>
+               <div class="wrapper">  
+     <div class="tab">
+      <input id="tab-locab" type="checkbox" name="tabs">
+      <label for="tab-locab">Local/Absolute Details }&gt;</label>
+      <div class="tab-content">
+
         <p>Applications can be designated to run both before the emulator is launched and after the emulator exits. An option exists to allow the launcher to wait for the command to complete until proceeding, or continue to execute immedietlely after it is launched.<br>
           Command line options can be set for any command. Additionally, keywords can be entered which will be parsed by the launcher at runtime.  These include:<br>
         </p>
@@ -851,36 +992,45 @@
         <code>[ROM]</code>: This will designate the name of the ROM file without the extention. (useful for MAME)<br>
         <code>[EMUL]</code>: This will designate the directory path of the emulator.<br>
         <code>[EMUZ]</code>: This will designate the emulator execuatble.<br>
-        <blockquote>
-          <blockquote>
+
             <p><em>Paradigm</em>: Adding pre/post commands is intuitive, however it is possible to add a command inbetween commands after a set has already been assigned.  To do this, select the command which will preceed your new command and then press the add-command button <code>(+)</code>.</p>
-          </blockquote>
+            </div>
+</div>
+</div>
+          <blockquote>
           <h3>Emulators Presets</h3>
         </blockquote>
-        Each supported system has one or more emulators preconfigured for them. The default emulator will automatically be assigned with compatible settings, however any program can be assigned to any system. <br>
+        Each supported system has one or more emulators preconfigured for them. The default emulator will automatically be assigned with compatible settings, however any program can be assigned to any system. <br>
         The Paradigm:<br>
         Launchers are simply batch files that call the emulator against the ROM using the command-line interface using presets.<br>
         A supported fronend will use RoM-Jacket's BatchScriptLauncher program to control the frontend and execute the launcher.
         <blockquote>
-          <h2  class="inset"> Emulator Config Files</h2>
+          <h2  class="inset"> Emulator Config Files</h2>
         </blockquote>
         <p>These fields pre-populate with the currently selected emulator's preset commands. These commands are designed to maintain the Jacket's assets and will typically copy files back and forth between the Jacket and the emulator's directory.</p>
         <blockquote>
           <h3>Pre-Run / Post-Run</h3>
         </blockquote>
         <p>Similar to  &quot;Pre-Command / Post-Command&quot; these are commands which run before the emulator launches and after the emulator exits, however these commands execute before the &quot;Pre-Commands / Post-Commands&quot; respectively. You may enter any windows batch-script commands in these fields and likewise, keywords will be parsed.</p>
-        <blockquote>
-          <blockquote>
-            <p style="font-size: large"><em>Paradigms &amp; caveats</em></p>
-          </blockquote>
+      
+            <div class="wrapper">  
+     <div class="tab">
+      <input id="tab-ppr" type="checkbox" name="tabs">
+      <label for="tab-ppr">Pre/Post Details }&gt;</label>
+      <div class="tab-content">
           <p>ROM-Jackets can be deployed to suit the needs of a particular system which include requirements such as Disk-Grouping, however standardized naming has generally fit a modality allowing for simple identifiers to disregard and group (regional) and [developer-version] titles so that a library may be navigated using universal conventions.</p>
           <p>Many systems and emulators require unique and proprietary directory structures, naming schemes and locations and in such cases junction-linked files are jacketized.</p>
-			</div>
-        <h1 class='elegantshadow'>Keymapper</h1>
+		</div>
+       </div>
+       </div>
+       </div>
+       </div>
+        <h1 class='elegantshadow'>Keyboard Mapper</h1>
        <div id="outer">
+       <div id="inner">
         <br>
         <blockquote>
-          <h3>JoyMapper</h3>
+          <h2 style="inset">Keyboard-Mappers</h2>
         </blockquote>
         <br>
         <p>Xpadder and Antimicro programs are currently supported.</p>
@@ -905,14 +1055,20 @@
         </blockquote>
         <br>
         This is the default option for skeletonKey and creates a profile with only Emulator functionality mappings such as "Save/Load State" "Reset" "Exit/Power OFF" and unique functions such as "Rewind/Fast-forward. Emulators are configured to use directinput/xinput (XBOX 360 Joystick mappings).
-        <p> </p>
+        <p> </p>
+      </div>
       </div>
     </div>
     <a id="UTILITIES"></a>
     
       <h1 class='elegantshadow'>:=: Utilities :=:</h1>
     <div id="outer">
-      <div id="inner"> <span style="font-size: xx-small">
+            <div id="inner"> 
+       <div class="wrapper">  
+     <div class="tab">
+      <input id="tab-utl" type="checkbox" name="tabs">
+      <label for="tab-utl">In Development</label>
+      <div class="tab-content">
         <h3>Copy Cfg</h3>
         Similar to the portable utility, this allows you to propagate settings from one file throughout an entire console's library.<br>
         If a launcher is selected (.bat) Skeletonkey can propagate the file throughout a console's library and update or replace all other launchers.<br>
@@ -922,24 +1078,24 @@
         This is ideal for users who want to share saves or play from multiple computers.
         <h3>Execute</h3>
         <p>This allows you to select a ROM or an entire console's library to transform into a portable executable. The ROM, any additional files specified by the user, an emulator and special configuration files are compiled and saved to the location of your designation.<br>
-          If A Jacket with boxart is detected, it will be used as the icon for the executable and shortcut it creates if installed..</p>
-        <p> </p>
-        Caveats:<br>
-        WIP<br>
-        </span> </div>
+          If A Jacket with boxart is detected, it will be used as the icon for the executable and shortcut it creates if installed..<br>
+         </p>
+      </div>
+         </div>
+         </div>
     </div>
+</div>
     <a id="FAQS"></a> <a id="FAQS"></a>
     
-    <br>
     <h1 class='elegantshadow'>FAQs:</h1>
     <div id="outer">
       <div id="inner">
         <p><strong>Question: </strong>I'm having trouble with a feature.  Can you Help?</p>
-        <p><strong>Answer:</strong> Use the form at the <a href="#COMMENT">top of the page</a> or create an issue on github</p>
+        <p><strong>Answer:</strong> Use the form at the <a href="#COMMENT">top of the page</a> or create an issue on github</p>
         <p><strong>Question: </strong>Does this work in linux?</p>
-        <p><strong>Answer:</strong> All functions seemed to work in a WINEbox I tested this in, even netplay. I'm very interested in programmable bash-script launchers.</p>
-        <p><strong>Question:</strong> I want to see a feature implemented or  do something with skeletonKey it cannot currently do.</p>
-        <p><strong>Answer:</strong> <a href="https://www.paypal.me/romjacket">Donate</a></p>
+        <p><strong>Answer:</strong> All functions seemed to work in a WINEbox I tested this in, even netplay. I'm very interested in programmable bash-script launchers.</p>
+        <p><strong>Question:</strong> I want to see a feature implemented or  do something with skeletonKey it cannot currently do.</p>
+        <p><strong>Answer:</strong> <a href="https://www.paypal.me/romjacket">Donate</a></p>
       </div>
     </div>
   </div>
@@ -949,74 +1105,158 @@
     <div id="grad1">
       <h1 class='deepshadow' align="center">&nbsp;</h1>
       <h1 class='deepshadow' align="center">RESOURCES</h1>
-      <h1 class='deepshadow' align="center"><img src="splash.png" width="354" height="455" alt=""/></h1>
+      <h1 align="center"><img src="splash.png" width="354" height="455" alt=""/></h1>
       <footer>Pay attention to the status bar.</footer>
     </div>
   </div>
   </body>
-</main>
-<script>
-// When the user scrolls down 20px from the top of the document, slide down the navbar
-window.onscroll = function() {scrollFunction()};
 
-function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("navbar").style.top = "0";
-    } else {
-        document.getElementById("navbar").style.top = "-50px";
-    }
-}
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(e) {
-  if (!e.target.matches('.dropbtn')) {
-    var myDropdown = document.getElementById("myDropdown");
-      if (myDropdown.classList.contains('show')) {
-        myDropdown.classList.remove('show');
-      }
-  }
-}
-    </script>
-<script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24JLRJucSrI22etQ%2FQfGi39%2F"+"&opts=16862&num=10&ts=1456170236723");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
-<script>
-	var tag = document.createElement('script'); tag.src = 'http://www.youtube.com/iframe_api'; var firstScriptTag = document.getElementsByTagName('script')[0]; firstScriptTag.parentNode.insertBefore(tag , firstScriptTag);
-
-
-var player = {drills_player: {name: "drills_player", myplayer: ""}};
-
-
-function onYouTubeIframeAPIReady () { for (var key in players) { if(players.hasOwnProperty(key)) { players[key].myplayer = new YT.Player( players[key].name , { events: {'onStateChange': onPlayerStateChange } }); } } };
-
-
-function onPlayerStateChange(e) { for (var key in players) { if (players.hasOwnProperty(key)) { if (e.data == 0) { players[key].myplayer.seekTo(0 , true); players[key].myplayer.pauseVideo(); } } } }
-
-
-function closevids($player) { players[$player].myplayer.seekTo(0 , true); players[$player].myplayer.pauseVideo(); }
-
-$('.close').click(function () { var $player = $(this).parent().siblings().find('iframe').attr('id'); closevids($player); });
-
-
-$('.bs-modal-lg').click(function () { var $player = $(this).find('iframe').attr('id'); closevids($player); });
-</script>
-<script>$(document).ready(function(){
-    $('.modal').each(function(){
-            var src = $(this).find('iframe').attr('src');
-
-        $(this).on('click', function(){
-
-            $(this).find('iframe').attr('src', '');
-            $(this).find('iframe').attr('src', src);
-
-        });
-    });
-});</script>
 <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
-<style type="text/css">
+<style>
+	body {
+		
+		background-color: #e7e5e4;
+	}
+</style>
+<style>
+
+	/* Parent element can be any width and height */ 
+.parent{
+	position: fixed;
+	width: 100%; /* can be any width */
+	height: 100%;
+	left: 0;
+	top: 0;
+	display: none;
+	text-align: center;
+}
+
+.parent:before{ /* pseudo element to force vertical centering of child element */
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+
+.parent:after{ /* pseudo element to create overlay */
+	background: black;
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	opacity: 0.5;
+	z-index: 10;
+}
+
+/* Centered child element can be any width and height */ 
+.centeredchild{
+	position: relative; /* position element to participate in z-indexing */
+	z-index: 20; /* higher z-index than overlay */
+	display: inline-block;
+	vertical-align: middle;
+	width: 80%; /* can be any width */
+}
+
+/* Video container to maintain Youtube 16:9 aspect ratio */ 
+.videowrapper{
+	position: relative;
+	padding-top: 25px;
+	padding-bottom: 56.25%; /* 16:9 aspect ratio */
+	height: 0;
+}
+
+/* Make Youtube IFRAME responsive */ 
+.videowrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+</style>
+
+<script>
+
+// load Youtube API code asynchronously
+var tag = document.createElement('script')
+
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0]
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
+
+var isiOS = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)/i) != null //boolean check for iOS devices
+
+var youtubelightbox = document.getElementById('youtubelightbox')
+var player // variable to hold new YT.Player() instance
+
+// Hide lightbox when clicked on
+youtubelightbox.addEventListener('click', function(){
+	this.style.display = 'none'
+	player.stopVideo()
+}, false)
+
+// Exclude youtube iframe from above action
+youtubelightbox.querySelector('.centeredchild').addEventListener('click', function(e){
+	e.stopPropagation()
+}, false)
+
+
+// define onYouTubeIframeAPIReady() function and initialize lightbox when API is ready
+function onYouTubeIframeAPIReady() {
+	createlightbox()
+}
+
+// Extracts the Youtube video ID from a well formed Youtube URL
+function getyoutubeid(link){
+	// Assumed Youtube URL formats
+	// https://www.youtube.com/watch?v=Pe0jFDPHkzo
+	// https://youtu.be/Pe0jFDPHkzo
+	// https://www.youtube.com/v/Pe0jFDPHkzo
+	// and more
+	
+	//See http://stackoverflow.com/a/6904504/4360074
+	var youtubeidreg = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i;
+	return youtubeidreg.exec(link)[1] // return Youtube video ID portion of link
+}
+
+// Creates a new YT.Player() instance
+function createyoutubeplayer(videourl){
+	player = new YT.Player('playerdiv', {
+		videoId: videourl,
+		playerVars: {autoplay:1}
+	})
+}
+
+// Main Youtube lightbox function
+function createlightbox(){
+	var targetlinks = document.querySelectorAll('.lightbox')
+	for (var i=0; i<targetlinks.length; i++){
+		var link = targetlinks[i]
+		link._videoid = getyoutubeid(link) // store youtube video ID portion of link inside _videoid property
+		targetlinks[i].addEventListener('click', function(e){
+			youtubelightbox.style.display = 'block'
+			if (typeof player == 'undefined'){ // if video player hasn't been created yet
+				createyoutubeplayer(this._videoid)
+			}
+			else{
+				if (isiOS){ // iOS devices can only use the "cue" related methods
+					player.cueVideoById(this._videoid)
+				}
+				else{
+					player.loadVideoById(this._videoid)
+				}
+			}
+			e.preventDefault()
+		}, false)
+	}
+}
+
+</script>
+
+<style>
 @font-face {
 	font-family: 'Poppins';
 	src: url('Poppins-Regular.ttf') format('truetype');
@@ -1088,6 +1328,7 @@ body {
 .dropdown-content {
 	display: none;
 	position: absolute;
+	z-index: 1;
 	background-color: #333;
 	min-width: 160px;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -1115,6 +1356,7 @@ body {
 	width: 100%;
 	display: block;
 	transition: top 0.3s;
+	z-index: 1;
 }
 #navbar a {
 	float: left;
@@ -1265,6 +1507,113 @@ h2.inset {
 ::-moz-selection { background: #5af; color: #fff; text-shadow: none; }
 ::selection { background: #5af; color: #fff; text-shadow: none; }
 </style>
+<style>
+.half {
+  float: left;
+  width: 50%;
+  padding: 0 1em;
+}
+/* Acordeon styles */
+.tab {
+  position: relative;
+  margin-bottom: 1px;
+  width: 100%;
+  color: black;
+  overflow: hidden;
+	z-index -1;
+}
+input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+label {
+  position: relative;
+  display: block;
+  padding: 0 0 0 1em;
+	color: blue;
+  background: #e7e5e4;
+  font-weight: bold;
+  line-height: 3;
+  cursor: pointer;
+	z-index -1;
+}
+.tab-content {
+  max-height: 0;
+  overflow: hidden;
+  background: #e7e5e4;
+  -webkit-transition: max-height .35s;
+  -o-transition: max-height .35s;
+  transition: max-height .35s;
+}
+.tab-content p {
+  margin: 1em;
+}
+/* :checked */
+input:checked ~ .tab-content {
+  max-height: 55em;
+}
+/* Icon */
+label::after {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  width: 3em;
+  height: 3em;
+  line-height: 3;
+  text-align: center;
+  -webkit-transition: all .35s;
+  -o-transition: all .35s;
+  transition: all .35s;
+}
+input[type=checkbox] + label::after {
+  content: "+";
+}
+input[type=radio] + label::after {
+  content: "\25BC";
+}
+input[type=checkbox]:checked + label::after {
+  transform: rotate(315deg);
+}
+input[type=radio]:checked + label::after {
+  transform: rotateX(180deg);
+}
+
+
+</style>
+
+
+<script>
+// When the user scrolls down 20px from the top of the document, slide down the navbar
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("navbar").style.top = "0";
+    } else {
+        document.getElementById("navbar").style.top = "-50px";
+    }
+}
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+    var myDropdown = document.getElementById("myDropdown");
+      if (myDropdown.classList.contains('show')) {
+        myDropdown.classList.remove('show');
+      }
+  }
+}
+    </script>
+    
+
+
 
 <link rel="stylesheet" type="text/css" href="http://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
 </html>
