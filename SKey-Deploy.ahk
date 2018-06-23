@@ -1231,6 +1231,18 @@ return
 PushNotes:
 gui,submit,nohide
 guicontrolget, PushNotes,,PushNotes
+ifinstring,pushnotes,$
+	{
+		stringgetpos,verstr,pushnotes,$
+		stringgetpos,endstr,pushnotes,.00
+		if (ErrorLevel <> "")
+			{
+				strstr:= verstr + 2
+				midstr:= (endstr - verstr - 1)
+				stringmid,donation,pushnotes,strstr,midstr
+				SB_SetText(" $" donation " found")
+			}
+	}
 return
 
 ServerPush:
@@ -1693,10 +1705,50 @@ if (BCANC = 1)
 
 if (GitPush = 1)
 	{
-		IF (PushNotes = "")
+		ifinstring,pushnotes,$
+			{
+				stringgetpos,verstr,pushnotes,$
+				stringgetpos,endstr,pushnotes,.00
+				if (ErrorLevel <> "")
+					{
+						strstr:= verstr + 2
+						midstr:= (endstr - verstr - 1)
+						stringmid,donation,pushnotes,strstr,midstr
+						SB_SetText(" $" donation " found")
+					}
+			}
+		If (PushNotes = "")
 			{
 				PushNotes= %date% %TimeString%
+				Loop, Read, %getversf%
+					{
+						sklnum+=1
+						getvern= 
+						ifinstring,A_LoopReadLine,$
+							{
+								stringgetpos,verstr,A_LoopReadLine,$
+								stringgetpos,endstr,A_LoopReadLine,.00
+								if (ErrorLevel <> "")
+									{			
+										strstr:= verstr + 2
+										midstr:= (endstr - verstr - 1)
+										stringmid,donation,A_LoopReadLine,strstr,midstr
+										if (midstr = [PAYPAL])
+											{
+												donation= 00.00
+												SB_SetText(" $" donation " found")
+
+												break
+											}
+									}
+							}
+								continue
+					}
 			}
+		if (donation = "")
+			{
+				donation= 00.00				
+			}			
 		FileDelete, %SKELD%\!gitupdate.cmd
 		FileAppend, mkdir "%GITD%\rj\scrapeArt"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, mkdir "%GITD%\rj\netArt"`n,%SKELD%\!gitupdate.cmd
@@ -1969,6 +2021,7 @@ if (SiteUpdate = 1)
 		StringReplace,skelhtml,skelhtml,[RSHA1],%sha1%,All
 		StringReplace,skelhtml,skelhtml,[RSHA2],%shb1%,All
 		StringReplace,skelhtml,skelhtml,[WEBURL],http://%GITUSER%.github.io,All
+		StringReplace,skelhtml,skelhtml,[PAYPAL],%donation%
 		StringReplace,skelhtml,skelhtml,[GITSRC],%GITSRC%,All
 		;;StringReplace,skelhtml,skelhtml,[REVISION],http://github.com/%gituser%/skeletonkey-%date%%buildnum%,All
 		StringReplace,skelhtml,skelhtml,[REVISION],http://github.com/%gituser%/skeletonKey/releases/download/Installer/Installer.zip,All
