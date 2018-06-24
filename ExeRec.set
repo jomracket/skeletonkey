@@ -835,6 +835,7 @@ FileInstall,eslkup.set,eslkup.set,1
 FileInstall,es_input.cfg.set,es_input.cfg.set,1
 FileInstall,es_settings.cfg.set,es_settings.cfg.set,1
 FileInstall,excludeExtract.set,excludeExtract.set,1
+FileInstall,ExeRec.set,ExeRec.set,1
 FileInstall,Frontends.set,Frontends.set,1
 FileInstall,fuzSysLk.set,fuzSysLk.set,1
 FileInstall,jacketSys.set,jacketSys.set,1

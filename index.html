@@ -128,7 +128,7 @@
   </div>
   <div id="outer">
     <div id="inner">
-      <blockquote><h3>To Do:</h3></blockquote>
+      <h3>To Do:</h3>
     Mednafen Jacket integration &amp; Joystick calibrations.  ROM-Executable creation. gamepad-driven disk-menus.  MAME (softlist integration).  distributed aria2 auto-downloading.
     </div>
   </div>
@@ -188,8 +188,8 @@
       <p>Nearly every skeletonKey option has a mouse-over tool-tip . Operational feedback appears in the statusbar at the bottom of the window.</p>
       
         
-      <blockquote>
-      <h3>Basic Overview</h3></blockquote>
+      
+      <h3>Basic Overview</h3>
         
       
       <p>After skeletonKey is installed, a &quot;systems ROOT&quot; is defined and emulators are detected.<br>
@@ -207,7 +207,7 @@
        
 </div>
 		   <div id="inner">
-        <blockquote><h3>Command-Line</h3></blockquote>
+        <h3>Command-Line</h3>
       
       <p>An emulator-preset can be specified to override any assocation from the command-line.</p>
       <p>SkeletonKey accepts the option <code>-run=</code> followed by the nickname of the emulator preset followed by the path to the rom. Any options specified by the preset are respected.<br>
@@ -225,7 +225,7 @@
         
 </div>
 		   <div id="inner">
-        <blockquote><h3>Portable Mode</h3></blockquote>
+        <h3>Portable Mode</h3>
       
       <p>Skeletonkey can be run from a thumbdrive or other portable drive. Many users may desire to transfer an existing skeletonKey installation to a portable drive and the portable utility should facilitate the conifiguration migration. </p>
       
@@ -242,7 +242,7 @@
 		 </div>
 </div>
 		   <div id="inner">
-        <blockquote><h3>Forking</h3></blockquote>
+        <h3>Forking</h3>
       
       <p>A deployment tool is available for users who wish to publish a skeletonKey. SKey-Deploy.ahk can be compiled to build, maintain and deploy a skeletonKey source-code versioning project, website and binaries. </p>
     </div>
@@ -254,25 +254,25 @@
 
     <div id="inner">
       
-        <blockquote><h3>Program Settings</h3></blockquote>
+        <h3>Program Settings</h3>
       
       <p>Program settings such as the root location for your systems, overrides for the batch-script launcher and other operational options can be adjusted in the settings tab.</p>
       
-        <blockquote><blockquote><h4>Auto-Load Per-Game Settings</h4></blockquote></blockquote>
+        <h4>Auto-Load Per-Game Settings</h4>
       
       <p>SkeletonKey will automatically load any per-game settings previously created and create settings for that title upon launch if none are found. </p>
       
-        <blockquote><blockquote><h4>Systems Directory</h4></blockquote></blockquote>
+        <h4>Systems Directory</h4>
       
       <p>By default, ROMs are <em>[categorically]</em> stored by system-name in the<code> <em>..[Systems ROOT]</em>\<em>[SYSTEM NAME]</em></code> folder.<br>
       Archive.org ROMs will be downloaded to the corresponding system-name which follows the no-intro naming nomenclature.</p>
       
 
-        <blockquote><blockquote><h4>Emulators Directory</h4></blockquote></blockquote>
+        <h4>Emulators Directory</h4>
       
       <p>By default, all emulators will be installed to the Emulator Directory. Upon assigning a directory to the Emulators Directory, skeletonKey will search subdirectories for previously installed known emulators not currently identified or manually assigned.</p>
       
-        <blockquote><blockquote><h4>BSL - Batch-Script-Launcher</h4></blockquote></blockquote>
+        <h4>BSL - Batch-Script-Launcher</h4>
       
       <p>The BSL can override settings defined by ROM-Jacket launchers  and provides a convenient way to enable custom tools to accomodate new HTPC frontends. The BSL will execute the ROM-Jacket launcher while assisting the visibility and state of other assets.</p>
                       <div class="wrapper">  
@@ -298,7 +298,7 @@
       <p>Options are categorized by type. The Launch tab is responsive and will populate options for the currently selected supported emulator. Any previous settings for the currently selected ROM are loaded.</p>
       
         
-      <blockquote><h3>Global-Launch-Menu</h3></blockquote>
+      <h3>Global-Launch-Menu</h3>
         
        <div class="wrapper">  
      <div class="tab">
@@ -324,40 +324,40 @@
         <li> A split <strong><code>LAUNCH ::&gt;</code></strong> button</li>
       </ul>
       
-        <blockquote><h3>System List</h3></blockquote>
+        <h3>System List</h3>
       
       <p>The folder/playlist toggle will toggle this dropdown between playlist files and the current system libraries. System Lists contain any folders found in the Systems ROOT directory, but this can be filtered to display only detected and created systems.<br>
         Changing the system will automatically change the emulator/core dropdown to the associated nickname and populate the tab with options for that system's associated emulator.<br>
         Right-Click on this dropdown to configure it.</p>
       <p>The switches toggle will expose options &amp; arguments fields for emulators. These are pre-packed with many options and arguments, however spaces should be observed when plugging in your own switches.</p>
       
-        <blockquote><h3>LAUNCH</h3></blockquote>
+        <h3>LAUNCH</h3>
       
       <p>The ROM currently in ROM-List will be launched by the emulator/core in the EMU-List.<br>
       
         
           
-      <blockquote><h3><code>::></code></h3></blockquote>
+      <h3><code>::></code></h3>
 
         
       
       <p>A <strong>quick-launch</strong> selection set of all assigned presets and known compatible presets will appear in a dropdown menu<br>
         This menu can also be accessed via right-clicking on the LAUNCH button.</p>
       
-        <blockquote><h3>ROM List</h3></blockquote>
+        <h3>ROM List</h3>
       
       <p>The editable dropdown menu contains a list of all ROMs in the current system/playlist dropdown menu. <br>
         If the auto-load setting is enabled, whenever a new ROM is selected, the configuration files for that ROM will have values populate the tab.<br>A new configuration will be generated in the ROMs' configuration folder if one is not found.<br>
         (eg:<code>\...\skeletonkey\cfg\Microsoft - DOS\msds_dosbox\TMNT\dosbox.conf</code>). <br>
         If . </p>
       
-        <blockquote><h3>EMU List</h3></blockquote>
+        <h3>EMU List</h3>
       
       <p>The EMU list is a core/emulator dropdown which contains a list of all cores, all nicknames for system-associations, and all emuators.<br>
         Changing the core/emulator dropdown will populate the  Main tab with options for the emulator/core (if supported) and any load existing settings the title may have.<br>
         Right-Clicking on this menu enables assignment and configuration.</p>
       
-        <blockquote><h3>[X] Clear button</h3></blockquote>
+        <h3>[X] Clear button</h3>
       
       <p>Clears all current launch options. Right-click on this to delete ROM settings for the emultor in the EMU List.</p>
     </div>
@@ -368,11 +368,11 @@
       
       <p>These options are dynamically loaded for each emulator. Settings changed by the user at run-time should load and populate the GUI after lauching.</p>
       
-        <blockquote><h3>Drag &amp; Drop</h3></blockquote>
+        <h3>Drag &amp; Drop</h3>
       
       <p>The Drag &amp; Drop area is visible in the upper-left hand corner of the when the search box is expanded using the &quot;find&quot; button in the lower-right hand corner of skeletonKey. With the Auto-Launch option enabled, skeletonKey will detect the ROM and launch it using the system's associated core/emulator, or bring forth the core/emulator dropdown.</p>
       
-        <blockquote><h3>Search &amp; Find</h3></blockquote>
+        <h3>Search &amp; Find</h3>
       
       <p>The &quot;find&quot; button can be found in the lower right hand corner of the tab and will expand the search fields. <br>
         skeletonKey can search for ROMs in your &quot;Systems&quot; directories or playlists. <br>
@@ -390,27 +390,27 @@
   <div id="outer">
     <div id="inner">
       
-        <blockquote><h3>RetroArch, Systems, Emulators, Frontends &amp; Utilities</h3></blockquote>
+        <h3>RetroArch, Systems, Emulators, Frontends &amp; Utilities</h3>
       
       <p>SkeletonKey can be used to quickly install emulators, frontends, retroArch and utilities.  The Install Tab is also used to associate skeletonKey's systems with emulators and retroArch cores when using skeletonKey as a launcher. </p>
       
-        <blockquote><h3>Installing RetroArch &amp; cores</h3></blockquote>
+        <h3>Installing RetroArch &amp; cores</h3>
       
       <p>RetroArch and components can be installed separately or as a single package (stable). The "RetroArch" list item includes all components needed by retroArch. The most recent nightly build as well as the stable version are available. A core-upate button will check for cores with updates to upgrade en-masse. </p>
       
-        <blockquote><h3>Installing BIOS Files</h3></blockquote>
+        <h3>Installing BIOS Files</h3>
       
       <p>Drag &amp; Drop BIOS files or a BIOS pack (.7z .zip .rar) to automatically install them to their proper places in supported emulators directories.</p>
       
-        <blockquote><h3>Emulators</h3></blockquote>
+        <h3>Emulators</h3>
       
       <p>SkeletonKey can install hundreds of emulators. Supported emulators can be configured indipendently (for per-game settings too!!!) as they are launched by skeletonKey and as emulators assigned to ROM-Jackets. </p>
       
-        <blockquote><h3>Systems / ROM Directories</h3></blockquote>
+        <h3>Systems / ROM Directories</h3>
       
       <p>Selecting &quot;Systems&quot; from the dropdown menu will allow users to define directories containing ROMs for over 100 systems. ROM directories specified outside of the systems directory will be linked (junctioned) into it with the supported system's name.</p>
-      <blockquote><h3>&nbsp;</h3></blockquote>
-      <blockquote><h3>Emulator &amp; System Associations </h3></blockquote>
+      <h3>&nbsp;</h3>
+      <h3>Emulator &amp; System Associations </h3>
       
       <p> The Associations section of the Install tab can be used to change the association of a system to a core, an emulator or nickname. </p>
       <p>Skeletonkey can detect and assign emulators or a designated retroArch core to a system/s, however it may be desireable to create and configure systems and associations manually. A unique system-identifier or &quot;nickname&quot; can be created to create custom systems and associated emulator-presets.</p><p>Associating an emulator to a system creates a unique set of preferences for the emulator and assigns this set a nickname which can also be assigned to other systems. Right clicking on the System List or emu/core dropdowns will bring up menus to quickly configure or associate systems with emulators and cores. </p>
@@ -433,9 +433,9 @@
 	    </div>
 				   </div>
 		</div>
-     </blockquote>
-      <blockquote>
-        <h3>-options & &quot;/arguments.[ext]&quot;</h3></blockquote>
+     
+      
+        <h3>-options & &quot;/arguments.[ext]&quot;</h3>
 
       <p>Options, arguments, quotes, ROM-paths and the extension can be adjusted to suit an emulator's needs.</p>
            <div class="wrapper">  
@@ -455,7 +455,7 @@ The  charachter must be escaped  or it will be converted to a space.<br><strong>
         </div>
    		     </div>
       </div>
-        <blockquote><blockquote><h4>Per-Game Configurations:</h4></blockquote></blockquote>
+        <h4>Per-Game Configurations:</h4>
       <a id="ASSOC"></a>
       <p>SkeletonKey can retain emulator settings for each game (configuration files, save-states, battery-saves/nvram) under supported emulators. Any changes that are made during gameplay will be saved.</p>
            <div class="wrapper">  
@@ -486,32 +486,32 @@ The  charachter must be escaped  or it will be converted to a space.<br><strong>
   <div id="outer">
     <div id="inner">
       
-        <blockquote><h3>Visual C++</h3></blockquote>
+        <h3>Visual C++</h3>
       
       <p>Many emulators require these runtimes</p>
       <br>
       
-        <blockquote><h3>DirectX
-        </h3></blockquote>
+        <h3>DirectX
+        </h3>
       Required by many emulators.<br>
       <br>
       
-        <blockquote><h3>XBox360 Drivers</h3></blockquote>
+        <h3>XBox360 Drivers</h3>
       
       <p>This installs the XBox 360 Joystick drivers from Microsoft. These are needed for Windows Vista and 7.</p>
       <br>
       
-        <blockquote><h3>SCP Wrapper for Dualshock Joysticks</h3></blockquote>
+        <h3>SCP Wrapper for Dualshock Joysticks</h3>
       
       <p>The SCP Wrapper is a driver for bluetooth Sony Dualshock joysticks.<br>
       This is the most reliable and easiest way for DS3/4 users to use their joysticks in Windows 7/8x-10.</p>
       <br>
       
-        <blockquote><h3>DS4Windows</h3></blockquote>
+        <h3>DS4Windows</h3>
       
       <p>DS4Windows is a Sony DualShock 4 driver for windows. It is installed however the configuration of this driver is left to the user.</p>
       <br>
-      <blockquote><h3>Daemon Tools</h3></blockquote>
+      <h3>Daemon Tools</h3>
       
       <p>For systems windowsXP-&gt;windows 8.x, skeletonKey can automatically install this program through the command-line which will NOT install the included toolbar or any additional software. Windows 10 users who need Daemon Tools should be download and install it separately. </p>
       <p>The Daemon Tools program is needed for the SSF Sega Saturn emulator, the UNZ FM-Towns emulator and may be required for any emulator which cannot directly read cd/dvd image files. Mounting disc images with Daemon Tools is desireable for users who wish to switch disks reliably or have discs in formats unreadable by the emulator.<br>
@@ -533,15 +533,15 @@ The  charachter must be escaped  or it will be converted to a space.<br><strong>
 						  </div>
 		</div><br>
 	  </div><div id="inner">
-      <blockquote><h3>Joystick Drivers</h3></blockquote>
+      <h3>Joystick Drivers</h3>
       
       <p>RoM-Jacket libraries requires a joystick-to-keyboard-remapper for a seamless HTPC gaming frontend. </p>
       
-        <blockquote><blockquote><h4> Xpadder </h4></blockquote></blockquote>
+        <h4> Xpadder </h4>
       
       <p>Xpadder is a very reliable and enhanced keyboard remapper. Presets are ubiquitous and abundant and skeletonKey has hundreds for many emulators ready to go for xinput devices.</p>
       
-        <blockquote><blockquote><h4> Antimicro </h4></blockquote></blockquote>
+        <h4> Antimicro </h4>
       
       <p>Antimicro is opensource and extremely versitile.Antimicro is the preferred keyboard remapper by default.</p>
     </div>
@@ -555,7 +555,7 @@ The  charachter must be escaped  or it will be converted to a space.<br><strong>
     <div id="inner">
       <p>Up to 16 Joysticks are supported (through multiaps). Each core can also have input_remaps.</p>
       
-        <blockquote><blockquote><h4><a>Joystick Options</a> </h4></blockquote></blockquote>
+        <h4><a>Joystick Options</a> </h4>
       
       <p>Joystick options are dynamic and respond to the currently selected input-remap system. </p>
     </div>
@@ -571,30 +571,30 @@ The  charachter must be escaped  or it will be converted to a space.<br><strong>
       <p>Drag and Drop ROMs to dynamically add files to playlists. Each playlist is unique to the frontend it is created for however skeletonkey can convert retroArch to/from emulationStation playlists.<br>
       </p>
       
-      <blockquote><h3>XMB
-          : retroArch</h3></blockquote>
+      <h3>XMB
+          : retroArch</h3>
       
       <p>Each item added to the playlist contains the name of the ROM, the path of the ROM, the crc hash of the ROM, the core/emulator name, path assignment, &amp; the name of the playlist.</p>
       <p>The core/emulator dropdown is assigned to the selected items when they are added to the playlist. </p>
       
-        <blockquote><h3>RetroArch's Per-Game Configuration Files</h3></blockquote>
+        <h3>RetroArch's Per-Game Configuration Files</h3>
       
       <p>A template config file can be specified for the retroArch's per-game configuration files, otherwise current skeletonKey settings are used. </p>
       
-        <blockquote><blockquote><h4><a>Playlist Options</a></h4></blockquote></blockquote>
+        <h4><a>Playlist Options</a></h4>
       
       <p> Right-Clicking in the Playlist-Menu will allow selected items to change the core/emulator assignment for selected items.</p>
 		<br></div>
      <div id="inner">
       
-      <blockquote><h3>Playlist Database</h3></blockquote>
+      <h3>Playlist Database</h3>
       
       <p> The playlist database is a compiled collection of all playlists which allows netplay-matches and searching for ROMs in very large libraries very fast.  </p>
     </div>
     <br>
      <div id="inner">
   
-       <blockquote><h3>EmulationStation</h3></blockquote>
+       <h3>EmulationStation</h3>
       
       <p>SkeletonKey can create and edit gamelist.xml files which can be to used cull ROM directories and display custom playlists. The existing es_systems.cfg will be loaded and inherited systems' directories will become available. Several options exist to populate gamelist.xml files with artwork and ROM metadata.</p>
       <div class="wrapper">
@@ -625,13 +625,13 @@ The  charachter must be escaped  or it will be converted to a space.<br><strong>
   <div id="outer">
     <div id="inner"> Remote repositories such as archive.org's ROM libraries can be launched and hosted via this tab.  The Archive Tab can be used to list, search, download and emulate the ROMs available on remote repositories such as archive.org. This tab is brought forward automatically under certain conditions while connecting to players listed in the netplay tab.
       
-        <blockquote><blockquote><h4><a>Repository Options</a> </h4></blockquote></blockquote>
+        <h4><a>Repository Options</a> </h4>
       
       <p>Options to download into a ROM-Jacket, manual overrides and extraction settings for compressed files Most options available in the Main tab's Launch-menu are available.</p>
       <p>Enabling the &quot;Download Only&quot; option will allow multiple files to be selected and queued.<br>
         MAME ROM-sets can also be easily accessed, although these often contain ROMs which are incompatible with other emulators. </p>
       
-        <blockquote><h3>Global-Prefix</h3></blockquote>
+        <h3>Global-Prefix</h3>
       
       <p>The global-prefix can be overridden to an ftp or http host, allowing for dynamic custom repositories. eg: <code>http://myhost.com/ROMs/No-Intro</code></p>
       <p>Files in the <em>skeletonkey\gam</em> folder contain <strong><code>.gam</code></strong> files which contain the <u>relative path</u> to global-prefix followed by a <strong><code>:</code></strong> followed by the name of the ROM. eg: <code>[GLOBALPREFIX]/system-name/game_name.zip:game_name</code></p>
@@ -648,7 +648,7 @@ The  charachter must be escaped  or it will be converted to a space.<br><strong>
     <div id="inner">
       <p>The Frontends tab contains configuration options for many different cabinet and couch-gaming frontends.</p>
       
-      <blockquote><h3>Media</h3></blockquote>
+      <h3>Media</h3>
       
       <p>Asset-Management is the primary component of skeletonKey. Deploying a frontend means creating a unique data-structure, and because the arrangement and naming of assets and artwork vary from emulator to frontend, skeletonKey opts to prioritize a local-storage system (ROM-Jackets) to enable migration and deployment indipendently of any proprietary layout or scheme needed by a frontend.</p>
       <p>SkeletonKey has a repository of photographic icons, full-HD images and large logos for 100 systems and can also "scrape" artwork from a multitude of hosts. Several databases are searched to obtain an array of image-types, video-snaps and metadata for thousands of titles spanning arcade, computer &amp; console-systems.</p>
@@ -657,21 +657,21 @@ The  charachter must be escaped  or it will be converted to a space.<br><strong>
       <p>Selecting &quot;<strong>ROMs</strong>&quot; in the Media interface will enable ROM-paths to be defined for supported systems.</p>
       
         <p>Caveats: Python must be installed to download videos from youtube.</p>
-        <blockquote><blockquote><h4><a>Media Options</a> </h4></blockquote></blockquote>
+        <h4><a>Media Options</a> </h4>
 	  </div>
      <br>
      <div id="inner">
-      <blockquote><h3>XMB</h3></blockquote>
+      <h3>XMB</h3>
       
       <p>XMB is retroArch's premiere GUI with thumnail support. <br>
         Using skeletonKey users can easily see which thumnails have been downloaded and copy any image to match the names corresponding to the unmatched ROMs .</p>
 	 
-        <blockquote><blockquote><h4><a>XMB Menu Options</a> </h4></blockquote></blockquote>
+        <h4><a>XMB Menu Options</a> </h4>
 	  </div>
      <br>
       <div id="inner">
         
-          <blockquote><h3>EmulationStation </h3></blockquote>
+          <h3>EmulationStation </h3>
         
         <p>EmulationStation is a lightweight frontend that has metadata, boxart and video-snap capabilities.<br>
         </p>
@@ -688,16 +688,16 @@ The  charachter must be escaped  or it will be converted to a space.<br><strong>
 		 </div>
 		 </div>
 		 </div>
-          <blockquote><blockquote><h4><a>EmulationStation Menu Options</a> </h4></blockquote></blockquote>
+          <h4><a>EmulationStation Menu Options</a> </h4>
 	  </div>
        <div id="inner">
-          <blockquote><h3>Mirrored Links </h3></blockquote>
+          <h3>Mirrored Links </h3>
        <br>
         <p>Mirrored Links are Windows shortcuts.<br>
         </p>
         <p>Leveraging Windows shortcuts allows for easy customization of frontends.  As these files can be moved, copied and deleted without affecting launchers or ROM-Jackets, creating custom playlists is as easy as navigating Windows Explorer.</p>
         
-          <blockquote><blockquote><h4><a>Mirrored Links Menu Options</a> </h4></blockquote></blockquote>
+          <h4><a>Mirrored Links Menu Options</a> </h4>
         
         <p>Each Mirrored file can be assigned an icon found </p>
         
@@ -707,39 +707,39 @@ The  charachter must be escaped  or it will be converted to a space.<br><strong>
       <label for="tab-fes">In Development }&gt;</label>
       <div class="tab-content">
          
-          <blockquote><h3>Media Browser</h3></blockquote>
+          <h3>Media Browser</h3>
         
          Media Browser for Windows Media Center
         
         
-            <blockquote><h3>Hyperspin </h3></blockquote>
+            <h3>Hyperspin </h3>
         
          <a>Hyperspin</a>
           
-            <blockquote><h3>retroFE</h3></blockquote>
+            <h3>retroFE</h3>
           
           <a>retro-FE</a>
         <div>
           
-            <blockquote><h3>KODI/XBMC</h3></blockquote>
+            <h3>KODI/XBMC</h3>
           
         </div>
         <ul>
           <li>
 
-            <blockquote><h3>Rom Collection Browser</h3></blockquote>
+            <h3>Rom Collection Browser</h3>
           </li>
         </ul>
         The Rom Collection Browser (RCB) .
         <ul>
           <li>
-            <blockquote><h3>Advanced Emulator Launcher</h3></blockquote>
+            <h3>Advanced Emulator Launcher</h3>
           </li>
         </ul>
         <p>Advanced Emulator Launcher (AEL) &amp; Advanced Launcher (AL)</p>
         <ul>
           <li>
-            <blockquote><h3>The Internet Archive ROM Launcher</h3></blockquote>
+            <h3>The Internet Archive ROM Launcher</h3>
           </li>
         </ul>
         The Internet Archive ROM Launcher (IARL).
@@ -761,7 +761,7 @@ The  charachter must be escaped  or it will be converted to a space.<br><strong>
     <div id="inner">
       <p>Configure Cores and create core-configuration overrides.</p>
       
-        <blockquote><blockquote><h4><a>Retroarch Core Options</a> </h4></blockquote></blockquote>
+        <h4><a>Retroarch Core Options</a> </h4>
       
     </div>
   </div>
@@ -771,16 +771,16 @@ The  charachter must be escaped  or it will be converted to a space.<br><strong>
   <div id="outer"> <br>
       <div id="inner">
         
-          <blockquote><h3><a>Netplay Options</a> </h3></blockquote>
+          <h3><a>Netplay Options</a> </h3>
         
         <p>It is recommended <u><em>(not required) </em></u>for retroArch netplay users to create playlists containing all ROMs on their computer that they wish to play online. .</p>
         
-          <blockquote><blockquote><h4>Hosting:</h4></blockquote></blockquote>
+          <h4>Hosting:</h4>
         
         <p>In the Main tab, settings such as delay-frames, port number and file-server port can be adjusted.</p>
         <p>In the Archive tab, users can select any ROM from the archive to host.        </p>
         
-          <blockquote><blockquote><h4>Connecting:</h4></blockquote></blockquote>
+          <h4>Connecting:</h4>
         
         <p>In the Netplay Tab, refreshing the hosts will populate the lobby with currently hosted ROMs. If the ROM is not located on disk, enabling the &quot;web-lookup&quot; option will select a ROM from the Archve tab and make a connecting available.</p>
         <p><br>
@@ -808,13 +808,13 @@ This [tag] is automatically detected by skeletonKey clients which will enable th
 		<h2 class='button button4'>:=: ROM-Jackets :=:</h2></div>
     <div id="outer">
       <div align="left">
-        <blockquote><blockquote>
-          <p><img src="paradigm.png" width="144" height="216" alt=""/></p></blockquote></blockquote>
+        
+          <p><img src="paradigm.png" width="144" height="216" alt=""/></p>
       </div>
       <div id="inner">
-          <blockquote><h3>Jacketizing Options</h3></blockquote>
+          <h3>Jacketizing Options</h3>
           
-              <blockquote><blockquote><h4>Overview</h4></blockquote></blockquote>
+              <h4>Overview</h4>
 
           
         
@@ -848,21 +848,21 @@ This [tag] is automatically detected by skeletonKey clients which will enable th
 	  </div>
      <div id="inner">
         
-          <blockquote><h3>Systems</h3></blockquote>
+          <h3>Systems</h3>
         
         <p>When a system is loaded into the Jacket tab, the ROMs and Jackets contained within the system's directory will populate and can be filtered into the list on the left side of the tab. Settings in the Jacket tab can be saved for each system. Each system has a default emulator associated with it which will populate with previously slected options or a configuraiton which is designed to be compatible with a very low-spec PC.	  </p>
      </div>
      <div id="inner">
         
-          <blockquote><h3>Jackets</h3></blockquote>
+          <h3>Jackets</h3>
         
         <p>Jackets are created for ROMs using the title or file-name of ROMs. </p>
         
-          <blockquote><blockquote><h4>Consolidate vs. Individuate</h4></blockquote></blockquote>
+          <h4>Consolidate vs. Individuate</h4>
         
         <p>ROM-Jackets are individuated by default, however the abundance of releases a title may have seen throughout the world is multiplied by versions the developer  released and again multiplied by  ROM-dumps. Subsequently many ROM-collections and system-libraries are simply too large and unwieldy for practical purposes. In the interest of bringing forth functional libraries it may be desireable to consolidate each title without regard for region or version. </p>
          
-          <blockquote><h3>Consolidate ( )[]</h3></blockquote>
+          <h3>Consolidate ( )[]</h3>
         
         <p>This will consolidate ROMs containing the same base-name, grouping each ROMs regional counterparts and multi-disc ROMs together into a single jacket. The base-name is the ROM's filename without any text in parenthesis or brackets. </p>
                <div class="wrapper">  
@@ -895,7 +895,7 @@ This [tag] is automatically detected by skeletonKey clients which will enable th
 </div>
 </div>
        
-        <blockquote><h3>Individuate</h3></blockquote>
+        <h3>Individuate</h3>
         <p>This will simply jacketize each ROM using the name of the file without the extension.</p>
           <div class="wrapper">  
      <div class="tab">
@@ -983,13 +983,13 @@ This [tag] is automatically detected by skeletonKey clients which will enable th
 </div>
         
             <br>
-            <blockquote><blockquote><h4>Sub-directories</h4></blockquote></blockquote> 
+            <h4>Sub-directories</h4> 
           
         
         <p>Several sub-directories to house assets are automatically created for each jacket. Custom subdirectories can also be created.</p>
         
           <br>
-            <blockquote><blockquote><h4>Extracting Archives</h4></blockquote></blockquote> 
+            <h4>Extracting Archives</h4> 
           
         
         <p>Archives found within a system's directory can be extracted into in a couple of ways:<br>
@@ -997,7 +997,7 @@ This [tag] is automatically detected by skeletonKey clients which will enable th
         After: Each archive is jacketized and then extracted into the jacket.<br>
         After archives are extracted they can be stored in skeletonKey's tmp directory, deleted, or kept in the jacket.</p>
         <br>
-          <blockquote><h3>Launcher Options</h3></blockquote>
+          <h3>Launcher Options</h3>
         
         <p>
           The default settings for each emulator are designed for low-powered specification settings, however many consoles offer a variety of settings which you may change when configuring a console individually.</p>
@@ -1014,7 +1014,7 @@ This [tag] is automatically detected by skeletonKey clients which will enable th
 		 </div>
         <br>
         
-          <blockquote><h3>PER-GAME</h3></blockquote>
+          <h3>PER-GAME</h3>
         
         <p>
           Each ROM retains all unique emulator configuration files.<br>
@@ -1039,7 +1039,7 @@ It should be noted that <a href="#ASSOC">skeletonKey's Launcher settings</a> hav
 			     </div>
 </div>
           
-          <blockquote><h3>GLOBAL</h3></blockquote>
+          <h3>GLOBAL</h3>
         
         <p>
           All games using the assigned emulator have configurations and settings governed and maintained by the emulator.<br>
@@ -1057,8 +1057,8 @@ It should be noted that <a href="#ASSOC">skeletonKey's Launcher settings</a> hav
 		 </div>
 				     </div>
 </div>
-          <blockquote><h3>Pre-Command / Post-Command</h3></blockquote>
-          <blockquote><blockquote><h4>Local/Absolute</h4></blockquote></blockquote>
+          <h3>Pre-Command / Post-Command</h3>
+          <h4>Local/Absolute</h4>
         The Absolute option enables selecting a file via a file dialog box to be run.<br>
         The Local option enables any file (including a file not currently available via a dialog box)
         to be designated.<br>
@@ -1083,18 +1083,18 @@ It should be noted that <a href="#ASSOC">skeletonKey's Launcher settings</a> hav
 </div>
 </div>
           
-          <blockquote><h3>Emulators Presets</h3></blockquote>
+          <h3>Emulators Presets</h3>
         
         Each supported system has one or more emulators preconfigured for them. The default emulator will automatically be assigned with compatible settings, however any program can be assigned to any system. <br>
         The Paradigm:<br>
         Launchers are simply batch files that call the emulator against the ROM using the command-line interface using presets.<br>
         A supported fronend will use RoM-Jacket's BatchScriptLauncher program to control the frontend and execute the launcher.
         
-          <blockquote><h3> Emulator Config Files</h3></blockquote>
+          <h3> Emulator Config Files</h3>
         
         <p>These fields pre-populate with the currently selected emulator's preset commands. These commands are designed to maintain the Jacket's assets and will typically copy files back and forth between the Jacket and the emulator's directory.</p>
         
-          <blockquote><h3>Pre-Run / Post-Run</h3></blockquote>
+          <h3>Pre-Run / Post-Run</h3>
         
         <p>Similar to  &quot;Pre-Command / Post-Command&quot; these are commands which run before the emulator launches and after the emulator exits, however these commands execute before the &quot;Pre-Commands / Post-Commands&quot; respectively. You may enter any windows batch-script commands in these fields and likewise, keywords will be parsed.</p>
       
@@ -1110,6 +1110,7 @@ It should be noted that <a href="#ASSOC">skeletonKey's Launcher settings</a> hav
        </div>
       </div>
       </div>
+      
        <div id="grad1">
         <h2 class='button button4'>Keyboard Mapper</h2>
 </div>
@@ -1117,28 +1118,28 @@ It should be noted that <a href="#ASSOC">skeletonKey's Launcher settings</a> hav
        <div id="inner">
         <br>
         
-          <blockquote><h3>Keyboard-Mappers</h3></blockquote>
+          <h3>Keyboard-Mappers</h3>
         
         <br>
         <p>Xpadder and Antimicro programs are currently supported.</p>
         <br>
         
-          <blockquote><blockquote><h4>Return Profile</h4></blockquote></blockquote>
+          <h4>Return Profile</h4>
         
         <br>
         Frontends may require a unique joystick profile to properly function. This profile is loaded when returning from a game. <br>
         
-          <blockquote><blockquote><h4>Keyboard</h4></blockquote></blockquote>
+          <h4>Keyboard</h4>
         
         <br>
         Emulators in the initialized (default) state will map keyboard keys to the system's buttons and joystick directions. SkeletonKey can create profiles for these keys as they correspond for pc-joysticks to the native joystick layout of the machine. If the chosen console is a custom/unsupported system, a generic and multipurpose configuration is created. <br>
         
-          <blockquote><blockquote><h4>Blank</h4></blockquote></blockquote>
+          <h4>Blank</h4>
         
         <br>
         causes an empty profile to be created for each game to disable xpadder/antimicro while the emulator is running. This is desirable for users who are processing a console with a custom emulator. You may choose to create a profile for your system and propagate it through the console's library using the Config Utility. <br>
         
-          <blockquote><blockquote><h4>Joy</h4></blockquote></blockquote>
+          <h4>Joy</h4>
         
         <br>
         This is the default option for skeletonKey and creates a profile with only Emulator functionality mappings such as "Save/Load State" "Reset" "Exit/Power OFF" and unique functions such as "Rewind/Fast-forward. Emulators are configured to use directinput/xinput (XBOX 360 Joystick mappings).
@@ -1157,14 +1158,14 @@ It should be noted that <a href="#ASSOC">skeletonKey's Launcher settings</a> hav
       <input id="tab-utl" type="checkbox" name="tabs">
       <label for="tab-utl">In Development }&gt;</label>
       <div class="tab-content">
-        <blockquote><h3>Copy Cfg</h3></blockquote>
+        <h3>Copy Cfg</h3>
         Similar to the portable utility, this allows you to propagate settings from one file throughout an entire console's library.<br>
         If a launcher is selected (.bat) Skeletonkey can propagate the file throughout a console's library and update or replace all other launchers.<br>
         Any file can be propagated (eg: an xpadder profile) and subdirectories are supported.
-        <blockquote><h3>Cloud</h3></blockquote>
+        <h3>Cloud</h3>
         This menu allows you to backup your save files and save-states into a cloud. Google Drive, Microsoft OneDrive and Dropbox will be automatically detected.<br>
         This is ideal for users who want to share saves or play from multiple computers.
-        <blockquote><h3>Execute</h3></blockquote>
+        <h3>Execute</h3>
         <p>This allows you to select a ROM or an entire console's library to transform into a portable executable. The ROM, any additional files specified by the user, an emulator and special configuration files are compiled and saved to the location of your designation.<br>
           If A Jacket with boxart is detected, it will be used as the icon for the executable and shortcut it creates if installed..<br>
          </p>
@@ -1372,22 +1373,29 @@ body, td, th {
 	font-family: "Muli";
 	font-size: 12px
 }
-h1, h5, h6 {
+h1, {
+	font-family: "Muli";
+	font-weight: bolder;
+	font-size: 23px;
+}
+h2 {
+	font-family: "Muli";
+	font-weight: bolder;
+	font-size: 21px;
+	text-shadow: -1px -1px 1px rgba(255,255,255,0.53);	
+
+	}	
+h3 {
 	font-family: "Muli";
 	font-weight: bolder;
 	font-size: 18px;
-}
-	h2, h3 {
-		
+	text-indent: 20px
+	}	
+h4 {
+	text-indent: 35px;
 	font-family: "Muli";
 	font-weight: bolder;
 	font-size: 16px;
-	}	
-	h4 {
-		
-	font-family: "Muli";
-	font-weight: bolder;
-	font-size: 14px;
 	}	
 body {
 	margin: 0;
