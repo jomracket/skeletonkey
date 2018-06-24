@@ -820,9 +820,8 @@ FileCreateDir,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browse
 }
 FileCreateDir, rj\ES
 FileCreateDir, rj\netArt
+FileInstall,Monoton-Regular.ttf,Monoton-Regular.ttf,1
 FileInstall,Muli.ttf,Muli.ttf,1
-FileInstall,Poppins-Bold.ttf,Poppins-Bold.ttf,1
-FileInstall,Poppins-Regular.ttf,Poppins-Regular.ttf,1
 FileInstall,AppParams.set,AppParams.set,1
 FileInstall,arcorg.set,arcorg.set,1
 FileInstall,Assignments.set,Assignments.set,1
@@ -836,7 +835,6 @@ FileInstall,eslkup.set,eslkup.set,1
 FileInstall,es_input.cfg.set,es_input.cfg.set,1
 FileInstall,es_settings.cfg.set,es_settings.cfg.set,1
 FileInstall,excludeExtract.set,excludeExtract.set,1
-FileInstall,ExeRec.set,ExeRec.set,1
 FileInstall,Frontends.set,Frontends.set,1
 FileInstall,fuzSysLk.set,fuzSysLk.set,1
 FileInstall,jacketSys.set,jacketSys.set,1
@@ -868,6 +866,7 @@ FileInstall,Vdrive.exe,Vdrive.exe,1
 FileInstall,youtube-dl.exe,youtube-dl.exe,1
 FileInstall,cor.png,cor.png,1
 FileInstall,emu.png,emu.png,1
+FileInstall,Global-Launch-Menu.png,Global-Launch-Menu.png,1
 FileInstall,ins.png,ins.png,1
 FileInstall,Inv.png,Inv.png,1
 FileInstall,joy.png,joy.png,1

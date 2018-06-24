@@ -43,29 +43,41 @@
       <h99>[CURV]</h99>
       </strong><br>
       <em>for Windows</em><br><br>
-      <blockquote><h4><a href="[REVISION]">
-       Downlad</button>
-        </a></h4></blockquote>
-        <p>Installer<br>
+      <ul>
+        <li>
+          <h4><a href="[REVISION]">
+           Downlad</button>
+            </a></h4>
+        </li>
+      </ul>
+       Installer<br>
           (no metadata files) <br>
           size:
           <h88>[RSIZE]</h88>
           mb<br>
           <strong>SHA1 :</strong>
-          <h77>[RSHA1]</h77>
-        </p>
+      <h77>[RSHA1]</h77>
+      <hr>
+      <br>
+        <ul>
+          <li>
+            <h4><a href="[PORTABLE]">
+              Portable Binary</a></button></h4>
+          </li>
+        </ul>
         
-        <br>
-        <blockquote><h4><a href="[PORTABLE]">
-			Portable Binary</a></button></h4></blockquote>
-        
-        <p>Copy this file into a skeletonKey directory to update.<br>This file self extracts.</p>
-        
-        <br>
-     <blockquote>   <h4><a href="[DATFILES]">
-       MetaData Files</button>
-		 </a></h4></blockquote>
-        <p>Database files containting metadata. Extract this archive into your installation folder.</p>
+        Copy this file into a skeletonKey directory to update.<br>
+        This file self extracts.
+       <hr> 
+      <br>
+     <ul>
+       <li>
+         <h4><a href="[DATFILES]">
+           MetaData Files</button>
+           </a></h4>
+       </li>
+     </ul>
+        Database files containting metadata. Extract this archive into your installation folder.
 </div><br>
            <div id="inner">
             <strong>WEBSITE:</strong>
@@ -92,7 +104,8 @@
     $[PAYPAL].00 total donations<br>
     <input type="hidden" name="cmd" value="_s-xclick" />
     <input type="hidden" name="hosted_button_id" value="BEVC56LWSH6SU" />
-    <a href="https://www.paypal.me/romjacket"><strong>Click here if you know poverty</strong></a><br>
+    <a href="https://www.paypal.me/romjacket"><strong>you wanna see my donation-face ?!?! </strong></a><br>
+    entry fee is non-refundable
     </form>
   </div>
   <div id="grad1">
@@ -116,7 +129,7 @@
   <div id="outer">
     <div id="inner">
       <blockquote><h3>To Do:</h3></blockquote>
-    Mednafen Joystick calibrations.  Executable creation.  MAME configuration (softlist integration).  Auto-Emulator/core installation.
+    Mednafen Jacket integration &amp; Joystick calibrations.  ROM-Executable creation. gamepad-driven disk-menus.  MAME (softlist integration).  distributed aria2 auto-downloading.
     </div>
   </div>
    <div> <a id="TUTORIALS"></a>
@@ -124,20 +137,20 @@
      <div id="grad1"> <h2 class='button button4'>
 		  USAGE</h2></div>
 		<div align="center">
-	  <h2>Video Tutorials</h2> 
-		  <h3><a href="https://www.youtube.com/embed/64liF2VuLxI?showinfo=0" class="lightbox">
+	  <h2>:=: Video Tutorials :=:</h2> 
+		  <h4><a href="https://www.youtube.com/embed/64liF2VuLxI?showinfo=0" class="lightbox">
 	      Setup Tutorial
 	      </button>
-	      </a> <br><a href="https://www.youtube.com/embed/xlcywgEMuGI?showinfo=0" class="lightbox">
+	      </a> <br><br><a href="https://www.youtube.com/embed/xlcywgEMuGI?showinfo=0" class="lightbox">
 	      Launching ROMs
 	      </button>
-	      </a> <br><a href="https://www.youtube.com/embed/S27w6sNVcCQ?showinfo=0" class="lightbox">
+	      </a> <br><br><a href="https://www.youtube.com/embed/S27w6sNVcCQ?showinfo=0" class="lightbox">
           Creating ROM-Jackets
           </button>
-          </a> <br><a href="https://www.youtube.com/embed/bnsUkE8i0tU?showinfo=0" class="lightbox">
+          </a> <br><br><a href="https://www.youtube.com/embed/bnsUkE8i0tU?showinfo=0" class="lightbox">
           Deploying an HTPC Gaming Frontend
           </button>
-          </a></h3> 
+          </a></h4> 
         
         
         </div>
@@ -187,7 +200,7 @@
       <label for="tab-basic">RetroArch Details }></label>
       <div class="tab-content">
 
-      <p>RetroArch is tightly integrated into skeletonKey with an <em>exhaustive</em> set of options and exclusive features for netplay. By default the most compatible core is selected as the skeletonkey's primary association for most of retroarch's supported systems. The GUI interface for retroArch is dynamic, responding after any changes made during gameplay.</p>
+      <p>RetroArch is tightly integrated into skeletonKey with an <em>exhaustive</em> set of options and exclusive features for netplay. By default the most compatible core is selected as the skeletonkey's primary association for most of retroarch's supported systems. The GUI interface for retroArch is dynamic, responding after any changes made during gameplay.<br>RetroArch's "core_assets_directory" should be assigned to the [Systems ROOT] folder. </p>
 		 </div>
 		 </div>
 		 </div>
@@ -252,9 +265,9 @@
         <blockquote><blockquote><h4>Systems Directory</h4></blockquote></blockquote>
       
       <p>By default, ROMs are <em>[categorically]</em> stored by system-name in the<code> <em>..[Systems ROOT]</em>\<em>[SYSTEM NAME]</em></code> folder.<br>
-        RetroArch's <code>"core_assets_directory"</code> should be assigned to the <code>[Systems ROOT]</code> folder. <br>
-        Archive.org ROMs will be downloaded to the corresponding system name which follows the no-intro naming nomenclature. </p>
+      Archive.org ROMs will be downloaded to the corresponding system-name which follows the no-intro naming nomenclature.</p>
       
+
         <blockquote><blockquote><h4>Emulators Directory</h4></blockquote></blockquote>
       
       <p>By default, all emulators will be installed to the Emulator Directory. Upon assigning a directory to the Emulators Directory, skeletonKey will search subdirectories for previously installed known emulators not currently identified or manually assigned.</p>
@@ -329,9 +342,9 @@
         <blockquote><h3>ROM List</h3></blockquote>
       
       <p>The editable dropdown menu contains a list of all ROMs in the current system/playlist dropdown menu. <br>
-        Whenever a new ROM is selected, a new configuration will be generated in the ROMs' configuration folder <br>
+        If the auto-load setting is enabled, whenever a new ROM is selected, the configuration files for that ROM will have values populate the tab.<br>A new configuration will be generated in the ROMs' configuration folder if one is not found.<br>
         (eg:<code>\...\skeletonkey\cfg\Microsoft - DOS\msds_dosbox\TMNT\dosbox.conf</code>). <br>
-        If the configuration files for that ROM already exist, their values will populate the tab. </p>
+        If . </p>
       
         <blockquote><h3>EMU List</h3></blockquote>
       
@@ -462,15 +475,15 @@ The  charachter must be escaped  or it will be converted to a space.<br><strong>
     <h2 class='button button4'>Drivers</h2>
 </div>
   <div id="outer">
-    <div id="inner"> <br>
+    <div id="inner">
       
         <blockquote><h3>Visual C++</h3></blockquote>
       
       <p>Many emulators require these runtimes</p>
       <br>
       
-        <h3>DirectX
-        </h3>
+        <blockquote><h3>DirectX
+        </h3></blockquote>
       Required by many emulators.<br>
       <br>
       
@@ -549,8 +562,8 @@ The  charachter must be escaped  or it will be converted to a space.<br><strong>
       <p>Drag and Drop ROMs to dynamically add files to playlists. Each playlist is unique to the frontend it is created for however skeletonkey can convert retroArch to/from emulationStation playlists.<br>
       </p>
       
-      <h3>XMB
-          : retroArch</h3>
+      <blockquote><h3>XMB
+          : retroArch</h3></blockquote>
       
       <p>Each item added to the playlist contains the name of the ROM, the path of the ROM, the crc hash of the ROM, the core/emulator name, path assignment, &amp; the name of the playlist.</p>
       <p>The core/emulator dropdown is assigned to the selected items when they are added to the playlist. </p>
@@ -667,10 +680,10 @@ The  charachter must be escaped  or it will be converted to a space.<br><strong>
 		 </div>
 		 </div>
           <blockquote><blockquote><h4><a>EmulationStation Menu Options</a> </h4></blockquote></blockquote>
-          <blockquote><h3>Mirrored Links </h3></blockquote>
 	  </div>
-       <br>
        <div id="inner">
+          <blockquote><h3>Mirrored Links </h3></blockquote>
+       <br>
         <p>Mirrored Links are Windows shortcuts.<br>
         </p>
         <p>Leveraging Windows shortcuts allows for easy customization of frontends.  As these files can be moved, copied and deleted without affecting launchers or ROM-Jackets, creating custom playlists is as easy as navigating Windows Explorer.</p>
@@ -733,6 +746,8 @@ The  charachter must be escaped  or it will be converted to a space.<br><strong>
     <div id="grad1">
     <h2 class='button button4'>:=: Cores :=:</h2>
 </div>
+ <a id="NETPLAY"></a>
+  
   <div id="outer">
     <div id="inner">
       <p>Configure Cores and create core-configuration overrides.</p>
@@ -741,7 +756,6 @@ The  charachter must be escaped  or it will be converted to a space.<br><strong>
       
     </div>
   </div>
-  <a id="NETPLAY"></a>
     
     <div id="grad1">
 		<h2 class='button button4'>:=: Netplay :=:</h2></div>
@@ -835,11 +849,11 @@ This [tag] is automatically detected by skeletonKey clients which will enable th
         
         <p>Jackets are created for ROMs using the title or file-name of ROMs. </p>
         
-          <h4>Consolidate vs. Individuate</h4>
+          <blockquote><blockquote><h4>Consolidate vs. Individuate</h4></blockquote></blockquote>
         
         <p>ROM-Jackets are individuated by default, however the abundance of releases a title may have seen throughout the world is multiplied by versions the developer  released and again multiplied by  ROM-dumps. Subsequently many ROM-collections and system-libraries are simply too large and unwieldy for practical purposes. In the interest of bringing forth functional libraries it may be desireable to consolidate each title without regard for region or version. </p>
          
-          <blockquote><blockquote><h4>Consolidate ( )[]</h4></blockquote></blockquote>
+          <blockquote><h3>Consolidate ( )[]</h3></blockquote>
         
         <p>This will consolidate ROMs containing the same base-name, grouping each ROMs regional counterparts and multi-disc ROMs together into a single jacket. The base-name is the ROM's filename without any text in parenthesis or brackets. </p>
                <div class="wrapper">  
@@ -872,7 +886,7 @@ This [tag] is automatically detected by skeletonKey clients which will enable th
 </div>
 </div>
        
-        <blockquote><blockquote><h4>Individuate</h4></blockquote></blockquote>
+        <blockquote><h3>Individuate</h3></blockquote>
         <p>This will simply jacketize each ROM using the name of the file without the extension.</p>
           <div class="wrapper">  
      <div class="tab">
@@ -1035,7 +1049,7 @@ It should be noted that <a href="#ASSOC">skeletonKey's Launcher settings</a> hav
 				     </div>
 </div>
           <blockquote><h3>Pre-Command / Post-Command</h3></blockquote>
-          <blockquote><h3>Local/Absolute</h3></blockquote>
+          <blockquote><blockquote><h4>Local/Absolute</h4></blockquote></blockquote>
         The Absolute option enables selecting a file via a file dialog box to be run.<br>
         The Local option enables any file (including a file not currently available via a dialog box)
         to be designated.<br>
@@ -1100,22 +1114,22 @@ It should be noted that <a href="#ASSOC">skeletonKey's Launcher settings</a> hav
         <p>Xpadder and Antimicro programs are currently supported.</p>
         <br>
         
-          <blockquote><h3>Return Profile</h3></blockquote>
+          <blockquote><blockquote><h4>Return Profile</h4></blockquote></blockquote>
         
         <br>
         Frontends may require a unique joystick profile to properly function. This profile is loaded when returning from a game. <br>
         
-          <blockquote><h3>Keyboard</h3></blockquote>
+          <blockquote><blockquote><h4>Keyboard</h4></blockquote></blockquote>
         
         <br>
         Emulators in the initialized (default) state will map keyboard keys to the system's buttons and joystick directions. SkeletonKey can create profiles for these keys as they correspond for pc-joysticks to the native joystick layout of the machine. If the chosen console is a custom/unsupported system, a generic and multipurpose configuration is created. <br>
         
-          <blockquote><h3>Blank</h3></blockquote>
+          <blockquote><blockquote><h4>Blank</h4></blockquote></blockquote>
         
         <br>
         causes an empty profile to be created for each game to disable xpadder/antimicro while the emulator is running. This is desirable for users who are processing a console with a custom emulator. You may choose to create a profile for your system and propagate it through the console's library using the Config Utility. <br>
         
-          <blockquote><h3>Joy</h3></blockquote>
+          <blockquote><blockquote><h4>Joy</h4></blockquote></blockquote>
         
         <br>
         This is the default option for skeletonKey and creates a profile with only Emulator functionality mappings such as "Save/Load State" "Reset" "Exit/Power OFF" and unique functions such as "Rewind/Fast-forward. Emulators are configured to use directinput/xinput (XBOX 360 Joystick mappings).
@@ -1322,15 +1336,23 @@ function createlightbox(){
 
 <style>
 @font-face {
-	font-family: 'Poppins';
-	src: url('Poppins-Regular.ttf') format('truetype');
+	font-family: 'Monoton';
+	src: url('Monoton-Regular.ttf') format('truetype');
 }
-@font-face {
-	font-family: 'Poppins Bold';
-	src: url('Poppins-Bold.ttf') format('truetype');
+<style type="text/css">  @font-face {
+ font-family: 'Muli';
+ src: url('Muli-ExtraBold.ttf') format('truetype');
+}
+<style type="text/css">  @font-face {
+ font-family: 'Muli';
+ src: url('Muli-ExtraBold.ttf') format('truetype');
 }
 <style type="text/css">  @font-face {
  font-family: 'Muli.ttf';
+ src: url('Muli.ttf') format('truetype');
+}
+<style type="text/css">  @font-face {
+ font-family: 'Muli';
  src: url('Muli.ttf') format('truetype');
 }
 @font-face {
@@ -1339,9 +1361,12 @@ function createlightbox(){
 }
 body, td, th {
 	font-family: "Muli";
+	font-size: 12px
 }
 h1, h2, h3, h4, h5, h6 {
 	font-family: "Muli";
+	font-weight: bolder;
+	font-size: 16px;
 }
 body {
 	margin: 0;
@@ -1381,7 +1406,7 @@ body {
 	color: white;
 	padding: 14px 16px;
 	background-color: #333;
-	font-family: "Poppins";
+	font-family: "Muli";
 	text-shadow: -1px -1px 1px rgba(255,255,255,0.43);
 }
 .container a:hover, .dropdown:hover .dropbtn {
@@ -1482,17 +1507,20 @@ box-shadow: 15px 16px 18px -9px rgba(61,61,61,0.19);
 	text-align: center;
 	text-shadow: -1px -1px 1px rgba(28,33,140,1);
 	text-decoration: none;
+	text-indent: 5px;
 	display: inline-block;
-	font-family: "Poppins Bold";
-	font-size: 24px;
+	font-family: "Muli";
+	font-weight: bolder;
+	font-size: 22px;
 	border-radius: 7px;
 	margin-top: 5px;
 	margin-right: 5px;
 	margin-left: 44px;
-	box-shadow: 0px 25px 8px 2px rgba(0,0,0,0.16), 0 4px 10px 2px rgba(0,0,0,0.19);
+	box-shadow: -22px 25px 8px 2px rgba(0,0,0,0.16), -22px 4px 10px 2px rgba(0,0,0,0.19);
+	
 	-webkit-transition-duration: 0.4s; /* Safari */
 	transition-duration: 0.4s;
-	-webkit-box-shadow: 0px 25px 8px 2px rgba(0,0,0,0.19), 0 4px 10px 2px rgba(0,0,0,0.19);
+	-webkit-box-shadow: -22px 25px 8px 2px rgba(0,0,0,0.19), -22px 4px 10px 2px rgba(0,0,0,0.19);
 }
 .button4:hover {
 	background-color: #007CFF;
@@ -1509,11 +1537,10 @@ box-shadow: 15px 16px 18px -9px rgba(61,61,61,0.19);
 </style>
 <style>
 h1 {
- font-family: "Poppins Bold";
-  font-size: 46px;
+ font-family: "Monoton";
+  font-size: 48px;
   padding: 40px 25px;
   text-align: center;
-  text-transform: uppercase;
   text-rendering: optimizeLegibility;
 }
 
@@ -1554,7 +1581,7 @@ h2.retroshadow {
 
 <style>
 h2.inset {
-    font-family: Poppins, Arial, sans-serif;
+    font-family: Muli, Arial, sans-serif;
     font-weight: bold;
     font-size: 2em;
     line-height: 1em;
