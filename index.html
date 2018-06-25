@@ -10,14 +10,14 @@
 <div id="navbar">
 <ul class="topnav">
   <li><a class="active" href="#TOP"><img src="key.png" alt="Key-Logo" height="20"></a></li>
-  <li><a href="#DOWNLOAD">Download</a></li>
-  <li><a href="#USE">General Use</a></li>
-  <li><a href="#FRONTENDS">Frontends</a></li>
-  <li><a href="#JOYSTICKS">Joysticks</a></li>
-  <li><a href="#ROMJACKETS">ROM Jackets</a></li>
-  <li><a href="#NETPLAY">Netplay</a></li>
-  <li><a href="#UTILITIES">Utilities</a></li>
-  <li class="dropdown"><button class="dropbtn" onclick="ddFunction()">Help </button>
+  <li><a href="#DOWNLOAD">DOWNLOAD</a></li>
+  <li><a href="#USE">USAGE</a></li>
+  <li><a href="#FRONTENDS">FRONTENDS</a></li>
+  <li><a href="#JOYSTICKS">JOYSTICKS</a></li>
+  <li><a href="#ROMJACKETS">ROM-JACKETS</a></li>
+  <li><a href="#NETPLAY">NETPLAY</a></li>
+  <li><a href="#UTILITIES">UTILITIES</a></li>
+  <li class="dropdown"><button class="dropbtn" onclick="ddFunction()">HELP </button>
 	<div class="dropdown-content" id="myDropdown"> <a href="#TUTORIALS">Tutorials</a> <a href="#FAQS">FAQs</a> <a href="#RESOURCES">Resources</a></div></li>
 	
   <li class="icon">
@@ -77,11 +77,11 @@
 			<br>
 			<div id="HCB_comment_box">
 				<a href="">Comment Box</a> is loading comments...
-				<p class="text-primary"></p>
+			
 			</div>
 		</div>
 	</div>
-	<p align="center"><br>
+	<p><br>
 	<strong>Released :</strong> [RDATE]<br></p>
 	<div align="center">
 		<a href="https://www.paypal.me/romjacket"><img alt="" height="67" src="tip.png" width="64"></a> now @ $[PAYPAL].00 !!<br>
@@ -267,7 +267,11 @@
 			<p>The switches toggle will expose options &amp; arguments fields for emulators. These are pre-packed with many options and arguments, however spaces should be observed when plugging in your own switches.</p>
 			<h3>LAUNCH</h3>
 			<p>The ROM currently in ROM-List will be launched by the emulator/core in the EMU-List.<br></p>
-			<h3><code>::&gt;</code></h3>
+			<blockquote>
+			  <blockquote>
+			    <h3><code>::&gt;</code></h3>
+		      </blockquote>
+	      </blockquote>
 			<p>A <strong>quick-launch</strong> selection set of all assigned presets and known compatible presets will appear in a dropdown menu<br>
 			This menu can also be accessed via right-clicking on the LAUNCH button.</p>
 			<h3>ROM List</h3>
@@ -284,7 +288,7 @@
 			<p>Clears all current launch options. Right-click on this to delete ROM settings for the emultor in the EMU List.</p>
 		</div><br>
 		<div id="inner">
-			<h3 style="">Emulator Configuration Options</h3>
+			<h3>Emulator Configuration Options</h3>
 			<p>These options are dynamically loaded for each emulator. Settings changed by the user at run-time should load and populate the GUI after lauching.</p>
 			<h3>Drag &amp; Drop</h3>
 			<p>The Drag &amp; Drop area is visible in the upper-left hand corner of the when the search box is expanded using the &quot;find&quot; button in the lower-right hand corner of skeletonKey. With the Auto-Launch option enabled, skeletonKey will detect the ROM and launch it using the system's associated core/emulator, or bring forth the core/emulator dropdown.</p>
@@ -976,6 +980,7 @@ function myFunction() {
 	top: 0;
 	display: none;
 	text-align: center;
+	z-index: 9;
 }
 .parent:before {
 	/* pseudo element to force vertical centering of child element */
@@ -1016,6 +1021,7 @@ function myFunction() {
 	padding-bottom: 56.25%;
 	/* 16:9 aspect ratio */
 	height: 0;
+	z-index: 9;
 }
 /* Make Youtube IFRAME responsive */
 
@@ -1025,6 +1031,7 @@ function myFunction() {
 	left: 0;
 	width: 100%;
 	height: 100%;
+	z-index: 9;
 }
 @font-face {
 	font-family: 'Monoton';
@@ -1044,33 +1051,31 @@ body, td, th {
 	font-size: 14px;
 	margin: 0;
 	background-color: #e7e5e4;
-}
-h1, {
-	font-family: "Muli";
-	font-weight: bolder;
-	font-size: 23px;
+	align-content: center;
 }
 h2 {
 	font-family: "Muli";
 	font-weight: bolder;
 	font-size: 21px;
 	text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.53);
+	text-transform: uppercase;
 }
 h3 {
 	font-family: "Muli";
-	font-weight: bolder;
+	font-weight: bold;
 	font-size: 18px;
-	text-indent: 20px
+	text-transform: capitalize;
+	text-transform: uppercase;
 }
 h4 {
-	text-indent: 35px;
 	font-family: "Muli";
 	font-weight: bold;
 	font-size: 15px;
 }
 main {
 	margin-top: 55px;
-}
+
+	}
 #global {
 	margin-left: 5%;
 	margin-right: 5%;
@@ -1117,13 +1122,13 @@ main {
 	font-family: "Muli";
 	font-weight: bold;
 	font-size: 22px;
-	color: #EDEDED;
+	color: #000;
 	padding-left: 28px;
 	padding-right: 18px;
 	padding-top: 4px;
 	padding-bottom: 15px;
 	text-align: Left;
-	text-shadow: -1px 1px 0px #3D3D3D, -6px 8px 5px #3D3D3D;
+	text-shadow: -6px 8px 5px #949494,1px -1px 1px #fff;
 	text-rendering: optimizeLegibility;
 	text-indent: 5px;
 	display: inline-block;
