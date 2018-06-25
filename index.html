@@ -49,7 +49,7 @@
 			<br>
 			<ul>
 				<li>
-					<h4><a href="[REVISION]">Downlad</a></h4>
+					<h4><a href="[REVISION]">Download</a></h4>
 				</li>
 			</ul>Installer<br>
 			(no metadata files)<br>
@@ -210,6 +210,7 @@
 		<div id="inner">
 			<h3>Program Settings</h3>
 			<p>Program settings such as the root location for your systems, overrides for the batch-script launcher and other operational options can be adjusted in the settings tab.</p>
+			<div id="indent">
 			<h4>Auto-Load Per-Game Settings</h4>
 			<p>SkeletonKey will automatically load any per-game settings previously created and create settings for that title upon launch if none are found.</p>
 			<h4>Systems Directory</h4>
@@ -228,6 +229,7 @@
 						<br></p>
 					</div>
 				</div>
+			</div>
 			</div>
 		</div>
 	</div>
@@ -302,15 +304,17 @@
 		<div id="inner">
 			<h3>RetroArch, Systems, Emulators, Frontends &amp; Utilities</h3>
 			<p>SkeletonKey can be used to quickly install emulators, frontends, retroArch and utilities. The Install Tab is also used to associate skeletonKey's systems with emulators and retroArch cores when using skeletonKey as a launcher.</p>
-			<h3>Installing RetroArch &amp; cores</h3>
+			<div id="indent">
+			<h4>Installing RetroArch &amp; cores</h4>
 			<p>RetroArch and components can be installed separately or as a single package (stable). The "RetroArch" list item includes all components needed by retroArch. The most recent nightly build as well as the stable version are available. A core-upate button will check for cores with updates to upgrade en-masse.</p>
-			<h3>Installing BIOS Files</h3>
+			<h4>Installing BIOS Files</h4>
 			<p>Drag &amp; Drop BIOS files or a BIOS pack (.7z .zip .rar) to automatically install them to their proper places in supported emulators directories.</p>
-			<h3>Emulators</h3>
+			<h4>Emulators</h4>
 			<p>SkeletonKey can install hundreds of emulators. Supported emulators can be configured indipendently (for per-game settings too!!!) as they are launched by skeletonKey and as emulators assigned to ROM-Jackets.</p>
-			<h3>Systems / ROM Directories</h3>
+			<h4>Systems / ROM Directories</h4>
 			<p>Selecting &quot;Systems&quot; from the dropdown menu will allow users to define directories containing ROMs for over 100 systems. ROM directories specified outside of the systems directory will be linked (junctioned) into it with the supported system's name.</p>
-			<h3>&nbsp;</h3>
+			</div>
+			<br>
 			<h3>Emulator &amp; System Associations</h3>
 			<p>The Associations section of the Install tab can be used to change the association of a system to a core, an emulator or nickname.</p>
 			<p>Skeletonkey can detect and assign emulators or a designated retroArch core to a system/s, however it may be desireable to create and configure systems and associations manually. A unique system-identifier or &quot;nickname&quot; can be created to create custom systems and associated emulator-presets.</p>
@@ -326,7 +330,8 @@
 					</div>
 				</div>
 			</div>
-			<h3>-options & &quot;/arguments.[ext]&quot;</h3>
+			<div id="indent">
+			<h4>-options & &quot;/arguments.[ext]&quot;</h4>
 			<p>Options, arguments, quotes, ROM-paths and the extension can be adjusted to suit an emulator's needs.</p>
 			<div class="wrapper">
 				<div class="tab">
@@ -356,6 +361,8 @@
 					</div>
 				</div>
 			</div>
+			</div>
+
 		</div>
 	</div>
 	<br>
@@ -394,12 +401,14 @@
 			</div><br>
 		</div>
 		<div id="inner">
-			<h3>Joystick Drivers</h3>
+			<h3>Keyboard Remappers</h3>
 			<p>RoM-Jacket libraries requires a joystick-to-keyboard-remapper for a seamless HTPC gaming frontend.</p>
+			<div id="indent">
 			<h4>Xpadder</h4>
 			<p>Xpadder is a very reliable and enhanced keyboard remapper. Presets are ubiquitous and abundant and skeletonKey has hundreds for many emulators ready to go for xinput devices.</p>
 			<h4>Antimicro</h4>
 			<p>Antimicro is opensource and extremely versitile.Antimicro is the preferred keyboard remapper by default.</p>
+			</div>
 		</div>
 	</div>
 	<a id="JOYSTICKS"></a>
@@ -425,10 +434,13 @@
 			<h3>XMB : retroArch</h3>
 			<p>Each item added to the playlist contains the name of the ROM, the path of the ROM, the crc hash of the ROM, the core/emulator name, path assignment, &amp; the name of the playlist.</p>
 			<p>The core/emulator dropdown is assigned to the selected items when they are added to the playlist.</p>
-			<h3>RetroArch's Per-Game Configuration Files</h3>
+			<div id="indent">
+			<h4>RetroArch's Per-Game Configuration Files</h4>
 			<p>A template config file can be specified for the retroArch's per-game configuration files, otherwise current skeletonKey settings are used.</p>
 			<h4><a>Playlist Options</a></h4>
-			<p>Right-Clicking in the Playlist-Menu will allow selected items to change the core/emulator assignment for selected items.</p><br>
+			<p>Right-Clicking in the Playlist-Menu will allow selected items to change the core/emulator assignment for selected items.</p>
+			</div>
+			<br>
 		</div>
 		<div id="inner">
 			<h3>Playlist Database</h3>
@@ -564,6 +576,7 @@
 		<div id="inner">
 			<h3><a>Netplay Options</a></h3>
 			<p>It is recommended <u><em>(not required)</em></u> for retroArch netplay users to create playlists containing all ROMs on their computer that they wish to play online. .</p>
+			<div id="indent">
 			<h4>Hosting:</h4>
 			<p>In the Main tab, settings such as delay-frames, port number and file-server port can be adjusted.</p>
 			<p>In the Archive tab, users can select any ROM from the archive to host.</p>
@@ -582,6 +595,7 @@
 						This [tag] is automatically detected by skeletonKey clients which will enable the "Recieve ROM" option to download the file from the host to play automatically.
 					</div>
 				</div>
+			</div>
 			</div>
 		</div>
 	</div>
@@ -633,6 +647,7 @@
 		<div id="inner">
 			<h3>Jackets</h3>
 			<p>Jackets are created for ROMs using the title or file-name of ROMs.</p>
+			<div id="indent">
 			<h4>Consolidate vs. Individuate</h4>
 			<p>ROM-Jackets are individuated by default, however the abundance of releases a title may have seen throughout the world is multiplied by versions the developer released and again multiplied by ROM-dumps. Subsequently many ROM-collections and system-libraries are simply too large and unwieldy for practical purposes. In the interest of bringing forth functional libraries it may be desireable to consolidate each title without regard for region or version.</p>
 			<h3>Consolidate ( )[]</h3>
@@ -759,6 +774,7 @@
 					</div>
 				</div>
 			</div>
+			</div>
 		</div>
 	</div>
 	<br>
@@ -768,17 +784,18 @@
 	<div id="outer">
 		<div id="inner">
 			<br>
-			<h3>Keyboard-Mappers</h3><br>
-			<p>Xpadder and Antimicro programs are currently supported.</p><br>
-			<h4>Return Profile</h4><br>
+			<h3>Keyboard-Mappers</h3>
+			<p>Xpadder and Antimicro programs are currently supported.</p>
+			<div id="indent">
+			<h4>Return Profile</h4>
 			Frontends may require a unique joystick profile to properly function. This profile is loaded when returning from a game.<br>
-			<h4>Keyboard</h4><br>
+			<h4>Keyboard</h4>
 			Emulators in the initialized (default) state will map keyboard keys to the system's buttons and joystick directions. SkeletonKey can create profiles for these keys as they correspond for pc-joysticks to the native joystick layout of the machine. If the chosen console is a custom/unsupported system, a generic and multipurpose configuration is created.<br>
-			<h4>Blank</h4><br>
+			<h4>Blank</h4>
 			causes an empty profile to be created for each game to disable xpadder/antimicro while the emulator is running. This is desirable for users who are processing a console with a custom emulator. You may choose to create a profile for your system and propagate it through the console's library using the Config Utility.<br>
-			<h4>Joy</h4><br>
+			<h4>Joy</h4>
 			This is the default option for skeletonKey and creates a profile with only Emulator functionality mappings such as "Save/Load State" "Reset" "Exit/Power OFF" and unique functions such as "Rewind/Fast-forward. Emulators are configured to use directinput/xinput (XBOX 360 Joystick mappings).
-			
+			</div>
 		</div>
 	</div>
 	<a id="UTILITIES"></a>
@@ -1017,6 +1034,11 @@ function myFunction() {
 	font-family: 'Muli';
 	src: url('Muli.ttf') format('truetype');
 }
+@font-face {
+	font-family: 'Muli';
+	src: url('Muli-ExtraBold.ttf') format('truetype');
+	font-weight: bold;
+}
 body, td, th {
 	font-family: "Muli";
 	font-size: 14px;
@@ -1043,8 +1065,8 @@ h3 {
 h4 {
 	text-indent: 35px;
 	font-family: "Muli";
-	font-weight: bolder;
-	font-size: 16px;
+	font-weight: bold;
+	font-size: 15px;
 }
 main {
 	margin-top: 55px;
@@ -1066,6 +1088,14 @@ main {
 	margin-left: 2%;
 	padding-top: 8px;
 }
+#indent {
+	margin-bottom: 3px;
+	margin-right: 0px;
+	padding-left: 3%;
+	padding-top: 0px;
+	padding-right: 5px;
+	padding-bottom: 9px;
+	}	
 #inner {
 	margin-left: 5%;
 	font-family: Muli;
@@ -1084,6 +1114,9 @@ main {
 }
 .button {
 	background-color: #B3B3B3;
+	font-family: "Muli";
+	font-weight: bold;
+	font-size: 22px;
 	color: #EDEDED;
 	padding-left: 28px;
 	padding-right: 18px;
@@ -1093,12 +1126,8 @@ main {
 	text-shadow: -1px 1px 0px #3D3D3D, -6px 8px 5px #3D3D3D;
 	text-rendering: optimizeLegibility;
 	text-indent: 5px;
-	font-stretch: extra-expanded;
 	display: inline-block;
-	font-family: "Muli";
-	font-weight: bolder;
 	letter-spacing: .05em;
-	font-size: 22px;
 	border-radius: 7px;
 	margin-top: 5px;
 	margin-right: 5px;
@@ -1115,16 +1144,13 @@ main {
 	color: #000;
 	border-radius: 7px;
 	box-shadow: -2px -15px 9px 12px rgba(62, 162, 255, 0.10), -2px 12px 15px 12px rgba(0, 0, 0, 0.09);
-
 	-webkit-transition-duration: 0.4s;
 	/* Safari */
 	transition-duration: 0.4s;
 	-webkit-box-shadow: -2px -15px 9px 12px rgba(62, 162, 255, 0.10), -2px 12px 15px 12px rgba(0, 0, 0, 0.09);
-
 	padding-left: 75px;
 	margin-left: 25px;
 	text-rendering: optimizeLegibility;
-
 }
 
 h1 {

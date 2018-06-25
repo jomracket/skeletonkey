@@ -821,6 +821,7 @@ FileCreateDir,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browse
 FileCreateDir, rj\ES
 FileCreateDir, rj\netArt
 FileInstall,Monoton-Regular.ttf,Monoton-Regular.ttf,1
+FileInstall,Muli-ExtraBold.ttf,Muli-ExtraBold.ttf,1
 FileInstall,Muli.ttf,Muli.ttf,1
 FileInstall,AppParams.set,AppParams.set,1
 FileInstall,arcorg.set,arcorg.set,1
