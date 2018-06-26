@@ -3,7 +3,7 @@
 ;{#	########              FOLD                #############
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;    [VERSION]  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
@@ -40252,11 +40252,14 @@ Select_a_CoreDDLA:
 2048DDLA:
 3dengineDDLA:
 craftDDLA:
+thepowdertoyDDLA:
 cannonballDDLA:
 reminiscenceDDLA:
 vemulatorDDLA:
 openlaraDDLA:
+theodoreDDLA:
 nekop2DDLA:
+tryquakeDDLA:
 np2kaiDDLA:
 chailoveDDLA:
 dolphin_launcherDDLA:
@@ -55278,6 +55281,8 @@ lutroRESET:
 nxengineRESET:
 melondsRESET:
 meteorRESET:
+theodoreRESET:
+thepowdertoyRESET:
 vice_xvicRESET:
 vice_xplus4RESET:
 remotejoyRESET:

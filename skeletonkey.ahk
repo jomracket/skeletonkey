@@ -3,13 +3,13 @@
 ;{#	########              FOLD                #############
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-26 10:42 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-26 2:37 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-06-26 10:42 AM
-VERSION= v0.99.54.34
+RELEASE= 2018-06-26 2:37 PM
+VERSION= v0.99.54.35
 RASTABLE= 1.7.3
 #Include tf.ahk
 #Include lbex.ahk
@@ -40252,11 +40252,14 @@ Select_a_CoreDDLA:
 2048DDLA:
 3dengineDDLA:
 craftDDLA:
+thepowdertoyDDLA:
 cannonballDDLA:
 reminiscenceDDLA:
 vemulatorDDLA:
 openlaraDDLA:
+theodoreDDLA:
 nekop2DDLA:
+tryquakeDDLA:
 np2kaiDDLA:
 chailoveDDLA:
 dolphin_launcherDDLA:
@@ -55278,6 +55281,8 @@ lutroRESET:
 nxengineRESET:
 melondsRESET:
 meteorRESET:
+theodoreRESET:
+thepowdertoyRESET:
 vice_xvicRESET:
 vice_xplus4RESET:
 remotejoyRESET:

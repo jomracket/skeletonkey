@@ -387,7 +387,7 @@ Thomson - MO6|MAME|:mame_libretro.dll
 Thomson - TO7 - TO7-70A|MAME|:mame_libretro.dll
 Thomson - TO7 - TO7-70|MAME|:mame_libretro.dll
 Thomson - To7|MAME|:mame_libretro.dll
-Thomson - To8|MAME|:mame_libretro.dll
+Thomson - To8|MAME|:theodore_libretro.dll|mame_libretro.dll
 Tiger - Game.com|gamecomemu|MAME|:mame_libretro.dll
 Tiger - K28 7-232|MAME|:mame_libretro.dll
 Tiki Data A-S - TIKI 100|MAME|:mame_libretro.dll
