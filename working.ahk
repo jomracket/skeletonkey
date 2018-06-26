@@ -9116,7 +9116,7 @@ LNCHPT:
 gui,submit,nohide
 guicontrolget,LNCHPRDDL,,LNCHPRDDL
 guicontrolget,LNCHPT,,LNCHPT
-iniread,smuemu,apps.ini,EMULATORS
+iniread,smuemu,apps.ini,EMULATORS,
 stringreplace,smuemu,smuemu,`n,|,All
 stringreplace,smuemu,smuemu,=,|,All
 stringreplace,smuemu,smuemu,",,All
@@ -9173,13 +9173,13 @@ if (LNCHPRDDL <> "retroarch")
 				stringsplit,fei,A_LoopField,=
 				Loop, Parse, SysEmuSet,`n`r
 					{
-						sysfnd= 
 						sdspl1= 
 						sdspl2= 
 						stringsplit,sdspl,A_LoopField,:
 						StringSplit,sysplit,sdspl1,|
 						if (sysplit1 = fei1)
 							{
+								sysfnd= 
 								reaptot=
 								repaden= 
 								Loop, Parse, sdspl1,|
@@ -9188,12 +9188,13 @@ if (LNCHPRDDL <> "retroarch")
 											{
 												continue
 											}
-										repwith= %LNCHPRDDL%	
-										if (LNCHPRDDL = "Emulators")
+										repwith= %A_LoopField%
+										iniread,fej,Assignments.ini,OVERRIDES,%fei1%
+										ifinstring,fej,%repwith%
 											{
-												repwith= %A_LoopField%
+												continue
 											}
-										ifinstring,smuemu,|%repwith%|
+										ifinstring,smuemu,%repwith%|
 											{										
 												sysfnd+= 1
 												if (sysfnd = 1)
@@ -9201,16 +9202,16 @@ if (LNCHPRDDL <> "retroarch")
 														reapri= %repwith%
 														continue
 													}
+												repaden.= repwith . "|"	
 											}
 									}
-								if (sysfnd > 1)
+								if (sysfnd > 1)	
 									{
-										repaden.= repwith . "|"
+										repaden.= fej
+										reaptot:= reapri . "|" . repaden
+										iniwrite, "%reaptot%",Assignments.ini,OVERRIDES,%fei1%									
 									}
-								reaptot:= reapri . "|" . repaden
-								iniwrite, "%reaptot%",Assignments.ini,OVERRIDES,%fei1%
 							}
-						;;iniwrite, "%repwith%",Assignments.ini,ASSIGNMENTS,%fei1%	
 					}
 			}
 		iniwrite, 1,Settings.ini,GLOBAL,Launcher_Priority
@@ -11219,6 +11220,16 @@ guicontrol,,DAPP,1
 gosub, AppSetReset
 
 IniRead,ksiv,Assignments.ini,OVERRIDES,%semu%
+stringleft,ksichk,ksiv,1
+if (ksichk = "|")
+	{
+		stringtrimleft,ksiv,ksiv,1
+	}
+stringright,ksichk,ksiv,1
+if (ksichk = "|")
+	{
+		stringtrimright,ksiv,ksiv,1
+	}
 if (ksiv <> 0)
 	{
 		gosub,DApp
@@ -12584,6 +12595,17 @@ gui,submit,nohide
 guicontrolget,emprcur,,EMPRLST
 ControlGet, ksiv, List, , , ahk_id %prisl%
 stringreplace,ksiv,ksiv,`n|,All
+stringleft,ksichk,ksiv,1
+if (ksichk = "|")
+	{
+		stringtrimleft,ksiv,ksiv,1
+	}
+stringright,ksichk,ksiv,1
+if (ksichk = "|")
+	{
+		stringtrimright,ksiv,ksiv,1
+	}
+
 if (EMPRLST = "")
 	{
 		return
@@ -12601,7 +12623,16 @@ if (semu = "")
 EMPRBUTASPLIT:
 guicontrolget,EMPRDDL,,EMPRDDL
 iniread,ksiv,Assignments.ini,OVERRIDES,%semu%
-
+stringleft,ksichk,ksiv,1
+if (ksichk = "|")
+	{
+		stringtrimleft,ksiv,ksiv,1
+	}
+stringright,ksichk,ksiv,1
+if (ksichk = "|")
+	{
+		stringtrimright,ksiv,ksiv,1
+	}
 if (EMPRDDL = "Emulators")
 	{
 		return
@@ -12638,6 +12669,16 @@ EMPRBUTU:
 gui,submit,nohide
 guicontrolget,emprcur,,EMPRLST
 iniread,ksiv,Assignments.ini,OVERRIDES,%semu%
+stringleft,ksichk,ksiv,1
+if (ksichk = "|")
+	{
+		stringtrimleft,ksiv,ksiv,1
+	}
+stringright,ksichk,ksiv,1
+if (ksichk = "|")
+	{
+		stringtrimright,ksiv,ksiv,1
+	}
 if (emprcur = "")
 	{
 		return
@@ -12684,6 +12725,16 @@ EMPRBUTX:
 gui,submit,nohide
 guicontrolget,emprcur,,EMPRLST
 iniread,ksiv,Assignments.ini,OVERRIDES,%semu%
+stringleft,ksichk,ksiv,1
+if (ksichk = "|")
+	{
+		stringtrimleft,ksiv,ksiv,1
+	}
+stringright,ksichk,ksiv,1
+if (ksichk = "|")
+	{
+		stringtrimright,ksiv,ksiv,1
+	}
 if (emprcur = "")
 	{
 		return
@@ -14597,7 +14648,7 @@ ifexist, Assignments.ini
 					{
 						ifmsgbox,yes
 							{
-								TrayTip, skeletonkey, skeletonKey is indexing emulators,5,48 
+								SB_SetText("...Indexing Emulator Directory....")
 								FileCopy,Assignments.set, Assignments.ini,1
 								FileDelete,Apps.ini
 								farvr=	
@@ -14605,6 +14656,7 @@ ifexist, Assignments.ini
 					}
 			}
 	}
+	
 Loop, Parse, EmuPartSet,`n`r
 	{
 		if (A_LoopField = "")
@@ -14631,7 +14683,7 @@ Loop, Parse, EmuPartSet,`n`r
 						if (prga1 = emupx1)
 							{
 								prgom= 1
-							}		
+							}
 					}
 				if (prgom = 1)
 					{
@@ -14642,7 +14694,7 @@ Loop, Parse, EmuPartSet,`n`r
 								IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",apps.ini,HTPC_FRONTENDS,%emupx1%
 							}
 						stringreplace,emuxelst,emuxelst,%emupx1%>%emunmz%,,All
-						SB_SetText(" " emupx1 " found ")
+;;						SB_SetText(" " emupx1 " found ")
 						continue
 					}
 				prgom= 
@@ -14700,7 +14752,6 @@ Loop, Parse, EmuPartSet,`n`r
 				iniread,fetmp,Assignments.ini,OVERRIDES,%emupx1%
 				if (fetmp = "ERROR")
 					{
-							
 						IniWrite, "%emupx1%",Assignments.ini,OVERRIDES,%emupx1%
 						/*
 						IniWrite, "0",AppParams.ini,%emupx1%,per_game_configurations
@@ -14727,17 +14778,20 @@ Loop, Parse, EmuPartSet,`n`r
 						IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",Assignments.ini,ASSIGNMENTS,%emupx1%
 					}
 					
-				stringreplace,emuxelst,emuxelst,%emupx1%>%emunmz%,,All
+				stringreplace,emuxelst,emuxelst,%emupx1%>%emunmz%|,,All
 				SB_SetText(" " emupx1 " found ")
 			}
 	}
-		
 
 emuncnt= 0
 emucnt= 
 farvr= 
 Loop, %RJEMUD%\*.exe,,1
 	{
+		ifinstring,emuxelst,%A_LoopFileName%
+			{
+				continue
+			}
 		farvr.= A_LoopFileDir "|" A_LoopFileName "|" A_LoopFileFullPath "`n"
 	}
 
@@ -14754,10 +14808,9 @@ Loop, parse, farvr,`n
 		stringsplit,evirn,A_LoopField,|
 		emuxenm= %evirn2%
 		emuxefp= %evirn3%
-		Menu,Tray,Tip, Searching for emulators
 		Loop, Parse, emuxelst,|
 			{
-				SB_SetText("Searching for " splemu1 " ")
+;;				SB_SetText("Searching for " splemu1 " ")
 				if (A_LoopField = "")
 					{
 						continue
@@ -14808,7 +14861,7 @@ Loop, parse, farvr,`n
 						iniwrite, "%EMPRERUN%",AppParams.ini,%splemu1%,EMPRERUN
 						iniwrite, "%EMPOSTW%",AppParams.ini,%splemu1%,EMPOSTW
 						iniwrite, "%EMPREW%",AppParams.ini,%splemu1%,EMPREW
-						SB_SetText(" " splemu1 " found ")
+;;						SB_SetText(" " splemu1 " found ")
 						Loop, parse, siiv,`n, `r
 							{
 								fie1=
@@ -14862,7 +14915,7 @@ Loop, parse, farvr,`n
 											}
 									}
 							}
-						SB_SetText(" " splemu1 " found ")
+;;						SB_SetText(" " splemu1 " found ")
 					}
 			}		
 	}
@@ -14880,7 +14933,7 @@ if (ratstchk = "ERROR")
 		if (INITIAL <> 1)
 			{
 				if (raexefile <> "NOT-FOUND.exe")
-					{	
+					{
 						emunumtot+=1
 						IniWrite, "%raexeloc%\%raexefile%",Apps.ini,EMULATORS,retroarch
 						IniWrite, "retroarch",Assignments.ini,OVERRIDES,retroarch
@@ -14895,49 +14948,52 @@ Loop,Parse,asig,`n,`r
 	{
 		StringSplit,rasig,A_LoopField,=,"
 		;"
-		
 		if rasig1 is not digit
 			{
 				reasign.= rasig1 . "|"
 			}
 		if (LNCHPT = 1)
 			{
-				ifinstring,rasig2,_libretro.dll
+				Loop, Parse, SysEmuSet,`n`r
 					{
-						Loop, Parse, SysEmuSet,`n`r
+						sdspl1= 
+						sdspl2= 
+						stringsplit,sdspl,A_LoopField,:
+						stringsplit,fei,sdspl1,|
+						if (fei1 = rasig1)
 							{
-								sdspl1= 
-								sdspl2= 
-								stringsplit,sdspl,A_LoopField,:
-								stringsplit,fei,sdspl1,|
-								if (fei1 = rasig1)
+								Loop, %fei0%
 									{
-										Loop, %fei0%
+										if (A_Index = 1)
 											{
-												if (A_Index = 1)
+												continue
+											}
+										foi= % (fei%a_index%)
+										iniread,fej,Assignments.ini,OVERRIDES,%rasig1%
+										if fej is digit
+											{
+												fej= 
+											}
+										iniread,krtmp,apps.ini,EMULATORS,%foi%
+										if (krtmp <> "ERROR")
+											{
+												ifinstring,fej,|%foi%
 													{
 														continue
 													}
-												foi= % (fei%a_index%)
-												iniread,fej,Assignments.ini,OVERRIDES,%rasig1%
-												if fej is not digit
-													{
-														continue
-													}
-												iniread, krtmp,apps.ini,EMULATORS,%foi%
-												if (krtmp <> "ERROR")
-													{
-														iniwrite, "%foi%",Assignments.ini,OVERRIDES,%rasig1%
-														prifnd= 1
-														break
-													}
+												fej.= "|" . foi
+												stringreplace,fej,fej,||,|,All
+												iniwrite, "%fej%",Assignments.ini,OVERRIDES,%rasig1%
+												prifnd= 1
+												continue
 											}
 									}
-								continue
 							}
+						continue
 					}
 			}
 	}
+	
 runlist:= corelist . "|" . addemu
 guicontrol,,JCORE,|%runlist%
 guicontrol,,LCORE,|%runlist%
