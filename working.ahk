@@ -2042,13 +2042,20 @@ Gui, Add, Button, x422 y413 w16 h17 vEMPRBUTA gEMPRBUTA, +
 Gui, Add, DropDownList, x283 y411 w125 vEMPRDDL gEMPRDDL, Emulators|%addemu%
 Gui, Add, Button, x458 y433 w16 h17 vEMPRBUTU gEMPRBUTU, P
 Gui, Add, Button, x458 y459 w16 h17 vEMPRBUTX gEMPRBUTX, X
-Gui, Add, Button, x487 y481 w36 h17 vDELCFGPGC gDELCFGPGC, Clean
+Gui, Add, Button, x458 y481 w36 h17 vDELCFGPGC gDELCFGPGC, Clean
 
 ;;Gui, Add, Button, x458 y485 w16 h17 vEMPRBUTD gEMPRBUTD, v
-;;gui, Add, Button,x714 y482 w43 h23 vCNCLDWN gCancelDown Disabled, Cancel
-Gui, Font,Bold
-Gui, Add, GroupBox, x553 y396 w194 h112 vEMGRPF, Pre Cmd/ Post Cmd
+;;gui, Add, Button,x714 y482 w43 h23 vCNCLDWN gCancelDown Disabled, CancelDSKMNTDDL
+Gui, Font,Boldg
+Gui, Add, GroupBox, x552 y409 w194 h97 vEMGRPF Right, Pre Cmd/ Post Cmd
+Gui Add, GroupBox, x472 y362 w262 h43 vDSKMNTGRP, Disc-Mounting
 Gui, Font, Normal
+
+Gui Add, CheckBox, x475 y380 vDSKMNTCHK gDSKMNTCHK disabled, Enable
+Gui Add, DropDownList, x533 y378 w91 vDSKMNTDDL gDSKMNTDDL disabled, DaemonTools||alcohol120|Other
+Gui Add, Button, x625 y378 w44 h19 vDSKSELBUT gDSKSELBUT disabled, Disc...
+Gui Add, CheckBox, x671 y370 h16 vDSKMNTOVR gDSKMNTOVR disabled, override
+
 ;;Gui, Add, Button, x556 y451 w21 h23 vEMBUTV gEMBUTV disabled, ~
 ;;Gui, Add, Radio, x630 y416 w48 h13 vEMRad11A gEMRad11A disabled, Local
 Gui, Add, Radio, x682 y416 w63 h13 vEMRad11B gEMRad11B Checked disabled hidden, Absolute
@@ -2076,9 +2083,6 @@ Gui,Font,%fontXsm% Bold
 Gui, Add, GroupBox, x278 y5 w185 h366 Center vCCGRP, Installer
 Gui,Font,%fontXsm% Norm
 Gui, Add, ListBox, x258 y22 w198 h316 -LV0x20 Altsubmit HWNDnocrsl vCRNTCORS gNoSelCores hidden,|%CoreNamz%
-Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x494 y391 w246 h109 Center +0x400000 vGRPDROPBIOS hidden, Drop BIOS here
-Gui,Font,%fontXsm% Norm
 
 Gui, Add, Radio, x123 y463 h14 vEXELIST gExeList hidden, Parts
 Gui, Add, Radio, x71 y463 h14 Checked vRALIST gRaList hidden, Cores
@@ -2087,7 +2091,7 @@ Gui, Add, DropDownList, x9 y484 w110 vSaList gSaList,Systems||Emulators|RetroArc
 Gui,Font,%fontXsm% Bold
 ;;gui, Add, Radio, x134 y486 h14 vSALIST gSaList, Standalone Emulators
 
-Gui, Add, GroupBox, x466 y5 w275 h379 vSKRAstch, Skeletonkey-System-Associations
+Gui, Add, GroupBox, x465 y6 w275 h358 vSKRAstch, Skeletonkey-System-Associations
 Gui,Font,%fontXsm% Norm
 Gui, Add, DropDownList, x288 y477 w77 vLNCHPRDDL gLNCHPRDDL hidden,Emulators||retroarch
 Gui, Add, Button, x368 y477 w42 h22 vLNCHPT gLNCHPT hidden,Priority
@@ -10253,6 +10257,11 @@ guicontrol,disable,EMEDTO
 guicontrol,disable,EMBUTH
 
 guicontrol,hide,REPOSET
+guicontrol,hide,DSKMNTGRP
+guicontrol,hide,DSKMNTCHK
+guicontrol,hide,DSKMNTDDL
+guicontrol,hide,DSKSELBUT
+guicontrol,hide,DSKMNTOVR
 guicontrol,hide,EMGRPF
 guicontrol,hide,EMBUTV
 guicontrol,hide,EMRAD11A
@@ -10404,6 +10413,11 @@ if (SALIST = "Systems")
 		;;guicontrol,hide,KARC
 		guicontrol,hide,UPDCL
 		guicontrol,hide,EMGRPF
+		guicontrol,show,DSKMNTGRP
+		guicontrol,show,DSKMNTCHK
+		guicontrol,show,DSKMNTDDL
+		guicontrol,show,DSKSELBUT
+		guicontrol,show,DSKMNTOVR
 		;;guicontrol,show,EMBUTV
 		guicontrol,show,EMRAD11A
 		;;guicontrol,show,EMRAD11B
@@ -10632,7 +10646,20 @@ if (SALIST = "Emulators")
 		guicontrol, show,LOCEMUIN
 		guicontrol,,CCGRP,Installer
 		guicontrol,,CACGRP,Emulators
-		
+		guicontrol,show,EMGRPF
+		guicontrol,show,EMCHKW
+		guicontrol,show,EMDDLF
+		guicontrol,show,EMBUTG
+		guicontrol,show,EMCBXH
+		guicontrol,show,EMDDLP
+		guicontrol,show,EMBUTO
+		guicontrol,show,EMEDTO
+		guicontrol,show,EMBUTH
+		guicontrol,show,DSKMNTGRP
+		guicontrol,show,DSKMNTCHK
+		guicontrol,show,DSKMNTDDL
+		guicontrol,show,DSKSELBUT
+		guicontrol,show,DSKMNTOVR
 		guicontrol,hide,CRNTCORS
 		guicontrol,hide,ADDNYS
 		guicontrol,hide,SAVNSYS
@@ -11315,6 +11342,9 @@ guicontrol,enable,EMDDLP
 guicontrol,enable,EMBUTO
 guicontrol,enable,EMEDTO
 guicontrol,enable,EMBUTH
+
+guicontrol,enable,DSKMNTCHK
+
 gosub, EMRAD11B
 ifexist, %RJSYSTEMS%\%semu%
 	{
@@ -12605,11 +12635,12 @@ if (ksichk = "|")
 	{
 		stringtrimright,ksiv,ksiv,1
 	}
-
-if (EMPRLST = "")
+if (emprcur = "")
 	{
 		return
 	}
+guicontrol,,SYSNICK,|%emprcur%||%preEmuCfg%
+gosub, SYSNICK
 return
 
 EMPRBUTA:
@@ -12764,6 +12795,69 @@ guicontrol,,EMPRLST,|%EMPRLT%
 iniwrite,"%EMPRLT%",Assignments.ini,OVERRIDES,%semu%
 iniwrite,"%newsemu%",Assignments.ini,ASSIGNMENTS,%semu%
 return
+
+DSKMNTCHK:
+gui,submit,nohide
+guicontrolget,sysni,,SYSNICK
+if (sysni = "")
+	{
+		guicontrol,,DSKMNTCHK,0
+		return
+	}
+guicontrol,disable,DSKMNTDDL
+guicontrol,disable,DSKSELBUT
+guicontrol,disable,DSKMNTOVR
+if (DSKMNTCHK = 1)
+	{
+		guicontrol,enable,DSKSELBUT
+		guicontrol,enable,DSKMNTDDL
+		guicontrol,enable,DSKMNTOVR
+	}
+iniwrite,"%DSKMNTCHK%",AppParams.ini,%sysni%,DSKMNTCHK
+return
+
+DSKMNTDDL:
+gui,submit,nohide
+guicontrolget,dskmntddl,,DSKMNTDDL
+if (dskmntddl = "other")
+	{
+		dskmntprgtmp= 
+		FileSelectFIle,dskmntprgtmp,3,,Select a disk-mounting application 
+		if (dskmntprgtmp = "")
+			{
+				return
+			}
+		DSKMNTPRG= %dskmntprgtmp%
+	}
+iniwrite,"%DSKMNTPRG%",AppParams.ini,%sysni%,DSKMNTPRG
+return
+
+DSKSELBUT:
+gui,submit,nohide
+dskseltmp= 
+FileSelectFile,dskseltmp,3,,Select a Disk
+if (dskseltmp = "")
+	{
+		guicontrol,,DSKMNTOVR,0
+		guicontrol,disable,DSKSELBUT
+		iniwrite,"0",AppParams.ini,%sysni%,DSKMNTOVR
+		return
+	}
+DSKSELOVR= %dskseltmp%	
+iniwrite,"%DSKSELOVR%",AppParams.ini,%sysni%,DSKMNTOVR
+return
+
+DSKMNTOVR:
+gui,submit,nohide
+guicontrol,disable,DSKSELBUT
+if (DSKMNTOVR = 1)
+	{
+		guicontrol,enable,DSKSELBUT
+		goto, DSKSELBUT
+	}
+return
+
+
 
 LocEmuIn:
 gui,submit,nohide
@@ -13770,7 +13864,17 @@ guicontrolget,EMUPGC,,EMUPGC
 guicontrolget,APPOPT,,APPOPT
 guicontrolget,APPARG,,APPARG
 guicontrolget,OMITPTH,,OMITPTH
-
+guicontrolget,DSKMNTCHK,,DSKMNTCHK
+guicontrolget,DSKMNTDDL,,DSKMNTDDL
+guicontrolget,DSKMNTOVR,,DSKMNTOVR
+if (DSKMNTDDL <> "DaemonTools")
+	{
+		iniread,DSKMNTPRG,AppParams.ini,%sysni%,DSKMNTPRG
+	}
+if (DSKMNTOVR = 1)
+	{
+		iniread,DSKMNTOVR,AppParams.ini,%sysni%,DSKMNTOVR
+	}
 IniRead, EMPRERUN,AppParams.ini,%sysni%,EMPRERUN
 IniRead, EMPREW,AppParams.ini,%sysni%,EMPREW
 IniRead, EMPREOPT,AppParams.ini,%sysni%,EMPREOPT
@@ -13930,6 +14034,9 @@ Loop, Parse, semu,|
 		iniwrite, "%EMPREOPT%",AppParams.ini,%sysni%,EMPREOPT
 		iniwrite, "%EMPRERUN%",AppParams.ini,%sysni%,EMPRERUN
 		iniwrite, "%EMPREW%",AppParams.ini,%sysni%,EMPREW
+		iniwrite, "%DSKMNTCHK%",AppParams.ini,%sysni%,DSKMNTCHK
+		iniwrite, "%DSKMNTOVR%",AppParams.ini,%sysni%,DSKMNTOVR
+		iniwrite, "%DSKMNTPRG%",AppParams.ini,%sysni%,DSKMNTPRG
 	}
 gosub, ResetRunList
 
@@ -14418,6 +14525,40 @@ if (tmpq <> "ERROR")
 				qdisp= 
 			}
 	}
+tmpdt= 
+iniread, tmpdt, AppParams.ini,%sysni%,DSKMNTCHK
+guicontrol,,DSKMNTCHK,0
+if (tmpdt <> "ERROR")
+	{
+		guicontrol,,DSKMNTCHK,%tmpdt%
+		if (tmpdt = 1)
+			{
+				guicontrol,enable,DSKMNTDDL
+				guicontrol,enable,DSKMNTOVR
+				guicontrol,enable,DSKSELBUT
+			}
+	}
+tmpdp= 
+iniread, tmpdp, AppParams.ini,%sysni%,DSKMNTPRG
+if (tmpdp <> "ERROR")
+	{
+		guicontrol,,DSKMNTDDL,|%tmpdp%||DaemonTools|alcohol120|Other
+
+	}
+tmpdf= 
+iniread, tmpdf, AppParams.ini,%sysni%,DSKMNTOVR
+if (tmpdf <> "ERROR")
+	{
+		if (tmpdf = 0)
+			{
+				guicontrol,,DSKMNTOVR,%tmpdf%				
+			}
+		if (tmpdf <> 0)
+			{
+				guicontrol,,DSKMNTOVR,1
+			}
+	}
+	
 guicontrol, ,EXDISPL, "..\%ovfile%"%apopt%%qdisp%%pthdisp%ROM%xdisp%%qdisp%%aparg%, %runfr%
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -53795,10 +53936,42 @@ guicontrol, Disable, CNCTBUT
 guicontrol, Disable, HostButton
 
 gosub, SKLPRER
+iniread,dmchk,AppParams.ini,%coreselv%,DSKMNTCHK
+if (dmchk = 1)
+	{
+		DSKROMF= %RUNROM%
+		iniread,dskmntprg,AppParams.ini,%coreselv%,DSKMNTPRG
+		iniread,dskmntexe,Apps.ini,UTILITIES,%dskmntprg%
+		dskmntopt:= " -mount scsi, 0,"
+		dskunmntopt:= " -unmount scsi, 0"
+		if (dskmntprg <> "DaemonTools")
+			{
+				dskmntexe= %dskmntprg%
+				dskmntopt= %A_Space%
+				dskunmntopt= %A_Space%
+			}
+		iniread,dskmntovr,AppParams.ini,%coreselv%,DSKMNTOVR
+		if (dskmntovr <> 0)
+			{
+				ROMF= %dskmntovr%
+				stringreplace,ROMF,ROMF,",,All
+				;"
+			}
+		Run, %comspec% /c "%dskmntexe%"%dskmntopt%"%DSKROMF%"
+		if (dskmntovr = 0)
+			{
+				RUNROM= 
+			}
+	}	
+
 SB_SetText(" ..\" xenm "" RunOptions "" RUNROM "" RunArgs "|||from " runbrv " ")
 RunWait, "%OvrExtAs%"%RunOptions%%RUNROM%%RunArgs%,%runloc%,,overxtpid
 GLBLRUN= 
 process, close, %overxtpid%
+if (dmchk = 1)
+	{
+		Run, %comspec% /c "%dskmntexe%"%dskunmntopt%
+	}
 gosub, SKLPOST
 
 POSTEMULAUNCH:
