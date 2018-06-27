@@ -719,10 +719,11 @@ bRegionX = 11
 bRegionY = 12
 bRegionW = 346
 bRegionH = 485
-cRegionX = 494
-cRegionY = 391
-cRegionW = 246
-cRegionH = 109
+
+cRegionX = 470
+cRegionY = 25
+cRegionW = 263
+cRegionH = 94
 
 dRegionX = 285
 dRegionY = 304
@@ -2026,6 +2027,10 @@ Gui Tab, Emu:=:Sys
 Gui,Font,, %fontName%
 Gui,Font,%fontXsm% Bold
 Gui, Add, GroupBox, x7 y5 w268 h478 vCACGRP, Systems
+Gui,Font,%fontXsm% Norm
+
+Gui,Font,%fontXsm% Bold
+Gui, Add, GroupBox, x470 y25 w263 h94 Center +0x400000 vGRPDROPBIOS hidden, Drop BIOS here
 Gui,Font,%fontXsm% Norm
 
 Gui, Add, ListBox,x15 y29 w253 h446 HWNDtrxvail vUAVAIL gUAvailSel hidden, %systoemu%
@@ -10287,6 +10292,7 @@ guicontrol,hide,EMPRBUTU
 guicontrol,hide,EMPRBUTD
 guicontrol,hide,EMPRBUTX
 guicontrol,hide,DELCFGPGC
+guicontrol,hide,GRPDROPBIOS
 
 
 guicontrol,hide,SKRAEXE
