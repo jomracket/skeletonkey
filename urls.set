@@ -392,6 +392,8 @@ WMC/WindowsMediaCenter.7z
 
 Daemon_Tools/DTLite.7z
 antimicro/antimicro-[ARCH].7z
+VirtualCloneDrive/VirtualCloneDrive.7z
+WinCDEmu/WinCDEmu.7z
 Xinput_Drivers=XBoxDriver/Xbox360-[ARCH]Eng.7z
 Xpadder/Xpadder.7z
 Visual_C++_Runtimes/vcrs.7z

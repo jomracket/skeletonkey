@@ -4,11 +4,11 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-27 2:54 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-28 11:54 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-06-27 2:54 PM
+RELEASE= 2018-06-28 11:54 AM
 VERSION= v0.99.54.34
 RASTABLE= 1.7.3
 #Include tf.ahk
@@ -162,6 +162,10 @@ if (ARCH = 64)
 {
 	ARCHR= _64
 }
+if (OSVRZ1 >= 7)
+	{
+		vdskwin= Windows|
+	}
 UPDATERAEXE= %RAUPDT%
 SysGet, MonitorWorkArea, MonitorWorkArea, 1
 ifNotExist, Settings.ini
@@ -2057,7 +2061,7 @@ Gui Add, GroupBox, x472 y362 w262 h43 vDSKMNTGRP, Disc-Mounting
 Gui, Font, Normal
 
 Gui Add, CheckBox, x475 y380 vDSKMNTCHK gDSKMNTCHK disabled, Enable
-Gui Add, DropDownList, x533 y378 w91 vDSKMNTDDL gDSKMNTDDL disabled, DaemonTools||alcohol120|Other
+Gui Add, DropDownList, x533 y378 w91 vDSKMNTDDL gDSKMNTDDL disabled, DaemonTools||VirtualCloneDrive|WinCDEmu|%vdskwin%Other
 Gui Add, Button, x625 y378 w44 h19 vDSKSELBUT gDSKSELBUT disabled, Disc...
 Gui Add, CheckBox, x671 y370 h16 vDSKMNTOVR gDSKMNTOVR disabled, override
 
@@ -3158,7 +3162,7 @@ Gui,Font,Bold
 Gui, Add, GroupBox, x524 y340 w235 h86 vRJGRPD, Disk Mounting
 Gui,Font,Normal
 Gui, Add, CheckBox, x627 y349 h13 vRJENDMNT gRJENDMNT, Enable ;Disc Mounting
-Gui, Add, DropDownList, x530 y364 w132 vRJDMNTDD gRJDMNTDD Disabled, DaemonTools||Native|Other
+Gui, Add, DropDownList, x530 y364 w132 vRJDMNTDD gRJDMNTDD Disabled, DaemonTools||VirtualCloneDrive|WinCDEmu|%vdskwin%Other
 Gui, Add, Button, x704 y324 w47 h22 vRJDIMGET gRJDIMGET Disabled, Browse
 Gui, Add, Radio, x536 y390 h13 vRJRad8A gRJRad8A Disabled checked, pre-Emulator Run
 Gui, Add, Radio, x536 y406 h13 vRJRad8B gRJRad8B Disabled, post-Emulator Run
@@ -4297,7 +4301,10 @@ return IPList, DllCall("ws2_32\WSACleanup")
 }
 return
 
-zpkproc:
+zpcrcproc:
+CRCZ= 
+ZPSZ= 
+ROMZ= 
 if (StdOut <> "")
 	{
 		xtnv= 	
@@ -4318,13 +4325,68 @@ if (StdOut <> "")
 							{
 								dskinc+=1
 								splitpath,evrx2,evrfn,evrfd,xtnv
-								if (RJMULTIDISC <> 1)
+								ROMZ.= evrx2 . "|"
+							}
+						ifinstring,evrx1,size
+							{
+								ZPSZ:= evrx2
+							}
+						ifinstring,evrx1,CRC
+							{
+								if (evrx2 = 0)
 									{
-										break
+										continue
 									}
+								CRCZ:= evrx2
+								break
+							}
+					}
+			}
+		if (xtnv = "")
+			{
+				xtnv= %fext%
+			}
+	}
+return
+
+zpkproc:
+ZPSZ= 
+if (StdOut <> "")
+	{
+		xtnv= 	
+		dskinc=
+		Loop, Parse, StdOut,`n`r
+			{
+				stvi1= 
+				stvi2=
+				stringsplit,evrx,A_loopfield,=
+				ifinstring,evrx1,----------
+					{
+						partition+=1
+						continue
+					}
+				if (partition > 1)
+					{
+						ifinstring,evrx1,Path
+							{
+								dskinc+=1
+								splitpath,evrx2,evrfn,evrfd,xtnv
+								
 								rjgdsk.= evrx2 . "|"
 								gamDISK%dskinc%= %evrx2%
 							}
+						ifinstring,evrx1,size
+							{
+								ZPSZ:= evrx2
+							}
+						IF (ZPSZ = 0)
+							{
+								continue
+							}
+				if ((ZPSZ > 0)&&(RJMULTIDISC <> 1))
+						{
+							break
+						}
 					}
 			}
 		if (xtnv = "")
@@ -13996,7 +14058,7 @@ Loop, Parse, semu,|
 						nwadmm.= sysni . "|"
 						nwadmi:= sysninj . "|" . sysni
 						addemu.= "|" . sysni
-						guicontrol,,EMPRDDL,|%sysni%|%addemu%
+						guicontrol,,EMPRDDL,|%sysni%||%preEmuCfg%
 						runlist:= corelist . "|" . addemu
 						guicontrol,,LCORE,|%runlist%
 						guicontrol,,PLCORE,|%runlist%
@@ -16988,7 +17050,6 @@ splitpath, TemplCfg, Tmplcfgfile, tmplcfgloc, tmplcfgxt, tmplcfgnm, tmplcfgdrv
 return
 
 ZIPCRC:
-FileDelete,adpl.ini
 if (ARCDTYP = 1)
 	{
 		INZIP= 
@@ -16996,57 +17057,25 @@ if (ARCDTYP = 1)
 	}
 linfo= 
 ROMZ= 
-Runwait,%comspec% /c "7za.exe l -slt "%CrCFLN%" >7z.ini ",,hide
-Loop, Read, 7z.ini
+CRCZ=
+concatcmd= "%A_Scriptdir%\7za.exe" l -slt "%CrCFLN%"
+StdOut := StdoutToVar_CreateProcess(concatcmd)
+partition= 
+gosub, zpcrcproc
+if (CRCZ <> "")
 	{
-		line1= 
-		line2= 
-		StringSplit,line,A_loopReadline,=,%A_Space%
-		if (line1 = "----------")
-			{
-				linfo= 1
-			}
-		if (linfo = "1")
-			{
-				if (line1 = "Path")
-					{
-						ROMZ:= line2
-					}
-				if (line1 = "CRC")
-					{
-						FileAppend,%ROMZ%=%line2%`n,adpl.ini
-					}
-			}
-	}
 
-ifexist, adpl.ini
-	{
-		FileRead,adpl,adpl.ini
-		Loop, Parse,adpl,`n`r
+		SplitPath,ROMZ,zipt,zipp,zipxt,ziprn
+		if (CRCENBL = 1)
 			{
-				if (A_LoopField = "")
-					{
-						return
-					}
-				zipspl1= 
-				zipspl2= 
-				zipt= 
-				zipxt= 
-				ziprn= 
-				zipp= 
-				StringSplit,zipspl,A_LoopField,=
-				SplitPath,zipspl1,zipt,zipp,zipxt,ziprn
-				if (CRCENBL = 1)
-					{
-						zipspl2= 0000000
-					}
-				FileAppend, %CrCFLN%#%zipt%`n,tmp.lpl
-				FileAppend,%ziprn%`n,tmp.lpl
-				FileAppend,%CRDETECT%`n,tmp.lpl
-				FileAppend,%NMDETECT%`n,tmp.lpl
-				FileAppend,%zipspl2%|crc`n,tmp.lpl		
-				FileAppend,[PLSYS]`n,tmp.lpl
+				CRCZ= 0000000
 			}
+		FileAppend,%CrCFLN%#%zipt%`n,tmp.lpl
+		FileAppend,%ziprn%`n,tmp.lpl
+		FileAppend,%CRDETECT%`n,tmp.lpl
+		FileAppend,%NMDETECT%`n,tmp.lpl
+		FileAppend,%CRCZ%|crc`n,tmp.lpl		
+		FileAppend,[PLSYS]`n,tmp.lpl
 	}
 return
 
@@ -33120,59 +33149,110 @@ return
 ;{;;;;;;;;;;;;;;;;;;;;;    UTILITY-OPTION FUNCTIONS    ;;;;;;;;;;;;;;;;;;
 
 Executable_util:
+curxe= exeparam.ini
 gui,submit,nohide
+guicontrol,show,utlRad1B
+guicontrol,,utlRad1B,optb
+guicontrol,move,UTLRAD1B,x442 y116 w120 h23
+
+guicontrol,show,utlRad1A
+guicontrol,,utlRad1A,opta
+guicontrol,move,UTLRAD1A,x443 y92 w120 h23
+
+guicontrol,show,utlCBXA
+guicontrol,move,utlCBXA,x643 y236 w100
+guicontrol,,utlCBXA,|%INJARG%
+
+guicontrol,show,utlCBXB
+guicontrol,move,utlCBXB,x409 y236 w134
+guicontrol,,utlCBXB,|%INJOPT%
+
+guicontrol,show,utlCHKC
+guicontrol,move,utlCHKC,x411 y267 w54 h17
+guicontrol,,utlCHKC,quotes
+
+guicontrol,show,utlCHKD
+guicontrol,move,utlCHKD,x411 y284 w64 h19
+guicontrol,,utlCHKD,extension
+
+guicontrol,show,utlCHKE
+guicontrol,move,utlCHKE,x411 y303 w44 h16
+guicontrol,,utlCHKE,path
+
+guicontrol,show,utlTXTM
+guicontrol,move,utlTXTM,x686 y219 w57 h16
+guicontrol,,utlTXTM,arguments
+
+guicontrol,show,utlTXTN
+guicontrol,move,utlTXTN,x413 y221 w40 h13
+guicontrol,,utlTXTN,options
+
+guicontrol,show,utlTXTI
+guicontrol,+Center,utlTXTI
+guicontrol,move,utlTXTI,x545 y240 w93 h17
+guicontrol,,utlTXTI,$ROMF$
+
 guicontrol,show,utlBUTH
 guicontrol,move,utlBUTH,x372 y94 w50 h22 
+guicontrol,show,utlBUTH
 guicontrol,,utlBUTH,Add
+
 guicontrol,move,utlBUTJ, x685 y476 w68 h23
 guicontrol,show,utlBUTJ
 guicontrol,,utlBUTJ,Create
+
 guicontrol,move,utlBUTC, x367 y445 w75 h23
 guicontrol,show,utlBUTC
-guicontrol,,utlBUTC,Browse
-guicontrol,move,utlBUTG, x674 y408 w75 h23
-guicontrol,,utlBUTG,Browse
-guicontrol,show,utlBUTG
+guicontrol,,utlBUTC,Out-File
+
 guicontrol,move,utlBUTD, x372 y116 w51 h20
 guicontrol,show,utlBUTD
 guicontrol,,utlBUTD,Delete
-guicontrol,move,utlBUTE, x604 y82 w75 h23
-guicontrol,,utlBUTE,Browse
+
+guicontrol,move,utlBUTE, x368 y179 w75 h23
+guicontrol,,utlBUTE,Emulator
 guicontrol,show,utlBUTE
-guicontrol,move,utlBUTF, x604 y107 w75 h23
+
+guicontrol,move,utlBUTF, x677 y406 w75 h23
 guicontrol,show,utlBUTF
-guicontrol,,utlBUTF,Browse
-guicontrol,move,utlEDTA, x373 y146 w375 h262
-guicontrol,,utlEDTA,
-guicontrol,show,utlEDTA
+guicontrol,,utlBUTF,Icon
+;;guicontrol,move,utlEDTA, x373 y146 w375 h262
+;;guicontrol,,utlEDTA,
+;;guicontrol,show,utlEDTA
 guicontrol,move,utlEDTE, x371 y45 w369 h35
 guicontrol,show,utlEDTE
 guicontrol,,utlEDTE,
+
 guicontrol,move,utlGRPD, x364 y427 w391 h86
 guicontrol,show,utlGRPD
+guicontrol,,utlGRPD,Save
+
 guicontrol,move,utlLBXA, x367 y470 w313 h35
 guicontrol,show,utlLBXA
+
 guicontrol,move,utlLVA, x20 y26 w341 h479
 guicontrol,show,utlLVA
 guicontrol,,utlLVA,|Added_Files||
 guicontrol,+checked,utlLVA
 guicontrol,+Multi,utlLVA
 guicontrol,+AltSubmit,utlLVA
+
 guicontrol,move,utlTXTB, x531 y20 w79 h13
 guicontrol,show,utlTXTB
 guicontrol,,utlTXTB,Utility
+
 guicontrol,move,utlTXTC, x447 y449 w59 h13
 guicontrol,show,utlTXTC
 guicontrol,,utlTXTC,Location
-guicontrol,move,utlTXTD, x691 y89 w40 h13
+
+guicontrol,move,utlTXTD, x372 y165 w40 h13
 guicontrol,show,utlTXTD
 guicontrol,,utlTXTD,Emulator
-guicontrol,move,utlTXTE, x692 y111 w39 h13
+
+guicontrol,move,utlTXTE, x679 y318 w39 h13
 guicontrol,show,utlTXTE
 guicontrol,,utlTXTE,ICON
-guicontrol,move,utlTXTF, x523 y130 w38 h13
-guicontrol,,utlTXTF,Edit
-guicontrol,show,utlTXTF
+
 guicontrol,disable,utlBUTH
 guicontrol,disable,utlBUTJ
 guicontrol,disable,utlBUTC
@@ -33223,7 +33303,28 @@ return
 
 utlBUTE:
 gui,submit,nohide
-
+Gui,ListView,utlLVA
+iniread,emuxetmp,%curxe%,EXECUTABLE,emulator
+if (emuxetmp <> "")
+	{
+		utlItemdxa:= LVGetCheckedItems("", "ahk_id" . UTILVA)
+		stringreplace,utlchki,utlItemdxa,`n,|,All
+		stringreplace,utlchki,utlchki,`r,|,All
+	}
+exefiletmp= 
+FileSelectFile,exefiletmp,3,,Select the emulator
+if (exefiletmp = "")
+	{
+		return
+	}
+ifinstring,utlchki,emuxetmp
+	{
+		SB_SetText("Emulator is already added.")
+		return
+	}
+LV_Add(+Check, emuxetmp)
+LV_ModifyCol()	
+IniWrite, "%exefiletmp%",%curxe%,EXECUTABLE,emulator
 return
 
 utlBUTF:
@@ -33248,12 +33349,12 @@ return
 
 utlCHKD:
 gui,submit,nohide
-
+IniWrite, %utlCHKD%,%curxe%,EXECUTABLE,extension
 return
 
 utlCHKE:
 gui,submit,nohide
-
+IniWrite, %utlCHKE%,%curxe%,EXECUTABLE,path
 return
 
 utlCHKF:
@@ -33323,12 +33424,11 @@ return
 
 utlCHKB:
 gui,submit,nohide
-
 return
 
 utlCHKC:
 gui,submit,nohide
-
+IniWrite, %utlCHKC%,%curxe%,EXECUTABLE,quotes
 return
 
 utlCBXE:
@@ -33363,12 +33463,14 @@ return
 
 utlCBXA:
 gui,submit,nohide
-
+guicontrolget,utlcbxa,,utlcbxa
+IniWrite, %utlcbxa%, %curxe%,EXECUTABLE,arguments
 return
 
 utlCBXB:
 gui,submit,nohide
-
+guicontrolget,utlcbxb,,utlcbxb
+IniWrite, %utlcbxb%, %curxe%,EXECUTABLE,arguments
 return
 
 utlCBXC:
@@ -33693,6 +33795,11 @@ gui,submit,nohide
 
 return
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+/*
+
+*/
 ;};;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;; ~~~~ UTILITY-template items ~~~ ;;;
@@ -47358,29 +47465,20 @@ Loop, Parse, matchlist,|
 										if (HOSTINGCRC <> 0)
 											{
 												gosub, ChkNetCRC
-												ifexist, adpl.ini
-													{	
-														Loop, Read,adpl.ini
-															{
-																HASHSPLIT1= 
-																HASHSPLIT2= 
-																stringsplit, HASHSPLIT,A_LoopReadLine,=
-																if (HASHSPLIT2 = HOSTINGCRCS)
-																	{
-																		dwncrcm= 1													
-																		romf= %romf%#%HASHSPLIT1%
-																		break
-																	}
-															}
+												if (CRCZ = HOSTINGCRCS)
+													{
+														dwncrcm= 1													
+														romf= %romf%#%HASHSPLIT1%
+														break
 													}
-													if (dwncrcm = 1)
-														{
-														    SB_SetText(" CRC-MATCH " romf " found !!! ")
-															guicontrol,,RETROM,0
-															guicontrol,,NETROMLIST,|%romf%||%matchlist%
-															HOSTFND= 
-															return
-														}
+												if (dwncrcm = 1)
+													{
+														SB_SetText(" CRC-MATCH " romf " found !!! ")
+														guicontrol,,RETROM,0
+														guicontrol,,NETROMLIST,|%romf%||%matchlist%
+														HOSTFND= 
+														return
+													}
 											}
 									}
 							}
@@ -47441,9 +47539,8 @@ if (fnd = "")
 	}
 return
 
-;{;;;;;;;;;;;;;  CRC CHECK PROC  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  CRC CHECK PROC  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ChkNetCRC:
-FileDelete,adpl.ini
 dwncrcm= 
 if (szip = 0)
 	{
@@ -47458,29 +47555,10 @@ if (szip = 1)
 linfo= 
 if (lmxt = "zip")
 	{
-		ROMZ= 
-		Runwait,%comspec% /c "7za.exe l -slt "%CrCFLN%" >7z.ini ",,hide
-		Loop, Read, 7z.ini
-			{
-				line1= 
-				line2= 
-				StringSplit,line,A_loopReadline,=,%A_Space%
-				if (line1 = "----------")
-					{
-						linfo= 1
-					}
-				if (linfo = "1")
-					{
-						if (line1 = "Path")
-							{
-								ROMZ:= line2
-							}
-						if (line1 = "CRC")
-							{
-								FileAppend,%ROMZ%=%line2%`n,adpl.ini
-							}
-					}
-			}
+		concatcmd= "%A_Scriptdir%\7za.exe" l -slt "%CrCFLN%"
+		StdOut := StdoutToVar_CreateProcess(concatcmd)
+		partition= 
+		gosub, zpcrcproc
 	}
 return
 
@@ -51847,28 +51925,12 @@ return
 
 ZipOpen:
 FINR= 
-FileDelete,romf.ini
 ziptmp= %tstxtn%
-
-runwait, %ComSpec% /c "7za.exe l -slt "%romf%" -r " >romf.ini,,hide
-ifnotexist, romf.ini
-	{
-		Return	
-	}
-zipnum=
-Loop, Read, romf.ini
-	{
-		zipnum+=1
-		zipin1= 
-		zipin2= 
-		stringsplit,zipin,A_LoopReadLine,=,%A_Space%
-		if (zipin1 = "Path")
-			{
-				splrom= %zipin2%
-				ziprline:= zipnum
-			}
-	}
-splitpath,splrom,,,tstxtn,romname
+concatcmd= "%A_Scriptdir%\7za.exe" l -slt "%romf%"
+StdOut := StdoutToVar_CreateProcess(concatcmd)
+partition= 
+gosub, zpkproc
+splitpath,ROMZ,,,tstxtn,romname
 tstxtn= .%tstxtn%
 FINR= 1
 return
@@ -53955,6 +54017,13 @@ if (dmchk = 1)
 				dskmntexe= %dskmntprg%
 				dskmntopt= %A_Space%
 				dskunmntopt= %A_Space%
+			}
+		if (dskmntprg = "Windows")
+			{
+				DSKROMF= 
+				dskmntexe= powershell.exe
+				dskmntopt:= "Mount-DiskImage ""%ROMF%"""
+				dskmntopt:= "Dismount-DiskImage ""%ROMF%"""
 			}
 		iniread,dskmntovr,AppParams.ini,%coreselv%,DSKMNTOVR
 		if (dskmntovr <> 0)

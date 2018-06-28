@@ -284,6 +284,8 @@ retroFE=retroFE/retroFE.7z=core\retroFe.exe=
 SimpleTouchFE=SimpleTouchFE/SimpleTouchFE.7z=SimplTouchFE.exe=
 #
 Daemon_Tools=Daemon_Tools/DTLite.7z=DTLite.exe=
+WinCDEmu=WinCDEmu/WinCDEmu.7z=WinCDEmu.exe=
+VirtualCloneDrive=VirtualCloneDrive/VirtualCloneDrive.7z=VirtualCloneDrive.exe=
 Antimicro=Antimicro/antimicro-64.7z=antimicro.exe=
 Xinput_Drivers=Xinput_Drivers/Xbox360-[ARCH]Eng.7z=Xbox360_[ARCH]Eng.exe=
 Xpadder=Xpadder/Xpadder.7z=XPadder.exe=
