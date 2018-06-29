@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-28 12:04 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-28 7:38 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-06-28 12:04 PM
-VERSION= v0.99.54.34
+RELEASE= 2018-06-28 7:38 PM
+VERSION= v0.99.54.35
 RASTABLE= 1.7.3
 #Include tf.ahk
 #Include lbex.ahk
@@ -3018,7 +3018,7 @@ Gui Add, CheckBox, x218 y100 w58 h17 vEXTEXPLD gEXTEXPLD hidden, explode
 Gui, Add, Button, x25 y137 w59 h17 vSETOVD gSetOvd, BROWSE
 Gui, Add, CheckBox, x26 y100 h17 vJACKETMODE gDWNINJACK, Save into Jacket
 Gui, Add, CheckBox, x26 y118 h17 vOVDCHK gOvdChk, Override Save Directory
-Gui, Add, DDL, x87 y135 w254 vOVDLDS gOvDlds,|Matching||%SWAPPOP%
+Gui, Add, DDL, x87 y135 w254 vOVDLDS gOvDlds,|Matching||%systmfldrs%
 Gui, Add, Edit, x23 y157 +Wrap w318 h55 vOVDTXT Disabled,
 
 Gui, Font,%fontXmed% Bold
@@ -5968,18 +5968,6 @@ guicontrol,,pgrTransfer,0
 guicontrol,,ARCDPRGRS,0
 return
 
-SWAPPROC:
-SWAPLOC= %RJSYSTEMS%
-SWAPNAM= :=:System List:=:
-SWAPPOP= %systmfldrs%
-/*
-ifinstring,lcrtst,_libretro
-	{
-		SWAPLOC= %coreassetsDirectory%
-		SWAPNAM= Downloads
-		SWAPPOP= %dwnlfldrs%
-	}
-*/
 SHRTNMLkUp:
 SHRTNM= 
 Loop, Parse, SysLLst,`n`r
@@ -6385,7 +6373,35 @@ if (pthnm = A_Username)
 			}
 	
 	}
-Msgbox,3,Fuzzy Rename,Would you like to rename identified system directories to supported names?`nThese will be junction-linked otherwise.
+
+nask= 
+Loop,Parse,SysLLst,`n
+	{
+		stringsplit,fei,A_LoopField,=
+		ifexist,%RJSYSTEMF%\%fei1%
+			{
+				break
+				nask= 1
+			}
+	}
+if (nask = "")
+	{
+		Msgbox,8196,Confirm,You have selected ''%RJSYSTEMF%''`nAre you sure you would like to use this directory?,4
+		ifmsgbox,no
+			{
+				goto, SETJKD
+			}
+		ifmsgbox,cancel
+			{
+				goto, SETJKD
+			}
+		AUTOFUZ= 0
+		JUNCTOPT= 1
+		RJSYSTEMS= %RJSYSTEMF%
+		nfemu= 1
+		IniWrite, "%RJSYSTEMS%",Settings.ini,GLOBAL,systems_directory
+	}
+Msgbox,8196,Fuzzy Rename,Would you like to rename identified system directories to supported names?`nSelecting 'no' will simply link these systems.,4
 ifmsgbox,cancel
 	{
 		goto, SJMPOT
@@ -6559,6 +6575,11 @@ if (RJEMUF = "")
 					ExitApp
 			}
 		return
+	}
+Msgbox,8196,Confirm,You have selected ''%RJEMUF%''`nAre you sure?,4
+ifmsgbox,no
+	{
+		goto, SETEMUD
 	}
 splitpath,RJEMUF,usremum
 if (usremum = A_Username)
@@ -7519,8 +7540,6 @@ RUNFLRAD:
 gui,submit,nohide
 guicontrolget,lcrtst,,LCORE
 
-gosub, SWAPPROC
-
 guicontrol,,RUNSYSDDL,|:=:System List:=:||%systmfldrs%
 gosub, RUNSYSDDL
 return
@@ -7580,6 +7599,7 @@ guicontrol,move,FNDGUI,x175 y59 w16 h19
 guicontrol,,FNDGUI,X
 return
 
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  MAIN MENU DROPDOWN ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 RUNSYSDDL:
 gui,submit,nohide
 Sleep, 1000
@@ -7685,8 +7705,7 @@ ifinstring,OPTYP,:=:
 			}
 	}
 guicontrolget,lcrtst,,LCORE
-gosub, SWAPPROC
-if (OPTYP = SWAPNAM)
+if (OPTYP = ":=:System List:=:")
 	{
 		guicontrol, ,RUNROMCBX
 		guicontrol, ,LCORE
@@ -7734,10 +7753,10 @@ Loop, %omitxtn0%
 	}
 
 SB_SetText("... Indexing Directory ...")
-SWAPSUB= %SWAPLOC%\%OPTYP%
+SWAPSUB= %RJSYSTEMS%\%OPTYP%
 if (OPTYP = ":=:System List:=:")
 	{		
-		SWAPSUB= %SWAPLOC%
+		SWAPSUB= %RJSYSTEMS%
 	}
 	
 Loop,%SWAPSUB%\*.*,0,1
@@ -7788,12 +7807,14 @@ if (SRCHCOMPL = 1)
 				}
 			}
 	}
-	
+
 gosub, EDTROM
 guicontrol,enable,RUNROMCBX
 guicontrol,enable,RUNSYSDDL
 RUNSYSCHNG= 
 return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 Rewind:
 gui, submit, nohide
@@ -8084,8 +8105,6 @@ SRCHLOCDDL:
 gui,submit,nohide
 guicontrolget,lcrtst,,LCORE
 
-gosub, SWAPPROC
-
 guicontrolget,SRCHLOCDDL,,SRCHLOCDDL
 return
 
@@ -8094,9 +8113,7 @@ gui,submit,nohide
 guicontrol,show,SRCHRCRSCHK
 guicontrolget,lcrtst,,LCORE
 
-gosub, SWAPPROC
-
-guicontrol,,SRCHLOCDDL,|%SWAPNAM%||%SWAPPOP%
+guicontrol,,SRCHLOCDDL,|:=:System List:=:||%systmfldrs%
 return
 
 
@@ -8176,11 +8193,11 @@ if (SRCHPLRAD = 1)
 		return
 	}
 
-LOCSRCHFLDR= %SWAPLOC%\%SRCHLOCDDL%
+LOCSRCHFLDR= %RJSYSTEMS%\%SRCHLOCDDL%
 guicontrolget,SRCHRCRSCHK,,SRCHRCRSCHK
-if (SRCHLOCDDL = SWAPNAM)
+if (SRCHLOCDDL = ":=:System List:=:")
 	{
-		LOCSRCHFLDR= %SWAPLOC%
+		LOCSRCHFLDR= %RJSYSTEMS%
 		;SB_SetText("Please select a directory to search")
 		;return
 	}
@@ -8252,7 +8269,7 @@ Loop, Parse, romOVf,|
 		SRCHOVRD= 1
 		if (SRCHFLRAD = 1)
 			{
-				stringreplace,nocad,A_LoopField,%SWAPLOC%\,,All
+				stringreplace,nocad,A_LoopField,%RJSYSTEMS%\,,All
 				isofldr1= 
 				StringSplit,isofldr,nocad,\
 				SRCHLOCDDL:= isofldr1
@@ -9261,6 +9278,10 @@ if (LNCHPRDDL <> "retroarch")
 											}
 										repwith= %A_LoopField%
 										iniread,fej,Assignments.ini,OVERRIDES,%fei1%
+										if (fej = 0)
+											{
+												fej= 
+											}
 										ifinstring,fej,%repwith%
 											{
 												continue
@@ -9270,7 +9291,7 @@ if (LNCHPRDDL <> "retroarch")
 												sysfnd+= 1
 												if (sysfnd = 1)
 													{
-														reapri= %repwith%
+														reapri= %repwith%|
 														continue
 													}
 												repaden.= repwith . "|"	
@@ -9279,7 +9300,7 @@ if (LNCHPRDDL <> "retroarch")
 								if (sysfnd > 1)	
 									{
 										repaden.= fej
-										reaptot:= reapri . "|" . repaden
+										reaptot:= reapri . repaden
 										iniwrite, "%reaptot%",Assignments.ini,OVERRIDES,%fei1%									
 									}
 							}
@@ -9296,19 +9317,15 @@ if (raexefile = "NOT-FOUND.exe")
 return
 
 PREFERON:
-msgbox,3,Re-Assign,Set system association priorities to prefer retroArch cores?`nThis can be set later,5
-ifmsgbox, yes
+guicontrol,,LNCHPT,0
+iniwrite, 0,Settings.ini,GLOBAL,Launcher_Priority		
+IniRead, aei,Assignments.set,OVERRIDES
+loop, parse, aei,`n
 	{
-		guicontrol,,LNCHPT,0
-		iniwrite, 0,Settings.ini,GLOBAL,Launcher_Priority		
-		IniRead, aei,Assignments.set,OVERRIDES
-		loop, parse, aei,`n
-			{
-				stringsplit,fjk,A_LoopField,=,""
-				stringsplit,aij,fjk2,|
-				fjk2= %aij1%
-				iniwrite, "%fjk2%",Assignments.ini,OVERRIDES,%fjk1%		
-			}
+		stringsplit,fjk,A_LoopField,=,""
+		stringsplit,aij,fjk2,|
+		fjk2= %aij1%
+		iniwrite, "%fjk2%",Assignments.ini,OVERRIDES,%fjk1%		
 	}
 return
 	
@@ -14610,7 +14627,12 @@ tmpdp=
 iniread, tmpdp, AppParams.ini,%sysni%,DSKMNTPRG
 if (tmpdp <> "ERROR")
 	{
-		guicontrol,,DSKMNTDDL,|%tmpdp%||DaemonTools|alcohol120|Other
+		if (tmpdp = "")
+			{
+				tmpdp= DaemonTools
+			}
+			
+		guicontrol,,DSKMNTDDL,|%tmpdp%||DaemonTools||VirtualCloneDrive|WinCDEmu|%vdskwin%Other
 
 	}
 tmpdf= 
@@ -14827,7 +14849,7 @@ Loop, %RJSYSTEMS%\*,2
 					}
 			}
 	}
-gosub, SYSDETECT	
+gosub, SYSDETECT
 guicontrol,,DWNLPOS,|:=:System List:=:||%systmfldrs%
 guicontrol,,OVDLDS,|Matching||%systmfldrs%
 guicontrol,,SKDETSTXT,Detected Systems: %totsys%
@@ -15733,11 +15755,8 @@ RPopDl:
 gui,submit,nohide
 guicontrolget,fenam,,PLISTTYP
 
-SWAPLOC= %RJSYSTEMS%
-SWAPNAM= :=:System List:=:
-SWAPPOP= %systmfldrs%
 guicontrol, show, RECURSE
-guicontrol,,DWNLPOS,|%SWAPNAM%||%SWAPPOP%
+guicontrol,,DWNLPOS,|:=:System List:=:||%systmfldrs%
 return
 
 DetectCore:
@@ -16048,11 +16067,8 @@ Loop, %RJSYSTEMS%\*,2
 					}
 			}
 	}
-SWAPNAM= :=:System List:=:
-SWAPLOC= %RJSYSTEMS%
-SWAPPOP= %systmfldrs%
-guicontrol,,DWNLPOS,|%SWAPNAM%||%SWAPPOP%
-guicontrol,,SKSYSDISP,%SWAPLOC%
+guicontrol,,DWNLPOS,|:=:System List:=:||%systmfldrs%
+guicontrol,,SKSYSDISP,%RJSYSTEMS%
 guicontrol,,RJSYSDD,|Systems||%systmfldrs%
 return
 
@@ -16076,7 +16092,7 @@ guicontrol, show, RECURTX
 guicontrol, show, RECURSE
 guicontrol,,EXTPARSED
 
-if (DWNLPOS = SWAPNAM)
+if (DWNLPOS = ":=:System List:=:")
 	{
 		guicontrol, SHOW, PLALSYSBUT
 		guicontrol, hide, RECURTX
@@ -19768,8 +19784,8 @@ if (ARCSYS = "MAME - Arcade")
 if (ARCSYS = "MAME - BIOS")
 	{
 		OVDCHK= MAME - Arcade
-		guicontrol,,OVDLDS,|MAME - Arcade|Matching|%SWAPPOP%
-		guicontrol,,OVDTXT,%SWAPLOC%\MAME - Arcade
+		guicontrol,,OVDLDS,|MAME - Arcade|Matching|%systmfldrs%
+		guicontrol,,OVDTXT,%RJSYSTEMS%\MAME - Arcade
 		guicontrol,,OVDCHK,1
 		guicontrol,,DOWNONLY,1
 		gosub, DOWNONLY
@@ -19779,8 +19795,8 @@ if (ARCSYS = "MAME - BIOS")
 if (ARCSYS = "MAME_C")
 	{
 		OVDCHK= MAME - Arcade
-		guicontrol,,OVDLDS,|MAME - Arcade|Matching|%SWAPPOP%
-		guicontrol,,OVDTXT,%SWAPLOC%\MAME - Arcade
+		guicontrol,,OVDLDS,|MAME - Arcade|Matching|%systmfldrs%
+		guicontrol,,OVDTXT,%RJSYSTEMS%\MAME - Arcade
 		guicontrol,,EXTRURL,0
 	}
 return
@@ -19820,7 +19836,7 @@ if (OVDFLDR = "")
 		return
 	}
 guicontrol,,OVDCHK,1
-guicontrol,,OVDLDS,|Matching||%SWAPPOP%
+guicontrol,,OVDLDS,|Matching||%systmfldrs%
 guicontrol,,OVDTXT,%OVDFLDR%
 return
 
@@ -19833,18 +19849,12 @@ if (JACKETMODE = 0)
 		guicontrolget,tmparcc,,ARCCORES
 		ifinstring, tmparcc,_libretro
 			{
-				SWAPNAM= :=:System List:=:
-				SWAPLOC= %RJSYSTEMS%
-				SWAPPOP= %systmfldrs%
 				OVDFLDR= %OVDFLDR%\$ROMJACKET$
 			}
 	}
 if (JACKETMODE = 1)
 	{		
 		guicontrol,,EXTEXPLD,1
-		SWAPNAM= :=:System List:=:
-		SWAPLOC= %RJSYSTEMS%
-		SWAPPOP= %systmfldrs%
 		OVDFLDR= %OVDFLDR%\$ROMJACKET$
 	}
 IniWrite, "%JACKETMODE%", Settings.ini,GLOBAL,jacket_mode
@@ -19855,17 +19865,14 @@ gui,submit,nohide
 guicontrolget,OVDHCK,,OVDCHK
 if (OVDCHK = 1)
 	{
-		guicontrol,,OVDLDS,|Netplay||Matching|%SWAPPOP%
+		guicontrol,,OVDLDS,|Netplay||Matching|%systmfldrs%
 		if (OVDFLDR = "")
 			{
 				guicontrolget,ovdnm,,OVDLDS
-				OVDFLDR= %SWAPLOC%\%ovdnm%
+				OVDFLDR= %RJSYSTEMS%\%ovdnm%
 			}
 		if (JACKETMODE = 1)
-			{		
-				SWAPNAM= :=:System List:=:
-				SWAPLOC= %RJSYSTEMS%
-				SWAPPOP= %systmfldrs%
+			{
 				OVDFLDR= %OVDFLDR%\$ROMJACKET$
 			}
 		guicontrol,,OVDTXT,%OVDFLDR%
@@ -19873,7 +19880,7 @@ if (OVDCHK = 1)
 
 if (OVDCHK = 0)
 	{
-		guicontrol,,OVDLDS,|Matching||%SWAPPOP%
+		guicontrol,,OVDLDS,|Matching||%systmfldrs%
 		guicontrol,,OVDTXT,
 		OVDFLDR= 
 	}
@@ -19883,7 +19890,7 @@ OvDlds:
 gui, submit, nohide
 guicontrol,,OVDCHK,1
 guicontrolget,ovdnm,,OVDLDS
-OVDFLDR= %SWAPLOC%\%ovdnm%
+OVDFLDR= %RJSYSTEMS%\%ovdnm%
 guicontrol,,OVDTXT,%OVDFLDR%
 if (OVDLDS = "Matching")
 	{
@@ -22784,7 +22791,7 @@ EMUCFGOVRTGL= 1
 EMUCFGCOPY:
 EMUDFL= 
 guicontrolget,RUNROMCBX,,RUNROMCBX
-;guicontrol,disable,RUNROMCBX
+;;guicontrol,disable,RUNROMCBX
 splitpath,RUNROMCBX,EDTRMF,EDTRMP,EDTRMX,EDTRMFN
 if (ASVRM = "")
 	{
@@ -53166,7 +53173,7 @@ guicontrol,,JCORE,|%runlist%
 guicontrol,,LCORE,|%runlist%
 ;;guicontrol,, RUNROMCBX, |%romf%||%poptadd%
 guicontrol,, RUNROMCBX, |%romf%||%HISTORY%
-;;guicontrol,,RUNSYSDDL,|%SWAPNAM%||%SWAPPOP%
+;;guicontrol,,RUNSYSDDL,|%SWAPNAM%||%systmfldrs%
 iniwrite, "%coreselv%",Settings.ini,GLOBAL,last_core
 iniwrite, "%romf%",Settings.ini,GLOBAL,last_rom
 gui, submit, nohide
@@ -53180,6 +53187,7 @@ guicontrol,,SRCHFLRAD,1
 guicontrol,,SRCHLOCDDL,|:=:System List:=:||%systmfldrs%
 return
 
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;  ROM SELECT  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EDTROM:
 RUNSYSCHNG+=1
 romindnum= 
@@ -53375,6 +53383,7 @@ gosub,EMUCFGCOPY
 ;;guicontrol,focus,RUNROMCBX	
 RUNSYSCHNG= 
 return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 SKRESET:
 gui, submit, nohide
@@ -53550,9 +53559,6 @@ ifinstring,systoemu,tmpcc|
 		moptog= hide
 		ASVRM= 1
 		dlx2= 
-		SWAPLOC= %RJSYSTEMS%
-		SWAPNAM= :=:System List:=:
-		SWAPPOP= %systmfldrs%
 		guicontrolget,LCORE,,LCORE
 		splitpath, LCORE , , , dlx, , 
 		coreselv= %LCORE%
@@ -53583,7 +53589,7 @@ ifinstring,systoemu,tmpcc|
 					APLN= 1
 					if (SRCHFLRAD = 1)
 						{
-							guicontrol,,SRCHLOCDDL,|%SWAPNAM%||%SWAPPOP%
+							guicontrol,,SRCHLOCDDL,|:=:System List:=:||%systmfldrs%
 						}
 				rdfiw=
 				gosub, MEDCCLRE
@@ -53611,11 +53617,6 @@ ifinstring,systoemu,tmpcc|
 						}
 					guicontrol,,JOYCORE,|%JOYCORE%||%runlist%
 					gosub, JoyCore
-					/*
-					SWAPLOC= %coreassetsDirectory%
-					SWAPNAM= Downloads
-					SWAPPOP= %dwnlfldrs%
-					*/
 					APLN= 
 				}
 				
@@ -53624,7 +53625,7 @@ ifinstring,systoemu,tmpcc|
 				if (USRCORE = 1)
 					{
 						guicontrol,,RUNSYSDDL,|:=:System List:=:||%systmfldrs%
-						ifexist, %SWAPLOC%\%tmpsys%
+						ifexist, %RJSYSTEMS%\%tmpsys%
 							{
 								guicontrol,,RUNSYSDDL,|:=:System List:=:|%tmpsys%||%systmfldrs%
 							}
