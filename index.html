@@ -209,7 +209,7 @@
 	<div id="outer" align="left">
 		<div id="inner">
 			<h3>Program Settings</h3>
-			<p>Program settings such as the root location for your systems, overrides for the batch-script launcher and other operational options can be adjusted in the settings tab.</p>
+			<p>The settings tab is for the location for your systems, emulators, playlists and other environment-options.</p>
 			<div id="indent">
 			<h4>Auto-Load Per-Game Settings</h4>
 			<p>SkeletonKey will automatically load any per-game settings previously created and create settings for that title upon launch if none are found.</p>
@@ -218,18 +218,7 @@
 			Archive.org ROMs will be downloaded to the corresponding system-name which follows the no-intro naming nomenclature.</p>
 			<h4>Emulators Directory</h4>
 			<p>By default, all emulators will be installed to the Emulator Directory. Upon assigning a directory to the Emulators Directory, skeletonKey will search subdirectories for previously installed known emulators not currently identified or manually assigned.</p>
-			<h4>BSL - Batch-Script-Launcher</h4>
-			<p>The BSL can override settings defined by ROM-Jacket launchers and provides a convenient way to enable custom tools to accomodate new HTPC frontends. The BSL will execute the ROM-Jacket launcher while assisting the visibility and state of other assets.</p>
-			<div class="wrapper">
-				<div class="tab">
-					<input id="tab-bsl" name="tabs" type="checkbox"> <label for="tab-bsl">BSL Details }&gt;</label>
-					<div class="tab-content">
-						<p>Typically, a frontend will assign an emluator to a directory containing a set of ROMs with a list of supported extensions. (eg: nestopia.exe will open all .nes, .zip, and .fds files in the NES folder)<br>
-						In this case the BSL.exe is used as the &quot;emulator&quot; where &quot;.bat&quot; or &quot;.lnk&quot; is the extension for any ROM-Jacket library.<br>
-						<br></p>
-					</div>
-				</div>
-			</div>
+		
 			</div>
 		</div>
 	</div>
@@ -391,7 +380,7 @@
 			<p>The Daemon Tools program is needed for the SSF Sega Saturn emulator, the UNZ FM-Towns emulator and may be required for any emulator which cannot directly read cd/dvd image files. Mounting disc images with Daemon Tools is desireable for users who wish to switch disks reliably or have discs in formats unreadable by the emulator.<br></p>
 			<div class="wrapper">
 				<div class="tab">
-					<input id="tab-bsl" name="tabs" type="checkbox"> <label for="tab-bsl">Daemon Tools Details }&gt;</label>
+					<input id="tab-dam" name="tabs" type="checkbox"> <label for="tab-dam">Daemon Tools Details }&gt;</label>
 					<div class="tab-content">
 						<p>!!!!IMPORTANT!!!!<br>
 						Open the Daemon Tools program.<br>
@@ -808,7 +797,22 @@
 						<p>Many systems and emulators require unique and proprietary directory structures, naming schemes and locations and in such cases junction-linked files are jacketized.</p>
 					</div>
 				</div>
+				</div>
 			</div>
+			</div>
+				<br>
+				<div id="inner">
+					<h3>BSL - Batch-Script-Launcher</h3>
+			<p>The BSL can override settings defined by ROM-Jacket launchers and provides a convenient way to enable custom tools to accomodate new HTPC frontends. The BSL will execute the ROM-Jacket launcher while assisting the visibility and state of other assets.</p>
+			<div class="wrapper">
+				<div class="tab">
+					<input id="tab-bsl" name="tabs" type="checkbox"> <label for="tab-bsl">BSL Details }&gt;</label>
+					<div class="tab-content">
+						<p>Typically, a frontend will assign an emluator to a directory containing a set of ROMs with a list of supported extensions. (eg: nestopia.exe will open all .nes, .zip, and .fds files in the NES folder)<br>
+						In this case the BSL.exe is used as the &quot;emulator&quot; where &quot;.bat&quot; or &quot;.lnk&quot; is the extension for any ROM-Jacket library.<br>
+						<br></p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

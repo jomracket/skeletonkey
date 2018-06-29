@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-28 7:38 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-06-29 11:42 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-06-28 7:38 PM
-VERSION= v0.99.54.35
+RELEASE= 2018-06-29 11:42 AM
+VERSION= v0.99.54.34
 RASTABLE= 1.7.3
 #Include tf.ahk
 #Include lbex.ahk
@@ -448,7 +448,6 @@ if (raexefile = "NOT-FOUND.exe")
 		CORETABNAME=
 		SKCCTXT= Not Found	
 	}
-;;msgbox,,,410addemu=%addemu%
 FileRead, RepoLst,RepoList.ini
 stringreplace, RepoLst,RepoLst,`n,|,All
 FileRead, LibMatSet, libmatch.set
@@ -2109,7 +2108,7 @@ Gui, Add, Button, x723 y25 w12 vOPNSYS gOpnSyS,+
 Gui, Add, DropDownList, x503 y73 w42 vOVLIST gOvList Disabled, ||1|2|3|4|5
 Gui, Add, ComboBox, x471 y54 w264 vADDNSYS gAddNSys Hidden, %systoemu%
 Gui, Add, Button, x694 y79 w42 h19 vSAVNSYS gSavNSys Hidden, save
-Gui, Add, Text, x549 y75 h23 vOVSETTXT Hidden, Extension-Override Set
+;;Gui, Add, Text, x549 y75 h23 vOVSETTXT Hidden, Extension-Override Set
 
 Gui, Add, Radio, x505 y122 h19 vDCORE gDCore Checked, Default Core
 Gui, Add, Radio, x505 y144 h16 vARDCORE gARDCore disabled, Core
@@ -9250,7 +9249,7 @@ if (LNCHPRDDL = "retroarch")
 	}
 if (LNCHPRDDL <> "retroarch")
 	{
-		Loop, Parse, origsys,`n
+		Loop, Parse, origsys,`n`r
 			{
 				if (A_LoopField = "")
 					{
@@ -9261,6 +9260,10 @@ if (LNCHPRDDL <> "retroarch")
 				stringsplit,fei,A_LoopField,=
 				Loop, Parse, SysEmuSet,`n`r
 					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
 						sdspl1= 
 						sdspl2= 
 						stringsplit,sdspl,A_LoopField,:
@@ -9270,8 +9273,13 @@ if (LNCHPRDDL <> "retroarch")
 								sysfnd= 
 								reaptot=
 								repaden= 
+								reapri= 
 								Loop, Parse, sdspl1,|
 									{
+										if (A_LoopField = "")
+											{
+												continue
+											}
 										if (A_Index = 1)
 											{
 												continue
@@ -9287,7 +9295,7 @@ if (LNCHPRDDL <> "retroarch")
 												continue
 											}
 										ifinstring,smuemu,%repwith%|
-											{										
+											{							
 												sysfnd+= 1
 												if (sysfnd = 1)
 													{
@@ -9297,7 +9305,7 @@ if (LNCHPRDDL <> "retroarch")
 												repaden.= repwith . "|"	
 											}
 									}
-								if (sysfnd > 1)	
+								if (sysfnd > 0)	
 									{
 										repaden.= fej
 										reaptot:= reapri . repaden
@@ -14075,7 +14083,7 @@ Loop, Parse, semu,|
 						nwadmm.= sysni . "|"
 						nwadmi:= sysninj . "|" . sysni
 						addemu.= "|" . sysni
-						guicontrol,,EMPRDDL,|%sysni%||%preEmuCfg%
+						guicontrol,,EMPRDDL,|%sysni%||%addemu%
 						runlist:= corelist . "|" . addemu
 						guicontrol,,LCORE,|%runlist%
 						guicontrol,,PLCORE,|%runlist%
@@ -54672,7 +54680,7 @@ if (locfnd = 1)
 	{
 		return
 	}
-msgbox,,Not Found, Select your RetroArch executable file., 5
+msgbox,,Not Found, Select a RetroArch executable file.,5
 gosub, RAEXE
 return
 
