@@ -1577,7 +1577,9 @@ if (INITINCL = 1)
 			exprt.= "FileInstall, working.ahk,working.ahk,1" . "`n"	
 			exprt.= "FileInstall, skeletonKey.ahk,skeletonkey.ahk,1" . "`n"	
 			exprt.= "FileInstall, SKey-Deploy.ahk,SKey-Deploy.ahk,1" . "`n"	
+			exprt.= "FileInstall, emuexe.ahk,emuexe.ahk,1" . "`n"	
 			exprt.= "FileInstall, BSL.ahk,BSL.ahk,1" . "`n"	
+			exprt.= "FileInstall, LV_InCellEdit.ahk,LV_InCellEdit.ahk,1" . "`n"	
 			exprt.= "FileInstall, tf.ahk,tf.ahk,1" . "`n"	
 			exprt.= "FileInstall, lbex.ahk,lbex.ahk,1" . "`n"	
 			exprt.= "FileInstall, LVA.ahk,LVA.ahk,1" . "`n"	
@@ -1600,7 +1602,9 @@ FileAppend, "%SKELD%\BSL.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\AHKsock.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\lbex.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\LVA.ahk"`n,ltc.txt
+FileAppend, "%SKELD%\emuexe.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\tf.ahk"`n,ltc.txt
+FileAppend, "%SKELD%\LV_InCellEdit.ahk"`n,ltc.txt
 Loop, %SKELD%\*
 		{
 			if (A_LoopFileExt = "cfg")
@@ -1776,6 +1780,8 @@ if (GitPush = 1)
 		FileAppend, copy /y "*.set" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "Portable.bat" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "index.html" "%GITD%"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, copy /y "LV_InCellEdit.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, copy /y "emuexe.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "BSL.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "lbex.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "LVA.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd

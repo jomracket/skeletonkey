@@ -15,6 +15,7 @@ RASTABLE= 1.7.3
 #Include lbex.ahk
 #Include LVA.ahk
 #Include AHKsock.ahk
+#Include LV_InCellEdit.ahk
 ;#Include LBEX.ahk
 ;#NoTrayIcon
 DetectHiddenWindows, On
@@ -3057,7 +3058,10 @@ Gui, Add, Edit, x58 y61 w30 h21 Limit1 vRJEDTBN gRJEDTBN hidden, Z
 Gui, Add, Button, x91 y59 w31 h23 vRJFLTRLST gRJFLTRLST hidden, Filter
 Gui, Add, Edit, x122 y60 w118 h21 vRJEDTC gRJEDTC,
 Gui, Add, Button, x241 y59 w32 h23 vRJFNDINLST gRJFNDINLST, Find
-Gui, Add, ListView, x12 y86 w254 h414 hwndRJLV altsubmit Multi vRJLSTV gRJLSTV checked, Jackets
+Gui, Add, ListView, x12 y86 w254 h414 -ReadOnly altsubmit Multi vRJLSTV gRJLSTV hwndRJLV checked, Jackets
+RJRN1 := New LV_InCellEdit(RJLV)
+RJRN1.SetColumns(1)
+
 Gui, Add, Button, x267 y119 w56 h24 vRJSALITMS gRJSALITMS, ALL 
 Gui, Add, Text, x267 y143 h14 vRJTXTN,Selects All items
 
@@ -9969,15 +9973,17 @@ DownloadFile(UrlToFile, _SaveFileAs, Overwrite := True, UseProgressBar := True) 
 			PercentDone= 
 		}
 	 SB_SetText(" " Speed " " updtmsg " at " . PercentDone . `% " " CurrentSize " bytes completed")
+      Guicontrol, ,utlPRGA, %PercentDone%
       Guicontrol, ,ARCDPRGRS, %PercentDone%
       Guicontrol, ,DWNPRGRS, %PercentDone%
       Guicontrol, ,FEPRGA, %PercentDone%
       return
   }
-	  Guicontrol, ,ARCDPRGRS, 0
-      Guicontrol, ,DWNPRGRS, 0
-      Guicontrol, ,FEPRGA, 0
-    return
+Guicontrol, ,utlPRGA, 0
+Guicontrol, ,ARCDPRGRS, 0
+Guicontrol, ,DWNPRGRS, 0
+Guicontrol, ,FEPRGA, 0
+return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;;;;;;    RETROARCH FUNCTIONS     ;;;;;;;;;;;;;;;;
@@ -25380,6 +25386,642 @@ return
 
 ;{;;;;;;;;;;;;;;;;;;;;;     FE-OPTION FUNCTIONS    ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+
+;{;;;; ~~~UTILITY-gui functions~~~  ;;;;;
+utlBUTA:
+gui,submit,nohide
+gosub, %curutl%utlBUTA
+return
+
+utlBUTB:
+gui,submit,nohide
+gosub, %curutl%utlBUTB
+return
+
+utlBUTC:
+gui,submit,nohide
+gosub, %curutl%utlBUTC
+return
+
+utlBUTG:
+gui,submit,nohide
+gosub, %curutl%utlBUTG
+return
+
+utlBUTD:
+gui,submit,nohide
+gosub, %curutl%utlBUTD
+return
+
+utlBUTE:
+gui,submit,nohide
+gosub, %curutl%utlBUTE
+return
+
+utlBUTF:
+gui,submit,nohide
+gosub, %curutl%utlBUTF
+return
+
+utlBUTH:
+gui,submit,nohide
+gosub, %curutl%utlBUTH
+return
+
+utlBUTI:
+gui,submit,nohide
+gosub, %curutl%utlBUTI
+return
+
+utlBUTJ:
+gui,submit,nohide
+gosub, %curutl%utlBUTJ
+return
+
+utlCHKD:
+gui,submit,nohide
+gosub, %curutl%utlCHKD
+return
+
+utlCHKE:
+gui,submit,nohide
+gosub, %curutl%utlCHKE
+return
+
+utlCHKF:
+gui,submit,nohide
+gosub, %curutl%utlCHKF
+return
+
+utlCHKG:
+gui,submit,nohide
+gosub, %curutl%utlCHKG
+return
+
+utlCHKH:
+gui,submit,nohide
+gosub, %curutl%utlCHKH
+return
+
+utlCHKI:
+gui,submit,nohide
+gosub, %curutl%utlCHKI
+return
+
+utlCHKJ:
+gui,submit,nohide
+gosub, %curutl%utlCHKJ
+return
+
+utlCHKK:
+gui,submit,nohide
+gosub, %curutl%utlCHKK
+return
+
+utlCHKL:
+gui,submit,nohide
+gosub, %curutl%utlCHKL
+return
+
+utlCHKM:
+gui,submit,nohide
+gosub, %curutl%utlCHKM
+return
+
+utlCHKN:
+gui,submit,nohide
+gosub, %curutl%utlCHKN
+return
+
+utlCHKO:
+gui,submit,nohide
+gosub, %curutl%utlCHKO
+return
+
+utlCHKP:
+gui,submit,nohide
+gosub, %curutl%utlCHKP
+return
+
+utlCHKQ:
+gui,submit,nohide
+gosub, %curutl%utlCHKQ
+return
+
+utlCHKA:
+gui,submit,nohide
+gosub, %curutl%utlCHKA
+return
+
+utlCHKB:
+gui,submit,nohide
+gosub, %curutl%utlCHKB
+return
+
+utlCHKC:
+gui,submit,nohide
+gosub, %curutl%utlCHKC
+return
+
+utlCBXE:
+gui,submit,nohide
+gosub, %curutl%utlCBXE
+return
+
+utlCBXF:
+gui,submit,nohide
+gosub, %curutl%utlCBXF
+return
+
+utlCBXG:
+gui,submit,nohide
+gosub, %curutl%utlCBXG
+return
+
+utlCBXH:
+gui,submit,nohide
+gosub, %curutl%utlCBXH
+return
+
+utlCBXI:
+gui,submit,nohide
+gosub, %curutl%utlCBXI
+return
+
+utlCBXJ:
+gui,submit,nohide
+gosub, %curutl%utlCBXJ
+return
+
+utlCBXA:
+gui,submit,nohide
+gosub, %curutl%utlCBXA
+return
+
+utlCBXB:
+gui,submit,nohide
+gosub, %curutl%utlCBXB
+return
+
+utlCBXC:
+gui,submit,nohide
+gosub, %curutl%utlCBXC
+return
+
+utlCBXD:
+gui,submit,nohide
+gosub, %curutl%utlCBXD
+return
+
+utlDDLE:
+gui,submit,nohide
+gosub, %curutl%utlDDLE
+return
+
+utlDDLF:
+gui,submit,nohide
+gosub, %curutl%utlDDLF
+return
+
+utlDDLG:
+gui,submit,nohide
+gosub, %curutl%utlDDLG
+return
+
+utlDDLH:
+gui,submit,nohide
+gosub, %curutl%utlDDLH
+return
+
+utlDDLI:
+gui,submit,nohide
+gosub, %curutl%utlDDLI
+return
+
+utlDDLJ:
+gui,submit,nohide
+gosub, %curutl%utlDDLJ
+return
+
+utlDDLC:
+gui,submit,nohide
+gosub, %curutl%utlDDLC
+return
+
+utlDDLD:
+gui,submit,nohide
+gosub, %curutl%utlDDLD
+return
+
+utlDDLA:
+gui,submit,nohide
+guicontrolget,curutl,,UTLDDLA
+if (curutl = "Executable")
+	{
+		utltog= hide
+		gosub, UTLUNPOP
+		gosub, %UTLDDLA%_util
+		return
+	}
+return
+
+utlDDLB:
+gui,submit,nohide
+gosub, %curutl%utlDDLB
+return
+
+utlEDTA:
+gui,submit,nohide
+gosub, %curutl%utlEDTA
+return
+
+utlEDTB:
+gui,submit,nohide
+gosub, %curutl%utlEDTB
+return
+
+utlEDTC:
+gui,submit,nohide
+gosub, %curutl%utlEDTC
+return
+
+utlEDTD:
+gui,submit,nohide
+gosub, %curutl%utlEDTD
+return
+
+utlEDTE:
+gui,submit,nohide
+gosub, %curutl%utlEDTE
+return
+
+utlEDTF:
+gui,submit,nohide
+gosub, %curutl%utlEDTF
+return
+
+utlEDTG:
+gui,submit,nohide
+gosub, %curutl%utlEDTG
+return
+
+utlUPDA:
+gui,submit,nohide
+gosub, %curutl%utlUPDA
+return
+
+utlEDTH:
+gui,submit,nohide
+gosub, %curutl%utlEDTH
+return
+
+utlEDTI:
+gui,submit,nohide
+gosub, %curutl%utlEDTI
+return
+
+utlUPDB:
+gui,submit,nohide
+gosub, %curutl%utlUPDB
+return
+
+utlUPDC:
+gui,submit,nohide
+gosub, %curutl%utlUPDC
+return
+
+utlLBXA:
+gui,submit,nohide
+gosub, %curutl%utlLBXA
+return
+
+utlLBXB:
+gui,submit,nohide
+gosub, %curutl%utlLBXB
+return
+
+utlLVA:
+gui,submit,nohide
+gosub, %curutl%utlLVA
+return
+
+utlLVB:
+gui,submit,nohide
+gosub, %curutl%utlLVB
+return
+
+utlLVC:
+gui,submit,nohide
+gosub, %curutl%utlLVC
+return
+
+utlRad5B:
+gui,submit,nohide
+gosub, %curutl%utlRad5B
+return
+
+utlRad5C:
+gui,submit,nohide
+gosub, %curutl%utlRad5C
+return
+
+utlRad4A:
+gui,submit,nohide
+gosub, %curutl%utlRad4A
+return
+
+utlRad4B:
+gui,submit,nohide
+gosub, %curutl%utlRad4B
+return
+
+utlRad5A:
+gui,submit,nohide
+gosub, %curutl%utlRad5A
+return
+
+utlRad6A:
+gui,submit,nohide
+gosub, %curutl%utlRad6A
+return
+
+utlRad6B:
+gui,submit,nohide
+gosub, %curutl%utlRad6B
+return
+
+utlRad6C:
+gui,submit,nohide
+gosub, %curutl%utlRad6C
+return
+
+utlRad6D:
+gui,submit,nohide
+gosub, %curutl%utlRad6D
+return
+
+utlRad7A:
+gui,submit,nohide
+gosub, %curutl%utlRad7A
+return
+
+utlRad7B:
+gui,submit,nohide
+gosub, %curutl%utlRad7B
+return
+
+utlRad8A:
+gui,submit,nohide
+gosub, %curutl%utlRad8A
+return
+
+utlRad8B:
+gui,submit,nohide
+gosub, %curutl%utlRad8B
+return
+
+utlRad9A:
+gui,submit,nohide
+gosub, %curutl%utlRad9A
+return
+
+utlRad9B:
+gui,submit,nohide
+gosub, %curutl%utlRad9B
+return
+
+utlRad9C:
+gui,submit,nohide
+gosub, %curutl%utlRad9C
+return
+
+utlRad10A:
+gui,submit,nohide
+gosub, %curutl%utlRad10A
+return
+
+utlRad10B:
+gui,submit,nohide
+gosub, %curutl%utlRad10B
+return
+
+utlRad11A:
+gui,submit,nohide
+gosub, %curutl%utlRad11A
+return
+
+utlRad11B:
+gui,submit,nohide
+gosub, %curutl%utlRad11B
+return
+
+utlRad2A:
+gui,submit,nohide
+gosub, %curutl%utlRad2A
+return
+
+utlRad2B:
+gui,submit,nohide
+gosub, %curutl%utlRad2B
+return
+
+utlRad2C:
+gui,submit,nohide
+gosub, %curutl%utlRad2C
+return
+
+utlRad1A:
+gui,submit,nohide
+gosub, %curutl%utlRad1A
+return
+
+utlRad3A:
+gui,submit,nohide
+gosub, %curutl%utlRad3A
+return
+
+utlRad3B:
+gui,submit,nohide
+gosub, %curutl%utlRad3B
+return
+
+utlRad3C:
+gui,submit,nohide
+gosub, %curutl%utlRad3C
+return
+
+utlRad3D:
+gui,submit,nohide
+gosub, %curutl%utlRad3D
+return
+
+utlRad1B:
+gui,submit,nohide
+gosub, %curutl%utlRad1B
+return
+
+utlSLDA:
+gui,submit,nohide
+gosub, %curutl%utlSLDA
+return
+
+utlSLDB:
+gui,submit,nohide
+gosub, %curutl%utlSLDB
+return
+
+utlSLDC:
+gui,submit,nohide
+gosub, %curutl%utlSLDC
+return
+
+utlSLDD:
+gui,submit,nohide
+gosub, %curutl%utlSLDD
+return
+
+utlSLDE:
+gui,submit,nohide
+gosub, %curutl%utlSLDE
+return
+
+
+;{;;; ~~~~ UTILITY-template items ~~~ ;;;
+
+UTLUNPOP:
+;;guicontrol, show, utlBUTA
+guicontrol, %utltog%, utlBUTB
+guicontrol, %utltog%, utlBUTC
+guicontrol, %utltog%, utlBUTG
+guicontrol, %utltog%, utlBUTD
+guicontrol, %utltog%, utlBUTE
+guicontrol, %utltog%, utlBUTF
+guicontrol, %utltog%, utlBUTH
+guicontrol, %utltog%, utlBUTI
+guicontrol, %utltog%, utlBUTJ
+guicontrol, %utltog%, utlCHKD
+guicontrol, %utltog%, utlCHKE
+guicontrol, %utltog%, utlCHKF
+guicontrol, %utltog%, utlCHKG
+guicontrol, %utltog%, utlCHKH
+guicontrol, %utltog%, utlCHKI
+guicontrol, %utltog%, utlCHKJ
+guicontrol, %utltog%, utlCHKK
+guicontrol, %utltog%, utlCHKL
+guicontrol, %utltog%, utlCHKM
+guicontrol, %utltog%, utlCHKN
+guicontrol, %utltog%, utlCHKO
+guicontrol, %utltog%, utlCHKP
+guicontrol, %utltog%, utlCHKQ
+guicontrol, %utltog%, utlCHKA
+guicontrol, %utltog%, utlCHKB
+guicontrol, %utltog%, utlCHKC
+guicontrol, %utltog%, utlCBXE
+guicontrol, %utltog%, utlCBXF
+guicontrol, %utltog%, utlCBXG
+guicontrol, %utltog%, utlCBXH
+guicontrol, %utltog%, utlCBXI
+guicontrol, %utltog%, utlCBXJ
+guicontrol, %utltog%, utlCBXA
+guicontrol, %utltog%, utlCBXB
+guicontrol, %utltog%, utlCBXC
+guicontrol, %utltog%, utlCBXD
+guicontrol, %utltog%, utlDDLE
+guicontrol, %utltog%, utlDDLF
+guicontrol, %utltog%, utlDDLG
+guicontrol, %utltog%, utlDDLH
+guicontrol, %utltog%, utlDDLI
+guicontrol, %utltog%, utlDDLJ
+guicontrol, %utltog%, utlDDLC
+guicontrol, %utltog%, utlDDLD
+;guicontrol, %utltog%, utlDDLA
+guicontrol, %utltog%, utlDDLB
+guicontrol, %utltog%, utlEDTA
+guicontrol, %utltog%, utlEDTB
+guicontrol, %utltog%, utlEDTC
+guicontrol, %utltog%, utlEDTD
+guicontrol, %utltog%, utlEDTE
+guicontrol, %utltog%, utlEDTF
+guicontrol, %utltog%, utlEDTG
+guicontrol, %utltog%, utlEDTI
+guicontrol, %utltog%, utlUPDA
+guicontrol, %utltog%, utlEDTH
+guicontrol, %utltog%, utlUPDB
+guicontrol, %utltog%, utlLVA
+guicontrol, %utltog%, utlUPDC
+guicontrol, %utltog%, utlGRPA
+guicontrol, %utltog%, utlGRPB
+guicontrol, %utltog%, utlGRPC
+guicontrol, %utltog%, utlGRPD
+guicontrol, %utltog%, utlGRPE
+guicontrol, %utltog%, utlGRPF
+guicontrol, %utltog%, utlGRPG
+guicontrol, %utltog%, utlLBXA
+guicontrol, %utltog%, utlLBXB
+guicontrol, %utltog%, utlLVA
+guicontrol, %utltog%, utlLVB
+guicontrol, %utltog%, utlLVC
+guicontrol, %utltog%, utlPRGB
+guicontrol, %utltog%, utlPRGA
+guicontrol, %utltog%, utlRad5B
+guicontrol, %utltog%, utlRad5C
+guicontrol, %utltog%, utlRad4A
+guicontrol, %utltog%, utlRad4B
+guicontrol, %utltog%, utlRad5A
+guicontrol, %utltog%, utlRad6A
+guicontrol, %utltog%, utlRad6B
+guicontrol, %utltog%, utlRad6C
+guicontrol, %utltog%, utlRad6D
+guicontrol, %utltog%, utlRad7A
+guicontrol, %utltog%, utlRad7B
+guicontrol, %utltog%, utlRad8A
+guicontrol, %utltog%, utlRad8B
+guicontrol, %utltog%, utlRad9A
+guicontrol, %utltog%, utlRad9B
+guicontrol, %utltog%, utlRad9C
+guicontrol, %utltog%, utlRad10A
+guicontrol, %utltog%, utlRad10B
+guicontrol, %utltog%, utlRad11A
+guicontrol, %utltog%, utlRad11B
+guicontrol, %utltog%, utlRad2A
+guicontrol, %utltog%, utlRad2B
+guicontrol, %utltog%, utlRad2C
+guicontrol, %utltog%, utlRad1A
+guicontrol, %utltog%, utlRad3A
+guicontrol, %utltog%, utlRad3B
+guicontrol, %utltog%, utlRad3C
+guicontrol, %utltog%, utlRad3D
+guicontrol, %utltog%, utlRad1B
+guicontrol, %utltog%, utlSLDA
+guicontrol, %utltog%, utlSLDB
+guicontrol, %utltog%, utlSLDD
+guicontrol, %utltog%, utlSLDE
+guicontrol, %utltog%, utlSLDC
+guicontrol, %utltog%, utlTXTA
+;guicontrol, %utltog%, utlTXTB
+guicontrol, %utltog%, utlTXTC
+guicontrol, %utltog%, utlTXTD
+guicontrol, %utltog%, utlTXTE
+guicontrol, %utltog%, utlTXTF
+guicontrol, %utltog%, utlTXTG
+guicontrol, %utltog%, utlTXTS
+guicontrol, %utltog%, utlTXTT
+guicontrol, %utltog%, utlTXTR
+guicontrol, %utltog%, utlTXTM
+guicontrol, %utltog%, utlTXTH
+guicontrol, %utltog%, utlTXTI
+guicontrol, %utltog%, utlTXTN
+guicontrol, %utltog%, utlTXTO
+guicontrol, %utltog%, utlTXTP
+guicontrol, %utltog%, utlTXTQ
+guicontrol, %utltog%, utlTXTJ
+guicontrol, %utltog%, utlTXTK
+guicontrol, %utltog%, utlTXTL
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;{;;;; ~~~FE-gui functions~~~  ;;;;;
 feBUTA:
 gui,submit,nohide
@@ -29524,23 +30166,22 @@ Loop, Parse, cursysthl,|
 			if (siin1 = curtxt)
 				{
 					guicontrol,,FETXTK,%siin2%
-				}
-				
+				}				
 		}
-	   curtxt= 
+curtxt= 
 RowNumber = 0  
-		Loop
+Loop
+	{
+		RowNumber := LV_GetNext(RowNumber)  
+		if not RowNumber  
 			{
-				RowNumber := LV_GetNext(RowNumber)  
-				if not RowNumber  
-					{
-						break
-					}
-				LV_GetNext(RowNumber, Focused)
-				LV_GetText(curtxt, RowNumber)
-				gosub, MEDIMGPOP
+				break
 			}
-ARINNG= 			
+		LV_GetNext(RowNumber, Focused)
+		LV_GetText(curtxt, RowNumber)
+		gosub, MEDIMGPOP
+	}
+ARINNG= 		
 Loop, %ASSETS%\%FEDDLA%\%curtxt%\*,2
 	{
 		ARINNG.= A_LoopFileName . "|"
@@ -32914,7 +33555,7 @@ FELBXQ=
 loop, parse, FEchki,|
 	{
 		FELBXQ=%A_index%
-		}
+	}
 guicontrol,,FELBXA,|[%FELBXQ% SELECTED SYSTEMS]||%FEchki%
 return
 
@@ -32967,10 +33608,6 @@ return
 
 Mirrored_LinksfeRAD5C:
 return
-
-ExecutableUTLLVA:
-return	
-
 
 ;{;;;;;;;;;;;;;;;; UTIL RIGHTCLICK ;;;;;;;;;;;;;;;;;
 TOGUTSEL:
@@ -33164,14 +33801,21 @@ return
 ;{;;;;;;;;;;;;;;;;;;;;;    UTILITY-OPTION FUNCTIONS    ;;;;;;;;;;;;;;;;;;
 
 Executable_util:
-curxe= exeparam.ini
+lvachk= +Check
+ROQU= "
+;"
+ROPTH= ..\
+ROXT= .ext
+RODIS= %ROQU%%ROPTH%$ROM$%ROXT%%ROQU%
+curxe= executable\exeparam.ini
 gui,submit,nohide
 guicontrol,show,utlRad1B
-guicontrol,,utlRad1B,optb
+guicontrol,,utlRad1B,Keymapper Disabled
 guicontrol,move,UTLRAD1B,x442 y116 w120 h23
+guicontrol,,utlRad1B,1
 
 guicontrol,show,utlRad1A
-guicontrol,,utlRad1A,opta
+guicontrol,,utlRad1A,Keymapper Enabled
 guicontrol,move,UTLRAD1A,x443 y92 w120 h23
 
 guicontrol,show,utlCBXA
@@ -33183,14 +33827,17 @@ guicontrol,move,utlCBXB,x409 y236 w134
 guicontrol,,utlCBXB,|%INJOPT%
 
 guicontrol,show,utlCHKC
+guicontrol,,utlCHKC,1
 guicontrol,move,utlCHKC,x411 y267 w54 h17
 guicontrol,,utlCHKC,quotes
 
 guicontrol,show,utlCHKD
+guicontrol,,utlCHKD,1
 guicontrol,move,utlCHKD,x411 y284 w64 h19
 guicontrol,,utlCHKD,extension
 
 guicontrol,show,utlCHKE
+guicontrol,,utlCHKE,1
 guicontrol,move,utlCHKE,x411 y303 w44 h16
 guicontrol,,utlCHKE,path
 
@@ -33205,45 +33852,55 @@ guicontrol,,utlTXTN,options
 guicontrol,show,utlTXTI
 guicontrol,+Center,utlTXTI
 guicontrol,move,utlTXTI,x545 y240 w93 h17
-guicontrol,,utlTXTI,$ROMF$
+guicontrol,,utlTXTI,%RODIS%
 
 guicontrol,show,utlBUTH
 guicontrol,move,utlBUTH,x372 y94 w50 h22 
-guicontrol,show,utlBUTH
 guicontrol,,utlBUTH,Add
+guicontrol,enable,utlBUTH
+
+guicontrol,show,utlPRGA
+guicontrol,move,utlPRGA, x753 y44 w8 h459 -Smooth Vertical
+guicontrol,show,utlPRGA
 
 guicontrol,move,utlBUTJ, x685 y476 w68 h23
 guicontrol,show,utlBUTJ
+guicontrol,enable,utlBUTJ
 guicontrol,,utlBUTJ,Create
 
 guicontrol,move,utlBUTC, x367 y445 w75 h23
+guicontrol,enable,utlBUTC
 guicontrol,show,utlBUTC
 guicontrol,,utlBUTC,Out-File
 
 guicontrol,move,utlBUTD, x372 y116 w51 h20
 guicontrol,show,utlBUTD
+guicontrol,enable,utlBUTD
 guicontrol,,utlBUTD,Delete
 
-guicontrol,move,utlBUTE, x368 y179 w75 h23
-guicontrol,,utlBUTE,Emulator
+guicontrol,move,utlBUTE,x370 y41 w51 h18
 guicontrol,show,utlBUTE
+guicontrol,,utlBUTE,RESET
 
-guicontrol,move,utlBUTF, x677 y406 w75 h23
+guicontrol,move,utlDDLC, x368 y179 w120 h21
+guicontrol,,utlDDLC,|Other|%emuinstpop%
+guicontrol,show,utlDDLC
+
+guicontrol,move,utlBUTF, x364 y400 w75 h23
 guicontrol,show,utlBUTF
+guicontrol,enable,utlBUTF
 guicontrol,,utlBUTF,Icon
-;;guicontrol,move,utlEDTA, x373 y146 w375 h262
-;;guicontrol,,utlEDTA,
-;;guicontrol,show,utlEDTA
-guicontrol,move,utlEDTE, x371 y45 w369 h35
-guicontrol,show,utlEDTE
-guicontrol,,utlEDTE,
+
+;;guicontrol,move,utlEDTE, x371 y45 w369 h35
+;;guicontrol,show,utlEDTE
+;;guicontrol,,utlEDTE,
 
 guicontrol,move,utlGRPD, x364 y427 w391 h86
 guicontrol,show,utlGRPD
 guicontrol,,utlGRPD,Save
 
-guicontrol,move,utlLBXA, x367 y470 w313 h35
-guicontrol,show,utlLBXA
+;;guicontrol,move,utlLBXA, x367 y470 w313 h35
+;;guicontrol,show,utlLBXA
 
 guicontrol,move,utlLVA, x20 y26 w341 h479
 guicontrol,show,utlLVA
@@ -33256,7 +33913,7 @@ guicontrol,move,utlTXTB, x531 y20 w79 h13
 guicontrol,show,utlTXTB
 guicontrol,,utlTXTB,Utility
 
-guicontrol,move,utlTXTC, x447 y449 w59 h13
+guicontrol,move,utlTXTC, x447 y449 w259 h13
 guicontrol,show,utlTXTC
 guicontrol,,utlTXTC,Location
 
@@ -33264,26 +33921,82 @@ guicontrol,move,utlTXTD, x372 y165 w40 h13
 guicontrol,show,utlTXTD
 guicontrol,,utlTXTD,Emulator
 
-guicontrol,move,utlTXTE, x679 y318 w39 h13
+guicontrol,move,utlTXTE,x364 y385 w39 h13
 guicontrol,show,utlTXTE
 guicontrol,,utlTXTE,ICON
-
-guicontrol,disable,utlBUTH
-guicontrol,disable,utlBUTJ
-guicontrol,disable,utlBUTC
-guicontrol,disable,utlBUTG
-guicontrol,disable,utlBUTD
-guicontrol,disable,utlBUTE
-guicontrol,disable,utlBUTF
-guicontrol,disable,utlEDTA
-guicontrol,disable,utlEDTE
-guicontrol,disable,utlLBXA
-;;guicontrol,disable,utlLVA
+ifexist,executable\exe.ico
+	{
+		guicontrol,,utlTXTE,enabled
+	}
+Gui,Listview,utllva	
+presx= 
+Loop, Files,executable\*.*,RFD
+	{
+		presx= 1
+		LV_Add(lvachk,A_LoopFileFullPath)
+	}
+LV_ModifyCol()	
+if (presx = 1)
+	{
+		ifexist,%curxe%
+			{
+				IniRead,utlchkc,%curxe%,EXECUTABLE,quotes
+				if (utlchkc <> "ERROR")
+					{
+						guicontrol,,utlCHKC,%utlchkc%
+					}
+				IniRead,utlchkd,%curxe%,EXECUTABLE,extension
+				if (utlchkd <> "ERROR")
+					{
+						guicontrol,,utlCHKD,%utlchkd%
+					}
+				IniRead,utlchke,%curxe%,EXECUTABLE,path
+				if (utlchke <> "ERROR")
+					{
+						guicontrol,,utlCHKE,%utlchke%
+					}
+				IniRead,xeopt,%curxe%,EXECUTABLE,options
+				if (xeopt <> "ERROR")
+					{
+						guicontrol,,utlCBXB,|%xeopt%||%INJOPT%
+					}
+				IniRead,xearg,%curxe%,EXECUTABLE,arguments
+				if (xearg <> "ERROR")
+					{
+						guicontrol,,utlCBXA,|%xearg%||%INJARG%
+					}
+				IniRead,xeemu,%curxe%,EXECUTABLE,emulator
+				if (xeemu <> "ERROR")
+					{
+						Loop, Parse, emupartset,`n`r
+							{
+								stringsplit,aie,A_LoopField,=
+								if (aie3 = xeemu)
+									{
+										xeemu= %aie1%
+									}
+							}
+						guicontrol,,utlDDLC,|%xeemu%||%emuinstpop%
+					}
+				IniRead,xekm,%curxe%,EXECUTABLE,keymapper
+				if (xeemu = 1)
+					{
+						guicontrol,,utlRAD1A,1
+					}
+				IniRead,outsv,%curxe%,EXECUTABLE,out_file
+				if (outsv <> "ERROR")
+					{
+						splitpath,outsv,outexe,outexedir
+						guicontrol,,utlTXTC,%outsv%
+					}
+			}
+	}
 return
 
 
-;{;;;; ~~~UTILITY-gui functions~~~  ;;;;;
-utlBUTA:
+;{;;;;;;;;;;;;;;;;;;;;   EXECUTABLE CREATION GUI   ;;;;;;;;;;;;;;;
+
+executableutlBUTA:
 gui,submit,nohide
 if (utltog = "show")
 	{
@@ -33293,671 +34006,820 @@ if (utltog = "show")
 	{
 		utltog= show
 	}
+
 gosub, UTLUNPOP
 return
 
-utlBUTB:
+executableutlBUTB:
 gui,submit,nohide
 
 return
 
-utlBUTC:
+executableutlBUTC:
 gui,submit,nohide
+outsv=
 
-return
-
-utlBUTG:
-gui,submit,nohide
-
-return
-
-utlBUTD:
-gui,submit,nohide
-
-return
-
-utlBUTE:
-gui,submit,nohide
-Gui,ListView,utlLVA
-iniread,emuxetmp,%curxe%,EXECUTABLE,emulator
-if (emuxetmp <> "")
+FileSelectFile,outsv,S58,,Set the executable name/location,*.exe
+if (outsv = "")
 	{
-		utlItemdxa:= LVGetCheckedItems("", "ahk_id" . UTILVA)
-		stringreplace,utlchki,utlItemdxa,`n,|,All
-		stringreplace,utlchki,utlchki,`r,|,All
+		SB_SetText("")
+		return
 	}
-exefiletmp= 
-FileSelectFile,exefiletmp,3,,Select the emulator
-if (exefiletmp = "")
+splitpath,outsv,outexe,outexedir
+guicontrol,,utlTXTC,%outsv%
+iniwrite, "%outsv%",%curxe%,EXECUTABLE,out_file
+return
+
+executableutlBUTG:
+gui,submit,nohide
+
+return
+
+executableutlBUTD:
+gui,submit,nohide
+
+return
+
+executableutlBUTE:
+gui,submit,nohide
+MsgBox,257,Reset,Reset all executable Settings?`nThis will delete all files in the executable directory.
+ifmsgbox,ok
+	{
+		Gui,ListView,utllva
+		LV_Delete()
+		FileRemoveDir,executable,1
+		FileCreateDir,executable
+		SB_SetText("RESET")
+		guicontrol,,utlTXTE,Icon
+		guicontrol,,utlDDLC,|%emuinstpop%
+		guicontrol,,utlcbxa,|%INJARG%
+		guicontrol,,utlcbxb,|%INJOPT%
+		xeico= 
+		outsv= 
+		outexe=
+		outexedir= 
+		gosub, Executable_util
+		return	
+	}
+return
+
+executableutlBUTF:
+gui,submit,nohide
+icotmp= 
+FileSelectFile,icotmp,3,,Select Image,*.*
+if (icotmp = "")
 	{
 		return
 	}
-ifinstring,utlchki,emuxetmp
+splitpath, icotmp,,,icoxt
+imgtmp= |jpg|bmp|png|jpeg|
+if (icoxt = "ico")
 	{
-		SB_SetText("Emulator is already added.")
+		xeico= %icotmp%
+		filecopy,%icotmp%,executable\exe.ico,1
+		iniwrite, exe.ico,%curxe%,EXECUTABLE,icon
+		guicontrol,,utlTXTE,enabled
 		return
 	}
-LV_Add(+Check, emuxetmp)
-LV_ModifyCol()	
-IniWrite, "%exefiletmp%",%curxe%,EXECUTABLE,emulator
+ifinstring,imgtmp,|%icoxt%|
+	{
+		RunWait, "any2ico.exe" "-img=%icotmp%" "-icon=executable\exe.ico" -formats=32`,64`,96`,128`,256 -center
+		iniwrite, exe.ico,%curxe%,EXECUTABLE,icon
+		guicontrol,,utlTXTE,enabled
+	}
 return
 
-utlBUTF:
+executableutlBUTH:
 gui,submit,nohide
 
 return
 
-utlBUTH:
+executableutlBUTI:
 gui,submit,nohide
 
 return
 
-utlBUTI:
+executableutlBUTJ:
 gui,submit,nohide
+if (outexedir = "")
+	{
+		SB_SetText(" Set the destination for the executable ")
+	}
+guicontrol,disable,utlBUTJ
+fileDelete,executable\romlist.txt
 
-return
+utlItemdxa= 
+utlItemdxa:= LVGetCheckedItems("", "ahk_id" . UTILVA)
 
-utlBUTJ:
-gui,submit,nohide
+stringreplace,utlchki,utlItemdxa,`n,|,All
+stringreplace,utlchki,utlchki,`r,|,All
+ifnotexist,executable\roms\
+	{
+		FileCreateDir,executable\roms
+	}
 
-return
+SB_SetText("Copying Files")	
+Loop, Parse, utlchki,|
+	{
+		ifnotinstring,A_LoopField,executable\
+			{
+				FileCopy, %A_LoopField%,executable\roms\%A_LoopFileName%,1
+			}
+		SB_SetText("Copying " A_LoopFileName " ")	
+	}
 
-utlCHKD:
-gui,submit,nohide
-IniWrite, %utlCHKD%,%curxe%,EXECUTABLE,extension
-return
+SB_SetText("Copied Files")	
+Loop, executable\roms\*.*
+	{
+		fileAppend,roms\%A_LoopFileName%`n,executable\romlist.txt
+	}
+SB_SetText(" creating executable ")
 
-utlCHKE:
-gui,submit,nohide
-IniWrite, %utlCHKE%,%curxe%,EXECUTABLE,path
-return
+FileCopy,emuexe.*,executable
+FileDelete,%cacheloc%\MakeEXE_files.txt
+apndflz= 
+Loop,Files, executable\*.*,DFR
+	{
+		apndflz.= A_LoopFileFullPath . "`n"
+	}
+stringreplace,apndflz,apndflz,executable\,,All	
+FileAppend, %apndflz%,%cacheloc%\MakeEXE_files.txt
 
-utlCHKF:
-gui,submit,nohide
-
-return
-
-utlCHKG:
-gui,submit,nohide
-
-return
-
-utlCHKH:
-gui,submit,nohide
-
-return
-
-utlCHKI:
-gui,submit,nohide
-
-return
-
-utlCHKJ:
-gui,submit,nohide
-
-return
-
-utlCHKK:
-gui,submit,nohide
-
-return
-
-utlCHKL:
-gui,submit,nohide
-
-return
-
-utlCHKM:
-gui,submit,nohide
-
-return
-
-utlCHKN:
-gui,submit,nohide
-
-return
-
-utlCHKO:
-gui,submit,nohide
-
-return
-
-utlCHKP:
-gui,submit,nohide
-
-return
-
-utlCHKQ:
-gui,submit,nohide
-
-return
-
-utlCHKA:
-gui,submit,nohide
-
-return
-
-utlCHKB:
-gui,submit,nohide
-return
-
-utlCHKC:
-gui,submit,nohide
+guicontrolget,utlCHKC,,utlCHKC	
 IniWrite, %utlCHKC%,%curxe%,EXECUTABLE,quotes
+guicontrolget,utlCHKD,,utlCHKD
+IniWrite, %utlCHKD%,%curxe%,EXECUTABLE,extension
+guicontrolget,expath,,utlCHKE
+IniWrite, %utlCHKE%,%curxe%,EXECUTABLE,path
+ifexist,%cacheloc%\MakeEXE.7z
+	{
+		filedelete,%cacheloc%\MakeEXE.7z
+	}
+
+RunWait, "7za.exe" a -m0=lzma "%cacheloc%\MakeEXE.7z" @"%cacheloc%\MakeEXE_files.txt",executable,hide
+
+FileDelete,executable\config.txt
+FileAppend, `;!@Install@!UTF-8!`n,executable\config.txt
+FileAppend, Title="ROM-EXECUTABLE"`n,executable\config.txt
+FileAppend, RunProgram="hidcon:emuexe.exe"`n,executable\config.txt
+;;REM ECHO ExecuteParameters="/min"`n,executable\config.txt
+FileAppend,`;!@InstallEnd@!`n,executable\config.txt
+ifexist,%outexedir%\%outexe%
+	{
+		filedelete,%outexedir%\%outexe%
+	}
+RunWait, %comspec% /c copy /b "7zsd.sfx" + "executable\config.txt" + "%cacheloc%\MakeEXE.7z" "%outexedir%\%outexe%",,hide
+ifexist,executable\exe.ico
+	{
+		RunWait, %comspec% /c "rcedit.exe" "%outsv%" --set-icon "executable\exe.ico",,hide
+	}
+guicontrol,enable,utlBUTJ	
+SB_SetText("Executable " outsv " created")
 return
 
-utlCBXE:
+executableutlCHKD:
+gui,submit,nohide
+ROXT= .ext
+if (UTLCHKD = 0)
+	{
+		ROXT= 
+	}
+IniWrite, %utlCHKD%,%curxe%,EXECUTABLE,extension
+RODIS= %ROQU%%ROPTH%$ROM$%ROXT%%ROQU%
+guicontrol,,utlTXTI,%RODIS%
+return
+
+executableutlCHKE:
+gui,submit,nohide
+ROPTH= ..\
+IniWrite, %utlCHKE%,%curxe%,EXECUTABLE,path
+if (UTLCHKE = 0)
+	{
+		ROPTH= 
+	}
+RODIS= %ROQU%%ROPTH%$ROM$%ROXT%%ROQU%
+guicontrol,,utlTXTI,%RODIS%
+
+return
+
+executableutlCHKF:
 gui,submit,nohide
 
 return
 
-utlCBXF:
+executableutlCHKG:
 gui,submit,nohide
 
 return
 
-utlCBXG:
+executableutlCHKH:
 gui,submit,nohide
 
 return
 
-utlCBXH:
+executableutlCHKI:
 gui,submit,nohide
 
 return
 
-utlCBXI:
+executableutlCHKJ:
 gui,submit,nohide
 
 return
 
-utlCBXJ:
+executableutlCHKK:
 gui,submit,nohide
 
 return
 
-utlCBXA:
+executableutlCHKL:
+gui,submit,nohide
+
+return
+
+executableutlCHKM:
+gui,submit,nohide
+
+return
+
+executableutlCHKN:
+gui,submit,nohide
+
+return
+
+executableutlCHKO:
+gui,submit,nohide
+
+return
+
+executableutlCHKP:
+gui,submit,nohide
+
+return
+
+executableutlCHKQ:
+gui,submit,nohide
+
+return
+
+executableutlCHKA:
+gui,submit,nohide
+
+return
+
+executableutlCHKB:
+gui,submit,nohide
+return
+
+executableutlCHKC:
+gui,submit,nohide
+ROQU= "
+;"
+if (UTLCHKC = 0)
+	{
+		ROQU= 
+	}
+IniWrite, %utlCHKC%,%curxe%,EXECUTABLE,quotes
+RODIS= %ROQU%%ROPTH%$ROM$%ROXT%%ROQU%
+guicontrol,,utlTXTI,%RODIS%
+return
+
+executableutlCBXE:
+gui,submit,nohide
+
+return
+
+executableutlCBXF:
+gui,submit,nohide
+
+return
+
+executableutlCBXG:
+gui,submit,nohide
+
+return
+
+executableutlCBXH:
+gui,submit,nohide
+
+return
+
+executableutlCBXI:
+gui,submit,nohide
+
+return
+
+executableutlCBXJ:
+gui,submit,nohide
+
+return
+
+executableutlCBXA:
 gui,submit,nohide
 guicontrolget,utlcbxa,,utlcbxa
-IniWrite, %utlcbxa%, %curxe%,EXECUTABLE,arguments
+IniWrite, "%utlcbxa%", %curxe%,EXECUTABLE,arguments
 return
 
-utlCBXB:
+executableutlCBXB:
 gui,submit,nohide
 guicontrolget,utlcbxb,,utlcbxb
-IniWrite, %utlcbxb%, %curxe%,EXECUTABLE,arguments
+IniWrite, "%utlcbxb%", %curxe%,EXECUTABLE,options
 return
 
-utlCBXC:
+executableutlCBXC:
 gui,submit,nohide
 
 return
 
-utlCBXD:
+executableutlCBXD:
 gui,submit,nohide
 
 return
 
-utlDDLE:
+executableutlDDLE:
 gui,submit,nohide
 
 return
 
-utlDDLF:
+executableutlDDLF:
 gui,submit,nohide
 
 return
 
-utlDDLG:
+executableutlDDLG:
 gui,submit,nohide
 
 return
 
-utlDDLH:
+executableutlDDLH:
 gui,submit,nohide
 
 return
 
-utlDDLI:
+executableutlDDLI:
 gui,submit,nohide
 
 return
 
-utlDDLJ:
+executableutlDDLJ:
 gui,submit,nohide
 
 return
 
-utlDDLC:
+executableutlDDLC:
 gui,submit,nohide
-
-return
-
-utlDDLD:
-gui,submit,nohide
-
-return
-
-utlDDLA:
-gui,submit,nohide
-guicontrolget,curutl,,UTLDDLA
-if (curutl = "Executable")
+guicontrolget,utlDDLCtmp,,utlDDLC
+Gui,Listview,utlva
+lvachk= +Check
+utlitmz= 
+if (utlDDLCtmp = "Other")
 	{
-		utltog= hide
-		gosub, UTLUNPOP
-		gosub, %UTLDDLA%_util
+		Gui,ListView,utlLVA
+		iniread,emuxetmp,%curxe%,EXECUTABLE,emulator
+		if (emuxetmp <> "")
+			{
+				utlItemdxa:= LVGetCheckedItems("", "ahk_id" . UTILVA)
+				stringreplace,utlchki,utlItemdxa,`n,|,All
+				stringreplace,utlchki,utlchki,`r,|,All
+			}
+		exefiletmp= 
+		FileSelectFile,exefiletmp,3,,Select the emulator
+		if (exefiletmp = "")
+			{
+				guicontrol,,utlDDLC,|%utlDDLC%||%emuinstpop%
+				return
+			}
+		ifinstring,utlchki,emuxetmp
+			{
+				guicontrol,,utlDDLC,|%utlDDLC%||%emuinstpop%
+				SB_SetText("Emulator is already added.")
+				return
+			}
+		LV_Add(lvachk, emuxetmp)
+		utlitmz.= emuexetmp . "|"
+		LV_ModifyCol()
+		splitpath,exefiletmp,exefilexe
+		utlDDLC= %utlDDLCtmp%
+		IniWrite, "%exefilexe%",%curxe%,EXECUTABLE,Emulator
 		return
+	}
+
+utlDDLC= %utlDDLCtmp%
+
+Loop, Parse, emupartset,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,xesel,A_LoopField,=
+		if (xesel1 = utlDDLC)
+			{
+				stringsplit,afi,xesel2,/
+				Loop, Parse,UrlIndex,`n`r
+					{
+						urloc= 
+						urloc1= 
+						urloc2= 
+						stringsplit,urloc,A_LoopField,/
+						if (urloc1 = xesel1)
+							{
+								URLFILE= %repoloc%/%urloc1%/%urloc2%
+								ifinstring,repoloc,github
+									{
+										URLFILE= %repoloc%/%urloc1%/raw/master/%urloc2%
+									}
+								sb_settext(" " URLFILE " ")	
+								save=%cacheloc%\%urloc2%
+								if (xtractmu = "")
+										{
+											xtractmu= executable
+										}
+								DownloadFile(URLFILE, save, DWNOV, True)
+								ifnotexist, %save%
+									{
+										msgbox,0,, %xesel1%`n''%URLFILE%''`n was not downloaded, 20
+										break
+									}
+								SB_SetText(" " save " " "extracting")
+								runwait, %comspec% cmd /c "7za.exe x -y "%save%" -O"%xtractmu%" ", ,hide
+								SB_SetText(" " save " " "was extracted")
+								ifnotexist, %xtractmu%
+									{
+										SB_SetText(" " save " " "was NOT extracted")
+									}
+							}
+					}
+				IniWrite, "%xesel3%",%curxe%,EXECUTABLE,Emulator
+				break
+			}
+		
+	}
+utlitmz= 	
+Loop, Files, executable\*.*,RFD
+	{
+		ifinstring,utlitmz,%A_LoopFileFullPath%
+			{
+				continue
+			}		
+		LV_Add(lvachk, A_LoopFileFullPath)
+		utlitmz.= A_LoopFileFullPath . "|"
+	}
+LV_ModifyCol()	
+return
+
+executableutlDDLD:
+gui,submit,nohide
+
+return
+
+executableutlDDLB:
+gui,submit,nohide
+
+return
+
+executableutlEDTA:
+gui,submit,nohide
+
+return
+
+executableutlEDTB:
+gui,submit,nohide
+
+return
+
+executableutlEDTC:
+gui,submit,nohide
+
+return
+
+executableutlEDTD:
+gui,submit,nohide
+
+return
+
+executableutlEDTE:
+gui,submit,nohide
+
+return
+
+executableutlEDTF:
+gui,submit,nohide
+
+return
+
+executableutlEDTG:
+gui,submit,nohide
+
+return
+
+executableutlUPDA:
+gui,submit,nohide
+
+return
+
+executableutlEDTH:
+gui,submit,nohide
+
+return
+
+executableutlEDTI:
+gui,submit,nohide
+
+return
+
+executableutlUPDB:
+gui,submit,nohide
+
+return
+
+executableutlUPDC:
+gui,submit,nohide
+
+return
+
+executableutlLBXA:
+gui,submit,nohide
+
+return
+
+executableutlLBXB:
+gui,submit,nohide
+
+return
+
+executableutlLVA:
+gui,submit,nohide
+Gui,ListView,utlLVA
+utlItemdxa= 
+utlItemdxa:= LVGetCheckedItems("", "ahk_id" . UTILVA)
+stringreplace,utlchki,utlItemdxa,`n,|,All
+stringreplace,utlchki,utlchki,`r,|,All
+utlLBXQ=
+inib=
+loop, parse, utlchki,|
+	{
+		utlLBXQ=%A_index%
+	}
+Loop
+	{
+		RowNumber := LV_GetNext(RowNumber)  
+		if not RowNumber  
+			{
+				break
+			}
+		LV_GetNext(RowNumber, Focused)
+		LV_GetText(curtxt, RowNumber)
+		inib.= curtxt . "|"
+	}
+
+return
+
+executableutlLVB:
+gui,submit,nohide
+
+return
+
+executableutlLVC:
+gui,submit,nohide
+
+return
+
+executableutlRad5B:
+gui,submit,nohide
+
+return
+
+executableutlRad5C:
+gui,submit,nohide
+
+return
+
+executableutlRad4A:
+gui,submit,nohide
+
+return
+
+executableutlRad4B:
+gui,submit,nohide
+
+return
+
+executableutlRad5A:
+gui,submit,nohide
+
+return
+
+executableutlRad6A:
+gui,submit,nohide
+
+return
+
+executableutlRad6B:
+gui,submit,nohide
+
+return
+
+executableutlRad6C:
+gui,submit,nohide
+
+return
+
+executableutlRad6D:
+gui,submit,nohide
+
+return
+
+executableutlRad7A:
+gui,submit,nohide
+
+return
+
+executableutlRad7B:
+gui,submit,nohide
+
+return
+
+executableutlRad8A:
+gui,submit,nohide
+
+return
+
+executableutlRad8B:
+gui,submit,nohide
+
+return
+
+executableutlRad9A:
+gui,submit,nohide
+
+return
+
+executableutlRad9B:
+gui,submit,nohide
+
+return
+
+executableutlRad9C:
+gui,submit,nohide
+
+return
+
+executableutlRad10A:
+gui,submit,nohide
+
+return
+
+executableutlRad10B:
+gui,submit,nohide
+
+return
+
+executableutlRad11A:
+gui,submit,nohide
+
+return
+
+executableutlRad11B:
+gui,submit,nohide
+
+return
+
+executableutlRad2A:
+gui,submit,nohide
+
+return
+
+executableutlRad2B:
+gui,submit,nohide
+
+return
+
+executableutlRad2C:
+gui,submit,nohide
+
+return
+
+executableutlRad1A:
+gui,submit,nohide
+iniwrite,0,%curxe%,EXECUTABLE,keymapper
+ifnotexist,%cacheloc%\antimicro%ARCH%.7z
+	{
+		Loop, Parse, emupartset,`n`r
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				stringsplit,xesel,A_LoopField,=
+				if (xesel1 = "antimicro")
+					{
+						stringsplit,afi,xesel2,/
+						Loop, Parse,UrlIndex,`n`r
+							{
+								if (A_LoopField = "")
+									{
+										continue
+									}
+								urloc= 
+								urloc1= 
+								urloc2= 
+								stringsplit,urloc,A_LoopField,/
+								if (urloc1 = xesel1)
+									{
+										URLFILE= %repoloc%/%urloc1%/%urloc2%
+										ifinstring,repoloc,github
+											{
+												URLFILE= %repoloc%/%urloc1%/raw/master/%urloc2%
+											}
+										sb_settext(" " URLFILE " ")	
+										save=%cacheloc%\%urloc2%
+										if (xtractmu = "")
+												{
+													xtractmu= executable
+												}
+										DownloadFile(URLFILE, save, DWNOV, True)
+										ifnotexist, %save%
+											{
+												msgbox,0,, %xesel1%`n''%URLFILE%''`n was not downloaded, 20
+												break
+											}
+										SB_SetText(" " save " " "extracting")
+										runwait, %comspec% cmd /c "7za.exe x -y "%save%" -O"%xtractmu%" ", ,hide
+										SB_SetText(" " save " " "was extracted")
+										ifnotexist, %xtractmu%
+											{
+												SB_SetText(" " save " " "was NOT extracted")
+												break
+											}
+									}
+							}
+						iniwrite,1,%curxe%,EXECUTABLE,keymapper
+						break
+					}
+				
+			}		
 	}
 return
 
-utlDDLB:
+executableutlRad3A:
 gui,submit,nohide
 
 return
 
-utlEDTA:
+executableutlRad3B:
 gui,submit,nohide
 
 return
 
-utlEDTB:
+executableutlRad3C:
 gui,submit,nohide
 
 return
 
-utlEDTC:
+executableutlRad3D:
 gui,submit,nohide
 
 return
 
-utlEDTD:
+executableutlRad1B:
+gui,submit,nohide
+iniwrite,0,%curxe%,EXECUTABLE,keymapper
+return
+
+executableutlSLDA:
 gui,submit,nohide
 
 return
 
-utlEDTE:
+executableutlSLDB:
 gui,submit,nohide
 
 return
 
-utlEDTF:
+executableutlSLDC:
 gui,submit,nohide
 
 return
 
-utlEDTG:
+executableutlSLDD:
 gui,submit,nohide
 
 return
 
-utlUPDA:
+executableutlSLDE:
 gui,submit,nohide
 
 return
 
-utlEDTH:
-gui,submit,nohide
-
-return
-
-utlEDTI:
-gui,submit,nohide
-
-return
-
-utlUPDB:
-gui,submit,nohide
-
-return
-
-utlUPDC:
-gui,submit,nohide
-
-return
-
-utlLBXA:
-gui,submit,nohide
-
-return
-
-utlLBXB:
-gui,submit,nohide
-
-return
-
-utlLVA:
-gui,submit,nohide
-
-return
-
-utlLVB:
-gui,submit,nohide
-
-return
-
-utlLVC:
-gui,submit,nohide
-
-return
-
-utlRad5B:
-gui,submit,nohide
-
-return
-
-utlRad5C:
-gui,submit,nohide
-
-return
-
-utlRad4A:
-gui,submit,nohide
-
-return
-
-utlRad4B:
-gui,submit,nohide
-
-return
-
-utlRad5A:
-gui,submit,nohide
-
-return
-
-utlRad6A:
-gui,submit,nohide
-
-return
-
-utlRad6B:
-gui,submit,nohide
-
-return
-
-utlRad6C:
-gui,submit,nohide
-
-return
-
-utlRad6D:
-gui,submit,nohide
-
-return
-
-utlRad7A:
-gui,submit,nohide
-
-return
-
-utlRad7B:
-gui,submit,nohide
-
-return
-
-utlRad8A:
-gui,submit,nohide
-
-return
-
-utlRad8B:
-gui,submit,nohide
-
-return
-
-utlRad9A:
-gui,submit,nohide
-
-return
-
-utlRad9B:
-gui,submit,nohide
-
-return
-
-utlRad9C:
-gui,submit,nohide
-
-return
-
-utlRad10A:
-gui,submit,nohide
-
-return
-
-utlRad10B:
-gui,submit,nohide
-
-return
-
-utlRad11A:
-gui,submit,nohide
-
-return
-
-utlRad11B:
-gui,submit,nohide
-
-return
-
-utlRad2A:
-gui,submit,nohide
-
-return
-
-utlRad2B:
-gui,submit,nohide
-
-return
-
-utlRad2C:
-gui,submit,nohide
-
-return
-
-utlRad1A:
-gui,submit,nohide
-
-return
-
-utlRad3A:
-gui,submit,nohide
-
-return
-
-utlRad3B:
-gui,submit,nohide
-
-return
-
-utlRad3C:
-gui,submit,nohide
-
-return
-
-utlRad3D:
-gui,submit,nohide
-
-return
-
-utlRad1B:
-gui,submit,nohide
-
-return
-
-utlSLDA:
-gui,submit,nohide
-
-return
-
-utlSLDB:
-gui,submit,nohide
-
-return
-
-utlSLDC:
-gui,submit,nohide
-
-return
-
-utlSLDD:
-gui,submit,nohide
-
-return
-
-utlSLDE:
-gui,submit,nohide
-
-return
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-/*
-
-*/
 ;};;;;;;;;;;;;;;;;;;;;;;;;;
 
-;{;;; ~~~~ UTILITY-template items ~~~ ;;;
-
-UTLUNPOP:
-;;guicontrol, show, utlBUTA
-guicontrol, %utltog%, utlBUTB
-guicontrol, %utltog%, utlBUTC
-guicontrol, %utltog%, utlBUTG
-guicontrol, %utltog%, utlBUTD
-guicontrol, %utltog%, utlBUTE
-guicontrol, %utltog%, utlBUTF
-guicontrol, %utltog%, utlBUTH
-guicontrol, %utltog%, utlBUTI
-guicontrol, %utltog%, utlBUTJ
-guicontrol, %utltog%, utlCHKD
-guicontrol, %utltog%, utlCHKE
-guicontrol, %utltog%, utlCHKF
-guicontrol, %utltog%, utlCHKG
-guicontrol, %utltog%, utlCHKH
-guicontrol, %utltog%, utlCHKI
-guicontrol, %utltog%, utlCHKJ
-guicontrol, %utltog%, utlCHKK
-guicontrol, %utltog%, utlCHKL
-guicontrol, %utltog%, utlCHKM
-guicontrol, %utltog%, utlCHKN
-guicontrol, %utltog%, utlCHKO
-guicontrol, %utltog%, utlCHKP
-guicontrol, %utltog%, utlCHKQ
-guicontrol, %utltog%, utlCHKA
-guicontrol, %utltog%, utlCHKB
-guicontrol, %utltog%, utlCHKC
-guicontrol, %utltog%, utlCBXE
-guicontrol, %utltog%, utlCBXF
-guicontrol, %utltog%, utlCBXG
-guicontrol, %utltog%, utlCBXH
-guicontrol, %utltog%, utlCBXI
-guicontrol, %utltog%, utlCBXJ
-guicontrol, %utltog%, utlCBXA
-guicontrol, %utltog%, utlCBXB
-guicontrol, %utltog%, utlCBXC
-guicontrol, %utltog%, utlCBXD
-guicontrol, %utltog%, utlDDLE
-guicontrol, %utltog%, utlDDLF
-guicontrol, %utltog%, utlDDLG
-guicontrol, %utltog%, utlDDLH
-guicontrol, %utltog%, utlDDLI
-guicontrol, %utltog%, utlDDLJ
-guicontrol, %utltog%, utlDDLC
-guicontrol, %utltog%, utlDDLD
-;guicontrol, %utltog%, utlDDLA
-guicontrol, %utltog%, utlDDLB
-guicontrol, %utltog%, utlEDTA
-guicontrol, %utltog%, utlEDTB
-guicontrol, %utltog%, utlEDTC
-guicontrol, %utltog%, utlEDTD
-guicontrol, %utltog%, utlEDTE
-guicontrol, %utltog%, utlEDTF
-guicontrol, %utltog%, utlEDTG
-guicontrol, %utltog%, utlEDTI
-guicontrol, %utltog%, utlUPDA
-guicontrol, %utltog%, utlEDTH
-guicontrol, %utltog%, utlUPDB
-guicontrol, %utltog%, utlLVA
-guicontrol, %utltog%, utlUPDC
-guicontrol, %utltog%, utlGRPA
-guicontrol, %utltog%, utlGRPB
-guicontrol, %utltog%, utlGRPC
-guicontrol, %utltog%, utlGRPD
-guicontrol, %utltog%, utlGRPE
-guicontrol, %utltog%, utlGRPF
-guicontrol, %utltog%, utlGRPG
-guicontrol, %utltog%, utlLBXA
-guicontrol, %utltog%, utlLBXB
-guicontrol, %utltog%, utlLVA
-guicontrol, %utltog%, utlLVB
-guicontrol, %utltog%, utlLVC
-guicontrol, %utltog%, utlPRGB
-guicontrol, %utltog%, utlPRGA
-guicontrol, %utltog%, utlRad5B
-guicontrol, %utltog%, utlRad5C
-guicontrol, %utltog%, utlRad4A
-guicontrol, %utltog%, utlRad4B
-guicontrol, %utltog%, utlRad5A
-guicontrol, %utltog%, utlRad6A
-guicontrol, %utltog%, utlRad6B
-guicontrol, %utltog%, utlRad6C
-guicontrol, %utltog%, utlRad6D
-guicontrol, %utltog%, utlRad7A
-guicontrol, %utltog%, utlRad7B
-guicontrol, %utltog%, utlRad8A
-guicontrol, %utltog%, utlRad8B
-guicontrol, %utltog%, utlRad9A
-guicontrol, %utltog%, utlRad9B
-guicontrol, %utltog%, utlRad9C
-guicontrol, %utltog%, utlRad10A
-guicontrol, %utltog%, utlRad10B
-guicontrol, %utltog%, utlRad11A
-guicontrol, %utltog%, utlRad11B
-guicontrol, %utltog%, utlRad2A
-guicontrol, %utltog%, utlRad2B
-guicontrol, %utltog%, utlRad2C
-guicontrol, %utltog%, utlRad1A
-guicontrol, %utltog%, utlRad3A
-guicontrol, %utltog%, utlRad3B
-guicontrol, %utltog%, utlRad3C
-guicontrol, %utltog%, utlRad3D
-guicontrol, %utltog%, utlRad1B
-guicontrol, %utltog%, utlSLDA
-guicontrol, %utltog%, utlSLDB
-guicontrol, %utltog%, utlSLDD
-guicontrol, %utltog%, utlSLDE
-guicontrol, %utltog%, utlSLDC
-guicontrol, %utltog%, utlTXTA
-;guicontrol, %utltog%, utlTXTB
-guicontrol, %utltog%, utlTXTC
-guicontrol, %utltog%, utlTXTD
-guicontrol, %utltog%, utlTXTE
-guicontrol, %utltog%, utlTXTF
-guicontrol, %utltog%, utlTXTG
-guicontrol, %utltog%, utlTXTS
-guicontrol, %utltog%, utlTXTT
-guicontrol, %utltog%, utlTXTR
-guicontrol, %utltog%, utlTXTM
-guicontrol, %utltog%, utlTXTH
-guicontrol, %utltog%, utlTXTI
-guicontrol, %utltog%, utlTXTN
-guicontrol, %utltog%, utlTXTO
-guicontrol, %utltog%, utlTXTP
-guicontrol, %utltog%, utlTXTQ
-guicontrol, %utltog%, utlTXTJ
-guicontrol, %utltog%, utlTXTK
-guicontrol, %utltog%, utlTXTL
-return
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;;;;;;;;;;;;;;;    JACKETIZE FUNCTIONS   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 RJLSTV:
-;;gui,submit,nohide
+gui,submit,nohide
 if (A_GuiEvent = RightClick)
 		{
 			return
@@ -33976,8 +34838,28 @@ if	(ErrorLevel == "C")
 			LV_GetText(curtxt, A_EventInfo)
 			stringreplace,RJSYSDD_TDB,RJSYSDD_TDB,%curtxt%|1,%curtxt%|0,All
 	   }
+;;SB_settext(curtxt)	   
+If (A_GuiEvent == "F") {
+   If (RJRN1["Changed"]) {
+	  Msg := ""
+	  For I, O In RJRN1.Changed
+		 Msg .= "Row " . O.Row . " - Column " . O.Col . " : " . O.Txt
+	  RJRN1.Remove("Changed")
+	  SB_SetText("changed " curtxt " to " O.Txt "")
+	  fifi := O.txt
+	ifnotinstring,curtxt,:
+		{
+		  FileMove,%RJSYSTEMS%\%oldtxt%,%RJSYSTEMS%\%fifi%,1
+		}
+	ifinstring,curtxt,:
+		{
+		  stringreplace,rnmdir,fifi,:,,All
+		  stringreplace,oldtxt,curtxt,:,,All
+		  FileMoveDir,%RJSYSTEMS%\%RJSYSDD%\%oldtxt%,%RJSYSTEMS%\%RJSYSDD%\%rnmdir%,1
+		}
+	  }
+}
 return
-
 ;{;;;;;;;;;;;;;;;;  RJ BUTTONS   ;;;;;;;;;;;;;;;;;;;;;
 
 RJButA:
@@ -36649,11 +37531,11 @@ return
 
 RJCHKG:
 gui,submit,nohide
-guicontrolget,RJCHKG,,RJCHKG
-if (RJCHKG = 1)
-	{
-		
-	}
+GuiControlGet, RJCHKG
+If (RJCHKG)
+   RJRN1.OnMessage()
+Else
+   RJRN1.OnMessage(False)
 return
 
 RJENCNSLD:
@@ -61049,4 +61931,4 @@ ifmsgbox, no
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;}###########################################
+;}############################################
