@@ -863,7 +863,8 @@ FileInstall,emuexe.exe,emuexe.exe,1
 FileInstall,fart.exe,fart.exe,1
 FileInstall,fciv.exe,fciv.exe,1
 FileInstall,PSFTP.EXE,PSFTP.EXE,1
-FileInstall,rcedit.exe,rcedit.exe,1
+FileInstall,rcedit32.exe,rcedit32.exe,1
+FileInstall,rcedit64.exe,rcedit64.exe,1
 FileInstall,Scraper.exe,Scraper.exe,1
 FileInstall,UnRAR.exe,UnRAR.exe,1
 FileInstall,Vdrive.exe,Vdrive.exe,1
@@ -3054,7 +3055,8 @@ FileInstall,rj\joyCfgs\Xpadder\Keyboard\Touhou\Player1.xpadderprofile,rj\joyCfgs
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Touhou\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Touhou\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Windows Games\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Windows Games\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Windows Games\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Windows Games\Player2.xpadderprofile,1
-FileInstall, 7zsd.sfx,7zsd.sfx
+FileInstall, 7zsd32.sfx,7zsd32.sfx
+FileInstall, 7zsd64.sfx,7zsd64.sfx
 FileInstall, Portable.bat,Portable.bat,1
 FileInstall, index.html,index.html,1
 FileInstall, working.ahk,working.ahk,1

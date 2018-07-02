@@ -33841,6 +33841,17 @@ guicontrol,,utlCHKE,1
 guicontrol,move,utlCHKE,x411 y303 w44 h16
 guicontrol,,utlCHKE,path
 
+guicontrol,show,utlCHKF
+guicontrol,,utlCHKF,0
+guicontrol,move,utlCHKF,x400 y343 w204 h16
+guicontrol,,utlCHKF,User-Defined Extraction Path
+
+guicontrol,show,utlEDTC
+guicontrol,disable,utlEDTC
+guicontrol,,utlEDTC,0
+guicontrol,move,utlEDTC,x400 y363 w204 h16
+guicontrol,,utlEDTC,
+
 guicontrol,show,utlTXTM
 guicontrol,move,utlTXTM,x686 y219 w57 h16
 guicontrol,,utlTXTM,arguments
@@ -33881,6 +33892,10 @@ guicontrol,,utlBUTD,Delete
 guicontrol,move,utlBUTE,x370 y41 w51 h18
 guicontrol,show,utlBUTE
 guicontrol,,utlBUTE,RESET
+
+guicontrol,move,utlBUTG,x495 y179 w51 h18
+guicontrol,show,utlBUTG
+guicontrol,,utlBUTG,config
 
 guicontrol,move,utlDDLC, x368 y179 w120 h21
 guicontrol,,utlDDLC,|Other|%emuinstpop%
@@ -33976,7 +33991,7 @@ if (presx = 1)
 										xeemu= %aie1%
 									}
 							}
-						guicontrol,,utlDDLC,|%xeemu%||%emuinstpop%
+						guicontrol,,utlDDLC,|%xeemu%||Other|%emuinstpop%
 					}
 				IniRead,xekm,%curxe%,EXECUTABLE,keymapper
 				if (xeemu = 1)
@@ -33988,6 +34003,16 @@ if (presx = 1)
 					{
 						splitpath,outsv,outexe,outexedir
 						guicontrol,,utlTXTC,%outsv%
+					}
+				IniRead,usrdfd,%curxe%,EXECUTABLE,extraction_directory
+				if (usrdfd <> "ERROR")
+					{
+						if (usrdfd <> "`%temp`%")
+							{
+								guicontrol,,utlCHKF,1
+								guicontrol,enable,utlEDTC
+								guicontrol,,utlEDTC,%usrdfd%
+							}
 					}
 			}
 	}
@@ -34025,14 +34050,33 @@ if (outsv = "")
 		SB_SetText("")
 		return
 	}
-splitpath,outsv,outexe,outexedir
+splitpath,outsv,outexe,outexedir,outxtn
+if (outxtn <> "exe")
+	{
+		outsv= 
+		outexe= 
+		outexedir= 
+		outxtn=
+		SB_SetText("File must end in ''.exe''")
+		goto, utlBUTC
+	}
 guicontrol,,utlTXTC,%outsv%
 iniwrite, "%outsv%",%curxe%,EXECUTABLE,out_file
 return
 
 executableutlBUTG:
 gui,submit,nohide
-
+GuiControl, Choose, TABMENU, 2
+guicontrol,,JCORE,|%runlist%
+svgbrnv= 1
+guicontrol,,LCORE,|%utlDDLC%||%runlist%
+EMUSN= %utlDDLC%
+gosub, EMUOPTPOP
+svgbrnv=
+guicontrol,,JOYCORE,|%utlDDLC%||Global|%corelist%|Xpadder|Antimicro%addemu%
+gosub, JOYEMUCORE
+guicontrol,,CFGSWITCH,|||EXE|||
+SB_SetText(" Editing emulator executable configurations")
 return
 
 executableutlBUTD:
@@ -34086,7 +34130,9 @@ ifinstring,imgtmp,|%icoxt%|
 		RunWait, "any2ico.exe" "-img=%icotmp%" "-icon=executable\exe.ico" -formats=32`,64`,96`,128`,256 -center
 		iniwrite, exe.ico,%curxe%,EXECUTABLE,icon
 		guicontrol,,utlTXTE,enabled
+		return
 	}
+SB_SetText(" You must select a ''.ico'' or image file.")	
 return
 
 executableutlBUTH:
@@ -34162,19 +34208,28 @@ FileDelete,executable\config.txt
 FileAppend, `;!@Install@!UTF-8!`n,executable\config.txt
 FileAppend, Title="ROM-EXECUTABLE"`n,executable\config.txt
 FileAppend, RunProgram="hidcon:emuexe.exe"`n,executable\config.txt
+if (utlCHKF = 1)
+	{
+		FileAppend, GUIFlags="1200"`n,executable\config.txt		
+		FileAppend, InstallPath="`%`%S\ROM_EXECUTABLE"`n,executable\config.txt		
+	}
+;;FileAppend, OverwriteMode="2"`n,executable\config.txt
 ;;REM ECHO ExecuteParameters="/min"`n,executable\config.txt
 FileAppend,`;!@InstallEnd@!`n,executable\config.txt
-ifexist,%outexedir%\%outexe%
+ifexist,%outsv%
 	{
-		filedelete,%outexedir%\%outexe%
+		FileDelete,%outsv%
 	}
-RunWait, %comspec% /c copy /b "7zsd.sfx" + "executable\config.txt" + "%cacheloc%\MakeEXE.7z" "%outexedir%\%outexe%",,hide
+RunWait, %comspec% /c copy /b "7zsd%ARCH%.sfx" + "executable\config.txt" + "%cacheloc%\MakeEXE.7z" "%outexedir%\%outexe%",,hide
+wicon= 
+sleep, 2000
 ifexist,executable\exe.ico
 	{
-		RunWait, %comspec% /c "rcedit.exe" "%outsv%" --set-icon "executable\exe.ico",,hide
+		RunWait, %comspec% /c "%A_ScriptDir%\rcedit%ARCH%.exe" "%outexe%" --set-icon "%A_ScriptDir%\executable\exe.ico",%outexedir%,hide
+		wicon= with icon
 	}
 guicontrol,enable,utlBUTJ	
-SB_SetText("Executable " outsv " created")
+SB_SetText("Executable " outsv " " wicon " created")
 return
 
 executableutlCHKD:
@@ -34204,7 +34259,14 @@ return
 
 executableutlCHKF:
 gui,submit,nohide
-
+if (utlCHKF = 1)
+	{
+		guicontrol,enable,utlEDTC
+		guicontrol,,utlEDTC,`%`%S\ROM_EXECUTABLE
+		return
+	}
+guicontrol,disable,utlEDTC
+guicontrol,,utlEDTC,`%temp`%	
 return
 
 executableutlCHKG:
@@ -34369,11 +34431,13 @@ return
 executableutlDDLC:
 gui,submit,nohide
 guicontrolget,utlDDLCtmp,,utlDDLC
+guicontrol,enable,utlBUTG
 Gui,Listview,utlva
 lvachk= +Check
 utlitmz= 
 if (utlDDLCtmp = "Other")
 	{
+		guicontrol,disable,utlBUTG
 		Gui,ListView,utlLVA
 		iniread,emuxetmp,%curxe%,EXECUTABLE,emulator
 		if (emuxetmp <> "")
@@ -34442,9 +34506,9 @@ Loop, Parse, emupartset,`n`r
 										break
 									}
 								SB_SetText(" " save " " "extracting")
-								runwait, %comspec% cmd /c "7za.exe x -y "%save%" -O"%xtractmu%" ", ,hide
+								runwait, %comspec% cmd /c "7za.exe x -y "%save%" -O"%xtractmu%\emu" ", ,hide
 								SB_SetText(" " save " " "was extracted")
-								ifnotexist, %xtractmu%
+								ifnotexist, %xtractmu%\emu\
 									{
 										SB_SetText(" " save " " "was NOT extracted")
 									}
@@ -34490,7 +34554,8 @@ return
 
 executableutlEDTC:
 gui,submit,nohide
-
+guicontrolget,utledtc,,utlEDTC
+iniwrite,"%utledtc%",%curxe%,EXECUTABLE,extraction_directory
 return
 
 executableutlEDTD:
@@ -34702,6 +34767,7 @@ return
 
 executableutlRad1A:
 gui,submit,nohide
+Gui,Listview,utllva
 iniwrite,0,%curxe%,EXECUTABLE,keymapper
 ifnotexist,%cacheloc%\antimicro%ARCH%.7z
 	{
@@ -34745,9 +34811,9 @@ ifnotexist,%cacheloc%\antimicro%ARCH%.7z
 												break
 											}
 										SB_SetText(" " save " " "extracting")
-										runwait, %comspec% cmd /c "7za.exe x -y "%save%" -O"%xtractmu%" ", ,hide
+										runwait, %comspec% cmd /c "7za.exe x -y "%save%" -O"%xtractmu%\antimicro" ", ,hide
 										SB_SetText(" " save " " "was extracted")
-										ifnotexist, %xtractmu%
+										ifnotexist, %xtractmu%\antimicro\
 											{
 												SB_SetText(" " save " " "was NOT extracted")
 												break
@@ -34755,11 +34821,32 @@ ifnotexist,%cacheloc%\antimicro%ARCH%.7z
 									}
 							}
 						iniwrite,1,%curxe%,EXECUTABLE,keymapper
+						ifnotexist,executable\Player1.amgp
+							{
+								FileCopy,rj\joycfgs\Antimicro\joystick\Windows Games\Player1.amgp,executable\Player1.amgp
+							}
+						ifnotexist,executable\Player2.amgp
+							{
+								FileCopy,rj\joycfgs\Antimicro\joystick\Windows Games\Player2.amgp,executable\Player2.amgp
+							}
+							
 						break
 					}
 				
 			}		
 	}
+utlitmz= 	
+Loop, Files, executable\*.*,RFD
+	{
+		ifinstring,utlitmz,%A_LoopFileFullPath%
+			{
+				continue
+			}		
+		LV_Add(lvachk, A_LoopFileFullPath)
+		utlitmz.= A_LoopFileFullPath . "|"
+	}
+LV_ModifyCol()	
+	
 return
 
 executableutlRad3A:

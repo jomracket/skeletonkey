@@ -26,7 +26,7 @@ if (keymapper = 1)
 							}
 					}
 			}
-		RunWait, %AMIC% --hidden --profile-controller 1 --profile "Select.amgp",hide,amik
+		Run, antimicro\%AMIC% --hidden --profile-controller 1 --profile "Select.amgp",%A_ScriptDir%,min,amik
 	}
 IniRead, emulator, exeparam.ini,EXECUTABLE,emulator
 IniRead, arguments, exeparam.ini,EXECUTABLE,arguments
@@ -91,7 +91,7 @@ gui,submit,nohide
 guicontrol,focus,MyList
 RowNum := LV_GetNext(,"Focused")
 LV_GetText(Selected,RowNum,1)
-RUNROM= "%selected%"
+RUNROM= "%A_ScriptDir%\%selected%"
 
 LAUNCH:
 if (path = "")
@@ -110,12 +110,13 @@ if (quotes = "")
 	}
 if (keymapper = 1)
 	{
-			Run, %AMIC% --hidden --profile-controller 1 --profile "Player1.amgp" %p2prof%,hide
+		Run, antimicro\%AMIC% --hidden --profile-controller 1 --profile "Player1.amgp" %p2prof%,%A_ScriptDir%,min
 	}
 stringreplace,RUNROM,RUNROM,`n,,All
 stringreplace,RUNROM,RUNROM,`r,,All	
+gui,minimize
 ;;msgbox,,, %emulator%%options%%runrom%%arguments%
-RunWait, %emulator%%options%%runrom%%arguments%
+RunWait, emu\%emulator%%options%%runrom%%arguments%,%A_ScriptDir%\emu
 if (keymapper = 1)
 	{
 		Process, close, %amik%
@@ -123,10 +124,6 @@ if (keymapper = 1)
 GuiClose:
 GuiEscape:
 ExitApp
-return
-
-esc::
-exitapp
 return
 
 LV_populate:

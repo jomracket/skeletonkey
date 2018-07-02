@@ -1571,7 +1571,8 @@ if (INITINCL = 1)
 						}
 				}
 				
-			exprt.= "FileInstall, 7zsd.sfx,7zsd.sfx" . "`n"	
+			exprt.= "FileInstall, 7zsd32.sfx,7zsd32.sfx" . "`n"	
+			exprt.= "FileInstall, 7zsd64.sfx,7zsd64.sfx" . "`n"	
 			exprt.= "FileInstall, Portable.bat,Portable.bat,1" . "`n"	
 			exprt.= "FileInstall, index.html,index.html,1" . "`n"	
 			exprt.= "FileInstall, working.ahk,working.ahk,1" . "`n"	
@@ -1608,17 +1609,29 @@ FileAppend, "%SKELD%\LV_InCellEdit.ahk"`n,ltc.txt
 Loop, %SKELD%\*
 		{
 			if (A_LoopFileExt = "cfg")
-				continue
+				{
+					continue
+				}
 			if (A_LoopFileExt = "7z")
-				continue
+				{
+					continue
+				}
 			if (A_LoopFileExt = "zip")
-				continue
+				{
+					continue
+				}
 			if (A_LoopFileExt = "ini")
-				continue
+				{
+					continue
+				}
 			if (A_LoopFileExt = "ahk")
-				continue
+				{
+					continue
+				}
 			if (A_LoopFileExt = "bak")
-				continue
+				{
+					continue
+				}
 			FileAppend, "%A_LoopFileFullPath%"`n,ltc.txt
 		}
 FileAppend,:%SKELD%\sysico\*.ico`n,ltc.txt
@@ -1803,6 +1816,8 @@ if (GitPush = 1)
 		FileAppend, del /q "%GITD%\skeletonKey.exe"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "Themes.put" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "arcorg.put" "%GITD%"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, copy /y "7zsd32.sfx" "%GITD%"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, copy /y "7zsd64.sfx" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 
 		FileSetAttrib, +h, %SKELD%\!gitupdate.cmd
 		SB_SetText(" Adding changes to git ")
