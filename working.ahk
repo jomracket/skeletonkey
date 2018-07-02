@@ -34211,7 +34211,7 @@ FileAppend, RunProgram="hidcon:emuexe.exe"`n,executable\config.txt
 if (utlCHKF = 1)
 	{
 		FileAppend, GUIFlags="1200"`n,executable\config.txt		
-		FileAppend, InstallPath="`%`%S\ROM_EXECUTABLE"`n,executable\config.txt		
+		FileAppend, InstallPath="%utlEDTC%"`n,executable\config.txt		
 	}
 ;;FileAppend, OverwriteMode="2"`n,executable\config.txt
 ;;REM ECHO ExecuteParameters="/min"`n,executable\config.txt
@@ -34222,10 +34222,10 @@ ifexist,%outsv%
 	}
 RunWait, %comspec% /c copy /b "7zsd%ARCH%.sfx" + "executable\config.txt" + "%cacheloc%\MakeEXE.7z" "%outexedir%\%outexe%",,hide
 wicon= 
-sleep, 2000
 ifexist,executable\exe.ico
 	{
-		RunWait, %comspec% /c "%A_ScriptDir%\rcedit%ARCH%.exe" "%outexe%" --set-icon "%A_ScriptDir%\executable\exe.ico",%outexedir%,hide
+		sleep, 2000
+		RunWait, %comspec% /c rcedit%ARCH%.exe "%outsv%" --set-icon executable\exe.ico,,hide
 		wicon= with icon
 	}
 guicontrol,enable,utlBUTJ	
@@ -34263,6 +34263,7 @@ if (utlCHKF = 1)
 	{
 		guicontrol,enable,utlEDTC
 		guicontrol,,utlEDTC,`%`%S\ROM_EXECUTABLE
+		guicontrolget,utlEDTC,,utlEDTC
 		return
 	}
 guicontrol,disable,utlEDTC
@@ -34828,6 +34829,10 @@ ifnotexist,%cacheloc%\antimicro%ARCH%.7z
 						ifnotexist,executable\Player2.amgp
 							{
 								FileCopy,rj\joycfgs\Antimicro\joystick\Windows Games\Player2.amgp,executable\Player2.amgp
+							}
+								ifnotexist,executable\Select.amgp
+							{
+								FileCopy,rj\joycfgs\Antimicro\MediaCenter.amgp,executable\Select.amgp
 							}
 							
 						break

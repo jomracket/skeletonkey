@@ -1992,6 +1992,7 @@ FileInstall,joyImg\Sony - Playstation.png,joyImg\Sony - Playstation.png,1
 FileInstall,joyImg\The 3DO Company - 3DO.png,joyImg\The 3DO Company - 3DO.png,1
 FileInstall,joyImg\tip.png,joyImg\tip.png,1
 FileInstall,joyImg\xbox360joystick.png,joyImg\xbox360joystick.png,1
+FileInstall,rj\joyCfgs\Antimicro\MediaCenter.amgp,rj\joyCfgs\Antimicro\MediaCenter.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Blank\All\Player1.amgp,rj\joyCfgs\Antimicro\Blank\All\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Blank\All\Player2.amgp,rj\joyCfgs\Antimicro\Blank\All\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Acorn - BBC\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Acorn - BBC\Player1.amgp,1
@@ -2681,6 +2682,7 @@ FileInstall,rj\joyCfgs\Antimicro\Keyboard\Windows Games\Player1.amgp,rj\joyCfgs\
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Windows Games\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Windows Games\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\x68000\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\x68000\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\x68000\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\x68000\Player2.amgp,1
+FileInstall,rj\joyCfgs\Xpadder\MediaCenter.xpadderprofile,rj\joyCfgs\Xpadder\MediaCenter.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Blank\All\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Blank\All\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Blank\All\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Blank\All\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Acorn - BBC\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Acorn - BBC\Player1.xpadderprofile,1

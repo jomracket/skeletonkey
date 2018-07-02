@@ -2,6 +2,7 @@
 #SingleInstance Force
 SetBatchLines -1
 FileRead,romlist,romlist.txt
+stringreplace,romlist,romlist,roms\,,All
 filereadline,frm,romlist.txt,1
 filereadline,rtt,romlist.txt,2
 AMIC= antimicro.exe
@@ -91,7 +92,7 @@ gui,submit,nohide
 guicontrol,focus,MyList
 RowNum := LV_GetNext(,"Focused")
 LV_GetText(Selected,RowNum,1)
-RUNROM= "%A_ScriptDir%\%selected%"
+RUNROM= "%A_ScriptDir%\roms\%selected%"
 
 LAUNCH:
 if (path = "")
@@ -116,7 +117,7 @@ stringreplace,RUNROM,RUNROM,`n,,All
 stringreplace,RUNROM,RUNROM,`r,,All	
 gui,minimize
 ;;msgbox,,, %emulator%%options%%runrom%%arguments%
-RunWait, emu\%emulator%%options%%runrom%%arguments%,%A_ScriptDir%\emu
+RunWait, %emulator%%options%%runrom%%arguments%,%A_ScriptDir%\emu
 if (keymapper = 1)
 	{
 		Process, close, %amik%
