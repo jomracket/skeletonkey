@@ -102,11 +102,11 @@ if (romf <> "")
 			{
 				gosub, extensionlookup
 			}
-			if (CHOSEN = "")
-				{
-					gosub,LNCH
-					guicontrol,,LCORE,|%coreselv%||%runlist%
-				}
+		if (CHOSEN = "")
+			{
+				guicontrol,,LCORE,|%coreselv%||%runlist%
+				gosub,LNCH
+			}
 		return
 	}
 
@@ -1581,6 +1581,7 @@ Gui, Add, GroupBox, x566 y14 w195 h321 vSKSUMGB, Summary
 Gui, Add, Link,x712 y484 w45 h18 vDONATELNK gDONATE, <a href="https://www.paypal.me/romjacket">Donate</a>
 Gui, Add, Link,x629 y465 w45 h18 vHelpLink gHelp, <a href="index.html">Help</a>
 Gui,Font,%fontXmed% Bold
+Gui, Add, Checkbox, x422 y23 vAUTOLNCH gAutoLaunch Checked, Auto-Launch
 Gui ,Add, Picture, x627 y338 w122 h121, key.png
 Gui, Add, Button, x74 y136 w43 h23 vSETEMUD gSETEMUD, SET
 Gui, Add, Button, x74 y53 w43 h23 vSETJKD gSETJKD, SET
@@ -1885,9 +1886,8 @@ Gui, Add, DropDownList, x491 y231 w260 vSRCHLOCDDL gSRCHLOCDDL, :=:System List:=
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;~~~DROP LOCATION~~~;;;;;;
 Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x20 y50 w740 h450  +0x400000 vROMRPGRP, Drop a ROM here
+;;Gui, Add, Text, x20 y50 h17 +0x400000 vROMRPGRP, Drop a ROM here
 Gui,Font,%fontXsm% Norm 
-Gui, Add, Checkbox, x30 y75 vAUTOLNCH gAutoLaunch Checked, Auto-Launch
 ;};;;;
 ;{;;;;;;;~~~EMUOPT MENU GROUP~~~;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 emutog= Hide
@@ -4858,6 +4858,7 @@ Loop,Parse,emuj,`n
 		addemu.= emup1 . "|"
 }
 runlist:= corelist . "|" . addemu
+
 IniRead,emuj,Assignments.ini,OVERRIDES
 Loop,Parse,emuj,`n
 	{
@@ -5196,7 +5197,6 @@ gosub, ArcLaunch
 return
 
 RunRCL:
-;;msgbox,,,runlist=%runlist%
 gui,submit,nohide
 guicontrol,,LCORE,|%A_ThisMenuItem%||%runlist%
 qmen= 1
@@ -5258,7 +5258,6 @@ if (CUSTMOPT = "[CUSTMOPT]")
 		ifinstring,coreselv,mame
 			{
 				iniread,CUSTMOPTLST,emuCfgPresets.set,%RUNSYSDDL%,MAME?RJEMUOPTS
-				;;msgbox,,,%CUSTMOPT%`n%RJMAMENM%`n%CUSTMOPTLST%
 				if (CUSTMOPTLST <> "ERROR")
 					{
 						Loop,Parse,CUSTMOPTLST,|
@@ -6069,7 +6068,7 @@ If ( (A_GuiX >= RDXgrid) && (A_GuiX <= RDXgrid+RDWgrid) && (A_GuiY >= RDYgrid) &
 							{
 								coreselv= 
 								CHOSEN= 1
-								gosub,DragonDrop
+								gosub,DragonDrop								
 								if (coreselv <> "")
 									{
 										guicontrol,,LCORE,|%coreselv%||%runlist%
@@ -12992,6 +12991,11 @@ Loop, Parse, UAVAIL,|
 				iniwrite, "%EMUINSTLOCT%",apps.ini,EMULATORS,%semu%
 				Loop, Parse, addemu,|
 					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						
 						ahri= 
 						if (A_LoopField = semu)
 							{
@@ -14191,7 +14195,8 @@ Loop, Parse, addemu,|
 			}
 		ahri.= A_LoopField . "|"	
 	}
-runlist:= corelist . "|" . ahri	
+runlist:= corelist . "|" . ahri
+
 preemucfg= %pemu%	
 addemu= %ahri%
 guicontrol,,EMPRDDL,|%addemu%	
@@ -22532,7 +22537,7 @@ TOGGLESEARCHBOX:
 ;;guicontrol,%srchtog%,SRCHGRP
 ;;guicontrol,%srchtog%,ROMRPGRP
 ;;guicontrol,%srchtog%,DropHideLBX
-guicontrol,%srchtog%,AUTOLNCH
+;;guicontrol,%srchtog%,AUTOLNCH
 guicontrol,%srchtog%,SRCHLOCDDL
 guicontrol,%srchtog%,SRCHFLRAD
 guicontrol,%srchtog%,SRCHPLRAD
@@ -52811,6 +52816,11 @@ Loop, Parse, apov,`n
 			}
 		Loop, Parse, appn2,|
 			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				
 				appn2= %A_LoopField%			
 				ifinstring,runadd,|%appn2%|
 					{
@@ -52834,6 +52844,8 @@ Loop, Parse, apov,`n
 	}
 runlist=
 runlist:= corelist . runadd
+stringreplace,runlist,runlist,||,|,All
+stringreplace,runlist,runlist,||,|,All
 iniread,pxtn,Assignments.ini,EXTENSIONS,
 Loop, Parse, pxtn,`n
 	{
@@ -54712,7 +54724,6 @@ ifinstring,systoemu,tmpcc
 						break
 					}
 			}
-		;;msgbox,,,|%avr%||`n%runlist%
 		guicontrol,,LCORE,|%avr%||%runlist%
 		guicontrol,enable,LCORE	
 	}
@@ -54807,7 +54818,6 @@ if (coremsvc = "")
 					}
 			}
 	}
-;;msgbox,,,cstinjopt="%CSTINJOPT%"`nrunopts="%RunOptions%"`n	
 ifinstring,RunOptions,[
 	{
 		if (coremsvc = 1)
@@ -54904,7 +54914,6 @@ if (CSTINJOPT <> "")
 		CSTINJOPT= 
 	}
 
-;;msgbox,,,runopts="%RunOptions%"`ncustmopt="%custmopt%"`n
 
 stringreplace,RunOptions,RunOptions,[CUSTMOPT],%A_SPACE%%CUSTMOPT%,All
 stringreplace,RunArgs,RunArgs,[CUSTMARG],%A_SPACE%%CUSTMARG%,All
@@ -56307,6 +56316,7 @@ Loop,Parse,emuj,`n
 		addemu.= emup1 . "|"
 }
 runlist:= corelist . "|" . addemu
+
 /*
 IniRead,emuj,Assignments.ini,OVERRIDES,
 Loop,Parse,emuj,`n
