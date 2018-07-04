@@ -714,10 +714,10 @@ rjcaching= enabled
 PLYRTYP= J
 JXT= _btn
 CLJXT= btn
-RegionX = 375
-RegionY = 165
-RegionW = 250
-RegionH = 250
+RegionX = 0
+RegionY = 0
+RegionW = 820
+RegionH = 620
 
 bRegionX = 11
 bRegionY = 12
@@ -1885,9 +1885,9 @@ Gui, Add, DropDownList, x491 y231 w260 vSRCHLOCDDL gSRCHLOCDDL, :=:System List:=
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;~~~DROP LOCATION~~~;;;;;;
 Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x342 y163 w138 h128 Center +0x400000 vROMRPGRP, Drop a ROM here
+Gui, Add, GroupBox, x20 y50 w740 h450  +0x400000 vROMRPGRP, Drop a ROM here
 Gui,Font,%fontXsm% Norm 
-Gui, Add, Checkbox, x370 y272 vAUTOLNCH gAutoLaunch Checked, Auto-Launch
+Gui, Add, Checkbox, x30 y75 vAUTOLNCH gAutoLaunch Checked, Auto-Launch
 ;};;;;
 ;{;;;;;;;~~~EMUOPT MENU GROUP~~~;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 emutog= Hide
@@ -3566,7 +3566,6 @@ gosub, DestroySplashGUI
 
 ;;gui, color, white
 TrayTip
-
 Menu,Tray,Tip
 Gui,+LastFound
 GuiID:=WinExist()
@@ -3574,6 +3573,7 @@ Gui, Show, Autosize,skeletonKey
 SplashTextOff
 Progress, off
 Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Netplay%CORETABNAME%|Util
+
 setPortable:
 OnMessage(0x200, "WM_MOUSEMOVE")
 
@@ -6207,6 +6207,7 @@ if ( (A_GuiX >= dRegionX) && (A_GuiX <= dRegionX+dRegionW) && (A_GuiY >= dRegion
 				goto, MULTI_LINKLOOP
 			}
 	}
+
 if ( (A_GuiX >= eRegionX) && (A_GuiX <= eRegionX+eRegionW) && (A_GuiY >= eRegionY) && (A_GuiY <= eRegionY+eRegionH) )
 	{
 		if (TABMENU = "Emu:=:Sys")
@@ -22512,10 +22513,7 @@ guicontrol,%moptog%,RCLLNCH
 guicontrol,%moptog%,CLRCUROM
 
 TOGSKELOPTS:
-RDXgrid= 172
-RDYgrid= 50
-RDWgrid= 583
-RDHgrid= 442
+
 
 guicontrol,%moptog%,SRCHGRP
 guicontrol,%moptog%,SRCHFLRAD
@@ -22531,8 +22529,8 @@ return
 ;;guicontrol,%moptog%,JCORE
 
 TOGGLESEARCHBOX:
-guicontrol,%srchtog%,SRCHGRP
-guicontrol,%srchtog%,ROMRPGRP
+;;guicontrol,%srchtog%,SRCHGRP
+;;guicontrol,%srchtog%,ROMRPGRP
 ;;guicontrol,%srchtog%,DropHideLBX
 guicontrol,%srchtog%,AUTOLNCH
 guicontrol,%srchtog%,SRCHLOCDDL
@@ -22546,7 +22544,7 @@ return
 
 INITSEARCHBOX:
 guicontrol,move,SRCHGRP,x487 y203 w268 h299
-guicontrol,move,ROMRPGRP,x342 y163 w138 h128
+;;guicontrol,move,ROMRPGRP,x342 y163 w138 h128
 guicontrol,move,DropHideLBX,x342 y163 w138 h128
 guicontrol,move,AUTOLNCH,x370 y272
 guicontrol,move,SRCHLOCDDL,x491 y231 w260
@@ -22560,7 +22558,7 @@ return
 
 MOVESEARCHBOX:
 guicontrol,move,AUTOLNCH,x28 y165
-guicontrol,move,ROMRPGRP,x17 y47 w150 h138
+;;guicontrol,move,ROMRPGRP,x17 y47 w150 h138
 guicontrol,move,DropHideLBX,x17 y47 w150 h138
 guicontrol,move,SRCHGRP,x172 y50 w583 h442
 guicontrol,move,SRCHROMLBX,x173 y111 w579 h368
@@ -33846,6 +33844,12 @@ guicontrol,,utlCHKF,0
 guicontrol,move,utlCHKF,x400 y343 w204 h16
 guicontrol,,utlCHKF,User-Defined Extraction Path
 
+guicontrol,show,utlCHKG
+guicontrol,disable,utlCHKG
+guicontrol,,utlCHKG,0
+guicontrol,move,utlCHKG,x366 y382 w57 h16
+guicontrol,,utlCHKG,Enable
+
 guicontrol,show,utlEDTC
 guicontrol,disable,utlEDTC
 guicontrol,,utlEDTC,0
@@ -33903,7 +33907,7 @@ guicontrol,show,utlDDLC
 
 guicontrol,move,utlBUTF, x364 y400 w75 h23
 guicontrol,show,utlBUTF
-guicontrol,enable,utlBUTF
+guicontrol,disable,utlBUTF
 guicontrol,,utlBUTF,Icon
 
 ;;guicontrol,move,utlEDTE, x371 y45 w369 h35
@@ -33936,12 +33940,12 @@ guicontrol,move,utlTXTD, x372 y165 w40 h13
 guicontrol,show,utlTXTD
 guicontrol,,utlTXTD,Emulator
 
-guicontrol,move,utlTXTE,x364 y385 w39 h13
+guicontrol,move,utlTXTE,x446 y406 w91 h13
 guicontrol,show,utlTXTE
 guicontrol,,utlTXTE,ICON
 ifexist,executable\exe.ico
 	{
-		guicontrol,,utlTXTE,enabled
+		guicontrol,,utlTXTE,executable\exe.ico
 	}
 Gui,Listview,utllva	
 presx= 
@@ -33955,6 +33959,13 @@ if (presx = 1)
 	{
 		ifexist,%curxe%
 			{
+				IniRead,xeico,%curxe%,EXECUTABLE,icon
+				if (xeico <> "ERROR")
+					{
+						guicontrol,,utlTXTE,executable\exe.ico
+						guicontrol,enable,utlBUTF
+						guicontrol,,utlCHKG,1
+					}
 				IniRead,utlchkc,%curxe%,EXECUTABLE,quotes
 				if (utlchkc <> "ERROR")
 					{
@@ -34007,12 +34018,14 @@ if (presx = 1)
 				IniRead,usrdfd,%curxe%,EXECUTABLE,extraction_directory
 				if (usrdfd <> "ERROR")
 					{
-						if (usrdfd <> "`%temp`%")
+						if (usrdfd = "`%temp`%")
 							{
-								guicontrol,,utlCHKF,1
-								guicontrol,enable,utlEDTC
 								guicontrol,,utlEDTC,%usrdfd%
+								return								
 							}
+						guicontrol,,utlCHKF,1
+						guicontrol,enable,utlEDTC
+						guicontrol,,utlEDTC,%usrdfd%
 					}
 			}
 	}
@@ -34076,7 +34089,7 @@ svgbrnv=
 guicontrol,,JOYCORE,|%utlDDLC%||Global|%corelist%|Xpadder|Antimicro%addemu%
 gosub, JOYEMUCORE
 guicontrol,,CFGSWITCH,|||EXE|||
-SB_SetText(" Editing emulator executable configurations")
+SB_SetText(" Editing emulator executable configurations ")
 return
 
 executableutlBUTD:
@@ -34137,7 +34150,47 @@ return
 
 executableutlBUTH:
 gui,submit,nohide
+utladitms= 
+FileSelectFile,utladitms,M,,Select Files to add
+if (utladitms = "")
+	{
+		return
+	}
 
+stringreplace,utladitms,utladitms,`r,|,All	
+stringreplace,utladitms,utladitms,`n,|,All	
+
+Gui,ListView,utlLVA	
+utlItemdxa= 
+utlItemdxa:= LVGetCheckedItems("", "ahk_id" . UTILVA)
+stringreplace,utlchki,utlItemdxa,`n,|,All
+stringreplace,utlchki,utlchki,`r,|,All
+
+Loop,Parse,utladitms,|
+	{
+		nwaditm= %A_LoopField%
+		splitpath,nwaditm,utlromf
+		fnd= 
+		Loop, Parse, utlchki,|
+			{
+				splitpath,A_LoopField,rtadf,
+				if (nwaditm = A_LoopField)
+					{
+						fnd= 1
+						continue
+					}
+				if (utlromf = rtadf)
+					{
+						fnd= 1
+						continue
+					}
+			}
+		if (fnd = "")
+			{
+				LV_Add(lvachk, nwaditm)
+			}
+	}
+LV_ModifyCol()
 return
 
 executableutlBUTI:
@@ -34169,12 +34222,17 @@ Loop, Parse, utlchki,|
 	{
 		ifnotinstring,A_LoopField,executable\
 			{
-				FileCopy, %A_LoopField%,executable\roms\%A_LoopFileName%,1
+				FileCopy, %A_LoopField%,executable\roms\%A_LoopFileName%
+				if (ERRORLEVEL > 0)
+					{
+						stringsplit,A_LoopField,fnm,fdir,fxtn,fnnx
+						filecopy, %A_LoopField%,executable\roms\%fnnx%_.%fxtn%,1
+					}
 			}
 		SB_SetText("Copying " A_LoopFileName " ")	
 	}
 
-SB_SetText("Copied Files")	
+SB_SetText("Copied Files")
 Loop, executable\roms\*.*
 	{
 		fileAppend,roms\%A_LoopFileName%`n,executable\romlist.txt
@@ -34272,7 +34330,13 @@ return
 
 executableutlCHKG:
 gui,submit,nohide
-
+if (utlCHKG = 1)
+	{
+		guicontrol,enable,utlBUTF
+		return
+	}
+guicontrol,disable,utlBUTF
+guicontrol,,utlTXTE,
 return
 
 executableutlCHKH:
@@ -34454,18 +34518,24 @@ if (utlDDLCtmp = "Other")
 				guicontrol,,utlDDLC,|%utlDDLC%||%emuinstpop%
 				return
 			}
-		ifinstring,utlchki,emuxetmp
+		splitpath,exefiletmp,emuexeft	
+		ifinstring,utlchki,emuexeft
 			{
-				guicontrol,,utlDDLC,|%utlDDLC%||%emuinstpop%
+				guicontrol,,utlDDLC,|%utlDDLC%||Other|%emuinstpop%
 				SB_SetText("Emulator is already added.")
 				return
 			}
-		LV_Add(lvachk, emuxetmp)
-		utlitmz.= emuexetmp . "|"
+		ifnotexist,executable\emu
+			{
+				FileCreateDir,executable\emu
+			}
+		FileCopy, %exefiletmp%, executable\emu
+		nwemuad= executable\emu\%emuexeft%
+		LV_Add(lvachk, nwemuad)
+		utlitmz.= nwemuad . "|"
 		LV_ModifyCol()
-		splitpath,exefiletmp,exefilexe
 		utlDDLC= %utlDDLCtmp%
-		IniWrite, "%exefilexe%",%curxe%,EXECUTABLE,Emulator
+		IniWrite, "%emuexeft%",%curxe%,EXECUTABLE,Emulator
 		return
 	}
 
@@ -34500,7 +34570,7 @@ Loop, Parse, emupartset,`n`r
 										{
 											xtractmu= executable
 										}
-								DownloadFile(URLFILE, save, DWNOV, True)
+								DownloadFile(URLFILE, save, True, True)
 								ifnotexist, %save%
 									{
 										msgbox,0,, %xesel1%`n''%URLFILE%''`n was not downloaded, 20
@@ -34805,7 +34875,7 @@ ifnotexist,%cacheloc%\antimicro%ARCH%.7z
 												{
 													xtractmu= executable
 												}
-										DownloadFile(URLFILE, save, DWNOV, True)
+										DownloadFile(URLFILE, save, True, True)
 										ifnotexist, %save%
 											{
 												msgbox,0,, %xesel1%`n''%URLFILE%''`n was not downloaded, 20
@@ -54143,6 +54213,7 @@ ifinstring,RUNSYSDDL,.lpl
 	{
 		stringtrimright,RUNSYDDL,RUNSYSDDL,4	
 	}
+
 guicontrolget,tmpcc,,LCORE
 guicontrolget,romqtmp,,RUNROMCBX
 splitpath,romqtmp,romfxe,romfd,romdxtn,romfn,romGD
@@ -54159,6 +54230,7 @@ guicontrol,, RUNROMCBX, |%romf%||%HISTORY%
 iniwrite, "%coreselv%",Settings.ini,GLOBAL,last_core
 iniwrite, "%romf%",Settings.ini,GLOBAL,last_rom
 gui, submit, nohide
+
 gosub, LNCHCHK
 ifinstring,tmpcc,_libretro
 	{

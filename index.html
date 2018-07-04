@@ -845,7 +845,26 @@
 	<div id="outer" align="left">
 		<div id="inner">
 		<h3>ExecutABLES</h3>
-						<p>This allows you to select a ROM or an entire console's library to transform into a portable executable. The ROM, any additional files specified by the user, an emulator and special configuration files are compiled and saved to the location of your designation.<br></p>
+						<p>Creating an executable is a feature unique to skeletonKey where ROMs are compiled into a portable executable. The ROM, any additional files specified by the user, an emulator and special configuration files are compiled and saved to the location of your designation.<br></p>
+				<div class="wrapper">
+				<div class="tab">
+					<input id="tab-romxe" name="tabs" type="checkbox"> <label for="tab-romxe">Executable Details }&gt;</label>
+					<div class="tab-content">
+					  <p>Creating one requires an emulator executable and at least one ROM file.<br>
+					    Selecting an emulator preset will download the emulator and extract it to the <code>...skeletonKey\executable\emu</code> directory<br>
+						Add ROMs to your executable by dragging and dropping ROM files to the list on the left. Alternatively, you may use the &quot;Add&quot; button which will allow you to select them via skeletonKey's file-browser. ROM files are copied to the <code>...skeletonKey\executable\roms</code> directory.<br>
+						Enabling the keymapper will download and extract antimicro into the <code>...skeletonKey\executable\antimicro</code> directory.  <br>
+						3 profiles (<em>Player1.amgp, Player2.amgp &amp; Select.amgp</em>) are included in the <code>...skeletonKey\executable</code> directory.<br>
+						<em>Select.amgp</em> is loaded before the emulator to allow ROM selection if more than one ROM is included.<br>
+						All files found in the<code>...skeletonKey\executable</code> directory will be included in the executable.<br>
+					  A user-defined extraction-directory option will override the system's temp directory create a desktop shortcut to the executable for the current user. (<code>%%S</code> specifies that the extraction directory is the location of the exectuable)<br></p>
+					</div>
+				</div>
+		  </div>
+		</div>
+		<br>
+		<div id="inner">
+			<br>
 			<div class="wrapper">
 				<div class="tab">
 					<input id="tab-utl" name="tabs" type="checkbox"> <label for="tab-utl">In Development }&gt;</label>
