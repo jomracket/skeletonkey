@@ -1,0 +1,13 @@
+<Game>
+	<Name>Transformers- Autobots</Name>
+	<ReleaseDate>2007-06-19T00:00:00-07:00</ReleaseDate>
+	<Plot>Transformers Autobots is a video game based on fictional alien robots, Transformers. This version follows the plot of the 2007 live action film Transformers. Most prominently, while the Autobots version has missions in the Arctic, the Decepticons version contain desert missions taking place in a Qatar military base.</Plot>
+	<nPlayers>4</nPlayers>
+	<boxback1>http://images.launchbox-app.com/ab3e87f0-2985-4c53-9c32-c123a2c37968.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/43cd0585-5623-4173-a5ed-b895fbf92c6b.jpg</boxart1>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Transformers_Autobots</WikipediaURL>
+	<ESRB>E10+ - Everyone 10+</ESRB>
+	<Genre>Action; Adventure</Genre>
+	<Developer>Vicarious Visions</Developer>
+	<Publisher>Activision</Publisher>
+</game>

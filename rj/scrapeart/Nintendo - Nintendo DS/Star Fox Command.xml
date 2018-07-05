@@ -1,0 +1,18 @@
+<Game>
+	<Name>Star Fox Command</Name>
+	<ReleaseDate>2006-08-28T00:00:00-07:00</ReleaseDate>
+	<Plot>Star Fox Command lets you hop into your fight through a unique branching storyline of missions, all rendered in gorgeous 3-D. This game brings a whole new strategic element to the series, with a commander's view of the mission. Using the touch screen, players can draw the routes they and their teammates will take. Battle the enemies they encounter as they take over bases and strategically advance across the map. Players can also blow their friends out of the sky, as they dogfight 8 players over a local wireless connection -- or take on 4 players from around the world on Nintendo Wi-Fi Connection.</Plot>
+	<nPlayers>4</nPlayers>
+	<boxback1>http://images.launchbox-app.com/c52ccd8d-d648-46f9-b1b7-eb485d0e3df5.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/db60f69e-8ecd-401f-b8c1-ef17919e9d90.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/22c30d84-388a-46df-86d0-c1109dfb041e.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/036e5c64-fd84-4cdf-99e0-2d7de65d12df.jpg</fanart1>
+	<fanart2>http://images.launchbox-app.com/53d35ea4-c358-49d3-bbf6-d42cd93b499e.jpg</fanart2>
+	<fanart3>http://images.launchbox-app.com/cbefde14-37eb-4b6c-af7e-90483252b816.jpg</fanart3>
+	<snapshot1>http://images.launchbox-app.com/02e396c5-08b0-497d-8045-565ba428f05f.JPG</snapshot1>
+	<Rating>3.75</Rating>
+	<ESRB>E10+ - Everyone 10+</ESRB>
+	<Genre>Shooter</Genre>
+	<Developer>Q-Games</Developer>
+	<Publisher>Nintendo</Publisher>
+</game>

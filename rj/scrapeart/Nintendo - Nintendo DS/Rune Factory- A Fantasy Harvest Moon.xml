@@ -1,0 +1,14 @@
+<Game>
+	<Name>Rune Factory- A Fantasy Harvest Moon</Name>
+	<ReleaseDate>2007-08-14T00:00:00-07:00</ReleaseDate>
+	<Plot>You awaken to find yourself in an unfamiliar village with no memory of who you are or how you arrived. Mist, a beautiful young woman comes to your aid and helps you start to build a life for yourself on a farm. Till the land, grow crops, raise animals, catch fish and battle monsters!</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/1300ace3-5cd8-4c06-a302-8ded73607719.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/a1723df5-09d4-4ca3-845e-bbdf6e446563.jpg</boxart1>
+	<fanart1>http://images.launchbox-app.com/13b1790c-e344-4ecf-9399-e584cf038984.jpg</fanart1>
+	<Rating>3.5</Rating>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Life Simulation; Role-Playing</Genre>
+	<Developer>Neverland</Developer>
+	<Publisher>Natsume</Publisher>
+</game>

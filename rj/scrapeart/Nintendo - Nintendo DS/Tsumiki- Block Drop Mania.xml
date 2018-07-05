@@ -1,0 +1,14 @@
+<Game>
+	<Name>Tsumiki- Block Drop Mania</Name>
+	<ReleaseDate>2011-10-21T00:00:00-07:00</ReleaseDate>
+	<Plot>Pile up blocks that fall from the sky until you reach the 'zone ceiling' target. Once a block touches the ground or another block, it will stick and the next block will start to fall. If a block comes to rest in a position that isn't well-balanced, it could topple off. You can grab hold of falling blocks using the stylus and slide them around or rotate them by manipulating their centers of gravity. The key to building a good stack is landing blocks in a stable, well-balanced position. Features • Stack piles of colorful shapes without dropping them. • Use realistic physics and gravity to keep the pieces from falling.</Plot>
+	<nPlayers>4</nPlayers>
+	<boxback1>http://images.launchbox-app.com/750dc4d3-8712-4d44-90f3-194d206e9f9e.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/1482a8c2-494b-47f0-b7ad-47745961450f.jpg</boxart1>
+	<media1>http://images.launchbox-app.com/16159781-7007-47ee-8d57-21fa4be91606.jpg</media1>
+	<snapshot1>http://images.launchbox-app.com/85a1851f-559a-4465-8c9a-f50843cdac98.jpg</snapshot1>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Puzzle; Strategy</Genre>
+	<Developer>Nobilis</Developer>
+	<Publisher>South Peak</Publisher>
+</game>

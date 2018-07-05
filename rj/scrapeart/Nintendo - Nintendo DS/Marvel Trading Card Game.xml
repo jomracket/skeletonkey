@@ -1,0 +1,17 @@
+<Game>
+	<Name>Marvel Trading Card Game</Name>
+	<ReleaseDate>2007-05-22T00:00:00-07:00</ReleaseDate>
+	<Plot>Marvel Trading Card Game is a virtual card game in which the player chooses to be either a superhero or supervillain in single-player mode. Multiplayer modes are also available. The game follows the rules laid out in Upper Deck's VS System, used in card games across several franchises including Marvel, DC Comics, and Hellboy. The game received mixed reviews from critics. It was considered faithful to the physical version, but reviewers commented that it was not accessible to players who weren't already fans of collectible card games. The handheld versions were criticized for presenting a visual format inappropriate for small screens.</Plot>
+	<nPlayers>2</nPlayers>
+	<VideoURL>lZenN9Ab_3s</VideoURL>
+	<boxback1>http://images.launchbox-app.com/08d3dbaa-c145-40c4-8a7c-543d8259892c.jpg</boxback1>
+	<boxback2>http://images.launchbox-app.com/011ebcfc-ff0e-4a36-98da-beed61802c45.png</boxback2>
+	<boxart1>http://images.launchbox-app.com/64f069cc-e43c-4401-b699-3574a7dea99d.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/c51414f6-1f3c-47e8-a15e-cae66762df1d.png</boxart2>
+	<media1>http://images.launchbox-app.com/a3d586a6-7c9e-4bc6-8002-d8d9193f2481.png</media1>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Marvel_Trading_Card_Game</WikipediaURL>
+	<ESRB>T - Teen</ESRB>
+	<Genre>Strategy</Genre>
+	<Developer>1st Playable Productions</Developer>
+	<Publisher>Konami</Publisher>
+</game>

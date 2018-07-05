@@ -1,0 +1,13 @@
+<Game>
+	<Name>Osu! Tatakae! Ouendan</Name>
+	<ReleaseDate>2005-07-28T00:00:00-07:00</ReleaseDate>
+	<Plot>This is a rhythm game released in Japan. It has not been released outside of the country, but has become a popular title for import. This is the first in a series of DS rhythm games, followed by "Elite Beat Agents" and "Moero! Nekketsu Rhythm Damashii: Osu! Tatakae! Ouendan 2". Each mission in the game revolves around a character in need of help to complete a certain task. Unable to complete said task, the character calls for the aid of the Ouendan, a group of male cheerleaders who cheer the character on, motivating them to do something like clean up their restaurant to attract customers or get all the office work done in order to ask their boss out to dance. Some of the situations are actually quite dire, as eventually the Ouendan must save the entire Earth from obliteration.</Plot>
+	<nPlayers>4</nPlayers>
+	<boxback1>http://images.launchbox-app.com/2f2788ac-cc8a-4bab-b06e-47f9516e20ee.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/6013bd4c-181f-40c8-a507-be243d41d60e.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/72592146-0149-4586-81d3-96fc25fa1d56.png</clearlogo1>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Action</Genre>
+	<Developer>iNiS</Developer>
+	<Publisher>Nintendo</Publisher>
+</game>

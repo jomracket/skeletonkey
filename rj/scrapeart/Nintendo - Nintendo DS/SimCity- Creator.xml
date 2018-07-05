@@ -1,0 +1,15 @@
+<Game>
+	<Name>SimCity- Creator</Name>
+	<ReleaseDate>2008-09-22T00:00:00-07:00</ReleaseDate>
+	<Plot>Build an amazing city and guide it through history, from ancient times to the distant future!</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/b98afa0a-9618-4824-b948-6e1e0d0e3d4d.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/e8b2fda0-377f-463e-8d9b-b84bc20334d4.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/94cc962f-9ffc-4762-b20e-e9868a11d6a2.jpg</boxart2>
+	<snapshot1>http://images.launchbox-app.com/e1d5bb6d-00a2-4e7f-9d4d-af4bb75c4dd5.jpg</snapshot1>
+	<Rating>2.5</Rating>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Construction and Management Simulation</Genre>
+	<Developer>Maxis</Developer>
+	<Publisher>Electronic Arts</Publisher>
+</game>

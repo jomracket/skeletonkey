@@ -1,0 +1,15 @@
+<Game>
+	<Name>Zoo Tycoon DS</Name>
+	<ReleaseDate>2005-10-11T00:00:00-07:00</ReleaseDate>
+	<Plot>Create the zoo of your dreams as you select your favorite animals and re-create their natural habitats. Get up close and personal while collecting and caring for the world's most popular animals from every continent. Manage your environment properly and achieve the ultimate goal of a zoo full of happy animals and customers.</Plot>
+	<nPlayers>1</nPlayers>
+	<1>http://images.launchbox-app.com/df94f205-b86f-4865-b228-5b278d8ce5ae.png</1>
+	<boxart1>http://images.launchbox-app.com/5f009bc3-9a1e-4ba3-8843-10dd23256d01.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/1cc4224c-064f-414e-9f9d-acc67e8dd385.png</clearlogo1>
+	<clearlogo2>http://images.launchbox-app.com/ee964f63-bb9b-41e2-91b2-c48d6ef3d766.png</clearlogo2>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Zoo_Tycoon_DS</WikipediaURL>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Construction and Management Simulation</Genre>
+	<Developer>Altron</Developer>
+	<Publisher>THQ</Publisher>
+</game>

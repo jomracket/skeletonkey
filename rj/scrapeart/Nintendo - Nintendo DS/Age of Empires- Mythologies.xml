@@ -1,0 +1,15 @@
+<Game>
+	<Name>Age of Empires- Mythologies</Name>
+	<ReleaseDate>2008-11-24T00:00:00-08:00</ReleaseDate>
+	<Plot>Age of Empires: Mythologies is a turn-based strategy video game based on Age of Mythology.  In the vein of Advance Wars and the previous Age of Empires: The Age of Kings each player is given a turn where their units can make single actions within that turn such as moving to an opposing unit and attacking or capturing or constructing buildings. Every time two rival players’ units attack one another, a brief animation of a group of each unit engaging in combat is played on the top screen, along with the resulting damage to their hit points. In standard games, players collect three resources; food, gold and favor to construct buildings and eventually train units for combat. To gain further units, technologies and buildings, players advance “Ages”, starting in the “Archaic Age”, a feature prominently used in the original Ensemble Studios Age of Empires series.</Plot>
+	<nPlayers>4</nPlayers>
+	<boxback1>http://images.launchbox-app.com/c60cbd92-9852-4037-95ad-2470fd338b7b.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/773540f3-559f-47a4-bf15-1d681afc8a18.jpg</boxart1>
+	<fanart1>http://images.launchbox-app.com/9ffbcd95-0b4b-4a30-a2a7-d878f1cc88ab.jpg</fanart1>
+	<Rating>2.5</Rating>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Age_of_Empires:_Mythologies</WikipediaURL>
+	<ESRB>E10+ - Everyone 10+</ESRB>
+	<Genre>Strategy</Genre>
+	<Developer>Griptonite Games</Developer>
+	<Publisher>THQ</Publisher>
+</game>

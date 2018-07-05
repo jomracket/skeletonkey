@@ -1,0 +1,13 @@
+<Game>
+	<Name>Pipe Mania</Name>
+	<ReleaseDate>2008-09-29T00:00:00-07:00</ReleaseDate>
+	<Plot>The simplicity of Pipemania makes it accessible to all ages. The player must lay down a pre-ordained set of pipes on a tiled grid in order to keep the constantly flowing Flooze moving for as long as possible without it spilling out. The game requires quick thinking, hand-eye co-ordination, forward thinking and keen spatial awareness.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/046e20ea-fa91-4af6-8f99-8960624bd78f.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/ca1c7d25-c06e-41ad-b986-cb101c168c5a.jpg</boxart1>
+	<Rating>2</Rating>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Puzzle</Genre>
+	<Developer>Razorworks</Developer>
+	<Publisher>Empire Interactive</Publisher>
+</game>

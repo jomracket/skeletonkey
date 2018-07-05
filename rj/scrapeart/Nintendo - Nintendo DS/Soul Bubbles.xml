@@ -1,0 +1,14 @@
+<Game>
+	<Name>Soul Bubbles</Name>
+	<ReleaseDate>2008-06-10T00:00:00-07:00</ReleaseDate>
+	<Plot>The player takes over the role of a Spirit Herder who is tasked with ferrying souls to the underworld. To move the Spirits and keep them relatively save, they need to be be enclosed in soup bubbles. The Spirit Herder then can blow those bubbles through the level, deflate them if they are too big and even cut them into two bubbles and rejoin them later when required. If a bubble bursts, the Spirit will slowly suffocate and eventually die if the player can't draw a new bubble around it fast enough.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/848f236a-2e69-4d37-885f-fcf79345eb69.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/b69885c8-17ad-471f-aeff-2e9656146a06.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/43c48357-7bc8-4246-88b3-41b91ea099c9.png</clearlogo1>
+	<Rating>4</Rating>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Platform; Puzzle</Genre>
+	<Developer>Mekensleep</Developer>
+	<Publisher>Eidos Interactive</Publisher>
+</game>

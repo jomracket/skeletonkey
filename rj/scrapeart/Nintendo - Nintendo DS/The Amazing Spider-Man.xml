@@ -1,0 +1,15 @@
+<Game>
+	<Name>The Amazing Spider-Man</Name>
+	<ReleaseDate>2012-06-26T00:00:00-07:00</ReleaseDate>
+	<Plot>Your Power. Your Choices. Your Playground. Spidey is back with the return of web-slinging action! Perform acrobatic attacks against enemies with the brand new Web Rush ability. Uncover the rest of Peter Parker’s untold story in the original epilogue to the film.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxart1>http://images.launchbox-app.com/c57e51e2-b08b-47f7-9125-070700ec228f.png</boxart1>
+	<boxart2>http://images.launchbox-app.com/900f4743-214c-48ae-9fe0-dda11e1e262d.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/8e156ff4-63c5-437a-a1bc-55f6fe8e6f0a.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/319e03b8-c7b1-4039-a6a5-6ba6dab198e7.jpg</snapshot1>
+	<WikipediaURL>https://en.wikipedia.org/wiki/The_Amazing_Spider-Man_(2012_video_game)</WikipediaURL>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Action</Genre>
+	<Developer>Other Ocean Interactive</Developer>
+	<Publisher>Activision</Publisher>
+</game>

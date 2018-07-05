@@ -1,0 +1,20 @@
+<Game>
+	<Name>Yoshi's Island DS</Name>
+	<ReleaseDate>2006-11-13T00:00:00-08:00</ReleaseDate>
+	<Plot>Yoshi's Island DS is a sequel to the SNES game, Yoshi's Island. In it, players control Yoshi as he travels to Kamek's castle to rescue Luigi. Yoshi can carry Baby Mario, Peach, DK, Wario or Bowser on his back - depending on the baby carried, Yoshi will gain a special ability; for example, Mario lets Yoshi dash, Peach allows Yoshi to float for a longer period of time, and Wario whips out a gigantic magnet to attract coins and other metallic objects. If Yoshi is hit by an enemy, a counter appears, and begins to slowly count down to zero. If it reaches zero, the baby is kidnapped, and Yoshi loses a life. Yoshi can increase his counter by collecting stars that are rewards for some puzzles and defeating certain enemies.</Plot>
+	<nPlayers>1</nPlayers>
+	<1>http://images.launchbox-app.com/ed24f780-c9c2-4c91-8eec-e1b6c697d457.png</1>
+	<boxback1>http://images.launchbox-app.com/627bd631-ab53-4129-8f0d-53bd9c53bdc1.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/87d79de7-c04b-4d1e-ad07-c8097eee7a6e.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/cd8fcb25-d4bf-49b7-9298-00ebbf4a1905.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/7850582d-90c2-4a6f-90e3-7f4f82004188.jpg</fanart1>
+	<fanart2>http://images.launchbox-app.com/710b52cd-f893-4c91-b44d-634f1b1ead27.jpg</fanart2>
+	<fanart3>http://images.launchbox-app.com/86e456e1-5010-46f6-88ba-b8585134315f.jpg</fanart3>
+	<fanart4>http://images.launchbox-app.com/0a58b89b-4d6e-4633-96f8-a6f2e66a652d.jpg</fanart4>
+	<snapshot1>http://images.launchbox-app.com/1d60033f-2d4e-4484-9167-cc0019d4caf5.JPG</snapshot1>
+	<Rating>4.3125</Rating>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Platform</Genre>
+	<Developer>Nintendo</Developer>
+	<Publisher>Nintendo</Publisher>
+</game>

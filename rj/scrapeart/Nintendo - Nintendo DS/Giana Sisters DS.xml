@@ -1,0 +1,14 @@
+<Game>
+	<Name>Giana Sisters DS</Name>
+	<ReleaseDate>2011-09-06T00:00:00-07:00</ReleaseDate>
+	<Plot>The Jump 'n' Run cult classic from the '80s is back! You will lead Giana on her greatest adventure yet and help find her glittering diamonds in a crazy dream world. Explore over 80 levels, meet fantastic characters and discover Giana's special abilities! Giana's dream world awaits you!</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/786fc824-23b8-4499-a470-1c86f736af00.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/7bdd6818-7adb-4a3f-9339-a0f8c8de88e4.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/34af75e8-4c4b-43ab-8d78-fcb4e35dacf6.png</clearlogo1>
+	<Rating>3</Rating>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Platform</Genre>
+	<Developer>Spellbound Entertainment AG</Developer>
+	<Publisher>dtp entertainment AG</Publisher>
+</game>

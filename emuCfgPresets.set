@@ -1346,10 +1346,12 @@ RJZIPPEEK=0
 [Sega - Dreamcast]
 RJEMUPRESET=Demul
 RJMAMENM=dc
+RJRUNDIR=0
 RJMULTIDISC=1
 Demul?RJEMUOPTS=<-run=dc -image="[CMDLINELOC]"
 RJROMXT=.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr,.img 
 MAME?RJEMUOPTS=<dc -cdrm<|<dcjp -cdrm<|<dceu -cdrm<|<dc -cdrm<
+RJZIPPEEK=0
 
 [Sega - Game Gear]
 RJEMUPRESET=Fusion

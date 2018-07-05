@@ -1,0 +1,12 @@
+<Game>
+	<Name>Panzer Tactics DS</Name>
+	<ReleaseDate>2007-11-06T00:00:00-08:00</ReleaseDate>
+	<Plot>This turn-based WWII strategy game includes three campaigns involving the German Wehrmacht, the Red Army and the Western Allies. Players direct their troops, historically accurate tanks, artillery, naval, and aviation units, to engage enemy units, capture cities, and establish supply lines. Hex-maps cover terrain ranging from the deserts of North Africa to the frozen Russian tundra.  In addition to three single-player campaigns, Panzer Tactics DS also has multiplayer support.</Plot>
+	<nPlayers>4</nPlayers>
+	<boxback1>http://images.launchbox-app.com/85177124-4c92-49c2-87f5-d4a8a33c2c57.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/8c5a97da-3775-4327-bf12-df0af7690249.jpg</boxart1>
+	<ESRB>E10+ - Everyone 10+</ESRB>
+	<Genre>Strategy</Genre>
+	<Developer>Sproing</Developer>
+	<Publisher>Conspiracy Entertainment</Publisher>
+</game>

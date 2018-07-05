@@ -1,0 +1,13 @@
+<Game>
+	<Name>Impossible Mission</Name>
+	<ReleaseDate>2007-11-26T00:00:00-08:00</ReleaseDate>
+	<Plot>Impossible Mission has the user play a secret agent - attempting to stop an evil genius. Professor Elvin Atombender is believed to be tampering with national security computers. The player must penetrate Atombender's stronghold, racing against the clock to search the installation for pieces which form a password, all the while avoiding his deadly robots. Once in possession of all the password pieces, the player must correctly assemble the password pieces together and use the completed password in the main control room door - where the evil professor is hiding. One finds password pieces by searching furniture in the rooms. When searching, one can also find "Lift Resets" and "Snoozes." They are used at computer terminals. The former will reset all moveable platforms, the latter will freeze all enemies in the room for a limited time. There are also two special rooms where additional lift resets and snoozes can be awarded for completing a musical puzzle.</Plot>
+	<nPlayers>1</nPlayers>
+	<banner1>http://images.launchbox-app.com/abea0153-12b1-45ce-a2b4-191f74a00bb0.jpg</banner1>
+	<boxart1>http://images.launchbox-app.com/3921ea78-a4bf-4d1a-96de-0752c8aa0a1e.jpg</boxart1>
+	<fanart1>http://images.launchbox-app.com/c976d2e0-a3bc-4786-82c5-a298ff306f84.jpg</fanart1>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Action; Platform</Genre>
+	<Developer>Epyx</Developer>
+	<Publisher>Warner Bros. Interactive</Publisher>
+</game>

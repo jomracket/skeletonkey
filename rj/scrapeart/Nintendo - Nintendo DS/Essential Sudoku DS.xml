@@ -1,0 +1,10 @@
+<Game>
+	<Name>Essential Sudoku DS</Name>
+	<ReleaseDate>2006-04-27T00:00:00-07:00</ReleaseDate>
+	<Plot>1000 Number Puzzles (also known as Sudoku) and 1000 Picture Puzzles (Colour Picross) are included in this title. Each set of 1000 puzzles is separated into groups of 100 with increasing difficulty, so if you get stuck there are 9 other puzzles available. The game also offers 4 player single card play competing to complete a single puzzle the fastest. It also offers a puzzle creation mode which you can save, as well as send to a friend over local multicard WiFi play.</Plot>
+	<nPlayers>4</nPlayers>
+	<boxart1>http://images.launchbox-app.com/ca68c35d-6d09-43e3-a339-1c1e2ff49366.png</boxart1>
+	<Genre>Puzzle</Genre>
+	<Developer>DigitalWare</Developer>
+	<Publisher>D3Publisher</Publisher>
+</game>

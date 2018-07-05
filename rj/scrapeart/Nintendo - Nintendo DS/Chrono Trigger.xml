@@ -1,0 +1,21 @@
+<Game>
+	<Name>Chrono Trigger</Name>
+	<ReleaseDate>2008-11-25T00:00:00-08:00</ReleaseDate>
+	<Plot>The RPG of the ages returns. When a newly developed teleportation device malfunctions, young Crono must journey through time to rescue a mysterious girl from an intricate web of past and present perils. Enhanced with dual-screen presentation, stylus controls, and a host of great new features, the classic tale transcends time once again!</Plot>
+	<nPlayers>2</nPlayers>
+	<1>http://images.launchbox-app.com/86fa03d4-a65b-48c5-8cf3-5febe3b70bad.png</1>
+	<boxback1>http://images.launchbox-app.com/e49e9759-4703-430e-bc5b-c247a74e6cb9.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/d1cb8066-54dd-438b-869d-72feb41d88c6.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/c817ebbe-49fd-4971-9188-3e9fc3eac9d7.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/05b1c871-c3bb-47f5-bbab-41f5f7402e72.jpg</fanart1>
+	<fanart2>http://images.launchbox-app.com/886ed4bb-f073-4575-aca6-a5613dc3364d.jpg</fanart2>
+	<fanart3>http://images.launchbox-app.com/d67b5f22-0b02-4ed4-86f7-de17b80d3e52.jpg</fanart3>
+	<fanart4>http://images.launchbox-app.com/820d9643-21f3-4782-ae25-82e91f186d77.jpg</fanart4>
+	<snapshot1>http://images.launchbox-app.com/c36e8ee8-8f6f-4f20-a57a-3c1040110c75.png</snapshot1>
+	<Rating>4.7</Rating>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Chrono_Trigger</WikipediaURL>
+	<ESRB>E10+ - Everyone 10+</ESRB>
+	<Genre>Role-Playing</Genre>
+	<Developer>Square Enix</Developer>
+	<Publisher>Square Enix</Publisher>
+</game>

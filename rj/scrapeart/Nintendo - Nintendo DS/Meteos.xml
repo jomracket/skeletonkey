@@ -1,0 +1,19 @@
+<Game>
+	<Name>Meteos</Name>
+	<ReleaseDate>2005-06-27T00:00:00-07:00</ReleaseDate>
+	<Plot>An evil planet named Meteo is sending storms of world-ending meteors across the galaxy, and only your puzzle skills can stop them. As blocks drop down on the lower screen, you must use the DS's stylus to match up blocks of the same color. Once you have enough blocks connected, they'll shoot back into the sky to form planets on the upper screen.</Plot>
+	<nPlayers>4</nPlayers>
+	<boxback1>http://images.launchbox-app.com/7621d11d-76ee-4956-8791-4c6ed0f7857e.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/17022303-e285-4c3a-843c-766cea1ead89.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/db76b3a1-1599-4cbe-83c3-3172279ce018.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/7f1b08b9-7597-4de8-a77a-67289fc8de52.jpg</fanart1>
+	<fanart2>http://images.launchbox-app.com/eccfc195-ff04-4571-8f3b-39cb329a7085.jpg</fanart2>
+	<fanart3>http://images.launchbox-app.com/ff73f4a8-d122-40dc-a541-560413424150.jpg</fanart3>
+	<fanart4>http://images.launchbox-app.com/1f7443ec-ecf0-4762-a2a6-1f2397e1214e.jpg</fanart4>
+	<Rating>2.5</Rating>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Meteos</WikipediaURL>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Puzzle</Genre>
+	<Developer>Q Entertainment</Developer>
+	<Publisher>Bandai</Publisher>
+</game>

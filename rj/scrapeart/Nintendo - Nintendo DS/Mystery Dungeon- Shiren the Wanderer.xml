@@ -1,0 +1,16 @@
+<Game>
+	<Name>Mystery Dungeon- Shiren the Wanderer</Name>
+	<ReleaseDate>2008-03-04T00:00:00-08:00</ReleaseDate>
+	<Plot>Shiren and Koppa still have their primary objective of finding the Lair of the Golden Condor but an adventure is not complete without visiting new towns and going on exciting side quests! Check out some of side quests they go on and the towns these two warriors visit along the way!</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/20daf13a-0515-4d5e-88e2-a88e3e0c6b05.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/afe5120e-5ca9-48fb-921a-68941b404b41.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/9b48cb0e-f295-4aaf-b1ca-8bb697e33bb1.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/94fbc3da-2a18-44f1-90cb-595c6c0d236e.jpg</fanart1>
+	<fanart2>http://images.launchbox-app.com/1bda4a0e-909f-4c5e-aac6-068c8af9091d.jpg</fanart2>
+	<Rating>3.5</Rating>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Role-Playing</Genre>
+	<Developer>Chunsoft</Developer>
+	<Publisher>Sega</Publisher>
+</game>

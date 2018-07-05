@@ -1,0 +1,15 @@
+<Game>
+	<Name>Rhythm Heaven</Name>
+	<ReleaseDate>2009-04-05T00:00:00-07:00</ReleaseDate>
+	<Plot>Get ready to feel the rhythm! Rhythm Heaven is a game based entirely around musical rhythm and timing. The game is a collection of games based around a song, where the player must perform actions in time to the music to successfully complete the game. All games are based around the simple motions of tapping, sliding and flicking the stylus. As each game varies from each other, at the start of each game, you're given a brief tutorial to get the hang of how the game you'll be playing works. Tasks for games include (but are not limited to) flicking to construct machinery, releasing the stylus at the right time to belt out a loud note, sliding to rub a lizard's tail in time to a mating dance beat, tapping to gulp down dumplings, tapping and flicking to harvest vegetables and get rid of moles, and more. After every four games, a special "remix" game appears, which combines the previous games into a hectic mix, where you never know what will be up next.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/4485eaa5-9ec7-4715-b13a-e044c228e0d0.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/b1a87a5f-46ca-43a9-8a58-be8f7ad43739.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/d41e75b8-f2f2-4272-be02-04fcae50b83f.jpg</boxart2>
+	<snapshot1>http://images.launchbox-app.com/da7110ec-ad97-440e-bf94-bd316ef2f6a1.png</snapshot1>
+	<Rating>4.5</Rating>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Music</Genre>
+	<Developer>Nintendo</Developer>
+	<Publisher>Nintendo</Publisher>
+</game>

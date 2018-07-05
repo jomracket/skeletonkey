@@ -1,0 +1,12 @@
+<Game>
+	<Name>Wreck It Ralph</Name>
+	<ReleaseDate>2012-10-30T00:00:00-07:00</ReleaseDate>
+	<Plot>Get ready for classic arcade video game action with a whole new modern look and feel in the Wreck-It Ralph video game. As a story extension to the Walt Disney Animation Studios film, Wreck-It Ralph is set to inspire a whole new generation of young gamers as a classic, arcade-style side-scroller featuring Ralph -- the misunderstood villain of his own arcade game who sets out to prove he can be a hero too. The game picks up where the movie leaves off as Ralph partners with Fix-It Felix and sets out to save their friends and home from a huge Cy-Bug invasion. Pounding through all-new levels in the "Wreck-It Ralph" universe, like Sugar Rush, Hero's Duty, and Fix-It Felix, Jr., players will have to use Ralph's destructive strength to beat by the Cy-Bugs, while switching back to Felix to repair the damage.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxart1>http://images.launchbox-app.com/9f5f194f-a0cb-4096-884a-8e84cf4e407e.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/84fc6a78-9ac8-4d5c-be07-b65b77bfbc35.png</clearlogo1>
+	<ESRB>RP - Rating Pending</ESRB>
+	<Genre>Platform</Genre>
+	<Developer>Disney</Developer>
+	<Publisher>Activision</Publisher>
+</game>

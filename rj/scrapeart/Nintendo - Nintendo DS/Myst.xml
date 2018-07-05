@@ -1,0 +1,12 @@
+<Game>
+	<Name>Myst</Name>
+	<ReleaseDate>2007-12-07T00:00:00-08:00</ReleaseDate>
+	<Plot>Myst is a graphic adventure puzzle video game designed by the brothers Robyn and Rand Miller. It was developed by Cyan, Inc., published by Brøderbund, and initially released on the Macintosh platform in 1993. Remakes and ports of the game have been released for platforms including the Sega Saturn, PlayStation, 3DO, Microsoft Windows, Atari Jaguar CD, CD-i, AmigaOS, PlayStation Portable, Nintendo DS, iOS, OS X, and Android. The game puts the player in the role of the Stranger, who uses a special book to travel to the island of Myst. There, the player solves puzzles and travels to other worlds known as "Ages". Clues found in each of these Ages help to reveal the back-story of the game's characters. The game has several endings, depending on the course of action the player takes.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxart1>http://images.launchbox-app.com/066b32a2-577e-4be8-bdea-54e157218f3f.jpg</boxart1>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Myst</WikipediaURL>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Adventure; Puzzle</Genre>
+	<Developer>Cyan</Developer>
+	<Publisher>Broderbund</Publisher>
+</game>

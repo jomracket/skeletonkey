@@ -1,0 +1,13 @@
+<Game>
+	<Name>GRID</Name>
+	<ReleaseDate>2008-08-05T00:00:00-07:00</ReleaseDate>
+	<Plot>GRID takes players to dramatic and beautifully realized race locations over three continents to compete in an unprecedented variety of racing events. Packed with the most powerful race cars--new and classic, circuit and drift--players will compete to conquer the most prestigious official race tracks and championships. Then they'll compete in challenging city-based competitions, road events, and urban street races.</Plot>
+	<nPlayers>4</nPlayers>
+	<boxart1>http://images.launchbox-app.com/a706925f-03ca-4c90-b814-afb722465c2b.jpg</boxart1>
+	<snapshot1>http://images.launchbox-app.com/6ab5d2e3-7079-4d55-b7d6-5a1040aaa7ba.jpg</snapshot1>
+	<Rating>3</Rating>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Racing</Genre>
+	<Developer>Firebrand Games</Developer>
+	<Publisher>Codemasters</Publisher>
+</game>

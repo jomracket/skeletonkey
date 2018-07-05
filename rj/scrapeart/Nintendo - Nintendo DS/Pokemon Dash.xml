@@ -1,0 +1,14 @@
+<Game>
+	<Name>Pokémon Dash</Name>
+	<ReleaseDate>2004-12-02T00:00:00-08:00</ReleaseDate>
+	<Plot>In Pokémon Dash, you'll control Pikachu and race against other Pokémon. Use the DS's touch screen to adjust Pikachu's direction and speed. Off the course, Pikachu can cross water terrain by riding on Lapras' back and fly using a hot-air balloon.</Plot>
+	<nPlayers>4</nPlayers>
+	<boxback1>http://images.launchbox-app.com/73692df8-17a6-45b0-97cb-e1678f5cbca6.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/416ed864-f68f-4d10-bb21-8d1b6c28c3dd.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/ee173ee3-0458-4832-8c2a-f67bbb6c15a6.png</clearlogo1>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Pok%C3%A9mon_Dash</WikipediaURL>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Racing</Genre>
+	<Developer>Ambrella</Developer>
+	<Publisher>Nintendo</Publisher>
+</game>

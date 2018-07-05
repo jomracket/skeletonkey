@@ -1,0 +1,11 @@
+<Game>
+	<Name>Puzzle League Express</Name>
+	<ReleaseDate>2009-07-17T00:00:00-07:00</ReleaseDate>
+	<Plot>Puzzle League Express is a puzzle game in the vein of Tetris Attack. In the game colored blocks rise up from beneath the screen and the player must swap two blocks on the same row to make a chain of three or more of the same color. The chain is then removed and blocks fall to where it was. If further chains are created due to falling blocks, bonus points are awarded by multiplication of however many additional chains are created. Game modes include 'Clear' where the player must remove all blocks above a marker to move on to the next stage, a timed mode called 'Score Attack', and 'Vs. com' in which the player must play against the AI, dropping blocks onto its screen with each combo. The game ends when the tower of blocks reaches the top of the screen.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxart1>http://images.launchbox-app.com/4e553c80-d15f-49d6-b5fe-dab33c8fc6b3.jpg</boxart1>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Planet_Puzzle_League#DSiWare_release</WikipediaURL>
+	<Genre>Puzzle</Genre>
+	<Developer>Intelligent Systems</Developer>
+	<Publisher>Nintendo</Publisher>
+</game>

@@ -1,0 +1,14 @@
+<Game>
+	<Name>Orcs & Elves</Name>
+	<ReleaseDate>2007-11-13T00:00:00-08:00</ReleaseDate>
+	<Plot>Orcs &amp; Elves' is a turn-based role-playing game, played from a first person perspective. Each individual action by the player counts as a "turn", whether that be movement, using an item or weapon or casting a spell in which other foes will also move and attack in turns following each. Each forward move by the player is done on an invisible grid that makes up each level in order to retain the turn-based element while appearing more like a first person adventure due to its fast paced nature.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/cb349665-9856-4a5e-a3c6-16e1d2176d71.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/5992bb0b-885d-413e-ba9a-1e534b27d6a5.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/ef58105e-9f5a-4608-a1e4-c5b0239cb5df.png</clearlogo1>
+	<Rating>3.5</Rating>
+	<ESRB>T - Teen</ESRB>
+	<Genre>Role-Playing</Genre>
+	<Developer>id Software</Developer>
+	<Publisher>Electronic Arts</Publisher>
+</game>

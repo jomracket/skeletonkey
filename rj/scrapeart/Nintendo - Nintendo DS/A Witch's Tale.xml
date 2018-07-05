@@ -1,0 +1,15 @@
+<Game>
+	<Name>A Witch's Tale</Name>
+	<ReleaseDate>2009-10-13T00:00:00-07:00</ReleaseDate>
+	<Plot>1,000 years ago, a tribe of powerful witches who used potent, dangerous magic lived beneath the world. One day, the witches invaded the surface world. When all seemed lost, the mystical Alice appeared. She used the witches' own magic against them and sealed them away. They say the Witch Queen still lurks beneath the land, waiting for her chance to return to power.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxart1>http://images.launchbox-app.com/c913e644-0157-47cb-98e3-43590570fdbc.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/51250384-4a4f-4c06-88e6-80f062ffc9f9.jpg</boxart2>
+	<fanart1>http://images.launchbox-app.com/c4dd6b16-0c58-44f3-820c-3282fad380e8.jpg</fanart1>
+	<fanart2>http://images.launchbox-app.com/ce937f87-b509-4a11-9765-34555bc61618.jpg</fanart2>
+	<Rating>3</Rating>
+	<ESRB>E10+ - Everyone 10+</ESRB>
+	<Genre>Role-Playing</Genre>
+	<Developer>Hit Maker</Developer>
+	<Publisher>NIS</Publisher>
+</game>

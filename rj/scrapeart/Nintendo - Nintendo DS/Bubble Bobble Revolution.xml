@@ -1,0 +1,17 @@
+<Game>
+	<Name>Bubble Bobble Revolution</Name>
+	<ReleaseDate>2006-09-29T00:00:00-07:00</ReleaseDate>
+	<Plot>Bub and Bob make their DS debut! Bub and Bob must find their missing friends in a furious game that includes 100 levels, new bubble power attacks, microphone activated challenges and hidden characters. Up to four players can join in Multiplayer mode.</Plot>
+	<nPlayers>4</nPlayers>
+	<boxback1>http://images.launchbox-app.com/e692eacd-09a4-424d-9b06-3b53d996f032.png</boxback1>
+	<boxart1>http://images.launchbox-app.com/c6da44ef-3934-4622-93e4-4ad8d444815e.png</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/4cf68a0f-781e-408d-b486-eaa834158b11.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/df0fd97e-2a46-4852-b03c-f55e9a97f8aa.jpg</fanart1>
+	<fanart2>http://images.launchbox-app.com/2e1f3392-4653-4da2-8183-23978716278e.jpg</fanart2>
+	<Rating>2.25</Rating>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Bubble_Bobble_Revolution</WikipediaURL>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Action; Puzzle</Genre>
+	<Developer>Dreams</Developer>
+	<Publisher>Codemasters</Publisher>
+</game>

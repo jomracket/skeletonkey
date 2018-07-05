@@ -1,0 +1,13 @@
+<Game>
+	<Name>Color Cross</Name>
+	<ReleaseDate>2010-05-25T00:00:00-07:00</ReleaseDate>
+	<Plot>Color Cross is a challenging puzzle game where the goal is to uncover the hidden picture by applying the right color to the appropriate square. Utilizing the familiar "paint by numbers" picture logic puzzle mechanic, completing a grid will reveal a portion of a larger hidden image as well as unlocking increasingly difficult challenges. With over 150 individual grids to unlock, Color Cross provides hours of brain-teasing gameplay that is colorful in more ways than one.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxart1>http://images.launchbox-app.com/e2af8561-78ad-4a22-acf2-31cb3508d409.jpg</boxart1>
+	<snapshot1>http://images.launchbox-app.com/c3205893-a503-4d84-ad6f-d05bcdaab4a9.jpg</snapshot1>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Colour_Cross</WikipediaURL>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Puzzle</Genre>
+	<Developer>Little Worlds Studio</Developer>
+	<Publisher>Zoo Games</Publisher>
+</game>

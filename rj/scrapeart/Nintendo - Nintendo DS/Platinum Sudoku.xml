@@ -1,0 +1,11 @@
+<Game>
+	<Name>Platinum Sudoku</Name>
+	<ReleaseDate>2007-07-03T00:00:00-07:00</ReleaseDate>
+	<Plot>Includes both Sudoku and Kakuro games at multiple difficulty levels.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxart1>http://images.launchbox-app.com/986cf2cd-1cb5-4391-8c82-65fe711740e6.jpg</boxart1>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Puzzle</Genre>
+	<Developer>Gameloft</Developer>
+	<Publisher>Ubisoft</Publisher>
+</game>

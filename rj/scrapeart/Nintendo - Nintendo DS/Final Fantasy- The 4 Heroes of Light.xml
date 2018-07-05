@@ -1,0 +1,20 @@
+<Game>
+	<Name>Final Fantasy- The 4 Heroes of Light</Name>
+	<ReleaseDate>2010-10-05T00:00:00-07:00</ReleaseDate>
+	<Plot>With Final Fantasy: The 4 Heroes of Light, the Final Fantasy series is rendered anew as an epic storybook adventure by the creators of the Final Fantasy III and Final Fantasy IV Nintendo DS remakes. Players will enter a beautiful fairy-tale world featuring illustrations and character designs by acclaimed character designer Akihiko Yoshida (Final Fantasy III for DS, Final Fantasy XII).</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/d1080dbc-af50-4b79-812d-6967dbec517c.png</boxback1>
+	<boxart1>http://images.launchbox-app.com/90c5c3d1-4c0e-4b28-8d7f-12d40b49066e.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/5ab19a99-233b-4f93-9673-afadf263a4cb.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/4c1cb7e2-7052-474c-b6bc-8d6a776570ee.jpg</fanart1>
+	<fanart2>http://images.launchbox-app.com/605f56bf-6ef8-4506-bb25-6dc2ce96afa6.jpg</fanart2>
+	<fanart3>http://images.launchbox-app.com/f1fcdf9c-b44d-458f-b58b-565958a2e50a.jpg</fanart3>
+	<fanart4>http://images.launchbox-app.com/6b03634d-ee75-452c-91b9-461b82cce8c7.jpg</fanart4>
+	<fanart5>http://images.launchbox-app.com/b40fb3f7-af55-447a-9dd4-7e8ee5d49f3d.jpg</fanart5>
+	<fanart6>http://images.launchbox-app.com/1ab1bf31-79df-4130-a2d5-2c447fdf67f8.jpg</fanart6>
+	<Rating>3.5</Rating>
+	<ESRB>E10+ - Everyone 10+</ESRB>
+	<Genre>Role-Playing</Genre>
+	<Developer>Matrix Software</Developer>
+	<Publisher>Square-Enix</Publisher>
+</game>

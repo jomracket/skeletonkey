@@ -1,0 +1,11 @@
+<Game>
+	<Name>Safecracker</Name>
+	<ReleaseDate>2009-12-03T00:00:00-08:00</ReleaseDate>
+	<Plot>Family members hire you, a master in the art of safecracking, to locate the last will and testament of their deceased relative, oil tycoon and billionaire Duncan Adams, hidden somewhere within his luxurious 4-story mansion. Exploration of the mansion is performed entirely by mouse in point-and-click fashion. As you dig for clues and puzzles to solve, you can view the environment in 360 degrees. An in-game mapping system records your progress by marking discovered puzzles with a red 'X', which turns green when solved. There are a total of 35 different safes to open which will eventually lead you to the 36th "Master" safe. The puzzles are not only about turning dials and pushing buttons. There are sliders, some based on mathematics, pattern recognition puzzles, marble mazes, and some based on inventory objects, for instance. Unlike the previous game, there is no time limit so you can take your time and reason through the dilemma at hand.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxart1>http://images.launchbox-app.com/c624b6c8-ebc8-43ba-af20-4f015999af2c.jpg</boxart1>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Puzzle</Genre>
+	<Developer>Kheops Studio</Developer>
+	<Publisher>The Adventure Company</Publisher>
+</game>

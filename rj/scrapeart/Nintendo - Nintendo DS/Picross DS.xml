@@ -1,0 +1,15 @@
+<Game>
+	<Name>Picross DS</Name>
+	<ReleaseDate>2007-07-30T00:00:00-07:00</ReleaseDate>
+	<Plot>Like finding the underlining 'picture' in a 'crossword puzzle', the goal in Picross DS is to fill a grid with squares and crosses in order to 'paint' a picture. Numbers at the head of the puzzles' columns and rows signify how the grids need to be filled out, but it will take a sharp mind to figure out the solution - and some speedy fingers to defeat the competition. The game's main Picross Mode offers a staggering 300 puzzles available to play at your leisure.</Plot>
+	<nPlayers>4</nPlayers>
+	<boxback1>http://images.launchbox-app.com/d4e89085-67f6-4774-8b68-f2dc3e810367.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/a9c14e9d-ae04-4f6e-8c8c-3e465540d22b.jpg</boxart1>
+	<fanart1>http://images.launchbox-app.com/c876d4d6-8dd2-494e-8a84-b2587275120a.png</fanart1>
+	<snapshot1>http://images.launchbox-app.com/4789fc87-1bed-4c5e-a68e-0cfa6ee1d03a.jpg</snapshot1>
+	<Rating>4</Rating>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Puzzle</Genre>
+	<Developer>Jupiter Corporation</Developer>
+	<Publisher>Nintendo</Publisher>
+</game>

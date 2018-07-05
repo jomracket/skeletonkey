@@ -1,0 +1,16 @@
+<Game>
+	<Name>FIFA 10</Name>
+	<ReleaseDate>2009-10-01T00:00:00-07:00</ReleaseDate>
+	<Plot>There are 30 leagues and over 500 teams in the game, as well as 41 national teams. New to FIFA 10 is the Russian Premier League, which is not featured in the PlayStation 3 and Xbox 360 versions.[24] Unlike previous versions of FIFA, the Netherlands is included as a fully licensed national team.[25] Due to promotion/relegation and other league expansions, there are 46 teams that were not included in FIFA 09, including 25 that have never appeared in a FIFA game before.[26] FIFA 10 has 41 teams in its international division. The most notable exclusion is Japan (who made it into the round of 16 in the 2002 World Cup and the 2010 World Cup, but whose licensing rights currently belong to Konami). The following international teams are playable in the current generation consoles. But not all the teams are fully licensed e.g. South Africa and Russia.</Plot>
+	<nPlayers>2</nPlayers>
+	<boxart1>http://images.launchbox-app.com/81064851-c8b5-4af1-89e0-755837d61afe.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/cabdeba7-00d1-4d59-9e4a-e1d9f5020791.jpg</boxart2>
+	<boxart3>http://images.launchbox-app.com/5a742146-fa78-4897-9bd8-9561a2f77d60.jpg</boxart3>
+	<clearlogo1>http://images.launchbox-app.com/79227750-f9e4-406d-b4e8-060f9a2385ce.png</clearlogo1>
+	<clearlogo2>http://images.launchbox-app.com/c177b488-17e1-40fb-9706-6f54b500a48b.png</clearlogo2>
+	<WikipediaURL>https://en.wikipedia.org/wiki/FIFA_10</WikipediaURL>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Sports</Genre>
+	<Developer>Exient Entertainment</Developer>
+	<Publisher>EA Sports</Publisher>
+</game>

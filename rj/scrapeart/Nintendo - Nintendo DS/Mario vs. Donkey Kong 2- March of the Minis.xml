@@ -1,0 +1,17 @@
+<Game>
+	<Name>Mario vs. Donkey Kong 2- March of the Minis</Name>
+	<ReleaseDate>2006-09-25T00:00:00-07:00</ReleaseDate>
+	<Plot>Mario vs. Donkey Kong 2: March of the Minis is an action/puzzle game where the object is to bring as many Mini-Marios to the exit door as possible by solving the puzzle. All the puzzles are fairly small and take up anywhere from one screen to four screens (2x2) in size. All the Mini-Marios that are collected in each room are then used in the Donkey Kong boss battle at the end of the world. All of the control is done with the stylus; no buttons are used at all.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/4cd1faaf-1a3b-4d4a-b277-9698041ac338.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/331422fb-1954-424f-88e2-c4478e5defb3.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/d15200fd-a14b-44ea-ad7b-e6c561f0ea88.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/28aee1d4-7c19-4e35-8757-d9335c484f0c.jpg</fanart1>
+	<fanart2>http://images.launchbox-app.com/ba4ae63c-93d1-48b5-af4b-598fbff813b2.jpg</fanart2>
+	<snapshot1>http://images.launchbox-app.com/208fc728-9401-4757-891c-26b4c91030d7.JPG</snapshot1>
+	<Rating>2.5</Rating>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Puzzle</Genre>
+	<Developer>Nintendo</Developer>
+	<Publisher>Nintendo</Publisher>
+</game>

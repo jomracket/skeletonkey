@@ -1,0 +1,24 @@
+<Game>
+	<Name>Pokémon Black Version</Name>
+	<ReleaseDate>2011-03-06T00:00:00-08:00</ReleaseDate>
+	<Plot>Pokemon Black Version and Pokemon White Version feature new Pokemon that players can catch, train and battle as they progress through the game, and some Pokemon can only be caught in one version of the game. For example, the Legendary Pokemon Reshiram can only be caught in Pokemon Black Version, while the Legendary Pokemon Zekrom can only be caught in Pokemon White Version. Additionally, the two games feature different areas for the first time in the series, with the game world of Pokemon Black Version featuring a unique metropolitan area called Black City, and a lush, green area named White Forest only found in Pokemon White Version. Pokemon Black Version and Pokemon White Version also mark the first time in a Pokemon video game that the seasons will change in the game world. Certain Pokemon appear more frequently during different seasons, and players can only access some areas during a specific season.</Plot>
+	<nPlayers>4</nPlayers>
+	<boxback1>http://images.launchbox-app.com/2629a04e-8368-4111-a708-cacfd898b4e0.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/1a45a07e-3f89-44d0-9ccd-41ae686235fa.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/e5f57368-d334-40ce-953d-14dbd60d40e9.png</boxart2>
+	<boxart3>http://images.launchbox-app.com/5a6f69ad-d0bd-478d-9ff2-eba43358d267.jpg</boxart3>
+	<boxart4>http://images.launchbox-app.com/80a75317-77a6-4e45-94ee-7a3a3280ffac.jpg</boxart4>
+	<clearlogo1>http://images.launchbox-app.com/1d8d5588-c0ea-4853-ba3d-e83a69c9318a.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/73330800-481a-4da1-811a-079a3ce31a9e.jpg</fanart1>
+	<fanart2>http://images.launchbox-app.com/82a75a3d-3431-47eb-af25-ae0f95ac794d.jpg</fanart2>
+	<snapshot1>http://images.launchbox-app.com/14e26dff-8023-49a6-ae56-b5c6a2aaeafb.JPG</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/d5abbf10-5f8b-405c-bba0-2bd7047e4045.png</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/7c615085-bab9-46cf-821e-0ff97770332b.jpg</snapshot3>
+	<snapshot4>http://images.launchbox-app.com/ac7a8a97-3307-47bd-9a26-390654e3ee7c.png</snapshot4>
+	<Rating>3.5</Rating>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Pok%C3%A9mon_Black_and_White</WikipediaURL>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Role-Playing</Genre>
+	<Developer>Game Freak</Developer>
+	<Publisher>Nintendo</Publisher>
+</game>

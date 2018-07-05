@@ -1,0 +1,12 @@
+<Game>
+	<Name>Puzzle Quest- Galactrix</Name>
+	<ReleaseDate>2009-02-24T00:00:00-08:00</ReleaseDate>
+	<Plot>Like the original Puzzle Quest, Galactrix has Bejeweled-style gameplay with a few exceptions. Tiles are now hexagonally shaped and gravity will be a factor in how they fall. If the match takes place in orbit around a planet, the tiles will always fall downward but if you are fighting in open space new tiles will come from whatever direction you made your previous move.</Plot>
+	<nPlayers>4</nPlayers>
+	<boxback1>http://images.launchbox-app.com/57b511d9-adf5-4137-9a0b-9e70af391ebb.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/bf3df8a3-c0ac-496c-a013-f6c4962bca41.jpg</boxart1>
+	<ESRB>E10+ - Everyone 10+</ESRB>
+	<Genre>Puzzle</Genre>
+	<Developer>Infinite Interactive</Developer>
+	<Publisher>D3 Publisher</Publisher>
+</game>

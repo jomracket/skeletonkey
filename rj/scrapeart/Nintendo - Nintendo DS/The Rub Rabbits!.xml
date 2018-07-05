@@ -1,0 +1,12 @@
+<Game>
+	<Name>The Rub Rabbits!</Name>
+	<ReleaseDate>2006-02-13T00:00:00-08:00</ReleaseDate>
+	<Plot>Rub Rabbits is the sequel to XY/XX: Feel the Magic and features all-new gameplay mechanics, which range from holding the Nintendo DS sideways and upside down to multiple game modes. The game includes all-new music, art, and characters, as well as the ability to customize the look of the object of your affection. The game has six different multiplayer modes, which are compatible for playing with up to four players at a time.</Plot>
+	<nPlayers>4</nPlayers>
+	<boxback1>http://images.launchbox-app.com/65c792c2-4f70-45bf-9d07-2af06a9b38e0.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/91a72c0e-cd1d-48cf-8929-167a1f221fa5.jpg</boxart1>
+	<ESRB>T - Teen</ESRB>
+	<Genre>Action; Puzzle</Genre>
+	<Developer>Sonic Team</Developer>
+	<Publisher>Sega</Publisher>
+</game>

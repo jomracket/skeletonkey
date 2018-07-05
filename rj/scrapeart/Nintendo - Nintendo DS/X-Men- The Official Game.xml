@@ -1,0 +1,13 @@
+<Game>
+	<Name>X-Men- The Official Game</Name>
+	<ReleaseDate>2006-05-16T00:00:00-07:00</ReleaseDate>
+	<Plot>X-Men: The Official Game is based on the third X-Men film. The game lets you control either Wolverine, Colossus, Iceman or Nightcrawler through twenty-five stages of a traditional side-scrolling beat-'em up. You move through the levels usually to find the exit. The stages can scroll from left to right, top to bottom or are designed more like a labyrinth. Enemies are getting rid off using a variety of punches. The characters differ hereby in range and the damage they deal. Every character also has his own special attack and some abilities on his own. For example, Colossus can smash certain materials while Wolverine regenerates his health over the time. While you start off the game as Wolverine, you are later joined by the other characters and may switch between them any time. Every X-Man also has his own power bar, which is filled up by collecting blue symbols, which can be used up to increase the amount of damage you deal for a period of time.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/c99f0cc3-71ba-4019-8990-d43497b42ab5.png</boxback1>
+	<boxart1>http://images.launchbox-app.com/b2cca402-ad0f-4ad8-8ef5-3e249ff31b1f.png</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/cb5b60cc-a3fa-4fb9-a5b9-512039b4e921.png</clearlogo1>
+	<ESRB>E10+ - Everyone 10+</ESRB>
+	<Genre>Action</Genre>
+	<Developer>Amaze Entertainment</Developer>
+	<Publisher>Activision</Publisher>
+</game>

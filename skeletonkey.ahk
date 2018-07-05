@@ -4,11 +4,11 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-07-04 10:37 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-07-05 1:49 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-07-04 10:37 AM
+RELEASE= 2018-07-05 1:49 PM
 VERSION= v0.99.54.38
 RASTABLE= 1.7.3
 #Include tf.ahk
@@ -1594,13 +1594,13 @@ Gui, Font, Bold
 Gui Add, GroupBox, x260 y270 w300 h64 Right, Playlists
 Gui Add, Button, x516 y296 w43 h23 vplaylset gplaylset,SET
 Gui, Font, normal
-Gui Add, Edit, x263 y285 w253 h41 Right vplaylisttxt ReadOnly, %playlistloc%
+Gui Add, Edit, x77 y285 w439 h41 Right vplaylisttxt ReadOnly, %playlistloc%
 
 Gui, Font, Bold
 Gui Add, GroupBox, x260 y333 w300 h61 Right, History
 Gui Add, Button, x516 y361 w43 h23 vhistset ghistset,SET
 Gui, Font, normal
-Gui Add, Edit, x262 y346 w253 h44 Right vhisttxt ReadOnly, %historyloc%
+Gui Add, Edit, x77 y346 w438 h44 Right vhisttxt ReadOnly, %historyloc%
 
 Gui, Add, Button, x124 y88 w45 h18 vSYSDETECT gSysDetect, Detect
 Gui, Add, CheckBox, x174 y86 w89 h18 vSYSAZ gSYSAZ %FUZENB%, fuzzy-Rename
@@ -1623,7 +1623,7 @@ Gui, Add, Edit, x116 y129 w441 h40 Multi ReadOnly vSKEMUDISP, %RJEMUD%
 Gui, Add, Button, x706 y61 w46 h20 vSKCLRQ gDELRJQ, CLEAR
 Gui, Add, Text, x627 y41 vSKCLRTXT, in the RoM-Jacket queue
 
-Gui, Add, Edit, x193 y433 w253 h44 vtmpdispl Multi ReadOnly, %cacheloc%
+Gui, Add, Edit, x193 y433 w353 h44 vtmpdispl Multi ReadOnly, %cacheloc%
 Gui, Add, Button, x148 y442 w43 h23 vSETTMPD gSETTMPD, SET
 Gui, Add, Text, x115 y466 w75 h23 vTMPDIRTXT, Temp Directory
 Gui, Add, GroupBox, x4 y-5 w560 h207 vBLNKGRP
@@ -1659,7 +1659,7 @@ Gui, Add, ComboBox, x560 y22 w100 vCUSTMARGS gCustmArgs hidden, |%INJARG%
 
 Gui, Add, Button, x418 y0 w41 h21 vGROM gGetROM, ROM
 ;;Gui, Add, ComboBox, x525 y0 w135 vLCORE gLnchCore,
-Gui, Add, DropdownList, x525 y0 w135 vLCORE gLnchCore,
+Gui, Add, DropdownList, x525 y0 w135 hwndRUNCORE vLCORE gLnchCore,
 Gui, Add, DropDownList, x540 y0 w135 vJCORE gRJCORE hidden,
 ;;Gui, Add, DropDownList, x540 y24 w135 vJCORE gRJCORE hidden,
 Gui, Font, Bold
@@ -6047,6 +6047,7 @@ return
 GuiDropFiles:
 guicontrolget,TABMENU,,TABMENU
 ROMDRP= 1
+guicontrol,,LCORE,|%runlist%
 If ( (A_GuiX >= RDXgrid) && (A_GuiX <= RDXgrid+RDWgrid) && (A_GuiY >= RDYgrid) && (A_GuiY <= RDYgrid+RDHgrid) )
 	{
 		if (TABMENU = ":=: MAIN :=:")
@@ -6075,7 +6076,7 @@ If ( (A_GuiX >= RDXgrid) && (A_GuiX <= RDXgrid+RDWgrid) && (A_GuiY >= RDYgrid) &
 										return
 									}
 								Control, ShowDropDown, , %LCORE%, skeletonKey
-								ControlFocus, %LCORE%,skeletonKey
+								ControlFocus, %LCORE%, skeletonKey
 								return
 							}
 						if (AUTOLNCH = 1)
@@ -6086,8 +6087,8 @@ If ( (A_GuiX >= RDXgrid) && (A_GuiX <= RDXgrid+RDWgrid) && (A_GuiY >= RDYgrid) &
 								gosub, DragonDrop
 								if (CHOSEN = 1)
 									{
-										Control, ShowDropDown, , %LCORE%, skeletonKey
-										ControlFocus, %LCORE%,skeletonKey
+										Control, ShowDropDown, , ,ahk_id %RUNCORE%
+										ControlFocus, ,ahk_id %RUNCORE%
 										return
 									}
 							}
@@ -27054,6 +27055,10 @@ guicontrol,move,FEBUTI,x620 y480 w45 h18
 guicontrol,,FEBUTI,cancel
 
 
+guicontrol,hide,FEBUTL
+guicontrol,enable,FEBUTL
+guicontrol,move,FEBUTL,x619 y214 w36 h17
+guicontrol,,FEBUTIL,open
 
 guicontrol,hide,FELNKA
 guicontrol, ,FELNKA,<a href="http://screenscraper.fr">screenscraper.fr</a>
@@ -29689,6 +29694,7 @@ guicontrol,,FECHKL,0
 guicontrol,,FECHKM,0
 
 guicontrol,hide,FETXTK
+guicontrol,hide,FEBUTL
 guicontrol,hide,FEBUTG
 guicontrol,hide,FEBUTH
 guicontrol,hide,FEBUTB
@@ -29765,6 +29771,7 @@ guicontrol,,FECHKM,0
 
 
 guicontrol,hide,FETXTB
+guicontrol,hide,FEBUTL
 guicontrol,hide,FETXTC
 guicontrol,hide,FETXTD
 guicontrol,hide,FETXTE
@@ -29874,6 +29881,7 @@ guicontrol,show,FEBUTG
 guicontrol,show,FEBUTH
 guicontrol,show,FEBUTB
 guicontrol,show,FEBUTC
+guicontrol,show,FEBUTL
 guicontrol,show,FEBUTD
 guicontrol,show,FEBUTE
 guicontrol,show,FEEDTA
@@ -29911,6 +29919,11 @@ guicontrol,disable,FERAD5B
 guicontrol,disable,FEDDLD
 return
 
+
+MediaFEBUTL:
+gui,submit,nohide
+
+return
 
 MedaiFELBXB:
 ;;showimage;;
@@ -33883,7 +33896,7 @@ guicontrol,show,utlPRGA
 guicontrol,move,utlPRGA, x753 y44 w8 h459 -Smooth Vertical
 guicontrol,show,utlPRGA
 
-guicontrol,move,utlBUTJ, x685 y476 w68 h23
+guicontrol,move,utlBUTJ, x685 y445 w68 h23
 guicontrol,show,utlBUTJ
 guicontrol,enable,utlBUTJ
 guicontrol,,utlBUTJ,Create
@@ -33893,10 +33906,15 @@ guicontrol,enable,utlBUTC
 guicontrol,show,utlBUTC
 guicontrol,,utlBUTC,Out-File
 
-guicontrol,move,utlBUTD, x372 y116 w51 h20
+guicontrol,move,utlBUTD, x372 y476 w51 h20
 guicontrol,show,utlBUTD
 guicontrol,enable,utlBUTD
-guicontrol,,utlBUTD,Delete
+guicontrol,,utlBUTD,Open
+
+guicontrol,move,utlTXTK, x425 y476 w221 h14
+guicontrol,show,utlTXTK
+guicontrol,enable,utlTXTK
+guicontrol,,utlTXTK,Open compilation-directory in explorer
 
 guicontrol,move,utlBUTE,x370 y41 w51 h18
 guicontrol,show,utlBUTE
@@ -33937,7 +33955,7 @@ guicontrol,move,utlTXTB, x531 y20 w79 h13
 guicontrol,show,utlTXTB
 guicontrol,,utlTXTB,Utility
 
-guicontrol,move,utlTXTC, x447 y449 w259 h13
+guicontrol,move,utlTXTC, x447 y449 w60 h13
 guicontrol,show,utlTXTC
 guicontrol,,utlTXTC,Location
 
@@ -34099,7 +34117,7 @@ return
 
 executableutlBUTD:
 gui,submit,nohide
-
+Run, %comspec% /c explorer "%A_ScriptDir%\executable"
 return
 
 executableutlBUTE:
@@ -53376,7 +53394,7 @@ gosub,DOSOpen
 Return
 }
 imgszset= .png|.bmp|.tif|.svg|.jpg|.gif|.psd
-ifinstring,imgszset,%txtxtn%
+ifinstring,imgszset,%tstxtn%
 	{
 		gosub, IMGOpen
 	}
@@ -54734,8 +54752,6 @@ return
 AutoLaunch:
 gui, submit, nohide
 AUTOLNCH= 1
-if (AUTOLNCH = 0)
-	AUTOLNCH= 0
 return
 
 
@@ -54927,6 +54943,7 @@ LNCHAPP:
 romfj1= 
 romfj2= 
 stringsplit, romfj, romf,#
+
 if (romf <> romfj1)
 	{
 		ifexist, %romfj1%

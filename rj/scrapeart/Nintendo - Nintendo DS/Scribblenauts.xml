@@ -1,0 +1,16 @@
+<Game>
+	<Name>Scribblenauts</Name>
+	<ReleaseDate>2009-09-15T00:00:00-07:00</ReleaseDate>
+	<Plot>What Will You Write? Help Maxwell reach the Starlite by solving each challenge. Write any object you can think of and watch it come to life. Try another word and watch an entirely different solution unfold. With your stylus and imagination, the possibilities are endless!</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/13c861a0-8ef3-4e73-b2a5-bfac05fe0568.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/5abe88e8-6597-4d22-8109-7ad848e5a0cb.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/24886b9f-a17a-4109-a4c9-d12b1acb610b.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/8ea9cb7d-c299-477b-a910-95bfe31c2a69.jpg</fanart1>
+	<fanart2>http://images.launchbox-app.com/ac83458a-79b3-4d0e-8e86-4ddff48f7e95.jpg</fanart2>
+	<Rating>2</Rating>
+	<ESRB>E10+ - Everyone 10+</ESRB>
+	<Genre>Puzzle</Genre>
+	<Developer>5th Cell</Developer>
+	<Publisher>Warner Bros. Interactive</Publisher>
+</game>

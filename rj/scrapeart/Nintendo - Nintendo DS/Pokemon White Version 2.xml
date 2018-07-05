@@ -1,0 +1,20 @@
+<Game>
+	<Name>Pokémon White Version 2</Name>
+	<ReleaseDate>2012-10-07T00:00:00-07:00</ReleaseDate>
+	<Plot>Players return to the region of Unova for Pokémon White Version 2, the sequel to Pokémon White Version. The story takes place two years after the events of the previous game. This time there are new locations available, and the game includes Pokémon from earlier games as well as the new ones introduced in Pokémon Black and White. A total of 277 Pokémon can be caught in this game.  Like in previous games, you control a character in a top-down view as you travel through Unova. You must catch and train Pokémon for your team, to be able to beat the region's gym leaders, challenge the Elite Four and become the champion of Unova. You can connect your game to Pokémon Black and White, and you can transfer over Pokémon from the games Diamond, Pearl, Platinum, HeartGold and SoulSilver. It's possible to use the online capabilities of the Nintendo DS (or 3DS) to download Pokémon and items and battle against other players.</Plot>
+	<nPlayers>2</nPlayers>
+	<1>http://images.launchbox-app.com/618d4335-4502-4a4a-aee6-428034d925ca.png</1>
+	<boxback1>http://images.launchbox-app.com/b37be7ff-fc8b-45d3-b49a-2557a0a72953.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/aeac97c2-5268-444f-aeef-48b4122358b0.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/38aa3283-360c-4c92-bded-02270a2e65dc.png</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/aae34723-fac5-4dfa-91b0-2d81131aa347.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/8cefae9c-3d5f-4ad6-ab99-ce47011bd352.png</fanart1>
+	<snapshot1>http://images.launchbox-app.com/e0e1a6e5-2c3b-4ea4-8c7e-0628da145164.JPG</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/2ec5ad1a-5aff-46bd-b92a-b60b60b0b338.png</snapshot2>
+	<Rating>2.75</Rating>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Pok%C3%A9mon_Black_2_and_White_2</WikipediaURL>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Adventure; Role-Playing</Genre>
+	<Developer>Game Freak</Developer>
+	<Publisher>Nintendo</Publisher>
+</game>

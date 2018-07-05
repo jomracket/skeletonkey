@@ -1,0 +1,20 @@
+<Game>
+	<Name>WarioWare- Touched!</Name>
+	<ReleaseDate>2005-02-14T00:00:00-08:00</ReleaseDate>
+	<Plot>Wario makes his debut on the Nintendo DS with hundreds of all-new minigames. Now you must complete your goals by using the touch screen and a stylus. Tap, scratch, and rub your stylus on the touch screen to play minigames that have you do everything from milking a cow and drawing a mustache to hurling stars at evil ninjas. You can even play some minigames by blowing into the DS's built-in microphone. The more minigames you clear, the more characters and items you unlock.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/07e782aa-4f28-4f6c-96cb-0013323e19d0.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/c3ac7512-64bc-4ff8-810d-84aa7fd005e6.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/f5c161e4-bf51-4e25-a6bc-a3e038f335c7.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/11d70fbf-182c-4bc9-a03f-499c273d0900.jpg</fanart1>
+	<fanart2>http://images.launchbox-app.com/cb14c869-e4c8-4c13-8894-e90f7ee11d0c.jpg</fanart2>
+	<fanart3>http://images.launchbox-app.com/e68d1184-2a96-4423-9952-1f1e47a9af30.jpg</fanart3>
+	<snapshot1>http://images.launchbox-app.com/2a4194b3-3768-4e62-bd11-db51f1584fa7.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/ac8de7b3-629c-4a88-9f2c-e76d68ecf727.png</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/9bc005dd-d496-4a82-ba0d-6ed52db80036.png</snapshot3>
+	<Rating>3.125</Rating>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Action; Puzzle</Genre>
+	<Developer>Nintendo</Developer>
+	<Publisher>Nintendo</Publisher>
+</game>

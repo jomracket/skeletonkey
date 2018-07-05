@@ -1,0 +1,16 @@
+<Game>
+	<Name>Tetris DS</Name>
+	<ReleaseDate>2006-03-20T00:00:00-07:00</ReleaseDate>
+	<Plot>You can rediscover the timeless puzzle game Tetris on your Nintendo DS with Tetris DS. Now you can choose from six different game modes, all of which take advantage of the DS's touch screen. Each game mode features a theme from another Nintendo franchise, such as The Legend of Zelda or Metroid. You can challenge up to nine other players using one cartridge for local multiplayer play or three other players around the world with the DS's Wi-Fi connection.</Plot>
+	<nPlayers>4</nPlayers>
+	<boxback1>http://images.launchbox-app.com/3e33ce34-7c38-486d-8cd6-b107390fd8cb.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/d55070ed-b744-4a0f-b020-b74e9e334ed5.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/64eaa472-75da-45bd-bf31-0008806b3bda.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/b31f803a-f74a-4b19-9a73-3ccefabbfdbe.jpg</fanart1>
+	<fanart2>http://images.launchbox-app.com/42202973-8c34-40ed-a967-f680312ca45a.jpg</fanart2>
+	<Rating>4.0625</Rating>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Puzzle</Genre>
+	<Developer>Nintendo</Developer>
+	<Publisher>Nintendo</Publisher>
+</game>

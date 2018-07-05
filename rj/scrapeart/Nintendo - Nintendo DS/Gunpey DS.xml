@@ -1,0 +1,10 @@
+<Game>
+	<Name>Gunpey DS</Name>
+	<ReleaseDate>2006-11-16T00:00:00-08:00</ReleaseDate>
+	<Plot>Gunpey (グンペイ?), often written as "Gun Pey" or "GunPey", is a series of handheld puzzle games released by Bandai. It was originally released for the WonderSwan, and has been ported to WonderSwan Color, Playstation, Nintendo DS and PlayStation Portable. The game was named as a tribute to the developer of the game, Gunpei Yokoi.[1] He is known for developing several handheld consoles such as Nintendo's Game Boy, Virtual Boy, and Bandai's Wonderswan system. In the series, players move line fragments vertically in a grid in order to make a single branching line connect horizontally from one end to the other. The objective of the game differs by what game mode players choose.</Plot>
+	<nPlayers>2</nPlayers>
+	<boxart1>http://images.launchbox-app.com/d71fe176-4c03-45d4-b1cb-999bfb2cfbe0.jpg</boxart1>
+	<Genre>Puzzle</Genre>
+	<Developer>Q Entertainment</Developer>
+	<Publisher>Namco Bandai</Publisher>
+</game>

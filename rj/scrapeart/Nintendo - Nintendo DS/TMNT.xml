@@ -1,0 +1,12 @@
+<Game>
+	<Name>TMNT</Name>
+	<ReleaseDate>2007-03-20T00:00:00-07:00</ReleaseDate>
+	<Plot>The new TMNT video game uses the same dark and dangerous environments and adventurous themes featured in the new TMNT CGI film being developed by Imagi Animation Studios and Mirage Licensing. The TMNT movie takes place in a New York City plagued by secretive villains and strange, otherworldly creatures. Faced with these perils, the Turtles will experience their most trying time as heroes and as a family, as Raphael, Donatello and Michelangelo lose their focus and struggle to maintain their unity and ninja discipline.</Plot>
+	<nPlayers>4</nPlayers>
+	<boxart1>http://images.launchbox-app.com/f36d226e-fdcf-4c2c-b012-e3bcfd548c77.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/b123bfe2-c8b8-4cb8-9b27-9b499f1c27cc.png</clearlogo1>
+	<ESRB>E10+ - Everyone 10+</ESRB>
+	<Genre>Action; Adventure</Genre>
+	<Developer>Ubisoft Quebec</Developer>
+	<Publisher>Ubisoft</Publisher>
+</game>

@@ -1,0 +1,19 @@
+<Game>
+	<Name>Ace Attorney Investigations- Miles Edgeworth</Name>
+	<ReleaseDate>2010-02-16T00:00:00-08:00</ReleaseDate>
+	<Plot>Ace Attorney Investigations: Miles Edgeworth is the fifth game in the Ace Attorney series. It is an interquel set between Phoenix Wright: Ace Attorney Trials and Tribulations and Apollo Justice: Ace Attorney. This game is a standard "point and click" adventure, with the player controlling Edgeworth's movements and what he interacts with. For each case, the goal is to collect evidence to determine who the perpetrator is, how the crime was committed and their motive. This is presented as a combination of a third-person view showing the characters at the crime scene and through animated close-up images of the characters, annotated by text dialog. In some cases, still images are used to highlight dramatic scenes.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/77c09439-0591-4e9e-96e0-153dc98de7ac.png</boxback1>
+	<boxart1>http://images.launchbox-app.com/1c938929-3a55-44fd-994e-b0a9809aef44.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/07d8cc52-454f-4343-88e6-43d9fe8df2e4.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/15139d33-46a7-449b-bc95-8f356626c1e9.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/d3004d6d-8dd4-4fba-be14-5c481b831120.jpg</fanart1>
+	<fanart2>http://images.launchbox-app.com/8eae9666-6cd0-4a3c-91b1-ff80d1210e8d.jpg</fanart2>
+	<snapshot1>http://images.launchbox-app.com/1ce57812-5bd8-48fd-bd54-302ad0d21d28.png</snapshot1>
+	<Rating>3.3333333333333335</Rating>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Ace_Attorney_Investigations:_Miles_Edgeworth</WikipediaURL>
+	<ESRB>T - Teen</ESRB>
+	<Genre>Adventure; Visual Novel</Genre>
+	<Developer>Capcom</Developer>
+	<Publisher>Capcom</Publisher>
+</game>

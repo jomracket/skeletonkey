@@ -1,0 +1,13 @@
+<Game>
+	<Name>Puyo Puyo!!- 20th Anniversary</Name>
+	<ReleaseDate>2011-07-14T00:00:00-07:00</ReleaseDate>
+	<Plot>Puyo Puyo!! 20th Anniversary is a puzzle game developed by Sonic Team and published by Sega. The game honored the twentieth year of the Puyo Puyo series, and was first released for the Nintendo DS in July 2011, and later for Wii, Nintendo 3DS, and PlayStation Portable in December 2011.</Plot>
+	<nPlayers>8</nPlayers>
+	<boxback1>http://images.launchbox-app.com/42adad4a-c324-41d3-a7d4-3f4a834f3fbe.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/8e3fd69a-8854-4b0a-acf7-1653c167e2f2.jpg</boxart1>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Puyo_Puyo!!_20th_Anniversary</WikipediaURL>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Puzzle</Genre>
+	<Developer>Sonic Team</Developer>
+	<Publisher>Sega</Publisher>
+</game>

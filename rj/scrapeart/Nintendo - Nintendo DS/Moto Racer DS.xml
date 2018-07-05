@@ -1,0 +1,14 @@
+<Game>
+	<Name>Moto Racer DS</Name>
+	<ReleaseDate>2010-06-03T00:00:00-07:00</ReleaseDate>
+	<Plot>In Moto Racer DS, the player races motorcycles in various settings in order to complete the game. The game has races on both dirt and paved roads, and contains a number of different game modes: Moto GP, Traffic, Supercross, and Freestyle. Moto GP makes up the core of the game, where the player races against the computer in a series of different races on pavement. A championship mode inside of Moto GP places the player in a tournament where to advance, they are required to place at a certain level. Multiple people can play each other in races through the multiplayer function in Moto GP.</Plot>
+	<nPlayers>4</nPlayers>
+	<boxback1>http://images.launchbox-app.com/c8c5b787-9527-45be-b1b1-7bc17d0e17bc.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/a09e6878-a452-4281-adba-d58ccb29603d.jpg</boxart1>
+	<fanart1>http://images.launchbox-app.com/3047e09b-6610-484b-b2b8-45bd680952ec.jpg</fanart1>
+	<Rating>3.5</Rating>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Racing</Genre>
+	<Developer>Nobilis</Developer>
+	<Publisher>SouthPeak Games</Publisher>
+</game>
