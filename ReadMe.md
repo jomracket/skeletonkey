@@ -1,6 +1,6 @@
-skeletonKey v0.99.54.38
+skeletonKey v0.99.55.00
 
- 2018-07-05 1:49 PM
+ 2018-07-06 1:15 PM
  
 by romjacket 
 
@@ -50,11 +50,13 @@ To deploy your own installer, binary and website (including this tool) you will 
 		
 		Github-release:
 				http://github.com/romjacket/githubrelease/
+				
 (to deploy and maintain the binaries you release)
 
 License information:
+This software is for personal, non-commercial use only.
 You can't deploy this tool in any manner which facilitates financial profit.  
 Only authorized parties may distribute this tool in any manner which includes software whose source has not been opened.  
-In no way can you use this tool to facilitate piracy.  
+In no way can you deploy this tool to facilitate piracy.  
 You must include this readme file when distributing any binary.
 You cannot modify this readme file or any other included license files in any manner not created or modified by romjacket via the original deployment tool.

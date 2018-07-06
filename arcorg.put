@@ -62,6 +62,7 @@ MAME - Arcade=MAME_0.197_ROMs_merged/MAME_0.197_ROMs_merged.zip/MAME 0.197 ROMs 
 MAME - Systems=MAME_0.193_Software_List_ROMs_split/MAME_0.193_Software_List_ROMs_split.zip/MAME 0.193 Software List ROMs (split)/
 MAME_C=MAME_0.197_ROMs_merged/MAME_0.197_ROMs_merged.zip/MAME 0.197 ROMs (merged)/
 MAME - BIOS=MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS 0.151 ROMs/
+_firmware_=MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS 0.151 ROMs/
 Mattel - Intellivision=MattelIntellivision2014ReferenceSet-CompleteTosecRomCollection/Mattel Intellivision - Games (TOSEC-v2014-01-18_CM)/
 Microkey - Primo=Microkey_Primo_TOSEC_2012_04_23/Microkey_Primo_TOSEC_2012_04_23.zip/
 Microsoft - MSX TurboR=MSX_TurboR_TOSEC_2012_04_23/MSX_TurboR_TOSEC_2012_04_23.zip/

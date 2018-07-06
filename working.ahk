@@ -268,14 +268,14 @@ IniRead, RaExeFile, Settings.ini,GLOBAL,retroarch_executable
 
 IniRead, RAVERS, Settings.ini,GLOBAL,retroarch_Version
 if (RAVERS = "ERROR")
-{
-	RAVERS= not detected
-}
+	{
+		RAVERS= not detected
+	}
 IniRead, RAVBLD, Settings.ini,GLOBAL,retroarch_build
 if (RAVBLD = "ERROR")
-{
-	RAVBLD= not detected
-}
+	{
+		RAVBLD= not detected
+	}
 /*
 
 IfNotExist, %raexeloc%\%RaExeFile%
@@ -307,16 +307,14 @@ Loop, Read, Settings.ini
 					}
 				MIRDDLOC.= mirlocv1 . "|"
 			}
-Loop, Parse, SysEmuSet,`n`r
-	{
-		stringsplit,gaminsl,A_LoopField,|
-		ifinstring,gaminsl1,%syspfl%
+		Loop, Parse, SysEmuSet,`n`r
 			{
-				syssub= %gaminsl1%
+				stringsplit,gaminsl,A_LoopField,|
+				ifinstring,gaminsl1,%syspfl%
+					{
+						syssub= %gaminsl1%
+					}
 			}
-	}
-
-			
 	}
 CMIR1= Mirror_1
 if (MIRDDLOC = "")
@@ -471,16 +469,21 @@ stringreplace, SysEmuSet, SysEmuSet,",,All
 FileRead, EmuPartSet, EmuParts.set
 stringreplace,EmuPartSet,EmuPartSet,[ARCH],%ARCH%,All
 IniRead,repoloc,Settings.ini,GLOBAL,Emulator_Repository
-gosub, RBLDRUNLST	
-	if (repoloc = "ERROR")
-		{
+gosub, RBLDRUNLST
+if (repoloc = "ERROR")
+	{
 		FileReadLine,repoloc,arcorg.set,2
 	}
 FilereadLine,scrsup,rj\ScrapeArt\supported.set,1
 Loop, Parse, scrsup,/
 	{
-		ifinstring,SysEmuSet,%A_LoopField%=
-		dispsup.= A_LoopField . "|"
+		ifinstring,SysEmuSet,%A_LoopField%|
+			{
+				ifnotinstring,dispsup,%A_LoopField%|
+					{
+						dispsup.= A_LoopField . "|"
+					}
+			}
 	}
 systoemu=
 Loop, Parse, SysEmuSet,`n`r
@@ -644,6 +647,8 @@ Loop, rj\emuCfgs\*,2
 netiterate= network_cmd_port|netplay_nickname|netplay_ip_address|netplay_ip_port|netplay_check_frames|netplay_client_swap_input|netplay_password|netplay_spectate_password|netplay_stateless_mode|netplay_Input_Latency_Frames_Min|netplay_Input_Latency_Frames_Range|netplay_Nat_Traversal|netplay_Use_Mitm_Server|netplay_Mitm_Server|netplay_Allow_Slaves|netplay_Require_Slaves
 
 mediaordert= theGamesDB|OpenVGDB|ScreenScraper|arcadeitalia|mamedb|IARL
+
+noinstallers= |Media|Mirrored_Links|IRAL|AdvancedLauncher|ROM_Collection_Browser|MediaBrowser|ICE|
 
 INPKND= KB|J|AXIS
 PLAYERSET=1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16
@@ -1591,13 +1596,14 @@ Gui, Add, CheckBox,  x174 y105 vSKFILTSUP gSKFILTSUP, Filter Unsupported
 Gui,Font,Normal
 
 Gui, Font, Bold
-Gui Add, GroupBox, x260 y270 w300 h64 Right, Playlists
+Gui Add, GroupBox, x72 y270 w445 h64 Right, Playlists
+Gui, Add, Text, x72 y469 w88 h27 vTMPDIRTXT, Temp Directory
 Gui Add, Button, x516 y296 w43 h23 vplaylset gplaylset,SET
 Gui, Font, normal
 Gui Add, Edit, x77 y285 w439 h41 Right vplaylisttxt ReadOnly, %playlistloc%
 
 Gui, Font, Bold
-Gui Add, GroupBox, x260 y333 w300 h61 Right, History
+Gui Add, GroupBox, x72 y333 w445 h64 Right, History
 Gui Add, Button, x516 y361 w43 h23 vhistset ghistset,SET
 Gui, Font, normal
 Gui Add, Edit, x77 y346 w438 h44 Right vhisttxt ReadOnly, %historyloc%
@@ -1618,14 +1624,13 @@ Gui, Add, CheckBox, x347 y7 vAUTOPGS gAUTOPGS %AUTOPGSIO%, Auto-Load Per-Game Se
 
 Gui, Add, Text, x577 y42 vSKRJQTXT, %RJQNUM% systems
 Gui, Add, Text, x582 y86 vSKDISPLCHTXT, DisplayChanger is %DCHINST%
-Gui, Add, Edit, x116 y129 w441 h40 Multi ReadOnly vSKEMUDISP, %RJEMUD%
+Gui, Add, Edit, x117 y129 w443 h40 Multi ReadOnly vSKEMUDISP, %RJEMUD%
 
 Gui, Add, Button, x706 y61 w46 h20 vSKCLRQ gDELRJQ, CLEAR
 Gui, Add, Text, x627 y41 vSKCLRTXT, in the RoM-Jacket queue
 
 Gui, Add, Edit, x193 y433 w353 h44 vtmpdispl Multi ReadOnly, %cacheloc%
 Gui, Add, Button, x148 y442 w43 h23 vSETTMPD gSETTMPD, SET
-Gui, Add, Text, x115 y466 w75 h23 vTMPDIRTXT, Temp Directory
 Gui, Add, GroupBox, x4 y-5 w560 h207 vBLNKGRP
 
 
@@ -2534,7 +2539,7 @@ Progress, 30,Loading Playlist Interface ....
 Gui, Tab, 5
 Gui, Tab, Playlists
 Gui, Add, DropDownList,x24 y22 w283 vDWNLPOS gPopDownloads, :=:System List:=:||%systmfldrs%
-Gui, Add, CheckBox, x325 y15 w15 h16 vRECURSE gRECURSE
+Gui, Add, CheckBox, x325 y15 w15 h16 vRECURSE gRECURSE,
 Gui, Add, Text, x312 y31 w39 h13 vRECURTX hidden, Recurse
 
 Gui, Add, Radio, x22 y46 vEXCLBOOL gINCLBool hidden checked, exclude
@@ -2553,7 +2558,7 @@ Gui, Add, GroupBox, x356 y140 w58 h91 vPLGBA
 Gui, Add, GroupBox, x391 y295 w58 h126 vPLGBB
 
 Gui,Font,%fontXsm% Bold
-Gui, Add, Button, x312 y22 w30 h21 vPLALSYSBUT gPLALSYSBUT hidden, ALL
+;;Gui, Add, Button, x312 y22 w30 h21 vPLALSYSBUT gPLALSYSBUT hidden, ALL
 Gui, Add, GroupBox, x447 y0 w304 h500 Right vPLGBC, Frontend
 Gui, Add, GroupBox, x11 y4 w346 h493 +0x400000 vPLGBD, Drag and Drop ROMs here
 Gui,Font,%fontXsm% Norm
@@ -4787,8 +4792,12 @@ If A_GuiControlEvent RightClick
 		}
 	if A_GuiControl = FELVA
 		{
-			if (FEDDLJ = "EmulationStation")
+			if (FENAM = "EmulationStation")
 				{
+					if (FERAD5C = 1)
+						{
+							return
+						}
 					if (SelectedRow <> 0)
 						{
 							Menu, ESRCLMENU, Show, %A_GuiX% %A_GuiY%
@@ -11142,6 +11151,13 @@ if (UAVAIL = "Antimicro")
 		guicontrol,show,EMUASIGN
 		guicontrol,,EMUASIGN,Default Keymapper
 	}
+
+ifinstring,noinstallers,%UAVAIL%
+	{
+		guicontrol,disable,CHEMUINST
+		guicontrol,disable,EMUINST
+		guicontrol,disable,INSTEMUDDL
+	}	
 return
 
 ;{;;;;;;;;;;;;;;;;;  READ MAMELM  ;;;;;;;;;;;;;;;;
@@ -11418,6 +11434,7 @@ Loop, Parse, SysEmuSet,`n`r
 			}
 		if (stemu1 = semu)
 			{
+				guicontrol,enable,INSTEMUDDL
 				selfnd= %stemu2%
 				guicontrol,,INSTEMUDDL,|%stemu2%||%emuplst%|%emuinstpop%Other
 				gosub, ChkMu
@@ -11444,7 +11461,6 @@ guicontrol,enable,EMEDTO
 guicontrol,enable,EMBUTH
 
 guicontrol,enable,DSKMNTCHK
-
 gosub, EMRAD11B
 ifexist, %RJSYSTEMS%\%semu%
 	{
@@ -15367,7 +15383,7 @@ if (fenam = "XMB")
 		guicontrol,%xmbtog%,PLLISTALL
 		guicontrol,%xmbtog%,PLLISTN
 		guicontrol,%xmbtog%,PLLISTSORT
-		guicontrol,hide,RECURTX
+		guicontrol,%xmbtog%,RECURTX
 		guicontrol,hide,EXCLBOOL
 		guicontrol,hide,INCLBOOL
 		guicontrol,hide,PARSEALL
@@ -20119,13 +20135,17 @@ loop, Parse, ArcOrgSet,`n`r
 		ARCSUBS= %ARCSYS%
 		if (MAMESWCHK = 1)
 			{
-				ARCSUBS= MAME - Systems
+				if (ARCSYS <> "_firmware_")
+					{
+						ARCSUBS= MAME - Systems
+					}
 			}
 		gamurl1= 
 		gamurl2= 
 		gamurl3= 
 		stringsplit,gamurl,A_LoopField,=
 			{
+
 				if (gamurl1 = ARCSUBS)
 					{
 						sysurl= %gamurl2%
@@ -27058,7 +27078,7 @@ guicontrol,,FEBUTI,cancel
 guicontrol,hide,FEBUTL
 guicontrol,enable,FEBUTL
 guicontrol,move,FEBUTL,x619 y214 w36 h17
-guicontrol,,FEBUTIL,open
+guicontrol,,FEBUTL,open
 
 guicontrol,hide,FELNKA
 guicontrol, ,FELNKA,<a href="http://screenscraper.fr">screenscraper.fr</a>
@@ -27254,7 +27274,7 @@ guicontrol,,FERAD2C, 0
 
 guicontrol,hide,FERAD7A
 guicontrol,enable,FERAD7A
-guicontrol,move,FERAD7A,x557 y212 w77 h13
+guicontrol,move,FERAD7A,x557 y212 w40 h13
 guicontrol,,FERAD7A,Strict
 guicontrol,,FERAD7A, 1
 
@@ -29771,7 +29791,7 @@ guicontrol,,FECHKM,0
 
 
 guicontrol,hide,FETXTB
-guicontrol,hide,FEBUTL
+guicontrol,show,FEBUTL
 guicontrol,hide,FETXTC
 guicontrol,hide,FETXTD
 guicontrol,hide,FETXTE
@@ -29922,7 +29942,14 @@ return
 
 MediaFEBUTL:
 gui,submit,nohide
-
+guicontrolget,feDDLE,,feDDLE
+guicontrolget,msyn,,FELVA
+if (FERAD2B = 1)
+	{
+		guicontrolget,msyn,,FEDDLA
+	}	
+SB_SetText("opening " assets " " msyn " folder ")
+Run, %comspec% /c explorer "%A_ScriptDir%\%ASSETS%\%msyn%"
 return
 
 MedaiFELBXB:
@@ -55397,6 +55424,13 @@ coreselv= %lcore%
 ifinstring,lcore,_libretro.dll
 	{
 		APLN= 
+	}
+ifinstring,runcfginj,|%lcore%|
+	{
+		try, gosub, %lcore%precfg
+			catch{
+			SB_SetText(" NO CFG FOUND ")
+			}
 	}
 guicontrolget,romf,,RUNROMCBX
 romfj1= 

@@ -62,7 +62,7 @@ mgba_libretro.dll|Nintendo - Game Boy Color
 gearboy_libretro.dll|Nintendo - Game Boy
 gearboy_libretro.dll|Nintendo - Game Boy Color
 mupen64plus_libretro.dll|Nintendo - Nintendo 64
-np2_libretro.dll|NEC - PC98
+np2kai_libretro.dll|NEC - PC98
 nekop2_libretro.dll|NEC - PC98
 o2em_libretro.dll|Magnavox - Odyssey2
 picodrive_libretro.dll|Sega - 32X

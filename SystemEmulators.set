@@ -222,7 +222,7 @@ NEC - PC-FX|Mednafen|:mednafen_pcfx_libretro.dll|mame_libretro.dll
 NEC - PC88-VA|Neko|m88|mx88|MAME|:mame_libretro.dll
 NEC - PC8801|Neko|m88|mx88|MAME|:mame_libretro.dll
 NEC - PC88|Neko|m88|mx88|MAME|:mame_libretro.dll
-NEC - PC98|Neko|Anex86|SL9821|pc98do|pc98ha|pc98lt|pc9801|MAME|:np2_libretro.dll|nekop2_libretro.dll|mame_libretro.dll
+NEC - PC98|Neko|Anex86|SL9821|pc98do|pc98ha|pc98lt|pc9801|MAME|:np2kai_libretro.dll|nekop2_libretro.dll|mame_libretro.dll
 NPO - Elektronika MS 1502|MAME|:mame_libretro.dll
 Nascom Microcomputers - Nascom 1 - 2|MAME|:mame_libretro.dll
 NeXT - NeXTStation|MAME|:mame_libretro.dll
@@ -398,7 +398,7 @@ Tomy - Prin-C|MAME|:mame_libretro.dll
 Tomy - Tutor - Pyuuta|MAME|:mame_libretro.dll
 Tomy - Tutor|MAME|:mame_libretro.dll
 Toshiba - Visicom|MAME|:mame_libretro.dll
-Touhou|Anex86|Winx68k|:nekop2_libretro.dll|np2_libretro.dll|mame_libretro.dll
+Touhou|Anex86|Winx68k|:nekop2_libretro.dll|np2kai_libretro.dll|mame_libretro.dll
 Triumph-Adler - Alphatronic PC|MAME|:mame_libretro.dll
 Unisonic - Champion 2711|MAME|:mame_libretro.dll
 V-Tech - Laser 2001|MAME|:mame_libretro.dll
