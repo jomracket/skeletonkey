@@ -2845,6 +2845,7 @@ Gui, Add, Picture, x0 y0 w1 h1 vfePICE gfePICE %fevis%, ;ins.png
 Gui, Add, Picture, x0 y0 w1 h1 vfePICF gfePICF %fevis%, ;ins.png
 Gui, Add, Picture, x0 y0 w1 h1 vfePICG gfePICG %fevis%, ;ins.png
 Gui, Add, Link, x0 y0 w1 h1 vfeLNKA gfeLNKA %fevis%,
+Gui, Add, Link, x0 y0 w1 h1 vfeLNKB gfeLNKB %fevis%,
 Gui, Add, CheckBox, x128 y120 vfeCHKD gfeCHKD %fevis%, feCHKD
 Gui, Add, CheckBox, x128 y144 vfeCHKE gfeCHKE %fevis%, feCHKE
 Gui, Add, CheckBox, x128 y168 vfeCHKF gfeCHKF %fevis%, feCHKF
@@ -26172,6 +26173,11 @@ gui,submit,nohide
 gosub,%FENAM%feLNKA
 return
 
+feLNKB:
+gui,submit,nohide
+gosub,%FENAM%feLNKB
+return
+
 feCHKD:
 gui,submit,nohide
 gosub,%FENAM%feCHKD
@@ -26688,6 +26694,7 @@ guicontrol, %fetog%, feDDLG
 guicontrol, %fetog%, feDDLH
 guicontrol, %fetog%, feDDLI
 guicontrol, %fetog%, feLNKA
+guicontrol, %fetog%, feLNKB
 ;;guicontrol, %fetog%, feDDLJ
 guicontrol, %fetog%, feDDLC
 guicontrol, %fetog%, feDDLD
@@ -27079,6 +27086,15 @@ guicontrol,hide,FEBUTL
 guicontrol,enable,FEBUTL
 guicontrol,move,FEBUTL,x619 y214 w36 h17
 guicontrol,,FEBUTL,open
+
+pylinkd= hide
+if (PYEXIST = "")
+	{
+		pylinkd= show
+	}
+guicontrol,%pylinkd%,FELNKB
+guicontrol, ,FELNKB,<a href="https://www.python.org/downloads/">Python is needed to download videos.</a>
+guicontrol,move,FELNKB,x259 y473 w228 h13
 
 guicontrol,hide,FELNKA
 guicontrol, ,FELNKA,<a href="http://screenscraper.fr">screenscraper.fr</a>
@@ -29449,6 +29465,12 @@ guicontrol,,FETXTF,%ESROMMEDPTH%
 return
 
 MediaFELNKA:
+
+return
+
+
+MediaFELNKB:
+
 return
 
 
@@ -35032,12 +35054,14 @@ return
 
 RJLSTV:
 gui,submit,nohide
+guicontrolget,curselx,,RJLSTV
 if (A_GuiEvent = RightClick)
 		{
 			return
 		}
 if	(ErrorLevel == "C")
 		{
+			curselx= 
 			LV_Modify(A_EventInfo, "+Select")				
 			LV_GetNext(A_EventInfo, Focused)
 			LV_GetText(curtxt, A_EventInfo)	
@@ -35045,28 +35069,41 @@ if	(ErrorLevel == "C")
 		}
     Else if	(ErrorLevel == "c")
        {			
+			curselx= 
 			LV_Modify(A_EventInfo, "+Select")
 			LV_GetNext(A_EventInfo, Focused)
 			LV_GetText(curtxt, A_EventInfo)
 			stringreplace,RJSYSDD_TDB,RJSYSDD_TDB,%curtxt%|1,%curtxt%|0,All
 	   }
-;;SB_settext(curtxt)	   
+;;SB_settext(curtxt)
+if (curselx <> "")
+	{
+		curslen=
+		Loop, Parse, curselx,`n
+			{
+				curslen+=1
+				if (curslen > 1)
+					{
+						return
+					}
+			}	
+	}
 If (A_GuiEvent == "F") {
    If (RJRN1["Changed"]) {
 	  Msg := ""
 	  For I, O In RJRN1.Changed
 		 Msg .= "Row " . O.Row . " - Column " . O.Col . " : " . O.Txt
 	  RJRN1.Remove("Changed")
-	  SB_SetText("changed " curtxt " to " O.Txt "")
+	  SB_SetText("changed " curselx " to " O.Txt "")
 	  fifi := O.txt
-	ifnotinstring,curtxt,:
+	ifnotinstring,curselx,:
 		{
 		  FileMove,%RJSYSTEMS%\%oldtxt%,%RJSYSTEMS%\%fifi%,1
 		}
-	ifinstring,curtxt,:
+	ifinstring,curselx,:
 		{
 		  stringreplace,rnmdir,fifi,:,,All
-		  stringreplace,oldtxt,curtxt,:,,All
+		  stringreplace,oldtxt,curselx,:,,All
 		  FileMoveDir,%RJSYSTEMS%\%RJSYSDD%\%oldtxt%,%RJSYSTEMS%\%RJSYSDD%\%rnmdir%,1
 		}
 	  }
