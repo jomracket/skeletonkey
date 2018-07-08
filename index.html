@@ -844,12 +844,14 @@
 	<div id="outer" align="left">
 		<div id="inner">
 		<h3>ExecutABLES</h3>
-						<p>Creating an executable is a feature unique to skeletonKey where ROMs are compiled into a portable executable. The ROM, any additional files specified by the user, an emulator and special configuration files are compiled and saved to the location of your designation.<br><br>			
-						  <a class="lightbox" href="https://www.youtube.com/embed/Qt234aDYMZ4?showinfo=0"><strong>VIDEO:&gt; </strong>  Executable Creation</a></p>
+						<p>Creating an executable is a feature unique to skeletonKey where ROMs are compiled into a portable executable. The ROM, any additional files specified by the user, an emulator and special configuration files are compiled and saved to the location of your designation.</p><br>			
+						  <a class="lightbox" href="https://www.youtube.com/embed/Qt234aDYMZ4?showinfo=0"><strong>VIDEO:&gt; </strong>  Executable Creation</a>
+						  <br>
+						  <br>
 						<div class="tab1">
-						  <input id="tab-romxe" name="tab-romxe" type="checkbox">
-						  <label for="tab-romxe">Executable Details }&gt;</label>
-						  <div class="tab-content1">
+						  <input id="tab-romExe" name="tab-romExe" type="checkbox">
+						  <label for="tab-romExe">Executable Details }&gt;</label>
+						  <div class="tab-content">
 						    <p>Creating one requires an emulator executable and at least one ROM file.<br>
 						      Selecting an emulator preset will download the emulator and extract it to the <code>...skeletonKey\executable\emu</code> directory<br>
 						      Add ROMs to your executable by dragging and dropping ROM files to the list on the left. Alternatively, you may use the &quot;Add&quot; button which will allow you to select them via skeletonKey's file-browser. ROM files are copied to the <code>...skeletonKey\executable\roms</code> directory.<br>
@@ -1386,6 +1388,7 @@ ul.topnav li a {
   text-decoration: none;
   transition: 0.3s;
   font-size: 17px;
+	z-index: 2;
 }
 
 ul.topnav li a:hover {background-color: #111;}

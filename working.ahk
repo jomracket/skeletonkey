@@ -2136,7 +2136,7 @@ Gui, Add, Text, x633 y191 h23 vOPTTXT hidden, options
 Gui, Add, Text, x633 y215 h23 vARGTXT hidden, arguments
 
 Gui, Add, CheckBox, x595 y122 h17 vEMUPGC gEmuPGC Checked hidden, Per-Game Configurations
-Gui, Add, Radio, x506 y241 h23 vERUN gERun Checked Hidden, RUN from emulator path
+Gui, Add, Radio, x5 06 y241 h23 vERUN gERun Checked Hidden, RUN from emulator path
 Gui, Add, Radio, x506 y260 h23 vLRUN gLRun Hidden, RUN from ROM path
 Gui, Add, CheckBox, x505 y283 h17 vNoExtn gNoExtn Hidden, Omit extension at runtime
 Gui, Add, CheckBox, x649 y244 h23 vOMITQ gOmitQ hidden, Omit-Quotes
@@ -2540,7 +2540,7 @@ Gui, Tab, 5
 Gui, Tab, Playlists
 Gui, Add, DropDownList,x24 y22 w283 vDWNLPOS gPopDownloads, :=:System List:=:||%systmfldrs%
 Gui, Add, CheckBox, x325 y15 w15 h16 vRECURSE gRECURSE,
-Gui, Add, Text, x312 y31 w39 h13 vRECURTX hidden, Recurse
+Gui, Add, Text, x312 y31 w39 h13 vRECURTX, Recurse
 
 Gui, Add, Radio, x22 y46 vEXCLBOOL gINCLBool hidden checked, exclude
 Gui, Add, Radio, x81 y46 vINCLBOOL gINCLBool hidden, include
@@ -8154,6 +8154,7 @@ guicontrol,disable,SRCHROMBUT
 sanm:= SRCHROMEDT
 gosub,SanitizeN
 SRCHROMEDT:= sanm
+splitpath,SRCHLOCDDL,,,,SRCHLOCNM
 if (SRCHPLRAD = 1)
 	{
 		if (SRCHLOCDDL = "All_Playlists")
@@ -8201,6 +8202,8 @@ if (SRCHPLRAD = 1)
 					plnuminc= 
 				}
 			}
+		stringreplace,lsrchpop,lsrchpop,%RJSYSTEMS%\%SRCHLOCNM%\,,All
+
 ;;		guicontrol,,RUNROMCBX, |%lsrchpop%	
 		guicontrol,,SRCHROMLBX, |%lsrchpop%	
 		guicontrol,enable,SRCHROMBUT
@@ -8232,6 +8235,10 @@ existingpop=
 Loop,%LOCSRCHFLDR%\*%SRCHROMEDT%*,,%SRCHRCRSCHK%
 	{
 		ext= %A_LoopFileExt%
+		if (ext = "")
+			{
+				continue
+			}
 		noapl= 
 		for k, v in ar
 			{
@@ -8246,6 +8253,9 @@ Loop,%LOCSRCHFLDR%\*%SRCHROMEDT%*,,%SRCHRCRSCHK%
 				lsrchpop .= A_LoopFileFullPath . "|"
 			}
 	}
+	
+	stringreplace,lsrchpop,lsrchpop,%LOCSRCHFLDR%\,,All
+	
 guicontrolget, existingpop,,SRCHROMLBX
 ;;guicontrol,,RUNROMCBX,|%existingpop%|%lsrchpop%
 guicontrol,,SRCHROMLBX,|%existingpop%|%lsrchpop%
@@ -8279,11 +8289,20 @@ Loop, Parse, romOVf,|
 	}
 Loop, Parse, romOVf,|
 	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
 		romf= %A_LoopField%
+		ifnotinstring,romf,:
+			{
+				romf_= %RJSYSTEMS%\%SRCHLOCDDL%\%romf%
+				romf= %romf_%
+			}
 		SRCHOVRD= 1
 		if (SRCHFLRAD = 1)
 			{
-				stringreplace,nocad,A_LoopField,%RJSYSTEMS%\,,All
+				stringreplace,nocad,romf,%RJSYSTEMS%\,,All
 				isofldr1= 
 				StringSplit,isofldr,nocad,\
 				SRCHLOCDDL:= isofldr1
@@ -8314,7 +8333,6 @@ Loop, Parse, romOVf,|
 						gosub, RUNSYSDDL
 					}
 				GRPOVRD= 0
-				romf= %A_LoopField%	
 			}
 		SRCHOVRD= 
 		if (SRCHPLRAD = 1)
@@ -15380,6 +15398,7 @@ if (fenam = "XMB")
 		gosub,HideOtherFEPL
 		guicontrol,%xmbtog%,DWNLPOS
 		guicontrol,%xmbtog%,RECURSE
+		guicontrol,%xmbtog%,RECURTX
 		guicontrol,%xmbtog%,PLALSYSBUT
 		guicontrol,%xmbtog%,PLLISTALL
 		guicontrol,%xmbtog%,PLLISTN
@@ -15785,6 +15804,7 @@ return
 RPopPl:
 gui,submit,nohide
 guicontrol, hide, RECURSE
+guicontrol, hide, RECURTX
 guicontrol,,DWNLPOS,|Playlists||%plistfiles%
 return
 
@@ -15794,6 +15814,7 @@ gui,submit,nohide
 guicontrolget,fenam,,PLISTTYP
 
 guicontrol, show, RECURSE
+guicontrol, show, RECURTX
 guicontrol,,DWNLPOS,|:=:System List:=:||%systmfldrs%
 return
 
@@ -16274,6 +16295,7 @@ Loop,%RJSYSTEMS%\%DWNLPOS%\*.*,,%RECURSE%
 				POPLDWN .= A_LoopFileFullPath . "|"
 			}
 	}
+stringreplace,POPLDWN,POPLDWN,%RJSYSTEMS%\%DWNLPOS%\,,All
 guicontrol,,ROMPOP,|%POPLDWN%
 SB_SetText("")
 return
@@ -16310,6 +16332,8 @@ Loop, Read, %playlistLoc%\%DWNLPOS%,|
 				PLineAdd= 
 			}
 	}
+splitpath,DWNLPOS,,,,DWNLPOZ	
+stringreplace,poptadd,popdadd,%RJSYSTEMS%\%DWNLPOZ%\,,All
 guicontrol,,ROMPOP,|%poptadd%
 gosub, EDTROM
 return
@@ -16355,6 +16379,7 @@ Loop,%RJSYSTEMS%\%DWNLPOS%\*.*,,%RECURSE%
 				POPLDWN .= A_LoopFileFullPath . "|"
 			}
 	}
+stringreplace,POPLDWN,POPLDWN,%RJSYSTEMS%\%DWNLPOS%\,,All	
 guicontrol,,ROMPOP,|%POPLDWN%
 return
 
@@ -16499,6 +16524,7 @@ if (PARSEALL = 1)
 				guicontrol,,ROMPOP,|%POPLDWN%
 				return
 			}
+		stringreplace,POPLDWN,POPLDWN,%RJSYSTEMS%\%DWNLPOS%\,,All	
 		guicontrol,,ROMPOP,|%existingpop%|%POPLDWN%
 		return
 	}
@@ -16643,7 +16669,13 @@ passlist=
 guicontrolget, passlist, ,ROMPOP 
 Loop, Parse, passlist,|
 	{
-		existlst.= A_LoopField . pldelim . coreInJV . "|"
+		ifinstring,A_LoopField,:
+			{
+				existlst.= A_LoopField . pldelim . coreInJV . "|"
+				continue
+			}
+		existlst.= RJSYSTEMS . "\" . DWNLPOS . "\" . A_LoopField . pldelim . coreInJV . "|"
+			
 	}
 guicontrol,,CURPLST, |%existlst%
 gui, submit, nohide
