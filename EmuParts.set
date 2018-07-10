@@ -65,6 +65,7 @@ Unz=Unz/Unz.7z=Unz.exe=Unz.ini=|=*.unz
 VirtuaNes=VirtuaNes/VirtuaNes.7z=VirtuaNes.exe=virtualnes.ini
 VisualBoyAdvance=VisualBoyAdvance/VisualBoyAdvance.7z=VisualBoyAdvance.exe=visualboyadvance.cfg|*.ini=*.sav=*.sgm
 VisualBoyAdvance-M=VisualBoyAdvance-M/VisualBoyAdvance-Mx[ARCH].7z=VisualBoyAdvance-M.exe=v*.ini=*.sav=*.sgm
+vita3k=vita3k/vita3k.7z=Vita3K.exe=
 WinAPE=WinAPE/WinAPE.7z=WinAPE.exe=WinAPE.ini=|=*.sna
 WinArcadia=WinArcadia/WinArcadia.7z=wa.exe=|=*.NVR=*.COS
 WinKawaks=WinKawaks/winkawaks.7z=WinKawaks.exe=

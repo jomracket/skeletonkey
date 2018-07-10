@@ -1584,7 +1584,8 @@ Gui, Tab, 1
 Gui Tab, Settings
 Gui, Add, GroupBox, x566 y14 w195 h321 vSKSUMGB, Summary
 Gui, Add, Link,x712 y484 w45 h18 vDONATELNK gDONATE, <a href="https://www.paypal.me/romjacket">Donate</a>
-Gui, Add, Link,x629 y465 w45 h18 vHelpLink gHelp, <a href="index.html">Help</a>
+gui,font, s16 bold	
+Gui, Add, Link,x579 y415 w75 h24 vHelpLink gHelp, <a href="index.html">Help</a>
 Gui,Font,%fontXmed% Bold
 Gui, Add, Checkbox, x422 y23 vAUTOLNCH gAutoLaunch Checked, Auto-Launch
 Gui ,Add, Picture, x627 y338 w122 h121, key.png
@@ -2136,7 +2137,7 @@ Gui, Add, Text, x633 y191 h23 vOPTTXT hidden, options
 Gui, Add, Text, x633 y215 h23 vARGTXT hidden, arguments
 
 Gui, Add, CheckBox, x595 y122 h17 vEMUPGC gEmuPGC Checked hidden, Per-Game Configurations
-Gui, Add, Radio, x5 06 y241 h23 vERUN gERun Checked Hidden, RUN from emulator path
+Gui, Add, Radio, x506 y241 h23 vERUN gERun Checked Hidden, RUN from emulator path
 Gui, Add, Radio, x506 y260 h23 vLRUN gLRun Hidden, RUN from ROM path
 Gui, Add, CheckBox, x505 y283 h17 vNoExtn gNoExtn Hidden, Omit extension at runtime
 Gui, Add, CheckBox, x649 y244 h23 vOMITQ gOmitQ hidden, Omit-Quotes
@@ -4312,7 +4313,9 @@ return
 
 zpcrcproc:
 CRCZ= 
+CRCZI= 
 ZPSZ= 
+ZPSZI= 
 ROMZ= 
 if (StdOut <> "")
 	{
@@ -4333,12 +4336,21 @@ if (StdOut <> "")
 						ifinstring,evrx1,Path
 							{
 								dskinc+=1
-								splitpath,evrx2,evrfn,evrfd,xtnv
+								if (frz = 1)
+									{
+										splitpath,evrx2,evrfn,evrfd,xtnv
+										ROMZI.= evrx2 . "|"
+										if (xtnv = "")
+											{
+												continue
+											}
+									}
 								ROMZ.= evrx2 . "|"
 							}
 						ifinstring,evrx1,size
 							{
 								ZPSZ:= evrx2
+								ZPSZI.= evrx2 . "|"
 							}
 						ifinstring,evrx1,CRC
 							{
@@ -4347,6 +4359,7 @@ if (StdOut <> "")
 										continue
 									}
 								CRCZ:= evrx2
+								CRCZI.= evrx2 . "|"
 								break
 							}
 					}
@@ -4356,6 +4369,7 @@ if (StdOut <> "")
 				xtnv= %fext%
 			}
 	}
+msgbox,,,romz=%romzi%`n`n%crcz%	
 return
 
 zpkproc:
@@ -5426,7 +5440,7 @@ if (SRCHPLRAD = 1)
 		gamfnd= 
 		Loop, Parse, SRCHROMLVI,|
 			{
-				gamsplv= %A_LoopField%
+				gamsplv= %RJSYSTEMS%\%SRCHLOCVI%\%A_LoopField%
 				stringsplit,gamspli,gamsplv,>
 				Loop, Read, %playlistLoc%\%SRCHLOCDDL%				
 					{
@@ -5633,6 +5647,7 @@ Loop, Parse, romf,`n|
 if (multisel = 1)
 	{
 		guicontrolget,srchfsel,,SRCHROMLBX
+		srchfsel= %RJSYSTEMS%\%SRCHLOCDDL%\%srchfsel%
 		SplitPath, srchfsel,,popdir
 		Run, Explorer "%popdir%"
 		return
@@ -5656,7 +5671,7 @@ if (noadpl = 1)
 	}
 Loop, Parse, itmLst,`n`r|
 	{
-		sinnz:= A_LoopField . ">" . ccoreLBX
+		sinnz:= RJSYSTEMS . "\" . SRCHLOCDDL . "\" . A_LoopField . ">" . ccoreLBX
 		LBEX_Add(insel,sinnz)
 	}
 IF (itmlst <> "")
@@ -16652,6 +16667,10 @@ coreInJV= DETECT
 guicontrolget, ESPLXMP,,ESDWNLPOS
 guicontrol,,ESPLXMP,|%ESPLXMP%|%systmfldrs%|%escommon%
 guicontrolget, coreInJV,,plcore
+if (coreInJV = "")
+	{
+		coreInJV= DETECT
+	}
 pldelim= >
 if (PLISTTYP = "EmulationStation")
 	{
@@ -16677,6 +16696,7 @@ Loop, Parse, passlist,|
 		existlst.= RJSYSTEMS . "\" . DWNLPOS . "\" . A_LoopField . pldelim . coreInJV . "|"
 			
 	}
+
 guicontrol,,CURPLST, |%existlst%
 gui, submit, nohide
 return
@@ -16810,6 +16830,7 @@ if (arcdt = "fbal")
 		ARCDTYP= 1
 	}
 FileDelete,tmp.lpl
+
 Loop, Parse, existlst,|
 	{
 		INZIP= 
@@ -16854,7 +16875,10 @@ Loop, Parse, existlst,|
 			}
 		if (ZIPSEEK = 1)
 			{
+				frz= 1
 				gosub, ZIPCRC
+				msgbox,,,crcdetect=%CRCDETECT%`nzipt=%zipt%`n%crcz%
+				frz= 
 			}
 		if (ZIPSEEK = 0)
 			{
@@ -17150,18 +17174,41 @@ partition=
 gosub, zpcrcproc
 if (CRCZ <> "")
 	{
-
-		SplitPath,ROMZ,zipt,zipp,zipxt,ziprn
-		if (CRCENBL = 1)
+		aknum=
+		afnum= 
+		Loop, Parse, ROMZ,|
 			{
-				CRCZ= 0000000
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				aknum+=1
+				Loop, Parse, CRCZI,|
+					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						afnum+=1
+						if (afnum = aknum)
+							{
+								CRCZ= %A_LoopField%
+								break
+							}
+					}
+				SplitPath,A_LoopField,zipt,zipp,zipxt,ziprn
+				
+				if (CRCENBL = 0)
+					{
+						CRCZ= 0000000
+					}
+				FileAppend,%CrCFLN%#%zipt%`n,tmp.lpl
+				FileAppend,%ziprn%`n,tmp.lpl
+				FileAppend,%CRDETECT%`n,tmp.lpl
+				FileAppend,%NMDETECT%`n,tmp.lpl
+				FileAppend,%CRCZ%|crc`n,tmp.lpl		
+				FileAppend,[PLSYS]`n,tmp.lpl
 			}
-		FileAppend,%CrCFLN%#%zipt%`n,tmp.lpl
-		FileAppend,%ziprn%`n,tmp.lpl
-		FileAppend,%CRDETECT%`n,tmp.lpl
-		FileAppend,%NMDETECT%`n,tmp.lpl
-		FileAppend,%CRCZ%|crc`n,tmp.lpl		
-		FileAppend,[PLSYS]`n,tmp.lpl
 	}
 return
 
