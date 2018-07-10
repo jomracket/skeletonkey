@@ -4345,7 +4345,10 @@ if (StdOut <> "")
 												continue
 											}
 									}
-								ROMZ.= evrx2 . "|"
+								ifnotinstring,ROMZ,%evrx2%|
+									{
+										ROMZ.= evrx2 . "|"
+									}
 							}
 						ifinstring,evrx1,size
 							{
@@ -4369,7 +4372,6 @@ if (StdOut <> "")
 				xtnv= %fext%
 			}
 	}
-msgbox,,,romz=%romzi%`n`n%crcz%	
 return
 
 zpkproc:
@@ -7689,7 +7691,49 @@ if (OPTDLT = 1)
 			romfj2= 
 			filereadline,tolcr,%playlistLoc%\%OPTYP%,%finumb%
 			splitpath,tolcr,coreselv
-			
+			if (tolcr = "DETECT")
+				{
+					inpl= Assignments.ini
+					rereadasini:
+					iniread,fijj,%inpl%,OVERRIDES,%DDLUX%
+					if (fijj = "ERROR")
+						{
+							if (inpl <> "Assignments.set")
+								{
+									inpl= Assignments.set
+									goto, rereadasini
+								}
+							coreselv= mame_libretro.dll
+						}
+					Loop, Parse, fijj,|
+						{
+							if (A_LoopField = "")
+								{
+									continue
+								}
+							coreselv= %A_LoopField%
+							break		
+						}
+					splitpath,fijj,,,,coreselv	
+					if fijj is digit
+						{
+							rereadasset:
+							iniread,fijj,%inpl%,ASSIGNMENTS,%DDLUX%
+							if (fijj = "ERROR")
+								{
+									if (inpl = "Assignments.ini")
+										{
+											inpl= Assignments.set
+											goto, rereadasset
+										}
+									coreselv= mame_libretro.dll	
+								}
+							ifinstring,fijj,_libretro.dll
+								{
+									coreselv= %fijj%
+								}
+						}
+				}
 			stringsplit, romfj, romf,#
 			stringmid,romhnck,romfj1,2,1
 			if (romhnck <> ":")
@@ -16154,7 +16198,7 @@ guicontrol,enable,PARSEALL
 guicontrol,enable,EXTPARSED
 guicontrol,enable,RECURSE
 guicontrol,enable,FLTXT
-return
+;;return
 omitxtv= 
 guicontrolget,RPOPDL,,RPOPDL
 guicontrolget, EXCLBOOL,,EXCLBOOL
@@ -16877,7 +16921,6 @@ Loop, Parse, existlst,|
 			{
 				frz= 1
 				gosub, ZIPCRC
-				msgbox,,,crcdetect=%CRCDETECT%`nzipt=%zipt%`n%crcz%
 				frz= 
 			}
 		if (ZIPSEEK = 0)
@@ -54528,6 +54571,7 @@ ifinstring,OPTYP,.lpl
 stringtrimright,TRPTYP,OPTYP,4
 if (coreselv = "DETECT")
 	{
+		/*
 		iniread,coreindo,Assignments.ini,OVERRIDES,%TRPTYP%
 		if (coreindo <> "ERROR")
 			{
@@ -54536,6 +54580,48 @@ if (coreselv = "DETECT")
 				iniread,coreselv,Assignments.ini,ASSIGNMENTS,%TRPTYP%
 				guicontrol,,LCORE,|%coreselv%||%runlist%
 			}
+		*/
+					inpl= Assignments.ini
+					rersini:
+					iniread,fijj,%inpl%,OVERRIDES,%TRPTYP%
+					if (fijj = "ERROR")
+						{
+							if (inpl <> "Assignments.set")
+								{
+									inpl= Assignments.set
+									goto, rersini
+								}
+							coreselv= mame_libretro.dll
+						}
+					Loop, Parse, fijj,|
+						{
+							if (A_LoopField = "")
+								{
+									continue
+								}
+							coreselv= %A_LoopField%
+							break		
+						}
+					splitpath,fijj,,,,coreselv	
+					if fijj is digit
+						{
+							redasset:
+							iniread,fijj,%inpl%,ASSIGNMENTS,%TRPTYP%
+							if (fijj = "ERROR")
+								{
+									if (inpl = "Assignments.ini")
+										{
+											inpl= Assignments.set
+											goto, redasset
+										}
+									coreselv= mame_libretro.dll	
+								}
+							ifinstring,fijj,_libretro.dll
+								{
+									coreselv= %fijj%
+								}
+						}
+				guicontrol,,LCORE,|%coreselv%||%runlist%
 	}
 ifinstring,TRPTYP,:=:
 	{

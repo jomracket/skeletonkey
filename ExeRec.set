@@ -1510,6 +1510,7 @@ FileInstall,gam\MAME - Systems\z88.gam,gam\MAME - Systems\z88.gam,1
 FileInstall,gam\MAME - Systems\zorba.gam,gam\MAME - Systems\zorba.gam,1
 FileInstall,gam\MAME - Systems\zx80.gam,gam\MAME - Systems\zx80.gam,1
 FileInstall,gam\MAME - Systems\zx81.gam,gam\MAME - Systems\zx81.gam,1
+FileInstall,gam\MAME - Systems\_firmware_.gam,gam\MAME - Systems\_firmware_.gam,1
 FileInstall,rj\emucfgs\rjcmd_header.set,rj\emucfgs\rjcmd_header.set,1
 FileInstall,rj\emucfgs\rjcmd_postjoy.set,rj\emucfgs\rjcmd_postjoy.set,1
 FileInstall,rj\emucfgs\rjcmd_prejoy.set,rj\emucfgs\rjcmd_prejoy.set,1
