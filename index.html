@@ -98,7 +98,14 @@
 	<strong>Released :</strong> <h66>[RDATE]</h66><br></p>
 	<div align="center">
 		<a href="https://www.paypal.me/romjacket"><img alt="" height="67" src="tip.png" width="64"></a> now @ $[PAYPAL].00 !!<br>
-		<input name="cmd" type="hidden" value="_s-xclick"> <input name="hosted_button_id" type="hidden" value="BEVC56LWSH6SU"> <a href="https://www.paypal.me/romjacket"><strong>you wanna see my donation-face ??</strong></a><br>
+		<input name="cmd" type="hidden" value="_s-xclick"> <input name="hosted_button_id" type="hidden" value="BEVC56LWSH6SU">
+		<div class="wrapper">
+				<div class="tab">
+					<input id="tab-inv" name="tabs" type="checkbox"> <label for="tab-inv"> &lt;{ Play Donation Invaders }&gt;</label>
+					<div class="tab-content"> <a href="https://www.paypal.me/romjacket"><img src="splash.png" width="354" height="455" alt=""/></a> </div>
+				</div>
+			</div>
+			click to win<br>
 		entry fee is non-refundable 
 	</div>
 	<div id="grad1" align="left">
@@ -156,10 +163,10 @@
 			<h3>ROMs can be launched quickly in many ways:</h3>
 			<ul>
 				<li>Drag &amp; drop a ROM file to the desktop icon,</li>
-				<li>into the options window</li>
-				<li>use the skeletonkey GUI to browse filtered ROMs categorically with search functions and quick-sets.</li>
-				<li>streamed from Archive.org</li>
-				<li>from the command line</li>
+				<li>Drag &amp; drop a ROM into the main tab</li>
+				<li>Via the skeletonkey GUI to browse filtered ROMs categorically with search functions and quick-sets.</li>
+				<li>Streamed from Archive.org</li>
+				<li>From the command line</li>
 			</ul>
 			<p>As a configuration tool, skeletonKey can deploy a ROM-library that meets the expectations of users who desire a means to maintain the integrity of settings and assets indipendently of a frontend or emulator.</p>
 			<p>Nearly every skeletonKey option has a mouse-over tool-tip . Operational feedback appears in the statusbar at the bottom of the window.</p>
@@ -293,7 +300,7 @@
 			<h3>Emulator Configuration Options</h3>
 			<p>These options are dynamically loaded for each emulator. Settings changed by the user at run-time should load and populate the GUI after lauching.</p>
 			<h3>Drag &amp; Drop</h3>
-			<p>The Drag &amp; Drop area is visible in the upper-left hand corner of the when the search box is expanded using the &quot;find&quot; button in the lower-right hand corner of skeletonKey. With the Auto-Launch option enabled, skeletonKey will detect the ROM and launch it using the system's associated core/emulator, or bring forth the core/emulator dropdown.</p>
+			<p>Drag &amp; Drop a ROM into the Main tab and with the Auto-Launch option enabled, skeletonKey will detect the ROM and launch it using the system's associated core/emulator, or bring forth the core/emulator dropdown if undetected or Auto-Launch is disabled.</p>
 			<h3>Search &amp; Find</h3>
 			<p>The &quot;find&quot; button can be found in the lower right hand corner of the tab and will expand the search fields.<br>
 			skeletonKey can search for ROMs in your &quot;Systems&quot; directories or playlists.<br>
@@ -333,8 +340,7 @@
 					<input id="tab-asoc" name="tabs" type="checkbox"> <label for="tab-asoc">Association Details }&gt;</label>
 					<div class="tab-content">
 						<p>Systems are defined in part by file-extensions exclusive to the system. <em>(eg: nestopia.exe [and retroarch's nestopia_libretro.dll core] by default are to assigned to the NES) &amp; (eg: ONLY the Nintendo Entertainment System uses the <strong>.nes</strong> file-extension)</em><br>
-						Because an emulator may have multiple system-assocations, some will require a unique &quot;system identifier&quot; nickname.<br>
-						Extensions which are shared by multiple systems <em>(e.g: MANY systems support the extension ''<strong>.bin</strong>'')</em> can be assigned to any core or emulator. 4 sets of extensions are available.<br>
+						Because an emulator may have multiple system-assocations, a unique &quot;system identifier&quot; nickname can be created to define exclusive paramaters.<br>
 									<a class="lightbox" href="https://www.youtube.com/embed/0aALqRssD_Y?showinfo=0"><strong> VIDEO:</strong> }&gt;</a></p>
 					</div>
 				</div>
@@ -656,7 +662,7 @@
 			<h4>Consolidate vs. Individuate</h4>
 			<p>ROM-Jackets are individuated by default, however the abundance of releases a title may have seen throughout the world is multiplied by versions the developer released and again multiplied by ROM-dumps. Subsequently many ROM-collections and system-libraries are simply too large and unwieldy for practical purposes. In the interest of bringing forth functional libraries it may be desireable to consolidate each title without regard for region or version.</p>
 			<h3>Consolidate ( )[]</h3>
-			<p>This will consolidate ROMs containing the same base-name, grouping each ROMs regional counterparts and multi-disc ROMs together into a single jacket. The base-name is the ROM's filename without any text in parenthesis or brackets.</p>
+			<p>This will consolidate ROMs containing the same <strong>base-name</strong>, grouping each ROMs regional counterparts and multi-disc ROMs together into a single jacket. <br>The <strong>base-name</strong> is the ROM's filename without any text in parenthesis or brackets.</p>
 			<div class="wrapper">
 				<div class="tab">
 					<input id="tab-consolid" name="tabs" type="checkbox"> <label for="tab-consolid">Consolidation Example }&gt;</label>
@@ -907,7 +913,7 @@
 			<p><strong>Question:</strong> I'm having trouble with a feature. Can you Help?</p>
 			<p><strong>Answer:</strong> Use the form at the <a href="#COMMENT">top of the page</a> or <a href="https://github.com/romjacket/skeletonKey/issues" target="_self">create an issue on github</a></p>
 			<p><strong>Question:</strong> Does this work in linux?</p>
-			<p><strong>Answer:</strong> All functions seemed to work in a WINEbox I tested this in, even netplay. I'm very interested in programmable bash-script launchers.</p>
+			<p><strong>Answer:</strong> All functions expected to work seemed to fine in a WINEbox I tested this in, even netplay. I'm very interested in programmable bash-script launchers.</p>
 			<p><strong>Question:</strong> I want to see a feature implemented or do something with skeletonKey it cannot currently do.</p>
 			<p><strong>Answer:</strong> <a href="https://www.paypal.me/romjacket">Donate</a></p>
 		</div>

@@ -194,7 +194,7 @@ RJLNCHP=X
 [mupen64plus]
 RJPRECFG=copy /y "*.cfg" "%EMUL%"|copy /y "*.ini" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\*.ini" "%GAMDIR%"|copy /y "%EMUL%\*.cfg" "%GAMDIR%"
-RJEMUOPTS=<--noosd --fullscreen --plugindir "%EMUL%" --nosaveoptions --datadir "%EMUL%" --configdir "%EMUL%"<
+RJEMUOPTS=<--noosd --fullscreen --plugindir "%EMUL%" --nosaveoptions --datadir "%EMUL%" --configdir "%EMUL%"<|<--nogui<
 [m2emulator]
 RJPRECFG=copy /Y "*.ini" "%EMUL%"|copy /Y "CFG\*.input" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\*.ini" "%GAMDIR%"|move /y "%EMUL%\%ROM%.input" "%GAMDIR%\CFG"

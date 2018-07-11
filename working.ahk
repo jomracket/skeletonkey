@@ -7648,6 +7648,8 @@ poptadd=
 romf= 
 if (OPTDLT = 1)
 	{
+		coreselv= 
+		guicontrol,,LCORE,|%runlist%
 		if (OPTYP = "History")
 			{
 				guicontrol,,RUNROMCBX,|%romf%||%HISTORY%%romf%
@@ -11477,7 +11479,7 @@ Loop, Parse, reasign,|
 			}
 	}
 LineNum= 
-
+guicontrol,,EMPRDDL,|Emulators|%addemu%
 Loop, Parse, SysEmuSet,`n`r
 	{
 		if (A_LoopField = "")
@@ -12875,7 +12877,7 @@ Loop, parse, ksiv,|
 			{
 				continue
 			}
-		if (A_LoopField <= 1)
+		if A_LoopField is digit
 			{
 				continue
 			}
@@ -12912,6 +12914,10 @@ EMPRLT= %emprcur%|
 Loop, parse, ksiv,|
 	{
 		if (A_LoopField = "")
+			{
+				continue
+			}
+		if A_LoopField is digit
 			{
 				continue
 			}
@@ -12975,15 +12981,19 @@ Loop, parse, ksiv,|
 			{
 				continue
 			}
+		if A_loopField is digit
+			{
+				continue
+			}
 		EMPRLT.= A_LoopField . "|"
 	}
 Loop, Parse, EMPRLT,|
 	{
 		if (A_Index = 1)
-		{
-			newsemu= %A_LoopField%
-			break
-		}
+			{
+				newsemu= %A_LoopField%
+				break
+			}
 	}
 guicontrol,,EMPRLST,|%EMPRLT%
 iniwrite,"%EMPRLT%",Assignments.ini,OVERRIDES,%semu%
@@ -13236,6 +13246,10 @@ Loop, parse, ovrktm,|
 				continue
 			}
 		if (A_LoopField = selfnd)
+			{
+				continue
+			}
+		if A_LoopField is digit
 			{
 				continue
 			}
@@ -13889,7 +13903,10 @@ guicontrol,,OVLIST,|1|2|3|4
 iniread,sysni,Assignments.ini,OVERRIDES,%ADDCORE%
 if (sysni <> "ERROR")
 	{
-		guicontrol,,EMPRLST,|%sysni%
+		if sysni is not digit
+			{			
+				guicontrol,,EMPRLST,|%sysni%
+			}
 	}
 iniread,systyp,Assignments.ini,ASSIGNMENTS,%ADDCORE%
 DETECTCA=0
@@ -14211,7 +14228,7 @@ Loop, Parse, semu,|
 							{
 								continue
 							}
-						if (A_LoopField <= 1)
+						if A_LoopField is digit
 							{
 								continue
 							}
@@ -22648,7 +22665,6 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;
 
 TOGSKELGUI:
-guicontrol,%moptog%,AUTOLNCH
 guicontrol,%moptog%,LCORE
 guicontrol,%moptog%,CUSTSWITCHS
 guicontrol,%moptog%,RUNSYSDDL
@@ -22681,7 +22697,6 @@ TOGGLESEARCHBOX:
 ;;guicontrol,%srchtog%,SRCHGRP
 ;;guicontrol,%srchtog%,ROMRPGRP
 ;;guicontrol,%srchtog%,DropHideLBX
-;;guicontrol,%srchtog%,AUTOLNCH
 guicontrol,%srchtog%,SRCHLOCDDL
 guicontrol,%srchtog%,SRCHFLRAD
 guicontrol,%srchtog%,SRCHPLRAD
@@ -22695,7 +22710,6 @@ INITSEARCHBOX:
 guicontrol,move,SRCHGRP,x487 y203 w268 h299
 ;;guicontrol,move,ROMRPGRP,x342 y163 w138 h128
 guicontrol,move,DropHideLBX,x342 y163 w138 h128
-guicontrol,move,AUTOLNCH,x370 y272
 guicontrol,move,SRCHLOCDDL,x491 y231 w260
 guicontrol,move,SRCHFLRAD,x562 y212 w53 h18
 guicontrol,move,SRCHPLRAD,x623 y212 w53 h18
@@ -22706,7 +22720,6 @@ guicontrol,move,SRCHRCRSCHK,x495 y212 w60 h16
 return
 
 MOVESEARCHBOX:
-guicontrol,move,AUTOLNCH,x28 y165
 ;;guicontrol,move,ROMRPGRP,x17 y47 w150 h138
 guicontrol,move,DropHideLBX,x17 y47 w150 h138
 guicontrol,move,SRCHGRP,x172 y50 w583 h442
@@ -25452,7 +25465,6 @@ gosub, initsearchbox
 
 guicontrol,%raoptgl%,SRCHGRP
 guicontrol,%raoptgl%,ROMRPGRP
-guicontrol,%raoptgl%,AUTOLNCH
 guicontrol,%raoptgl%,SRCHLOCDDL
 guicontrol,%raoptgl%,SRCHFLRAD
 guicontrol,%raoptgl%,SRCHPLRAD
@@ -25515,7 +25527,6 @@ if (LCORE = "retroArch")
 				guicontrol,hide,SRCHROMBUT
 				guicontrol,hide,SRCHLOCDDL
 				guicontrol,hide,ROMRPGRP
-				guicontrol,hide,AUTOLNCH
 				guicontrol,show,emuBUTJ
 				guicontrol,show,emuTXTA				
 				guicontrol,move,emuTXTA,x683 y26 w32 h17
@@ -41810,6 +41821,7 @@ vice_x64DDLA:
 x64DDLA:
 xrickDDLA:
 citraDDLA:
+citra_CanaryDDL:
 mednafen_snesDDLA:
 gosub, HideCoreUI
 return
@@ -53098,7 +53110,9 @@ if (tstxtn = ".zip")
 	{
 		gosub, ZIPOpen
 	}
+
 gosub, ExtTables
+
 if (opncor <> "")
 	{
 		ifexist, %libretrodirectory%\%opncor%_libretro.dll
@@ -53106,6 +53120,7 @@ if (opncor <> "")
 				coreselv= %opncor%_libretro.dll
 			}
 	}
+
 if (EXTID = 1)
 	{
 		coreselv= %cvrv%
@@ -53114,6 +53129,7 @@ if (EXTID = 1)
 				goto, OVRAP
 			}
 	}	
+
 if (ROMDRP = 1)
 	{
 		if (coreselv = "")
@@ -53121,14 +53137,17 @@ if (ROMDRP = 1)
 				CHOSEN= 1
 			}
 	}
+
 if (DDLU = 1)
 	{
 		return
 	}
+
 if (RUNCOREOVERRIDE <> "")
 	{
 		return
 	}
+
 if (coreselv = "")
 	{
 		goto, DDLS
@@ -53235,26 +53254,36 @@ return
 
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;     EXTENSION TABLES     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ExtTables:
+opncor= 
+opnapp= 
+poscor1=
+poscor2=
+poscor3=
+posapp1=
 if (romsz < 100000)
 {
 	goto, ToSZ
 }
+
 unknszstr= .nrg|.mdf|.ccd|.toc|.iso|.cdi|.cdz|.img|.cue
 ifinstring,unknszstr,%tstxtn%
 	{
 		gosub, UNKNOpen	
 	}
+
 if (tstxtn = ".gdi")
 	{
 		gosub,SEGDCOpen
 		Return
 	}
+
 pspopen= .cso|.ciso|.jso|.psp|.prx|.pbp|
 ifinstring,pspopen,%tstxtn%
 	{
 		gosub,PSPOpen
 		Return
 	}
+
 if (tstxtn = ".wbfs")
 	{
 		gosub,NGCOpen
@@ -53319,10 +53348,10 @@ if (romsz < 10000)
 }
 dsopen= .ds|.srl|.nds|.nd5
 ifinstring,dsopen,%tstxtn%
-{
-gosub,NDSOpen
-Return
-}
+	{
+		gosub,NDSOpen
+		Return
+	}
 
 UNKSZ:
 unkszstr= .bin|.hdf|.rom|.adf|.do|.po|.2mg|.cas|.xdf|.ipf|.dsk|.tap|.88d|.d88|.2dd|.2hd|.ssd|.dsd|.fdi|
@@ -54087,6 +54116,12 @@ Return
 
 UNKNOpen:
 UNKOpen:
+opncor= 
+opnapp= 
+poscor1=
+poscor2=
+poscor3=
+posapp1=
 sysini= DDL
 return
 
@@ -54568,7 +54603,9 @@ ifinstring,OPTYP,.lpl
 					
 			}
 	}
+	
 stringtrimright,TRPTYP,OPTYP,4
+
 if (coreselv = "DETECT")
 	{
 		/*
@@ -56837,6 +56874,7 @@ dinothawrRESET:
 dolphinLauncherRESET:
 dolphinRESET:
 citraRESET:
+citra_CanaryRESET:
 citracanaryRESET:
 chailoveRESET:
 freeintvRESET:
