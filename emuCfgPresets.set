@@ -1641,7 +1641,7 @@ RJMAMENM=svision
 RJROMXT=.bin,.ws,.sv,.zip
 MAME?RJEMUOPTS=<svisionn -[RJRTYP]<|<svisionn -cart<|<svisionp -cart<|<svisions -cart<|<svision -cart<
 
-[Windows Games]
+[Windows - Games]
 RJEMUPRESET=BSL
 RJROMXT=.lnk,.exe,.bat,.cmd,.jar
 

@@ -35099,11 +35099,11 @@ ifnotexist,%cacheloc%\antimicro%ARCH%.7z
 						iniwrite,1,%curxe%,EXECUTABLE,keymapper
 						ifnotexist,executable\Player1.amgp
 							{
-								FileCopy,rj\joycfgs\Antimicro\joystick\Windows Games\Player1.amgp,executable\Player1.amgp
+								FileCopy,rj\joycfgs\Antimicro\joystick\Windows - Games\Player1.amgp,executable\Player1.amgp
 							}
 						ifnotexist,executable\Player2.amgp
 							{
-								FileCopy,rj\joycfgs\Antimicro\joystick\Windows Games\Player2.amgp,executable\Player2.amgp
+								FileCopy,rj\joycfgs\Antimicro\joystick\Windows - Games\Player2.amgp,executable\Player2.amgp
 							}
 								ifnotexist,executable\Select.amgp
 							{

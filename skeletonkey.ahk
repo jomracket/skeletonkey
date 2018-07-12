@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-07-11 9:13 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-07-11 5:07 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-07-11 9:13 AM
-VERSION= v0.99.55.08
+RELEASE= 2018-07-11 5:07 PM
+VERSION= v0.99.55.09
 RASTABLE= 1.7.3
 #Include tf.ahk
 #Include lbex.ahk
@@ -35099,11 +35099,11 @@ ifnotexist,%cacheloc%\antimicro%ARCH%.7z
 						iniwrite,1,%curxe%,EXECUTABLE,keymapper
 						ifnotexist,executable\Player1.amgp
 							{
-								FileCopy,rj\joycfgs\Antimicro\joystick\Windows Games\Player1.amgp,executable\Player1.amgp
+								FileCopy,rj\joycfgs\Antimicro\joystick\Windows - Games\Player1.amgp,executable\Player1.amgp
 							}
 						ifnotexist,executable\Player2.amgp
 							{
-								FileCopy,rj\joycfgs\Antimicro\joystick\Windows Games\Player2.amgp,executable\Player2.amgp
+								FileCopy,rj\joycfgs\Antimicro\joystick\Windows - Games\Player2.amgp,executable\Player2.amgp
 							}
 								ifnotexist,executable\Select.amgp
 							{

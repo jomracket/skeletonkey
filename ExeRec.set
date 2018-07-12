@@ -447,6 +447,7 @@ FileCreateDir,rj\joyCfgs\Antimicro\Joystick\TurboGrafx 16
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\TurboGrafx CD
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Vectrex
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Windows Games
+FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Windows Games - Copy
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\x68000
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Acorn - Archimedes
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Acorn - BBC
@@ -620,6 +621,7 @@ FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\TurboGrafx 16
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\TurboGrafx CD
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Vectrex
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Windows Games
+FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Windows Games - Copy
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\x68000
 FileCreateDir,rj\joyCfgs\Xpadder\Blank
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick
@@ -708,6 +710,7 @@ FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Sony - Playstation Portable
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\The 3DO Company - 3DO
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Touhou
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Windows Games
+FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Windows Games - Copy
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Acorn - Archimedes
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Acorn - BBC
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Acorn - Electron
@@ -803,6 +806,7 @@ FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Sony - Playstation Portable
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Taito - Taito Type X 2
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Touhou
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Windows Games
+FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Windows Games - Copy
 FileCreateDir,rj\KODI\ADVL
 FileCreateDir,rj\KODI\AEL
 FileCreateDir,rj\KODI\IARL
@@ -1023,7 +1027,7 @@ FileInstall,sysico\Touhou.ico,sysico\Touhou.ico,1
 FileInstall,sysico\VTech - CreatiVision.ico,sysico\VTech - CreatiVision.ico,1
 FileInstall,sysico\VTech - Socrates.ico,sysico\VTech - Socrates.ico,1
 FileInstall,sysico\Watara - SuperVision.ico,sysico\Watara - SuperVision.ico,1
-FileInstall,sysico\Windows Games.ico,sysico\Windows Games.ico,1
+FileInstall,sysico\Windows - Games.ico,sysico\Windows - Games.ico,1
 FileInstall,sysico\WoW - Action Max.ico,sysico\WoW - Action Max.ico,1
 FileInstall,sysico\XaviXPORT.ico,sysico\XaviXPORT.ico,1
 FileInstall,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.set,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.set,1
@@ -1106,6 +1110,7 @@ FileInstall,gam\Microsoft - DOS.gam,gam\Microsoft - DOS.gam,1
 FileInstall,gam\Microsoft - MSX TurboR.gam,gam\Microsoft - MSX TurboR.gam,1
 FileInstall,gam\Microsoft - MSX.gam,gam\Microsoft - MSX.gam,1
 FileInstall,gam\Microsoft - MSX2.gam,gam\Microsoft - MSX2.gam,1
+FileInstall,gam\Microsoft - Windows 3x.gam,gam\Microsoft - Windows 3x.gam,1
 FileInstall,gam\Nascom - I-II.gam,gam\Nascom - I-II.gam,1
 FileInstall,gam\NEC - PC Engine - TurboGrafx 16.gam,gam\NEC - PC Engine - TurboGrafx 16.gam,1
 FileInstall,gam\NEC - PC Engine CD - TurboGrafx CD.gam,gam\NEC - PC Engine CD - TurboGrafx CD.gam,1
@@ -2328,6 +2333,8 @@ FileInstall,rj\joyCfgs\Antimicro\Joystick\Vectrex\Player1.amgp,rj\joyCfgs\Antimi
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Vectrex\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Vectrex\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Windows Games\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Windows Games\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Windows Games\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Windows Games\Player2.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Joystick\Windows Games - Copy\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Windows Games - Copy\Player1.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Joystick\Windows Games - Copy\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Windows Games - Copy\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\x68000\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\x68000\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\x68000\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\x68000\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Acorn - Archimedes\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Acorn - Archimedes\Player1.amgp,1
@@ -2681,6 +2688,8 @@ FileInstall,rj\joyCfgs\Antimicro\Keyboard\Vectrex\Player1.amgp,rj\joyCfgs\Antimi
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Vectrex\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Vectrex\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Windows Games\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Windows Games\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Windows Games\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Windows Games\Player2.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Keyboard\Windows Games - Copy\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Windows Games - Copy\Player1.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Keyboard\Windows Games - Copy\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Windows Games - Copy\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\x68000\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\x68000\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\x68000\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\x68000\Player2.amgp,1
 FileInstall,rj\joyCfgs\Xpadder\MediaCenter.xpadderprofile,rj\joyCfgs\Xpadder\MediaCenter.xpadderprofile,1
@@ -2861,6 +2870,8 @@ FileInstall,rj\joyCfgs\Xpadder\Joystick\Touhou\Player1.xpadderprofile,rj\joyCfgs
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Touhou\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Touhou\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Windows Games\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Windows Games\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Windows Games\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Windows Games\Player2.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Joystick\Windows Games - Copy\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Windows Games - Copy\Player1.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Joystick\Windows Games - Copy\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Windows Games - Copy\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Acorn - Archimedes\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Acorn - Archimedes\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Acorn - Archimedes\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Acorn - Archimedes\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Acorn - BBC\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Acorn - BBC\Player1.xpadderprofile,1
@@ -3058,6 +3069,8 @@ FileInstall,rj\joyCfgs\Xpadder\Keyboard\Touhou\Player1.xpadderprofile,rj\joyCfgs
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Touhou\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Touhou\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Windows Games\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Windows Games\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Windows Games\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Windows Games\Player2.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Keyboard\Windows Games - Copy\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Windows Games - Copy\Player1.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Keyboard\Windows Games - Copy\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Windows Games - Copy\Player2.xpadderprofile,1
 FileInstall, 7zsd32.sfx,7zsd32.sfx
 FileInstall, 7zsd64.sfx,7zsd64.sfx
 FileInstall, Portable.bat,Portable.bat,1
