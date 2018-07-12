@@ -134,7 +134,7 @@ exit /b
 %CCMDB%
 %RLOC%pushd "%EMUL%"
 %DMX%"%DAMVAR%" -mount dt, 0, "[ROMINLP]"
-%LAUNCH% "%EMUL%\%EMUZ%.exe" "%GAMDIR%\%ROMF%"
+%LAUNCH% "%EMUL%\%EMUZ%.exe" "%GAMDIR%\%ROMFN%"
 %CCMDY%
 %RLOC%popd
 %XFG%copy /Y "%EMUL%\bgb.ini" "%GAMDIR%"

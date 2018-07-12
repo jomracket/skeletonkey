@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-07-11 8:48 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-07-12 11:50 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-07-11 8:48 PM
-VERSION= v0.99.55.10
+RELEASE= 2018-07-12 11:50 AM
+VERSION= v0.99.55.11
 RASTABLE= 1.7.3
 #Include tf.ahk
 #Include lbex.ahk
@@ -54560,6 +54560,7 @@ lnumfnd=
 numfnd= 
 optnt= 1
 opcnt=
+APLN= 1
 ifinstring,OPTYP,.lpl
 	{
 		Loop, Read, %playlistLoc%\%OPTYP%
@@ -54603,7 +54604,10 @@ ifinstring,OPTYP,.lpl
 					
 			}
 	}
-	
+ifinstring,coreselv,_libretro.dll
+	{
+		APLN= 
+	}
 stringtrimright,TRPTYP,OPTYP,4
 
 if (coreselv = "DETECT")

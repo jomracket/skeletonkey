@@ -54560,6 +54560,7 @@ lnumfnd=
 numfnd= 
 optnt= 1
 opcnt=
+APLN= 1
 ifinstring,OPTYP,.lpl
 	{
 		Loop, Read, %playlistLoc%\%OPTYP%
@@ -54603,7 +54604,10 @@ ifinstring,OPTYP,.lpl
 					
 			}
 	}
-	
+ifinstring,coreselv,_libretro.dll
+	{
+		APLN= 
+	}
 stringtrimright,TRPTYP,OPTYP,4
 
 if (coreselv = "DETECT")
