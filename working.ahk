@@ -37,9 +37,12 @@ SetWorkingDir %A_ScriptDir%
 Loop %0% 
 {
 	DDRUN= 1
+	directrun= 1
 	ShortPathName := %A_Index%
 	Loop %ShortPathName%
-		LongName = %A_LoopFileLongPath%
+		{
+			LongName = %A_LoopFileLongPath%
+		}
 }
 romf= %LongName%
 getport= %1%
@@ -2112,7 +2115,7 @@ Gui, Add, DropDownList, x288 y477 w77 vLNCHPRDDL gLNCHPRDDL hidden,Emulators||re
 Gui, Add, Button, x368 y477 w42 h22 vLNCHPT gLNCHPT hidden,Priority
 Gui, Add, DropDownList, x470 y26 w251 vADDCORE gAddCore, Select_A_System||%reasign%
 Gui, Add, Button, x723 y25 w12 vOPNSYS gOpnSyS,+
-Gui, Add, DropDownList, x503 y73 w42 vOVLIST gOvList Disabled, ||1|2|3|4|5
+Gui, Add, DropDownList, x503 y73 w52 vOVEXTL gOVEXTL,All||
 Gui, Add, ComboBox, x471 y54 w264 vADDNSYS gAddNSys Hidden, %systoemu%
 Gui, Add, Button, x694 y79 w42 h19 vSAVNSYS gSavNSys Hidden, save
 ;;Gui, Add, Text, x549 y75 h23 vOVSETTXT Hidden, Extension-Override Set
@@ -2196,7 +2199,7 @@ Gui, Add, Radio, x630 y83 h17 vSKXPADOV gSKXPADOV disabled hidden, Xpadder
 Gui, Add, Radio, x560 y83 h17 vSKAMOV gSKAMOV disabled checked hidden, Antimicro
 Gui, Add, Button, x696 y82 w38 h20 vSKPROFOV gSKPROFOV disabled hidden, profile
 
-Gui, Add, Text, x586 y68 vSKPRFJTXT, Overrides
+Gui, Add, Text, x586 y62 vSKPRFJTXT, Overrides
 Gui, Add, CheckBox, x495 y105 h16 vSKFROV gSKFROV disabled hidden, override
 Gui, Add, DropDownList, x564 y103 w163 vSKFROVDD gSKFROVDD disabled hidden, FRONTENDS||
 
@@ -4023,7 +4026,7 @@ RJREMPOSTCFG_TT :="Remove Post-run Cfg"
 EMEDTO_TT :="options to pass for the current pre/post command."
 
 
-RJEMUXTCBX_TT :="Extensions- seperate by comma. do not include periods."
+RJEMUXTCBX_TT :="Extensions which will be identified and launched`n- seperate by comma. do not include periods."
 
 RJRAD1A_TT :=" Runs the emulator from emulator's directory"
 RJRAD1B_TT :=" Runs the emulator from ROM's directory"
@@ -6074,6 +6077,7 @@ return
 GuiDropFiles:
 guicontrolget,TABMENU,,TABMENU
 ROMDRP= 1
+directrun= 
 guicontrol,,LCORE,|%runlist%
 If ( (A_GuiX >= RDXgrid) && (A_GuiX <= RDXgrid+RDWgrid) && (A_GuiY >= RDYgrid) && (A_GuiY <= RDYgrid+RDHgrid) )
 	{
@@ -10428,6 +10432,7 @@ gui,submit,nohide
 guicontrolget,SALIST,,SALIST
 guicontrol, hide, UAVAIL
 guicontrol,show,ADDCORE
+guicontrol,show,OVEXTL
 guicontrol,show,CRNTCORS
 guicontrol,show,OPNSYS
 guicontrol,show,OVLIST
@@ -10593,6 +10598,7 @@ if (SALIST = "Systems")
 		guicontrol,hide,UAVAIL
 		guicontrol,,SKRAstch,Skeletonkey-System-Associations
 		guicontrol,show,EAVAIL
+		guicontrol,show,OVEXTL
 		guicontrol,hide,GRPDROPBIOS
 		guicontrol,hide,UPDBTN
 		guicontrol,hide,LNCHPRDDL
@@ -11385,6 +11391,7 @@ guicontrol,hide,OEMUNICK
 guicontrol,hide,OEMUDEL
 guicontrol,hide,OEMUSV
 guicontrol,hide,OEMUTXT
+guicontrol,,OVEXTL,|All
 
 guicontrol,,EMPRLST,|
 Loop, Parse, semu,|
@@ -11469,6 +11476,14 @@ if (SALIST = "Emulators")
 		GuiControl, choose, UAVAIL,0
 	}
 
+IniRead,sysexlst,emuCfgPresets.set,%semu%,RJROMXT
+if (sysexlst <> "ERROR")
+		{
+			stringreplace,sysxl,sysexlst,`,,|,All
+			guicontrol,enable,OVEXTL0
+			guicontrol,,OVEXTL,|All||%sysxl%
+		}
+	
 Loop, Parse, reasign,|
 	{
 		if (semu = A_LoopField)
@@ -13944,6 +13959,17 @@ return
 
 ;{;;;;;;;;;;;;;  Extension Override Dropdown  ;;;;;;;;;;;;;;;;;;;;;
 
+OVEXTL:
+gui, submit, nohide
+guicontrolget,OVEXTL,,OVEXTL
+iniread,sysexot,AppParams.ini,%sysni%,options
+if (sysexot = "ERROR")
+	{
+		SB_SetText(" " sysni " set as the default emulator for ALL extensions")
+		guicontrol,,OVEXTL,|All||%sysxl%
+	}
+return
+
 OvList:
 gui, submit, nohide
 sysni= 
@@ -14253,6 +14279,18 @@ Loop, Parse, semu,|
 		iniwrite, "%DSKMNTCHK%",AppParams.ini,%sysni%,DSKMNTCHK
 		iniwrite, "%DSKMNTOVR%",AppParams.ini,%sysni%,DSKMNTOVR
 		iniwrite, "%DSKMNTPRG%",AppParams.ini,%sysni%,DSKMNTPRG
+	}
+if (SALIST = "Systems")
+	{
+		if (semu <> "")
+			{
+				guicontrolget,OVEXTL,,OVEXTL
+				if (OVEXTL <> "All")
+					{
+						stringtrimleft,OVEXTL,OVEXTL,1
+						IniWrite,%sysni%,AppParams.ini,%semu%,%OVEXTL%
+					}
+			}
 	}
 gosub, ResetRunList
 
@@ -54721,6 +54759,15 @@ if (romhnck <> ":")
 	}
 SplitPath,romf,romtitle,rompth,romxt,romname
 guicontrolget,coreselv,,LCORE
+iniread,coreselx,AppParams.ini,%runsysddl%,%romxt%
+if (coreselx <> "ERROR")
+	{
+		if (coreselx <> "")	
+			{
+				coreselv= %coreselx%
+				guicontrol,,LCORE,|%coreselv%||%runlist%				
+			}
+	}
 if (indexCONSOLE = "")
 	{	
 		gosub, RecentRead
@@ -55037,6 +55084,7 @@ ifinstring,ROMSTMP,:=:
 		emucfgn= 
 		mtyp= 
 	}
+
 iniread,lpovrd,Assignments.ini,OVERRIDES,
 lknwnc=
 	Loop,Parse,lpovrd,`n
@@ -55073,7 +55121,23 @@ if (ROMSYS = "")
 				ROMSYS= %MEDNFSYS%
 			}
 	}
+svoc= 
+if (directrun = 1)
+	{
+		iniread,sysexov,AppParams.ini,%runsysddl%,%lnmxtn%
+		;;msgbox,,,romf=%romf%`nrunsysddl=%runsysddl%`nlnmxtn=%lnmxtn%`nsysexov=%sysexov%
+		if (sysexov <> "ERROR")
+			{
+				if (sysexov <> "")
+					{
+						svoc= 1
+						coreselv= %sysexov%
+						iniread,OvrExtAs,Assignments.ini,ASSIGNMENTS,%coreselv%
+					}
+			}
+	}
 
+directrun= 		
 iniread,EPGC,AppParams.ini,%coreselv%,per_game_configurations
 iniread,RunOptions,AppParams.ini,%coreselv%,options
 iniread,RunArgs,AppParams.ini,%coreselv%,arguments
@@ -55081,6 +55145,7 @@ iniread,omtxt,AppParams.ini,%coreselv%,extension
 iniread,RunFrom,AppParams.ini,%coreselv%,run_location
 iniread,OMITQ,AppParams.ini,%coreselv%,no_quotes
 iniread,OMITPTH,AppParams.ini,%coreselv%,no_path
+
 if (coremsvc = "")
 	{
 		if (CUSTSWITCHS = 0)
@@ -55200,7 +55265,6 @@ if (CSTINJOPT <> "")
 		CSTINJOPT= 
 	}
 
-
 stringreplace,RunOptions,RunOptions,[CUSTMOPT],%A_SPACE%%CUSTMOPT%,All
 stringreplace,RunArgs,RunArgs,[CUSTMARG],%A_SPACE%%CUSTMARG%,All
 stringreplace,RunOptions,RunOptions,[ROMPATH],%rompth%,All
@@ -55222,6 +55286,7 @@ if (romf <> romfj1)
 			}
 	}
 stringmid,romhnck,romfj1,2,1
+
 if (romhnck <> ":")
 	{
 		ifexist, %raexeloc%\%romfj1%
@@ -55230,11 +55295,13 @@ if (romhnck <> ":")
 			}
 	}
 splitpath,romf,romtitle,rompth,romext,romname,romdrv
+
 if (RunFrom = 1)
 	{
 		runloc= %rompth%
 		runbrv= ~rom directory
 	}
+
 if (RunFrom <> 1)
 	{
 		runloc= %emupth%
@@ -55242,10 +55309,12 @@ if (RunFrom <> 1)
 	}
 
 RUNROM= %romf%
+
 if (omtxt = 1)
 	{
 		RUNROM= %rompth%\%romname%
 	}
+
 if (OMITPTH = 1)
 	{
 		if (omtxt = 1)
@@ -55348,6 +55417,7 @@ if (EPGC = 1)
 						}
 			}
 	}
+
 splitpath,OvrExtAs,xenm,xenmp
 guicontrol, Disable, LNCHBUT
 guicontrol, Disable, RCLLNCH
@@ -55355,7 +55425,9 @@ guicontrol, Disable, CNCTBUT
 guicontrol, Disable, HostButton
 
 gosub, SKLPRER
+
 iniread,dmchk,AppParams.ini,%coreselv%,DSKMNTCHK
+
 if (dmchk = 1)
 	{
 		DSKROMF= %RUNROM%
@@ -55515,7 +55587,10 @@ if (EMPRERUN <> "")
 							}
 					}
 				*/	
-				preruni.= avvr
+				if (avvr <> "ERROR")
+					{
+						preruni.= avvr
+					}
 				empro= 
 				Loop, Parse, EMPREOPT,|
 					{	
@@ -55544,6 +55619,7 @@ if (EMPRERUN <> "")
 Loop, Parse, preruni,|
 	{
 		arin= % STRTYP%A_Index%
+		;;msgbox,,,romf=%romf%`ncoreselv=%coreselv%`n%arin%`n%preruni%
 		if (arin = "Run")
 			{
 				Run, %A_LoopField%
@@ -55676,6 +55752,7 @@ ifinstring,runcfginj,|%lcore%|
 			}
 	}
 guicontrolget,romf,,RUNROMCBX
+splitpath,romf,,,lnmxtn
 romfj1= 
 romfj2= 
 stringsplit, romfj, romf,#
@@ -55690,7 +55767,7 @@ if (romhnck <> ":")
 						romf= %raexeloc%\%romfj1%#%romfj2%
 					}
 			}
-	}
+	}	
 if (APLN = 1)
 	{
 		goto, SKLNCH
@@ -56472,7 +56549,7 @@ emuj=
 corNamz= 
 siv=
 gosub, ResetCores
-gosub,getBBCORES
+gosub,CoreUpdtChk
 Loop,Read,cores.ini
 	{
 		StringReplace,jnm,A_LoopReadLine,_libretro.dll,,All

@@ -126,6 +126,18 @@ RJEXTRARC=0
 PEREMUCFG=1
 RJZIPPEEK=1
 
+[1964]
+RJPRECFG=move /y "ROM_Properties.ini" "%EMUL%"|copy /Y "*.cfg" "%EMUL%\plugin"|copy /Y "*.ini" "%EMUL%\plugin"|copy /y ".sstates\*.*" "%EMUL%\savestate"|copy /y ".mem\*.eep" "%EMUL%\save"
+RJPOSTCFG=copy /y "%EMUL%\ROM_Properties.ini" "%GAMDIR%"|copy /Y "%EMUL%\plugin\*.ini" "%GAMDIR%"|move /y "%EMUL%\savestate\*.*" "%GAMDIR%\.sstates"|move /y "%EMUL%\save\*.eep" "%GAMDIR%\.mem"
+
+[AdriPSX]
+RJPRECFG=copy /Y "AdriPSX.ini" "%EMUL%"|copy /y ".mem\*.mem" "%EMUL%\mems"
+RJPOSTCFG=copy /Y "%EMUL%\AdriPSX.ini" "%GAMDIR%"|move /y "%EMUL%\mems\*.mem" "%GAMDIR%\.mem"
+
+[AdviEmulator]
+RJPRECFG=copy /Y "AdviEmulator.ini" "%EMUL%"
+RJPOSTCFG=copy /Y "%EMUL%\AdviEmulator.ini" "%GAMDIR%"
+
 [WinApe]
 RJPRECFG=copy /Y "WinAPE.ini" "%EMUL%"
 RJPOSTCFG=copy /Y "%EMUL%\WinAPE.ini" "%GAMDIR%"
@@ -427,6 +439,11 @@ RJPOSTCFG=copy /Y "%EMUL%\Plugin\GFX\*.ini" "%GAMDIR%"|copy /Y "%EMUL%\Plugin\GF
 RJPRECFG=copy /y "*.ini" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\*.ini" "%GAMDIR%"
 RJEMUOPTS=<--windowed-fullscreen<
+
+[Apollo]
+
+[SWFOpener]
+RJEMUOPTS=<-full -sa<
 
 [M88]
 RJPRECFG=copy /y "*.ini" "%EMUL%"|copy /y ".sstates\*.sav" "%EMUL%"
@@ -1090,6 +1107,7 @@ RJZIPPEEK=0
 [Nintendo - Nintendo 3DS]
 RJEMUPRESET=Citra
 RJROMXT= .3ds,.3dsx,.elf,.axf,.cci,.cxi,.app
+RJMAMENM=3ds
 
 [Nintendo - Nintendo DS]
 RJEMUPRESET=Desmume
@@ -1169,12 +1187,14 @@ RJZIPPEEK=0
 
 [Nintendo - WiiU]
 RJEMUPRESET=CEMU
+RJMAMENM=wiiu
 
 [Nintendo - Wii]
 RJEMUPRESET=Dolphin
 RJPRECFG=copy /Y "gfx*.ini" "%EMUL%\User\Config"|copy /Y "Dolphin.ini" "%EMUL%\User\Config"|copy /Y "Hotkeys.ini" "%EMUL%\User\Config"|copy /Y "*New.ini" "%EMUL%\User\Config"|for /f "delims=" %%a in ('type "shad.ini"') do copy /y "%%~a" "%EMUL%\user\load\ShaderPresets"|move /Y ".sstates\*.*" "%EMUL%\User\StateSaves"|copy /Y ".Mem\*.*" "%EMUL%\User\Wii"
 RJPOSTCFG=copy /Y "%EMUL%\User\Config\*New.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\Hotkeys.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\GCPad.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\gfx*.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\Dolphin.ini" "%GAMDIR%"|move /Y "%EMUL%\User\StateSaves\*.*" "%GAMDIR%\.sstates"|move /Y "%EMUL%\User\Wii\*.*" "%GAMDIR%\.Mem"|for /f "delims=" %%a in ('type "shad.ini"') do move /Y "%EMUL%\User\load\ShaderPresets\%%~a" "%GAMDIR%"
 RJROMXT=.dol,.iso,.gcm,.ciso,.wad,.elf,.wbfs,.tgc
+RJMAMENM=wii
 
 [Nintendo - Pokemon Mini]
 RJEMUPRESET=MAME
@@ -1462,7 +1482,7 @@ MAME?RJEMUOPTS=<x1twin -[RJRTYP]<|<x1twin -cart<|<x1twin -cass<|<x1turbo -flop1<
 
 [Sharp - X68000]
 RJEMUPRESET=XM6
-RJMAMENM=x68ksupr
+RJMAMENM=x68000
 RJMULTIDISC=1
 RJROMXT=.xdf,.hdm,.2hd,.dim,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.bin,.zip,.hdf,.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr,.hdi,.hd
 MAME?RJEMUOPTS=<x68ksupr -[RJRTYP]<|<x68ksupr -hard1<|<x68ksupr -cdrm<|<x68kvi -flop1<|<x68kvi -hard1<|<x68kvi -cdrm<|<x68030 -flop1<|<x68030 -hard1<|<x68030 -cdrm<|<x68000 -flop1<|<x68000 -hard1<|<x68000 -cdrm<|<x68k -flop1<|<x68k -hard1<|<x68k -cdrm<|<x68ksupr -flop1<
@@ -1708,7 +1728,7 @@ RJMAMENM=advantage
 MAME?RJEMUOPTS=<advantage -flop<
 RJZIPPEEK=0
 
-[Entex - AdventureVision]
+[Entex - Adventure Vision]
 RJEMUPRESET=MAME
 RJMAMENM=advision
 MAME?RJEMUOPTS=<advision -flop<
