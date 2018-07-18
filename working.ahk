@@ -2118,7 +2118,7 @@ Gui, Add, Button, x723 y25 w12 vOPNSYS gOpnSyS,+
 Gui, Add, DropDownList, x503 y73 w52 vOVEXTL gOVEXTL,All||
 Gui, Add, ComboBox, x471 y54 w264 vADDNSYS gAddNSys Hidden, %systoemu%
 Gui, Add, Button, x694 y79 w42 h19 vSAVNSYS gSavNSys Hidden, save
-;;Gui, Add, Text, x549 y75 h23 vOVSETTXT Hidden, Extension-Override Set
+Gui, Add, Text, x560 y75 h23 vOVSETTXT, Extension-Override
 
 Gui, Add, Radio, x505 y122 h19 vDCORE gDCore Checked, Default Core
 Gui, Add, Radio, x505 y144 h16 vARDCORE gARDCore disabled, Core
@@ -3827,6 +3827,7 @@ JXINDRV_TT :="xbox360/xbox one/ps3/ps4 and compatible joystick driver"
 KARC_TT :="Keep archives after downloading and extracting`n***   It is reccommended to keep this off   ***`Turning this on will prompt to overwrite any existing core archives while updating."
 KBGP_TT :="Enables using the keyboard as a gamepad"
 LANIPRAD_TT :="Local network address" 
+OVEXTL_TT :="Extensions automatically identified by the selected system.`nSave the nickname to assign an emulator to the extension."
 LATENCY_TT :="Desired audio latency in milliseconds. Might not be honored if driver can't provide given latency."
 LCORE_TT :="Select a libretro core or emulator"
 LNCHBUT_TT :="Launch the currently displayed ROM`nRight-Click for emulator-quick-select"
@@ -10488,7 +10489,7 @@ guicontrol,hide,EMEDTO
 guicontrol,hide,EMBUTH
 guicontrol,hide,SITEDTXT
 guicontrol,hide,ADDREPO
-guicontrol,show,OVSETTXT
+guicontrol,hide,OVSETTXT
 guicontrol,show,DCORE
 guicontrol,show,ARDCORE
 guicontrol,show,DAPP
@@ -10579,6 +10580,7 @@ guicontrol,disable,CHEMUINST
 guicontrol,,INSTEMUDDL,| ||%emuinstpop%
 guicontrol,,EINSTLOC,
 guicontrol,,ROMDEDT,
+guicontrol,,OVSETTXT,
 
 if (SALIST = "RetroArch")
 	{
@@ -13993,6 +13995,14 @@ if (sysexot = "ERROR")
 		SB_SetText(" " sysni " set as the default emulator for ALL extensions")
 		guicontrol,,OVEXTL,|All||%sysxl%
 	}
+stringtrimleft,afi,ovextl,1
+iniread,sysdsp,AppParams.ini,%semu%,%afi%
+if (sysdsp <> "ERROR")
+		{
+			guicontrol,,OVSETTXT,%sysdsp%
+			return
+		}
+guicontrol,,OVSETTXT,Extension-Override		
 return
 
 OvList:

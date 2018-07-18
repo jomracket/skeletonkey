@@ -424,6 +424,14 @@ Loop, Read, %getversf%
 						StringMid,olrlsdt,sklin,%getvern%,18
 						continue
 					}	
+			ifinstring,A_LoopReadLine,<h55>
+					{
+						stringgetpos,donat,A_LoopReadLine,<h55>
+						FileReadLine,donit,%gitroot%\%GITUSER%.github.io\index.html,%sklnum%
+						getvern:= donat+6
+						StringMid,donation,donit,%getvern%,5
+						continue
+					}	
 }
 		
 		
@@ -1753,10 +1761,14 @@ if (GitPush = 1)
 										if (midstr = [PAYPAL])
 											{
 												donation= 00.00
-												SB_SetText(" $" donation " found")
-
-												break
 											}
+										if (donation = "[PAYPAL].00")
+											{
+												donation= 00.00
+											}
+										SB_SetText(" $" donation " found")
+										break
+											
 									}
 							}
 								continue
