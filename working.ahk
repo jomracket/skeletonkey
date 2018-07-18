@@ -2118,7 +2118,8 @@ Gui, Add, Button, x723 y25 w12 vOPNSYS gOpnSyS,+
 Gui, Add, DropDownList, x503 y73 w52 vOVEXTL gOVEXTL,All||
 Gui, Add, ComboBox, x471 y54 w264 vADDNSYS gAddNSys Hidden, %systoemu%
 Gui, Add, Button, x694 y79 w42 h19 vSAVNSYS gSavNSys Hidden, save
-Gui, Add, Text, x560 y75 h23 vOVSETTXT, Extension-Override
+Gui, Add, Text, x577 y75 h23 vOVSETTXT, Extension-Override
+Gui, Add, Button, x557 y75 w15 h15 vOVSETRM gOVSETRM hidden,X
 
 Gui, Add, Radio, x505 y122 h19 vDCORE gDCore Checked, Default Core
 Gui, Add, Radio, x505 y144 h16 vARDCORE gARDCore disabled, Core
@@ -2130,7 +2131,7 @@ Gui, Add, Button, x577 y168 w56 h17 vSELAPP gSelApp hidden, BROWSE
 Gui ,Add, Text, x643 y147 h17 vSYSIDENT hidden, System Identifier
 Gui, Add, ComboBox, x635 y166 w103 vSYSNICK gSysNick Limit32 Hidden,%preEmuCfg%
 Gui, Add, Button, x680 y197 w42 h17 vSVNICK gSvNick hidden, save
-Gui, Add, Button, x723 y146 w15 h15 vDELNICK gDelNick hidden, X
+Gui, Add, Button, x723 y146 w15 h15 vDELNICK gDelNick hidden,X
 
 Gui, Add, Edit, x503 y96 w120 h21 vEXTINP gExtInp Hidden,
 Gui, Add, ComboBox, x505 y192 w120 vAPPOPT gAppOpt Hidden,|[CUSTMOPT]|%INJOPT%
@@ -10455,6 +10456,7 @@ guicontrol,show,ADDCORE
 guicontrol,show,CRNTCORS
 guicontrol,show,OPNSYS
 guicontrol,show,OVLIST
+guicontrol,show,OVSETRM
 
 guicontrol,disable,EMBUTV
 guicontrol,disable,EMRAD11A
@@ -13986,13 +13988,21 @@ return
 
 ;{;;;;;;;;;;;;;  Extension Override Dropdown  ;;;;;;;;;;;;;;;;;;;;;
 
+OVSETRM:
+gui,submit,nohide
+inidelete,AppParams.ini,%semu%,%afi%
+SB_SetText(" " sysni " disassociated with " afi " for " semu "")
+guicontrol,,OVSETTXT,Extension-Override
+guicontrol,hide,OVSETRM
+return
+
 OVEXTL:
 gui, submit, nohide
 guicontrolget,OVEXTL,,OVEXTL
-iniread,sysexot,AppParams.ini,%sysni%,options
-if (sysexot = "ERROR")
+iniread,sysexot,Assignments.ini,OVERRIDES,%semu%
+if sysexot is digit
 	{
-		SB_SetText(" " sysni " set as the default emulator for ALL extensions")
+		SB_SetText(" no default emulator for assigned")
 		guicontrol,,OVEXTL,|All||%sysxl%
 	}
 stringtrimleft,afi,ovextl,1
@@ -14000,9 +14010,11 @@ iniread,sysdsp,AppParams.ini,%semu%,%afi%
 if (sysdsp <> "ERROR")
 		{
 			guicontrol,,OVSETTXT,%sysdsp%
+			guicontrol,show,OVSETRM
 			return
 		}
-guicontrol,,OVSETTXT,Extension-Override		
+guicontrol,,OVSETTXT,Extension-Override
+guicontrol,hide,OVSETRM
 return
 
 OvList:
