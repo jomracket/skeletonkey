@@ -8,6 +8,8 @@ alice32=alice32/alice32.7z=alice32.exe=*.ini=
 apple1=apple1/apple1.7z=apple1.exe=
 apfemu=apfemu/apfemu.7z=Apf_emuw.exe=
 Arnimedes=Arnimedes/Arnimedes.7z=WinArnie.exe=
+ex68=ex68/ex68.7z=EX68.exe=
+zmz=zmz/zmz.7z=ZMZ.exe=*.cfg=
 AdviEmulator=AdviEmulator/AdviEmulator.7z=AdviEmulator.exe=AdviEmulator.ini=
 4DO=4DO/4DO.7z=4DO.exe=Settings\FourDO.settings|Settings\JohnnyInputBindings.xml
 ActiveGS=ActiveGS/ActiveGS.7z=ActiveGS.exe=defaut.activegsxml=
@@ -25,7 +27,12 @@ pcae=pcae/pcae.7z=pcaewin.exe=pcaewin.ini=
 rainbow=rainbow/rainbow.7z=rainbow 2.2.exe=rainbow.config=
 sainT=sainT/sainT.7z=sainT.exe=sainT.ini=
 bws=bws/bws.7z=bws.exe=
+dcmicrocolor=dcmicrocolor/dcmicrocolor.7z=dcmicrocolor.exe=dcmicrocolor.ini=
+DCAlice=DCAlice/DCAlice.7z=dcalice.exe=dcalice.ini=
 wataroo=wataroo/wataroo.7z=Wataroo.exe=Wataroo.ini=
+mtxemu=mtxemu/mtxemu.7z=mtxemu.exe=
+speccy=speccy/speccy.7z=speccy.exe=
+ultimo=ultimo/ultimo.7z=Ultimox[ARCH].exe=
 oswan=oswan/oswan.7z=oswan.exe=oswan.ini=sram\*.*=sav\*.*=
 ASCD=ASCD/ASCD.7z=Ascd.exe=ascd.ini
 Bliss=Bliss/bliss.7z=Bliss32.exe=
@@ -88,7 +95,8 @@ VisualBoyAdvance-M=VisualBoyAdvance-M/VisualBoyAdvance-Mx[ARCH].7z=VisualBoyAdva
 vita3k=vita3k/vita3k.7z=Vita3K.exe=
 WinAPE=WinAPE/WinAPE.7z=WinAPE.exe=WinAPE.ini=|=*.sna
 WinArcadia=WinArcadia/WinArcadia.7z=wa.exe=|=*.NVR=*.COS
-WinKawaks=WinKawaks/winkawaks.7z=WinKawaks.exe=
+WinKawaks=WinKawaks/winkawaks.7z=WinKawaks.exe=Default*.ini|WinKawaks.ini=
+aes4all=aes4all/aes4all.7z=aes4all.exe=
 WinUAE=WinUAE/WinUAE[ARCH].7z=WinUAE[ARCH].exe=
 WinVICE=WinVICE/WinVICE-[ARCH].7z=winvice.exe=
 WinVICE=WinVICE/WinVICE.7z=x64.exe=ini
@@ -254,8 +262,9 @@ mupen64plusplus=mupen64plusplus/mupen64plusplus.7z=mupen64pp.exe=
 mx88=mx88/mx88.7z=m88x2.exe=
 mzxx=mzxx/mzxx.7z=MZ700_win.exe=MZemu.ini=
 mz700=mz700/mz700.7z=mz700.exe=mz700.ini=
+mz700win=mz700win/mz700win.7z=mz700win.exe=
 mz800=mz800/mz800.7z=mz800.exe=mz800.ini=
-nebula=nebula/nebula.7z=nebula.exe=
+nebula=nebula/nebula.7z=nebula.exe=nebula.ini=
 neocd=neocd/neocd.7z=neocd.exe=
 neopop=neopop/neopop.7z=NeoPop-Win32.exe=
 nestopia=nestopia/nestopia.7z=nestopia.exe=nestopia.xml=save\*.sav=states\*.nst
@@ -347,6 +356,11 @@ wincpc=wincpc/wincpc.7z=WinCPC.exe=
 winfellow=winfellow/winfellow.7z=WinFellow.exe=
 winvz300=winvz300/winvz300.7z=WinVZ300.exe=
 x1=x1/x1.7z=x1.exe=x1.ini=
+ncdz=ncdz/ncdz.7z=ncdz.exe=ncdz.ini=
+ngae=ngae/ngae.7z=NGAE[ARCH].exe=NGAEUI64UI.ini=
+race!=race/race!.7z=race.exe=
+neopopcott=neopopcott/neopopcott.7z=neopopcott.exe=
+koyote=koyote/koyote.7z=koyote.exe=unified.ini|koyote.cfg=states\*=
 x1twin=x1twin/x1twin.7z=x1twin.exe=x1twin.ini=
 x86Box=x86Box/x86Box.7z=86Box.exe=
 x88=x88/x88.7z=x88x24.exe=

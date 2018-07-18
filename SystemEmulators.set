@@ -69,8 +69,8 @@ Cambridge Computers - Z88|MAME|:mame_libretro.dll
 Camputers - Lynx|jynx|MAME|:mame_libretro.dll
 Canon - X-07|MAME|:mame_libretro.dll
 Capcom Play System - CPS III|cps3emulator|FinalBurnAlpha|MAME|:fbalpha2012_libretro.dll|fbalpha_libretro.dll|mame_libretro.dll
-Capcom Play System - CPS II|FinalBurnalpha|ace|nebula|winkawaks|MAME|:fbalpha2012_cps2_libretro.dll|fbalpha_libretro.dll|mame_libretro.dll
-Capcom Play System - CPS|FinalBurnalpha|callus|winkawaks|ace|MAME|:fbalpha2012_cps1_libretro.dll|fbalpha_libretro.dll|mame_libretro.dll
+Capcom Play System - CPS II|FinalBurnalpha|ace|nebula|WinKawaks|MAME|:fbalpha2012_cps2_libretro.dll|fbalpha_libretro.dll|mame_libretro.dll
+Capcom Play System - CPS|FinalBurnalpha|callus|WinKawaks|ace|nebula|MAME|:fbalpha2012_cps1_libretro.dll|fbalpha_libretro.dll|mame_libretro.dll
 Casio - Loopy|MAME|:mame_libretro.dll
 Casio - PB-2000C|MAME|:mame_libretro.dll
 Casio - PV-1000|pv1000|MAME|:mame_libretro.dll
@@ -183,22 +183,22 @@ Luxor - ABC 1600|MAME|:mame_libretro.dll
 Luxor - ABC 80|MAME|:mame_libretro.dll
 Luxor - Video Entertainment System|MAME|:mame_libretro.dll
 MAME - Arcade|MAME|FinalBurnalpha|calice|ace|zinc|:mame_libretro.dll|mame2016_libretro.dll|mame2010_libretro.dll
-MGT - Sam Coupe|simcoupe|Ascd|MAME|:mame_libretro.dll
+MGT - Sam Coupe|simcoupe|speccy|zesaurux|Ascd|MAME|:mame_libretro.dll
 MITS - Altair8800|MAME|:mame_libretro.dll
 MOS Technology - KIM-1|MAME|:mame_libretro.dll
 Magnavox - Odyssey2|MAME|o2em|:o2em_libretro.dll|mame_libretro.dll
 Magnavox - Odyssey3|MAME|mame_libretro.dll
 Magnavox - Odyssey|DOSBox
-Matra - Alice 32|alice32|MAME|:mame_libretro.dll
+Matra - Alice 32|alice32|DCAlice|DCMicroColor|MAME|:mame_libretro.dll
 Matra - Alice 90|MAME|:mame_libretro.dll
 Mattel - Aquarius|Aqemu|vaquarius|MAME|:mame_libretro.dll
 Mattel - Intellivision ECS|MAME|:mame_libretro.dll
 Mattel - Intellivision|Nostalgia|jzintv|MAME|:freeintv_libretro.dll|mame_libretro.dll
 Mattel - Juice Box|Nostalgia|jzintv|MAME|:freeintv_libretro.dll|mame_libretro.dll
 MCA - Laserdisc Arcade|daphne|:mame_libretro.dll
-Memotech - MTX|MAME|mame_libretro.dll
+Memotech - MTX|mtxemu|MAME|mame_libretro.dll
 Mephisto - Super Mondial II|MAME|:mame_libretro.dll
-Microkey - Primo|MAME|mame_libretro.dll
+Microkey - Primo|ultimo|MAME|mame_libretro.dll
 Microsoft - DOS|DOSBox|DosPlus|:dosbox_libretro.dll
 Microsoft - MSX TurboR|BlueMSX|msx2p|no$msx|MAME|openMSX|EMU|vdmgr|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
 Microsoft - MSX2+|BlueMSX|msx2p|no$msx|MAME|openMSX|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
@@ -246,10 +246,10 @@ Nintendo - Nintendo Entertainment System - PAL|nestopia|virtuanes|virtuanesplus|
 Nintendo - Nintendo Entertainment System|nestopia|virtuanes|virtuanesplus|Mesen|dsp|xe|aprnes|BizHawk|kindred|no$nes|fceux|vdmgr|Mednafen|MAME|:nestopia_libretro.dll|fceumm_librtro.dll|mesen_libretro.dll|bnes_libretro.dll|quicknes_libretro.dll||mame_libretro.dll
 Nintendo - Pokemon Mini|minimon|pokemini|MAME|:pokemini_libretro.dll
 Nintendo - Satellaview|snes9x|MAME|:bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|bsnes_balanced_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_accuracy_libretro.dll
-Nintendo - Super Famicom|snes9x|Mednafen|xe|MAME|BizHawk|kindred|neusnem|zsnes|:snes9x_libretro.dll|snes9x2002_libretro.dll|snes9x2005_libretro.dll|snes9x2010_libretro.dll||bsnes_accuracy_libretro.dll|bsnes_balanced_libretro.dll|bsnes_cplusplus98_libretro.dll|bsnes_mercury_accuracy_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll|mame_libretro.dll
+Nintendo - Super Famicom|snes9x|Mednafen|xe|MAME|BizHawk|kindred|neusnem|zmz|zsnes|:snes9x_libretro.dll|snes9x2002_libretro.dll|snes9x2005_libretro.dll|snes9x2010_libretro.dll||bsnes_accuracy_libretro.dll|bsnes_balanced_libretro.dll|bsnes_cplusplus98_libretro.dll|bsnes_mercury_accuracy_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll|mame_libretro.dll
 Nintendo - Super Game Boy|Visualboyadvance-M|Visualboyadvance|bgb|kigb|gest|mgba|tgbdual|BizHawk|MAME|:higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|bsnes_balanced_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_accuracy_libretro.dll|mame_libretro.dll
-Nintendo - Super Nintendo Entertainment System - PAL|snes9x|Mednafen|no$sns|MAME|zsnes|xe|BizHawk|snesgt|:snes9x_libretro.dll|snes9x2002_libretro.dll|snes9x2005_libretro.dll|snes9x2010_libretro.dll||bsnes_accuracy_libretro.dll|bsnes_balanced_libretro.dll|bsnes_cplusplus98_libretro.dll|bsnes_mercury_accuracy_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll
-Nintendo - Super Nintendo Entertainment System|snes9x|Mednafen|no$sns|MAME|zsnes|kindred|BizHawk|xe|snesgt|:snes9x_libretro.dll|snes9x2002_libretro.dll|snes9x2005_libretro.dll|snes9x2010_libretro.dll||bsnes_accuracy_libretro.dll|bsnes_balanced_libretro.dll|bsnes_cplusplus98_libretro.dll|bsnes_mercury_accuracy_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll|mame_libretro.dll
+Nintendo - Super Nintendo Entertainment System - PAL|snes9x|Mednafen|no$sns|MAME|zsnes|xe|BizHawk|zmz|snesgt|:snes9x_libretro.dll|snes9x2002_libretro.dll|snes9x2005_libretro.dll|snes9x2010_libretro.dll||bsnes_accuracy_libretro.dll|bsnes_balanced_libretro.dll|bsnes_cplusplus98_libretro.dll|bsnes_mercury_accuracy_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll
+Nintendo - Super Nintendo Entertainment System|snes9x|Mednafen|no$sns|MAME|zsnes|kindred|BizHawk|xe|zmz|snesgt|:snes9x_libretro.dll|snes9x2002_libretro.dll|snes9x2005_libretro.dll|snes9x2010_libretro.dll||bsnes_accuracy_libretro.dll|bsnes_balanced_libretro.dll|bsnes_cplusplus98_libretro.dll|bsnes_mercury_accuracy_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll|mame_libretro.dll
 Nintendo - Switch|yuzu|ryujinx
 Nintendo - Virtual Boy|Mednafen|realityboy|vbjin|retrorach|MAME|:mednafen_vboy_libretro.dll
 Nintendo - WiiU|CEMU
@@ -295,10 +295,10 @@ Robotron - Z9001|MAME|:mame_libretro.dll
 Rockwell - AIM 65|MAME|:mame_libretro.dll
 Rowtron - Television Computer System|MAME|:mame_libretro.dll
 SAM SKB VM - Partner-01.01|MAME|:mame_libretro.dll
-SNK - Neo Geo CD|NeoRaine|neosdl|xe|MAME|:mame_libretro.dll
-SNK - Neo Geo MVS|FinalBurnAlpha|xe|MAME|:fbalpha2012_neogeo_libretro.dll|fbalpha_libretro.dll
-SNK - Neo Geo Pocket Color|Mednafen|race|neopop|xe|vdmgr|MAME|:medafen_ngp_libretro.dll
-SNK - Neo Geo Pocket|Mednafen|neopop|race|xe|vdmgr|MAME|:medafen_ngp_libretro.dll
+SNK - Neo Geo CD|NeoRaine|neosdl|ncdz|xe|MAME|:mame_libretro.dll
+SNK - Neo Geo MVS|FinalBurnAlpha|xe|WinKawaks|aes4all|nebula|ngae|MAME|:fbalpha2012_neogeo_libretro.dll|fbalpha_libretro.dll
+SNK - Neo Geo Pocket Color|Mednafen|koyote|race|neopopcott|neopop|MAME|:medafen_ngp_libretro.dll
+SNK - Neo Geo Pocket|Mednafen|neopop|koyote|neopopcott|xe|vdmgr|MAME|:medafen_ngp_libretro.dll
 Sage Technology - Sage II|MAME|:mame_libretro.dll
 Sammy - Atomiswave|Demul
 Samsung - SPC-1000|MAME|:mame_libretro.dll
@@ -337,16 +337,16 @@ Sega - Visual Memory Unit|directvms|softvms|dreamvmu|MAME|:mame_libretro.dll
 Seiko - Ruputer|aurex|MAME|:mame_libretro.dll
 Sharp - MZ-2000|MAME|:mame_libretro.dll
 Sharp - MZ-2500|MAME|:mame_libretro.dll
-Sharp - MZ-700|mzxx|mz700|MAME|:mame_libretro.dll
+Sharp - MZ-700|mzxx|mz700win|mz700|MAME|:mame_libretro.dll
 Sharp - MZ-800|mzxx|mz800|MAME|:mame_libretro.dll
 Sharp - MZ-2000|emuz2000|MAME|:mame_libretro.dll
 Sharp - MZ-2500|MAME|:mame_libretro.dll
 Sharp - X1|X1turbo|x1|x1twin|winX1|MAME|:mame_libretro.dll
-Sharp - X68000|XM6|Anex86|Winx68k|MAME|:px68k_libretro.dll|mame_libretro.dll
+Sharp - X68000|XM6|Anex86|Winx68k|ex68|MAME|:px68k_libretro.dll|mame_libretro.dll
 Sinclair - QL|ql2k|MAME|:fuse_libretro.dll|mame_libretro.dll
 Sinclair - ZX Spectrum|ZXSpin|jvz200|Ascd|zesarux|no$zx|dsp|tunix|ep128emu|mzxx|MAME|EMU|:fuse_libretro.dll|crocods_libretro.dll|mame_libretro.dll
 Sinclair - ZX80|ZXSpin|jvz200|zesarux|no$zx|MAME|:mame_libretro.dll
-Sinclair - ZX81|ZXSpin|eightyone|mzxx|MAME|:81_libretro.dll|mame_libretro.dll
+Sinclair - ZX81|ZXSpin|eightyone|zesarux|mzxx|MAME|:81_libretro.dll|mame_libretro.dll
 Signetics - Pipbug|winarcadia|MAME|:mame_libretro.dll
 Small Systems Engineering - SSE Softbox|MAME|:mame_libretro.dll
 Sony - Playstation 2|pcsx2|Play|hpsx

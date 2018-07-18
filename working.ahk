@@ -4884,7 +4884,10 @@ Loop,Parse,emuj,`n
 			{
 				continue
 			}
-		addemu.= emup1 . "|"
+		ifnotinstring,addemu,%emup1%|
+			{
+				addemu.= emup1 . "|"
+			}
 }
 runlist:= corelist . "|" . addemu
 
@@ -4906,7 +4909,10 @@ Loop,Parse,emuj,`n
 			{
 				continue
 			}
-		addemu.= emup1 . "|"
+		ifnotinstring,addemu,%emup1%|
+			{
+				addemu.= emup1 . "|"
+			}
 	}
 runlist:= corelist . "|" . addemu
 return
@@ -7783,6 +7789,7 @@ ifinstring,OPTYP,:=:
 					}
 			}
 	}
+
 guicontrolget,lcrtst,,LCORE
 if (OPTYP = ":=:System List:=:")
 	{
@@ -7859,6 +7866,7 @@ Loop,%SWAPSUB%\*.*,0,1
 				poptadd .= A_LoopFileLongPath . "|"
 			}
 	}
+
 if (romf <> "")
 	{
 		stringmid,romhnck,romf,2,1
@@ -7886,7 +7894,18 @@ if (SRCHCOMPL = 1)
 				}
 			}
 	}
-
+iniread,coreselz,Assignments.ini,OVERRIDES,%OPTYP%
+if coreselz is not digit
+	{
+		if (coreselz <> "ERROR")
+			{
+				stringsplit,coreselp,coreselz,|
+					{
+						coreselv= %coreselp1%
+						guicontrol,,LCORE,|%coreselv%||%runlist%
+					}
+			}
+	}
 gosub, EDTROM
 guicontrol,enable,RUNROMCBX
 guicontrol,enable,RUNSYSDDL
@@ -10432,7 +10451,6 @@ gui,submit,nohide
 guicontrolget,SALIST,,SALIST
 guicontrol, hide, UAVAIL
 guicontrol,show,ADDCORE
-guicontrol,show,OVEXTL
 guicontrol,show,CRNTCORS
 guicontrol,show,OPNSYS
 guicontrol,show,OVLIST
@@ -10449,6 +10467,7 @@ guicontrol,disable,EMBUTO
 guicontrol,disable,EMEDTO
 guicontrol,disable,EMBUTH
 
+guicontrol,hide,OVEXTL
 guicontrol,hide,REPOSET
 guicontrol,hide,DSKMNTGRP
 guicontrol,hide,DSKMNTCHK
@@ -11391,7 +11410,7 @@ guicontrol,hide,OEMUNICK
 guicontrol,hide,OEMUDEL
 guicontrol,hide,OEMUSV
 guicontrol,hide,OEMUTXT
-guicontrol,,OVEXTL,|All
+guicontrol,,OVEXTL,|All||
 
 guicontrol,,EMPRLST,|
 Loop, Parse, semu,|
@@ -11772,7 +11791,10 @@ Loop, Parse,UrlIndex,`n`r
 					{
 						inisect= EMULATORS
 						iniwrite, "%xtractmfp%",apps.ini,%inisect%,%selfnd%
-						addemu.= "|" . selfnd
+						ifnotinstring,addemu,|%selfnd%
+							{
+								addemu.= "|" . selfnd
+							}
 						guicontrol,,EMPRDDL,|%addemu%
 					}
 ;;			}
@@ -13125,7 +13147,10 @@ Loop, Parse, UAVAIL,|
 					}
 				if (ahri = "")
 					{
-						addemu.= "|" . semu
+						ifnotinstring,addemu,|%semu%
+							{
+								addemu.= "|" . semu
+							}
 						runlist:= corelist . "|" . addemu
 						guicontrol,,EMPRDDL,|%addemu%
 					}
@@ -14231,7 +14256,10 @@ Loop, Parse, semu,|
 					{
 						nwadmm.= sysni . "|"
 						nwadmi:= sysninj . "|" . sysni
-						addemu.= "|" . sysni
+						ifnotinstring,adddemu,|%sysni%
+							{
+								addemu.= "|" . sysni
+							}
 						guicontrol,,EMPRDDL,|%sysni%||%addemu%
 						runlist:= corelist . "|" . addemu
 						guicontrol,,LCORE,|%runlist%
@@ -15394,12 +15422,16 @@ Loop,Parse,asig,`n,`r
 					}
 			}
 	}
-	
+fileread,tdk,Assignments.ini
+stringreplace,tdk,tdk,"|,",All
+stringreplace,tdk,tdk,|",",All
+filedelete,Assignments.ini
+fileappend,%tdk%,Assignments.ini
 runlist:= corelist . "|" . addemu
 guicontrol,,JCORE,|%runlist%
 guicontrol,,LCORE,|%runlist%
 guicontrol,,AddCore,|Select_A_System||%reasign%
-guicontrol,,SKDSETXT,%emunumtot%
+guicontrol,,SKDSETXT,%emunumtot% emulators detected
 gosub, resetEmuList
 guicontrol,enable,LNCHPT
 guicontrol,enable,EMUDETECT
@@ -54757,8 +54789,10 @@ if (romhnck <> ":")
 					}
 			}
 	}
+
 SplitPath,romf,romtitle,rompth,romxt,romname
 guicontrolget,coreselv,,LCORE
+
 iniread,coreselx,AppParams.ini,%runsysddl%,%romxt%
 if (coreselx <> "ERROR")
 	{
@@ -55587,10 +55621,11 @@ if (EMPRERUN <> "")
 							}
 					}
 				*/	
-				if (avvr <> "ERROR")
+				if (avvr = "ERROR")
 					{
-						preruni.= avvr
+						continue
 					}
+				preruni.= avvr
 				empro= 
 				Loop, Parse, EMPREOPT,|
 					{	
@@ -55619,7 +55654,7 @@ if (EMPRERUN <> "")
 Loop, Parse, preruni,|
 	{
 		arin= % STRTYP%A_Index%
-		;;msgbox,,,romf=%romf%`ncoreselv=%coreselv%`n%arin%`n%preruni%
+		msgbox,,,romf=%romf%`ncoreselv=%coreselv%`narin=%arin%`npreruni=%preruni%
 		if (arin = "Run")
 			{
 				Run, %A_LoopField%
@@ -55690,7 +55725,11 @@ if (EMPOSTRUN <> "")
 									}
 							}
 					}
-				*/	
+				*/
+				if (avvr = "ERROR")
+					{
+						continue
+					}
 				postruni.= avvr
 				empro= 
 				Loop, Parse, EMPOSTOPT,|
@@ -56684,7 +56723,10 @@ Loop,Parse,emuj,`n
 			{
 				continue
 			}
-		addemu.= emup1 . "|"
+		ifnotinstring,addemu,%emup1%|
+			{
+				addemu.= emup1 . "|"
+			}
 }
 runlist:= corelist . "|" . addemu
 
