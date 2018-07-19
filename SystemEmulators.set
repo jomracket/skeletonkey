@@ -216,10 +216,10 @@ Morrow Designs - Micro Decision MD-2|MAME|:mame_libretro.dll
 Morrow Designs - Morrow MPZ80|MAME|:mame_libretro.dll
 NCR - Decision Mate V|MAME|:mame_libretro.dll
 NEC - Advanced Personal Computer|MAME|:mame_libretro.dll
-NEC - PC Engine - JAP|Mednafen|Ootake|pcengine|turboengine|pcejin|hu6280|xe|magicengine|hugo|MAME|:mednafen_pce_fast_libretro.dll
-NEC - PC Engine - TurboGrafx 16|Mednafen|Ootake|pcengine|turboengine|xe|pcejin|hu6280|magicengine|hugo|MAME|:mednafen_pce_fast_libretro.dll|mame_libretro.dll
-NEC - PC Engine CD - TurboGrafx CD|Mednafen|Ootake|pcengine|turboengine|xe|pcejin|hu6280|magicengine|hugo|MAME|:mednafen_pce_fast_libretro.dll|mame_libretro.dll
-NEC - PC Engine SuperGrafx|Mednafen|Ootake|pcengine|MAME|:mednafen_supergrafx_libretro.dll|mame_libretro.dll
+NEC - PC Engine - JAP|Mednafen|Ootake|pcengine|turboengine|pcejin|hu6280|xe|BizHawk|magicengine|hugo|MAME|:mednafen_pce_fast_libretro.dll
+NEC - PC Engine - TurboGrafx 16|Mednafen|Ootake|pcengine|turboengine|xe|pcejin|BizHawk|hu6280|magicengine|hugo|MAME|:mednafen_pce_fast_libretro.dll|mame_libretro.dll
+NEC - PC Engine CD - TurboGrafx CD|Mednafen|Ootake|pcengine|turboengine|xe|pcejin|BizHawk|hu6280|magicengine|hugo|MAME|:mednafen_pce_fast_libretro.dll|mame_libretro.dll
+NEC - PC Engine SuperGrafx|Mednafen|Ootake|pcengine|BizHawk|MAME|:mednafen_supergrafx_libretro.dll|mame_libretro.dll
 NEC - PC-6001|pc6001|pc6601|MAME|:mame_libretro.dll
 NEC - PC-8201(A) Option|Neko|m88|mx88|MAME|:mame_libretro.dll
 NEC - PC-FX|Mednafen|xe|:mednafen_pcfx_libretro.dll|mame_libretro.dll
