@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-07-20 11:49 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-07-20 2:11 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-07-20 11:49 AM
-VERSION= v0.99.55.31
+RELEASE= 2018-07-20 2:11 PM
+VERSION= v0.99.55.33
 RASTABLE= 1.7.3
 #Include tf.ahk
 #Include lbex.ahk
@@ -55676,7 +55676,6 @@ if (EMPRERUN <> "")
 Loop, Parse, preruni,|
 	{
 		arin= % STRTYP%A_Index%
-		msgbox,,,romf=%romf%`ncoreselv=%coreselv%`narin=%arin%`npreruni=%preruni%
 		if (arin = "Run")
 			{
 				Run, %A_LoopField%

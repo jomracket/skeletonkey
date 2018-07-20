@@ -147,6 +147,10 @@ RJPRECFG=copy /y "settings.properties" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\settings.properties" "%GAMDIR%"
 RJEMUOPTS=<-r --loadfile<
 
+[yuzu]
+RJPRECFG=copy /y "qt-config.ini" "%EMUL%\user\config"
+RJPOSTCFG=copy /y "%EMUL%\user\config\qt-config.ini" "%GAMDIR%"
+
 [ElecEm]
 RJPRECFG=copy /Y "electrem.cfg" "%APPDATA%"
 RJPOSTCFG=copy /y "%APPDATA%\electrem.cfg" "%GAMDIR%"

@@ -200,12 +200,12 @@ Memotech - MTX|mtxemu|MAME|mame_libretro.dll
 Mephisto - Super Mondial II|MAME|:mame_libretro.dll
 Microkey - Primo|ultimo|MAME|mame_libretro.dll
 Microsoft - DOS|DOSBox|DosPlus|:dosbox_libretro.dll
-Microsoft - MSX TurboR|BlueMSX|msx2p|no$msx|MAME|openMSX|EMU|vdmgr|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
-Microsoft - MSX2+|BlueMSX|msx2p|no$msx|MAME|openMSX|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
-Microsoft - MSX2|BlueMSX|msx2|no$msx|MAME|openMSX|EMU|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
-Microsoft - MSX|BlueMSX|msx1|no$msx|MAME|openMSX|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
+Microsoft - MSX TurboR|BlueMSX|msx2p|no$msx|MAME|openMSX|EMU|fmsx|vdmgr|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
+Microsoft - MSX2+|BlueMSX|msx2p|no$msx|MAME|fmsx|openMSX|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
+Microsoft - MSX2|BlueMSX|msx2|no$msx|MAME|openMSX|fmsx|EMU|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
+Microsoft - MSX|BlueMSX|msx1|no$msx|MAME|fmsx|fbalpha|vdmgr|Xspeccy|openMSX|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
 Microsoft - XBOX 360|Xenia
-Microsoft - XBOX|Cxbx|QXEMU
+Microsoft - XBOX|Cxbx|cxbxreloaded|QXEMU
 Microtan - 65|MAME|mame_libretro.dll
 Mikro - Mikro-80|MAME|:mame_libretro.dll
 MikroMikko - MikroMikko 1|MAME|:mame_libretro.dll

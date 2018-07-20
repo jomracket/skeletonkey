@@ -55676,7 +55676,6 @@ if (EMPRERUN <> "")
 Loop, Parse, preruni,|
 	{
 		arin= % STRTYP%A_Index%
-		msgbox,,,romf=%romf%`ncoreselv=%coreselv%`narin=%arin%`npreruni=%preruni%
 		if (arin = "Run")
 			{
 				Run, %A_LoopField%

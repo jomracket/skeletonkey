@@ -349,6 +349,8 @@ vb64=vb64/vb64.7z=vb64.exe=
 vgb=vgb/vgb.7z=VGB.exe=
 vgba=vgba/vgba.7z=VGBA.exe=
 virtu=virtu/virtu.7z=virtu.exe=
+cxbxreloaded=cxbxreloaded/cxbxreloaded.7z=cxbxreloaded.exe=
+ryujinx=ryujinx/ryujinx.7z=ryujinx.exe=Ryujinx.runtimeconfig.json|ryujinx.conf=
 virtualapf=virtualapf/virtualapf.7z=virtualapf.exe=
 virtualjaguar=virtualjaguar/virtualjaguar-[ARCH].7z=virtualjaguar.exe=vjag.cmd
 virtuanesplus=virtuanesplus/virtuanesplus.7z=VirtuaNES.exe=
@@ -367,7 +369,7 @@ x88=x88/x88.7z=x88x24.exe=
 xe=xe/xe.7z=xe.exe=rc\xerc=
 xebra=xebra/xebra.7z=XEBRA.EXE=
 yape=yape/yape.7z=Yape.exe=
-yuzu=yuzu/yuzu.7z
+yuzu=yuzu/yuzu.7z=yuzu.exe=qt-config.ini
 z26=z26/z26.7z=z26.exe=
 zboy=zboy/zboy.7z=zboy.exe=
 zesarux=zesarux/zesarux.7z=zesarux.exe=
@@ -394,6 +396,7 @@ Antimicro=Antimicro/antimicro-64.7z=antimicro.exe=
 Xinput_Drivers=Xinput_Drivers/Xbox360-[ARCH]Eng.7z=Xbox360_[ARCH]Eng.exe=
 Xpadder=Xpadder/Xpadder.7z=XPadder.exe=
 Visual_C++_Runtimes=Visual_C++_Runtimes/vcrs.7z=VBCRedist_AIO_x86_x64.exe=
-DS4Windows=DS4Windows/DS4Windows.7z=DS4Windows.ex=e
+DS4Windows=DS4Windows/DS4Windows.7z=DS4Windows.exe=
 DirectX=DirectX/dxwebsetup.7z=dxwebsetup.exe=
 Display_Changer=DisplayChanger/dc.7z=dc64.exe=
+XOutput=XOutput/XOutput.7z=XOutput.exe=configs\*.ini=
