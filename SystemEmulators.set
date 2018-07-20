@@ -325,7 +325,7 @@ Sega - MegaTech|Fusion|blastem|mednafen|gens|gensgs|dgen|gensplus|regen|genesisp
 Sega - Model 1|modeller|MAME|:mame_libretro.dll
 Sega - Model 2|m2emulator|MAME|:mame_libretro.dlls
 Sega - Model 3|supermodel
-Sega - NAOMI|Demul|NullDC|MAME|Makaron|:reicast_libretro.dll|reicast_OIT_libretro.dll|mame_libretro.dll
+Sega - NAOMI|Demul|reicast|NullDC|MAME|Makaron|:reicast_libretro.dll|reicast_OIT_libretro.dll|mame_libretro.dll
 Sega - PICO|Fusion|picodrive|MAME|:picodrive_libretro.dll
 Sega - SC-3000|meka|sc3000|regen|vdmgr|MAME|:mame_libretro.dll
 Sega - SF-7000|meka|MAME|:mame_libretro.dll
@@ -351,7 +351,7 @@ Signetics - Pipbug|winarcadia|MAME|:mame_libretro.dll
 Small Systems Engineering - SSE Softbox|MAME|:mame_libretro.dll
 Sony - Playstation 2|pcsx2|Play|hpsx
 Sony - Playstation 3|rpcs3|nucelus|shortwave
-Sony - Playstation Portable|PPSSPP|jcpsp|cpspemu|:ppsspp_libretro.dll
+Sony - Playstation Portable|PPSSPP|jpcsp|cpspemu|:ppsspp_libretro.dll
 Sony - Playstation Vita|BSL
 Sony - Playstation|epsxe|Mednafen|pcsxr|AdriPSX|Bizhawk|no$psx|psxfin|xebra|hpsx|:mednafen_psx_libretro.dll|pcsx_rearmed_libretro.dll|mednafen_psx_hw_libretro.dll|mame_libretro.dll
 Sony - Pocketstation|pkemu|pk201|xebra|MAME|:mame_libretro.dll

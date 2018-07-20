@@ -142,6 +142,11 @@ RJPOSTCFG=copy /Y "%EMUL%\AdviEmulator.ini" "%GAMDIR%"
 RJPRECFG=copy /Y "WinAPE.ini" "%EMUL%"
 RJPOSTCFG=copy /Y "%EMUL%\WinAPE.ini" "%GAMDIR%"
 
+[jpcsp]
+RJPRECFG=copy /y "settings.properties" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\settings.properties" "%GAMDIR%"
+RJEMUOPTS=<-r --loadfile<
+
 [ElecEm]
 RJPRECFG=copy /Y "electrem.cfg" "%APPDATA%"
 RJPOSTCFG=copy /y "%APPDATA%\electrem.cfg" "%GAMDIR%"
@@ -892,7 +897,7 @@ RJEMUPRESET=MAME
 RJMAMENM=ibmpcjr
 RJMULTIDISC=1
 RJROMXT=.dsk,.ima,.img,.ufi,.360,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.zip
-MAME?RJEMUOPTS=<ibmpcjr -[ROMTYPE<|<ibmpcjr -cart1<|<ibmpcjx -cass<|<ibmpcjx -cart1<|<ibmpcjx -flop1<|<ibmpcjr -cass<|<ibmpcjr -flop1<
+MAME?RJEMUOPTS=<ibmpcjr -[RJRTYP]<|<ibmpcjr -cart1<|<ibmpcjx -cass<|<ibmpcjx -cart1<|<ibmpcjx -flop1<|<ibmpcjr -cass<|<ibmpcjr -flop1<
 
 [Interon - VC4000]
 RJEMUPRESET=MAME

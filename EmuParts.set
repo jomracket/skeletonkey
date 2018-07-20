@@ -232,7 +232,7 @@ ideas=ideas/ideas.7z=ideas.exe=
 intv=intv/intv.7z=intv.exe=
 jagulator=jagulator/jagulator.7z=jagulator.exe=
 javacpc=javacpc/javacpc.7z=JavaCPC.exe=
-jpcsp=jpcsp/jpcsp-[ARCH].7z=bin\jcpsp.jar=settings.properties=
+jpcsp=jpcsp/jpcsp-[ARCH].7z=start-windows-amd64.bat=settings.properties=
 nucleus=nucleus/nucleus.7z=nucleus.exe=
 jr100=jr100/jr100.7z=jr100.exe=jr100.ini=
 jum52=jum52/jum52.7z=Jum52_Win32.exe=
