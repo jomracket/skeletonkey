@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-07-20 2:11 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-07-21 3:06 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-07-20 2:11 PM
-VERSION= v0.99.55.33
+RELEASE= 2018-07-21 3:06 PM
+VERSION= v0.99.55.34
 RASTABLE= 1.7.3
 #Include tf.ahk
 #Include lbex.ahk
@@ -20332,7 +20332,7 @@ loop,Read, gam\%ARCSYS%.gam
 				if (cmdfun = 1)
 					{
 						emucmd= %rommatch3%
-					}
+					}	
 				break	
 			} 
 	}
@@ -20388,12 +20388,18 @@ EXTRAR=
 EXTCHD= 
 EXT7Z= 
 romshere= 
+romdwnfull= %romdwn%
 stringreplace,revurl,romdwn,\,/,All
 stringreplace, romdwn,romdwn,/,\,All
 splitpath,romdwn,dwnchk,tmpth,chkxt,romname,tmpdrv
 stringreplace,dwnchk,dwnchk,`%26,&,All
 stringreplace,romname,romname,`%26,&,All
 URLFILE= %ArcSite%/%sysurl%%revurl%
+stringleft,fputh,romdwn,8
+ifinstring,romdwnfull,://
+	{
+		URLFILE= %romdwnfull%
+	}
 if (GETURL = 1)
 	{
 		SB_SetText(" " URLFILE " in clipboard ")

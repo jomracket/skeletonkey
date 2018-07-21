@@ -6,7 +6,7 @@ Daemon_Tools|Daemon_Tools
 DirectX|DirectX
 EmulationStation|EmulationStation
 Hyperspin|Hyperspin
-IARL|IARL
+IAGL|IAGL
 ICE|ICE
 Kodi_XBMC|XBMC
 MediaBrowser|MediaBrowser
@@ -17,3 +17,4 @@ Windows_Icons|Windows|Icons
 Xinput_Drivers|Xinput_Drivers
 Xpadder|Xpadder
 Display_Changer|Display_Changer
+XOutput|XOutput

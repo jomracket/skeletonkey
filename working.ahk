@@ -20332,7 +20332,7 @@ loop,Read, gam\%ARCSYS%.gam
 				if (cmdfun = 1)
 					{
 						emucmd= %rommatch3%
-					}
+					}	
 				break	
 			} 
 	}
@@ -20388,12 +20388,18 @@ EXTRAR=
 EXTCHD= 
 EXT7Z= 
 romshere= 
+romdwnfull= %romdwn%
 stringreplace,revurl,romdwn,\,/,All
 stringreplace, romdwn,romdwn,/,\,All
 splitpath,romdwn,dwnchk,tmpth,chkxt,romname,tmpdrv
 stringreplace,dwnchk,dwnchk,`%26,&,All
 stringreplace,romname,romname,`%26,&,All
 URLFILE= %ArcSite%/%sysurl%%revurl%
+stringleft,fputh,romdwn,8
+ifinstring,romdwnfull,://
+	{
+		URLFILE= %romdwnfull%
+	}
 if (GETURL = 1)
 	{
 		SB_SetText(" " URLFILE " in clipboard ")
