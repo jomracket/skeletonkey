@@ -4,11 +4,11 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-07-22 4:17 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-07-22 4:26 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-07-22 4:17 PM
+RELEASE= 2018-07-22 4:26 PM
 VERSION= v0.99.55.35
 RASTABLE= 1.7.3
 #Include tf.ahk
@@ -22231,7 +22231,7 @@ if (subemuname <> "")
 						;;msgbox,,,jemun1=%jemun1%`nemusn=%EMUSN%`nemufns=%EMUFNS%`ngoto "%EMUFNS%GUI"
 						svgbrnv= 
 						;;gosub, TOGRAOPTS
-						gosub, %EMUFNS_%GUI
+						gosub, %EMUFNS%_GUI
 						eguex= 
 						/*
 						try {

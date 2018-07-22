@@ -22231,7 +22231,7 @@ if (subemuname <> "")
 						;;msgbox,,,jemun1=%jemun1%`nemusn=%EMUSN%`nemufns=%EMUFNS%`ngoto "%EMUFNS%GUI"
 						svgbrnv= 
 						;;gosub, TOGRAOPTS
-						gosub, %EMUFNS_%GUI
+						gosub, %EMUFNS%_GUI
 						eguex= 
 						/*
 						try {
