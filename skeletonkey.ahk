@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-07-21 3:06 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-07-22 4:17 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-07-21 3:06 PM
-VERSION= v0.99.55.34
+RELEASE= 2018-07-22 4:17 PM
+VERSION= v0.99.55.35
 RASTABLE= 1.7.3
 #Include tf.ahk
 #Include lbex.ahk
@@ -22220,25 +22220,36 @@ if (subemuname <> "")
 			;;}
 		;;Loop, Parse, SUPEMUOPT, |
 			;;{
+				if (jemun1 = "")
+					{
+						continue
+					}
 				StringReplace,EMUFNS,EMUSN,-,,All
 				StringReplace,EMUFNS,EMUFNS,%A_Space%,,All
 				if (jemun1 = EMUSN)
 					{
+						;;msgbox,,,jemun1=%jemun1%`nemusn=%EMUSN%`nemufns=%EMUFNS%`ngoto "%EMUFNS%GUI"
 						svgbrnv= 
-						gosub, TOGRAOPTS
-						;;gosub, %EMUFNS%GUI
+						;;gosub, TOGRAOPTS
+						gosub, %EMUFNS_%GUI
 						eguex= 
-						try gosub, %EMUFNS%GUI
-						catch, {							
-									if (eguex = "")
-									{
-										if (svgbrnv = "")
+						/*
+						try {
+								gosub, %EMUFNS%_GUI
+							}
+								catch {
+											msgbox,,,caught
+										
+										if (eguex = "")
 											{
-												gosub, TOGSKELONLY
-												gosub, TOGSKELGUI
+												if (svgbrnv = "")
+													{
+														gosub, TOGSKELONLY
+														gosub, TOGSKELGUI
+													}
 											}
-									}
 								}
+						*/		
 						guicontrol,enable,OPNCORE		
 						return
 					}
@@ -23347,10 +23358,1100 @@ return
 
 ;{;;;;;  EMU GUI CREATION  ;;;;;
 
-retroArchGUI:
+
+;{;;;;;;;;;;;;;;;  UNUSED  ;;;;;;;;;;;;;;;;;;;
+retroArch_GUI:
 gosub, EMUCFGCOPY
 gosub, RAOPTPOP
 return
+
+1964_GUI:
+gosub, EMUCFGCOPY
+return
+3doplay_GUI:
+gosub, EMUCFGCOPY
+return
+archie_GUI:
+gosub, EMUCFGCOPY
+return
+3DNes_GUI:
+gosub, EMUCFGCOPY
+return
+aprnes_GUI:
+gosub, EMUCFGCOPY
+return
+arcem_GUI:
+gosub, EMUCFGCOPY
+return
+alice32_GUI:
+gosub, EMUCFGCOPY
+return
+apple1_GUI:
+gosub, EMUCFGCOPY
+return
+apfemu_GUI:
+gosub, EMUCFGCOPY
+return
+Arnimedes_GUI:
+gosub, EMUCFGCOPY
+return
+ex68_GUI:
+gosub, EMUCFGCOPY
+return
+zmz_GUI:
+gosub, EMUCFGCOPY
+return
+AdviEmulator_GUI:
+gosub, EMUCFGCOPY
+return
+4DO_GUI:
+gosub, EMUCFGCOPY
+return
+ActiveGS_GUI:
+gosub, EMUCFGCOPY
+return
+Altirra_GUI:
+gosub, EMUCFGCOPY
+return
+AdriPSX_GUI:
+gosub, EMUCFGCOPY
+return
+Anex86_GUI:
+gosub, EMUCFGCOPY
+return
+AppleWin_GUI:
+gosub, EMUCFGCOPY
+return
+Arculator_GUI:
+gosub, EMUCFGCOPY
+return
+Atari800_GUI:
+gosub, EMUCFGCOPY
+return
+Atari800win_GUI:
+gosub, EMUCFGCOPY
+return
+BeebEm_GUI:
+gosub, EMUCFGCOPY
+return
+Bizhawk_GUI:
+gosub, EMUCFGCOPY
+return
+pcae_GUI:
+gosub, EMUCFGCOPY
+return
+rainbow_GUI:
+gosub, EMUCFGCOPY
+return
+sainT_GUI:
+gosub, EMUCFGCOPY
+return
+bws_GUI:
+gosub, EMUCFGCOPY
+return
+dcmicrocolor_GUI:
+gosub, EMUCFGCOPY
+return
+DCAlice_GUI:
+gosub, EMUCFGCOPY
+return
+wataroo_GUI:
+gosub, EMUCFGCOPY
+return
+mtxemu_GUI:
+gosub, EMUCFGCOPY
+return
+speccy_GUI:
+gosub, EMUCFGCOPY
+return
+ultimo_GUI:
+gosub, EMUCFGCOPY
+return
+oswan_GUI:
+gosub, EMUCFGCOPY
+return
+ASCD_GUI:
+gosub, EMUCFGCOPY
+return
+Bliss_GUI:
+gosub, EMUCFGCOPY
+return
+BlueMSX_GUI:
+gosub, EMUCFGCOPY
+return
+CD-I_GUI:
+gosub, EMUCFGCOPY
+return
+CEMU_GUI:
+gosub, EMUCFGCOPY
+return
+Citra_GUI:
+gosub, EMUCFGCOPY
+return
+Colem_GUI:
+gosub, EMUCFGCOPY
+return
+Cxbx_GUI:
+gosub, EMUCFGCOPY
+return
+DOSBox_GUI:
+gosub, EMUCFGCOPY
+return
+Demul_GUI:
+gosub, EMUCFGCOPY
+return
+DesMume_GUI:
+gosub, EMUCFGCOPY
+return
+Dolphin_GUI:
+gosub, EMUCFGCOPY
+return
+DosPlus_GUI:
+gosub, EMUCFGCOPY
+return
+EMU7800_GUI:
+gosub, EMUCFGCOPY
+return
+ElectrEm_GUI:
+gosub, EMUCFGCOPY
+return
+FMBochs_GUI:
+gosub, EMUCFGCOPY
+return
+FMBocks_GUI:
+gosub, EMUCFGCOPY
+return
+FS-UAE_GUI:
+gosub, EMUCFGCOPY
+return
+FinalBurnAlpha_GUI:
+gosub, EMUCFGCOPY
+return
+FishNChips_GUI:
+gosub, EMUCFGCOPY
+return
+Fusion_GUI:
+gosub, EMUCFGCOPY
+return
+funnymu_GUI:
+gosub, EMUCFGCOPY
+return
+Ishiiruka_GUI:
+gosub, EMUCFGCOPY
+return
+Kegs32_GUI:
+gosub, EMUCFGCOPY
+return
+medusa_GUI:
+gosub, EMUCFGCOPY
+return
+Mesen_GUI:
+gosub, EMUCFGCOPY
+return
+Mess_GUI:
+gosub, EMUCFGCOPY
+return
+minimon_GUI:
+gosub, EMUCFGCOPY
+return
+Neko_GUI:
+gosub, EMUCFGCOPY
+return
+NeoRaine_GUI:
+gosub, EMUCFGCOPY
+return
+No$GBA_GUI:
+gosub, EMUCFGCOPY
+return
+Nostalgia_GUI:
+gosub, EMUCFGCOPY
+return
+NullDC_GUI:
+gosub, EMUCFGCOPY
+return
+Ootake_GUI:
+gosub, EMUCFGCOPY
+return
+Oricutron_GUI:
+gosub, EMUCFGCOPY
+return
+PC6001VW_GUI:
+gosub, EMUCFGCOPY
+return
+PC6001VX_GUI:
+gosub, EMUCFGCOPY
+return
+PPSSPP_GUI:
+gosub, EMUCFGCOPY
+return
+ParaJVE_GUI:
+gosub, EMUCFGCOPY
+return
+Pcsx2_GUI:
+gosub, EMUCFGCOPY
+return
+PicoDrive_GUI:
+gosub, EMUCFGCOPY
+return
+ProSystem_GUI:
+gosub, EMUCFGCOPY
+return
+Project64_GUI:
+gosub, EMUCFGCOPY
+return
+ProjectTempest_GUI:
+gosub, EMUCFGCOPY
+return
+SL9821_GUI:
+gosub, EMUCFGCOPY
+return
+SNESGT_GUI:
+gosub, EMUCFGCOPY
+return
+SSF_GUI:
+gosub, EMUCFGCOPY
+return
+SimCoupe_GUI:
+gosub, EMUCFGCOPY
+return
+Stella_GUI:
+gosub, EMUCFGCOPY
+return
+Supermodel_GUI:
+gosub, EMUCFGCOPY
+return
+Unz_GUI:
+gosub, EMUCFGCOPY
+return
+SWFOpener_GUI:
+gosub, EMUCFGCOPY
+return
+VirtuaNes_GUI:
+gosub, EMUCFGCOPY
+return
+VisualBoyAdvance_GUI:
+gosub, EMUCFGCOPY
+return
+VisualBoyAdvance-M_GUI:
+gosub, EMUCFGCOPY
+return
+vita3k_GUI:
+gosub, EMUCFGCOPY
+return
+WinAPE_GUI:
+gosub, EMUCFGCOPY
+return
+WinArcadia_GUI:
+gosub, EMUCFGCOPY
+return
+WinKawaks_GUI:
+gosub, EMUCFGCOPY
+return
+aes4all_GUI:
+gosub, EMUCFGCOPY
+return
+WinUAE_GUI:
+gosub, EMUCFGCOPY
+return
+WinVICE_GUI:
+gosub, EMUCFGCOPY
+return
+WinX68k_GUI:
+gosub, EMUCFGCOPY
+return
+X1turbo_GUI:
+gosub, EMUCFGCOPY
+return
+XM6_GUI:
+gosub, EMUCFGCOPY
+return
+XM7_GUI:
+gosub, EMUCFGCOPY
+return
+dcexel_GUI:
+gosub, EMUCFGCOPY
+return
+Xroar_GUI:
+gosub, EMUCFGCOPY
+return
+ep32_GUI:
+gosub, EMUCFGCOPY
+return
+enter_GUI:
+gosub, EMUCFGCOPY
+return
+ep128emu_GUI:
+gosub, EMUCFGCOPY
+return
+tunix_GUI:
+gosub, EMUCFGCOPY
+return
+Yabause_GUI:
+gosub, EMUCFGCOPY
+return
+ZXSpin_GUI:
+gosub, EMUCFGCOPY
+return
+Zsnes_GUI:
+gosub, EMUCFGCOPY
+return
+ace_GUI:
+gosub, EMUCFGCOPY
+return
+virtu_GUI:
+gosub, EMUCFGCOPY
+return
+apemuw_GUI:
+gosub, EMUCFGCOPY
+return
+aqemu_GUI:
+gosub, EMUCFGCOPY
+return
+aipc_GUI:
+gosub, EMUCFGCOPY
+return
+bem_GUI:
+gosub, EMUCFGCOPY
+return
+modelb_GUI:
+gosub, EMUCFGCOPY
+return
+joyce_GUI:
+gosub, EMUCFGCOPY
+return
+faux1_GUI:
+gosub, EMUCFGCOPY
+return
+arnold_GUI:
+gosub, EMUCFGCOPY
+return
+atari++_GUI:
+gosub, EMUCFGCOPY
+return
+atari800winplus_GUI:
+gosub, EMUCFGCOPY
+return
+atom_GUI:
+gosub, EMUCFGCOPY
+return
+atomulator_GUI:
+gosub, EMUCFGCOPY
+return
+bgb_GUI:
+gosub, EMUCFGCOPY
+return
+blastem_GUI:
+gosub, EMUCFGCOPY
+return
+boycottadv_GUI:
+gosub, EMUCFGCOPY
+return
+bsnes_GUI:
+gosub, EMUCFGCOPY
+return
+calice_GUI:
+gosub, EMUCFGCOPY
+return
+callus_GUI:
+gosub, EMUCFGCOPY
+return
+ccs31_GUI:
+gosub, EMUCFGCOPY
+return
+kcemu_GUI:
+gosub, EMUCFGCOPY
+return
+dcvg5k_GUI:
+gosub, EMUCFGCOPY
+return
+chankast_GUI:
+gosub, EMUCFGCOPY
+return
+colecovision_GUI:
+gosub, EMUCFGCOPY
+return
+comeback64_GUI:
+gosub, EMUCFGCOPY
+return
+cpce_GUI:
+gosub, EMUCFGCOPY
+return
+cps3emulator_GUI:
+gosub, EMUCFGCOPY
+return
+creativisionemulator_GUI:
+gosub, EMUCFGCOPY
+return
+dega_GUI:
+gosub, EMUCFGCOPY
+return
+lisa_GUI:
+gosub, EMUCFGCOPY
+return
+o2em_GUI:
+gosub, EMUCFGCOPY
+return
+realityboy_GUI:
+gosub, EMUCFGCOPY
+return
+vbjin_GUI:
+gosub, EMUCFGCOPY
+return
+kindred_GUI:
+gosub, EMUCFGCOPY
+return
+neusnem_GUI:
+gosub, EMUCFGCOPY
+return
+pokemini_GUI:
+gosub, EMUCFGCOPY
+return
+vpanajr_GUI:
+gosub, EMUCFGCOPY
+return
+lisaem_GUI:
+gosub, EMUCFGCOPY
+return
+dgen_GUI:
+gosub, EMUCFGCOPY
+return
+minivmac_GUI:
+gosub, EMUCFGCOPY
+return
+pcemacplus_GUI:
+gosub, EMUCFGCOPY
+return
+gemulator_GUI:
+gosub, EMUCFGCOPY
+return
+dinoboy_GUI:
+gosub, EMUCFGCOPY
+return
+directvms_GUI:
+gosub, EMUCFGCOPY
+return
+dmgboy_GUI:
+gosub, EMUCFGCOPY
+return
+dream64_GUI:
+gosub, EMUCFGCOPY
+return
+ePSXe_GUI:
+gosub, EMUCFGCOPY
+return
+eightyone_GUI:
+gosub, EMUCFGCOPY
+return
+elkulator_GUI:
+gosub, EMUCFGCOPY
+return
+em7_GUI:
+gosub, EMUCFGCOPY
+return
+elf_GUI:
+gosub, EMUCFGCOPY
+return
+winfellow_GUI:
+gosub, EMUCFGCOPY
+return
+c4pc_GUI:
+gosub, EMUCFGCOPY
+return
+SIMH_GUI:
+gosub, EMUCFGCOPY
+return
+emma02_GUI:
+gosub, EMUCFGCOPY
+return
+nanowasp_GUI:
+gosub, EMUCFGCOPY
+return
+ubee512_GUI:
+gosub, EMUCFGCOPY
+return
+sheepshaver_GUI:
+gosub, EMUCFGCOPY
+return
+emu64_GUI:
+gosub, EMUCFGCOPY
+return
+dreamvmu_GUI:
+gosub, EMUCFGCOPY
+return
+emukon_GUI:
+gosub, EMUCFGCOPY
+return
+euphoric_GUI:
+gosub, EMUCFGCOPY
+return
+fceux_GUI:
+gosub, EMUCFGCOPY
+return
+firegb_GUI:
+gosub, EMUCFGCOPY
+return
+fm77_GUI:
+gosub, EMUCFGCOPY
+return
+fm77av40_GUI:
+gosub, EMUCFGCOPY
+return
+fm77av40ex_GUI:
+gosub, EMUCFGCOPY
+return
+fm77av_GUI:
+gosub, EMUCFGCOPY
+return
+fm7_GUI:
+gosub, EMUCFGCOPY
+return
+fm8_GUI:
+gosub, EMUCFGCOPY
+return
+fmsx_GUI:
+gosub, EMUCFGCOPY
+return
+freedo_GUI:
+gosub, EMUCFGCOPY
+return
+frodo_GUI:
+gosub, EMUCFGCOPY
+return
+gSport_GUI:
+gosub, EMUCFGCOPY
+return
+gamecomemu_GUI:
+gosub, EMUCFGCOPY
+return
+gamegear_GUI:
+gosub, EMUCFGCOPY
+return
+gbeplus_GUI:
+gosub, EMUCFGCOPY
+return
+gearsystem_GUI:
+gosub, EMUCFGCOPY
+return
+genesisplus_GUI:
+gosub, EMUCFGCOPY
+return
+gens_GUI:
+gosub, EMUCFGCOPY
+return
+gensgs_GUI:
+gosub, EMUCFGCOPY
+return
+gensplus_GUI:
+gosub, EMUCFGCOPY
+return
+gest_GUI:
+gosub, EMUCFGCOPY
+return
+hatari_GUI:
+gosub, EMUCFGCOPY
+return
+horizon_GUI:
+gosub, EMUCFGCOPY
+return
+hoxs64_GUI:
+gosub, EMUCFGCOPY
+return
+hugo_GUI:
+gosub, EMUCFGCOPY
+return
+calcem_GUI:
+gosub, EMUCFGCOPY
+return
+pkemu_GUI:
+gosub, EMUCFGCOPY
+return
+pk201_GUI:
+gosub, EMUCFGCOPY
+return
+cpspemu_GUI:
+gosub, EMUCFGCOPY
+return
+Play_GUI:
+gosub, EMUCFGCOPY
+return
+modeller_GUI:
+gosub, EMUCFGCOPY
+return
+exodus_GUI:
+gosub, EMUCFGCOPY
+return
+hpsx_GUI:
+gosub, EMUCFGCOPY
+return
+Makaron_GUI:
+gosub, EMUCFGCOPY
+return
+cogwheel_GUI:
+gosub, EMUCFGCOPY
+return
+vdmgr_GUI:
+gosub, EMUCFGCOPY
+return
+psxjin_GUI:
+gosub, EMUCFGCOPY
+return
+pcsp_GUI:
+gosub, EMUCFGCOPY
+return
+dcmo5_GUI:
+gosub, EMUCFGCOPY
+return
+pmd85_GUI:
+gosub, EMUCFGCOPY
+return
+zinc_GUI:
+gosub, EMUCFGCOPY
+return
+daphne_GUI:
+gosub, EMUCFGCOPY
+return
+classic99_GUI:
+gosub, EMUCFGCOPY
+return
+ti994w_GUI:
+gosub, EMUCFGCOPY
+return
+win994a_GUI:
+gosub, EMUCFGCOPY
+return
+tilem_GUI:
+gosub, EMUCFGCOPY
+return
+dcmoto_GUI:
+gosub, EMUCFGCOPY
+return
+coolcv_GUI:
+gosub, EMUCFGCOPY
+return
+winTVC_GUI:
+gosub, EMUCFGCOPY
+return
+emu_GUI:
+gosub, EMUCFGCOPY
+return
+hyper64_GUI:
+gosub, EMUCFGCOPY
+return
+ideas_GUI:
+gosub, EMUCFGCOPY
+return
+intv_GUI:
+gosub, EMUCFGCOPY
+return
+jagulator_GUI:
+gosub, EMUCFGCOPY
+return
+javacpc_GUI:
+gosub, EMUCFGCOPY
+return
+jpcsp_GUI:
+gosub, EMUCFGCOPY
+return
+nucleus_GUI:
+gosub, EMUCFGCOPY
+return
+jr100_GUI:
+gosub, EMUCFGCOPY
+return
+jum52_GUI:
+gosub, EMUCFGCOPY
+return
+jvz200_GUI:
+gosub, EMUCFGCOPY
+return
+jynx_GUI:
+gosub, EMUCFGCOPY
+return
+jzintv_GUI:
+gosub, EMUCFGCOPY
+return
+dsp_GUI:
+gosub, EMUCFGCOPY
+return
+kat5200_GUI:
+gosub, EMUCFGCOPY
+return
+kegs_GUI:
+gosub, EMUCFGCOPY
+return
+kigb_GUI:
+gosub, EMUCFGCOPY
+return
+koleko_GUI:
+gosub, EMUCFGCOPY
+return
+m2emulator_GUI:
+gosub, EMUCFGCOPY
+return
+m5_GUI:
+gosub, EMUCFGCOPY
+return
+m88_GUI:
+gosub, EMUCFGCOPY
+return
+macmini_GUI:
+gosub, EMUCFGCOPY
+return
+mastersystem_GUI:
+gosub, EMUCFGCOPY
+return
+meka_GUI:
+gosub, EMUCFGCOPY
+return
+melonDS_GUI:
+gosub, EMUCFGCOPY
+return
+mesadx_GUI:
+gosub, EMUCFGCOPY
+return
+mgba_GUI:
+gosub, EMUCFGCOPY
+return
+micro64_GUI:
+gosub, EMUCFGCOPY
+return
+msx1_GUI:
+gosub, EMUCFGCOPY
+return
+msx2_GUI:
+gosub, EMUCFGCOPY
+return
+msx2p_GUI:
+gosub, EMUCFGCOPY
+return
+mupen64plus_GUI:
+gosub, EMUCFGCOPY
+return
+mupen64plusplus_GUI:
+gosub, EMUCFGCOPY
+return
+mx88_GUI:
+gosub, EMUCFGCOPY
+return
+mzxx_GUI:
+gosub, EMUCFGCOPY
+return
+mz700_GUI:
+gosub, EMUCFGCOPY
+return
+mz700win_GUI:
+gosub, EMUCFGCOPY
+return
+mz800_GUI:
+gosub, EMUCFGCOPY
+return
+nebula_GUI:
+gosub, EMUCFGCOPY
+return
+neocd_GUI:
+gosub, EMUCFGCOPY
+return
+neopop_GUI:
+gosub, EMUCFGCOPY
+return
+nestopia_GUI:
+gosub, EMUCFGCOPY
+return
+next_GUI:
+gosub, EMUCFGCOPY
+return
+no$2k6_GUI:
+gosub, EMUCFGCOPY
+return
+no$c64_GUI:
+gosub, EMUCFGCOPY
+return
+no$cpc_GUI:
+gosub, EMUCFGCOPY
+return
+no$gmb_GUI:
+gosub, EMUCFGCOPY
+return
+no$msx_GUI:
+gosub, EMUCFGCOPY
+return
+no$nes_GUI:
+gosub, EMUCFGCOPY
+return
+no$psx_GUI:
+gosub, EMUCFGCOPY
+return
+no$sns_GUI:
+gosub, EMUCFGCOPY
+return
+no$zx_GUI:
+gosub, EMUCFGCOPY
+return
+nova_GUI:
+gosub, EMUCFGCOPY
+return
+openmsx_GUI:
+gosub, EMUCFGCOPY
+return
+osmose_GUI:
+gosub, EMUCFGCOPY
+return
+pc6001_GUI:
+gosub, EMUCFGCOPY
+return
+pc6001mk2_GUI:
+gosub, EMUCFGCOPY
+return
+pc6001mk2sr_GUI:
+gosub, EMUCFGCOPY
+return
+pc6601_GUI:
+gosub, EMUCFGCOPY
+return
+pc6601sr_GUI:
+gosub, EMUCFGCOPY
+return
+pc8001mk2sr_GUI:
+gosub, EMUCFGCOPY
+return
+pc8201_GUI:
+gosub, EMUCFGCOPY
+return
+pc8201a_GUI:
+gosub, EMUCFGCOPY
+return
+pc8801ma_GUI:
+gosub, EMUCFGCOPY
+return
+pc9801_GUI:
+gosub, EMUCFGCOPY
+return
+pc9801e_GUI:
+gosub, EMUCFGCOPY
+return
+pc9801u_GUI:
+gosub, EMUCFGCOPY
+return
+pc9801vf_GUI:
+gosub, EMUCFGCOPY
+return
+pc9801vm_GUI:
+gosub, EMUCFGCOPY
+return
+pc98do_GUI:
+gosub, EMUCFGCOPY
+return
+pc98ha_GUI:
+gosub, EMUCFGCOPY
+return
+pc98lt_GUI:
+gosub, EMUCFGCOPY
+return
+pcengine_GUI:
+gosub, EMUCFGCOPY
+return
+pcsxr_GUI:
+gosub, EMUCFGCOPY
+return
+phoenix_GUI:
+gosub, EMUCFGCOPY
+return
+potator_GUI:
+gosub, EMUCFGCOPY
+return
+project64k_GUI:
+gosub, EMUCFGCOPY
+return
+psxfin_GUI:
+gosub, EMUCFGCOPY
+return
+pv1000_GUI:
+gosub, EMUCFGCOPY
+return
+pv2000_GUI:
+gosub, EMUCFGCOPY
+return
+ql2k_GUI:
+gosub, EMUCFGCOPY
+return
+dchector_GUI:
+gosub, EMUCFGCOPY
+return
+virtualinteract_GUI:
+gosub, EMUCFGCOPY
+return
+vecxgl_GUI:
+gosub, EMUCFGCOPY
+return
+infovectrex_GUI:
+gosub, EMUCFGCOPY
+return
+raine_GUI:
+gosub, EMUCFGCOPY
+return
+rascalboyadv_GUI:
+gosub, EMUCFGCOPY
+return
+redream_GUI:
+gosub, EMUCFGCOPY
+return
+redsquirrel_GUI:
+gosub, EMUCFGCOPY
+return
+regen_GUI:
+gosub, EMUCFGCOPY
+return
+rpcemu_GUI:
+gosub, EMUCFGCOPY
+return
+rpcs3_GUI:
+gosub, EMUCFGCOPY
+return
+sc3000_GUI:
+gosub, EMUCFGCOPY
+return
+scummvm_GUI:
+gosub, EMUCFGCOPY
+return
+scv_GUI:
+gosub, EMUCFGCOPY
+return
+sharpchip8_GUI:
+gosub, EMUCFGCOPY
+return
+snes9x_GUI:
+gosub, EMUCFGCOPY
+return
+softvms_GUI:
+gosub, EMUCFGCOPY
+return
+galaxywin_GUI:
+gosub, EMUCFGCOPY
+return
+sorcerer_GUI:
+gosub, EMUCFGCOPY
+return
+steem_GUI:
+gosub, EMUCFGCOPY
+return
+stem_GUI:
+gosub, EMUCFGCOPY
+return
+geepee32_GUI:
+gosub, EMUCFGCOPY
+return
+sugarbox_GUI:
+gosub, EMUCFGCOPY
+return
+supergcube_GUI:
+gosub, EMUCFGCOPY
+return
+tgbdual_GUI:
+gosub, EMUCFGCOPY
+return
+tronds_GUI:
+gosub, EMUCFGCOPY
+return
+TypeXtra_GUI:
+gosub, EMUCFGCOPY
+return
+twombit_GUI:
+gosub, EMUCFGCOPY
+return
+vace3d_GUI:
+gosub, EMUCFGCOPY
+return
+vace_GUI:
+gosub, EMUCFGCOPY
+return
+vaeg_GUI:
+gosub, EMUCFGCOPY
+return
+vaquarius_GUI:
+gosub, EMUCFGCOPY
+return
+vb64_GUI:
+gosub, EMUCFGCOPY
+return
+vgb_GUI:
+gosub, EMUCFGCOPY
+return
+vgba_GUI:
+gosub, EMUCFGCOPY
+return
+cxbxreloaded_GUI:
+gosub, EMUCFGCOPY
+return
+ryujinx_GUI:
+gosub, EMUCFGCOPY
+return
+virtualapf_GUI:
+gosub, EMUCFGCOPY
+return
+virtualjaguar_GUI:
+gosub, EMUCFGCOPY
+return
+virtuanesplus_GUI:
+gosub, EMUCFGCOPY
+return
+wincpc_GUI:
+gosub, EMUCFGCOPY
+return
+winvz300_GUI:
+gosub, EMUCFGCOPY
+return
+x1_GUI:
+gosub, EMUCFGCOPY
+return
+ncdz_GUI:
+gosub, EMUCFGCOPY
+return
+ngae_GUI:
+gosub, EMUCFGCOPY
+return
+race!_GUI:
+gosub, EMUCFGCOPY
+return
+neopopcott_GUI:
+gosub, EMUCFGCOPY
+return
+koyote_GUI:
+gosub, EMUCFGCOPY
+return
+x1twin_GUI:
+gosub, EMUCFGCOPY
+return
+x86Box_GUI:
+gosub, EMUCFGCOPY
+return
+x88_GUI:
+gosub, EMUCFGCOPY
+return
+xe_GUI:
+gosub, EMUCFGCOPY
+return
+xebra_GUI:
+gosub, EMUCFGCOPY
+return
+yape_GUI:
+gosub, EMUCFGCOPY
+return
+yuzu_GUI:
+gosub, EMUCFGCOPY
+return
+z26_GUI:
+gosub, EMUCFGCOPY
+return
+zboy_GUI:
+gosub, EMUCFGCOPY
+return
+zesarux_GUI:
+gosub, EMUCFGCOPY
+return
+M71_GUI:
+gosub, EMUCFGCOPY
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;   RETROARCH  ;;;;;;
 retroArchBUTJ:
@@ -23418,7 +24519,7 @@ return
 ;{;;;;   MEDNAFEN  ;;;;
 
 ;{;;  create mednafen gui ;;
-MEDNAFENGUI:
+Mednafen_GUI:
 eguex= 1
 moptog= hide
 raoptgl= hide
@@ -24751,7 +25852,7 @@ return
 
 ;};;;;;;;;;;;;;;;;;;;;;
 
-MAMEGUI:
+MAME_GUI:
 eguex= 1
 moptog= hide
 raoptgl= hide
@@ -24815,42 +25916,7 @@ NOGUI:
 gosub, EMUCFGCOPY
 return
 
-4DOGUI:
-gosub, EMUCFGCOPY
-
-return
-
-ADAMEmGUI:
-gosub, EMUCFGCOPY
-
-return
-
-anex86GUI:
-gosub, EMUCFGCOPY
-
-return
-
-AppleWinGUI:
-gosub, EMUCFGCOPY
-
-return
-
-ArculatorGUI:
-gosub, EMUCFGCOPY
-
-return
-
-ArtifexGUI:
-gosub, EMUCFGCOPY
-
-return
-
-atari800GUI:
-gosub, EMUCFGCOPY
-
-return
-
-BSLGUI:
+BSL_GUI:
 gosub, EMUCFGCOPY
 moptog= show
 raoptgl= hide
@@ -24861,87 +25927,7 @@ gosub, TOGSKELGUI
 gosub, TOGSKELONLY
 return
 
-BeebEmGUI:
-gosub, EMUCFGCOPY
-
-return
-
-bgbGUI:
-gosub, EMUCFGCOPY
-
-return
-
-BizHawkGUI:
-gosub, EMUCFGCOPY
-
-return
-
-blastEmGUI:
-gosub, EMUCFGCOPY
-
-return
-
-BlueMSXGUI:
-gosub, EMUCFGCOPY
-
-return
-
-cemuGUI:
-gosub, EMUCFGCOPY
-
-return
-
-cen64GUI:
-gosub, EMUCFGCOPY
-
-return
-
-citraGUI:
-gosub, EMUCFGCOPY
-
-return
-
-DemulGUI:
-gosub, EMUCFGCOPY
-
-return
-
-DesMuMeGUI:
-gosub, EMUCFGCOPY
-
-return
-
-DolphinGUI:
-gosub, EMUCFGCOPY
-
-return
-
-DosPlusGUI:
-gosub, EMUCFGCOPY
-
-return
-
-ElectremGUI:
-gosub, EMUCFGCOPY
-
-return
-
-elkulatorGUI:
-gosub, EMUCFGCOPY
-
-return
-
-epsxeGUI:
-gosub, EMUCFGCOPY
-
-return
-
-finalBurnAlphaGUI:
-gosub, EMUCFGCOPY
-
-return
-
-FlashPlayerGUI:
+FlashPlayer_GUI:
 gosub, EMUCFGCOPY
 guicontrol, %emutog%, emuBUTA
 guicontrol, %emutog%, emuBUTB
@@ -25072,232 +26058,6 @@ guicontrol, %emutog%, emuTXTJ
 guicontrol, %emutog%, emuTXTK
 guicontrol, %emutog%, emuTXTL
 return
-
-FSUAEGUI:
-gosub, EMUCFGCOPY
-
-return
-
-FusionGUI:
-gosub, EMUCFGCOPY
-
-return
-
-hatariGUI:
-gosub, EMUCFGCOPY
-
-return
-
-jpcspGUI:
-gosub, EMUCFGCOPY
-
-return
-
-Kegs32GUI:
-gosub, EMUCFGCOPY
-
-return
-
-m2emulatorGUI:
-gosub, EMUCFGCOPY
-
-return
-
-m88GUI:
-gosub, EMUCFGCOPY
-
-return
-
-MBS1GUI:
-gosub, EMUCFGCOPY
-
-return
-
-messGUI:
-gosub, EMUCFGCOPY
-
-return
-
-mgbaGUI:
-gosub, EMUCFGCOPY
-
-return
-
-mupen64plusGUI:
-gosub, EMUCFGCOPY
-
-return
-
-NekoGUI:
-gosub, EMUCFGCOPY
-
-return
-
-neoRaineGUI:
-gosub, EMUCFGCOPY
-
-return
-
-MesenGUI:
-gosub, EMUCFGCOPY
-
-return
-
-NestopiaGUI:
-gosub, EMUCFGCOPY
-
-return
-
-no$GBAGUI:
-gosub, EMUCFGCOPY
-
-return
-
-no$SNSGUI:
-gosub, EMUCFGCOPY
-
-return
-
-NostalgiaGUI:
-gosub, EMUCFGCOPY
-
-return
-
-nullDCGUI:
-gosub, EMUCFGCOPY
-
-return
-
-odyEmuGUI:
-gosub, EMUCFGCOPY
-
-return
-
-openMSXGUI:
-gosub, EMUCFGCOPY
-
-return
-
-ParaJVEGUI:
-gosub, EMUCFGCOPY
-
-return
-
-pcsx2GUI:
-gosub, EMUCFGCOPY
-
-return
-
-ppssppGUI:
-gosub, EMUCFGCOPY
-
-return
-
-Project64GUI:
-gosub, EMUCFGCOPY
-
-return
-
-proSystemGUI:
-gosub, EMUCFGCOPY
-
-return
-
-psxfinGUI:
-gosub, EMUCFGCOPY
-
-return
-
-raineGUI:
-gosub, EMUCFGCOPY
-
-return
-
-reicastGUI:
-gosub, EMUCFGCOPY
-
-return
-
-rpcs3GUI:
-gosub, EMUCFGCOPY
-
-return
-
-ScummVmGUI:
-gosub, EMUCFGCOPY
-
-return
-
-SimCoupeGUI:
-gosub, EMUCFGCOPY
-
-return
-
-snes9xGUI:
-gosub, EMUCFGCOPY
-
-return
-
-snesGTGUI:
-gosub, EMUCFGCOPY
-
-return
-
-SSFGUI:
-gosub, EMUCFGCOPY
-
-return
-
-STeemGUI:
-gosub, EMUCFGCOPY
-
-return
-
-StellaGUI:
-gosub, EMUCFGCOPY
-
-return
-
-supermodelGUI:
-gosub, EMUCFGCOPY
-
-return
-
-UNZGUI:
-gosub, EMUCFGCOPY
-
-return
-
-vaegGUI:
-gosub, EMUCFGCOPY
-
-return
-
-virtualJaguarGUI:
-gosub, EMUCFGCOPY
-
-return
-
-VirtualNESGUI:
-gosub, EMUCFGCOPY
-
-return
-
-visualboyAdvanceGUI:
-gosub, EMUCFGCOPY
-
-return
-
-WinApeGUI:
-gosub, EMUCFGCOPY
-
-return
-
-WinArcadiaGUI:
-gosub, EMUCFGCOPY
-
-return
-
 
 ;};;;;;;;;;;;;;;;;;;;;;
 
@@ -25552,7 +26312,6 @@ guicontrol,%raoptgl%,RUNAFRMS
 guicontrol,%raoptgl%,XAUD
 guicontrol,%raoptgl%,XMENU
 guicontrol,%raoptgl%,ZMENU
-
 
 RDXgrid= %RegionX%
 RDYgrid= %RegionY%
@@ -55187,7 +55946,6 @@ svoc=
 if (directrun = 1)
 	{
 		iniread,sysexov,AppParams.ini,%runsysddl%,%lnmxtn%
-		;;msgbox,,,romf=%romf%`nrunsysddl=%runsysddl%`nlnmxtn=%lnmxtn%`nsysexov=%sysexov%
 		if (sysexov <> "ERROR")
 			{
 				if (sysexov <> "")

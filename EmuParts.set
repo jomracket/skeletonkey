@@ -99,7 +99,6 @@ WinKawaks=WinKawaks/winkawaks.7z=WinKawaks.exe=Default*.ini|WinKawaks.ini=
 aes4all=aes4all/aes4all.7z=aes4all.exe=
 WinUAE=WinUAE/WinUAE[ARCH].7z=WinUAE[ARCH].exe=
 WinVICE=WinVICE/WinVICE-[ARCH].7z=winvice.exe=
-WinVICE=WinVICE/WinVICE.7z=x64.exe=ini
 WinX68k=WinX68k/WinX68k.7z=WinX68kHighSpeed_eng.exe=winx68k.ini
 X1turbo=X1turbo/X1turbo.7z=X1turbo.exe=x1turbo.cfg|x1turbo.ini=
 XM6=XM6/XM6-[ARCH].7z=xm6g.exe=XM6*.ini=|=STATE.XM6
@@ -217,7 +216,6 @@ psxjin=psxjin/psxjin.7z=psxjin.exe=psxjin.ini=memcards\*.mcr
 pcsp=pcsp/pcsp.7z=pcsp.exe=settings.xml=
 dcmo5=dcmo5/dcmo5.7z=dcmo5.exe=
 pmd85=pmd85/pmd85.7z=PMD85v13p.exe=
-zinc=zinc/zinc.7z=zinc.exe=*.cfg=
 daphne=daphne/daphne.7z=daphne.exe=config.xml=
 classic99=classic99/classic99.7z=classic99.exe=classic99.ini=
 ti994w=ti994w/ti994w.7z=ti994w.exe=ti994w.ini=
@@ -314,7 +312,6 @@ dchector=dchector/dchector.7z=dchector.exe=dchector.ini=
 virtualinteract=virtualinteract/virtualinteract.7z=VINTER.exe=default.ini|VINTER.ini
 vecxgl=vecxgl/vecxgl.7z=vecxgl.exe=
 infovectrex=infovectrex/infovectrex.7z=infovectrex.exe=
-rainbow=rainbow/rainbow.7z=Rainbow 2.2.exe=
 raine=raine/raine.7z=raine.exe=
 rascalboyadv=rascalboyadv/rascalboyadv.7z=RascalBoy.exe=
 redream=redream/redream.7z=redream.exe=
@@ -323,7 +320,6 @@ regen=regen/regen.7z=Regen.exe=
 retroArch=retroArch/retroArch-[ARCH].7z=retroarch.exe=retroarch.cfg|retroarch-core-options.cfg=|=|=|=|=|
 rpcemu=rpcemu/rpcemu.7z=RPCEmu-Recompiler.exe=
 rpcs3=rpcs3/rpcs3.7z=rpcs3.exe=config*.yml=|=|=|=|=|
-saint=saint/SainT.7z=saint.exe=
 sc3000=sc3000/sc3000.7z=sc3000.exe=sc3000.ini=
 scummvm=scummvm/scummvm.7z=scummvm.exe=
 scv=scv/scv.7z=scv.exe=scv.ini=
@@ -348,14 +344,12 @@ vaquarius=vaquarius/vaquarius.7z=aquarius.exe=
 vb64=vb64/vb64.7z=vb64.exe=
 vgb=vgb/vgb.7z=VGB.exe=
 vgba=vgba/vgba.7z=VGBA.exe=
-virtu=virtu/virtu.7z=virtu.exe=
 cxbxreloaded=cxbxreloaded/cxbxreloaded.7z=cxbxreloaded.exe=
 ryujinx=ryujinx/ryujinx.7z=ryujinx.exe=Ryujinx.runtimeconfig.json|ryujinx.conf=
 virtualapf=virtualapf/virtualapf.7z=virtualapf.exe=
 virtualjaguar=virtualjaguar/virtualjaguar-[ARCH].7z=virtualjaguar.exe=vjag.cmd
 virtuanesplus=virtuanesplus/virtuanesplus.7z=VirtuaNES.exe=
 wincpc=wincpc/wincpc.7z=WinCPC.exe=
-winfellow=winfellow/winfellow.7z=WinFellow.exe=
 winvz300=winvz300/winvz300.7z=WinVZ300.exe=
 x1=x1/x1.7z=x1.exe=x1.ini=
 ncdz=ncdz/ncdz.7z=ncdz.exe=ncdz.ini=
