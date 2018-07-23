@@ -22232,7 +22232,7 @@ if (subemuname <> "")
 						svgbrnv= 
 						;;gosub, TOGRAOPTS
 						gosub, %EMUFNS%_GUI
-						eguex= 
+						;;eguex= 
 						/*
 						try {
 								gosub, %EMUFNS%_GUI
@@ -55736,6 +55736,13 @@ BCSTA=
 USRCORE= 1
 CoreAuto:
 sleep, 300
+if (eguex = 1)
+	{
+		eguex= 
+		;;gosub, TOGSKELGUI
+		emutog= hide
+		gosub, EMUUNPOP
+	}
 guicontrolget,tmpcc,,LCORE
 if (tmpcc = "")
 	{

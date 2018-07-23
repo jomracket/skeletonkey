@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-07-22 4:26 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-07-22 8:44 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-07-22 4:26 PM
-VERSION= v0.99.55.35
+RELEASE= 2018-07-22 8:44 PM
+VERSION= v0.99.55.36
 RASTABLE= 1.7.3
 #Include tf.ahk
 #Include lbex.ahk
@@ -22232,7 +22232,7 @@ if (subemuname <> "")
 						svgbrnv= 
 						;;gosub, TOGRAOPTS
 						gosub, %EMUFNS%_GUI
-						eguex= 
+						;;eguex= 
 						/*
 						try {
 								gosub, %EMUFNS%_GUI
@@ -55736,6 +55736,13 @@ BCSTA=
 USRCORE= 1
 CoreAuto:
 sleep, 300
+if (eguex = 1)
+	{
+		eguex= 
+		;;gosub, TOGSKELGUI
+		emutog= hide
+		gosub, EMUUNPOP
+	}
 guicontrolget,tmpcc,,LCORE
 if (tmpcc = "")
 	{
