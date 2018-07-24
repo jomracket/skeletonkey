@@ -200,10 +200,10 @@ Memotech - MTX|mtxemu|MAME|mame_libretro.dll
 Mephisto - Super Mondial II|MAME|:mame_libretro.dll
 Microkey - Primo|ultimo|MAME|mame_libretro.dll
 Microsoft - DOS|DOSBox|DosPlus|:dosbox_libretro.dll
-Microsoft - MSX TurboR|BlueMSX|msx2p|no$msx|MAME|openMSX|EMU|fmsx|vdmgr|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
-Microsoft - MSX2+|BlueMSX|msx2p|no$msx|MAME|fmsx|openMSX|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
-Microsoft - MSX2|BlueMSX|msx2|no$msx|MAME|openMSX|fmsx|EMU|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
-Microsoft - MSX|BlueMSX|msx1|no$msx|MAME|fmsx|fbalpha|vdmgr|Xspeccy|openMSX|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
+Microsoft - MSX TurboR|BlueMSX|msx2p|no$msx|MAME|nlmsx|openMSX|EMU|fmsx|vdmgr|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
+Microsoft - MSX2+|BlueMSX|msx2p|no$msx|MAME|fmsx|nlmsx|openMSX|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
+Microsoft - MSX2|BlueMSX|msx2|no$msx|MAME|openMSX|fmsx|nlmsx|EMU|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
+Microsoft - MSX|BlueMSX|msx1|no$msx|MAME|fmsx|fbalpha|vdmgr|nlmsx|Xspeccy|openMSX|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
 Microsoft - XBOX 360|Xenia
 Microsoft - XBOX|Cxbx|cxbxreloaded|QXEMU
 Microtan - 65|MAME|mame_libretro.dll
@@ -216,16 +216,16 @@ Morrow Designs - Micro Decision MD-2|MAME|:mame_libretro.dll
 Morrow Designs - Morrow MPZ80|MAME|:mame_libretro.dll
 NCR - Decision Mate V|MAME|:mame_libretro.dll
 NEC - Advanced Personal Computer|MAME|:mame_libretro.dll
-NEC - PC Engine - JAP|Mednafen|Ootake|pcengine|turboengine|pcejin|hu6280|xe|BizHawk|magicengine|hugo|MAME|:mednafen_pce_fast_libretro.dll
-NEC - PC Engine - TurboGrafx 16|Mednafen|Ootake|pcengine|turboengine|xe|pcejin|BizHawk|hu6280|magicengine|hugo|MAME|:mednafen_pce_fast_libretro.dll|mame_libretro.dll
-NEC - PC Engine CD - TurboGrafx CD|Mednafen|Ootake|pcengine|turboengine|xe|pcejin|BizHawk|hu6280|magicengine|hugo|MAME|:mednafen_pce_fast_libretro.dll|mame_libretro.dll
-NEC - PC Engine SuperGrafx|Mednafen|Ootake|pcengine|BizHawk|MAME|:mednafen_supergrafx_libretro.dll|mame_libretro.dll
+NEC - PC Engine - JAP|Mednafen|Ootake|pcengine|hu6280|turboengine|pcejin|hu6280|xe|BizHawk|magicengine|hugo|MAME|:mednafen_pce_fast_libretro.dll
+NEC - PC Engine - TurboGrafx 16|hu6280|Mednafen|Ootake|pcengine|turboengine|xe|pcejin|BizHawk|hu6280|magicengine|hugo|MAME|:mednafen_pce_fast_libretro.dll|mame_libretro.dll
+NEC - PC Engine CD - TurboGrafx CD|hu6280|Mednafen|Ootake|pcengine|turboengine|xe|pcejin|BizHawk|hu6280|magicengine|hugo|MAME|:mednafen_pce_fast_libretro.dll|mame_libretro.dll
+NEC - PC Engine SuperGrafx|Mednafen|Ootake|pcengine|turboengine|finalburnalpha|BizHawk|MAME|:mednafen_supergrafx_libretro.dll|mame_libretro.dll
 NEC - PC-6001|pc6001|pc6601|MAME|:mame_libretro.dll
-NEC - PC-8201(A) Option|Neko|m88|mx88|MAME|:mame_libretro.dll
+NEC - PC-8201(A) Option|xm8|Neko|m88|mx88|MAME|:mame_libretro.dll
 NEC - PC-FX|Mednafen|xe|:mednafen_pcfx_libretro.dll|mame_libretro.dll
-NEC - PC88-VA|Neko|vaeg|m88|mx88|W88|MAME|:mame_libretro.dll
-NEC - PC8801|Neko|vaeg|m88|mx88|W88|MAME|:mame_libretro.dll
-NEC - PC88|Neko|vaeg|m88|mx88|W88|MAME|:mame_libretro.dll
+NEC - PC88-VA|Neko|vaeg|m88|xm8|mx88|W88|MAME|:mame_libretro.dll
+NEC - PC8801|Neko|vaeg|m88|xm8|mx88|W88|MAME|:mame_libretro.dll
+NEC - PC88|Neko|vaeg|m88|mx88|xm8|W88|MAME|:mame_libretro.dll
 NEC - PC98|Neko|vaeg|Anex86|SL9821|pc98do|pc98ha|pc98lt|pc9801|MAME|:np2kai_libretro.dll|nekop2_libretro.dll|mame_libretro.dll
 NPO - Elektronika MS 1502|MAME|:mame_libretro.dll
 Nascom Microcomputers - Nascom 1 - 2|MAME|:mame_libretro.dll

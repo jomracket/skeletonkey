@@ -4243,6 +4243,17 @@ if (INITIAL = 1)
 	{
 		iniWrite, "%VERSION%",Settings.ini,GLOBAL,version
 	}
+iniread,mamexsts,Apps.ini,EMULATORS,MAME
+if (mamexsts <> "ERROR")
+	{
+		ifnotexist,lm.ini
+			{
+				gosub, MAMETOG
+				guicontrol,enable,RJSYSDD
+				INITIAL=
+				return
+			}
+	}
 ifexist, lm.ini
 	{
 		fileread,mamelistedmedia,lm.ini
@@ -4401,7 +4412,6 @@ if (StdOut <> "")
 							{
 								dskinc+=1
 								splitpath,evrx2,evrfn,evrfd,xtnv
-								
 								rjgdsk.= evrx2 . "|"
 								gamDISK%dskinc%= %evrx2%
 							}
@@ -5412,6 +5422,10 @@ Loop, Parse, SysLLst,`n`r
 				Loop, Parse, aijsp,|
 					{
 						if (A_LoopField = eivn)
+							{
+								continue
+							}
+						if (A_LoopField <= 1)
 							{
 								continue
 							}
@@ -22228,7 +22242,6 @@ if (subemuname <> "")
 				StringReplace,EMUFNS,EMUFNS,%A_Space%,,All
 				if (jemun1 = EMUSN)
 					{
-						;;msgbox,,,jemun1=%jemun1%`nemusn=%EMUSN%`nemufns=%EMUFNS%`ngoto "%EMUFNS%GUI"
 						svgbrnv= 
 						;;gosub, TOGRAOPTS
 						gosub, %EMUFNS%_GUI
@@ -25897,9 +25910,9 @@ ifnotexist,lm.ini
 		guicontrol,,emuPRGA,%emuprgpl%
 	}
 emuprgpl+=40
-fileread,mamelistedmedia,lm.ini
 ifexist,lm.ini
 	{
+		fileread,mamelistedmedia,lm.ini
 		if (mlmed = "")
 			{
 				gosub, MAMELMREAD
@@ -56015,14 +56028,14 @@ ifinstring,RunOptions,[
 													{
 														romf= %romfj1%
 													}
-												partition=
-												splitpath,romf,romtitle,rompth,xtnv,romname,romdrv
-												concatcmd= "%A_Scriptdir%\7za.exe" l -slt "%romf%"
-												StdOut := StdoutToVar_CreateProcess(concatcmd)
-												partition= 
-												fext= %xtnv%
-												gosub, zpkproc
 											}
+										partition=
+										splitpath,romf,romtitle,rompth,xtnv,romname,romdrv
+										concatcmd= "%A_Scriptdir%\7za.exe" l -slt "%romf%"
+										StdOut := StdoutToVar_CreateProcess(concatcmd)
+										partition= 
+										fext= %xtnv%
+										gosub, zpkproc
 									}
 								Loop, Parse, nwextfnd,|
 									{

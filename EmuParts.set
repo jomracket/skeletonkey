@@ -214,9 +214,12 @@ cogwheel=cogwheel/cogwheel.7z=Cogwheel Interface.exe=Cogwheel Interface.exe.conf
 vdmgr=vdmgr/vdmgr.7z=vdmgr[ARCH].exe=vdmgr.ini|config\*.ini=state\*=
 psxjin=psxjin/psxjin.7z=psxjin.exe=psxjin.ini=memcards\*.mcr
 pcsp=pcsp/pcsp.7z=pcsp.exe=settings.xml=
+PCEJin=PCEJin/PCEJin.7z=pcejin.exe=pcejin.ini=
 dcmo5=dcmo5/dcmo5.7z=dcmo5.exe=
+hu6280=hu6280/hu6280.7z=hu6280.exe=
 pmd85=pmd85/pmd85.7z=PMD85v13p.exe=
 daphne=daphne/daphne.7z=daphne.exe=config.xml=
+nlmsx=nlmsx/nlmsx.7z=nlmsx.exe=config\*.ini=sram\*=
 classic99=classic99/classic99.7z=classic99.exe=classic99.ini=
 ti994w=ti994w/ti994w.7z=ti994w.exe=ti994w.ini=
 win994a=win994a/win994a-[ARCH].7z=win994a_[ARCH].exe=
@@ -228,6 +231,8 @@ emu=emu/emu.7z=EMU.exe=config\*.cfg=
 hyper64=hyper64/hyper64.7z=Hyper64.exe=
 ideas=ideas/ideas.7z=ideas.exe=
 intv=intv/intv.7z=intv.exe=
+xm8=xm8/xm8-[ARCH].7z=xm8.exe=*.ini=\
+turboengine=turboengine/turboengine.7z=TurboEngine.exe=TurboEngine.ini=BRAM\*=Saves\*=
 jagulator=jagulator/jagulator.7z=jagulator.exe=
 javacpc=javacpc/javacpc.7z=JavaCPC.exe=
 jpcsp=jpcsp/jpcsp-[ARCH].7z=start-windows-amd64.bat=settings.properties=
