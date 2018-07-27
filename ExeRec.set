@@ -184,6 +184,7 @@ FileCreateDir,rj\emuCfgs\NeoPop
 FileCreateDir,rj\emuCfgs\neoRaine
 FileCreateDir,rj\emuCfgs\Nestopia
 FileCreateDir,rj\emuCfgs\ngae
+FileCreateDir,rj\emuCfgs\nlmsx
 FileCreateDir,rj\emuCfgs\no$2k6
 FileCreateDir,rj\emuCfgs\no$c64
 FileCreateDir,rj\emuCfgs\no$cpc
@@ -225,6 +226,7 @@ FileCreateDir,rj\emuCfgs\pc98do
 FileCreateDir,rj\emuCfgs\pc98ha
 FileCreateDir,rj\emuCfgs\pc98lt
 FileCreateDir,rj\emuCfgs\pcae
+FileCreateDir,rj\emuCfgs\PCEjin
 FileCreateDir,rj\emuCfgs\pcemacplus
 FileCreateDir,rj\emuCfgs\pcengine
 FileCreateDir,rj\emuCfgs\pcsx2
@@ -255,6 +257,7 @@ FileCreateDir,rj\emuCfgs\retroArch
 FileCreateDir,rj\emuCfgs\rpcemu
 FileCreateDir,rj\emuCfgs\rpcs3
 FileCreateDir,rj\emuCfgs\rx78
+FileCreateDir,rj\emuCfgs\ryujinx
 FileCreateDir,rj\emuCfgs\sainT
 FileCreateDir,rj\emuCfgs\sc3000
 FileCreateDir,rj\emuCfgs\ScummVm
@@ -292,6 +295,7 @@ FileCreateDir,rj\emuCfgs\virtualJaguar
 FileCreateDir,rj\emuCfgs\VirtualNES
 FileCreateDir,rj\emuCfgs\visualboyadvance
 FileCreateDir,rj\emuCfgs\visualboyAdvance-M
+FileCreateDir,rj\emuCfgs\vivanonno
 FileCreateDir,rj\emuCfgs\vivanono
 FileCreateDir,rj\emuCfgs\vpanajr
 FileCreateDir,rj\emuCfgs\W88
@@ -315,6 +319,7 @@ FileCreateDir,rj\emuCfgs\yabause
 FileCreateDir,rj\emuCfgs\yalky
 FileCreateDir,rj\emuCfgs\yape
 FileCreateDir,rj\emuCfgs\ys6464a
+FileCreateDir,rj\emuCfgs\yuzu
 FileCreateDir,rj\emuCfgs\z80tvgame_i8255
 FileCreateDir,rj\emuCfgs\z80tvgame_z80pio
 FileCreateDir,rj\emuCfgs\zsnes
@@ -853,11 +858,15 @@ FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Windows Games
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Windows Games - Copy
 FileCreateDir,rj\KODI\ADVL
 FileCreateDir,rj\KODI\AEL
+FileCreateDir,rj\KODI\IAGL
 FileCreateDir,rj\KODI\IARL
 FileCreateDir,rj\KODI\RCB
 FileCreateDir,rj\KODI\ADVL\userdata
 FileCreateDir,rj\KODI\ADVL\userdata\addon_data
 FileCreateDir,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher
+FileCreateDir,rj\KODI\IAGL\userdata
+FileCreateDir,rj\KODI\IAGL\userdata\addon_data
+FileCreateDir,rj\KODI\IAGL\userdata\addon_data\plugin.program.iagl
 FileCreateDir,rj\KODI\IARL\userdata
 FileCreateDir,rj\KODI\IARL\userdata\addon_data
 FileCreateDir,rj\KODI\IARL\userdata\addon_data\plugin.program.iarl
@@ -1088,6 +1097,7 @@ FileInstall,rj\KODI\AEL\launchers.xml.set,rj\KODI\AEL\launchers.xml.set,1
 FileInstall,rj\KODI\AEL\roms.set,rj\KODI\AEL\roms.set,1
 FileInstall,rj\KODI\AEL\roms.xml.End.set,rj\KODI\AEL\roms.xml.End.set,1
 FileInstall,rj\KODI\AEL\roms.xml.set,rj\KODI\AEL\roms.xml.set,1
+FileInstall,rj\KODI\IAGL\userdata\addon_data\plugin.program.iagl\settings.xml.set,rj\KODI\IAGL\userdata\addon_data\plugin.program.iagl\settings.xml.set,1
 FileInstall,rj\KODI\IARL\userdata\addon_data\plugin.program.iarl\settings.xml.set,rj\KODI\IARL\userdata\addon_data\plugin.program.iarl\settings.xml.set,1
 FileInstall,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emurom.set,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emurom.set,1
 FileInstall,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emuromend.set,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emuromend.set,1
@@ -1115,6 +1125,7 @@ FileInstall,gam\Coleco - ColecoVision.gam,gam\Coleco - ColecoVision.gam,1
 FileInstall,gam\Commodore - 64 (PP).gam,gam\Commodore - 64 (PP).gam,1
 FileInstall,gam\Commodore - 64 (Tapes).gam,gam\Commodore - 64 (Tapes).gam,1
 FileInstall,gam\Commodore - 64.gam,gam\Commodore - 64.gam,1
+FileInstall,gam\Commodore - Amiga (WHD).gam,gam\Commodore - Amiga (WHD).gam,1
 FileInstall,gam\Commodore - Amiga CD32.gam,gam\Commodore - Amiga CD32.gam,1
 FileInstall,gam\Commodore - Amiga CDTV.gam,gam\Commodore - Amiga CDTV.gam,1
 FileInstall,gam\Commodore - Amiga.gam,gam\Commodore - Amiga.gam,1
@@ -1123,6 +1134,7 @@ FileInstall,gam\Commodore - PET.gam,gam\Commodore - PET.gam,1
 FileInstall,gam\Commodore - Plus-4.gam,gam\Commodore - Plus-4.gam,1
 FileInstall,gam\Commodore - VIC-10.gam,gam\Commodore - VIC-10.gam,1
 FileInstall,gam\Commodore - VIC-20.gam,gam\Commodore - VIC-20.gam,1
+FileInstall,gam\EasyRPG.gam,gam\EasyRPG.gam,1
 FileInstall,gam\Emerson - Arcadia 2001.gam,gam\Emerson - Arcadia 2001.gam,1
 FileInstall,gam\Enterprise - 128.gam,gam\Enterprise - 128.gam,1
 FileInstall,gam\Entex - Adventure Vision.gam,gam\Entex - Adventure Vision.gam,1
@@ -1887,6 +1899,7 @@ FileInstall,rj\emucfgs\pc98do\pc98do.ini.set,rj\emucfgs\pc98do\pc98do.ini.set,1
 FileInstall,rj\emucfgs\pc98ha\pc98ha.ini.set,rj\emucfgs\pc98ha\pc98ha.ini.set,1
 FileInstall,rj\emucfgs\pc98lt\pc98lt.ini.set,rj\emucfgs\pc98lt\pc98lt.ini.set,1
 FileInstall,rj\emucfgs\pcae\PCAEWIN.INI.set,rj\emucfgs\pcae\PCAEWIN.INI.set,1
+FileInstall,rj\emucfgs\PCEjin\pcejin.ini.set,rj\emucfgs\PCEjin\pcejin.ini.set,1
 FileInstall,rj\emucfgs\pcemacplus\pce-mac-classic.cfg.ret,rj\emucfgs\pcemacplus\pce-mac-classic.cfg.ret,1
 FileInstall,rj\emucfgs\pcemacplus\pce-mac-plus.cfg.ret,rj\emucfgs\pcemacplus\pce-mac-plus.cfg.ret,1
 FileInstall,rj\emucfgs\pcemacplus\pce-mac-se.cfg.ret,rj\emucfgs\pcemacplus\pce-mac-se.cfg.ret,1
@@ -1947,6 +1960,8 @@ FileInstall,rj\emucfgs\rpcs3\config.yml.ret,rj\emucfgs\rpcs3\config.yml.ret,1
 FileInstall,rj\emucfgs\rpcs3\config_input.yml.ret,rj\emucfgs\rpcs3\config_input.yml.ret,1
 FileInstall,rj\emucfgs\rpcs3\config_kbpad_qt.yml.ret,rj\emucfgs\rpcs3\config_kbpad_qt.yml.ret,1
 FileInstall,rj\emucfgs\rx78\rx78.ini.set,rj\emucfgs\rx78\rx78.ini.set,1
+FileInstall,rj\emucfgs\ryujinx\Ryujinx.conf.set,rj\emucfgs\ryujinx\Ryujinx.conf.set,1
+FileInstall,rj\emucfgs\ryujinx\Ryujinx.runtimeconfig.json.set,rj\emucfgs\ryujinx\Ryujinx.runtimeconfig.json.set,1
 FileInstall,rj\emucfgs\sainT\SainT.ini.set,rj\emucfgs\sainT\SainT.ini.set,1
 FileInstall,rj\emucfgs\sc3000\sc3000.ini.set,rj\emucfgs\sc3000\sc3000.ini.set,1
 FileInstall,rj\emucfgs\ScummVm\scummvm.ini.ret,rj\emucfgs\ScummVm\scummvm.ini.ret,1
@@ -2011,6 +2026,7 @@ FileInstall,rj\emucfgs\VirtualNES\VirtuaNES.ini.ret,rj\emucfgs\VirtualNES\Virtua
 FileInstall,rj\emucfgs\visualboyadvance\vba.ini.ret,rj\emucfgs\visualboyadvance\vba.ini.ret,1
 FileInstall,rj\emucfgs\visualboyadvance\VisualBoyAdvance.cfg.set,rj\emucfgs\visualboyadvance\VisualBoyAdvance.cfg.set,1
 FileInstall,rj\emucfgs\visualboyAdvance-M\vbam.ini.ret,rj\emucfgs\visualboyAdvance-M\vbam.ini.ret,1
+FileInstall,rj\emucfgs\vivanonno\settings.xml.set,rj\emucfgs\vivanonno\settings.xml.set,1
 FileInstall,rj\emucfgs\vivanono\settings.xml.set,rj\emucfgs\vivanono\settings.xml.set,1
 FileInstall,rj\emucfgs\vpanajr\default.ini.set,rj\emucfgs\vpanajr\default.ini.set,1
 FileInstall,rj\emucfgs\vpanajr\vpanajr.ini.set,rj\emucfgs\vpanajr\vpanajr.ini.set,1
@@ -2046,6 +2062,7 @@ FileInstall,rj\emucfgs\yabause\yabause.ini.ret,rj\emucfgs\yabause\yabause.ini.re
 FileInstall,rj\emucfgs\yalky\yalky.ini.set,rj\emucfgs\yalky\yalky.ini.set,1
 FileInstall,rj\emucfgs\yape\yape.ini.set,rj\emucfgs\yape\yape.ini.set,1
 FileInstall,rj\emucfgs\ys6464a\ys6464a.ini.set,rj\emucfgs\ys6464a\ys6464a.ini.set,1
+FileInstall,rj\emucfgs\yuzu\qt-config.ini.set,rj\emucfgs\yuzu\qt-config.ini.set,1
 FileInstall,rj\emucfgs\z80tvgame_i8255\z80tvgame_i8255.ini.set,rj\emucfgs\z80tvgame_i8255\z80tvgame_i8255.ini.set,1
 FileInstall,rj\emucfgs\z80tvgame_z80pio\z80tvgame_z80pio.ini.set,rj\emucfgs\z80tvgame_z80pio\z80tvgame_z80pio.ini.set,1
 FileInstall,rj\emucfgs\zsnes\zinput.cfg.set,rj\emucfgs\zsnes\zinput.cfg.set,1

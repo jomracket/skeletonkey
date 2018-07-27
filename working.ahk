@@ -1587,6 +1587,7 @@ Gui, Tab, 1
 Gui Tab, Settings
 Gui, Add, GroupBox, x566 y14 w195 h321 vSKSUMGB, Summary
 Gui, Add, Link,x712 y484 w45 h18 vDONATELNK gDONATE, <a href="https://www.paypal.me/romjacket">Donate</a>
+Gui,Add,Text,x579 y484, ver %VERSION%
 gui,font, s16 bold	
 Gui, Add, Link,x579 y415 w75 h24 vHelpLink gHelp, <a href="index.html">Help</a>
 Gui,Font,%fontXmed% Bold
@@ -1598,6 +1599,7 @@ Gui, Add, Text, x4 y81 vSKSYSTXT, Systems ROOT
 Gui, Add, Text, x4 y163 vSKEMUDTXT, Emulators Dir
 Gui, Add, CheckBox,  x174 y105 vSKFILTSUP gSKFILTSUP, Filter Unsupported
 Gui,Font,Normal
+Gui, Add, Button, x579 y450 w55 h18 vUpdateSK gUpdateSK, UPDATE
 
 Gui, Font, Bold
 Gui Add, GroupBox, x72 y270 w445 h64 Right, Playlists
@@ -6886,6 +6888,7 @@ SB_SetText("Saved Config as " ToCfgFile " ")
 return
 
 UpdateSK:
+guicontrol,disable,UpdateSK
 FileDelete, version.txt
 FileReadLine,sourceHost,arcorg.set,5
 FileReadLine,UPDATEFILE,arcorg.set,7
@@ -6893,6 +6896,7 @@ URLDownloadToFile, %sourceHost%,version.txt
 ifnotexist, version.txt
 	{
 	SB_SetText(" Update not found. ")
+		guicontrol,enable,UpdateSK
 	return
 	}
 FileReadLine,DATECHK,version.txt,1
@@ -6903,13 +6907,16 @@ if (VERCHKC1 <> RELEASE)
 		IfMsgBox, yes
 			{
 				gosub, getupdate
+				guicontrol,enable,UpdateSK
 				return
 			}
 		ifmsgbox, no
 			{
+				guicontrol,enable,UpdateSK
 				return
 			}
 	}
+guicontrol,enable,UpdateSK
 return
 
 MenuHandler:
@@ -9341,6 +9348,7 @@ stringreplace,smuemu,smuemu,`n,|,All
 stringreplace,smuemu,smuemu,=,|,All
 stringreplace,smuemu,smuemu,",,All
 ;"
+smuemu:= "|" . smuemu
 if (LNCHPRDDL = "retroarch")
 	{
 		iniwrite, 0,Settings.ini,GLOBAL,Launcher_Priority
@@ -9427,9 +9435,10 @@ if (LNCHPRDDL <> "retroarch")
 											{
 												continue
 											}
-										ifinstring,smuemu,%repwith%|
+										ifinstring,smuemu,|%repwith%|
 											{							
 												sysfnd+= 1
+												if reapwith=
 												if (sysfnd = 1)
 													{
 														reapri= %repwith%|
@@ -9442,6 +9451,8 @@ if (LNCHPRDDL <> "retroarch")
 									{
 										repaden.= fej
 										reaptot:= reapri . repaden
+										ifinstring,reaptot,|xe|
+											msgbox,,,k.
 										iniwrite, "%reaptot%",Assignments.ini,OVERRIDES,%fei1%									
 									}
 							}
@@ -10485,6 +10496,7 @@ guicontrol,disable,EMEDTO
 guicontrol,disable,EMBUTH
 
 guicontrol,hide,OVEXTL
+guicontrol,hide,OVSETRM
 guicontrol,hide,REPOSET
 guicontrol,hide,DSKMNTGRP
 guicontrol,hide,DSKMNTCHK
@@ -10636,6 +10648,7 @@ if (SALIST = "Systems")
 		guicontrol,,SKRAstch,Skeletonkey-System-Associations
 		guicontrol,show,EAVAIL
 		guicontrol,show,OVEXTL
+		guicontrol,show,OVSETRM		
 		guicontrol,hide,GRPDROPBIOS
 		guicontrol,hide,UPDBTN
 		guicontrol,hide,LNCHPRDDL
@@ -11517,7 +11530,8 @@ IniRead,sysexlst,emuCfgPresets.set,%semu%,RJROMXT
 if (sysexlst <> "ERROR")
 		{
 			stringreplace,sysxl,sysexlst,`,,|,All
-			guicontrol,enable,OVEXTL0
+			guicontrol,enable,OVEXTL
+			guicontrol,enable,OVSETRM
 			guicontrol,,OVEXTL,|All||%sysxl%
 		}
 	
@@ -15218,6 +15232,7 @@ Loop, Parse, EmuPartSet,`n`r
 				if (fetmp = "ERROR")
 					{
 						IniWrite, "%emupx1%",Assignments.ini,OVERRIDES,%emupx1%
+
 						/*
 						IniWrite, "0",AppParams.ini,%emupx1%,per_game_configurations
 						IniWrite, "[CUSTMOPT]",AppParams.ini,%emupx1%,options
