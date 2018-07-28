@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-07-27 1:46 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-07-28 2:26 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-07-27 1:46 PM
-VERSION= v0.99.55.41
+RELEASE= 2018-07-28 2:26 PM
+VERSION= v0.99.56.12
 RASTABLE= 1.7.3
 #Include tf.ahk
 #Include lbex.ahk
@@ -39018,7 +39018,6 @@ return
 
 RJCHKJ:
 gui,submit,nohide
-
 return
 
 RJCHKK:
@@ -39117,18 +39116,21 @@ RJCHKU:
 gui,submit,nohide
 guicontrolget, RJCHKU,,RJCHKU
 iniwrite, %RJCHKU%,rj\cur.ini,%RJSYSDD%,RJQUOTES
+gosub, RJUPDATEDISP
 return
 
 RJCHKT:
 gui,submit,nohide
 guicontrolget, RJCHKT,,RJCHKT
 iniwrite, %RJCHKT%,rj\cur.ini,%RJSYSDD%,RJPATH
+gosub, RJUPDATEDISP
 return
 
 RJCHKS:
 gui,submit,nohide
 guicontrolget, RJCHKS,,RJCHKS
 iniwrite, %RJCHKS%,rj\cur.ini,%RJSYSDD%,RJEXT
+gosub, RJUPDATEDISP
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -39171,19 +39173,69 @@ return
 RJEOPTSCBX:
 gui,submit,nohide
 guicontrolget,RJEOPTSCBX,,RJEOPTSCBX
-;;StringReplace,RJEOPTSCBX,RJEOPTSCBX,",,All
-;;"
 stringreplace,RJEOPTSCBX,RJEOPTSCBX,%A_SPACE%,`<,All
 IniWrite, %RJEOPTSCBX%,rj\cur.ini,%RJSYSDD%,RJEMUOPTS
+gosub, RJUPDATEDISP
 return
 
 RRJEARGSCBX:
 gui,submit,nohide
 guicontrolget,RRJEARGSCBX,,RRJEARGSCBX
-;;StringReplace,RRJEARGSCBX,RRJEARGSCBX,",,All
-;;"
 stringreplace,RRJEARGSCBX,RRJEARGSCBX,%A_SPACE%,`<,All
 IniWrite, %RRJEARGSCBX%,rj\cur.ini,%RJSYSDD%,RJEMUARGS
+gosub, RJUPDATEDISP
+return
+
+RJUPDATEDISP:
+guicontrolget,RRJEARGSCBX,,RRJEARGSCBX
+guicontrolget,RJEMUPRECFG,,RJEMUPRECFG
+guicontrolget,RJEOPTSCBX,,RJEOPTSCBX
+qsndr= 
+psndr= 
+esndr=
+exesnp=
+fpsnd= $EmulatorPath$\
+rsndr= $ROM$ 
+if (RJRAD1A <> 1)
+	{
+		fpsnd= $ROMPath$\..\
+	}
+if (rjchku = 1)
+	{
+		qesndr= "
+		;"
+		qsndr= "
+		;"
+	}
+if (rjchkt= 1)
+	{
+		psndr= $ROMPath$\
+	}
+if (rjchks= 1)
+	{
+		esndr= .ExT
+	}
+iniread,exesndr,Apps.ini,EMULATORS,%RJEMUPRECFG%
+iniread,exesndg,Apps.ini,EMULATORS,%RJEMUPRECFG%
+splitpath,exesndg,exesndr,exesnp
+if (exesndg = "ERROR")
+	{
+		ifinstring,rjemuprecfg,.exe
+			{
+				splitpath,RJEMUPRECFG,exesndr
+			}
+	}
+stringreplace,RRJEARGSCBX,RRJEARGSCBX,[CUSTMOPT],%A_Space%,All
+stringreplace,RRJEARGSCBX,RRJEARGSCBX,[EMUPATH],$EmulatorPath$,All
+stringreplace,RRJEARGSCBX,RRJEARGSCBX,[ROMPATH],$ROMPath$,All
+stringreplace,RRJEARGSCBX,RRJEARGSCBX,[CUSTMARG],,All
+stringreplace,RRJEARGSCBX,RRJEARGSCBX,<,%A_Space%,All
+stringreplace,RJEOPTSCBX,RJEOPTSCBX,[CUSTMOPT],%A_Space%,All
+stringreplace,RJEOPTSCBX,RJEOPTSCBX,[EMUPATH],$EmulatorPath$,All
+stringreplace,RJEOPTSCBX,RJEOPTSCBX,[ROMPATH],$ROMPath$,All
+stringreplace,RJEOPTSCBX,RJEOPTSCBX,[CUSTMARG],,All
+stringreplace,RJEOPTSCBX,RJEOPTSCBX,<,%A_Space%,All
+SB_SetText(" " fpsnd "" exesndr "" RJEOPTSCBX "" qsndr "" psndr "" rsndr "" esndr "" qesndr ""RRJEARGSCBX "")	
 return
 
 RJEMUXTCBX:
@@ -40022,6 +40074,7 @@ iniWrite, %RJEMUTG%,rj\cur.ini,%RJSYSDD%,RJEMUPRESET
 gosub, EMUCFGCOPY
 gosub, EMUPPSTPOP
 SWTCHINEMU= 1
+gosub, RJUPDATEDISP
 return
 
 EMUPPSTPOP:
@@ -40369,11 +40422,13 @@ return
 RJRad1A:
 gui,submit,nohide
 IniWrite, 1,rj\cur.ini,%RJSYSDD%,RJRUNDIR
+gosub, RJUPDATEDISP
 return
 
 RJRad1B:
 gui,submit,nohide
 IniWrite, 0,rj\cur.ini,%RJSYSDD%,RJRUNDIR
+gosub, RJUPDATEDISP
 return
 
 RJSYSRADB:
