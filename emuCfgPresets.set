@@ -336,7 +336,7 @@ RJPOSTCFG=copy /Y "%EMUL%\inis\*.ini" "%GAMDIR%"|copy /Y "%EMUL%\shaders\*.ini" 
 [supermodel]
 RJPRECFG=copy /y "Supermodel.ini" "%EMUL%\Config"|robocopy ".Mem" "%EMUL%\NVRAM" /R:2 /W:2 /NP /E /IS|robocopy ".sstates" "%EMUL%\Saves" /R:2 /W:2 /NP /E /IS
 RJPOSTCFG=robocopy "%EMUL%\Saves" "%GAMDIR%\.sstates" /R:2 /W:2 /NP /E /IS /MOVE|robocopy "%EMUL%\NVRAM" "%GAMDIR%\.Mem" /R:2 /W:2 /NP /E /IS /MOVE|copy /y "%EMUL%\Config\Supermodel.ini" "%GAMDIR%"
-RJEMUARGS=<-res=[REZX],[REZY] -input-system=[INPUTTYPE] -fullscreen
+RJEMUARGS=<-fullscreen|<-res=[REZX],[REZY] -input-system=[INPUTTYPE] -fullscreen
 RJQUOTES=0
 RJPATH=0
 NICEFLD=1
@@ -492,7 +492,7 @@ RJROMXT=.ssd,.bbc,.img,.dsd,.adf,.ads,.adm,.adl,.wav,.csw,.uef,.bin,.zip
 MAME?RJEMUOPTS=<electron -[RJRTYP]<|<electron -cass<|<electron -cart<|<electron -flop<
 
 [Adobe - Flash]
-RJEMUPRESET=FlashPlayer
+RJEMUPRESET=SWFOpener
 RJROMXT=.swf,.html,.htm
 
 [Amstrad - CPC]

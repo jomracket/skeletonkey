@@ -5640,12 +5640,109 @@ Loop, Parse, romf,`n|
 				break
 			}
 	}
-
+sivi= 	
+if (multisel = 2)
+	{
+		iniread,fei,emuCfgPresets.set,%SRCHLOCDDL%,RJMULTIDISC
+		if (fei <> "ERROR")
+			{
+				multisel= 1
+				sivi= 1
+			}
+	}
+	
 Menu,Emulator_Add, Add
 if (multisel <> 1)
 	{
 		SB_SetText("Select a single item only")	
 		return
+	}
+
+if (sivi = 1)
+	{
+		Loop, parse,romf,`n|
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				incdisk+= 1	
+				if (incdisk = 1)
+					{
+						romA= %A_LoopField%
+					}
+				if (incdisk = 2)
+					{
+						romB= %A_LoopField%
+					}
+				if (incdisk = 3)
+					{
+						romC= %A_LoopField%
+					}
+				if (incdisk = 4)
+					{
+						romD= %A_LoopField%
+					}
+				if (incdisk = 5)
+					{
+						romE= %A_LoopField%
+					}
+				if (incdisk = 6)
+					{
+						romF= %A_LoopField%
+					}
+				if (incdisk = 7)
+					{
+						romG= %A_LoopField%
+					}
+				if (incdisk = 8)
+					{
+						romH= %A_LoopField%
+					}
+				if (incdisk = 9)
+					{
+						romI= %A_LoopField%
+					}
+				if (incdisk = 12)
+					{
+						romJ= %A_LoopField%
+					}
+				if (incdisk = 13)
+					{
+						romK= %A_LoopField%
+					}
+				if (incdisk = 14)
+					{
+						romL= %A_LoopField%
+					}
+				sromp= %A_LoopField%
+				srpopt= 
+				ifinstring,coreselv,mame
+					{
+						iniread,srpopt,emuCfgPresets.set,MAME?RJEMUOPTS
+						if (srpopt <> "ERROR")
+							{
+								stringsplit,ars,srpopt,|
+								stringreplace,srpopt,ars1,<,%A_Space%,All
+					;;;MAME 
+								ifinstring,srpopt,1
+									{
+										if (incdisk > 1)
+											{
+												stringsplit,afvi,srpopt,%A_Space%
+												afvir= %afvi2%
+												stringreplace,afvi2,afvi2,1,%incdisk%,All
+												stringreplace,stpopt,afvi2,afvir,%incdisk%,All
+											}
+									}
+								;;stringreplace,srpopt,srpopt,<,%A_Space%,All
+							}
+					}
+				;; iniread,srpopt,AppParams.ini
+				;; splitpath,sromp,rompath,romext,romname,romquotes
+				romf.= srpopt . sromq . sromp . sromq . A_Space
+			}
+		multisel= 1	
 	}
 
 if (multisel = 1)
@@ -11252,6 +11349,7 @@ for k, v in ar
 	{
 		extm:= v
 		if (nigb = extm)
+		if (nigb = extm)
 			{
 				noini= 1
 				guicontrol,hide,LOCEMUIN
@@ -14830,11 +14928,15 @@ if (apext <> "ERROR")
 
 aprun= 
 iniread, aprun, AppParams.ini,%sysni%,run_location
-if (aprun = 0)
+stringreplace,aprun,aprun,",,All
+;"
+guicontrol,,ERUN,1
+runfr= $EMUPATH
+if (aprun = 1)
 	{
-		guicontrol,,ERUN,1
-		guicontrol,,LRUN,0
-		runfr= $EMUPATH
+		guicontrol,,ERUN,0
+		guicontrol,,LRUN,1
+		runfr= $ROMPATH
 	}
 
 tmpnp= 

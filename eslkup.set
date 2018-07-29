@@ -36,7 +36,7 @@ dreamcast=SDREAM=Sega - Dreamcast=.iso,.cdi,.gdi,.img=Demul="%ROM_RAW%"
 e64=E64=Enterprise - 64=.bin,.zip=MAME - System="%ROM_RAW%"
 electron=ABBC=Acorn - Electron=.bin,.zip=Electron="%ROM_RAW%"
 fds=FAMIC=Nintendo - Famicom=.fds,.bin,.nes,.zip=Nestopia="%ROM_RAW%"
-flash=FLASH=Adobe - Flash=.swf=Flashplayer="%ROM_RAW%"
+flash=FLASH=Adobe - Flash=.swf=SWFOPener="%ROM_RAW%"
 fmtowns=FMTOWN=Fujitsu - FM Towns=.iso,.cue,.ccd,.nrg,.bin=UNZ="%ROM_RAW%"
 galeco=GALECO=Galeco - Galeco=.zip=Demul=%BASENAME%
 gamegear=SGG=Sega - Game Gear=.gg,.bin,.zip=Fusion="%ROM_RAW%"
