@@ -1542,6 +1542,13 @@ Menu, RUNMENU, Add, Run RetroArch, RETALRAXE
 Menu, RUNMENU, Add
 
 Gui,Font,Bold
+Menu, REZWIN, Add,640 480, RESWARUN
+Menu, REZWIN, Add,720 480, RESWBRUN
+Menu, REZWIN, Add,1024 768, RESWCRUN
+Menu, REZWIN, Add,1280 720, RESWDRUN
+Menu, REZWIN, Add,1280 1024, RESWERUN
+Menu, REZWIN, Add,1920 1080, RESWFRUN
+
 Menu, SHORTRUN, Add,Run With:=->, SQRUN
 Menu,SHORTRUN,Add, 
 Menu, ARCSHORT, Add,Run With:=->, AQRUN
@@ -3212,7 +3219,7 @@ Gui, Add, ComboBox, x282 y289 w277 vRJEMUXTCBX gRJEMUXTCBX, .exe`,.cmd`,,bat||.b
 Gui, Add, Text, x280 y314 h16 vRJTXTG, ROM extensions
 Gui, Add, CheckBox, x383 y315 h17 vRJCHKU gRJCHKU checked, Quotes
 Gui, Add, CheckBox, x440 y315 h17 vRJCHKT gRJCHKT checked, Path
-Gui, Add, CheckBox, x487 y315 h17 vRJCHKS gRJCHKS checked, Extension
+ Gui, Add, CheckBox, x487 y315 h17 vRJCHKS gRJCHKS checked, Extension
 
 Gui, Add, ComboBox, x284 y340 w158 vRJEOPTSCBX gRJEOPTSCBX, %rjemuopt%
 Gui, Add, Text, x454 y344 h17 vRJTXTZ, options
@@ -4755,6 +4762,15 @@ If A_GuiControlEvent RightClick
 					}
 			}		
 			
+	if A_GuiControl = FEBUTK		
+		{
+			if (FEDDLJ <> "EmulationStation")
+				{
+					return	
+				}
+			Menu, REZWIN, Show, %A_GuiX% %A_GuiY%	
+		}
+		
 	if A_GuiControl = RJLSTV			
 		{
 			if (SelectedRow <> 0)
@@ -5769,7 +5785,7 @@ Loop, Parse, romf,`n|
 				break
 			}
 	}
-	
+
 if (multisel = 1)
 	{
 		guicontrolget,srchfsel,,SRCHROMLBX
@@ -9548,8 +9564,6 @@ if (LNCHPRDDL <> "retroarch")
 									{
 										repaden.= fej
 										reaptot:= reapri . repaden
-										ifinstring,reaptot,|xe|
-											msgbox,,,k.
 										iniwrite, "%reaptot%",Assignments.ini,OVERRIDES,%fei1%									
 									}
 							}
@@ -11348,7 +11362,6 @@ noini=
 for k, v in ar
 	{
 		extm:= v
-		if (nigb = extm)
 		if (nigb = extm)
 			{
 				noini= 1
@@ -20227,6 +20240,11 @@ if (dlx2 = "dll")
 return
 
 
+
+MULTIDISCETECT:
+return
+
+
 SetOvd:
 gui,submit,nohide
 OVDFLDR= 
@@ -22368,7 +22386,7 @@ if (subemuname <> "")
 								gosub, %EMUFNS%_GUI
 							}
 								catch {
-											msgbox,,,caught
+											;;msgbox,,,caught
 										
 										if (eguex = "")
 											{
@@ -23475,6 +23493,7 @@ Loop, Parse, rjgdsk,|
 						if (RJLNCHCFGOW = 1)
 							{
 								FileRead, sysrep, %batchfile%
+								curMameOpt= %A_LoopField%
 								stringreplace,sysrep,sysrep,[RJRTYP],%A_LoopField%,All
 								stringreplace,sysrep,sysrep,[RJMAMESYS],%RJMAMENM%,All
 								FileDelete, %batchfile%
@@ -30817,9 +30836,9 @@ if (imagefrmt = "ERROR")
 		iniwrite,%imagefrmt%,mediafe.ini,CONFIG,%FEDDLC%_image_format
 	}
 if (imagefrmt = "JPG")
-		{
-			Guicontrol,,FERAD4B,1
-		}
+	{
+		Guicontrol,,FERAD4B,1
+	}
 
 iniread,mediaorder,mediafe.ini,ORDER,%FEDDLC%
 if (mediaorder = "ERROR")
@@ -31384,6 +31403,17 @@ ESINIT:
 esthemes=
 espth=  
 IniRead,esinitheme,Themes.set
+stringreplace,esfndin,esintheme,`n,|,All
+esfndin:= "|" . esfndin 
+Loop, %eshome%\themes,2
+	{
+		ifinstring,esfndin,|%A_LoopFileName%|
+			{
+				continue
+			}
+		esfndin.= A_LoopFileName . "|"	
+	}	
+esadini:= esfndin	
 Loop, Parse, esinitheme,`n`r
 	{
 		if (A_LoopField = "")
@@ -31401,6 +31431,7 @@ Loop, Parse, espth,|
 				}
 			esthemes.= A_LoopField . "|"
 		}
+esthemes.= esadini		
 iniread,EmulationStation,apps.ini,HTPC_FRONTENDS,EmulationStation
 if (EmulationStation = "ERROR")
 	{
@@ -32755,9 +32786,31 @@ iniwrite,%FEDDLC%,EScfg.ini,CONFIG,GameList
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+RESWARUN:
+REZRUN:= A_Space "--windowed --resolution 640 480"
+goto, REZRUN
+RESWBRUN:
+REZRUN:= A_Space "--windowed --resolution 720 480"
+goto, REZRUN
+RESWCRUN:
+REZRUN:= A_Space "--windowed --resolution 1024 768"
+goto, REZRUN
+RESWDRUN:
+REZRUN:= A_Space "--windowed --resolution 1280 720"
+goto, REZRUN
+RESWERUN:
+REZRUN:= A_Space "--windowed --resolution 1280 1024"
+goto, REZRUN
+RESWFRUN:
+REZRUN:= A_Space "--windowed --resolution 1920 1080"
+goto, REZRUN
+
+
 EmulationStationFEBUTK:
+REZRUN= 
+REZRUN:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   LAUNCH ES  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-RunWait, "%EmulationStation%",,hide
+Run, %comspec% /c "%EmulationStation%"%REZRUN%,,hide
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -37239,6 +37292,7 @@ Loop, rj\*.jak
 		IniRead,RJKEYOW,rj\%curjf%.ini,%curjf%,RJKEYOW
 		IniRead,RJKEYMON,rj\%curjf%.ini,%curjf%,RJKEYON
 		IniRead,RJMAP1ROFTYP,rj\%curjf%.ini,%curjf%,RJMAP1ROFTYP
+		IniRead,RJMULTIDISC,rj\%curjf%.ini,%curjf%,RJMULTIDISC
 		IniRead,RJMAP2ROFTYP,rj\%curjf%.ini,%curjf%,RJMAP2ROFTYP
 		IniRead,RJMAPRET,rj\%curjf%.ini,%curjf%,RJMASTERPROF
 		IniRead,RJMAP2PL,rj\%curjf%.ini,%curjf%,RJPLYR2
@@ -37280,11 +37334,8 @@ Loop, rj\*.jak
 		Loop, Parse, RJROMSPL,`,
 			{
 				RJROMXTINJ.= """" . "*" . A_LoopField . """" . A_Space
-			}
-		
+			}		
 		RJROMXTINJ= %RJROMXTINJ%
-		;;StringReplace, RJROMSPL, RJROMSPL,`,,"%A_Space%,All
-		;;StringReplace, RJROMSPL, RJROMSPL,.,"*.,All
 		IniRead,emuloc,apps.ini,Emulators,%emuname%
 		if (RJEMULOC <> 0)
 			{
@@ -37385,7 +37436,6 @@ Loop, rj\*.jak
 							}
 					}
 				preruni.= STRTYP . A_Space . """" . avvr . """"
-				;;FileAppend,%STRTYP% %avvr%,rj\%proq%_preun.ini
 				rjpro= 
 				Loop, Parse, RJPREOPT,|
 					{	
@@ -37399,7 +37449,6 @@ Loop, rj\*.jak
 								if (A_LoopField = ":")
 									{
 										preruni.= "`n"
-										;;FileAppend,`n,rj\%proq%_preun.ini
 										continue
 									}
 								stringreplace,avvr,A_LoopField,[ROMPATH],`%GAMDIR`%,All
@@ -37408,18 +37457,17 @@ Loop, rj\*.jak
 								stringreplace,avvr,avvr,[EMUL],`%EMUL`%,All
 								stringreplace,avvr,avvr,[EMUZ],`%EMUZ`%,All
 								preruni.= A_Space . avvr . "`n"
-			;;					FileAppend, %A_Space%%avvr%`n,rj\%proq%_preun.ini
 							}
 					}
 			}
 		if (RJABSOLROM = 1)
 			{
 				StringReplace, toapc,toapc,[CMDLINEGET],[ABSOLROM]
+				StringReplace,toapc,toapc,[GAMNAM],[ABSOLROM],All		
 			}
 		StringReplace, toapc,toapc,[CMDLINEGET],%RJROMXTINJ%
 		StringReplace,toapc,toapc,[RUNOPTS],%RJEMUOPTS%,All
 		StringReplace,toapc,toapc,[RUNARGS],%RJEMUARGS%,All		
-		;;StringReplace, toapc,toapc,[CMDLINEGET],%RJROMSPL%
 		if (BLNKLNCH = 1)
 			{
 				StringReplace,toapd,toapd,[RUNOPTS][ROMIN][RUNARGS],,All
@@ -37432,7 +37480,11 @@ Loop, rj\*.jak
 			{
 				stringreplace,toapd,toapd,[RUNOPTS][ROMIN][RUNARGS],[NXIX],All
 				stringreplace,toapd,toapd,[ROMINLP],[ROMIN],All
-				
+				if (optav = "")
+					{
+						stringreplace,toapd,toapd,[NXIX],[RUNOPTS][ROMIN][RUNARGS],All
+					}
+				stringreplace,toapd,toapd,[NXIX],,All
 				optav= 	
 				Loop, Parse, RJEMUOPTS,|
 					{
@@ -37451,44 +37503,55 @@ Loop, rj\*.jak
 						optav= 1	
 						break
 					}
-				if (optav = "")
-					{
-						stringreplace,toapd,toapd,[NXIX],[RUNOPTS][ROMIN][RUNARGS],All
-					}
-				stringreplace,toapd,toapd,[NXIX],,All	
+			}
+		if (RJMULTIDISC = 1)
+			{						
+				stringreplace,toapd,toapd,[ROMIN],[NWLNCH],All
 			}
 		StringReplace,toapd,toapd,[RUNOPTS],%RJEMUOPTS%,All
 		StringReplace,toapd,toapd,[RUNARGS],%RJEMUARGS%,All
 		
 		StringReplace,toapd,toapd,[EMUPATH],`%EMUL`%,All
-		StringReplace,toapd,toapd,[ROMPATH],`%GAMDIR`%,All
 		
+		StringReplace,toapd,toapd,[ROMPATH],`%GAMDIR`%,All
+		rjinjpth= 
+		rjinjq= 
 		if (RJPATH = 0)
 			{
 				if (RJQUOTES = 0)
 					{
 						StringReplace,toapd,toapd,[ROMIN],%RJROMINJ%,All
+						StringReplace,toapd,toapd,[GAMNAM],%RJROMINJ%,All
 					}
 				if (RJQUOTES = 1)
 					{
+						rjinjq="
+						;"
 						StringReplace,toapd,toapd,[ROMIN],"%RJROMINJ%",All
+						StringReplace,toapd,toapd,[GAMNAM],"%RJROMINJ%",All
 					}
 			}
 		if (RJPATH = 1)
 			{
+				rjinjpth= 1
 				if (RJQUOTES = 0)
 					{
 						StringReplace,toapd,toapd,[ROMIN],`%GAMDIR`%\%RJROMINJ%,All
+						StringReplace,toapd,toapd,[GAMNAM],`%GAMDIR`%\%RJROMINJ%,All
 					}
 				if (RJQUOTES = 1)
 					{
+						rjinjq="
+						;"
 						StringReplace,toapd,toapd,[ROMIN],"`%GAMDIR`%\%RJROMINJ%",All
+						StringReplace,toapd,toapd,[GAMNAM],"`%GAMDIR`%\%RJROMINJ%",All
 					}
 			}
+			
 		StringReplace,toapd,toapd,<,%A_Space%,All
 		rprn= 	
 		avvx= 
-				postruni= 
+		postruni= 
 		Loop, Parse, RJPOSTRUN,|
 			{
 				if (A_LoopField = "")
@@ -37907,6 +37970,11 @@ Loop, rj\*.jak
 												ar.insert(new)
 											}
 									}
+								injrmltix= 
+								injrmltg= 
+								Einjpri= 
+								enpri= 	
+								injromnR= 
 								Loop, %RJSYSTEMS%\%curjf%\%curomfd%\*.*
 									{
 										injromn= "*.*"
@@ -37916,17 +37984,186 @@ Loop, rj\*.jak
 												extm:= v
 												if (ext = extm)
 													{
-														injromn= %A_LoopFileFullPath%
-														stringreplace,newlnch,newlnch,[ABSOLROM],"%injromn%",All
-														splitpath,injromn,xinjromf,xinjromd,xinjromx,xinjromn,xinjromd
-														StringReplace, newlnch,newlnch,[ROM],%xinjrom%,All
-														StringReplace, newlnch,newlnch,[ROMF],%xinjromf%,All
-														StringReplace, newlnch,newlnch,[ROMX],%xinjromx%,All
-														StringReplace, newlnch,newlnch,[ROMFN],%xinjromn%,All
-														break
+														ifinstring,A_LoopFilename,[!]
+															{
+																if (enpri = "")
+																	{
+																		Einjpri= %A_LoopFileFullPath%
+																		enpri= 1
+																	}
+															}												if (ext = extm)
+														if (A_Index = 1)	
+															{
+																injromnR= %A_LoopFileFullPath%
+															}
+														injrmltix.= A_LoopFileFullPath . "|"
 													}
 											}
 									}
+								if (RJMULTIDISC = 0)
+									{
+										if (Einjpri <> "")
+											{
+												injromnR= %Einjpri%
+											}
+										stringreplace,newlnch,newlnch,[ABSOLROM],"%injromnR%",All
+										splitpath,injromnR,xinjromf,xinjromd,xinjromx,xinjromn,xinjromd
+										StringReplace, newlnch,newlnch,[ROM],%xinjrom%,All
+										StringReplace, newlnch,newlnch,[ROMF],%xinjromf%,All
+										StringReplace, newlnch,newlnch,[ROMX],%xinjromx%,All
+										StringReplace, newlnch,newlnch,[ROMFN],%xinjromn%,All
+										injrmltix= 
+									}
+								if (injrmltix <> "")
+									{
+										if (Einjpri <> "")
+											{
+												injromnR= %Einjpri%
+											}
+										stringreplace,newlnch,newlnch,[ABSOLROM],"%injromn%",All
+										stringreplace,injromk,injrmltix,|,"%A_Space%",All
+										stringsplit,injrvn,injrmltix,|
+										injromk= %injrvn1%
+										splitpath,injromk,xinjromf,xinjromd,xinjromx,xinjromn,xinjromd
+										StringReplace, newlnch,newlnch,[ROM],%xinjrom%,All
+										StringReplace, newlnch,newlnch,[ROMF],%xinjromf%,All
+										StringReplace, newlnch,newlnch,[ROMX],%xinjromx%,All
+										StringReplace, newlnch,newlnch,[ROMFN],%xinjromn%,All
+									}	
+								stpar=
+								cncl=
+								ALINC= 
+								NUMINC= 
+								dromdtk= 
+								cvil= 
+								injromful=
+								NUMINC= 1
+								if (RJMULTIDISC = 1)
+									{
+										Loop, Parse, injrmltix,|
+											{
+													cvil= %A_LoopField%
+													splitpath,cvil,cvifn,cvild,cvix
+													Loop, Parse,KBSET,|
+														{
+															if (A_LoopField = "")
+																{
+																	continue
+																}
+															if (A_LoopField = "G")
+																{
+																	cncl=1
+																	break
+																}
+															ALINC= %A_LoopField%
+															ifinstring,cvifn,Disk%NUMINC%of
+																{
+																	gosub, rjinsu
+																	continue
+																}
+															ifinstring,cvifn,Disk %NUMINC% of
+																{
+																	gosub, rjinsu
+																	continue
+																}
+															ifinstring,cvifn,Disk %NUMINC%
+																{
+																	gosub, rjinsu
+																	continue
+																}
+															ifinstring,cvifn,Disk%ALINC%%A_Space%
+																{
+																	gosub, rjinsu
+																	continue
+																}
+															ifinstring,cvifn,Disk%ALINC%%A_Space%
+																{
+																	gosub, rjinsu
+																	continue
+																}
+															ifinstring,cvifn,Disk %ALINC%
+																{
+																	gosub, rjinsu
+																	continue
+																}
+															ifinstring,cvifn,Side %ALINC%
+																{
+																	gosub, rjinsu
+																	continue
+																}
+															ifinstring,cvifn,Side %NUMINC%
+																{
+																	gosub, rjinsu
+																	continue
+																}
+															ifinstring,cvifn,Side%NUMINC%
+																{
+																	gosub, rjinsu
+																	continue
+																}
+															ifinstring,cvifn,Tape %ALINC%
+																{
+																	gosub, rjinsu
+																	continue
+																}
+															ifinstring,cvifn,Tape %NUMINC%
+																{
+																	gosub, rjinsu
+																	continue
+																}
+															ifinstring,cvifn,Tape%NUMINC%
+																{
+																	gosub, rjinsu
+																	continue
+																}
+															ifinstring,cvifn,File %ALINC%
+																{
+																	gosub, rjinsu
+																	continue
+																}
+															ifinstring,cvifn,File%NUMINC%
+																{
+																	gosub, rjinsu
+																	continue
+																}
+															ifinstring,cvifn,File %NUMINC%
+																{
+																	gosub, rjinsu
+																	continue
+																}
+
+														}
+													ifinstring,RJEMUPRESET,MAME
+														{
+															Loop, %NUMINC%
+																{
+																	ifinstring,RJEMUOPTS,[RJRTYP]
+																		{
+																			avic:= (A_Index + 1)
+																			stringsplit,rjesp,RJEMUOPTS,%A_Space%
+																			txov:= RegExReplace(curMameOpt, "\D")
+																			if (txov <> "")
+																				{
+																					curMameOpt:= RegExReplace(curMameOpt, "[ \t]*\d[ \t]*")
+																					curMameOpt.= avic
+																				}
+																			acvilz= %cvil%
+																			if (rjinpth = "")
+																				{
+																					acvilz:= cvifn
+																				}
+																			injromful.= A_Space . "-" . curMameOpt . A_Space . rjinjq . acvilz . rjinjq
+																			if (A_index = 1)
+																				{
+																					injromful:= rjinjq . acvilz . rjinjq 
+																				}
+																		}
+																}
+														}
+											}
+										stringreplace,newlnch,newlnch,[NWLNCH],%injromful%,All
+									}
+								stringreplace,newlnch,newlnch,[GAMLST],%dromdtk%,All	
 								FileAppend, %newlnch%,rj\sysCfgs\%curjf%\lnch.cmd
 							}
 						FileCopy, rj\sysCfgs\%curjf%\lnch.cmd,%RJSYSTEMS%\%curjf%\%curomfd%\%curomfd%.bat,%RJLNCHCFGOW%
@@ -38016,16 +38253,28 @@ Loop, rj\*.jak
 							}
 						if (RJMP2LC = "")
 							{
-								FileCopy, %RJMAP2P%,%RJSYSTEMS%\%curjf%\%curomfd%,%RJKEYOW%	
+								FileCopy, %RJMAP2P%,%RJSYSTEMS%\%curjf%\%curomfd%,%RJKEYOW%
 							}
-					}		
-			}	
+					}
+			}
 	}
+	
+	
 SB_SetText("Jacketizing Complete")
 guicontrol,,RJTXTAB, %RJQNUM% Systems
-guicontrol,,RJPROCQ, CONFIRM %RJQNUM%	
+guicontrol,,RJPROCQ, CONFIRM %RJQNUM%
 return
 
+rjinsu:
+stpar= 1
+Disk%NUMINC%= %cvil%
+ifnotinstring,dromdtk,%cvil%|
+	{
+		NUMINC+= 1
+		dromdtk.= cvil . "|"
+	}
+return
+	
 nicemove:
 Loop, Parse, fldmvr,`n
 	{
@@ -41109,9 +41358,10 @@ if (rjaval2 = 1)
 	}
 return
 
+;;  (Disk[DINC] of|(Disk [DINK] of|(Disk [AINC]|Disk[AINC]
 RJDISCIDENT:
 gui,submit,nohide
-guicontrol,,RJCBXJ,|%rjaval2%||(Disk 1 of|(Disk 1 of|(Disk A|Disk 1
+guicontrol,,RJCBXJ,|%rjaval2%||
 return
 
 RJROMXT:
@@ -63496,4 +63746,4 @@ ifmsgbox, no
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;}############################################
+;}################################################################
