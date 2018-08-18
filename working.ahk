@@ -11460,8 +11460,11 @@ loop,parse,mamelistedmedia,`n
 			{
 				continue
 			}
-			
-		stringsplit,nni,af,%A_Space%
+		stringsplit,nni,af,%A_Space%(
+			ifinstring,nni1,(
+				{
+					continue
+				}
 		ifinstring,nni2,(
 			{
 				nni1= %oldf%	
@@ -11493,7 +11496,7 @@ loop,parse,mamelistedmedia,`n
 		MAME_%oldf%_%med%_extyr.= ("mame_" . oldf . "_" . med . "_extyp" . "=" . and2 . "`n")
 		MAME_%oldf%_%med%_extyp= %and2%
 		aav= % MAME_%oldf%_%med%_extyr
-		viinn.= aav
+		;;viinn.= aav
 		MAME_%oldf%_medtyps.= med . "|"
 	}
 SB_SetText(" Mame listed media indexing complete ")
