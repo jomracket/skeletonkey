@@ -10074,7 +10074,16 @@ if (JACKETMODE = 1)
 			}
 			IfNotExist,%RJSYSTEMS%\%romsys%\%rjinsfldr%
 				{
+					updtguirst= 	
+					ifnotexist,%RJSYSTEMS%\%romsys%
+						{
+							updtguirst= 1
+						}
 					FileCreateDir,%RJSYSTEMS%\%romsys%\%rjinsfldr%
+					if (updtguirst = 1)
+						{
+							gosub, RJSYSRESET
+						}
 				}
 	}
 save= %raexeloc%\downloads\%romsys%\%rjinsfldr%%dwnlchk%
@@ -20033,7 +20042,16 @@ if (JACKETMODE = 1)
 			
 			IfNotExist,%RJSYSTEMS%\%romsys%\%rjinsfldr%
 				{
+					updtguirst= 	
+					ifnotexist,%RJSYSTEMS%\%romsys%
+						{
+							updtguirst= 1
+						}
 					FileCreateDir,%RJSYSTEMS%\%romsys%\%rjinsfldr%
+					if (updtguirst = 1)
+						{
+							gosub, RJSYSRESET
+						}
 				}
 
 	}
@@ -20045,7 +20063,16 @@ if (OVDCHK = 1)
 		save= %OVDFLDR%\%rjinsfldr%%dwnchk%
 		IfNotExist,%OVDFLDR%\%rjinsfldr%
 				{
+					updtguirst= 	
+					ifnotexist,%OVDFLDR%
+						{
+							updtguirst= 1
+						}
 					FileCreateDir,%OVDFLDR%\%rjinsfldr%
+					if (updtguirst = 1)
+						{
+							gosub, RJSYSRESET
+						}
 				}
 
 	}
@@ -20593,14 +20620,32 @@ if (JACKETMODE = 1)
 			}
 		IfNotExist,%ACSVDEST%\%rjinsfldr%
 			{
+				updtguirst= 	
+				ifnotexist,%ACSVDEST%
+					{
+						updtguirst= 1
+					}
 				FileCreateDir,%ACSVDEST%\%rjinsfldr%
+				if (updtguirst = 1)
+					{
+						gosub, RJSYSRESET
+					}
 			}
 	}	
 	
 save= %ACSVDEST%\%rjinsfldr%%dwnchk%
 ifnotexist,%ACSVDEST%
 	{
+		updtguirst= 	
+		ifnotexist,%ACSVDEST%
+			{
+				updtguirst= 1
+			}
 		FileCreateDir, %ACSVDEST%
+		if (updtguirst = 1)
+			{
+				gosub, RJSYSRESET
+			}
 	}
 
 if (OVDCHK = 1)
@@ -20608,7 +20653,16 @@ if (OVDCHK = 1)
 		save= %OVDFLDR%\%rjinsfldr%%dwnchk%
 		IfNotExist,%OVDFLDR%\%rjinsfldr%
 			{
+				updtguirst= 	
+				ifnotexist,%OVDFLDR%
+					{
+						updtguirst= 1
+					}
 				FileCreateDir,%OVDFLDR%\%rjinsfldr%
+				if (updtguirst = 1)
+					{
+						gosub, RJSYSRESET
+					}
 			}
 	}
 splitpath,save,romtitle,rompth,romext,romname,romdrv
@@ -20621,8 +20675,17 @@ if (REDOWN = 1)
 	}
 ifnotexist, %RJSYSTEMS%\%romsys%
 	{ 
+		updtguirst= 	
+		ifnotexist,%RJSYSTEMS%\%romsys%
+			{
+				updtguirst= 1
+			}
 		FileCreateDir,%RJSYSTEMS%\%romsys%
 		gosub, resetCoreAssets
+		if (updtguirst = 1)
+			{
+				gosub, RJSYSRESET
+			}
 	}
 if (chkxt = "rar")
 	{
@@ -20666,7 +20729,16 @@ ifnotexist, %save%
 			}
 		ifnotexist,%RJSYSTEMS%\%romsys%\%rjinsfldr%
 			{
+				updtguirst= 	
+				ifnotexist,%RJSYSTEMS%\%romsys%
+					{
+						updtguirst= 1
+					}
 				FileCreateDir,%RJSYSTEMS%\%romsys%\%rjinsfldr%
+				if (updtguirst = 1)
+					{
+						gosub, RJSYSRESET
+					}
 			}
 		DownloadFile(URLFILE,save, True, True)
 		FileGetSize,dwnfszt,%save%
