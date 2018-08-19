@@ -1,5 +1,6 @@
 [0]
 [READEND]
+RJLNCHP=0
 
 [ROMJACKETS]
 
@@ -74,6 +75,7 @@ RJSUBDS=.cheats:1|.patches:1|.snaps:1|.sstates:1|.Man:1|.Mem:1|.cfg:1|.ctrl:1|.h
 RJEXTRARC=0
 PEREMUCFG=1
 RJZIPPEEK=1
+RJLNCHP=0
 
 [MAME - Arcade]
 RJEMUARGS=<-rp "[ROMPATH]"|<-rp "[EMUPATH]\roms"|<
@@ -91,6 +93,7 @@ RJCONSOLID=Individuate
 RJSUBDS=.cheats:1|.patches:1|.snaps:1|.sstates:1|.Man:1|.Mem:1|.cfg:1|.ctrl:1|.hi:1|.ini:1|.inp:1|
 PEREMUCFG=1
 RJZIPPEEK=0
+RJLNCHP=0
 
 
 [Arcade]
@@ -109,6 +112,7 @@ RJCONSOLID=Individuate
 RJSUBDS=.cheats:1|.patches:1|.snaps:1|.sstates:1|.Man:1|.Mem:1|.cfg:1|.ctrl:1|.hi:1|.ini:1|.inp:1|
 PEREMUCFG=1
 RJZIPPEEK=0
+RJLNCHP=0
 
 
 [MAME - System]
@@ -125,35 +129,43 @@ RJSUBDS=.cheats:1|.patches:1|.snaps:1|.sstates:1|.Man:1|.Mem:1|.cfg:1|.ctrl:1|.h
 RJEXTRARC=0
 PEREMUCFG=1
 RJZIPPEEK=1
+RJLNCHP=0
 
 [1964]
 RJPRECFG=move /y "ROM_Properties.ini" "%EMUL%"|copy /Y "*.cfg" "%EMUL%\plugin"|copy /Y "*.ini" "%EMUL%\plugin"|copy /y ".sstates\*.*" "%EMUL%\savestate"|copy /y ".mem\*.eep" "%EMUL%\save"
 RJPOSTCFG=copy /y "%EMUL%\ROM_Properties.ini" "%GAMDIR%"|copy /Y "%EMUL%\plugin\*.ini" "%GAMDIR%"|move /y "%EMUL%\savestate\*.*" "%GAMDIR%\.sstates"|move /y "%EMUL%\save\*.eep" "%GAMDIR%\.mem"
+RJLNCHP=0
 
 [AdriPSX]
 RJPRECFG=copy /Y "AdriPSX.ini" "%EMUL%"|copy /y ".mem\*.mem" "%EMUL%\mems"
 RJPOSTCFG=copy /Y "%EMUL%\AdriPSX.ini" "%GAMDIR%"|move /y "%EMUL%\mems\*.mem" "%GAMDIR%\.mem"
+RJLNCHP=0
 
 [AdviEmulator]
 RJPRECFG=copy /Y "AdviEmulator.ini" "%EMUL%"
 RJPOSTCFG=copy /Y "%EMUL%\AdviEmulator.ini" "%GAMDIR%"
+RJLNCHP=0
 
 [WinApe]
 RJPRECFG=copy /Y "WinAPE.ini" "%EMUL%"
 RJPOSTCFG=copy /Y "%EMUL%\WinAPE.ini" "%GAMDIR%"
+RJLNCHP=0
 
 [jpcsp]
 RJPRECFG=copy /y "settings.properties" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\settings.properties" "%GAMDIR%"
 RJEMUOPTS=<-r --loadfile<
+RJLNCHP=0
 
 [yuzu]
 RJPRECFG=copy /y "qt-config.ini" "%EMUL%\user\config"
 RJPOSTCFG=copy /y "%EMUL%\user\config\qt-config.ini" "%GAMDIR%"
+RJLNCHP=0
 
 [ElecEm]
 RJPRECFG=copy /Y "electrem.cfg" "%APPDATA%"
 RJPOSTCFG=copy /y "%APPDATA%\electrem.cfg" "%GAMDIR%"
+RJLNCHP=0
 
 [AppleWin]
 RJPRECFG=call PREPREF.cmd|REG ADD "HKEY_CURRENT_USER\Software\AppleWin\CurrentVersion\Configuration" /f /v "Save State Filename" /t REG_SZ /d "%GAMDIR%\.sstates\%GAMDNM%.aws"|REG ADD "HKEY_CURRENT_USER\Software\AppleWin\CurrentVersion\Preferences" /f /v "Starting Directory" /t REG_SZ /d "%GAMDIR%"|REG ADD "HKEY_CURRENT_USER\Software\AppleWin\CurrentVersion\Preferences" /f /v "HDV Starting Directory" /t REG_SZ /d "%GAMDIR%"
@@ -162,21 +174,24 @@ RJMULTIDISC=1
 RJEMUOPTS=<-f -fs=best -d1<
 RJEMUARGS=<[-d2] [DSK2] -no-printscreen-dlg
 RJZIPPEEK=0
+RJLNCHP=0
 
 [Altirra]
 RJPRECFG=copy /y "Altirra.ini" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\Altirra.ini" "%GAMDIR%"
 RJRUNDIR=1
+RJLNCHP=0
 
 [WinVice]
 RJPRECFG=copy /y "vice.ini" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\vice.ini" "%GAMDIR%"
+RJLNCHP=0
 
 [Neko]
 RJPRECFG=copy /y "*.ini" "%EMUL%"|copy /y ".sstates\*.sav" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\*.ini" "%GAMDIR%"|move /y "%EMUL%\.sav" "%GAMDIR%\.sstates"
 RJEMUOPTS=<|<-fullscreen<|<-fullscreen "[DSK]" "[DSK2]"|<"[DSK]" "[DSK2]"|<
-RJLNCHP=X
+RJLNCHP=0
 
 [Kegs32]
 RJPRECFG=copy /Y "config.kegs" "%EMUL%"
@@ -198,14 +213,17 @@ RJLNCHP=X
 [Stella]
 RJPRECFG=copy /y "stella.ini" "%EMUL%"|copy /y "Basedir.txt" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\stella.ini" "%GAMDIR%"
+RJLNCHP=0
 
 [ProSystem]
 RJPRECFG=copy /y "Prosystem.ini" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\Prosystem.ini" "%GAMDIR%"|copy /y "*.bmp" "%GAMDIR%\.snaps"
+RJLNCHP=0
 
 [VirtualJaguar]
 RJPRECFG=call PRE.cmd|REG ADD "HKEY_CURRENT_USER\Software\Underground Software\Virtual Jaguar" /f /v "EEPROMs" /t REG_DWORD /d "%GAMDIR%\.Mem\"|REG ADD "HKEY_CURRENT_USER\Software\Underground Software\Virtual Jaguar" /f /v "zoom" /t REG_DWORD /d 3|REG ADD "HKEY_CURRENT_USER\Software\Underground Software\Virtual Jaguar" /f /v "audioEnabled" /t REG_SZ /d true|REG ADD "HKEY_CURRENT_USER\Software\Underground Software\Virtual Jaguar" /f /v "DSPEnabled" /t REG_SZ /d true|REG ADD "HKEY_CURRENT_USER\Software\Underground Software\Virtual Jaguar" /f /v "showUnknownSoftware" /t REG_SZ /d true|REG ADD "HKEY_CURRENT_USER\Software\Underground Software\Virtual Jaguar" /f /v "ROMs" /t REG_SZ /d "%GAMDIR%/"|REG ADD "HKEY_CURRENT_USER\Software\Underground Software\Virtual Jaguar" /f /v "fullscreen" /t REG_SZ /d "true"
 RJPOSTCFG=call P1_POST.cmd|call P2_POST.cmd
+RJLNCHP=0
 
 [UNZ]
 RJPRECFG=copy /Y "*.ini" "%EMUL%"
@@ -216,6 +234,7 @@ RJLNCHP=X
 RJPRECFG=copy /y "*.cfg" "%EMUL%"|copy /y "*.ini" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\*.ini" "%GAMDIR%"|copy /y "%EMUL%\*.cfg" "%GAMDIR%"
 RJEMUOPTS=<--noosd --fullscreen --plugindir "%EMUL%" --nosaveoptions --datadir "%EMUL%" --configdir "%EMUL%"<|<--nogui<
+RJLNCHP=0
 [m2emulator]
 RJPRECFG=copy /Y "*.ini" "%EMUL%"|copy /Y "CFG\*.input" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\*.ini" "%GAMDIR%"|move /y "%EMUL%\%ROM%.input" "%GAMDIR%\CFG"
@@ -225,33 +244,40 @@ NICEFLD=1
 RJRUNDIR=1
 RJEXT=0
 RJROMINJ=%ROM%
+RJLNCHP=0
 
 [WinArcadia]
 RJRUNDIR=1
 RJEMUOPTS=<MACHINE=ARCADIA SETTINGS="WA.CFG" FULLSCREEN=ON AUTOSAVE=ON TITLEBAR=OFF TOOLBAR=OFF STRETCH=ON FILE=
 RJPRECFG=copy /Y "WA.cfg" "%EMUL%\Configs"
 RJPOSTCFG=copy /Y "%EMUL%\Confgs\WA.cfg" "%GAMDIR%"
+RJLNCHP=0
 
 [BeebEm]
 RJPRECFG=copy /y "Preferences.cfg" "%EMUL%\UserData"
 RJPOSTCFG=copy /y "%EMUL%\Preferences.cfg" "%GAMDIR%"
+RJLNCHP=0
 
 [mgba]
 RJPRECFG=copy /y "*.ini" "%EMUL%"|copy /y ".Mem\*.*" "%EMUL%"|copy /y ".sstates\*.*" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\*.ini"|copy /y "%EMUL%\*.sav" "%GAMDIR%\.Mem"|copy /y "%EMUL%\*.ss" "%GAMDIR%\.sstates"
+RJLNCHP=0
 
 [Arculator]
 RJPRECFG=copy /y "arc.cfg" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\arc.cfg" "%GAMDIR%"
+RJLNCHP=0
 
 [BlueMSX]
 RJPRECFG=copy /y "%EMUZ%*.ini" "%EMUL%"|copy /y "%EMUZ%*.config" "%EMUL%\Keyboard Config"
 RJPOSTCFG=copy /y "%EMUL%\%EMUZ%.ini" "%GAMDIR%"|copy /y "%EMUL%\Keyboard Config\%EMUZ%*.config" "%GAMDIR%"
 RJRUNDIR=1
+RJLNCHP=0
 
 [ZXSpin]
 RJPRECFG=copy /Y "spin.ini" "%EMUL%"|copy /Y "Default.spincfg" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\spin.ini" "%GAMDIR%"|copy /y "%EMUL%\Default.spincfg" "%GAMDIR%"
+RJLNCHP=0
 
 [ParaJVE]
 RJPRECFG=copy /Y "configuration.xml" "%EMUL%\data"|copy /Y ".sstates\*.jvesav" "%EMUL%\data\saves\quick"
@@ -259,23 +285,25 @@ RJPOSTCFG=copy /Y "%EMUL%\data\configuration.xml" "%GAMDIR%"|move /Y ""%EMUL%\da
 RJEMUOPTS=<-Game=
 RJEMUARGS=<[CUSTMARG] -Menu=OFF -NoSplash
 RJRUNDIR=1
+RJLNCHP=0
 
 [epsxe]
 RJPRECFG=copy /Y "gpu.dat" "%EMUL%\Plugins"|copy /y ".sstates\*" "%EMUL%\sstates"|copy /y "gpuBladeSoft.ini" "%EMUL%"|call PRE.cmd|REG ADD "HKEY_CURRENT_USER\Software\epsxe\config" /f /v "Memcard1" /t REG_SZ /d "%GAMDIR%\.Mem\epsxe000.mcr"|REG ADD "HKEY_CURRENT_USER\Software\epsxe\config" /f /v "Memcard2" /t REG_SZ /d "%GAMDIR%\.Mem\epsxe001.mcr"
 RJPOSTCFG=call POST.cmd|copy /y "%EMUL%\gpuBladeSoft.ini" "%GAMDIR%"|move /y "%EMUL%\Patches\*" "%GAMDIR%\.patches"|move /y "%EMUL%\sstates\*" "%GAMDIR%\.sstates"|move /y "%EMUL%\snap\*" "%GAMDIR%\.snaps"|copy /Y ""%EMUL%\Plugins\gpu.dat" "%GAMDIR%"
 RJRUNDIR=1
-RJLNCHP=X
 RJEMUOPTS=<-nogui -loadbin<
+RJLNCHP=0
 
 [rpcs3]
 RJPRECFG=copy /y "config*.yml" "%EMUL%"|mklink /J "%EMUL%\dev_hdd0" "%GAMDIR%\dev_hdd0" & mklink /J "%EMUL%\dev_hdd1" "%GAMDIR%\dev_hdd1"
 RJPOSTCFG=copy /y "%EMUL%\config*.yml" "%GAMDIR%"|fsutil reparsepoint delete "%EMUL%\dev_hdd0" & rd "%EMUL%\dev_hdd0" & fsutil reparsepoint delete "%EMUL%\dev_hdd1" & rd "%EMUL%\dev_hdd1"
+RJLNCHP=0
 
 [XM6]
 RJPRECFG=copy /Y "XM6.ini" "%EMUL%"|copy /Y ".sstates\STATE.XM6" "%EMUL%"
 RJPOSTCFG=copy /Y "%EMUL%\XM6.ini" "%GAMDIR%"|move /Y "%EMUL%\STATE.XM6" "%GAMDIR%\.sstates"
 RJEMUOPTS=<"[DSK1]" "[DSK2]"|<
-RJLNCHP=X
+RJLNCHP=0
 
 [VisualBoyAdvance]
 RJPRECFG=copy /Y vba*.ini" "%EMUL%"
@@ -283,6 +311,7 @@ RJPRECFG=copy /Y vba*.ini" "%EMUL%"
 RJPOSTCFG=copy /Y "%EMUL%\vba*.ini" "%GAMDIR%"
 #RJPOSTCFG=copy /Y "%EMUL%\vba*.ini" "%GAMDIR%"|move /Y "%EMUL%\%ROM%*.sav" "%GAMDIR%\.Mem"|move /Y "%EMUL%\%ROM%*.sgm" "%GAMDIR%\.sstates"
 RJRUNDIR=1
+RJLNCHP=0
 
 [VisualBoyAdvance]
 RJPRECFG=copy /Y vba*.ini" "%EMUL%"|copy /Y visualboyadvance.cfg" "%EMUL%"
@@ -297,41 +326,50 @@ RJPRECFG=copy /Y vba*.ini" "%EMUL%"
 RJPOSTCFG=copy /Y "%EMUL%\vba*.ini" "%GAMDIR%"
 #RJPOSTCFG=copy /Y "%EMUL%\vba*.ini" "%GAMDIR%"|move /Y "%EMUL%\%ROM%*.sav" "%GAMDIR%\.Mem"|move /Y "%EMUL%\%ROM%*.sgm" "%GAMDIR%\.sstates"
 RJRUNDIR=1
+RJLNCHP=0
 
 [Dolphin]
 RJEMUOPTS=<--batch --exec<
+RJLNCHP=0
 
 [Citra]
 RJPRECFG=copy /y "qt-config.ini" "%EMUL%\user\config"|robocopy "%GAMDIR%\.Mem\sdmc" "%EMUL%\user\config\sdmc" /R:2 /W:2 /NP /E /IS
 RJPOSTCFG=move /y "%EMUL%\user\config\qt-config.ini" "%GAMDIR%"|robocopy "%EMUL%\user\config\sdmc" "%GAMDIR%\.Mem\sdmc" /R:2 /W:2 /NP /E /IS /MOVE
 RUNDIR=1
+RJLNCHP=0
 
 [PPSSPP]
 RJPRECFG=copy /Y "ppsspp.ini" "%EMUL%\memstick\PSP\SYSTEM"|copy /Y "controls.ini" "%EMUL%\memstick\PSP\SYSTEM"|robocopy ".mem" "%EMUL%\memstick\PSP\SAVEDATA" /R:2 /W:2 /NP /E /IS|robocopy ".mem" "%EMUL%\memstick\PSP\SAVEDATA" /R:2 /W:2 /NP /E /IS|robocopy ".sstates" "%EMUL%\memstick\PSP\PPSSPP_STATE" /R:2 /W:2 /NP /E /IS|copy /Y "*.properties" "%EMUL%"
 RJPOSTCFG=copy /Y "%EMUL%\memstick\PSP\SYSTEM\controls.ini" "%GAMDIR%"|copy /Y "%EMUL%\memstick\PSP\SYSTEM\ppsspp.ini" "%GAMDIR%"|robocopy "%EMUL%\memstick\PSP\SAVEDATA" "%GAMDIR%\.mem" /R:2 /W:2 /NP /E /IS /MOVE|robocopy "%EMUL%\memstick\PSP\PPSSPP_STATE" "%GAMDIR%\.sstates" /R:2 /W:2 /NP /E /IS /MOVE|copy /Y "%EMUL%\*.properties" "%GAMDIR%"|move /Y "%EMUL%\memstick\PSP\SCREENSHOT\*" "%GAMDIR%\.snaps"
 RJRUNDIR=1
+RJLNCHP=0
 
 [snes9x]
 RJPRECFG=copy /y "snes9x.conf" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\snes9x.conf" "%GAMDIR%"
+RJLNCHP=0
 
 [SimCoupe]
 RJPRECFG=copy /Y "%EMUZ%.cfg" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\%EMUZ%.cfg"
+RJLNCHP=0
 
 [bgb]
 RJPRECFG=copy /Y "%GAMDIR%\.sstates\*.sn*" "%EMUL%\.Mem"|copy /Y "bgb.ini" "%EMUL%"
 RJPOSTCFG=copy /Y "%EMUL%\bgb.ini" "%GAMDIR%"|copy /Y "%EMUL%\scrnshot\*.bmp" "%GAMDIR%\.snaps"|move /Y "%EMUL%\.Mem\*.sn*" "%GAMDIR%\.sstates"|move /Y "%EMUL%\*.avi*" "%GAMDIR%\.snaps"|move /Y "%EMUL%\*.wav*" "%GAMDIR%\.snaps"
+RJLNCHP=0
 
 [4DO]
 RJPRECFG=copy /Y "*Input*.xml" "%EMUL%\Settings\"|copy /Y "*.settings" "%EMUL%\Settings\"|copy /Y ".Mem\*.ram" "%EMUL%\Saves\"|copy /Y ".sstates\*.4dosav" "%EMUL%\Saves\"
 RJPOSTCFG=copy /Y "%EMUL%\Settings\*.Settings" "%GAMDIR%"|copy /Y "%EMUL%\Settings\*Input*.xml" "%GAMDIR%"|move /Y "%EMUL%\Screenshots\*.png" "%GAMDIR%\.snaps"|move /Y "%EMUL%\Saves\*.ram" "%GAMDIR%\.Mem"|move /Y "%EMUL%\Saves\*.4dosav" "%GAMDIR%\.sstates"
 RJEMUOPTS=<--StartLoadFile<
 RJEMUARGS=<[4DOFS]
+RJLNCHP=0
 
 [pcsx2]
 RJPRECFG=copy /Y "*.ini" "%EMUL%\inis"|copy /Y "*FX_Settings.ini" "%EMUL%\shaders"
 RJPOSTCFG=copy /Y "%EMUL%\inis\*.ini" "%GAMDIR%"|copy /Y "%EMUL%\shaders\*.ini" "%GAMDIR%"
+RJLNCHP=0
 
 [supermodel]
 RJPRECFG=copy /y "Supermodel.ini" "%EMUL%\Config"|robocopy ".Mem" "%EMUL%\NVRAM" /R:2 /W:2 /NP /E /IS|robocopy ".sstates" "%EMUL%\Saves" /R:2 /W:2 /NP /E /IS
@@ -344,14 +382,17 @@ RJEXT=0
 RJRUNDIR=0
 RJROMINJ=%ROM%
 RJEXTRARC=0
+RJLNCHP=0
 
 [Anex86]
 RJPRECFG=call "preAnex.cmd"
 RJPOSTCFG=call "postAnex.cmd"
+RJLNCHP=0
 
 [X1turbo]
 RJPRECFG=copy /y "*.cfg" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\*.cfg" "%GAMDIR%"
+RJLNCHP=0
 
 [SSF]
 RJPRECFG=for /f "tokens=3 delims= " %%a in ('reg query HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer /v NoDriveTypeAutoRun') do SET NDAR=%%a|attrib +h "%GAMDIR%\SSF.ini"|attrib +h "%GAMDIR%\Setting.ini"|for /f "delims=" %%a in ('dir /b/a-d-h "*.ini"') do copy /y "%%~a" "%EMUL%\Setting\Saturn"|attrib -h "%GAMDIR%\SSF.ini"|attrib -h "%GAMDIR%\Setting.ini"|copy /y "SSF.ini" "%EMUL%"|copy /y "Setting.ini" "%EMUL%"|copy /Y ".Mem\*.bin" "%EMUL%\Backup\InternalBackup"|copy /Y ".sstates\*" "%EMUL%\SaveState\Saturn"
@@ -362,17 +403,20 @@ RJLNCHP=X
 RJPRECFG=copy /y "steem.ini" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\steem.ini" "%GAMDIR%"
 RJRUNDIR=1
+RJLNCHP=0
 
 [NullDc]
 RJPRECFG=copy /y "nulldc.cfg" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\nulldc.cfg" "%GAMDIR%"
 RJEMUOPTS=<-config  -config ImageReader:LoadDefaultImage=1 -config ImageReader:defaultImage=|<-config nullDC_GUI:Fullscreen=1  -config ImageReader:LoadDefaultImage=1 -config ImageReader:defaultImage=
 RJRUNDIR=0
+RJLNCHP=0
 
 [Demul]
 RJPRECFG=copy /y "*.ini" "%EMUL%"|copy /y ".sstates\*" "%EMUL%\sstates"|copy /y ".scache\*" "%EMUL%\scache"
 RJPOSTCFG=copy /y "%EMUL%\*.ini" "%GAMDIR%"|move /y "%EMUL%\sstates\*" "%GAMDIR%\.sstates"|move /y "%EMUL%\snap\*" "%GAMDIR%\.snaps"|move /y "%EMUL%\scache\*" "%GAMDIR%\.scache"
 RJRUNDIR=0
+RJLNCHP=0
 
 [cps3emulator]
 RJPRECFG=copy /y "emulator.ini" "%EMUL%"|copy /y ".snaps\*.sta""%EMUL%\STATES"|copy /y Plugins.cfg "%EMUL%\Plugins"|copy /y ".Mem\*.DAT" "%EMUL%\NVDATA"|copy /y *.input "%EMUL%\CFG"
@@ -385,6 +429,7 @@ RJEXT=0
 RJROMINJ=%ROM%
 RJEXTRARC=0
 RJZIPPEEK=0
+RJLNCHP=0
 
 [NeoRaine]
 RJPRECFG=copy /y "*.cfg" "%EMUL%\config"
@@ -392,6 +437,7 @@ RJPOSTCFG=copy /y "%EMUL%\config.\*.cfg" "%GAMDIR%"
 RJEMUOPTS=<-nogui<
 RJEXTRARC=0
 RJZIPPEEK=0
+RJLNCHP=0
 
 [FinalBurnAlpha]
 RJPRECFG=attrib +h "fba*.ini"|copy /Y "%GAMDIR%\.Mem\*.nv" "%EMUL%\config\games"|copy /Y "%GAMDIR%\.sstates\*.fs" "%EMUL%\savestates"|copy /Y "*.ini" "%EMUL%\config\games"|attrib -h "fba*.ini"|copy /Y "fba*.ini" "%EMUL%\config"
@@ -405,6 +451,7 @@ RJEXT=0
 RJROMINJ=%ROM%
 RJEXTRARC=0
 RJZIPPEEK=0
+RJLNCHP=0
 
 [Mednafen]
 RJEMUOPTS=<|<-fs 1<|<
@@ -412,17 +459,20 @@ RJPRECFG=copy /y "mednafen*.cfg" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\mednafen*.cfg" "%GAMDIR%"
 RJRUNDIR=1
 PEREMUCFG=1
+RJLNCHP=0
 
 [Fusion]
 RJRUNDIR=1
 RJEMUOPTS=<|<-FullScreen<|<
 PEREMUCFG=1
+RJLNCHP=0
 
 [Nostalgia]
 RJPRECFG=copy /y "input.cfg" "%EMUL%"|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "Capture Folder" /t REG_SZ /d "%GAMDIR%\.snaps"|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "Hide on Run" /t REG_DWORD /d 1|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "Images Folder" /t REG_SZ /d "%GAMDIR%"|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "Manuals Folder" /t REG_SZ /d "%GAMDIR%"|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "SaveGame Folder" /t REG_SZ /d "%GAMDIR%\.sstates"
 RJPOSTCFG=copy /y "%EMUL%\input.cfg" "%GAMDIR%"
 RJRUNDIR=1
 RJEMUOPTS=<-f<|<
+RJLNCHP=0
 
 [XM7]
 RJPRECFG=copy /y "*.ini" "%EMUL%"
@@ -435,24 +485,30 @@ RJPRECFG=
 RJEMUOPTS=<-L [libretrodirectory]\[core]<|<
 RJEXTRARC=0
 RJRUNDIR=0
+RJLNCHP=0
 
 [DosBox]
 RJPRECFG=copy /y ".sstates\*.*" "%EMUL%\STATES"|copy /y "dosbox.conf" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\dosbox.conf" "%GAMDIR%"|move /y "%EMUL%\STATES\*.*" "%GAMDIR%\.sstates"
+RJLNCHP=0
 
 [Project64]
 RJPRECFG=copy /Y "Rice*.cfg" "%EMUL%\Plugin\GFX"|copy /Y "Rice*.ini" "%EMUL%\Plugin\GFX"|copy /Y "Glide64.ini" "%EMUL%\Plugin\1.6 Plugins"|copy /Y "MyGlide64.ini" "%EMUL%\Plugin\1.6 Plugins"|copy /Y "NRage.ini" "%EMUL%\Plugin\1.6 Plugins"|copy /Y "tr64_ogl.ini" "%EMUL%\Plugin\1.6 Plugins"|copy /Y "Project64.cfg" "%EMUL%\Config"
 RJPOSTCFG=copy /Y "%EMUL%\Plugin\GFX\*.ini" "%GAMDIR%"|copy /Y "%EMUL%\Plugin\GFX\*.cfg" "%GAMDIR%"|copy /Y "%EMUL%\Config\*.cfg" "%GAMDIR%"|copy /Y "%EMUL%\Plugin\1.6 Plugins\*.ini" "%GAMDIR%"
+RJLNCHP=0
 
 [Desmume]
 RJPRECFG=copy /y "*.ini" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\*.ini" "%GAMDIR%"
 RJEMUOPTS=<--windowed-fullscreen<
+RJLNCHP=0
 
 [Apollo]
+RJLNCHP=0
 
 [SWFOpener]
 RJEMUOPTS=<-full -sa<
+RJLNCHP=0
 
 [M88]
 RJPRECFG=copy /y "*.ini" "%EMUL%"|copy /y ".sstates\*.sav" "%EMUL%"
@@ -1076,6 +1132,15 @@ RJROMXT=.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr,.ccd,.img
 MAME?RJEMUOPTS=<pcfxga -cdrm<|<pcfx -cdrm<
 RJZIPPEEK=0
 
+[NEC - PC88]
+RJEMUPRESET=m88
+RJMAMENM=pc88va
+RJMULTIDISC=1
+RJPRECFG=copy /y "%GAMDIR%\vaeg.ini" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\vaeg.ini" "%GAMDIR%"
+RJROMXT=.wav,.xdf,.hdm,.2hd,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.zip
+MAME?RJEMUOPTS=<pc88va2 -[RJRTYP]<|<pc88va2 -cart<|<pc88va2 -flop1<|<pc88va -cart<|<pc88va -flop1<|<pc8801 -cart<|<pc8801 -flop1<|<pc8801mc -cart<|<pc8801mc -flop1<|<pc8801mh -cart<|<pc8801mh -flop1<|<pc8801mk2fr -cart<|<pc8801mk2fr -flop1<|<pc8801mk2mr -cart<|<pc8801mk2mr -flop1<|<pc8801mk2sr -cart<|<pc8801mk2sr -flop1<|<pc8801mk2 -cart<|<pc8801mk2 -flop1<|<pc8801fa -cart<|<pc8801fa -flop1<|<pc8801ma -cart<|<pc8801ma -flop1<|<pc8801ma2 -cart<|<pc8801ma2 -flop1<
+
 [NEC - PC88-VA]
 RJEMUPRESET=m88
 RJMAMENM=pc88va
@@ -1368,7 +1433,7 @@ MAME?RJEMUOPTS=<saturn -[RJRTYP]<|<saturn -cart<|<saturneu -cdrm<|<saturneu -car
 RJEMUPRESET=Fusion
 RJMAMENM=32x
 Fusion?RJEMUOPTS=<-FullScreen -32X<|<-32X<
-MAME?RJEMUOPTS=<32xe -cart<|<32xj -cart<|<32x_mcd -cart<|<32x_mcd -cdrm<|<32x_mcdj -cdrm<|<32x_mcdj -cart<|<32x_scd -cdrm<|<32x_scd -cart<|<32x -cart<
+MAME?RJEMUOPTS=<32x -cart<|<32xe -cart<|<32xj -cart<|<32x_mcd -cart<|<32x_mcd -cdrm<|<32x_mcdj -cdrm<|<32x_mcdj -cart<|<32x_scd -cdrm<|<32x_scd -cart<|<32x -cart<
 RJROMXT=.bin,32x,.zip,.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr,.img
 RJZIPPEEK=0
 
@@ -1641,7 +1706,7 @@ MAME?RJEMUOPTS=<crvision -[RJRTYP]<|<crvision -cass<|<crvision -cart<
 [VTech - Laser 200]
 RJEMUPRESET=MAME
 RJMAMENM=laser200
-RJMULTIDISC=1
+RJMULTIDISC=
 RJROMXT=.vz,.rom,.cas,.zip
 MAME?RJEMUOPTS=<laser210 -[RJRTYP]<|<laser210 -dump<|<laser200 -cass<|<laser200 -dump<|<laser210 -cass<
 
