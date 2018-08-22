@@ -298,9 +298,15 @@ if (GITPAT = "")
 		return
 	}
 
-if (GITRLS = "")
+if (GITAPP = "")
 	{
-		gosub, GetRls
+		gosub, GetApp
+	}
+if (GITAPP = "")
+	{
+		msgbox,1,,Git.exe must be set.
+		ExitApp
+		return
 	}
 if (GITRLS = "")
 	{
@@ -444,8 +450,8 @@ if (vernum = "")
 Gui Add, Tab2, x2 y-1 w487 h171 vTABMENU Bottom, Setup|Deploy
 Gui, Tab, 1
 Gui, Tab, Setup
-Gui, Add, Text,x164 y5, Directory
-Gui, Add, DropDownList, x8 y2 w100 vSRCDD gSrcDD, Source||Compiler|Deployment|Build|NSIS|Github|Git-Release
+Gui, Add, Text,x164 y5, Location
+Gui, Add, DropDownList, x8 y2 w100 vSRCDD gSrcDD, Source||Compiler|Deployment|Build|NSIS|Github|Git.exe|Git-Release
 Gui, Add, Button, x109 y2 w52 h21 vSELDIR gSelDir, Select
 Gui Add, DropDownList,x331 y2 w92 vResDD gResDD, Dev-Build||Portable-Build|Stable-Build|Deployer|Update-URL|Shader-URL|Repo-URL|Internet-IP-URL|Git-URL
 Gui Add, Button, x425 y2 w52 h21 vResB gResB, Reset
@@ -904,6 +910,52 @@ GITRLS= %GITRLST%
 iniwrite, %GITRLS%,skopt.cfg,GLOBAL,git_rls
 return
 
+GetAPP:
+gitapptmp= %a_programfiles%\git\bin
+GITAPPT= %GITAPP%
+GITAPPCONT:
+FileSelectFile, GITAPPT,3,%gitapptmp%\git.exe,Select the git.exe,*.exe
+gitapptmp= 
+gitappxst= 
+if (GITAPP <> "")
+	{
+		if (GITAPPT = "")
+			{
+				SB_SetText("Git is " GITAPP " ")
+				return
+			}
+	}	
+ifexist, %a_programfiles%\git\bin\git.exe
+	{
+		GITAPPXST= 1
+	}
+IF (GITAPPXST = 1)	
+	{	
+		GITRLST= %a_programfiles%\git\bin\git.exe
+	}
+if (GITAPPT = "")
+	{
+		GITRLS=
+		MsgBox,5,Git exe,Git not found, Locate?
+		ifmsgbox, Cancel
+			{
+				GITAPP= git		
+			}
+		ifmsgbox, No
+			{
+				GITAPPT= git		
+			}
+		ifmsgbox, Ok
+			{
+				gitapptmp= 
+				goto, GITAPPCONT
+			}
+			
+	}
+GITAPP= %GITAPPT%
+iniwrite, %GITAPP%,skopt.cfg,GLOBAL,git_app
+return
+
 GetGPAC:
 GITPATT= 
 envGet, GITPATT, GITHUB_TOKEN
@@ -959,10 +1011,11 @@ if (gitexists = 1)
 		GITD:= GITT
 		iniwrite, %GITD%,skopt.cfg,GLOBAL,Git_Directory
 		FileDelete, %GITD%\gitcommit.bat
+		FileAppend,for /f "delims=" `%`%a in ("%GITAPP%") do set gitapp=`%`%a`n,%GITD%\gitcommit.bat
 		FileAppend,cd "%GITD%"`n,%GITD%\gitcommit.bat
-		FileAppend,git add .`n,%GITD%\gitcommit.bat
-		FileAppend,git commit -m `%1`%.`n,%GITD%\gitcommit.bat
-		FileAppend,git push origin master`n,%GITD%\gitcommit.bat
+		FileAppend,"`%gitapp`%" add .`n,%GITD%\gitcommit.bat
+		FileAppend,"`%gitapp`%" commit -m `%1`%.`n,%GITD%\gitcommit.bat
+		FileAppend,"`%gitapp`%" push origin master`n,%GITD%\gitcommit.bat
 		return
 	}
 Msgbox,5,skeletonkey.ahk,Git Source file not found
@@ -1003,6 +1056,11 @@ if (SRCDD = "NSIS")
 if (RESDD = "Git-Release")
 	{
 		SB_SetText(" " GITRLS " ")
+	}
+	
+if (RESDD = "Git.exe")
+	{
+		SB_SetText(" " GITAPP " ")
 	}
 	
 return
