@@ -57,7 +57,7 @@ msx=MSX=Microsoft - MSX=:=BlueMSX="%ROM_RAW%"
 msxturbo=MSX=Microsoft - MSX Turbo=:=BlueMSX="%ROM_RAW%"
 mtx=MTX=Memotech - MTX=.bin,.zip=MAME - System="%ROM_RAW%"
 n64=NN64=Nintendo - Nintendo 64=z64,.n64,.d64,.zip=Project64="%ROM_RAW%"
-n3ds=NN3DS=Nintendo - Nintendo 3DS=.3ds,.3dsx,.elf,.axf,.cci,.cxi,.app=Citra="%ROM_RAW%"
+3ds=NN3DS=Nintendo - Nintendo 3DS=.3ds,.3dsx,.elf,.axf,.cci,.cxi,.app=Citra="%ROM_RAW%"
 naomi=NAOMI=Sega - NAOMI=.zip,.gdi=Demul=%BASENAME%
 nds=NNDS=Nintendo - Nintendo DS=:=Desmume="%ROM_RAW%"
 neogeo=NEOMVS=SNK - Neo Geo MVS=.zip,.chd=FinalBurnAlpha=%BASENAME%

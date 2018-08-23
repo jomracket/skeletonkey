@@ -15355,11 +15355,12 @@ Loop, Parse, EmuPartSet,`n`r
 						IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",apps.ini,EMULATORS,%emupx1%
 					}
 				fetmp=
+				efna= 
 				iniread,fetmp,Assignments.ini,OVERRIDES,%emupx1%
 				if (fetmp = "ERROR")
 					{
 						IniWrite, "%emupx1%",Assignments.ini,OVERRIDES,%emupx1%
-
+						efna= 1
 						/*
 						IniWrite, "0",AppParams.ini,%emupx1%,per_game_configurations
 						IniWrite, "[CUSTMOPT]",AppParams.ini,%emupx1%,options
@@ -15377,14 +15378,21 @@ Loop, Parse, EmuPartSet,`n`r
 						*/
 						SB_SetText(" " emupx1 " found ")
 					}
-					
+				if (efna = "")
+					{
+						fetmploc= 
+						iniread,fetmploc,Assignments.ini,ASSIGNMENTS,%emupx1%
+						ifnotinstring,fetmp,\
+							{
+								IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",Assignments.ini,ASSIGNMENTS,%emupx1%
+							}
+					}
 				fetmp=
 				iniread,fetmp,Assignments.ini,ASSIGNMENTS,%emupx1%
 				if (fetmp = "ERROR")
 					{
 						IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",Assignments.ini,ASSIGNMENTS,%emupx1%
 					}
-					
 				stringreplace,emuxelst,emuxelst,%emupx1%>%emunmz%|,,All
 				SB_SetText(" " emupx1 " found ")
 			}
@@ -15438,12 +15446,16 @@ Loop, parse, farvr,`n
 							{
 								IniWrite, "%emuxefp%",apps.ini,EMULATORS,%splemu1%								
 							}
+						if (alri = "")
+							{
+								IniWrite, "%emuxefp%",apps.ini,EMULATORS,%splemu1%								
+							}
 						iniread, alrj,Assignments.ini,OVERRIDES,%splemu1%
 						if (alrj = "ERROR")
 							{
 								IniWrite, "%splemu1%",Assignments.ini,OVERRIDES,%splemu1%
 							}
-						if (alrj <> "ERROR")
+						if (alrj = "")
 							{
 								IniWrite, "%splemu1%",Assignments.ini,OVERRIDES,%splemu1%
 							}	
@@ -15451,6 +15463,10 @@ Loop, parse, farvr,`n
 						alrj= %aij1%
 						iniread, alrk,Assignments.ini,ASSIGNMENTS,%splemu1%
 						if (alrk = "ERROR")
+							{
+								IniWrite, "%emuxefp%",Assignments.ini,ASSIGNMENTS,%splemu1%
+							}	
+						if (alrk = "")
 							{
 								IniWrite, "%emuxefp%",Assignments.ini,ASSIGNMENTS,%splemu1%
 							}

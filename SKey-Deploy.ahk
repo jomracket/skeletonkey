@@ -118,7 +118,14 @@ Loop, Read, skopt.cfg
 						GITROOT= %curvl2%
 					}
 			}
-	if (curvl1 = "Git_Directory")
+	if (curvl1 = "Git_app")
+			{
+				if (curvl2 <> "")
+					{
+						GITAPP= %curvl2%
+					}
+			}
+if (curvl1 = "Git_Directory")
 			{
 				if (curvl2 <> "")
 					{
@@ -1895,10 +1902,11 @@ if (GitPush = 1)
 		SB_SetText(" committing changes to git ")
 		IfNotExist, %GITD%\gitcommit.bat
 			{
+					FileAppend,for /f "delims=" `%`%a in ("%GITAPP%") do set gitapp=`%`%a`n,%GITD%\gitcommit.bat
 				FileAppend,cd "%GITD%"`n,%GITD%\gitcommit.bat
-				FileAppend,git add .`n,%GITD%\gitcommit.bat
-				FileAppend,git commit -m `%1`%`n,%GITD%\gitcommit.bat
-				FileAppend,git push origin master`n,%GITD%\gitcommit.bat
+				FileAppend,"`%gitapp`%" add .`n,%GITD%\gitcommit.bat
+				FileAppend,"`%gitapp`%" commit -m `%1`%`n,%GITD%\gitcommit.bat
+				FileAppend,"`%gitapp`%" push origin master`n,%GITD%\gitcommit.bat
 			}
 		FileAppend, "%PushNotes%`n",%DEPL%\changelog.txt
 		RunWait, %comspec% cmd /c " "%SKELD%\!gitupdate.cmd" ",%SKELD%,%rntp%
