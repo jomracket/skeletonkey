@@ -1104,7 +1104,7 @@ Otrona - Attache="mame_libretro.dll"
 PEL Varazdin - Orao="mame_libretro.dll"
 PPG - Waveterm A="mame_libretro.dll"
 Palson - CX 3000 Tele Computer="mame_libretro.dll"
-Panasonic - JR-200
+Panasonic - JR-200="mame_libretro.dll"
 Patisonic - Aleste 520EX="mame_libretro.dll"
 Peripheral Technology - PT68K2="mame_libretro.dll"
 Philips - CD-I="mame_libretro.dll"
