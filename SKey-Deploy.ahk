@@ -1018,7 +1018,7 @@ if (gitexists = 1)
 		GITD:= GITT
 		iniwrite, %GITD%,skopt.cfg,GLOBAL,Git_Directory
 		FileDelete, %GITD%\gitcommit.bat
-		FileAppend,for /f "delims=" `%`%a in ("%GITAPP%") do set gitapp=`%`%a`n,%GITD%\gitcommit.bat
+		FileAppend,for /f "delims=" `%`%a in ("%GITAPP%") do set gitapp=`%`%~a`n,%GITD%\gitcommit.bat
 		FileAppend,cd "%GITD%"`n,%GITD%\gitcommit.bat
 		FileAppend,"`%gitapp`%" add .`n,%GITD%\gitcommit.bat
 		FileAppend,"`%gitapp`%" commit -m `%1`%.`n,%GITD%\gitcommit.bat
@@ -1427,7 +1427,7 @@ if (buildnum <> "")
 		buildnum= -%buildnum%
 	}	
 
-RunWait, "%BUILDIR%\7za.exe" a "%DEPL%\skeletonK.zip" "%DEPL%\skeletonKey-installer.exe", %BUILDIR%,%rntp%
+RunWait, %comspec% cmd /c " "%BUILDIR%\7za.exe" a "%DEPL%\skeletonK.zip" "%DEPL%\skeletonKey-installer.exe" ", %BUILDIR%,%rntp%
 if (DevlVer = 1)
 	{
 		if (DBOV <> 1)
@@ -1747,7 +1747,7 @@ if (DATBLD = 1)
 		FileDelete, %DEPL%\DATFILES.7z
 		Loop, rj\scrapeArt\*.7z
 			{
-				runwait, "%BUILDIR%\7za.exe" a -t7z "%DEPL%\DATFILES.7z" "%A_LoopFileFullPath%",%DEPL%,%rntp%
+				runwait, %comspec% cmd /c " "%BUILDIR%\7za.exe" a -t7z "%DEPL%\DATFILES.7z" "%A_LoopFileFullPath%" ",%DEPL%,%rntp%
 			}
 	}
 
@@ -1765,7 +1765,7 @@ if (PortVer = 1)
 				;;FileDelete, %DEPL%\skeletonKey-full.zip
 				FileDelete, %DEPL%\skeletonKey-portable.zip
 				;;runwait, "%BUILDIR%\7za.exe" a "%DEPL%\skeletonKey-portable.zip" "*.set" "*.ico" "*.ttf" "BSL.ahk" "skeletonkey.ahk" "SKey-Deploy.ahk" "index.html" "*.exe" "tf.ahk" "AHKsock.ahk" "LVA.ahk" "Portable.bat" "*.exe" "rj\*.set" "rj\joyCfgs\*" "rj\KODI\*" "rj\ES\*" "rj\emuCfgs\*" "rj\scrapeart\*.set" "joyimg\*" "gam\*.gam", %SKELD%,%rntp%
-				runwait, "%BUILDIR%\7za.exe" a "%DEPL%\skeletonKey-portable.zip" "%SKELD%\skeletonKey.exe", %SKELD%,%rntp%
+				runwait, %comspec% cmd /c " "%BUILDIR%\7za.exe" a "%DEPL%\skeletonKey-portable.zip" "%SKELD%\skeletonKey.exe" ", %SKELD%,%rntp%
 				sleep, 1000
 				;;runwait, "%BUILDIR%\7za.exe" a "%DEPL%\skeletonKey-portable.zip" "*.png", %SKELD%,%rntp%
 			}
@@ -1902,7 +1902,7 @@ if (GitPush = 1)
 		SB_SetText(" committing changes to git ")
 		IfNotExist, %GITD%\gitcommit.bat
 			{
-					FileAppend,for /f "delims=" `%`%a in ("%GITAPP%") do set gitapp=`%`%a`n,%GITD%\gitcommit.bat
+					FileAppend,for /f "delims=" `%`%a in ("%GITAPP%") do set gitapp=`%`%~a`n,%GITD%\gitcommit.bat
 				FileAppend,cd "%GITD%"`n,%GITD%\gitcommit.bat
 				FileAppend,"`%gitapp`%" add .`n,%GITD%\gitcommit.bat
 				FileAppend,"`%gitapp`%" commit -m `%1`%`n,%GITD%\gitcommit.bat
@@ -2165,9 +2165,10 @@ if (uptoserv = 1)
 		FileAppend,copy /y "%BUILDIR%\splash.png" "%gitroot%\%GITUSER%.github.io"`n,%BUILDIR%\sitecommit.bat
 		FileAppend,copy /y "%BUILDIR%\*.ttf" "%gitroot%\%GITUSER%.github.io"`n,%BUILDIR%\sitecommit.bat
 		FileAppend,copy /y "%BUILDIR%\version.txt" "%gitroot%\%GITUSER%.github.io"`n,%BUILDIR%\sitecommit.bat
-		FileAppend,git add .`n,%BUILDIR%\sitecommit.bat
-		FileAppend,git commit -m siteupdate`n,%BUILDIR%\sitecommit.bat
-		FileAppend,git push`n,%BUILDIR%\sitecommit.bat
+		FileAppend,for /f "delims=" `%`%a in ("%GITAPP%") do set gitapp=`%`%~a`n,%BUILDIR%\sitecommit.bat
+		FileAppend,"`%gitapp`%" add .`n,%BUILDIR%\sitecommit.bat
+		FileAppend,"`%gitapp`%" commit -m siteupdate`n,%BUILDIR%\sitecommit.bat
+		FileAppend,"`%gitapp`%" push`n,%BUILDIR%\sitecommit.bat
 		RunWait, %comspec% cmd /c " "%BUILDIR%\sitecommit.bat" "site-commit" ",%BUILDIR%,%rntp%
 	}
 
