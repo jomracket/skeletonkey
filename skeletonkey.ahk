@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-08-25 12:38 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-08-25 1:20 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-08-25 12:38 PM
-VERSION= v0.99.57.26
+RELEASE= 2018-08-25 1:20 PM
+VERSION= v0.99.57.28
 RASTABLE= 1.7.3
 #Include tf.ahk
 #Include lbex.ahk
@@ -58047,7 +58047,6 @@ IniRead,emultl,apps.ini,EMULATORS
 return			
 
 resetRunList:
-addemu= 
 emup1=
 emup2= 
 emuj= 
@@ -58076,6 +58075,10 @@ Loop,Parse,emuj,`n
 			}
 		ifnotinstring,addemu,%emup1%|
 			{
+				if (emup2 = "")
+					{
+						continue
+					}
 				addemu.= emup1 . "|"
 			}
 }

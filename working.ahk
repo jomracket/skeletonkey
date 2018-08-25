@@ -58047,7 +58047,6 @@ IniRead,emultl,apps.ini,EMULATORS
 return			
 
 resetRunList:
-addemu= 
 emup1=
 emup2= 
 emuj= 
@@ -58076,6 +58075,10 @@ Loop,Parse,emuj,`n
 			}
 		ifnotinstring,addemu,%emup1%|
 			{
+				if (emup2 = "")
+					{
+						continue
+					}
 				addemu.= emup1 . "|"
 			}
 }
