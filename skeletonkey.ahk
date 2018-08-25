@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-08-23 5:43 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-08-25 12:38 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-08-23 5:43 PM
-VERSION= v0.99.57.27
+RELEASE= 2018-08-25 12:38 PM
+VERSION= v0.99.57.26
 RASTABLE= 1.7.3
 #Include tf.ahk
 #Include lbex.ahk
@@ -4910,7 +4910,7 @@ Loop,Parse,emuj,`n
 		emup2= 	
 		stringsplit,emup,A_LoopField,=,"
 		;"
-		ifinstring,origasi,%emup1%=
+		ifinstring,SysLLst,%emup1%=
 			{
 				continue
 			}
@@ -4921,6 +4921,7 @@ Loop,Parse,emuj,`n
 }
 runlist:= corelist . "|" . addemu
 
+	;;msgbox,,,ax`n%addemu%
 IniRead,emuj,Assignments.ini,OVERRIDES
 Loop,Parse,emuj,`n
 	{
@@ -4931,7 +4932,7 @@ Loop,Parse,emuj,`n
 		emup2= 	
 		stringsplit,emup,A_LoopField,=,"
 		;"
-		ifinstring,origsys,%emup1%=
+		ifinstring,SysLLst,%emup1%=
 			{
 				continue
 			}	
@@ -4941,9 +4942,20 @@ Loop,Parse,emuj,`n
 			}
 		ifnotinstring,addemu,%emup1%|
 			{
+				emutsta= 
+				IniRead,emutsta,Assignments.ini,ASSIGNMENTS,%emup1%
+				if (emutsta = "")
+					{
+						continue
+					}
+				if (emutsta = "ERROR")
+					{
+						continue
+					}
 				addemu.= emup1 . "|"
 			}
 	}
+	;;msgbox,,,aq`n%addemu%
 runlist:= corelist . "|" . addemu
 return
 
@@ -14429,7 +14441,7 @@ Loop, Parse, semu,|
 					{
 						nwadmm.= sysni . "|"
 						nwadmi:= sysninj . "|" . sysni
-						ifnotinstring,adddemu,|%sysni%
+						ifnotinstring,addemu,|%sysni%
 							{
 								addemu.= "|" . sysni
 							}
@@ -54435,7 +54447,17 @@ Loop, Parse, apov,`n
 						overDD .= appn1 . "|"
 						if (appn2 <> 1)
 							{
-								runadd .= "|" . appn2
+								emutsta= 
+								IniRead,emutsta,Assignments.ini,ASSIGNMENTS,%appn2%
+								if (emutsta = "")
+									{
+										continue
+									}
+								if (emutsta = "ERROR")
+									{
+										continue
+									}
+					runadd .= "|" . appn2
 							}
 					}
 				siv= %appn2%	
@@ -57943,12 +57965,23 @@ Loop,Parse,emuj,`n
 					{
 						ifnotinstring,addemu,|%A_LoopField%
 							{
+								emutsta= 
+								IniRead,emutsta,Assignments.ini,ASSIGNMENTS,%emup2%
+								if (emutsta = "")
+									{
+										continue
+									}
+								if (emutsta = "ERROR")
+									{
+										continue
+									}
 								addemu .= "|" . emup2
 							}
 					}
 				siv= %emup2%
 			}
 	}
+	;;msgbox,,,av`n%addemu%
 runlist:= corelist . "|" . addemu
 
 
@@ -58046,6 +58079,7 @@ Loop,Parse,emuj,`n
 				addemu.= emup1 . "|"
 			}
 }
+	;;msgbox,,,az`n%addemu%
 runlist:= corelist . "|" . addemu
 
 /*

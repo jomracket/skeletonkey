@@ -3208,7 +3208,7 @@ RJMAMENM=vsmile
 MAME?RJEMUOPTS=<vsmile -cart<
 RJZIPPEEK=0
 
-[Dick Smith - VZ-200-300]
+[Dick Smith Electronics - VZ-200-300]
 RJEMUPRESET=MAME
 RJMAMENM=vz
 MAME?RJEMUOPTS=<vz -cass1<
