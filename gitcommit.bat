@@ -1,5 +1,5 @@
-for /f "delims=" %%a in ("E:\Program Files\git\bin\git.exe") do set gitapp=%%~a
-cd "C:\Users\TBSInternet\Documents\GitHub\skeletonkey"
+for /f "delims=" %%a in ("") do set gitapp=%%~a
+cd "C:\Users\TBSInternet\Documents\GitHub\skeletonKey"
 "%gitapp%" add .
-"%gitapp%" commit -m %1%
+"%gitapp%" commit -m %1%.
 "%gitapp%" push origin master

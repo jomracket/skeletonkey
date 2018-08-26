@@ -86,7 +86,7 @@ if (romf <> "")
 		IniRead,RaExeFile,Settings.ini,GLOBAL,retroarch_executable
 		IniRead,autoExec,Settings.ini,GLOBAL,auto_exec
 		FileReadLine, optline, %curcfg%, 1
-		if optline <> [OPTIONS]
+		if (optline <> "[OPTIONS]")
 			{
 				gosub WriteTop
 			}
@@ -6472,7 +6472,7 @@ if (NwCfgFile = "")
 	{
 		return
 	}
-if glbv = [OPTIONS]
+if (glbv = "[OPTIONS]")
 	{
 		gosub SetNewCfg
 	}
@@ -7428,7 +7428,7 @@ return
 
 GetIniVars:
 FileReadLine, optline, %curcfg%, 1
-if optline <> [OPTIONS]
+if (optline <> "[OPTIONS]")
 {
 	gosub WriteTop
 }
@@ -7671,7 +7671,7 @@ GetOptVars:
 SB_SetText(" Loading Core options ")
 FileReadLine, optline, %racoreopt%, 1
 
-if optline <> [OPTIONS]
+if (optline <> "[OPTIONS]")
 	{
 		gosub WriteCORETop
 	}
@@ -43030,7 +43030,7 @@ guicontrol,,CORENAMEDT,%raexeloc%\config\%corcfgnam%\%corcfgnam%.cfg
 guicontrol,,CORENAMTXT,%corcfgnam%
 FileReadLine, optline, %racoreopt%, 1
 
-if optline <> [OPTIONS]
+if (optline <> "[OPTIONS]")
 {
 	gosub, WriteCORETop
 }
@@ -55574,7 +55574,7 @@ guicontrol,enable,SKSAVE
 VARtoINI:
 SB_SetText("Saving")
 FileReadLine, optline, %curcfg%, 1
-if optline <> [OPTIONS]
+if (optline <> "[OPTIONS]")
 {
 	gosub, WriteTop
 }
@@ -55757,7 +55757,7 @@ return
 WriteOptVars:
 SB_SetText(" Writing Core options ")
 FileReadLine, optline, %racoreopt%, 1
-if optline <> [OPTIONS]
+if (optline <> "[OPTIONS]")
 {
 	gosub WriteCORETop
 }
