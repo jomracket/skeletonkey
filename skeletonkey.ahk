@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-08-26 2:32 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-08-27 6:49 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-08-26 2:32 PM
-VERSION= v0.99.57.42
+RELEASE= 2018-08-27 6:49 PM
+VERSION= v0.99.57.44
 RASTABLE= 1.7.3
 #Include tf.ahk
 #Include lbex.ahk
@@ -4920,7 +4920,6 @@ Loop,Parse,emuj,`n
 			}
 }
 runlist:= corelist . "|" . addemu
-
 	;;msgbox,,,ax`n%addemu%
 IniRead,emuj,Assignments.ini,OVERRIDES
 Loop,Parse,emuj,`n
@@ -4957,6 +4956,8 @@ Loop,Parse,emuj,`n
 	}
 	;;msgbox,,,aq`n%addemu%
 runlist:= corelist . "|" . addemu
+stringreplace,runlist,runlist,||,|,All
+stringreplace,runlist,runlist,||,|,All
 return
 
 SCBUILDEMULST:
@@ -6945,7 +6946,8 @@ filecopy,config.cfg,config.bak,1
 filecopy, %NwCfgFile%,config.cfg,1
 if (INITIAL <> 1)
 	{
-		gosub GetIniVars
+		curcfg= config.cfg
+		gosub, GetIniVars
 		return
 	}
 iniwrite, "%RJSYSTEMS%",%curcfg%,OPTIONS,core_assets_directory
@@ -9225,11 +9227,11 @@ DeskComp:
 gui, submit, nohide
 if (DTCOMP = 1)
 	{
-		videoDisableCompositing= false
+		videoDisablecomposition= false
 	}
 if (DTCOMP = 0)
 	{
-		videoDisableCompositing= true
+		videoDisablecomposition= true
 	}
 IniWrite, "%videoDisableComposition%", %curcfg%,OPTIONS,video_disable_composition
 return
@@ -57985,6 +57987,8 @@ Loop,Parse,emuj,`n
 runlist:= corelist . "|" . addemu
 
 
+stringreplace,runlist,runlist,||,|,All
+stringreplace,runlist,runlist,||,|,All
 guicontrol,enable,GCUPDT
 guicontrol,, CRNTCORS, |%coreNamz%
 guicontrol,, ARCCORES, |%lastcore%||%runlist%
@@ -58085,6 +58089,8 @@ Loop,Parse,emuj,`n
 	;;msgbox,,,az`n%addemu%
 runlist:= corelist . "|" . addemu
 
+stringreplace,runlist,runlist,||,|,All
+stringreplace,runlist,runlist,||,|,All
 /*
 IniRead,emuj,Assignments.ini,OVERRIDES,
 Loop,Parse,emuj,`n
@@ -60921,7 +60927,7 @@ if (inival2 = "true")
 	{
 		DTCOMP= 1
 	}
-GuiControl,, DTCOMP, %DTCOMP%
+GuiControl,,DTCOMP,%DTCOMP%
 return
 
 videoDriver:
