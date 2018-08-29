@@ -6335,19 +6335,19 @@ if ( (A_GuiX >= cRegionX) && (A_GuiX <= cRegionX+cRegionW) && (A_GuiY >= cRegion
 							{
 								arcdec= 1
 								SB_SetText("extracting " A_LoopReadLine " ")
-								Runwait, %comspec% cmd /c "7za.exe e -y "%A_LoopReadLine%" -O"%A_WorkingDir%\%cacheloc%\bios" ",,hide
+								Runwait, %comspec% cmd /c "7za.exe e -y "%A_LoopReadLine%" -O"%cacheloc%\bios" ",,hide
 							}
 						if (biosxt = "7z")
 							{
 								arcdec= 1
 								SB_SetText("extracting " A_LoopReadLine " ")
-								Runwait, %comspec% cmd /c "7za.exe e -y "%A_LoopReadLine%" -O"%A_WorkingDir%\%cacheloc%\bios" ",,hide
+								Runwait, %comspec% cmd /c "7za.exe e -y "%A_LoopReadLine%" -O"%cacheloc%\bios" ",,hide
 							}
 						if (biosxt = "rar")
 							{
 								arcdec= 1
 								SB_SetText("extracting " A_LoopReadLine " ")
-								Runwait, %comspec% cmd /c "UnRAR.exe e -y "%A_LoopReadLine%" "*" +o "%A_WorkingDir%\%cacheloc%\bios" ",,hide
+								Runwait, %comspec% cmd /c "UnRAR.exe e -y "%A_LoopReadLine%" "*" +o "%cacheloc%\bios" ",,hide
 							}
 						FileCopy,%A_LoopReadLine%,%cacheloc%\bios\%biosfile%,1
 					}
@@ -7342,7 +7342,7 @@ Loop, Parse, curbios, `n
 											{
 												FilecreateDir,%fiad%%apndpth%
 											}
-										FileCopy,%juf1%,%fiad%%apndpth%,1
+										FileCopy,%juf1%,%fiad%%apndpth%\%juf3%,1
 										ifinstring,A_LoopField,>
 											{
 												FileSetAttrib,+R,%fiad%%apndpth%\%juf3%
@@ -20049,7 +20049,10 @@ loop, Parse, ArcOrgSet
 
 if (ROMFLDR = "")
 	{
-		guicontrol,,OVDCHK,0
+		if (DOWNONLY = 0)
+			{
+				guicontrol,,OVDCHK,0
+			}
 		;;guicontrol,hide,SETOVD
 	}
 
@@ -20618,7 +20621,10 @@ if (GETURL = 1)
 RunArcRom:
 if (ROMFLDR = "")
 	{
-		guicontrol,,OVDCHK,0
+		if (DOWNONLY = 0)
+			{
+				guicontrol,,OVDCHK,0
+			}
 	}
 
 rjinsfldr= 
