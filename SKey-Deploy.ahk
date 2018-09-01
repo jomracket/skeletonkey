@@ -1019,7 +1019,7 @@ if (gitexists = 1)
 		iniwrite, %GITD%,skopt.cfg,GLOBAL,Git_Directory
 		FileDelete, %GITD%\gitcommit.bat
 		FileAppend,for /f "delims=" `%`%a in ("%GITAPP%") do set gitapp=`%`%~a`n,%GITD%\gitcommit.bat
-		FileAppend,cd "%GITD%"`n,%GITD%\gitcommit.bat
+		FileAppend,pushd "%GITD%"`n,%GITD%\gitcommit.bat
 		FileAppend,"`%gitapp`%" add .`n,%GITD%\gitcommit.bat
 		FileAppend,"`%gitapp`%" commit -m `%1`%.`n,%GITD%\gitcommit.bat
 		FileAppend,"`%gitapp`%" push origin master`n,%GITD%\gitcommit.bat
@@ -1903,7 +1903,7 @@ if (GitPush = 1)
 		IfNotExist, %GITD%\gitcommit.bat
 			{
 					FileAppend,for /f "delims=" `%`%a in ("%GITAPP%") do set gitapp=`%`%~a`n,%GITD%\gitcommit.bat
-				FileAppend,cd "%GITD%"`n,%GITD%\gitcommit.bat
+				FileAppend,pushd "%GITD%"`n,%GITD%\gitcommit.bat
 				FileAppend,"`%gitapp`%" add .`n,%GITD%\gitcommit.bat
 				FileAppend,"`%gitapp`%" commit -m `%1`%`n,%GITD%\gitcommit.bat
 				FileAppend,"`%gitapp`%" push origin master`n,%GITD%\gitcommit.bat
@@ -2158,7 +2158,7 @@ if (uptoserv = 1)
 	{
 		SB_SetText(" Uploading to server ")
 		FileDelete, %BUILDIR%\sitecommit.bat
-		FileAppend,cd "%gitroot%\%GITUSER%.github.io"`n,%BUILDIR%\sitecommit.bat
+		FileAppend,pushd "%gitroot%\%GITUSER%.github.io"`n,%BUILDIR%\sitecommit.bat
 		FileAppend,copy /y "%BUILDIR%\key.png" "%gitroot%\%GITUSER%.github.io"`n,%BUILDIR%\sitecommit.bat
 		FileAppend,copy /y "%BUILDIR%\paradigm.png" "%gitroot%\%GITUSER%.github.io"`n,%BUILDIR%\sitecommit.bat
 		FileAppend,copy /y "%BUILDIR%\tip.png" "%gitroot%\%GITUSER%.github.io"`n,%BUILDIR%\sitecommit.bat

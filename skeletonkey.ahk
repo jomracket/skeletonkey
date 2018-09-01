@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-08-28 7:12 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-01 1:55 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-08-28 7:12 PM
-VERSION= v0.99.57.46
+RELEASE= 2018-09-01 1:55 PM
+VERSION= v0.99.57.49
 RASTABLE= 1.7.3
 #Include tf.ahk
 #Include lbex.ahk
@@ -35,15 +35,15 @@ FileReadLine,HOSTINGURL,arcorg.set,2
 tmpcvpth:
 SetWorkingDir %A_ScriptDir%
 Loop %0% 
-{
-	DDRUN= 1
-	directrun= 1
-	ShortPathName := %A_Index%
-	Loop %ShortPathName%
-		{
-			LongName = %A_LoopFileLongPath%
-		}
-}
+	{
+		DDRUN= 1
+		directrun= 1
+		ShortPathName := %A_Index%
+		Loop %ShortPathName%
+			{
+				LongName = %A_LoopFileLongPath%
+			}
+	}
 romf= %LongName%
 getport= %1%
 getpath= %2%
@@ -104,6 +104,7 @@ if (romf <> "")
 		if (RUNCOREOVERRIDE = "")
 			{
 				gosub, extensionlookup
+				msgbox,,,%coreselv%`nk
 			}
 		if (CHOSEN = "")
 			{
@@ -4916,6 +4917,10 @@ Loop,Parse,emuj,`n
 			}
 		ifnotinstring,addemu,%emup1%|
 			{
+				if (emup2 = "")
+					{
+						continue
+					}
 				addemu.= emup1 . "|"
 			}
 }
@@ -9468,6 +9473,7 @@ return
 
 LNCHPT:
 gui,submit,nohide
+guicontrol,disable,LNCHPT
 guicontrolget,LNCHPRDDL,,LNCHPRDDL
 guicontrolget,LNCHPT,,LNCHPT
 iniread,smuemu,apps.ini,EMULATORS,
@@ -9585,6 +9591,13 @@ if (LNCHPRDDL <> "retroarch")
 			}
 		iniwrite, 1,Settings.ini,GLOBAL,Launcher_Priority
 	}
+
+guicontrol,enable,LNCHPT	
+fileread,aei,Assignments.ini
+FileDelete,Assignments.ini
+stringreplace,aei,aei,|",",All
+stringreplace,aei,aei,"|,",All
+FileAppend,%aei%,Assignments.ini
 CORETABNAME= |Cores	
 if (raexefile = "NOT-FOUND.exe")
 	{
@@ -14445,11 +14458,21 @@ Loop, Parse, semu,|
 						nwadmi:= sysninj . "|" . sysni
 						ifnotinstring,addemu,|%sysni%
 							{
+								iniread,admutst,Assignments.ini,ASSIGNMENTS,%sysni%
+								if (admutst = "")
+									{
+										continue
+									}
+								if (admutst = "ERROR")
+									{
+										continue
+									}
 								addemu.= "|" . sysni
 							}
 						guicontrol,,EMPRDDL,|%sysni%||%addemu%
 						runlist:= corelist . "|" . addemu
 						guicontrol,,LCORE,|%runlist%
+						guicontrol,,EMPRDDL,|Emulators||%addemu%
 						guicontrol,,PLCORE,|%runlist%
 						guicontrol,,ARCCORES,|Select_a_Core||%runlist%
 						guicontrol,,JOYCORE,|Global||%corelist%|Xpadder|Antimicro|%runlist%
@@ -57985,6 +58008,7 @@ Loop,Parse,emuj,`n
 									}
 								addemu .= "|" . emup2
 							}
+							;;msgbox,,,k
 					}
 				siv= %emup2%
 			}
@@ -58094,7 +58118,7 @@ Loop,Parse,emuj,`n
 }
 	;;msgbox,,,az`n%addemu%
 runlist:= corelist . "|" . addemu
-
+;;msgbox,,,kk`n%addemu%
 stringreplace,runlist,runlist,||,|,All
 stringreplace,runlist,runlist,||,|,All
 /*
@@ -58131,6 +58155,7 @@ Loop,Parse,emuj,`n
 */
 
 guicontrol,,LCORE,|%runlist%
+guicontrol,,EMPRDDL,|Emulators||%addemu%
 guicontrol,,ARCCORES,|Select_a_Core||%runlist%
 guicontrol,,PLCORE,|%runlist%
 guicontrol,,ASCORE,|%corelist%
