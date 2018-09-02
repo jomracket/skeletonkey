@@ -1471,7 +1471,7 @@ RJMAMENM=genesis
 RJMEDNM=md
 Fusion?RJEMUOPTS=<-FullScreen -gen<|<-gen<
 RJROMXT=.bin,.zip,.smd,.md,.gen
-MAME?RJEMUOPTS=<genesis_tmss -cart<|<genesisp -cart<|<genesispf -cart<|<genesispg -cart<|<megadriv -cart<|<megadrij -cart<|<genesis -cart<
+MAME?RJEMUOPTS=<genesis -cart<| <genesis_tmss -cart<|<genesisp -cart<|<genesispf -cart<|<genesispg -cart<|<megadriv -cart<|<megadrij -cart<|<genesis -cart<
 RJZIPPEEK=0
 
 [Sega - Mega-CD - Sega CD]

@@ -104,7 +104,6 @@ if (romf <> "")
 		if (RUNCOREOVERRIDE = "")
 			{
 				gosub, extensionlookup
-				msgbox,,,%coreselv%`nk
 			}
 		if (CHOSEN = "")
 			{
@@ -17414,6 +17413,15 @@ Loop,Parse,SysEmuSet,`n`r
 								if (recore = "")
 										{
 											selctdcore= %fia%
+										}
+									iniread,faf,Assignments.ini,ASSIGNMENTS,%A_LoopField%
+									if (faf = "ERROR")
+										{
+											continue
+										}
+									if (faf = "")
+										{
+											continue
 										}
 									recore .= fia . "|"
 								if (fia = oil)

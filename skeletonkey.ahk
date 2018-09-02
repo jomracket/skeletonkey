@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-01 1:55 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-02 3:41 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-09-01 1:55 PM
-VERSION= v0.99.57.49
+RELEASE= 2018-09-02 3:41 PM
+VERSION= v0.99.57.50
 RASTABLE= 1.7.3
 #Include tf.ahk
 #Include lbex.ahk
@@ -104,7 +104,6 @@ if (romf <> "")
 		if (RUNCOREOVERRIDE = "")
 			{
 				gosub, extensionlookup
-				msgbox,,,%coreselv%`nk
 			}
 		if (CHOSEN = "")
 			{
@@ -17414,6 +17413,15 @@ Loop,Parse,SysEmuSet,`n`r
 								if (recore = "")
 										{
 											selctdcore= %fia%
+										}
+									iniread,faf,Assignments.ini,ASSIGNMENTS,%A_LoopField%
+									if (faf = "ERROR")
+										{
+											continue
+										}
+									if (faf = "")
+										{
+											continue
 										}
 									recore .= fia . "|"
 								if (fia = oil)
