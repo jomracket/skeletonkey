@@ -4,13 +4,13 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-02 3:41 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-04 4:20 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-09-02 3:41 PM
-VERSION= v0.99.57.50
-RASTABLE= 1.7.3
+RELEASE= 2018-09-04 4:20 PM
+VERSION= v0.99.58.01
+RASTABLE= 1.7.4
 #Include tf.ahk
 #Include lbex.ahk
 #Include LVA.ahk
@@ -7727,7 +7727,10 @@ return
 
 RUNPLRAD:
 gui,submit,nohide
-guicontrol,,RUNSYSDDL,|History||%plistfiles%				
+guicontrol,,RUNSYSDDL,|History||%plistfiles%		
+
+guicontrol,disable,RUNROMCBX
+guicontrol,disable,RUNSYSDDL		
 gosub, RUNSYSDDL
 return
 
@@ -7735,6 +7738,8 @@ RUNFLRAD:
 gui,submit,nohide
 guicontrolget,lcrtst,,LCORE
 
+guicontrol,disable,RUNROMCBX
+guicontrol,disable,RUNSYSDDL
 guicontrol,,RUNSYSDDL,|:=:System List:=:||%systmfldrs%
 gosub, RUNSYSDDL
 return
@@ -9768,7 +9773,7 @@ if (netplayNickname = "")
 		guicontrol,, HNETNAME, %netplayNickname%
 		guicontrol,, NETNAME, %netplayNickname%
 	}
-IniWrite, "%netplayNickname%", %curcfg%,OPTIONS,netplay_nickname
+IniWrite, "%netplayNickname%",%curcfg%,OPTIONS,netplay_nickname%A_Space%
 return
 
 IP_Get:
@@ -50313,6 +50318,7 @@ SelectedRow := A_EventInfo
 ;;SB_SetText(" " SelectedRow " ")
 if A_GuiEvent = Normal
 	{
+		jumptab= 1
 		guicontrol, hide, RetROM
 		if (A_EventInfo = 0)
 			{
@@ -50452,7 +50458,9 @@ stringreplace,HOSTINGROMC,HOSTINGROMC,_,,All
 stringsplit,fvff,HOSTINGROMC,(
 stringtrimright,HOSTINGROMJ,fvff1,5
 HOSTINGROMX= %fvff1%
+if (jumptab = 1)
 GuiControl, Choose, TABMENU, 7
+jumptab=
 gosub, FindInArc
 if (HOSTFND = 2)
 	{

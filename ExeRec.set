@@ -940,7 +940,6 @@ FileInstall,splash.png,splash.png,1
 FileInstall,tip.png,tip.png,1
 FileInstall,favicon.ico,favicon.ico,1
 FileInstall,Helper.ico,Helper.ico,1
-FileInstall,Install.ico,Install.ico,1
 FileInstall,key.ico,key.ico,1
 FileInstall,lnch.ico,lnch.ico,1
 FileInstall,sysico\Acorn - Archimedes.ico,sysico\Acorn - Archimedes.ico,1
