@@ -11699,7 +11699,7 @@ Loop, Parse, reasign,|
 			}
 	}
 LineNum= 
-guicontrol,,EMPRDDL,|Emulators|%addemu%
+guicontrol,,EMPRDDL,|Emulators||%addemu%
 Loop, Parse, SysEmuSet,`n`r
 	{
 		if (A_LoopField = "")
@@ -11827,6 +11827,7 @@ if (SALIST = "Emulators")
 		SB_SetText(" " semu " assigned ")
 		return
 	}
+
 Loop, Parse, semu,|
 	{
 		OVRKND= 
@@ -13746,8 +13747,8 @@ if (DWNCNCL= 1)
 		goto, InteruptDwn
 	}
 URLFILE= %BLDBOT%/%RAUPDF%
-save= %A_SCRIPTDIR%\%RAUPDF%
-saveloc= %A_SCRIPTDIR%
+save= %cacheloc%\%RAUPDF%
+saveloc= %cacheloc%
 XTRACTLOC= %raexeloc%
 updtmsg= %RAUPDF%
 DownloadFile(URLFILE,save, DWNOV, True)
@@ -13925,10 +13926,10 @@ if (DWNCNCL= 1)
 		gosub, InteruptDwn
 		return
 	}
-save= %A_WorkingDir%\%updtmsg%
-saveloc= %A_WorkingDir%
+save= %cacheloc%\%updtmsg%
+saveloc= %cacheloc%
 DownloadFile(URLFILE, save, DWNOV, True)
-ifnotexist, %A_WorkingDir%\%updtmsg%
+ifnotexist, %cacheloc%\%updtmsg%
 	{
 		msgbox,0,, %updtmsg%`n''%URLFILE%`n'' was not downloaded, 20
 		GuiControl, Enable, AVAIL
@@ -14932,14 +14933,20 @@ return
 
 AppParamPop:
 gui,submit,nohide
+if (sysni = "")
+	{
+	
+	}
 SB_SetText(" ...POPULATING...")
-iniread, appasi, Assignments.ini,ASSIGNMENTS,%sysni%
+iniread, appasi, Assignments.ini,ASSIGNMENTS,%sysni%	return
+
 if (appasi = "ERROR")
 	{
 		iniread,appasi,Apps.ini,EMULATORS,%sysni%
 		ovfile= $Executable.exe
 		if (appasi <> "ERROR")
 			{
+				msgbox,,,1`nappasi=%appasi%`nsysni=%sysni%
 				iniwrite,"%appasi%",Assignments.ini,ASSIGNMENTS,%sysni%	
 			}
 	}
@@ -14950,6 +14957,7 @@ ifnotexist,%appasi%
 			ovfile= $Executable.exe
 			if (appasi <> "ERROR")
 				{
+					msgbox,,,2`nappasi=%appasi%`nsysni=%sysni%
 					iniwrite,"%appasi%",Assignments.ini,ASSIGNMENTS,%sysni%	
 				}	
 		}
@@ -34422,7 +34430,7 @@ gui,submit,nohide
 guicontrolget,MIRSLV,,FEDDLB
 if (MIRSLV = "Mirrors")
 	{
-		SB_SetText("Create or select a Mirror-Set in the dropdown menu")
+		SB_SetText(" Create or select a Mirror-Set in the dropdown menu ")
 		return
 	}
 MRNTMP= 
@@ -58094,6 +58102,7 @@ IniRead,emultl,apps.ini,EMULATORS
 				StringSplit,emulti,A_LoopField,=
 				emulist.= emulti1 . "|"
 			}
+			
 return			
 
 resetRunList:
