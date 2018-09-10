@@ -1,0 +1,12 @@
+<Game>
+	<Name>The Golf '92</Name>
+	<ReleaseDate>1992-07-03T00:00:00-07:00</ReleaseDate>
+	<Plot>There are three difficulty levels and the game is almost completely in Japanese. There are also three modes: leaderboard (similar to major PGA events), tournament (using a format found in most sports playoffs), and stroke play. Players have a crowd to play their round of golf into front of.</Plot>
+	<nPlayers>4</nPlayers>
+	<boxart1>http://images.launchbox-app.com/c0c6ad32-df07-44f2-a8b2-c64c680eb872.png</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/9e8a0864-f3fb-465f-9098-9279efda2e06.png</clearlogo1>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Sports</Genre>
+	<Developer>G.O.1</Developer>
+	<Publisher>G.O.1</Publisher>
+</game>

@@ -1,0 +1,13 @@
+<Game>
+	<Name>Super Mario World</Name>
+	<ReleaseDate>1995-01-01T00:00:00-08:00</ReleaseDate>
+	<Plot>Super Mario World is a bootleg port of the SNES launch title of the same name, developed by Hummer Team and released in 1995. This is one of the more well-known examples of pirate ports to the NES, as it comparatively manages to retain most of the elements that defined the SNES original without sacrificing too much quality.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxart1>http://images.launchbox-app.com/e133a393-b16a-4dcd-8578-c10f68508876.png</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/3babe8e5-0984-444e-b83d-ff1cedb8496b.png</clearlogo1>
+	<Rating>3.5</Rating>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Platform</Genre>
+	<Developer>Hummer Team</Developer>
+	<Publisher>JY Company</Publisher>
+</game>

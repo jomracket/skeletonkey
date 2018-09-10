@@ -1,0 +1,32 @@
+<Game>
+	<Name>Space Shuttle Project (USA)</Name>
+	<plot>The Launch Director has assigned a Commander to take control of several NASA Space Launches to do some necessary jobs in space. It is the commanders job to do all the pre-launch activities like fuelling the space ship and making sure all the crew are on safely and making sure all the post-launch activities are carried out like the rocket and fuel tank separation as well as the successful landing of the shuttle. The commander is also responsible for the extravehicular activities in space such as launching a satellite and building a space station.Space Shuttle Project simulates a Space Shuttle mission from pre-launch to landing. After writing in a name, the player is presented with a mini game that requires the player to memorise numbers and a space shuttle name to get pass security. After security the space shuttle project is split into four different stages each with there own challenges as follows:1. Stage 1 - Fuel and Board Shuttle: This stage requires the commander to use the lift to turn the oxygen and hydrogen switches on and open the shuttle doors. Then the commander must move down and up the lift picking up the crew needed for the mission (increases as the levels get harder) while avoiding sliders that cross in lifts path. This task has to be done within the time limit.2. Stage 2 - Space Shuttle Launch: This stage requires the commander to control the space shuttle into orbit while disconnecting the rocket boasters (SRB) and the external tank (ET). All this is controlled by playing two mini-games that require the player to ether stop the power bar at the correct point or by moving the bottom arrow left and right to match the movements of the top arrow. A third mini-game is added later that requires the player to memorize the correct combination3. Stage 3 - Extravehicular Activities: The activities that are competed in space vary depending on the mission. Mission 1 requires the commander to release a satellite into space navigating it to avoid all the other moving satellites that are littered though space. Missions 2, 4, and 6 requires the commander to build a part of a space station by grabbing a block from the shuttle and moving it into the correct part of the space station while avoiding satellites and making sure the oxygen levels dont run out. Mission 3 requires to move and from a damaged satellite avoiding space rocks and repair it. Mission 5 is like mission 3 but to rescue a stranded Soviet cosmonaut.4. Stage 4 - Reenter Atmosphere and Land:This stage requires the commander to control the ship into reentry and land the space shuttle on a landing strip. The mini-games are the same as the space shuttle launch expect the D-pad is used for stopping the power bar.There are 6 different missions with each mission a being more difficult than the last and only five fails aloud before the whole mission fails. Password save is available by adding the supplied password numbers and space shuttle name instead of the memorized numbers at the security check.Cheat: Extra LifeAt the title screen, press Up, Right, Down, Left, Down, Right, Up. The music will stop to confirm correct code entry. Now, you will have an extra life when beginning gameplay.Cheat: Mission PasswordsEnter these instead of the assigned code/shuttle given to you at the game start to skip to the specified missions. Note that for the name, I used GAMER as my name; you should probably do the same.</plot>
+	<releasedate>10/5/1991</releasedate>
+	<genre>Action</genre>
+	<Developer>Absolute Entertainment, Inc.</Developer>
+	<nplayers>1</nplayers>
+	<rating>2.0</rating>
+	<VideoURL>7JqjJKl5Wdk</VideoURL>
+	<thegamesdb_id>2103</thegamesdb_id>
+	<gamefaqs_url>http://www.gamefaqs.com/nes/587636-space-shuttle-project</gamefaqs_url>
+	<mobygames_url>http://www.mobygames.com/game/nes/space-shuttle-project-</mobygames_url>
+	<giantbomb_url>http://www.giantbomb.com/space-shuttle-project/3030-22831/</giantbomb_url>
+	<boxart1>http://i.imgur.com/X36L00b.png</boxart1>
+	<snapshot1>http://i.imgur.com/0h7CPVV.png</snapshot1>
+	<snapshot2>http://i.imgur.com/Pjvk56p.png</snapshot2>
+	<snapshot3>http://i.imgur.com/4NDDKiH.png</snapshot3>
+	<snapshot4>http://i.imgur.com/RlUszoT.png</snapshot4>
+	<snapshot5>http://i.imgur.com/O8qZ76v.png</snapshot5>
+	<snapshot6>http://i.imgur.com/IsRU5j3.png</snapshot6>
+	<snapshot7>http://i.imgur.com/13Juq8G.png</snapshot7>
+	<snapshot8>http://i.imgur.com/kjnilj0.png</snapshot8>
+	<snapshot9>http://i.imgur.com/WeeFKIG.png</snapshot9>
+	<snapshot10>http://i.imgur.com/ys7p0jZ.png</snapshot10>
+	<fanart1>http://i.imgur.com/JuhCFfE.jpg</fanart1>
+	<banner1>http://i.imgur.com/lAYoeAQ.jpg</banner1>
+	<Notes>The object of this video game is to successfully launch and fly one of NASA's historic Space Shuttles. Gameplay is composed of several different types of missions, each broken up into short mini-games. The first part of the game requires the player to activate oxygen and hydrogen pumps as well as get additional crew members into the shuttle within a strict time limit by moving an elevator up and down and avoiding moving bumpers. Then, the player must successfully launch the shuttle into space by performing quick time events that correspond to particular shuttle launch maneuvers such as booster rocket separation. Once in space, one of several missions will be played where the player must control the astronaut by maneuvering him around hazards, replenish his air supply before the timer runs out, and deliver components for the International Space Station to their correct locations. A cosmonaut from the Soviet Union must also be rescued in the game. Finally, the player must land the shuttle by again performing Quick Time Events that correspond to landing maneuvers before finally landing at Edwards Air Force Base.</Notes>
+	<boxart2>http://images.launchbox-app.com/90cdbac6-bac6-4534-8842-b7bcb16ad6aa.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/949b1cda-4efe-4cbf-bbf4-977b055d9dfd.png</clearlogo1>
+	<ESRB>Not Rated</ESRB>
+	<Publisher>Absolute Entertainment</Publisher>
+</game>

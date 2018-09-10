@@ -1,0 +1,29 @@
+<Game>
+	<Name>The Legend of Zelda</Name>
+	<ReleaseDate>1986-02-21T00:00:00-08:00</ReleaseDate>
+	<Plot>Welcome to the Legend of Zelda.  Where the only sound you’ll hear is your own heart pounding as you race through forests, lakes, mountains and dungeonous mazes in an attempt to restore peace to the land of Hyrule.  Along the way you’ll be challenged by Tektites, Wizzrobes and an endless array of ruthless creatures who’ll stop at nothing to prevent you from finding the lost fragments of the Triforce of Wisdom.  But don’t despair.  With a little luck and a lot of courage, you’ll conquer your adversaries, unite the Triforce fragments and unravel the mystery of the Legend of Zelda! * Explore the vast Overworld terrain of the land of Hyrule and discover hidden treasures. * Explore the mystical labyrinths of the Underworld and ward-off ruthless enemies.</Plot>
+	<nPlayers>1</nPlayers>
+	<VideoURL>c4bvZZa5Mtg</VideoURL>
+	<banner1>http://images.launchbox-app.com/e188257b-ebd4-494d-bdc7-d70f44f8f880.png</banner1>
+	<boxback1>http://images.launchbox-app.com/69a6c802-1146-4f66-adc3-8af7deb9088e.jpg</boxback1>
+	<boxback2>http://images.launchbox-app.com/9d084c40-5db2-4e6e-a913-a6fc23dcc335.jpg</boxback2>
+	<boxart1>http://images.launchbox-app.com/b68a54a4-ece1-4f62-a93f-be07b7a61379.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/5c111b66-26db-4c1a-8888-ae910aafc220.jpg</boxart2>
+	<media1>http://images.launchbox-app.com/40a0368b-3762-495c-b56b-786294f21036.png</media1>
+	<media2>http://images.launchbox-app.com/c9fe7a16-8ab0-4136-976c-56027f4d0729.jpg</media2>
+	<clearlogo1>http://images.launchbox-app.com/1c630329-3188-42a9-9497-49d1dd436232.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/1e1869a6-fb85-4986-b199-3e7ed3c0550e.jpg</fanart1>
+	<fanart2>http://images.launchbox-app.com/88f0b57a-1478-4015-a7a4-0c2fe61cf681.png</fanart2>
+	<fanart3>http://images.launchbox-app.com/98b43e85-9687-463e-b699-50829cf8ff8e.png</fanart3>
+	<snapshot1>http://images.launchbox-app.com/2b790a8f-ad3a-43dc-99c4-32c61335f9a2.jpg</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/052e2366-91c7-41c4-beae-4c77172f1954.jpg</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/8978ba9e-ac1a-4ff1-9ec2-2e94e4053c70.png</snapshot3>
+	<snapshot4>http://images.launchbox-app.com/68f90646-01be-4653-b4c7-b9698f04a859.png</snapshot4>
+	<snapshot5>http://images.launchbox-app.com/97c415e8-bb66-4fe2-8735-390045251450.jpg</snapshot5>
+	<Rating>4.6841403225806451</Rating>
+	<WikipediaURL>https://en.wikipedia.org/wiki/The_Legend_of_Zelda_(video_game)</WikipediaURL>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Action; Adventure</Genre>
+	<Developer>Nintendo R&amp;D4</Developer>
+	<Publisher>Nintendo</Publisher>
+</game>

@@ -538,6 +538,14 @@ if (INIT = 1)
 	{
 		SRCDD= Build
 	}
+if (SRCDD = "Git-release")
+	{
+		gosub, GetRls
+	}
+if (SRCDD = "Git.exe")
+	{
+		gosub, GetAPP
+	}
 if (SRCDD = "Build")
 	{
 		gosub, GetBld
@@ -749,7 +757,7 @@ REPOURL=
 if (REPORULT = "")
 	REPOURLT= http://github.com/romjacket
 	UPDTFILE= http://github.com/romjacket/skeletonKey/releases/download/nodats
-inputbox,REPOURL,Repository-URL,Enter the url of the file-repository,,345,140,,,,,%REPOURLT%
+inputbox,REPOURL,Repository-URL,Enter the base-url of the file-repository,,345,140,,,,,%REPOURLT%
 if (REPOURL = "")
 	{
 		REPOURL= %REPOURLT%
@@ -1535,9 +1543,9 @@ if (BCANC = 1)
 	}
 	
 SB_SetText(" Compiling ")
-ifexist, %SKELD%\skeletonkey.exe
+ifexist, %DEPL%\skeletonkey.exe
 	{
-		FileMove, %SKELD%\skeletonkey.exe, %SKELD%\skeletonkey.exe.bak,1
+		FileMove, %DEPL%\skeletonkey.exe, %DEPL%\skeletonkey.exe.bak,1
 	}
 if (INITINCL = 1)
 	{
@@ -1663,7 +1671,7 @@ if (INITINCL = 1)
 			FileAppend, %exprt%,ExeRec.set
 			}
 
-runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\skeletonkey.ahk" /out "%SKELD%\skeletonKey.exe" /icon "%SKELD%\key.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" ", %SKELD%,%rntp%
+runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\skeletonkey.ahk" /out "%DEPL%\skeletonkey.exe" /icon "%SKELD%\key.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" ", %SKELD%,%rntp%
 guicontrol,,progb,15
 FileDelete,%SKELD%\*.lpl
 FileDelete,%SKELD%\*.tmp
@@ -1765,7 +1773,7 @@ if (PortVer = 1)
 				;;FileDelete, %DEPL%\skeletonKey-full.zip
 				FileDelete, %DEPL%\skeletonKey-portable.zip
 				;;runwait, "%BUILDIR%\7za.exe" a "%DEPL%\skeletonKey-portable.zip" "*.set" "*.ico" "*.ttf" "BSL.ahk" "skeletonkey.ahk" "SKey-Deploy.ahk" "index.html" "*.exe" "tf.ahk" "AHKsock.ahk" "LVA.ahk" "Portable.bat" "*.exe" "rj\*.set" "rj\joyCfgs\*" "rj\KODI\*" "rj\ES\*" "rj\emuCfgs\*" "rj\scrapeart\*.set" "joyimg\*" "gam\*.gam", %SKELD%,%rntp%
-				runwait, %comspec% cmd /c " "%BUILDIR%\7za.exe" a "%DEPL%\skeletonKey-portable.zip" "%SKELD%\skeletonKey.exe" ", %SKELD%,%rntp%
+				runwait, %comspec% cmd /c " "%BUILDIR%\7za.exe" a "%DEPL%\skeletonKey-portable.zip" "%DEPL%\skeletonkey.exe" ", %SKELD%,%rntp%
 				sleep, 1000
 				;;runwait, "%BUILDIR%\7za.exe" a "%DEPL%\skeletonKey-portable.zip" "*.png", %SKELD%,%rntp%
 			}

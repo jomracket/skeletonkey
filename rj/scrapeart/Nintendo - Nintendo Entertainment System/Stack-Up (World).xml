@@ -1,0 +1,36 @@
+<Game>
+	<Name>Stack-Up (World)</Name>
+	<plot>Set up R.O.B. with the colored discs included in the game and then control his movements in the game by using Professor Hector to jump onto various blocks. The blocks represent commands given to R.O.B. in sequence.This game can be played in several different ways.  In the regular game, you have to stack up the colored discs as fast as possible and in a certain pattern and sequence. In memory mode you program an entire sequence of movements to move the discs and won't know if it actually works until you RUN the program. Finally there is a 1 or 2 player bingo mode in which you align different columns and rows to BINGO and activate rob commands. An opponent will also hop around activating commands. Your goal is to have R.O.B. move as many of the colored discs without dropping them.</plot>
+	<releasedate>10/5/1985</releasedate>
+	<Developer>Nintendo of America Inc.</Developer>
+	<nplayers>1-2 Co-Op</nplayers>
+	<rating>2.1</rating>
+	<thegamesdb_id>2108</thegamesdb_id>
+	<gamefaqs_url>http://www.gamefaqs.com/nes/587642-stack-up</gamefaqs_url>
+	<mobygames_url>http://www.mobygames.com/game/nes/stack-up</mobygames_url>
+	<giantbomb_url>http://www.giantbomb.com/stack-up/3030-19746/</giantbomb_url>
+	<boxart1>http://i.imgur.com/Uo4qnGK.jpg</boxart1>
+	<boxart2>http://i.imgur.com/QaPwtzF.jpg</boxart2>
+	<boxart3>http://i.imgur.com/iPKAJ0e.jpg</boxart3>
+	<snapshot1>http://i.imgur.com/jdiRfFX.png</snapshot1>
+	<snapshot2>http://i.imgur.com/0wsQZC7.png</snapshot2>
+	<snapshot3>http://i.imgur.com/wOMqiqP.png</snapshot3>
+	<snapshot4>http://i.imgur.com/V3QPH1S.png</snapshot4>
+	<snapshot5>http://i.imgur.com/cfUq5br.png</snapshot5>
+	<snapshot6>http://i.imgur.com/Ofpftk1.png</snapshot6>
+	<snapshot7>http://i.imgur.com/ZgROj9p.png</snapshot7>
+	<snapshot8>http://i.imgur.com/LPIlkor.png</snapshot8>
+	<snapshot9>http://i.imgur.com/kr5DGyR.jpg</snapshot9>
+	<snapshot10>http://i.imgur.com/5aqFv1X.jpg</snapshot10>
+	<Notes>Stack-Up is an Action game, developed and published by Nintendo, which was released in 1985. In some modes, Professor Hector works with R.O.B. to organize blocks. In others, Hector competes for control of R.O.B. against "glitches" named Spike &amp; Flipper, or against Professor Vector. The player must direct Professor Hector to jump onto buttons, that each activate an action for R.O.B., in a sequence in order to get R.O.B. to arrange the colored discs in a certain order on the five pedestals around R.O.B.</Notes>
+	<boxart4>http://images.launchbox-app.com/72f0c5f0-24b4-4e19-b5a2-69328df8eaec.jpg</boxart4>
+	<boxart5>http://images.launchbox-app.com/83bd5cec-4019-42fa-835c-4286e0364af3.jpg</boxart5>
+	<clearlogo1>http://images.launchbox-app.com/8681131e-ea45-4544-b9d0-b367314b96ed.png</clearlogo1>
+	<snapshot11>http://images.launchbox-app.com/dcc96d82-cc8e-4d69-9361-b993e718bba8.png</snapshot11>
+	<snapshot12>http://images.launchbox-app.com/7928a61b-4997-4065-b0a6-be08b29f5529.png</snapshot12>
+	<snapshot13>http://images.launchbox-app.com/cb5b8409-c430-4fdd-977d-6bea8fe8fba1.png</snapshot13>
+	<snapshot14>http://images.launchbox-app.com/15390143-d446-4fb7-adf6-514b35b24a62.png</snapshot14>
+	<ESRB>Not Rated</ESRB>
+	<genre>Action</genre>
+	<Publisher>Nintendo</Publisher>
+</game>

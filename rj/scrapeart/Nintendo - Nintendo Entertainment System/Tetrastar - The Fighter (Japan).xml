@@ -1,0 +1,30 @@
+<Game>
+	<Name>Tetrastar - The Fighter (Japan)</Name>
+	<plot>At first glance, this may just appear to be a neat little Space Harrier-type game, but actually it turns out to be a really cool neat little Space Harrier-type game. I know the screenshots are kind of confusing and don't really show much, but it really has to be seen to be appreciated.. Some of the effects are just incredible, especially for the NES. Not much to be said about the gameplay, really.. You fly around and shoot stuff. However, the tricky part is that you also have to dodge all the stuff that might kill you. That's the part that most people have trouble with, anyway. I don't know, maybe it's more complicated than that, but I never bothered to find out. I just kept hitting the B button. And that's good enough for me, dammit.Translation Description:This game has a surprising amount of story for a shooter. Fortunately everything is translated, so enjoy dammit!Reviewer: Spinner 8http://www.romhacking.net/trans/227/Cheat: Cheat MenuAt the title screen, press and hold A &amp; B and press Start. If done right, you'll enter the cheat menu. Only "Sound" is available. To enable the other options, make sure Sound is 00 and press Down to enable "Sampling". Now, set Sound to 65 and Sampling to 02 and press Down to enable "Rest", which modify your lives. Set Sound to 68, Sampling to 0B and Rest to 09 and press Down to enable "Phoenix", which gives you invincibility. Now, press and hold the Right button on Phoenix to turn it on and off rapidly, hold it until it stops changing and stays On, when that happens press Left twice to turn it Off and then On again, then hold Select and press Down. If done right, you'll enable "Stage" and "Visual", which warps you to any stage and lets you see the cutscenes.</plot>
+	<releasedate>11/5/1999</releasedate>
+	<genre>Shooter</genre>
+	<Developer>Taito Corporation</Developer>
+	<nplayers>1</nplayers>
+	<thegamesdb_id>27317</thegamesdb_id>
+	<gamefaqs_url>http://www.gamefaqs.com/nes/562787-tetra-star-the-fighter</gamefaqs_url>
+	<mobygames_url>http://www.mobygames.com/game/nes/tetrastar-the-fighter-</mobygames_url>
+	<boxart1>http://i.imgur.com/c68HsAy.jpg</boxart1>
+	<snapshot1>http://i.imgur.com/ZIQboc4.png</snapshot1>
+	<snapshot2>http://i.imgur.com/YpuRJTV.png</snapshot2>
+	<snapshot3>http://i.imgur.com/yiNJXI0.png</snapshot3>
+	<snapshot4>http://i.imgur.com/ej1eGu3.png</snapshot4>
+	<snapshot5>http://i.imgur.com/OmNkeM8.png</snapshot5>
+	<snapshot6>http://i.imgur.com/F3XzqT6.png</snapshot6>
+	<snapshot7>http://i.imgur.com/ibKFIv6.png</snapshot7>
+	<snapshot8>http://i.imgur.com/novPX81.png</snapshot8>
+	<snapshot9>http://i.imgur.com/O74dIoA.jpg</snapshot9>
+	<Notes>Tetrastar The Fighter is a 3D shooter by Home Data and published by Taito. In the year 2089, humanity forms an alliance with the intergalactic Baal empire but soon Earth finds out about the alien's true intentions. A group of resistance assembles the project Tetrastar to prepare for the potential upcoming threat. But the project lead by the general Nelson is soon put on hold and a short lived peace settles in. But the whole thing was nothing more than a hostile invasion and the Baal empire finally breaks the alliance and attacks Earth. The player's first mission is to prevent New York to be destroyed and then to retrieve Omega, the faithful robot navigator, to warp to the alien's mother world. The Tetrastar super fighter can move around the screen and fire a standard Vulcan gun. Special weapons become available later in the game from Bombs (WID), Homing Missiles (AAM), Napalm Bombs (NAP) and the powerful Bio Cannon (BIO) - they are accessible via the Select button and triggered by pressing A. They all come in limited quantities and must be refilled by picking up power-pods along the way. Tetrastar features nice stages and cutscenes between them unfold the game's episodic story.</Notes>
+	<VideoURL1>Zn9SXT8_B6Y</VideoURL1>
+	<boxart2>http://images.launchbox-app.com/3e840f12-682c-404a-b39f-644be7ec9ea0.png</boxart2>
+	<snapshot10>http://images.launchbox-app.com/aea8de89-bb2a-40cf-b232-0612304e1d33.jpg</snapshot10>
+	<snapshot11>http://images.launchbox-app.com/b60d87c2-1be4-4c5b-8eb2-43d47e00ddc2.png</snapshot11>
+	<snapshot12>http://images.launchbox-app.com/1ddfbf9a-4304-4154-b1df-ee215583a33d.png</snapshot12>
+	<rating>4.5</rating>
+	<ESRB>Not Rated</ESRB>
+	<Publisher>Taito Corporation</Publisher>
+</game>

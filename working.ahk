@@ -29678,7 +29678,7 @@ if (FERAD2C = 1)
 			}
 if (ASSETS = "Assets")
 	{
-		ASSETS= %A_WorkingDir%\Assets
+		ASSETS= Assets
 	}
 RRDboxart:
 		if (getboxart = 1)
@@ -29694,7 +29694,7 @@ RRDsnapshot:
 		if (getsnapshot = 1)
 				{
 					SB_SetText("Downloading " SYSROMD " Snapshots ")
-					RunWait, %comspec% cmd /c " "%A_ScriptDir%\Scraper.exe"%ssopt%%mamemode% -max_height=%Snapshotsimgtall% -max_width=%Snapshotsimgsize% -%Snapshotimgtyp%_src=%Snapshotscrapeorder%  -append=false -retries=5 -download_images=true -console_img=s -img_format=%Snapshotimagefrmt% -use_filename=true -image_dir="%ASSETS%\ROM_SCRAPE\%SYSROMD%\Snapshots" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
+					RunWait, %comspec% cmd /c " "%A_ScriptDir%\Scraper.exe"%ssopt%%mamemode% -max_height=%Snapshotsimgtall% -max_width=%Snapshotsimgsize% -%Snapshotimgtyp%_src=%Snapshotscrapeorder%  -append=false -retries=5 -download_images=true -console_img=s -img_format=%Snapshotimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Snapshots" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
 					if (FECHKN = 1)
 						{
 							return
@@ -29709,7 +29709,7 @@ RRDbackdrop:
 							artx=fly
 						}		
 					SB_SetText("Downloading " SYSROMD " Backdrops ")
-					RunWait, %comspec% cmd /c " "%A_ScriptDir%\Scraper.exe"%ssopt%%mamemode% -max_height=%imgtall% -max_width=%Backdropimgsize% -%Backdropimgtyp%_src=%Backdropscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Backdropimagefrmt% -use_filename=true -image_dir="%ASSETS%\ROM_SCRAPE\%SYSROMD%\Backdrops" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
+					RunWait, %comspec% cmd /c " "%A_ScriptDir%\Scraper.exe"%ssopt%%mamemode% -max_height=%imgtall% -max_width=%Backdropimgsize% -%Backdropimgtyp%_src=%Backdropscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Backdropimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Backdrops" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
 					if (FECHKN = 1)
 						{
 							return
@@ -29724,7 +29724,7 @@ RRDlogo:
 							artx=t
 						}
 					SB_SetText("Downloading " SYSROMD " Logos ")
-					RunWait, %comspec% cmd /c " "%A_ScriptDir%\Scraper.exe"%ssopt%%mamemode% -max_height=%Logoimgtall% -max_width=%Logoimgsize% -%imgtyp%_src=%Logoscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Logoimagefrmt% -use_filename=true -image_dir="%ASSETS%\ROM_SCRAPE\%SYSROMD%\Logos" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
+					RunWait, %comspec% cmd /c " "%A_ScriptDir%\Scraper.exe"%ssopt%%mamemode% -max_height=%Logoimgtall% -max_width=%Logoimgsize% -%imgtyp%_src=%Logoscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Logoimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Logos" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
 					if (FECHKN = 1)
 						{
 							return
@@ -29734,7 +29734,7 @@ RRD3dboxart:
 		if (get3dboxart = 1)
 				{
 					SB_SetText("Downloading " SYSROMD " 3D-Boxart ")
-					RunWait, %comspec% cmd /c " "%A_ScriptDir%\Scraper.exe"%ssopt%%mamemode% -max_height=%3dboximgtall% -max_width=%3dboximgsize% -%imgtyp%_src=%3DBoxscrapeorder%  -append=false -retries=5 -download_images=true -console_img=3b -img_format=%3dboxartimagefrmt% -use_filename=true -image_dir="%ASSETS%\ROM_SCRAPE\%SYSROMD%\3D-Boxart" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
+					RunWait, %comspec% cmd /c " "%A_ScriptDir%\Scraper.exe"%ssopt%%mamemode% -max_height=%3dboximgtall% -max_width=%3dboximgsize% -%imgtyp%_src=%3DBoxscrapeorder%  -append=false -retries=5 -download_images=true -console_img=3b -img_format=%3dboxartimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\3D-Boxart" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
 					if (FECHKN = 1)
 						{
 							return
@@ -29749,7 +29749,7 @@ RRDcart:
 							artx=c
 						}
 					SB_SetText("Downloading " SYSROMD " Carts ")
-					RunWait, %comspec% cmd /c " "%A_ScriptDir%\Scraper.exe"%ssopt%%mamemode% -max_height=%Cartimgtall% -max_width=%Cartimgsize% -%imgtyp%_src=%Cartscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Cartimagefrmt% -use_filename=true -image_dir="%ASSETS%\ROM_SCRAPE\%SYSROMD%\Carts" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
+					RunWait, %comspec% cmd /c " "%A_ScriptDir%\Scraper.exe"%ssopt%%mamemode% -max_height=%Cartimgtall% -max_width=%Cartimgsize% -%imgtyp%_src=%Cartscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Cartimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Carts" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
 					if (FECHKN = 1)
 						{
 							return
@@ -29761,7 +29761,7 @@ RRDlabel:
 					if (mameget = "")
 						{
 							SB_SetText("Downloading " SYSROMD " Labels ")
-							RunWait, %comspec% cmd /c " "%A_ScriptDir%\Scraper.exe"%ssopt%%mamemode% -max_height=%Labelimgtall% -max_width=%Labelimgsize% -%imgtyp%_src=%Labelscrapeorder%  -append=false -retries=5 -download_images=true -console_img=clabel -img_format=%Labelimagefrmt% -use_filename=true -image_dir="%ASSETS%\ROM_SCRAPE\%SYSROMD%\Labels" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
+							RunWait, %comspec% cmd /c " "%A_ScriptDir%\Scraper.exe"%ssopt%%mamemode% -max_height=%Labelimgtall% -max_width=%Labelimgsize% -%imgtyp%_src=%Labelscrapeorder%  -append=false -retries=5 -download_images=true -console_img=clabel -img_format=%Labelimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Labels" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
 						}
 					if (FECHKN = 1)
 						{
@@ -29774,7 +29774,7 @@ RRDbanner:
 					if (mameget = "")
 						{
 							SB_SetText("Downloading " SYSROMD " Marquees ")
-							RunWait, %comspec% cmd /c " "%A_ScriptDir%\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -retries=5 -download_images=true -console_img=a -img_format=%Marqueeimagefrmt% -use_filename=true -image_dir="%ASSETS%\ROM_SCRAPE\%SYSROMD%\Marquees" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
+							RunWait, %comspec% cmd /c " "%A_ScriptDir%\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -retries=5 -download_images=true -console_img=a -img_format=%Marqueeimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Marquees" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
 						}
 					if (FECHKN = 1)
 						{
@@ -29787,7 +29787,7 @@ RRD3mix:
 					if (mameget = "")
 						{
 							SB_SetText("Downloading " SYSROMD " 3Mix ")
-							RunWait, %comspec% cmd /c " "%A_ScriptDir%\Scraper.exe"%ssopt%%mamemode% -max_height=%3Miximgtall% -max_width=%3Miximgsize% -%imgtyp%_src=%3Mixscrapeorder%  -append=false -retries=5 -download_images=true -console_img=mix3 -img_format=%3miximagefrmt% -use_filename=true -image_dir="%ASSETS%\ROM_SCRAPE\%SYSROMD%\3Mix" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
+							RunWait, %comspec% cmd /c " "%A_ScriptDir%\Scraper.exe"%ssopt%%mamemode% -max_height=%3Miximgtall% -max_width=%3Miximgsize% -%imgtyp%_src=%3Mixscrapeorder%  -append=false -retries=5 -download_images=true -console_img=mix3 -img_format=%3miximagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\3Mix" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
 					}
 					if (FECHKN = 1)
 						{
@@ -29800,7 +29800,7 @@ RRD4mix:
 					if (mameget = "")
 						{
 							SB_SetText("Downloading " SYSROMD " 4Mix ")
-							RunWait, %comspec% cmd /c " "%A_ScriptDir%\Scraper.exe"%ssopt% -%imgtyp%_src=%4Mixscrapeorder% -max_height=%4Miximgtall% -max_width=%4Miximgsize% -append=false -retries=5 -download_images=true -console_img=mix4 -img_format=%4miximagefrmt% -use_filename=true -image_dir="%ASSETS%\ROM_SCRAPE\%SYSROMD%\4Mix" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
+							RunWait, %comspec% cmd /c " "%A_ScriptDir%\Scraper.exe"%ssopt% -%imgtyp%_src=%4Mixscrapeorder% -max_height=%4Miximgtall% -max_width=%4Miximgsize% -append=false -retries=5 -download_images=true -console_img=mix4 -img_format=%4miximagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\4Mix" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
 						}
 					if (FECHKN = 1)
 						{
@@ -29813,12 +29813,12 @@ RRDmarquee:
 					if (mameget = "")
 						{
 							SB_SetText("Downloading " SYSROMD " Marquees ")
-							RunWait, %comspec% cmd /c " "%A_ScriptDir%\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -retries=5 -download_images=false -marquee_suffix="" -marquee_format=%Marqueeimagefrmt% -use_filename=true -marquee_dir="%ASSETS%\ROM_SCRAPE\%SYSROMD%\Marquees" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
+							RunWait, %comspec% cmd /c " "%A_ScriptDir%\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -retries=5 -download_images=false -marquee_suffix="" -marquee_format=%Marqueeimagefrmt% -use_filename=true -marquee_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Marquees" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
 						}
 					if (mameget = 1)
 						{
 							SB_SetText("Downloading " SYSROMD " Marquees ")
-							RunWait, %comspec% cmd /c " "%A_ScriptDir%\Scraper.exe"%ssopt%%mamemode% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -%imgtyp%_src=%Marqueescrapeorder% -append=false -retries=5 -download_images=true -console_img=m -img_format=%Marqueeimagefrmt% -use_filename=true -image_dir="%ASSETS%\ROM_SCRAPE\%SYSROMD%\Marquees" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
+							RunWait, %comspec% cmd /c " "%A_ScriptDir%\Scraper.exe"%ssopt%%mamemode% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -%imgtyp%_src=%Marqueescrapeorder% -append=false -retries=5 -download_images=true -console_img=m -img_format=%Marqueeimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Marquees" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
 						}
 					if (FECHKN = 1)
 						{
@@ -29830,7 +29830,7 @@ RRDvid:
 		if (getvideo = 1)
 				{
 					SB_SetText("Downloading " SYSROMD " Video ")
-					RunWait, %comspec% cmd /c " "%A_ScriptDir%\Scraper.exe"%ssopt% -%imgtyp%_src=%Videoscrapeorder%  -append=false -retries=5 -download_images=false -video_suffix="%scrsufx%" -use_filename=true -video_dir="%ASSETS%\ROM_SCRAPE\%SYSROMD%\Video" -output_file="" ",%SYSLKLOC%,hide
+					RunWait, %comspec% cmd /c " "%A_ScriptDir%\Scraper.exe"%ssopt% -%imgtyp%_src=%Videoscrapeorder%  -append=false -retries=5 -download_images=false -video_suffix="%scrsufx%" -use_filename=true -video_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Video" -output_file="" ",%SYSLKLOC%,hide
 					if (FECHKN = 1)
 						{
 							return
@@ -29840,7 +29840,7 @@ RRDmetadata:
 		if (getmetadata = 1)
 				{
 					SB_SetText("Downloading " SYSROMD " MetaData ")
-					RunWait, %comspec% cmd /c " "%A_ScriptDir%\Scraper.exe"%ssopt% -%imgtyp%_src=%Metadatascrapeorder%  -append=true -retries=5 -download_images=false -use_filename=true -output_file="%ASSETS%\ROM_SCRAPE\%SYSROMD%\MetaData\%SYSROMD%%scrsufx%.xml" ",%SYSLKLOC%,hide
+					RunWait, %comspec% cmd /c " "%A_ScriptDir%\Scraper.exe"%ssopt% -%imgtyp%_src=%Metadatascrapeorder%  -append=true -retries=5 -download_images=false -use_filename=true -output_file="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\MetaData\%SYSROMD%%scrsufx%.xml" ",%SYSLKLOC%,hide
 					if (FECHKN = 1)
 						{
 							return

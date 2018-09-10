@@ -1,0 +1,23 @@
+<Game>
+	<Name>Silva Saga (Japan)</Name>
+	<plot>Complete patch for Silva Saga (sequel to Minelvaton Saga) on NES. This is a rather well-done Dragon Quest clone with nice plot and kickass visuals.Important note before you start playing:The game was dumped very badly so DELETE ALL THE SAVE FILES ON THE TITLE SCREEN, THEN CHOOSE AN EMPTY ONE! If you don't do that, you'll stuck in the middle of nowhere!!!!!!!!http://www.romhacking.net/trans/1394/Cheat: Prevent Random EncountersAt the title screen, press Left, Left, Right, Right, Up, Down, Up, Down, Select, B. The background color will change, confirming the entering of this cheat, which stops all random encounters. Non-random encounters will still occur, and thus you should be especially careful because you could end up underleveled as a result.Cheat: Name-Changing PasswordEnter the Japanese syllables "Ro ~Tsu Ku Sa Mu" as your name during the game. This is hiragana and loosely translates to "Sam Rock". By entering this name, it will change to katagana and read "Rokkusamu" (again, in Japanese syllables).</plot>
+	<releasedate>11/5/2009</releasedate>
+	<genre>RPG</genre>
+	<Developer>Yuto Ramon</Developer>
+	<nplayers>1</nplayers>
+	<rating>7.0</rating>
+	<thegamesdb_id>27276</thegamesdb_id>
+	<gamefaqs_url>http://www.gamefaqs.com/nes/570671-silva-saga</gamefaqs_url>
+	<giantbomb_url>http://www.giantbomb.com/silva-saga/3030-41429/</giantbomb_url>
+	<boxart1>http://i.imgur.com/PeJwa3L.jpg</boxart1>
+	<snapshot1>http://i.imgur.com/pWy3QKD.jpg</snapshot1>
+	<snapshot2>http://i.imgur.com/v5FKoF9.jpg</snapshot2>
+	<snapshot3>http://i.imgur.com/D6Npvum.jpg</snapshot3>
+	<snapshot4>http://i.imgur.com/ULV2bij.jpg</snapshot4>
+	<snapshot5>http://i.imgur.com/J884vti.jpg</snapshot5>
+	<Notes>Silva Saga is a Role-Playing game, developed by Yuto Ramon and published by Seta Corporation, which was released in Japan in 1992.</Notes>
+	<boxart2>http://images.launchbox-app.com/bfa0fee9-c876-4c00-a2ec-afb23a7315f0.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/8a0c3bd1-68e7-48e7-822f-b9ef34e2b0e5.png</clearlogo1>
+	<ESRB>Not Rated</ESRB>
+	<Publisher>SETA Corporation</Publisher>
+</game>

@@ -1,0 +1,12 @@
+<Game>
+	<Name>Super Bat Puncher</Name>
+	<ReleaseDate>2011-06-06T00:00:00-07:00</ReleaseDate>
+	<Plot>Super Bat Puncher is similar in style to Cave Story with an added gameplay element of weapon-based platforming. Using your trusty boxing glove, you're able to launch yourself between platforms horizontally from a single punch towards the nearest wall.</Plot>
+	<nPlayers>2</nPlayers>
+	<boxart1>http://images.launchbox-app.com/f40ba744-58d5-4585-8f26-bf682db23210.jpg</boxart1>
+	<Rating>3</Rating>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Platform</Genre>
+	<Developer>miau</Developer>
+	<Publisher>miau</Publisher>
+</game>

@@ -1,0 +1,15 @@
+<Game>
+	<Name>The Last Starfighter</Name>
+	<ReleaseDate>1990-06-01T00:00:00-07:00</ReleaseDate>
+	<Plot>You're the best there is-the #1 arcade champion. Now your special talents are needed desperately by another galaxy... where the game is about to become reality. Rylos is under attack by the alien forces of Xur and the Ko-Dan Armada. You must repel waves of Xurian fighters, then land and destroy each Command Ship before it penetrates the Frontier and devestates another planet. Experience the excitement of the classic science-fiction movie adventure The Last Starfighter as you battle your way through 15 explosive levels of non-stop, high-speed action.</Plot>
+	<nPlayers>2</nPlayers>
+	<boxback1>http://images.launchbox-app.com/f10576a6-8190-4578-9660-30033f053bf7.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/51fa5212-357d-4b5e-af70-da77e7262645.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/01432a97-e6e1-4ed9-a7d9-ccdfe71923d6.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/9f34a73a-b944-4335-82e6-5a6e1f6d6111.jpg</fanart1>
+	<Rating>1.5</Rating>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Action</Genre>
+	<Developer>Graftgold</Developer>
+	<Publisher>Mindscape</Publisher>
+</game>
