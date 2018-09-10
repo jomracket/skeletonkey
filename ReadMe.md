@@ -1,6 +1,6 @@
-skeletonKey v0.99.58.10
+skeletonKey v0.99.58.11
 
- 2018-09-10 1:47 PM
+ 2018-09-10 2:46 PM
  
 by romjacket 
 
@@ -12,7 +12,7 @@ Official files are found at GITHUB
 http://github.com/romjacket/skeletonKey
 
 
- https://www.paypal.me/romjacket
+https://www.paypal.me/romjacket
 
           ^    donate 5 bucks!  OR ELSE!    ^
   

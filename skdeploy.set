@@ -58,7 +58,7 @@ Section "" ; empty string makes it hidden, so would starting with -
 
   SetOutPath $INSTDIR
 
-  File "[SOURCE]\skeletonKey.exe"
+  File "[DBP]\skeletonKey.exe"
   
   ;File "[SOURCE]\Portable.bat"
   ;File "[SOURCE]\*.set"

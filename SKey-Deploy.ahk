@@ -207,6 +207,22 @@ if (curvl1 = "Site_Directory")
 						}
 				}
 
+		if (curvl1 = "github_login")
+				{
+					if (curvl2 <> "")
+						{
+							GITLOGIN= 
+						}
+				}
+
+		if (curvl1 = "git_password")
+				{
+					if (curvl2 <> "")
+						{
+							GITPASS= 
+						}
+				}
+
 	}	
 
 
@@ -460,7 +476,7 @@ Gui, Tab, Setup
 Gui, Add, Text,x164 y5, Location
 Gui, Add, DropDownList, x8 y2 w100 vSRCDD gSrcDD, Source||Compiler|Deployment|Build|NSIS|Github|Git.exe|Git-Release
 Gui, Add, Button, x109 y2 w52 h21 vSELDIR gSelDir, Select
-Gui Add, DropDownList,x331 y2 w92 vResDD gResDD, Dev-Build||Portable-Build|Stable-Build|Deployer|Update-URL|Shader-URL|Repo-URL|Internet-IP-URL|Git-URL
+Gui Add, DropDownList,x331 y2 w92 vResDD gResDD, Dev-Build||Portable-Build|Stable-Build|Deployer|Update-URL|Shader-URL|Repo-URL|Internet-IP-URL|Git-User|Git-Password|Git-URL
 Gui Add, Button, x425 y2 w52 h21 vResB gResB, Reset
 
 Gui Add, Picture, x4 y58 w155 h67, ins.png
@@ -988,6 +1004,21 @@ iniwrite, %GITPAT%,skopt.cfg,GLOBAL,git_token
 return
 
 
+GetGPass:
+GITPASS= 
+InputBox, GITPASST , Git-Password, Input your github password,HIDE , 160, 120, , , ,, %GITPASST%
+if (GITPASS <> "")
+	{
+		if (GITPASST = "")
+			{
+				SB_SetText(" Git Password is " ********* " ")
+				return
+			}
+	}
+GITPASS= %GITPASST%	
+iniwrite, %GITPASS%,skopt.cfg,GLOBAL,Git_password
+return
+
 GetGUSR:
 GITUSERT= 
 InputBox, GITUSERT , Git-Username, Input your git username, , 160, 120, , , ,, %a_username%
@@ -1030,7 +1061,14 @@ if (gitexists = 1)
 		FileAppend,pushd "%GITD%"`n,%GITD%\gitcommit.bat
 		FileAppend,"`%gitapp`%" add .`n,%GITD%\gitcommit.bat
 		FileAppend,"`%gitapp`%" commit -m `%1`%.`n,%GITD%\gitcommit.bat
-		FileAppend,"`%gitapp`%" push origin master`n,%GITD%\gitcommit.bat
+		if (GITPASS <> "")
+			{
+				FileAppend,"`%gitapp`%" push --repo https://%gituser%:%GITPASS%@github.com/%gituser%/skeletonkey`n,%GITD%\gitcommit.bat			
+			}
+		if (GITPASS = "")
+			{
+				FileAppend,"`%gitapp`%" push origin master`n,%GITD%\gitcommit.bat			
+			}
 		return
 	}
 Msgbox,5,skeletonkey.ahk,Git Source file not found
@@ -1124,6 +1162,14 @@ if (RESDD = "Shader-URL")
 if (RESDD = "Internet-IP-URL")
 	{
 		SB_SetText(" " GETIPADR " ")
+	}
+if (RESDD = "Git-Password")
+	{
+		SB_SetText(" ********* ")
+	}
+if (RESDD = "Git-User")
+	{
+		SB_SetText(" " GITUSER " ")
 	}
 if (RESDD = "Repo-URL")
 	{
@@ -1280,6 +1326,16 @@ if (RESDD = "Update-URL")
 	{
 		UPDTURLT= %UPDTURL%
 		Gosub, UpdateURL
+	}
+if (RESDD = "Git-User")
+	{
+		GITUSER= 
+		Gosub, GetGUSR
+	}
+if (RESDD = "Git-Password")
+	{
+		GITPASS= 
+		Gosub, GetGPass
 	}
 return
 
@@ -2176,7 +2232,14 @@ if (uptoserv = 1)
 		FileAppend,for /f "delims=" `%`%a in ("%GITAPP%") do set gitapp=`%`%~a`n,%BUILDIR%\sitecommit.bat
 		FileAppend,"`%gitapp`%" add .`n,%BUILDIR%\sitecommit.bat
 		FileAppend,"`%gitapp`%" commit -m siteupdate`n,%BUILDIR%\sitecommit.bat
-		FileAppend,"`%gitapp`%" push`n,%BUILDIR%\sitecommit.bat
+		if (GITPASS <> "")
+			{
+				FileAppend,"`%gitapp`%" --repo push https://%GITUSER%:%GITPASS%@github.com/%GITUSER%.github.io`n,%BUILDIR%\sitecommit.bat
+			}
+		if (GITPASS = "")
+			{
+				FileAppend,"`%gitapp`%" push`n,%BUILDIR%\sitecommit.bat
+			}
 		RunWait, %comspec% cmd /c " "%BUILDIR%\sitecommit.bat" "site-commit" ",%BUILDIR%,%rntp%
 	}
 
