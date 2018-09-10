@@ -12,7 +12,7 @@ Official files are found at GITHUB
 http://github.com/romjacket/skeletonKey
 
 
-https://www.paypal.me/romjacket
+ https://www.paypal.me/romjacket
 
           ^    donate 5 bucks!  OR ELSE!    ^
   
