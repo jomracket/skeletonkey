@@ -1,0 +1,31 @@
+<Game>
+	<Name>Win, Lose or Draw (USA)</Name>
+	<plot>Win, Lose or Draw was a popular TV show requiring artistic skills and an ability to think laterally. A player on your team draws something on the big game board, and you must work out what it represents. They will be common expressions depicted literally, such as 'bright idea' showing a light bulb over somebody's head, and 'cabin fever' as a rickety building next to a man with a thermometer in his mouth. In this computerised implementation the drawing phase of the game is handled by the computer, so your task is simply to guess the meaning of the picture by thinking laterally. Your team has 60 seconds, and you can guess repeatedly, but the picture takes time to take shape. If you fail to guess correctly, the opposition has 15 seconds to guess it (with a single try) to steal the money.Cheat: Greetings From Eric SheffermanTo view the greeting from Eric Shefferman, one of the game's programmers, set the difficulty to Difficult. Then during gameplay, enter LORDOFTHEWABBITS as an answer and press B. You will see a bunny jump around the screen.</plot>
+	<releasedate>3/5/1990</releasedate>
+	<nplayers>1-2 VS</nplayers>
+	<thegamesdb_id>1394</thegamesdb_id>
+	<gamefaqs_url>http://www.gamefaqs.com/nes/587772-win-lose-or-draw</gamefaqs_url>
+	<mobygames_url>http://www.mobygames.com/game/nes/win-lose-or-draw</mobygames_url>
+	<giantbomb_url>http://www.giantbomb.com/win-lose-or-draw/3030-16750/</giantbomb_url>
+	<boxart1>http://i.imgur.com/eM48Ix4.jpg</boxart1>
+	<boxart2>http://i.imgur.com/b0PNekJ.jpg</boxart2>
+	<boxart3>http://i.imgur.com/cTZ42bx.jpg</boxart3>
+	<snapshot1>http://i.imgur.com/ws8IpWM.png</snapshot1>
+	<snapshot2>http://i.imgur.com/ft3Dh9o.png</snapshot2>
+	<snapshot3>http://i.imgur.com/3OdB26N.png</snapshot3>
+	<snapshot4>http://i.imgur.com/2uAcdtE.png</snapshot4>
+	<snapshot5>http://i.imgur.com/NdYqDGU.png</snapshot5>
+	<snapshot6>http://i.imgur.com/vY9ddg8.png</snapshot6>
+	<snapshot7>http://i.imgur.com/VVzXSif.jpg</snapshot7>
+	<snapshot8>http://i.imgur.com/PzLuYxJ.jpg</snapshot8>
+	<snapshot9>http://i.imgur.com/y0CA0ZJ.jpg</snapshot9>
+	<snapshot10>http://i.imgur.com/5hkWWd1.jpg</snapshot10>
+	<banner1>http://i.imgur.com/wRcYAfN.png</banner1>
+	<Notes>Win, Lose or Draw was a popular TV show requiring artistic skills and an ability to think laterally. A player on your team draws something on the big game board, and you must work out what it represents. They will be common expressions depicted literally, such as 'bright idea' showing a light bulb over somebody's head, and 'cabin fever' as a rickety building next to a man with a thermometer in his mouth.</Notes>
+	<boxart4>http://images.launchbox-app.com/4822c212-bad5-442b-94c9-ad9b0514e7ee.jpg</boxart4>
+	<clearlogo1>http://images.launchbox-app.com/581e1f67-8240-4739-a1e9-449b6d09a6c9.png</clearlogo1>
+	<ESRB>Not Rated</ESRB>
+	<genre>Strategy</genre>
+	<Developer>RSP</Developer>
+	<Publisher>Hi-Tech Expressions</Publisher>
+</game>

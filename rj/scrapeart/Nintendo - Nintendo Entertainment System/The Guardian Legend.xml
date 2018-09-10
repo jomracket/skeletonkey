@@ -1,0 +1,15 @@
+<Game>
+	<Name>The Guardian Legend</Name>
+	<ReleaseDate>1988-02-05T00:00:00-08:00</ReleaseDate>
+	<Plot>In The Guardian Legend, the player controls the female guardian of Earth, a "highly sophisticated aerobot transformer". The player's mission is to infiltrate Naju, a large planet-like object which aliens sent hurtling towards the Earth. While inside, the player must activate ten safety devices in order to initialize Naju's self-destruct mechanism and destroy the alien world before it reaches Earth. Five hostile tribes of alien lifeforms are vie for control of territories within Naju,and the player needs to fight through them to successfully activate the switches and escape.</Plot>
+	<nPlayers>1</nPlayers>
+	<banner1>http://images.launchbox-app.com/cb7b61a0-a128-4e0d-952e-a072c3d4c5e2.jpg</banner1>
+	<boxback1>http://images.launchbox-app.com/6f18fa90-a277-4757-b7ec-e282955d8fe0.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/82f6c9ac-94d1-4759-afe0-037fe2dc95fa.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/3d1c6143-f6b7-4b91-9a14-efecc76eb8c7.png</clearlogo1>
+	<Rating>4.1875</Rating>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Action; Shooter</Genre>
+	<Developer>Compile</Developer>
+	<Publisher>Brøderbund</Publisher>
+</game>

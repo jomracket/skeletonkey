@@ -1,0 +1,14 @@
+<Game>
+	<Name>Skate or Die!</Name>
+	<ReleaseDate>1988-12-01T00:00:00-08:00</ReleaseDate>
+	<Plot>Hop on your souped-up board and cruise into the wildest multi-event contest ever dreamed of by man or beast. Three of these twisted trials are cut from the concrete courses of pro competitions. Each pits you head to head with a friend, shooting ramps or racing downhill, while going for rock n' rolls, hand plants, aerials, rail slides and methods! Then blast into "Mad Max on Wheels", dueling to the death with Bionic Lester, the dirtiest dude in the jam and joust. And finally "Skate and Destroy", a challenge that'll turn you into a Samurai skater, karate chopping your way through a tough alley filled with thugs, trash and unmentionable traffic hazards. So squirt a little oil onto your ball bearings, and prepare to Skate or Die!</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/db975d3d-7692-49e7-9228-4e5d7e31cde7.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/ce0d8675-62c6-4f34-99cf-06b9636187f9.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/7f6bc16e-1cf2-4937-bd20-7d868acb51f3.png</clearlogo1>
+	<Rating>2.5</Rating>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Sports</Genre>
+	<Developer>Konami</Developer>
+	<Publisher>Ultra Games</Publisher>
+</game>

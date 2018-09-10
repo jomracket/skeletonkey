@@ -3,4 +3,3 @@ pushd "C:\Users\libpublc.NETID\Documents\GitHub\skeletonkey"
 "%gitapp%" add .
 "%gitapp%" commit -m %1%
 "%gitapp%" push origin master
-pause

@@ -1921,7 +1921,7 @@ if (GitPush = 1)
 		SB_SetText(" Source changes committed.  Files Copied to git.  Committing...")
 		StringReplace,PushNotes,PushNotes,",,All
 		;"
-		RunWait, %comspec% cmd /c " "%GITD%\gitcommit.bat" "%PushNotes%" ",%GITD%,%rntp%
+		RunWait, %comspec% cmd /c " "%GITD%\gitcommit.bat" "%PushNotes%" ",%GITD%
 		SB_SetText(" source changes pushed to master ")
 		guicontrol,,progb,65
 	}

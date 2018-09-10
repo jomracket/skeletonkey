@@ -1,0 +1,12 @@
+<Game>
+	<Name>Super Painter</Name>
+	<ReleaseDate>2015-02-14T00:00:00-08:00</ReleaseDate>
+	<Plot>Super Painter is a puzzle platform game in which the player tries to paint the tiles and make it to the exit while avoiding evil cats.</Plot>
+	<nPlayers>1</nPlayers>
+	<clearlogo1>http://images.launchbox-app.com/dfdac91d-104c-4ec6-9bd9-3217f78c6b8b.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/595436f4-4c47-4625-bcf9-e383b30965de.png</snapshot1>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Platform; Puzzle</Genre>
+	<Developer>RetroSouls</Developer>
+	<Publisher>RetroSouls</Publisher>
+</game>

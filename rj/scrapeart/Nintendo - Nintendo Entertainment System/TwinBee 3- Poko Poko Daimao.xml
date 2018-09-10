@@ -1,0 +1,13 @@
+<Game>
+	<Name>TwinBee 3- Poko Poko Daimaō</Name>
+	<ReleaseDate>1989-09-29T00:00:00-07:00</ReleaseDate>
+	<Plot>TwinBee 3: Poko Poko Daimaō (ツインビー３ ポコポコ大魔王 Tsuinbī Surī?, "The Great Demon King Poko Poko") is a vertical-scrolling shoot 'em up video game produced by Konami originally released for the Famicom in 1989. It was the third game in the TwinBee series released for the Famicom, following the home version of the original TwinBee and the Famicom-exclusive Moero TwinBee. Unlike Moero, which was released in North America as Stinger, TwinBee 3 was a Japan-only release. It was re-released on April 14, 2006 as part of the i-Revo downloadable game service. TwinBee 3 ditches the side-scrolling stages from Stinger and only features top-scrolling ones similar to the original. Moreover, the game lacks the 3-Player mode from Moero, allowing only up to two players. The game is considerably easier than its predecessors due to an option mode that allows players to adjust the difficulty and number of ships, as well as the inclusion of the new "soul reviving system", which allows players to recover their power-ups after losing a ship. The game uses digitized PCM voice samples, particularly when the conga music in one stage chants "Poko Poko", and in the beginning of each stage, in which a voice proclaims the name of the stage.</Plot>
+	<nPlayers>2</nPlayers>
+	<boxart1>http://images.launchbox-app.com/1692c151-3532-4ecf-ab0a-14194349d6ed.jpg</boxart1>
+	<snapshot1>http://images.launchbox-app.com/fe4b5b41-89da-465c-8f5a-625082bff6ef.png</snapshot1>
+	<Rating>4.25</Rating>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Shooter</Genre>
+	<Developer>Konami</Developer>
+	<Publisher>Konami</Publisher>
+</game>

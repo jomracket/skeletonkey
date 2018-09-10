@@ -1,0 +1,13 @@
+<Game>
+	<Name>The Legend of Prince Valiant</Name>
+	<ReleaseDate>1992-01-01T00:00:00-08:00</ReleaseDate>
+	<Plot>As Valiant the player must find Camelot and go on a quest for King Arthur to become a knight.  In most levels the player just has to move to the right side of the screen to reach the exit of each level. All the while enemies will spawn and attack Valiant. Aside from humans the game also offers its share of mythical creatures that have to be defeated including dragons. The player must also jump over pit traps and water or face death. The player can be hit multiple time and can regenerate health by finding power-ups. To combat the enemies the player can use Valiant's crossbow which shoots in a straight line.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/2877b82e-ec7b-45f2-8707-a61a17b0e4e2.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/35d41b37-1de7-4f9c-9fc9-5eb2967f61bd.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/ebea61ff-49f3-4448-b906-5f786e1f15bd.png</clearlogo1>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Action; Adventure</Genre>
+	<Developer>Ocean</Developer>
+	<Publisher>Ocean</Publisher>
+</game>

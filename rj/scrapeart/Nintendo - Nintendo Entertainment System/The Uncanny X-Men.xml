@@ -1,0 +1,13 @@
+<Game>
+	<Name>The Uncanny X-Men</Name>
+	<ReleaseDate>1989-12-01T00:00:00-08:00</ReleaseDate>
+	<Plot>The entire human race is in danger! Magneto and his band of evil mutants are on the rampage and nothing can stop them... except for you, professor Xavier and your uncanny X-Men. Cerebro, your advanced computer system, displays the different missions, all of which must be completed in order to accomplish your ultimate goal... the defeat of Magneto! Working with Wolverine, Cyclops, Storm, Colossus, Nightcrawler and Iceman, you select the best attack team for each battle based on their combination of superhuman skills. The X-Men must work together as a team in both the 1 player and 2 player games. The 2 player game features simultaneous control where cooperation and teamwork are essential... but be careful; once one of your super heroes is immobilized, they're out of action for the rest of the game. Good luck... humanity's fate is in your hands!</Plot>
+	<nPlayers>2</nPlayers>
+	<boxback1>http://images.launchbox-app.com/b6e1bd62-7ee1-4df1-a902-756b9e28d5b3.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/dc2ac26b-960e-4646-bf68-cc41520837c3.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/b0d34f92-4e47-414c-a0d1-4f0f17c3887a.png</clearlogo1>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Action</Genre>
+	<Developer>Atlus</Developer>
+	<Publisher>LJN</Publisher>
+</game>

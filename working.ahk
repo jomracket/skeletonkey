@@ -4924,7 +4924,6 @@ Loop,Parse,emuj,`n
 			}
 }
 runlist:= corelist . "|" . addemu
-	;;msgbox,,,ax`n%addemu%
 IniRead,emuj,Assignments.ini,OVERRIDES
 Loop,Parse,emuj,`n
 	{
@@ -4958,7 +4957,6 @@ Loop,Parse,emuj,`n
 				addemu.= emup1 . "|"
 			}
 	}
-	;;msgbox,,,aq`n%addemu%
 runlist:= corelist . "|" . addemu
 stringreplace,runlist,runlist,||,|,All
 stringreplace,runlist,runlist,||,|,All
@@ -9611,7 +9609,7 @@ if (raexefile = "NOT-FOUND.exe")
 return
 
 PREFERON:
-guicontrol,,LNCHPT,0
+guicontrol,enable,LNCHPT
 iniwrite, 0,Settings.ini,GLOBAL,Launcher_Priority		
 IniRead, aei,Assignments.set,OVERRIDES
 loop, parse, aei,`n
@@ -14477,6 +14475,7 @@ Loop, Parse, semu,|
 						guicontrol,,EMPRDDL,|%sysni%||%addemu%
 						runlist:= corelist . "|" . addemu
 						guicontrol,,LCORE,|%runlist%
+						msgbox,,,addemu=%addemu%
 						guicontrol,,EMPRDDL,|Emulators||%addemu%
 						guicontrol,,PLCORE,|%runlist%
 						guicontrol,,ARCCORES,|Select_a_Core||%runlist%
@@ -14935,10 +14934,10 @@ AppParamPop:
 gui,submit,nohide
 if (sysni = "")
 	{
-	
+	   return
 	}
 SB_SetText(" ...POPULATING...")
-iniread, appasi, Assignments.ini,ASSIGNMENTS,%sysni%	return
+iniread, appasi, Assignments.ini,ASSIGNMENTS,%sysni%
 
 if (appasi = "ERROR")
 	{
@@ -14946,7 +14945,6 @@ if (appasi = "ERROR")
 		ovfile= $Executable.exe
 		if (appasi <> "ERROR")
 			{
-				msgbox,,,1`nappasi=%appasi%`nsysni=%sysni%
 				iniwrite,"%appasi%",Assignments.ini,ASSIGNMENTS,%sysni%	
 			}
 	}
@@ -14957,7 +14955,6 @@ ifnotexist,%appasi%
 			ovfile= $Executable.exe
 			if (appasi <> "ERROR")
 				{
-					msgbox,,,2`nappasi=%appasi%`nsysni=%sysni%
 					iniwrite,"%appasi%",Assignments.ini,ASSIGNMENTS,%sysni%	
 				}	
 		}
@@ -22541,7 +22538,6 @@ if (subemuname <> "")
 								gosub, %EMUFNS%_GUI
 							}
 								catch {
-											;;msgbox,,,caught
 										
 										if (eguex = "")
 											{
@@ -58032,12 +58028,10 @@ Loop,Parse,emuj,`n
 									}
 								addemu .= "|" . emup2
 							}
-							;;msgbox,,,k
 					}
 				siv= %emup2%
 			}
 	}
-	;;msgbox,,,av`n%addemu%
 runlist:= corelist . "|" . addemu
 
 
@@ -58141,9 +58135,7 @@ Loop,Parse,emuj,`n
 				addemu.= emup1 . "|"
 			}
 }
-	;;msgbox,,,az`n%addemu%
 runlist:= corelist . "|" . addemu
-;;msgbox,,,kk`n%addemu%
 stringreplace,runlist,runlist,||,|,All
 stringreplace,runlist,runlist,||,|,All
 /*

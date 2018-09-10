@@ -1,0 +1,15 @@
+<Game>
+	<Name>Tiger Jenny</Name>
+	<ReleaseDate>2014-12-01T00:00:00-08:00</ReleaseDate>
+	<Plot>Tiger Jenny is a NES game set in the same universe as "Ittle Dew" it takes place a thousand years before the events of that game. Battle your way through the forests to seek vengeance on the Turnip Witch who dwells in her castle. Note that this game actually runs on the real hardware, it's not just an imitation. Therefore the release is in nes rom format so you'll need an emulator to play it.</Plot>
+	<nPlayers>1</nPlayers>
+	<banner1>http://images.launchbox-app.com/2f68d0dc-3d1e-428a-9a49-074a4f0f487e.png</banner1>
+	<clearlogo1>http://images.launchbox-app.com/35a35cda-100f-43f5-b93c-ca9235e9c2a2.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/52aa77cc-831b-4c8d-8c18-e088d0106b4e.jpg</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/b7d474c3-7d7c-4419-93fe-1f242ccbaaa7.jpg</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/ba2eb3ce-20c0-4672-86e1-945d85957678.jpg</snapshot3>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Platform</Genre>
+	<Developer>retrostark</Developer>
+	<Publisher>819kids</Publisher>
+</game>

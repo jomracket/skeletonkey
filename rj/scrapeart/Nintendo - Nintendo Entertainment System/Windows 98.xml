@@ -1,0 +1,14 @@
+<Game>
+	<Name>Windows 98</Name>
+	<ReleaseDate>2002-08-18T00:00:00-07:00</ReleaseDate>
+	<Plot>Windows 98 is a bootleg port of Microsoft's Windows 98 (codenamed Memphis while in development) operating system for the Famicom, made by Chinese developer Bei Tongfang , most likely released sometime in the early 2000s. The conversion is somewhat accurate on a superficial level, and seems to exist to demonstrate what features the real Windows 98 has as oddly, none of the programs actually function properly. Even basic features such as the calculator and the volume slider do not function, (the latter due to the complete lack of sound) and unlike most bootleg OSes developed for the Famicom none of the Family BASIC programs are included.</Plot>
+	<nPlayers>1</nPlayers>
+	<VideoURL>jnFZEU5aEVA</VideoURL>
+	<snapshot1>http://images.launchbox-app.com/9b9309ca-9d8d-4b09-b928-67d3a7023d08.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/7d08fae5-426e-46d2-952a-18aeebeb430a.png</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/6bb7ebdc-f0d0-4d1a-b779-9cfb78c4b405.jpg</snapshot3>
+	<WikipediaURL>http://bootleggames.wikia.com/wiki/Windows_98</WikipediaURL>
+	<ESRB>Not Rated</ESRB>
+	<Developer>Bei Tongfang</Developer>
+	<Publisher>Bei Tongfang</Publisher>
+</game>

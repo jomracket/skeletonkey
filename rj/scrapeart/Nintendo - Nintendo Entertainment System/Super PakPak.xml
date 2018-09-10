@@ -1,0 +1,14 @@
+<Game>
+	<Name>Super PakPak</Name>
+	<ReleaseDate>2010-09-04T00:00:00-07:00</ReleaseDate>
+	<Plot>Super PakPak is a 2-4 player Spacewar!/Thrust/Gravity force style game for Nintendo Entertainment System and Famicom. It was programmed in a few weeks in 2010, and was submitted as an official entry for the Assembly Summer 2010 Game Development competition (Ranked 7th out of 19) in Helsinki, Finland.</Plot>
+	<nPlayers>4</nPlayers>
+	<VideoURL>o5kFEW5MqIM</VideoURL>
+	<clearlogo1>http://images.launchbox-app.com/e3c49168-585c-446b-bedf-0c8fee83edc1.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/0a4ac1d8-d605-445d-a873-a97963a13859.jpg</snapshot1>
+	<Rating>2.5</Rating>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Shooter</Genre>
+	<Developer>AOH Games</Developer>
+	<Publisher>AOH Games</Publisher>
+</game>
