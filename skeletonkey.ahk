@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-10 2:46 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-18 3:30 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-09-10 2:46 PM
-VERSION= v0.99.58.11
+RELEASE= 2018-09-18 3:30 PM
+VERSION= v0.99.58.17
 RASTABLE= 1.7.4
 #Include tf.ahk
 #Include lbex.ahk
@@ -384,7 +384,7 @@ ifNotExist, sys.ini
 	}
 ifNotExist, cores.ini
 	{
-	gosub resetCORES
+		gosub resetCORES
 	}
 if (INITIAL = 1)
 	{
@@ -2176,7 +2176,7 @@ Gui, Add, Text, x288 y282 h17 vROMDTXT, Set ROM Directory
 Gui, Add, Edit, x285 y304 w171 h53 vROMDEDT Multi ReadOnly,
 
 ;;;;;;;;;;;;;;;;;;;;  RETROARCH UI  ;;;;;;;;;;;;;;;;;
-Gui, Add, Button, x473 y57 w43 h23 vSKRAEXE gRAEXE hidden, SET
+Gui, Add, Button, x473 y57 w43 h23 vSKRAEXE gRAEXEP hidden, SET
 Gui, Add, Text, x515 y42 w109 h13 vSKRAXETXT hidden, Retroarch Location
 Gui, Add, Edit, x516 y58 w203 h40 Multi ReadOnly vSKRADISP hidden, %RAEXELOC%
 Gui, Add, Text, x519 y123 vSKIMPRATXT hidden, Import Retroarch.cfg
@@ -6415,6 +6415,28 @@ if ( (A_GuiX >= eRegionX) && (A_GuiX <= eRegionX+eRegionW) && (A_GuiY >= eRegion
 ROMDRP= 
 return
 
+SHA1GET:
+ApndSHA= % FileSHA1( CrCFLN )
+FileSHA1(sFile="", cSz=4) {
+ cSz := (cSz<0||cSz>8) ? 2**22 : 2**(18+cSz), VarSetCapacity( Buffer,cSz,0 ) ; 09-Oct-2012
+ hFil := DllCall( "CreateFile", Str,sFile,UInt,0x80000000, Int,3,Int,0,Int,3,Int,0,Int,0 )
+ IfLess,hFil,1, Return,hFil
+ hMod := DllCall( "LoadLibrary", Str,"advapi32.dll" )
+ DllCall( "GetFileSizeEx", UInt,hFil, UInt,&Buffer ),    fSz := NumGet( Buffer,0,"Int64" )
+ VarSetCapacity( SHA_CTX,136,0 ),  DllCall( "advapi32\A_SHAInit", UInt,&SHA_CTX )
+ Loop % ( fSz//cSz + !!Mod( fSz,cSz ) )
+   DllCall( "ReadFile", UInt,hFil, UInt,&Buffer, UInt,cSz, UIntP,bytesRead, UInt,0 )
+ , DllCall( "advapi32\A_SHAUpdate", UInt,&SHA_CTX, UInt,&Buffer, UInt,bytesRead )
+ DllCall( "advapi32\A_SHAFinal", UInt,&SHA_CTX, UInt,&SHA_CTX + 116 )
+ DllCall( "CloseHandle", UInt,hFil )
+ Loop % StrLen( Hex:="123456789ABCDEF0" ) + 4
+  N := NumGet( SHA_CTX,115+A_Index,"Char"), SHA1 .= SubStr(Hex,N>>4,1) SubStr(Hex,N&15,1)
+Return SHA1, DllCall( "FreeLibrary", UInt,hMod )
+}
+return
+
+
+
 CRC32GET:
 ApndCRC= % FileCRC32( CrCFLN )
 FileCRC32(sFile="",cSz=4 ) { 
@@ -10457,7 +10479,9 @@ return
 
 newcrc:
 if  (crtmp2 = ApndCRC)
-		nocoredwn= 1
+		{
+			nocoredwn= 1
+		}
 SB_SetText(" " dwncore " " " is current ")
 GuiControl, Enable, AVAIL
 GuiControl, Enable, UPDBTN
@@ -11872,7 +11896,7 @@ Loop, Parse,UrlIndex,`n`r
 						URLFILE= %repoloc%/%urloc1%/raw/master/%urloc2%
 					}
 				sb_settext(" " URLFILE " ")	
-				save=%urloc2%
+				save=%cacheloc%\%urloc2%
 				if (selfnd = "Daemon_Tools")
 					{
 						save= %cacheloc%
@@ -13637,8 +13661,8 @@ ifinstring,SLCTCORES,stable|
 Loop, Parse, SLCTCORES,|
 	{
 		URLFILE= %BLDBOT%/latest/%A_LoopField%
-		save= %libretroDirectory%\%A_LoopField%
-		saveloc= %libretroDirectory%
+		save= %cacheloc%\%A_LoopField%
+		saveloc= %cacheloc%
 		dwncore= %A_LoopField%
 		crdll1= 
 		crdll2= 
@@ -13978,10 +14002,6 @@ ifinstring,racht,NOT-FOUND
 	{
 		iniwrite, "%raexeloc%\%raexefile%",Apps.ini,EMULATORS,retroarch
 	}
-if (KARC= 0)
-	{
-		filedelete, %save%
-	}
 iniread,racht,Assignments.ini,ASSIGNMENTS,retroarch
 if (racht = "ERROR")
 	{
@@ -14004,22 +14024,22 @@ SB_SetText(" " save " " "extracting")
 guicontrolget,BCKCORE,,BCKCORE
 if (BCKCORE = 1)
 	{
-		ifexist,%saveloc%\%coredll%
+		ifexist,%libretroDirectory%\%coredll%
 			{
 				bak= .bak
-				ifnotexist,%saveloc%\%coredll%%bak%
+				ifnotexist,%libretroDirectory%\%coredll%%bak%
 					{
 						bak= .orig
 					}
-				FileCopy,%saveloc%\%coredll%,%saveloc%\%coredll%%bak%,1
+				FileCopy,%libretroDirectory%\%coredll%,%libretroDirectory%\%coredll%%bak%,1
 			}
-			}
-runwait, %comspec% cmd /c "7za.exe x -y "%save%" -O"%savepth%" ", ,hide
+	}
+runwait, %comspec% cmd /c "7za.exe x -y "%save%" -O"%libretroDirectory%" ", ,hide
 SB_SetText(" " save " " "was extracted")
 if (KARC= 0)
-{
-filedelete, %save%
-}
+	{
+		filedelete, %save%
+	}
 return
 
 XTRACTEMU:
@@ -17443,6 +17463,10 @@ Loop,Parse,SysEmuSet,`n`r
 				break	
 			}
 	}
+if oil is digit
+	{
+		iniread,prioco,Assignments.ini,ASSIGNMENTS,%ARCSYS%
+	}
 if (selctdcore <> "")
 	{
 		coreselv= %fia%
@@ -20154,7 +20178,6 @@ if (OVDCHK = 1)
 romf:= save
 URLFILE= %ArcSite%/%sysurl%%rompth%
 gosub, GetCoreFromSys
-
 if (SRCHRSLT <> "")
 	{
 		if (IPADR <> "")
@@ -28383,7 +28406,7 @@ if (PYEXIST = "")
 		pylinkd= show
 	}
 guicontrol,%pylinkd%,FELNKB
-guicontrol, ,FELNKB,<a href="https://www.python.org/downloads/">Python is needed to download videos.</a>
+guicontrol, ,FELNKB,<a href="https://www.python.org/downloads/">Python is needed to download most videos.</a>
 guicontrol,move,FELNKB,x259 y473 w228 h13
 
 guicontrol,hide,FELNKA
@@ -31169,7 +31192,7 @@ Gui,ListView,FELVA
 LV_Delete()
 if (PYEXIST = "")
 	{
-		guicontrol,disable,FECHKD
+		;;guicontrol,disable,FECHKD
 	}
 return
 
@@ -57583,7 +57606,7 @@ if (SKFILTSUP = 1)
 return
 
 
-RAEXE:
+RAEXEP:
 if (INITIAL > 1)
 	{
 		SplashTextOff
@@ -57591,6 +57614,34 @@ if (INITIAL > 1)
 	}
 RaExePath=	
 CORETABNAME= |Cores
+raexeloctmp=
+RaExePathtmp= 
+raexeloctmp=
+FileSelectFolder, raexeloctmp,,3,Select the retroarch directory
+if (raexeloctmp <> "")
+	{
+		Loop, %raexeloctmp%\retroarch.exe
+			{
+				RaExePath= %A_LoopFileFullPath%
+				raexeloc= %A_LoopFileDir%
+				RaExeFile= %A_LoopFileName%
+				RaExe= %RaExeFile%				
+				iniwrite, "%raexeloc%", Settings.ini,GLOBAL,retroarch_location
+				iniwrite, "%RaExePath%", Apps.ini,EMULATORS,retroarch
+				iniwrite, "%RaExeFile%", Settings.ini,GLOBAL,retroarch_executable
+				guicontrol,,SKRADISP,%raexeloc%
+				SB_SetText("Initializing retroarch interface")
+				gosub, RAInit
+				gosub, resetOVR
+				gosub, resetCoreAssets
+				gosub, PlaylistInit
+				gosub, resetPlaylists
+				gosub, ShaderDBInit
+				gosub, CoreOptInit
+				return
+			}
+	}
+RAEXE:
 FileSelectFile, RaExePath, 3, , Select a retroarch.exe, retroarch exe(*.exe)
 if (RaExePath = "")
 	{
@@ -57899,7 +57950,7 @@ return
 	
 DLLCRCreset:
 FileDelete,corecrc.ini
-Loop, Read, rj\cores.ini
+Loop, Read, cores.ini
 	{
 		ApndCRC= 
 		gosub, CRC32GET

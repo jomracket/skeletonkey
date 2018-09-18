@@ -915,10 +915,8 @@ FileInstall,7za.exe,7za.exe,1
 FileInstall,any2ico.exe,any2ico.exe,1
 FileInstall,BSL.exe,BSL.exe,1
 FileInstall,chdman.exe,chdman.exe,1
-FileInstall,crc.exe,crc.exe,1
 FileInstall,emuexe.exe,emuexe.exe,1
 FileInstall,fart.exe,fart.exe,1
-FileInstall,fciv.exe,fciv.exe,1
 FileInstall,PSFTP.EXE,PSFTP.EXE,1
 FileInstall,rcedit32.exe,rcedit32.exe,1
 FileInstall,rcedit64.exe,rcedit64.exe,1
