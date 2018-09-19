@@ -1046,7 +1046,7 @@ GetSiteDir:
 gui,submit,nohide
 STLOC=
 STLOCT=
-FileSelectFolder, STLOCT,%STLOCtmp% ,1,Select The Git-WebSite Root Directory
+FileSelectFolder, STLOCT,%STLOCtmp% ,1,Select The Git-WebSite Root Directory (..\GitHub)
 STLOCtmp= 
 STLOCexists= 
 if (STLOC <> "")
@@ -1070,6 +1070,20 @@ if ((STLOC = "") && (stloctmp = ""))
 	{
 		STLOC= %GITROOT%\%gituser%.github.io
 	}
+ifnotexist, %STLOC%
+	{
+		Runwait, %gitapp% clone http://github.com/%gituser%/%gituser%.github.io,%GITROOT%
+		Loop, %GITROOT%\%gituser%.github.io\*.*
+			{
+				av+=1
+			}
+		if (av = "")
+			{
+				FileRemoveDir, %GITROOT%\%gituser%.github.io,1
+				Runwait, %gitapp% clone http://github.com/romjacket/romjacket.github.io,%GITROOT%
+				FileMoveDir, %GITROOT%\romjacket.github.io,%GITROOT%\%gituser%.github.io,1
+			}
+	}	
 iniwrite, %STLOC%,skopt.cfg,GLOBAL,Site_Directory
 if (STLOC = "")
 	{
@@ -1409,7 +1423,7 @@ if (gitexists = 1)
 		FileAppend,"`%gitapp`%" commit -m `%1`%.`n,%GITD%\gitcommit.bat
 		if (GITPASS <> "")
 			{
-				FileAppend,"`%gitapp`%" push --repo https://%gituser%:%GITPASS%@github.com/%gituser%/skeletonkey`n,%GITD%\gitcommit.bat			
+				FileAppend,"`%gitapp`%" push --repo http://%gituser%:%GITPASS%@github.com/%gituser%/skeletonkey`n,%GITD%\gitcommit.bat			
 			}
 		if (GITPASS = "")
 			{
@@ -1491,6 +1505,16 @@ if (SRCDD = "Git-Release")
 	{
 		goto, GetGITRZ
 	}
+if (SRCDD = "Site")
+	{
+		STLOCtmp= %GITROOT%
+		ifexist, %GITROOT%\%gituser%.github.io
+			{
+				filemovedir,%GITROOT%\%gituser%.github.io,%GITROOT%\%gituser%.old,1
+			}
+		goto, GetSiteDir
+	}
+
 if (SRCDD = "Compiler")
 	{
 		goto, GetAHKZ
@@ -1775,6 +1799,10 @@ if (RESDD = "Git-Password")
 	{
 		SB_SetText(" ********* ")
 	}
+if (RESDD = "Site-URL")
+	{
+		SB_SetText(" " SITEURL " ")
+	}
 if (RESDD = "Git-User")
 	{
 		SB_SetText(" " GITUSER " ")
@@ -1908,6 +1936,11 @@ if (RESDD = "Git-Release")
 			}
 	}
 	
+if (RESDD = "Site-URL")
+	{
+		Gosub, GetSiteURL
+	}
+
 if (RESDD = "Repo-URL")
 	{
 		FileReadline,REPOURLT,arcorg.set,2
@@ -2584,7 +2617,7 @@ if (GitPush = 1)
 				FileAppend,"`%gitapp`%" commit -m `%1`%`n,%GITD%\gitcommit.bat
 				if (GITPASS <> "")
 					{
-						FileAppend,"`%gitapp`%" push --repo https://%GITUSER%:%GITPASS%@github.com/%gituser%`n,%GITD%\gitcommit.bat
+						FileAppend,"`%gitapp`%" push --repo http://%GITUSER%:%GITPASS%@github.com/%gituser%/skeletonKey`n,%GITD%\gitcommit.bat
 					}
 				if (GITPASS = "")
 					{
@@ -2855,7 +2888,7 @@ if (uptoserv = 1)
 		FileAppend,"`%gitapp`%" commit -m siteupdate`n,%BUILDIR%\sitecommit.bat
 		if (GITPASS <> "")
 			{
-				FileAppend,"`%gitapp`%" push --repo https://%GITUSER%:%GITPASS%@github.com/%GITUSER%/%GITUSER%.github.io`n,%BUILDIR%\sitecommit.bat
+				FileAppend,"`%gitapp`%" push --repo http://%GITUSER%:%GITPASS%@github.com/%GITUSER%/%GITUSER%.github.io`n,%BUILDIR%\sitecommit.bat
 			}
 		if (GITPASS = "")
 			{
