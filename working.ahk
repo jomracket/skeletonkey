@@ -6546,6 +6546,12 @@ if (RJSYSTEMF = "")
 			}
 		return
 	}
+stringright,efi,RJSYSTEMF,2	
+if (efi = ":\")
+	{
+		RJSYSDRV= %RJSYSTEMF%
+		RJSYSTEMF= %RJSYSTEMF%Console
+	}
 splitpath,RJSYSTEMF,pthnm
 if (pthnm = A_Username)
 	{
@@ -6595,6 +6601,18 @@ Loop,Parse,SysLLst,`n
 	}
 if (nask = "")
 	{
+		if (efi = ":\")
+			{
+				Msgbox,8196,Confirm,Create a Console directory?,4
+				ifmsgbox,no
+					{
+						RJSYSTEMF= %RJSYSDRV%
+					}
+				ifmsgbox,cancel
+					{
+						goto, SETJKD
+					}
+			}
 		Msgbox,8196,Confirm,You have selected ''%RJSYSTEMF%''`nAre you sure you would like to use this directory?,4
 		ifmsgbox,no
 			{
@@ -6610,6 +6628,28 @@ if (nask = "")
 		nfemu= 1
 		IniWrite, "%RJSYSTEMS%",Settings.ini,GLOBAL,systems_directory
 	}
+ifnotexist, %RJSYSTEMF%
+	{
+		filecreatedir,%RJSYSTEMF%
+	}
+splitpath,RJSYSTEMF,RJHHS
+if (RJHHS <> "Console")
+	{
+		Msgbox,8196,Confirm,Create a Console directory?,4
+		ifmsgbox,yes
+			{
+				RJSYSTEMF= %RJSYSTEMF%\Console
+				ifnotexist,%RJSYSTEMF%
+					{
+						filecreatedir,%RJSYSTEMF%
+					}
+			}
+		ifmsgbox,cancel
+			{
+				goto, SETJKD
+			}
+	}
+	
 Msgbox,8196,Fuzzy Rename,Would you like to rename identified system directories to supported names?`nSelecting 'no' will simply link these systems.,4
 ifmsgbox,cancel
 	{
@@ -6785,49 +6825,87 @@ if (RJEMUF = "")
 			}
 		return
 	}
-Msgbox,8196,Confirm,You have selected ''%RJEMUF%''`nAre you sure?,4
-ifmsgbox,no
+stringright,efi,RJEMUF,2	
+if (efi = ":\")
 	{
-		goto, SETEMUD
+		RJSDRV= %RJEMUF%
+		RJEMUF= %RJEMUF%Emulators
+		Msgbox,8196,Confirm,Create an Emulator directory?,4
+		ifmsgbox,no
+			{
+				RJEMUF= %RJSDRV%
+			}
+		ifmsgbox,cancel
+			{
+				goto, SETEMUD
+			}
+	}	
+ifnotexist,%RJEMUF%	
+	{
+		filecreatedir,%RJEMUF%
+	}
+splitpath,RJEMUF,RJHHS
+if (RJHHS <> "Emulators")
+	{
+		Msgbox,8196,Confirm,Create an Emulator directory?,4
+		ifmsgbox,yes
+			{
+				RJEMUF= %RJEMUF%\Emulators
+				ifnotexist,%RJEMUF%
+					{
+						filecreatedir,%RJEMUF%
+					}
+			}
+		ifmsgbox,cancel
+			{
+				goto, SETEMUD
+			}
 	}
 splitpath,RJEMUF,usremum
 if (usremum = A_Username)
 	{
-			Msgbox,3,User Directory Root?,Emulators Directory set to`n " %RJEMUF%\Emulators "`n      Is this okay?
-			ifmsgbox,yes
-				{
-					RJEMUF=%RJEMUF%\Emulators
-					ifnotexist, %RJEMUF%
-						{
-							FileCreateDir,%RJEMUF%
-						}
-				}
-			ifmsgbox,no
-				{
-					if (INITIAL = 1)
-						{
-							anii= SETEMUD
-							if (nfemu = 1)
-								{
-									anii= CNFUR
-								}
-							nfemu= 	
-							goto, %anii%
-						}
-					FileDelete,Settings.ini
-					Run, %comspec% cmd /c taskkill /f /im skeletonKey.exe,,hide
-					ExitApp
-					return
-				}
-			ifmsgbox,cancel
-				{
-					if (INITIAL = 1)
-						{
-							goto, SETEMUD
-						}
-					return
-				}
-			
+		Msgbox,8196,Confirm,Create an Emulators directory?,4
+		ifmsgbox,Yes
+			{
+				RJEMUF= %RJEMUF%\Emulators
+			}
+		ifmsgbox,cancel
+			{
+				goto, SETEMUD
+			}
+		Msgbox,3,User Directory Root?,Emulators Directory set to`n " %RJEMUF% "`n      Is this okay?
+		ifmsgbox,yes
+			{
+				ifnotexist, %RJEMUF%
+					{
+						FileCreateDir,%RJEMUF%
+					}
+			}
+		ifmsgbox,no
+			{
+				if (INITIAL = 1)
+					{
+						anii= SETEMUD
+						if (nfemu = 1)
+							{
+								anii= CNFUR
+							}
+						nfemu= 	
+						goto, %anii%
+					}
+				FileDelete,Settings.ini
+				Run, %comspec% cmd /c taskkill /f /im skeletonKey.exe,,hide
+				ExitApp
+				return
+			}
+		ifmsgbox,cancel
+			{
+				if (INITIAL = 1)
+					{
+						goto, SETEMUD
+					}
+				return
+			}
 	}
 
 CNFUR:	

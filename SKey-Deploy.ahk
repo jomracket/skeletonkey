@@ -40,12 +40,15 @@ IfExist, %A_MyDocuments%\skeletonKey
 	{
 		skeltmp= %A_MyDocuments%\skeletonKey
 	}
-gitrttmp= 
+gitrttmp= %GITROOT%
 IfExist, %A_MyDocuments%\Github
 	{
 		gitrttmp= %A_MyDocuments%\Github
 	}
-gittmp= 
+ifexist,%GITROOT%\skeletonkey
+	{
+		gittmp= %GITROOT%\skeletonkey
+	}
 IfExist, %A_MyDocuments%\Github\skeletonKey
 	{
 		gittmp= %A_MyDocuments%\Github\skeletonKey
@@ -436,7 +439,7 @@ ifnotexist,%getversf%
 		save= ORIGHTML.html
 		if (progb = "")
 			{
-				Progress, 0,,,index.html
+				Progress, 0,,,....Loading....
 			}
 		URLFILE= http://romjacket.github.io/index.html
 		DownloadFile(URLFILE, save, True, True)
@@ -539,7 +542,7 @@ Gui, Add, Text,x164 y5, Location
 Gui, Add, DropDownList, x8 y2 w100 vSRCDD gSrcDD, Github||Git.exe|Git-Release|Source|Compiler|Site|Deployment|Build|NSIS
 Gui, Add, Button, x109 y2 w52 h21 vSELDIR gSelDir, Select
 Gui, Add, Button, x109 y26 w52 h21 vRESGET gRESGET, Clone
-Gui Add, DropDownList,x331 y2 w92 vResDD gResDD, Dev-Build||Portable-Build|Stable-Build|Deployer|Site-URL|Update-URL|Shader-URL|Repo-URL|Internet-IP-URL|Git-User|Git-Password|Git-URL
+Gui Add, DropDownList,x331 y2 w92 vResDD gResDD, Dev-Build||Portable-Build|Stable-Build|Deployer|Site-URL|Update-URL|Shader-URL|Repo-URL|Internet-IP-URL|Git-User|Git-Password|Git-URL|All
 Gui Add, Button, x425 y2 w52 h21 vResB gResB, Reset
 
 Gui Add, Text,x4 y125, %ARCH%-bit
@@ -1489,11 +1492,9 @@ gosub, GetGit
 return
 
 RESGET:
-guicontrol,,CLONE,GET
 guicontrolget,SRCDD,,SRCDD
 if (SRCDD = "Github")
 	{
-		guicontrol,,CLONE,CLONE
 		goto, Clone
 	}
 if (SRCDD = "Git.exe")
@@ -1540,7 +1541,7 @@ return
 
 Clone:
 gui, submit, nohide
-guicontrol,disable,CLONE
+guicontrol,disable,RESGET
 guicontrol,disable,SRCDD
 guicontrol,disable,SELDIR
 guicontrol,disable,RESDD
@@ -1580,6 +1581,7 @@ SB_SetText("Complete")
 
 guicontrol,enable,SRCDD
 guicontrol,enable,SELDIR
+guicontrol,enable,RESGET
 guicontrol,enable,RESDD
 guicontrol,enable,RESB
 return
@@ -1707,8 +1709,7 @@ return
 SrcDD:
 gui,submit,nohide
 guicontrolget,SRCDD,,SRCDD
-guicontrol, enable, CLONE
-guicontrol, hide, CLONE
+guicontrol,,RESGET,GET
 if (SRCDD = "Compiler")
 	{
 		SB_SetText(" " AHKDIR " ")
@@ -1727,7 +1728,7 @@ if (SRCDD = "Source")
 	}
 if (SRCDD = "Github")
 	{
-		guicontrol, show, CLONE
+		guicontrol,,RESGET,CLONE
 		SB_SetText(" " GITD " ")
 	}
 if (SRCDD = "NSIS")
@@ -1740,6 +1741,7 @@ if (SRCDD = "Git-Release")
 	}
 if (SRCDD = "Site")
 	{
+		guicontrol,,RESGET,CLONE
 		SB_SetText(" " SITEDIR " ")
 	}
 	
@@ -1977,6 +1979,16 @@ if (RESDD = "Git-User")
 if (RESDD = "Git-Password")
 	{
 		GITPASS= 
+		Gosub, GetGPass
+	}
+if (RESDD = "All")
+	{
+		Msgbox,3,Confirm Reset,Are you sure you wish to reset the SKey-Deploy tool?
+			ifmsgbox,yes
+				{
+					filedelete,skopt.cfg
+					exitapp
+				}
 		Gosub, GetGPass
 	}
 return
