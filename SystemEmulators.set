@@ -297,8 +297,8 @@ Rowtron - Television Computer System|MAME|:mame_libretro.dll
 SAM SKB VM - Partner-01.01|MAME|:mame_libretro.dll
 SNK - Neo Geo CD|NeoRaine|neosdl|ncdz|xe|MAME|:mame_libretro.dll
 SNK - Neo Geo MVS|FinalBurnAlpha|xe|WinKawaks|aes4all|nebula|ngae|MAME|:fbalpha2012_neogeo_libretro.dll|fbalpha_libretro.dll
-SNK - Neo Geo Pocket Color|Mednafen|koyote|race|neopopcott|neopop|MAME|:medafen_ngp_libretro.dll
-SNK - Neo Geo Pocket|Mednafen|neopop|koyote|neopopcott|xe|vdmgr|MAME|:medafen_ngp_libretro.dll
+SNK - Neo Geo Pocket Color|Mednafen|koyote|race|neopopcott|neopop|MAME|:mednafen_ngp_libretro.dll
+SNK - Neo Geo Pocket|Mednafen|neopop|koyote|neopopcott|xe|vdmgr|MAME|:mednafen_ngp_libretro.dll
 Sage Technology - Sage II|MAME|:mame_libretro.dll
 Sammy - Atomiswave|Demul
 Samsung - SPC-1000|MAME|:mame_libretro.dll

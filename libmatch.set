@@ -44,8 +44,8 @@ mame2014_libretro.dll|MAME - Arcade
 mame2014_libretro.dll|MAME - System
 mame_libretro.dll|MAME - Arcade
 mame_libretro.dll|MAME - System
-medafen_ngp_libretro.dll|SNK - Neo Geo Pocket Color
-medafen_ngp_libretro.dll|SNK - Neo Geo Pocket
+mednafen_ngp_libretro.dll|SNK - Neo Geo Pocket Color
+mednafen_ngp_libretro.dll|SNK - Neo Geo Pocket
 mednafen_gba_libretro.dll|Nintendo - Game Boy Advance
 mednafen_gba_libretro.dll|Nintendo - Game Boy Advance(e-Cards)
 mednafen_lynx_libretro.dll|Atari - Lynx
@@ -79,7 +79,10 @@ px68k_libretro.dll|Sharp - X68000
 quicknes_libretro.dll|Nintendo - Famicom Disk System
 quicknes_libretro.dll|Nintendo - Nintendo Entertainment System
 redream_libretro.dll|Sega - Dreamcast
+reicast_oit_libretro.dll|Sega - Dreamcast
 reicast_libretro.dll|Sega - Dreamcast
+reicast_libretro.dll|Sega - NAOMI
+reicast_oit_libretro.dll|Sega - NAOMI
 scummvm_libretro.dll|ScummVM
 snes9x2002_libretro.dll|Nintendo - Super Nintendo Entertainment System
 snes9x2005_libretro.dll|Nintendo - Super Nintendo Entertainment System

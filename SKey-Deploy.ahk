@@ -45,6 +45,11 @@ IfExist, %A_MyDocuments%\Github
 	{
 		gitrttmp= %A_MyDocuments%\Github
 	}
+gittmp= %A_MyDocuments%
+ifexist, %GITROOT%
+	{
+		gittmp= %GITROOT%
+	}
 ifexist,%GITROOT%\skeletonkey
 	{
 		gittmp= %GITROOT%\skeletonkey
@@ -53,10 +58,17 @@ IfExist, %A_MyDocuments%\Github\skeletonKey
 	{
 		gittmp= %A_MyDocuments%\Github\skeletonKey
 	}
-comptmp= 
+ahktmp= %A_MyDocuments%	
+comptmp= %A_MyDocuments%
 IfExist, %A_ProgramFiles%\AutoHotkey\Compiler
 	{
+		ahktmp= %A_ProgramFiles%\AutoHotkey\Compiler
 		comptmp= %A_ProgramFiles%\AutoHotkey\Compiler
+	}
+IfExist, %A_MyDocuments%\AutoHotkey\Compiler
+	{
+		ahktmp= %A_MyDocuments%\AutoHotkey\Compiler
+		comptmp= %A_MyDocuments%\AutoHotkey\Compiler
 	}
 depltmp= 
 IfExist, %A_MyDocuments%\Github\skeletonkey.deploy
@@ -68,7 +80,20 @@ IfExist, %A_WorkingDir%\skdeploy.set
 	{
 		bldtmp= %A_WorkingDir%
 	}
+gitapdtmp= %a_programfiles%\git\bin
+ifnotexist, %gitapptmp%
+	{
+		gitapdtmp= %A_MyDocuments%
+	}
+nsitmp= %A_MyDocuments%\NSIS
+nstmp= %A_MyDocuments%\NSIS\makensis.exe
 
+FileReadline,REPOURLX,arcorg.set,2
+if (REPOURLX <> "")
+	{
+		REPORULT= %REPOURLX%
+	}
+			
 FormatTime, date, YYYY_MM_DD, yyyy-MM-dd
 FormatTime, TimeString,,Time
 rntp= hide
@@ -92,11 +117,19 @@ IfNotExist, skopt.cfg
 		INIT= 1
 		gosub, SelDir
 	}
+	
 Loop, Read, skopt.cfg
 	{
 		curvl1= 
 		curvl2= 
 		stringsplit, curvl, A_LoopReadLine,=
+		if (curvl1 = "Git_Root")
+				{
+					if (curvl2 <> "")
+						{
+							GITROOT= %curvl2%
+						}
+				}
 		if (curvl1 = "Build_Directory")
 			{
 				if (curvl2 <> "")
@@ -132,100 +165,82 @@ Loop, Read, skopt.cfg
 						DEPL= %curvl2%
 					}
 			}
-	if (curvl1 = "NSIS")
-			{
-				if (curvl2 <> "")
+		if (curvl1 = "NSIS")
+				{
+					if (curvl2 <> "")
+						{
+							NSIS= %curvl2%
+						}
+				}
+		if (curvl1 = "Git_app")
+				{
+					if (curvl2 <> "")
+						{
+							GITAPP= %curvl2%
+							splitpath,GITAPP,,GITAPPT
+						}
+				}
+		if (curvl1 = "Project_Directory")
 					{
-						NSIS= %curvl2%
+						if (curvl2 <> "")
+							{
+								GITD= %curvl2%
+							}
 					}
-			}
-	if (curvl1 = "Git_Root")
-			{
-				if (curvl2 <> "")
+		if (curvl1 = "Site_URL")
 					{
-						GITROOT= %curvl2%
+						if (curvl2 <> "")
+							{
+								SITEURL= %curvl2%
+							}
 					}
-			}
-	if (curvl1 = "Git_app")
-			{
-				if (curvl2 <> "")
+		if (curvl1 = "Site_Directory")
 					{
-						GITAPP= %curvl2%
-						splitpath,GITAPP,,GITAPPT
+						if (curvl2 <> "")
+							{
+								SITEDIR= %curvl2%
+							}
 					}
-			}
-if (curvl1 = "Git_Directory")
-			{
-				if (curvl2 <> "")
-					{
-						GITD= %curvl2%
-					}
-			}
-if (curvl1 = "Site_URL")
-			{
-				if (curvl2 <> "")
-					{
-						SITEURL= %curvl2%
-					}
-			}
-if (curvl1 = "Site_Directory")
-			{
-				if (curvl2 <> "")
-					{
-						SITEDIR= %curvl2%
-					}
-			}
-
-	if (curvl1 = "shader_url")
-			{
-				if (curvl2 <> "")
-					{
-						SHDRPURL= %curvl2%
-					}
-			}
-	
-	if (curvl1 = "net_ip")
-			{
-				if (curvl2 <> "")
-					{
-						GETIPADR= %curvl2%
-					}
-			}
-	
-	if (curvl1 = "lobby_url")
-			{
-				if (curvl2 <> "")
-					{
-						NLOB= %curvl2%
-					}
-			}
-	
-	if (curvl1 = "repository_url")
-			{
-				if (curvl2 <> "")
-					{
-						REPOURL= %curvl2%
-					}
-			}
-	if (curvl1 = "update_url")
-			{
-				if (curvl2 <> "")
-					{
-						UPDTURL= %curvl2%
-					}
-			}
+		if (curvl1 = "shader_url")
+				{
+					if (curvl2 <> "")
+						{
+							SHDRPURL= %curvl2%
+						}
+				}
+		if (curvl1 = "net_ip")
+				{
+					if (curvl2 <> "")
+						{
+							GETIPADR= %curvl2%
+						}
+				}
+		if (curvl1 = "lobby_url")
+				{
+					if (curvl2 <> "")
+						{
+							NLOB= %curvl2%
+						}
+				}
+		if (curvl1 = "repository_url")
+				{
+					if (curvl2 <> "")
+						{
+							REPOURL= %curvl2%
+						}
+				}
+		if (curvl1 = "update_url")
+				{
+					if (curvl2 <> "")
+						{
+							UPDTURL= %curvl2%
+						}
+				}
 		if (curvl1 = "git_url")
 				{
 					if (curvl2 <> "")
 						{
 							GITSRC= %curvl2%
-						}
-				}
-		if (curvl1 = "git_rls")
-				{
-					if (curvl2 <> "")
-						{
-							GITRLS= %curvl2%
 						}
 				}
 		if (curvl1 = "git_username")
@@ -235,14 +250,6 @@ if (curvl1 = "Site_Directory")
 							GITUSER= %curvl2%
 						}
 				}
-		if (curvl1 = "git_token")
-				{
-					if (curvl2 <> "")
-						{
-							GITPAT= %curvl2%
-						}
-				}
-
 		if (curvl1 = "git_password")
 				{
 					if (curvl2 <> "")
@@ -250,9 +257,30 @@ if (curvl1 = "Site_Directory")
 							GITPASS= %curvl2%
 						}
 				}
+		if (curvl1 = "git_token")
+				{
+					if (curvl2 <> "")
+						{
+							GITPAT= %curvl2%
+						}
+				}
+		if (curvl1 = "git_app")
+				{
+					if (curvl2 <> "")
+						{
+							GITAPP= %curvl2%
+						}
+				}
+		if (curvl1 = "git_rls")
+				{
+					if (curvl2 <> "")
+						{
+							GITRLS= %curvl2%
+						}
+				}
+
 
 	}	
-
 
 if (GITUSER = "")
 	{
@@ -276,13 +304,12 @@ if (GITROOT = "")
 		filedelete, skopt.cfg
 		ExitApp
 	}
+ifnotexist, %GITROOT%
+	{
+		gosub, GitRoot
+	}
 if (GITAPP = "")
 	{
-		gitapdtmp= %a_programfiles%\git\bin
-		ifnotexist, %gitapptmp%
-			{
-				gitapdtmp= %A_MyDocuments%
-			}
 		gosub, GetApp
 	}
 if (GITAPP = "")
@@ -291,8 +318,17 @@ if (GITAPP = "")
 		filedelete, skopt.cfg
 		ExitApp
 	}
+if (GITSRC = "")
+	{
+		gosub, GitSRC
+	}	
+ifnotexist,%GITAPP%
+	{
+		gosub, GetApp
+	}
 if (GITRLS = "")
 	{
+		splitpath,gitapp,,gitrlstmp
 		gosub, GetRls
 	}
 if (GITRLS = "")
@@ -309,6 +345,10 @@ if (BUILDIR = "")
 		filedelete, skopt.cfg
 		ExitApp
 	}
+ifnotexist,%BUILDIR%
+	{
+		gosub, GetBLD
+	}
 if (BUILDW = "")
 	{
 		gosub, GetWrk
@@ -319,9 +359,12 @@ if (BUILDW = "")
 		filedelete, skopt.cfg
 		ExitApp
 	}
+ifnotexist,%BUILDW%
+	{
+		gosub, GetWrk
+	}
 if (SKELD = "")
 	{
-		skeltmp= %A_ScriptDir%
 		gosub, GetSrc
 	}
 if (SKELD = "")
@@ -330,10 +373,27 @@ if (SKELD = "")
 		filedelete, skopt.cfg
 		ExitApp
 	}
+ifnotexist,%SKELD%
+	{
+		gosub, GetSrc
+	}
+if (DEPL = "")
+	{
+		depltmp= %GITROOT%
+		gosub, GetDepl
+	}
+if (DEPL = "")
+	{
+		msgbox,1,.deploy,Deployment Directory must be set.
+		filedelete, skopt.cfg
+		ExitApp
+	}
+ifnotexist, %DEPL%
+	{
+		gosub, GetDepl
+	}
 if (AHKDIR = "")
 	{
-		ahktmp= %A_MyDocuments%	
-		comptmp= %A_MyDocuments%
 		gosub, GetComp
 	}
 if (AHKDIR = "")
@@ -342,20 +402,22 @@ if (AHKDIR = "")
 		filedelete, skopt.cfg
 		ExitApp
 	}
-if (GITD = "")
+ifnotexist,%AHKDIR%
 	{
-		gittmp= %A_MyDocuments%
-		ifexist, %GITROOT%
-			{
-				gittmp= %GITROOT%
-			}
-		gosub, GetGit
+		gosub, GetComp
 	}
 if (GITD = "")
 	{
-		msgbox,1,,Git Directory must be set.
+		gosub, GetGit
+	}
+if (GITD = "")	{
+		msgbox,1,,Project Directory must be set.
 		filedelete, skopt.cfg
 		ExitApp
+	}
+ifnotexist,%GITD%
+	{
+		gosub, GetGit
 	}
 if (GITPAT = "")
 	{
@@ -369,8 +431,6 @@ if (GITPAT = "")
 	}
 if (NSIS = "")
 	{
-		nsitmp= %A_MyDocuments%\NSIS
-		nstmp= %A_MyDocuments%\NSIS\makensis.exe
 		gosub, GetNSIS
 	}
 if (NSIS = "")
@@ -378,18 +438,10 @@ if (NSIS = "")
 		msgbox,1,,makeNSIS.exe must be set.
 		filedelete, skopt.cfg
 		ExitApp
-		return
 	}
-if (DEPL = "")
+ifnotexist,%NSIS%
 	{
-		depltmp= %GITROOT%
-		gosub, GetDepl
-	}
-if (DEPL = "")
-	{
-		msgbox,1,.deploy,Deployment Directory must be set.
-		filedelete, skopt.cfg
-		ExitApp
+		gosub,GetNSIS
 	}
 if (SITEDIR = "")
 	{
@@ -405,7 +457,6 @@ if (SHDRPURL = "")
 	}
 if (REPOURL = "")
 	{
-		FileReadline,REPOURLT,arcorg.set,2
 		gosub, RepoURL
 	}
 if (GETIPADR = "")
@@ -419,10 +470,6 @@ if (NLOB = "")
 if (UPDTURL = "")
 	{
 		gosub, UpdateURL
-	}
-if (GITSRC = "")
-	{
-		gosub, GitSRC
 	}
 oldsize=
 oldsha= 
@@ -514,6 +561,13 @@ if (vernum = "")
 	{
 		vernum= [DIVERSION]
 	}
+FileReadLine,initchk,skopt.cfg,21
+if (initchk = "")
+	{
+		filedelete,skopt.cfg
+		exitapp
+	}	
+	
 FIE= 
 if (GITRLS = "")
 	{
@@ -528,12 +582,6 @@ if (GITPAT = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
 		FIE= Hidden
 	}
 
-FileReadLine,initchk,skopt.cfg,20
-if (initchk = "")
-	{
-		filedelete,skopt.cfg
-		exitapp
-	}	
 ;{;;;;;;;;;;;;;;;,,,,,,,,,, MENU,,,,,,,,,,;;;;;;;;;;;;;;;;;;;;;;;
 Gui Add, Tab2, x2 y-1 w487 h171 vTABMENU Bottom, Setup|Deploy
 Gui, Tab, 1
@@ -688,6 +736,7 @@ if (INIT = 1)
 	}
 if (SRCDD = "Git-release")
 	{
+		splitpath,gitapp,,gitrlstmp
 		gosub, GetRls
 	}
 if (SRCDD = "Build")
@@ -1049,7 +1098,7 @@ GetSiteDir:
 gui,submit,nohide
 STLOC=
 STLOCT=
-FileSelectFolder, STLOCT,%STLOCtmp% ,1,Select The Git-WebSite Root Directory (..\GitHub)
+FileSelectFolder, STLOCT,%STLOCtmp% ,1,Select The Git-WebSite Root Directory or cancel to pull the latest version from github.
 STLOCtmp= 
 STLOCexists= 
 if (STLOC <> "")
@@ -1224,8 +1273,7 @@ gosub, GetSrc
 return
 
 GetRls:
-splitpath,gitapp,,gitappd
-gitrlstmp= %gitappd%\git-release.exe
+gitrlstmp= %gitrlstmp%\git-release.exe
 gaptrtmp= %A_MyDocuments%
 ifnotexist,%gitrlstmp%
 	{
@@ -1418,7 +1466,7 @@ if (gitexists = "")
 if (gitexists = 1)
 	{
 		GITD:= GITT
-		iniwrite, %GITD%,skopt.cfg,GLOBAL,Git_Directory
+		iniwrite, %GITD%,skopt.cfg,GLOBAL,Project_Directory
 		FileDelete, %GITD%\gitcommit.bat
 		FileAppend,for /f "delims=" `%`%a in ("%GITAPP%") do set gitapp=`%`%~a`n,%GITD%\gitcommit.bat
 		FileAppend,pushd "%GITD%"`n,%GITD%\gitcommit.bat
@@ -1471,8 +1519,9 @@ ifmsgbox, Yes
 						FileMoveDir, %GITROOT%\romjacket.github.io,%GITROOT%\%GITUSER%.github.io,R
 					}
 			}
-			
 		GITD= %GITROOT%\skeletonKey
+		iniwrite, %GITD%,skopt.cfg,GLOBAL,Project_Directory
+		iniwrite, %SITEDIR%,skopt.cfg,GLOBAL,Site_Directory
 		return
 	}
 IfMsgBox, Cancel
@@ -1726,7 +1775,7 @@ if (SRCDD = "Source")
 	{
 		SB_SetText(" " SKELD " ")
 	}
-if (SRCDD = "Github")
+if (SRCDD = "Project")
 	{
 		guicontrol,,RESGET,CLONE
 		SB_SetText(" " GITD " ")
