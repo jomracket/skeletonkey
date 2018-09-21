@@ -1262,17 +1262,12 @@ if (skelexists = 1)
 		iniwrite, %SKELD%,skopt.cfg,GLOBAL,Source_Directory
 		return
 	}
-Msgbox,5,skeletonkey.ahk,skeletonkey source file not found
-IfMsgBox, Cancel
-	{
-		filedelete, skopt.cfg
-		ExitApp
-	}
 skeltmp= 
 gosub, GetSrc
 return
 
 GetRls:
+splitpath,GITAPP,,gitrlstmp
 gitrlstmp= %gitrlstmp%\git-release.exe
 gaptrtmp= %A_MyDocuments%
 ifnotexist,%gitrlstmp%
@@ -1704,7 +1699,7 @@ ifexist, %save%
 		NSISD= 
 		NSISDT= 
 		NSIS= 
-		FileSelectFolder, NSISDT,%nstmp%,0,Location to extract the NSIS Programs
+		FileSelectFolder, NSISDT,%nsitmp%,0,Location to extract the NSIS Programs
 		if (NSISDT = "")
 			{
 				return
@@ -2324,7 +2319,7 @@ if (INITINCL = 1)
 	exprt.= "IfNotExist, rj" . "`n" . "{" . "`n" . "FileCreateDir, rj" . "`n" . "FILEINS= 1" . "`n" . "}" . "`n"
 	exprt.= "If (INITIAL = 1)" . "`n" . "{" . "`n" . "FILEINS= 1" . "`n" . "}" . "`n"
 			exprt.= "If (FILEINS = 1)" . "`n" . "{" . "`n" 
-			runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\Skey-Deploy.ahk" /out "%DEPL%\Skey-Deploy.exe" /icon "%SKELD%\key.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" ", %SKELD%,%rntp%
+			runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\Skey-Deploy.ahk" /out "%SKELD%\Skey-Deploy.exe" /icon "%SKELD%\lnch.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" ", %SKELD%,%rntp%
 			Loop, Files, %SKELD%\rj\emuCfgs\*,DR
 				{
 					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
@@ -2439,7 +2434,7 @@ if (INITINCL = 1)
 			FileAppend, %exprt%,ExeRec.set
 	}
 
-runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\Skey-Deploy.ahk" /out "%DEPL%\Skey-Deploy.exe" /icon "%SKELD%\key.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" ", %SKELD%,%rntp%	
+runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\Skey-Deploy.ahk" /out "%SKELD%\Skey-Deploy.exe" /icon "%SKELD%\lnch.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" ", %SKELD%,%rntp%	
 runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\skeletonkey.ahk" /out "%DEPL%\skeletonkey.exe" /icon "%SKELD%\key.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" ", %SKELD%,%rntp%
 guicontrol,,progb,15
 FileDelete,%SKELD%\*.lpl
