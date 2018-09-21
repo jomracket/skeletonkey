@@ -587,7 +587,7 @@ Gui Add, Tab2, x2 y-1 w487 h171 vTABMENU Bottom, Setup|Deploy
 Gui, Tab, 1
 Gui, Tab, Setup
 Gui, Add, Text,x164 y5, Location
-Gui, Add, DropDownList, x8 y2 w100 vSRCDD gSrcDD, Github||Git.exe|Git-Release|Source|Compiler|Site|Deployment|Build|NSIS
+Gui, Add, DropDownList, x8 y2 w100 vSRCDD gSrcDD, Project||Git.exe|Git-Release|Source|Compiler|Site|Deployment|Build|NSIS
 Gui, Add, Button, x109 y2 w52 h21 vSELDIR gSelDir, Select
 Gui, Add, Button, x109 y26 w52 h21 vRESGET gRESGET, Clone
 Gui Add, DropDownList,x331 y2 w92 vResDD gResDD, Dev-Build||Portable-Build|Stable-Build|Deployer|Site-URL|Update-URL|Shader-URL|Repo-URL|Internet-IP-URL|Git-User|Git-Password|Git-URL|All
@@ -1171,7 +1171,7 @@ if (DEPL = "")
 		DEPL= %GITROOT%\skeletonkey.deploy
 	}
 splitpath,DEPL,depln
-if (DEPLN = "GitHub")
+if (DEPLN = "Project")
 	{
 		DEPL= %DEPL%\skeletonkey.deploy
 	}
@@ -1542,7 +1542,7 @@ return
 
 RESGET:
 guicontrolget,SRCDD,,SRCDD
-if (SRCDD = "Github")
+if (SRCDD = "Project")
 	{
 		goto, Clone
 	}
@@ -2173,6 +2173,7 @@ if (BLDERROR = 1)
 	{
 		MsgBox,,,HALT.,INSTALLER FAILED.,CHECK YO SCRIPT MAN!
 	}
+
 /*
 RunWait, %comspec% cmd /c " "%BUILDIR%\fciv.exe" -sha1 "%DEPL%\skeletonkey-full.exe" > "%BUILDIR%\fcivFULL.txt" ", %BUILDIR%,%rntp%
 FileReadLine, fchash, %BUILDIR%\fcivFULL.txt,4
@@ -2183,8 +2184,8 @@ ifexist, %SKELD%\version.txt
 		FileDelete, %SKELD%\version.txt
 	}
 FileAppend, %date% %timestring%=%Tsha1%=%verapnd%,%SKELD%\version.txt
-
 */
+
 buildnum= 
 buildtnum= 1
 Loop, %DEPL%\skeletonkey-%date%*.zip
@@ -2309,6 +2310,10 @@ ifexist, %DEPL%\skeletonkey.exe
 	{
 		FileMove, %DEPL%\skeletonkey.exe, %DEPL%\skeletonkey.exe.bak,1
 	}
+ifexist, %DEPL%\SKey-Deploy.exe
+	{
+		FileMove, %DEPL%\SKey-Deploy.exe, %DEPL%\SKey-Deploy.exe.bak,1
+	}
 if (INITINCL = 1)
 	{
 			exprt= 
@@ -2319,6 +2324,7 @@ if (INITINCL = 1)
 	exprt.= "IfNotExist, rj" . "`n" . "{" . "`n" . "FileCreateDir, rj" . "`n" . "FILEINS= 1" . "`n" . "}" . "`n"
 	exprt.= "If (INITIAL = 1)" . "`n" . "{" . "`n" . "FILEINS= 1" . "`n" . "}" . "`n"
 			exprt.= "If (FILEINS = 1)" . "`n" . "{" . "`n" 
+			runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\Skey-Deploy.ahk" /out "%DEPL%\Skey-Deploy.exe" /icon "%SKELD%\key.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" ", %SKELD%,%rntp%
 			Loop, Files, %SKELD%\rj\emuCfgs\*,DR
 				{
 					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
@@ -2431,7 +2437,7 @@ if (INITINCL = 1)
 			exprt.= "FileInstall, Readme.md,Readme.md,1" . "`n"
 			FileDelete,%SKELD%\ExeRec.set
 			FileAppend, %exprt%,ExeRec.set
-			}
+	}
 
 runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\skeletonkey.ahk" /out "%DEPL%\skeletonkey.exe" /icon "%SKELD%\key.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" ", %SKELD%,%rntp%
 guicontrol,,progb,15
