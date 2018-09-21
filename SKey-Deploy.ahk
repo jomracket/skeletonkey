@@ -761,6 +761,10 @@ if (SRCDD = "NSIS")
 				nsimp= %A_MyDocuments%\NSIS
 				nstmp= %A_MyDocuments%\NSIS\makensis.exe
 			}
+		ifnotexist, %nsitmp%
+			{
+				nsitmp= %A_MyDocuments%
+			}
 		gosub, GetNSIS
 	}
 INIT= 
@@ -1165,6 +1169,16 @@ if (DEPL <> "")
 				return
 			}
 	}
+if (DEPLT = "")
+	{
+		Msgbox,5,Deployment Directory,Deployment Environment not found
+		IfMsgBox, Retry
+			{
+				goto, GetDepl
+			}
+		filedelete, skopt.cfg
+		ExitApp
+	}
 DEPL:= DEPLT
 if (DEPL = "")
 	{
@@ -1175,18 +1189,27 @@ if (DEPLN = "Project")
 	{
 		DEPL= %DEPL%\skeletonkey.deploy
 	}
-fileCreateDir,%DEPL%
-iniwrite, %DEPL%,skopt.cfg,GLOBAL,Deployment_Directory
-if (DEPL = "")
+splitpath,DEPL,deplname
+ifnotinstring,deplname,.deploy
 	{
-		Msgbox,5,Deployment Directory,Deployment Environment not found
-		IfMsgBox, Retry
+		Loop, %DEPL%\*,2
 			{
-				goto, GetDepl
+				ifinstring,A_LoopFileName,.deploy
+					{
+						DEPL= %A_LoopFileFullPath%
+					}
 			}
-		filedelete, skopt.cfg
-		ExitApp
 	}
+splitpath,DEPL,deplname
+ifnotinstring,deplname,.deploy
+	{
+		DEPL= %DEPL%\skeletonkey.deploy
+	}
+ifnotexist, %DEPL%
+	{
+		fileCreateDir,%DEPL%
+	}
+iniwrite, %DEPL%,skopt.cfg,GLOBAL,Deployment_Directory
 return
 
 GetComp:
@@ -1484,32 +1507,32 @@ ifmsgbox, Yes
 	{
 		av= 
 		Runwait, "%gitapp%" clone http://github.com/%GITUSER%/skeletonKey,%GITROOT%
-		Loop, %GITROOT%\*.*
+		Loop, %GITROOT%\skeletonKey\*.*
 					{
 						av+=1
 					}
 				if (av = "")
 					{
 						FileSetAttrib, -h,.git
-							{
-								FileRemoveDir,%GITROOT%\skeletonkey,1
-							}
+						FileRemoveDir,%GITROOT%\skeletonkey,1
+											 
+		
 						Runwait, "%gitapp%" clone http://github.com/romjacket/skeletonkey,%GITROOT%
 					}
 		ifnotexist, %GITROOT%\%GITUSER%.github.io
 			{
 				av= 
 				Runwait, "%gitapp%" clone http://github.com/%GITUSER%/%GITUSER%.github.io,%GITROOT%
-				Loop, %GITROOT%\*.*
+				Loop, %GITROOT%\%GITUSER%.github.io\*.*
 					{
 						av+=1
 					}
 				if (av = "")
 					{
-						FileSetAttrib,-h,.git
-							{
-								FileRemoveDir,%GITROOT%\%GITUSER%.github.io,1
-							}
+						FileSetAttrib,-h,%GITUSER%.github.io\.git
+		
+						FileRemoveDir,%GITROOT%\%GITUSER%.github.io,1
+		
 						Runwait, "%gitapp%" clone http://github.com/romjacket/romjacket.github.io,%GITROOT%
 						FileMoveDir, %GITROOT%\romjacket.github.io,%GITROOT%\%GITUSER%.github.io,R
 					}
@@ -1593,16 +1616,16 @@ guicontrol,disable,RESB
 SB_SetText("Cloning current skeletonkey project")
 FileCreateDir, %DEPL%
 Runwait, "%gitapp%" clone %GITSRC%,%gitroot%,min
-Loop, %GITROOT%\*.*
+Loop, %GITROOT%\skeletonKey\*.*
 			{
 				av+=1
 			}
 		if (av = "")
 			{
-				FileSetAttrib, -h,.git
-					{
-						FileRemoveDir,%GITROOT%\skeletonkey,1
-					}
+				FileSetAttrib, -h,%GITUSER%.github.io\.git
+				FileRemoveDir,%GITROOT%\skeletonkey,1
+										   
+	  
 				Runwait, "%gitapp%" clone http://github.com/romjacket/skeletonkey,%GITROOT%
 			}
 SB_SetText("Cloning current skeletonkey website")
@@ -1613,10 +1636,10 @@ Loop, %GITROOT%\*.*
 	}
 if (av = "")
 	{
-		FileSetAttrib, -h,.git
-			{
-				FileRemoveDir,%GITROOT%\%GITUSER%.github.io,1
-			}
+		FileSetAttrib, -h,%GITUSER%.github.io\.git
+	
+		FileRemoveDir,%GITROOT%\%GITUSER%.github.io,1
+	
 		Runwait, "%gitapp%" clone http://github.com/romjacket/romjacket.github.io,%GITROOT%
 		FileMoveDir, %GITROOT%\romjacket.github.io,%GITROOT%\%GITUSER%.github.io,R
 	}
@@ -1663,6 +1686,7 @@ ifmsgbox,yes
 		gosub, getGitz
 	}
 return
+
 
 GetGITRZ:
 ifnotexist, %save%
