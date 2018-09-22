@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-21 1:01 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-22 2:05 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-09-21 1:01 PM
-VERSION= v0.99.58.19
+RELEASE= 2018-09-22 2:05 PM
+VERSION= v0.99.58.20
 RASTABLE= 1.7.4
 #Include tf.ahk
 #Include lbex.ahk
@@ -6529,8 +6529,18 @@ ifmsgbox, yes
 return
 
 SETJKD:
+ifexist, %A_ScriptDir%\Console
+	{
+		RJSYSTSL= %A_ScriptDir%\Console
+	}
+
 vvtmp= (cancel to select any location)
-splitpath,A_ScriptDir,,,,,RJSYSTSL
+
+ifnotexist, %RJSYSTSL%
+	{
+		splitpath,A_ScriptDir,,,,,RJSYSTSL
+	}
+
 SETJKR:
 RJSYSTEMF=
 FileSelectFolder, RJSYSTEMF,%RJSYSTSL%,3,Select the Root folder for all systems %vvtmp%
@@ -6560,6 +6570,20 @@ if (RJSYSTEMF = "")
 						vvtmp= 
 						goto, SETJKR
 					}
+			}
+		
+		
+		IF (SYSRETRY = "1")
+			{
+				return
+			}
+
+		if (SYSRETRY = "")
+			{
+				SYSRETRY= 1
+				RJSYSTSL= 
+				vvtmp= 
+				goto, SETJKR
 			}
 		FileDelete,Settings.ini
 		Run, %comspec% cmd /c taskkill /f /im skeletonKey.exe,,hide
@@ -6635,7 +6659,12 @@ if (nask = "")
 	{
 		if (efi = ":\")
 			{
-				Msgbox,8196,Confirm,Create a Console directory?,4
+				SFEvb= Create a
+				ifexist, %RJSYSTEMF%\Console
+					{
+						SFEvb= Use the
+					}
+				Msgbox,8196,Confirm,%SFEvb% Console directory?,4
 				ifmsgbox,no
 					{
 						RJSYSTEMF= %RJSYSDRV%
@@ -6646,6 +6675,7 @@ if (nask = "")
 						goto, SETJKR
 					}
 			}
+			
 		Msgbox,8196,Confirm,You have selected ''%RJSYSTEMF%''`nAre you sure you would like to use this directory?,4
 		ifmsgbox,no
 			{
@@ -6680,7 +6710,12 @@ ifnotexist, %RJSYSTEMF%
 splitpath,RJSYSTEMF,RJHHS
 if (RJHHS <> "Console")
 	{
-		Msgbox,8196,Confirm,Create a Console directory?,4
+		SFEvb= Create a
+		ifexist, %RJSYSTEMF%\Console
+			{
+				SFEvb= Use the
+			}
+		Msgbox,8196,Confirm,%SFEvb% Console directory?,4
 		ifmsgbox,yes
 			{
 				RJSYSTEMF= %RJSYSTEMF%\Console
@@ -6862,9 +6897,16 @@ if (playlistDirectory <> playlistLoc)
 return
 
 SETEMUD:
+ifexist, %A_ScriptDir%\apps
+	{
+		EMUTSL= %A_ScriptDir%\apps
+	}
 vvtmp= (cancel to select any location)
 RJEMUF=
-splitpath,A_ScriptDir,,,,,EMUTSL
+ifnotexist, %EMUTSL%
+	{
+		splitpath,A_ScriptDir,,,,,EMUTSL
+	}
 SETEMUR:
 FileSelectFolder, RJEMUF,%EMUTSL%,3,Select the Root folder for all emulators %vvtmp%
 if (RJEMUF = "")
@@ -6894,16 +6936,34 @@ if (RJEMUF = "")
 						goto, SETEMUR
 					}
 			}
+		
+		if (EMUTRST = 1)
+			{
+				return
+			}
+		if (EMUTRST = "")
+			{
+				emutrst= 1
+				EMUTSL= 
+				vvtmp= 
+				goto, SETEMUR
+			}
 		FileDelete,Settings.ini
 		Run, %comspec% cmd /c taskkill /f /im skeletonKey.exe,,hide
 		ExitApp
 	}
 stringright,efi,RJEMUF,2	
+
 if (efi = ":\")
 	{
+		SFEvb= Create an
+		ifexist,%RJEMUF%\Emulators
+			{
+				SFEvb= Use the
+			}
 		RJSDRV= %RJEMUF%
 		RJEMUF= %RJEMUF%Emulators
-		Msgbox,8196,Confirm,Create an Emulator directory?,4
+		Msgbox,8196,Confirm%SFEvb% Emulator directory?,4
 		ifmsgbox,no
 			{
 				RJEMUF= %RJSDRV%
@@ -6933,7 +6993,12 @@ ifnotexist,%RJEMUF%
 splitpath,RJEMUF,RJHHS
 if (RJHHS <> "Emulators")
 	{
-		Msgbox,8196,Confirm,Create an Emulator directory?,4
+		SFEvb= Create an
+		ifexist, %RJEMUF%\Emulators
+			{
+				SFEvb= Use the
+			}
+		Msgbox,8196,Confirm,%SFEvb% Emulator directory?,4
 		ifmsgbox,yes
 			{
 				RJEMUF= %RJEMUF%\Emulators
@@ -14685,7 +14750,7 @@ Loop, Parse, semu,|
 						guicontrol,,EMPRDDL,|%sysni%||%addemu%
 						runlist:= corelist . "|" . addemu
 						guicontrol,,LCORE,|%runlist%
-						msgbox,,,addemu=%addemu%
+						;;msgbox,,,addemu=%addemu%
 						guicontrol,,EMPRDDL,|Emulators||%addemu%
 						guicontrol,,PLCORE,|%runlist%
 						guicontrol,,ARCCORES,|Select_a_Core||%runlist%
@@ -64169,4 +64234,4 @@ ifmsgbox, no
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;}################################################################
+;}#################################################################
