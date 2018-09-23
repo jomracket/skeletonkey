@@ -15,7 +15,9 @@ if (A_Is64bitOS	= 0)
 		ARCH= 32
 	}
 BLDTOOLS= https://raw.githubusercontent.com/romjacket/BuildTools/master/BuildTools-%ARCH%.7z	
+NOTEPADL= https://raw.githubusercontent.com/romjacket/Notepad_PlusPlus/master/Notepad_PlusPlus.7z
 save= %cacheloc%\BuildTools-%ARCH%.7z
+npsave= %cacheloc%\Notepad_PlusPlus.7z
 Loop, %save%
 	{
 		if (A_LoopFileSizeMB < 30)
@@ -587,10 +589,10 @@ Gui Add, Tab2, x2 y-1 w487 h171 vTABMENU Bottom, Setup|Deploy
 Gui, Tab, 1
 Gui, Tab, Setup
 Gui, Add, Text,x164 y5, Location
-Gui, Add, DropDownList, x8 y2 w100 vSRCDD gSrcDD, Project||Git.exe|Git-Release|Source|Compiler|Site|Deployment|Build|NSIS
+Gui, Add, DropDownList, x8 y2 w100 vSRCDD gSrcDD, Project||Git.exe|Git-Release|Source|Compiler|Site|Deployment|Build|NSIS|NP++
 Gui, Add, Button, x109 y2 w52 h21 vSELDIR gSelDir, Select
 Gui, Add, Button, x109 y26 w52 h21 vRESGET gRESGET, Clone
-Gui Add, DropDownList,x331 y2 w92 vResDD gResDD, Dev-Build||Portable-Build|Stable-Build|Deployer|Site-URL|Update-URL|Shader-URL|Repo-URL|Internet-IP-URL|Git-User|Git-Password|Git-URL|All
+Gui Add, DropDownList,x331 y2 w92 vResDD gResDD, All||Dev-Build|Portable-Build|Stable-Build|Deployer|Site-URL|Update-URL|Shader-URL|Repo-URL|Internet-IP-URL|Git-User|Git-Password|Git-URL
 Gui Add, Button, x425 y2 w52 h21 vResB gResB, Reset
 
 Gui Add, Text,x4 y125, %ARCH%-bit
@@ -720,6 +722,15 @@ if (SRCDD = "Git")
 				gittmp= %GITROOT%\skeletonKey
 			}
 		gosub, GetGit
+	}
+if (INIT = 1)
+	{
+		SRCDD= Notepad_PlusPlus
+	}
+if (SRCDD = "NP++")
+	{
+		npptmp= %A_MyDocuments%
+		gosub, GetNPP
 	}
 if (INIT = 1)
 	{
@@ -1583,6 +1594,11 @@ if (SRCDD = "Site")
 		goto, GetSiteDir
 	}
 
+if (SRCDD = "NP++")
+	{
+		goto, GetNPP
+	}
+
 if (SRCDD = "Compiler")
 	{
 		goto, GetAHKZ
@@ -1744,6 +1760,44 @@ ifnotexist, %save%
 nstmp= 	
 return
 
+GetNPP:
+NPPRT=
+FileSelectFile,NPPRT,3,%npptmp%,Select notepad++,*.exe
+if (NPPRT = "")
+	{
+ifnotexist,%npsave%
+	{
+		npptmp= %A_MyDocuments%
+		gosub, getNPPz
+	}
+ifexist, %npsave%
+	{
+		NPPK=
+		NPPL=
+		FileselectFolder,NPPL,%npptmp%,0,Location to extract NotepadPlusPlus
+		if (NPPL = "")
+			{
+				return
+			}
+		Runwait, 7za.exe x -y "%npsave%" -O"%NPPL%"
+		NPPR= %NPPL%\notepad++.exe
+		iniwrite, %NPPR%,skopt.cfg,GLOBAL,Notepad_PlusPlus
+		SB_SetText(" Notepad Plus Plus is " NPPR "")
+	}
+npptmp= 
+Msgbox,3,Not Found,%npsave% not found.`nRETRY?
+ifmsgbox,Yes
+	{
+		gosub,GetNPPz
+	}
+return
+}
+NPPR= %NPPRT%
+		iniwrite, %NPPR%,skopt.cfg,GLOBAL,Notepad_PlusPlus
+		SB_SetText(" Notepad Plus Plus is " NPPR "")
+return
+
+return
 GetAHKZ:
 ifnotexist, %save%
 	{
@@ -1813,6 +1867,11 @@ if (SRCDD = "Site")
 		SB_SetText(" " SITEDIR " ")
 	}
 	
+if (SRCDD = "NP++")
+	{
+		SB_SetText(" " NPPR " ")
+	}
+		
 if (SRCDD = "Git.exe")
 	{
 		SB_SetText(" " GITAPP " ")
@@ -3063,6 +3122,19 @@ GuiEscape:
 GuiClose:
 ExitApp
 
+getNPPz:
+if (progb = "")
+	{
+		Progress, 0, , ,Downloading Notepad++
+	}	
+URLFILE= %NOTEPADL%
+DownloadFile(URLFILE, npsave, False, True)
+sleep, 1200
+if (progb = "")
+	{
+		Progress, off
+	}
+return
 
 getBldTlz:
 if (progb = "")
