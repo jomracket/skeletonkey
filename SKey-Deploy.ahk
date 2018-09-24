@@ -1541,49 +1541,17 @@ if (GITT = "")
 	{
 		goto, PULLSKEL
 	}
+if (GITD <> "")
+	{
+		return
+	}
 gitclone:
 Msgbox,3,project not found,Git Source file not found`nWould you like to pull the latest version?
 ifmsgbox, Yes
 	{
-PULLSKEL:		
-		av= 
-		Runwait, "%gitapp%" clone http://github.com/%GITUSER%/skeletonKey,%GITROOT%
-		Loop, %GITROOT%\skeletonKey\*.*
-					{
-						av+=1
-					}
-				if (av = "")
-					{
-						FileSetAttrib, -h,.git
-						FileRemoveDir,%GITROOT%\skeletonkey,1
-											 
-		
-						Runwait, "%gitapp%" clone http://github.com/romjacket/skeletonkey,%GITROOT%
-					}
-		ifnotexist, %GITROOT%\%GITUSER%.github.io
-			{
-				av= 
-				Runwait, "%gitapp%" clone http://github.com/%GITUSER%/%GITUSER%.github.io,%GITROOT%
-				Loop, %GITROOT%\%GITUSER%.github.io\*.*
-					{
-						av+=1
-					}
-				if (av = "")
-					{
-						FileSetAttrib,-h,%GITUSER%.github.io\.git
-		
-						FileRemoveDir,%GITROOT%\%GITUSER%.github.io,1
-		
-						Runwait, "%gitapp%" clone http://github.com/romjacket/romjacket.github.io,%GITROOT%
-						FileMoveDir, %GITROOT%\romjacket.github.io,%GITROOT%\%GITUSER%.github.io,R
-					}
-			}
-		GITD= %GITROOT%\skeletonKey
-		iniwrite, %GITD%,skopt.cfg,GLOBAL,Project_Directory
-		iniwrite, %SITEDIR%,skopt.cfg,GLOBAL,Site_Directory
-		return
+		gosub, PULLSKEL
 	}
-IfMsgBox, Cancel
+IfMsgBox, No
 	{
 		if (GITD = "")
 			{
@@ -1650,6 +1618,44 @@ if (SRCDD = "NSIS")
 			}
 		goto, GetNSISZ
 	}
+return
+
+PULLSKEL:
+av= 
+Runwait, "%gitapp%" clone http://github.com/%GITUSER%/skeletonKey,%GITROOT%
+Loop, %GITROOT%\skeletonKey\*.*
+			{
+				av+=1
+			}
+		if (av = "")
+			{
+				FileSetAttrib, -h,.git
+				FileRemoveDir,%GITROOT%\skeletonkey,1
+									 
+
+				Runwait, "%gitapp%" clone http://github.com/romjacket/skeletonkey,%GITROOT%
+			}
+ifnotexist, %GITROOT%\%GITUSER%.github.io
+	{
+		av= 
+		Runwait, "%gitapp%" clone http://github.com/%GITUSER%/%GITUSER%.github.io,%GITROOT%
+		Loop, %GITROOT%\%GITUSER%.github.io\*.*
+			{
+				av+=1
+			}
+		if (av = "")
+			{
+				FileSetAttrib,-h,%GITUSER%.github.io\.git
+
+				FileRemoveDir,%GITROOT%\%GITUSER%.github.io,1
+
+				Runwait, "%gitapp%" clone http://github.com/romjacket/romjacket.github.io,%GITROOT%
+				FileMoveDir, %GITROOT%\romjacket.github.io,%GITROOT%\%GITUSER%.github.io,R
+			}
+	}
+GITD= %GITROOT%\skeletonKey
+iniwrite, %GITD%,skopt.cfg,GLOBAL,Project_Directory
+iniwrite, %SITEDIR%,skopt.cfg,GLOBAL,Site_Directory
 return
 
 Clone:
