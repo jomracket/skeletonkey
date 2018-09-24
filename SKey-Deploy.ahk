@@ -90,6 +90,15 @@ ifnotexist, %gitapptmp%
 nsitmp= %A_MyDocuments%\NSIS
 nstmp= %A_MyDocuments%\NSIS\makensis.exe
 
+npptmp= %A_MyDocuments%
+ifexist, %A_ProgramFiles%\Notepad++
+	{
+		npptmp= %A_ProgramFiles%\Notepad++
+	}
+ifexist, %A_ProgramFilesx86%\Notepad++
+	{
+		npptmp= %A_ProgramFiles%\Notepad++
+	}
 FileReadline,REPOURLX,arcorg.set,2
 if (REPOURLX <> "")
 	{
@@ -278,6 +287,13 @@ Loop, Read, skopt.cfg
 					if (curvl2 <> "")
 						{
 							GITRLS= %curvl2%
+						}
+				}
+		if (curvl1 = "Notepad_PlusPlus")
+				{
+					if (curvl2 <> "")
+						{
+							NPPR= %curvl2%
 						}
 				}
 
@@ -472,6 +488,10 @@ if (NLOB = "")
 if (UPDTURL = "")
 	{
 		gosub, UpdateURL
+	}
+if (NPPR = "")
+	{
+		NPPR= Notepad++.exe
 	}
 oldsize=
 oldsha= 
@@ -750,6 +770,14 @@ if (SRCDD = "Git-release")
 		splitpath,gitapp,,gitrlstmp
 		gosub, GetRls
 	}
+if (INIT = 1)
+	{
+		SRCDD= NP++
+	}
+if (SRCDD = "NP++")
+	{
+		
+	}
 if (SRCDD = "Build")
 	{
 		gosub, GetBld
@@ -908,14 +936,13 @@ ifinstring,GITROOTT,GitHub
 		SB_SetText("Github dir is " GITROOT " ")
 		return
 	}
-Msgbox,5,Github Root,Github Root Directory not found
-IfMsgBox, Cancel
+Msgbox,3,Github Root,Github Root Directory not found.`nRetry?
+IfMsgBox, Yes
 	{
-		filedelete, skopt.cfg
-		ExitApp
+		gosub, GitRoot
 	}
-gosub, GitRoot
-return
+filedelete, skopt.cfg
+ExitApp
 
 INITINCL:
 INITINCL= 1
@@ -950,14 +977,13 @@ if (bldexists = 1)
 		FileAppend, %nsiv%,%BUILDIR%\skdeploy.nsi
 		return
 	}
-Msgbox,5,Build Dir,Build Directory not found
-IfMsgBox, Cancel
+Msgbox,3,Build Dir,Build Directory not found`nRetry?
+IfMsgBox, Yes
 	{
-		filedelete, skopt.cfg
-		ExitApp
+		gosub, GetBld
 	}
-gosub, GetBld
-return
+filedelete, skopt.cfg
+ExitApp
 
 GetShaderP:
 gui,submit,NoHide
@@ -1154,8 +1180,8 @@ ifnotexist, %STLOC%
 iniwrite, %STLOC%,skopt.cfg,GLOBAL,Site_Directory
 if (STLOC = "")
 	{
-		Msgbox,5,Website Directory,Website Environment not found
-		IfMsgBox, Retry
+		Msgbox,3,Website Directory,Website Environment not found`nRetry
+		IfMsgBox, Yes
 			{
 				STLOCtmp= 
 				goto, GetSiteDir
@@ -1182,8 +1208,8 @@ if (DEPL <> "")
 	}
 if (DEPLT = "")
 	{
-		Msgbox,5,Deployment Directory,Deployment Environment not found
-		IfMsgBox, Retry
+		Msgbox,3,Deployment Directory,Deployment Environment not found`nRetry
+		IfMsgBox, Yes
 			{
 				goto, GetDepl
 			}
@@ -1511,11 +1537,15 @@ if (gitexists = 1)
 			}
 		return
 	}
-
+if (GITT = "")
+	{
+		goto, PULLSKEL
+	}
 gitclone:
 Msgbox,3,project not found,Git Source file not found`nWould you like to pull the latest version?
 ifmsgbox, Yes
 	{
+PULLSKEL:		
 		av= 
 		Runwait, "%gitapp%" clone http://github.com/%GITUSER%/skeletonKey,%GITROOT%
 		Loop, %GITROOT%\skeletonKey\*.*
@@ -1765,32 +1795,33 @@ NPPRT=
 FileSelectFile,NPPRT,3,%npptmp%,Select notepad++,*.exe
 if (NPPRT = "")
 	{
-ifnotexist,%npsave%
-	{
-		npptmp= %A_MyDocuments%
-		gosub, getNPPz
-	}
-ifexist, %npsave%
-	{
-		NPPK=
-		NPPL=
-		FileselectFolder,NPPL,%npptmp%,0,Location to extract NotepadPlusPlus
-		if (NPPL = "")
+		ifnotexist,%npsave%
 			{
+				npptmp= %A_MyDocuments%
+				gosub, getNPPz
+			}
+		ifexist, %npsave%
+			{
+				NPPK=
+				NPPL=
+				FileselectFolder,NPPL,%npptmp%,0,Location to extract NotepadPlusPlus
+				if (NPPL = "")
+					{
+						return
+					}
+				Runwait, 7za.exe x -y "%npsave%" -O"%NPPL%"
+				NPPR= %NPPL%\notepad++.exe
+				iniwrite, %NPPR%,skopt.cfg,GLOBAL,Notepad_PlusPlus
+				SB_SetText(" Notepad Plus Plus is " NPPR "")
 				return
 			}
-		Runwait, 7za.exe x -y "%npsave%" -O"%NPPL%"
-		NPPR= %NPPL%\notepad++.exe
-		iniwrite, %NPPR%,skopt.cfg,GLOBAL,Notepad_PlusPlus
-		SB_SetText(" Notepad Plus Plus is " NPPR "")
-	}
-npptmp= 
-Msgbox,3,Not Found,%npsave% not found.`nRETRY?
-ifmsgbox,Yes
-	{
-		gosub,GetNPPz
-	}
-return
+		npptmp= 
+		Msgbox,3,Not Found,%npsave% not found.`nRETRY?
+		ifmsgbox,Yes
+			{
+				gosub,GetNPPz
+			}
+		return
 }
 NPPR= %NPPRT%
 		iniwrite, %NPPR%,skopt.cfg,GLOBAL,Notepad_PlusPlus
