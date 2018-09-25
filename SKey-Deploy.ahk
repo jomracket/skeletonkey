@@ -732,9 +732,9 @@ if (SRCDD = "Compiler")
 	}
 if (INIT = 1)
 	{
-		SRCDD= Git
+		SRCDD= Project
 	}
-if (SRCDD = "Git")
+if (SRCDD = "Project")
 	{
 		gittmp= %A_MyDocuments%
 		ifexist, %GITROOT%\skeletonKey
@@ -824,6 +824,11 @@ if (NSIS <> "")
 		if (NSIST = "")
 			{
 				SB_SetText("makensis.exe is " NSIS " ")
+				if (nstmp <> "")
+					{
+						nstmp=
+						goto, GetNSIS
+					}
 				return
 			}
 	}
@@ -851,12 +856,18 @@ return
 
 GetWrk:
 BUILDWT= %BUILDW%
-FileSelectFile,BUILDWT,3,%BUILDIR%\working.ahk,Select The working development file,*.ahk
+bldtmpf= %BUILDIR%
+FileSelectFile,BUILDWT,3,%bldtmpf%\working.ahk,Select The working development file,*.ahk
 if (BUILDW <> "")
 	{
 		if (BUILDWT = "")
 			{
 				SB_SetText("Working development file is " BUILDW " ")
+				if (bldtmpf <> "")
+					{
+						bldtmpf= 
+						goto, GetWrk
+					}
 				return
 			}
 	}
@@ -879,6 +890,11 @@ if (GITROOT <> "")
 		if (GITROOTT = "")
 			{
 				SB_SetText("Github dir is " GITROOT " ")
+				if (gitrttmp <> "")
+					{
+						gitrttmp=
+						goto, GitRoot
+					}
 				return
 			}
 	}
@@ -1140,16 +1156,21 @@ gui,submit,nohide
 STLOC=
 STLOCT=
 FileSelectFolder, STLOCT,%STLOCtmp% ,1,Select The Git-WebSite Root Directory or cancel to pull the latest version from github.
-STLOCtmp= 
 STLOCexists= 
 if (STLOC <> "")
 	{
 		if (STLOCT= "")
 			{
 				SB_SetText(" Website directory is " STLOC " ")
+				if (STLOCtmp <> "")
+					{
+						STLOCtmp=
+						goto, GetSiteDir
+					}
 				return
 			}
 	}
+STLOCtmp= 
 STLOC:= STLOCT
 splitpath,STLOC,STLOCn
 ifnotinstring,STLOCn,.github.io
@@ -1196,16 +1217,21 @@ GetDepl:
 DEPL=
 DEPLT=
 FileSelectFolder, DEPLT,%depltmp% ,1,Select The Deployment Directory
-depltmp= 
 deplexists= 
 if (DEPL <> "")
 	{
 		if (DEPLT= "")
 			{
 				SB_SetText(" Deploy dir is " DEPL " ")
+				if (depltmp <> "")
+					{
+						depltmp=
+						goto, GetDepl
+					}
 				return
 			}
 	}
+depltmp= 
 if (DEPLT = "")
 	{
 		Msgbox,3,Deployment Directory,Deployment Environment not found`nRetry
@@ -1252,16 +1278,21 @@ return
 GetComp:
 AHKDIT= %AHKDIR%
 FileSelectFolder, AHKDIT,%comptmp%,0,Select The AHK Compiler Directory or cancel to install it.
-comptmp= 
 compexists= 
 if (AHKDIR <> "")
 	{
 		if (AHKDIT = "")
 			{
 				SB_SetText(" AHK Compiler dir is " AHKDIR " ")
+				if (comptmp <> "")
+					{
+						comptmp= 
+						goto, GetComp
+					}
 				return
 			}
 	}
+comptmp= 
 if ((comptmp <> "") && (AHKDIT = ""))
 	{
 		comptmp= 
@@ -1304,6 +1335,11 @@ if (SKELD <> "")
 		if (SKELT = "")
 			{
 				SB_SetText(" SOURCE dir is " SKELD " ")
+				if (skeltmp <> "")
+					{
+						skeltmp=
+						goto, GetSrc
+					}
 				return
 			}
 	}
@@ -1400,6 +1436,11 @@ if (GITAPP <> "")
 		if (GITAPPT = "")
 			{
 				SB_SetText("Git is " GITAPP " ")
+				if (gitapdtmp <> "")
+					{
+						gitapdtmp= 
+						goto, GITAPPCONT
+					}
 				return
 			}
 	}	
@@ -1481,9 +1522,8 @@ iniwrite, %GITUSER%,skopt.cfg,GLOBAL,Git_username
 return
 
 GetGit:
-GITT= %GITD%
+GITT= 
 FileSelectFolder,GITT,%gittmp%,1,Select The Git skeletonKey Project Directory or cancel to pull it to the git-root directory.
-gittmp= 
 gitexists= 
 if (GITD <> "")
 	{
@@ -1491,13 +1531,19 @@ if (GITD <> "")
 			{
 				GITT= 
 				SB_SetText(" GIT dir is " GITD " ")
+				if (gittmp <> "")
+					{
+						gittmp= 
+						goto, GetGit
+					}
 				return
 			}
-	}
+	}	
 if (GITT = "")
 	{
 		goto, gitclone
 	}
+gittmp= 
 Loop, %GITT%\skeletonkey.ahk
 	{
 		gitexists= 1
@@ -2425,9 +2471,9 @@ ifexist, %DEPL%\skeletonkey.exe
 	{
 		FileMove, %DEPL%\skeletonkey.exe, %DEPL%\skeletonkey.exe.bak,1
 	}
-ifexist, %DEPL%\SKey-Deploy.exe
+ifexist, %SKELD%\SKey-Deploy.exe
 	{
-		FileMove, %DEPL%\SKey-Deploy.exe, %DEPL%\SKey-Deploy.exe.bak,1
+		FileMove, %SKELD%\SKey-Deploy.exe, %SKELD%\SKey-Deploy.exe.bak,1
 	}
 if (INITINCL = 1)
 	{
