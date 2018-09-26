@@ -1783,18 +1783,18 @@ if (gitexists = 1)
 	{
 		GITD:= GITT
 		iniwrite, %GITD%,skopt.cfg,GLOBAL,Project_Directory
-		FileDelete, %GITD%\gitcommit.bat
-		FileAppend,for /f "delims=" `%`%a in ("%GITAPP%") do set gitapp=`%`%~a`n,%GITD%\gitcommit.bat
-		FileAppend,pushd "%GITD%"`n,%GITD%\gitcommit.bat
-		FileAppend,"`%gitapp`%" add .`n,%GITD%\gitcommit.bat
-		FileAppend,"`%gitapp`%" commit -m `%1`%.`n,%GITD%\gitcommit.bat
+		FileDelete, %BUILDIR%\gitcommit.bat
+		FileAppend,for /f "delims=" `%`%a in ("%GITAPP%") do set gitapp=`%`%~a`n,%BUILDIR%\gitcommit.bat
+		FileAppend,pushd "%GITD%"`n,%BUILDIR%\gitcommit.bat
+		FileAppend,"`%gitapp`%" add .`n,%BUILDIR%\gitcommit.bat
+		FileAppend,"`%gitapp`%" commit -m `%1`%.`n,%BUILDIR%\gitcommit.bat
 		if (GITPASS <> "")
 			{
-				FileAppend,"`%gitapp`%" push --repo http://%gituser%:%GITPASS%@github.com/%gituser%/skeletonkey`n,%GITD%\gitcommit.bat			
+				FileAppend,"`%gitapp`%" push --repo http://%gituser%:%GITPASS%@github.com/%gituser%/skeletonkey`n,%BUILDIR%\gitcommit.bat			
 			}
 		if (GITPASS = "")
 			{
-				FileAppend,"`%gitapp`%" push origin master`n,%GITD%\gitcommit.bat			
+				FileAppend,"`%gitapp`%" push origin master`n,%BUILDIR%\gitcommit.bat			
 			}
 		return
 	}
@@ -2310,7 +2310,7 @@ if (RESDD = "Deployer")
 		MsgBox,1,Confirm Tool Reset, Are You sure you want to reset the Deployment Tool?
 		IfMsgBox, OK
 			{
-				FileDelete, %GITD%\gitcommit.bat
+				FileDelete, %BUILDIR%\gitcommit.bat
 				FileDelete, %BUILDIR%\skdeploy.nsi				
 				FileDelete, %BUILDIR%\skopt.cfg
 				FileDelete, %BUILDIR%\ltc.txt
@@ -3054,19 +3054,19 @@ if (GitPush = 1)
 		SB_SetText(" Adding changes to git ")
 		RunWait, %comspec% cmd /c " "%SKELD%\!gitupdate.cmd" ",%SKELD%,%rntp%
 		SB_SetText(" committing changes to git ")
-		FileDelete, %GITD%\gitcommit.bat
+		FileDelete, %BUILDIR%\gitcommit.bat
 			{
-				FileAppend,for /f "delims=" `%`%a in ("%GITAPP%") do set gitapp=`%`%~a`n,%GITD%\gitcommit.bat
-				FileAppend,pushd "%GITD%"`n,%GITD%\gitcommit.bat
-				FileAppend,"`%gitapp`%" add .`n,%GITD%\gitcommit.bat
-				FileAppend,"`%gitapp`%" commit -m `%1`%`n,%GITD%\gitcommit.bat
+				FileAppend,for /f "delims=" `%`%a in ("%GITAPP%") do set gitapp=`%`%~a`n,%BUILDIR%\gitcommit.bat
+				FileAppend,pushd "%GITD%"`n,%BUILDIR%\gitcommit.bat
+				FileAppend,"`%gitapp`%" add .`n,%BUILDIR%\gitcommit.bat
+				FileAppend,"`%gitapp`%" commit -m `%1`%`n,%BUILDIR%\gitcommit.bat
 				if (GITPASS <> "")
 					{
-						FileAppend,"`%gitapp`%" push --repo http://%GITUSER%:%GITPASS%@github.com/%gituser%/skeletonKey`n,%GITD%\gitcommit.bat
+						FileAppend,"`%gitapp`%" push --repo http://%GITUSER%:%GITPASS%@github.com/%gituser%/skeletonKey`n,%BUILDIR%\gitcommit.bat
 					}
 				if (GITPASS = "")
 					{
-						FileAppend,"`%gitapp`%" push origin master`n,%GITD%\gitcommit.bat
+						FileAppend,"`%gitapp`%" push origin master`n,%BUILDIR%\gitcommit.bat
 					}
 			}
 			
@@ -3075,7 +3075,8 @@ if (GitPush = 1)
 		SB_SetText(" Source changes committed.  Files Copied to git.  Committing...")
 		StringReplace,PushNotes,PushNotes,",,All
 		;"
-		RunWait, %comspec% cmd /c " "%GITD%\gitcommit.bat" "%PushNotes%" ",%GITD%
+		RunWait, %comspec% cmd /c " "%BUILDIR%\gitcommit.bat" "%PushNotes%" ",%GITD%
+		FileDelete, %BUILDIR%\gitcommit.bat
 		SB_SetText(" source changes pushed to master ")
 		guicontrol,,progb,65
 	}
