@@ -18,6 +18,46 @@ BLDTOOLS= https://raw.githubusercontent.com/romjacket/BuildTools/master/BuildToo
 NOTEPADL= https://raw.githubusercontent.com/romjacket/Notepad_PlusPlus/master/Notepad_PlusPlus.7z
 save= %cacheloc%\BuildTools-%ARCH%.7z
 npsave= %cacheloc%\Notepad_PlusPlus.7z
+
+optionONE= %1%
+
+ifinstring,optionONE,-reset
+	{
+		FileDelete,%save%
+		FileDelete,%npsave%
+		Msgbox,3,Credentials,Keep git credentials and passwords?
+		ifmsgbox,Cancel
+			{
+				goto, QUITOUT
+			}
+		ifmsgbox,No
+			{
+				GITPASS= 
+				GITUSER=
+				GITPAT=
+			}
+		GITROOT=
+		BUILDIR=
+		BUILDW=
+		SKELD=
+		AHKDIR=
+		DEPL=
+		NSIS=
+		GITAPP=
+		GITD=
+		SITEURL=
+		SITEDIR=
+		SHDRPURL=
+		GETIPADR=
+		NLOB=
+		REPOURL=
+		UPDTURL=
+		GITSRC=
+		GITAPP=
+		GITRLS=
+		NPPR=
+	}
+
 Loop, %save%
 	{
 		if (A_LoopFileSizeMB < 30)

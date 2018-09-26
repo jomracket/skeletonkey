@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-24 6:46 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-25 6:46 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-09-24 6:46 PM
-VERSION= v0.99.58.23
+RELEASE= 2018-09-25 6:46 PM
+VERSION= v0.99.58.54
 RASTABLE= 1.7.4
 #Include tf.ahk
 #Include lbex.ahk
@@ -55,6 +55,42 @@ ifinstring,getport,-run=
 		OVRLKUPNM:= fief2
 		romf= %getpath%
 	}
+ifinstring,getport,-initialize
+	{
+		ifinstring,getport,!q
+			{
+				goto, initall
+			}
+		msgbox,3,Confirm,You are about to initialize skeletonKey.`nAre you sure?
+		ifmsgbox,Yes
+			{
+				goto, initall
+			}
+		goto, QUITOUT	
+	}
+ifinstring,getport,-clear
+	{
+		stringsplit,getpartp,getport,!
+		stringreplace,getporv,getport,-,,All
+		if (getpartp1 <> getport)
+			{
+				stringreplace,getpartp1,getpartp1,-,,All
+				getporv= %getpartp1%	
+			}
+		stringtrimleft,getporq,getporv,6	
+		ifinstring,getport,!q
+			{
+				goto, %getporv%
+			}
+		msgbox,3,Confirm,You are about to initialize %getporq%.`nAre you sure?
+		ifmsgbox,Yes
+			{
+				goto, %getporv%
+			}
+		goto, QUITOUT
+	}
+	
+INITRESTART:	
 iniread,fiin,Assignments.ini,ASSIGNMENTS,%OVRLKUPNM%
 if (fiin <> "ERROR")
 	{
@@ -58363,6 +58399,84 @@ if (EXELIST = 1)
 	}
 return
 
+initall:
+Progress,0,Initializing skeletonKey
+FileDelete,*.ini
+FileDelete,*.cfg
+FileDelete,rj\*.ini
+FileDelete,rj\*.tbd
+FileRemoveDir,rj\syscfgs,1
+FileRemoveDir,cfg,1
+Progress,50,Initializing skeletonKey
+FileCreateDir,cfg
+FileRemoveDir,tmp,1
+FileCreateDir,tmp
+FileRemoveDir,executable,1
+Progress,80,Initializing skeletonKey
+FileCreateDir,executable
+Loop, rj\netart\*
+	{
+		FileRemoveDir,%A_LoopFileFullPath%,1
+	}
+Progress,100,Complete
+Progress, off
+ifinstring,getport,!q 
+	{
+		goto, QUITOUT
+	}
+Msgbox,3,Restart,Restart Skeletonkey?
+ifmsgbox,yes
+	{
+		goto, INITRESTART
+	}
+goto, QUITOUT
+
+clearset:
+FileDelete,*.ini
+goto, cmdlineout
+
+clearrj:
+FileDelete,rj\*.ini
+FileDelete,rj\*.tbd
+FileRemoveDir,rj\syscfgs,1
+goto, cmdlineout
+
+clearcfg:
+FileRemoveDir,cfg,1
+FileCreateDir,cfg
+goto, cmdlineout
+
+cleartmp:
+FileRemoveDir,tmp,1
+FileCreateDir,tmp
+goto, cmdlineout
+
+clearra:
+FileDelete,retroarch*.cfg
+goto, cmdlineout
+
+clearexe:
+FileRemoveDir,executable,1
+FileCreateDir,executable
+goto, cmdlineout
+
+clearscrape:
+Loop, rj\netart\*
+	{
+		FileRemoveDir,%A_LoopFileFullPath%,1
+	}
+
+cmdlineout:
+ifinstring,getport,!q 
+	{
+		goto, QUITOUT
+	}
+Msgbox,3,Restart,Restart Skeletonkey?
+ifmsgbox,yes
+	{
+		goto, INITRESTART
+	}
+goto, QUITOUT
 
 resetCORES:
 Menu,Tray,Tip, Generating core-list cache

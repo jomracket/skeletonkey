@@ -193,9 +193,21 @@
 				<div class="tab">
 					<input id="tab-cli" name="tabs" type="checkbox"> <label for="tab-cli">CLI Details }&gt;</label>
 					<div class="tab-content">
-						<p>SkeletonKey launched from the command line <em>without</em> this option functions identically to drag'n drop.</p>
+						<p>SkeletonKey launched from the command line <em>without</em> this option functions identically to drag'n drop.
+                        </p>
 						<p><em>...nkey&gt;</em> <code>skeletonKey.exe -run=NickName &quot;C:\Library\Console Name\Rom Name\rom file.rom&quot;</code><br>
 						<span style="font-size: x-small">**Nicknames must not contain spaces**</span></p>
+                        Options to reset and initialize skeletonKey:<br>
+                        <code>-clearrj </code> will reset the ROM-Jacket system presets and queue<br>
+                        <code>-clearcfg </code> will reset the per-game settings for all skeletonkey presets (not ROM-Jackets)<br>
+                         <code>-clearset </code> will reset the skeletonkey program settings<br>
+                        <code>-clearra </code> will reset global retroarch settings<br>
+                        <code>-clearexe </code> will reset emulator executable settings<br>
+                        <code>-clearscrape </code> will delete scraped art and assets<br>
+                         adding a <code>!q </code> to the end of your clear command will override and assume yes on all deletion queries.<br>
+                         eg <code>-clearra!q</code><br><br>
+						 The Skey-Deploy utility accepts the <code>-reset</code> command to reset the while keeping credentials for github.<br>
+                        
 					</div>
 				</div>
 			</div>
@@ -243,6 +255,7 @@
 		</div>
 	</div>
 	<br>
+	<a id="MAIN"></a>
 	<div id="grad1" align="left">
 		<h2 class='button button4'>Main</h2>
 	</div>

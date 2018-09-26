@@ -921,8 +921,6 @@ FileInstall,PSFTP.EXE,PSFTP.EXE,1
 FileInstall,rcedit32.exe,rcedit32.exe,1
 FileInstall,rcedit64.exe,rcedit64.exe,1
 FileInstall,Scraper.exe,Scraper.exe,1
-FileInstall,skeletonKey-uninst.exe,skeletonKey-uninst.exe,1
-FileInstall,skeletonkey.exe,skeletonkey.exe,1
 FileInstall,Skey-Deploy.exe,Skey-Deploy.exe,1
 FileInstall,UnRAR.exe,UnRAR.exe,1
 FileInstall,Vdrive.exe,Vdrive.exe,1
