@@ -4,11 +4,11 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-26 1:58 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-26 2:22 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-09-26 1:58 PM
+RELEASE= 2018-09-26 2:22 PM
 VERSION= v0.99.58.57
 RASTABLE= 1.7.4
 #Include tf.ahk
@@ -6999,7 +6999,7 @@ if (efi = ":\")
 			}
 		RJSDRV= %RJEMUF%
 		RJEMUF= %RJEMUF%Emulators
-		Msgbox,8196,Confirm%SFEvb% Emulator directory?,4
+		Msgbox,8196,Confirm,Confirm %SFEvb% Emulator directory?,4
 		ifmsgbox,no
 			{
 				RJEMUF= %RJSDRV%

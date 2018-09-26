@@ -2818,6 +2818,8 @@ if (INITINCL = 1)
 
 runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\Skey-Deploy.ahk" /out "%SKELD%\Skey-Deploy.exe" /icon "%SKELD%\lnch.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" ", %SKELD%,%rntp%	
 runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\skeletonkey.ahk" /out "%DEPL%\skeletonkey.exe" /icon "%SKELD%\key.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" ", %SKELD%,%rntp%
+FileCopy, %DEPL%\skeletonkey.exe,%SKELD%,1
+
 guicontrol,,progb,15
 FileDelete,%SKELD%\*.lpl
 FileDelete,%SKELD%\*.tmp

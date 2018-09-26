@@ -6999,7 +6999,7 @@ if (efi = ":\")
 			}
 		RJSDRV= %RJEMUF%
 		RJEMUF= %RJEMUF%Emulators
-		Msgbox,8196,Confirm%SFEvb% Emulator directory?,4
+		Msgbox,8196,Confirm,Confirm %SFEvb% Emulator directory?,4
 		ifmsgbox,no
 			{
 				RJEMUF= %RJSDRV%
