@@ -707,8 +707,10 @@ FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Commodore - Amiga CDTV
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Emerson - Arcadia 2001
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Fujitsu - FM Towns
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Fujitsu - FM-7
+FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Galeco
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Galeco - Galeco
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\GCE - Vectrex
+FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Hikaru
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\MAME - Arcade
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Mattel - Intellivision
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\MGT - Sam Coupe
@@ -716,6 +718,8 @@ FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Microsoft - DOS
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Microsoft - MSX
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Microsoft - MSX 2
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Microsoft - MSX Turbo
+FileCreateDir,rj\joyCfgs\Xpadder\Joystick\MS D-O-S
+FileCreateDir,rj\joyCfgs\Xpadder\Joystick\NEC - FM Towns
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\NEC - PC Engine
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\NEC - PC Engine - SuperGrafx
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\NEC - PC Engine - TurboGrafx 16
@@ -798,8 +802,10 @@ FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Emerson - Arcadia 2001
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\EMU
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Fujitsu - FM Towns
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Fujitsu - FM-7
+FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Galeco
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Galeco - Galeco
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\GCE - Vectrex
+FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Hikaru
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\MAME - Arcade
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Mattel - Intellivision
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\MGT - Sam Coupe
@@ -807,6 +813,8 @@ FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Microsoft - DOS
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Microsoft - MSX
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Microsoft - MSX 2
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Microsoft - MSX Turbo
+FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\MS D-O-S
+FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\NEC - FM Towns
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\NEC - PC Engine
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\NEC - PC Engine - TurboGrafx 16
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\NEC - PC Engine CD
@@ -915,12 +923,17 @@ FileInstall,7za.exe,7za.exe,1
 FileInstall,any2ico.exe,any2ico.exe,1
 FileInstall,BSL.exe,BSL.exe,1
 FileInstall,chdman.exe,chdman.exe,1
+FileInstall,crc.exe,crc.exe,1
 FileInstall,emuexe.exe,emuexe.exe,1
 FileInstall,fart.exe,fart.exe,1
+FileInstall,fciv.exe,fciv.exe,1
 FileInstall,PSFTP.EXE,PSFTP.EXE,1
+FileInstall,rcedit.exe,rcedit.exe,1
 FileInstall,rcedit32.exe,rcedit32.exe,1
 FileInstall,rcedit64.exe,rcedit64.exe,1
 FileInstall,Scraper.exe,Scraper.exe,1
+FileInstall,skeletonKey-uninst.exe,skeletonKey-uninst.exe,1
+FileInstall,skeletonkey.exe,skeletonkey.exe,1
 FileInstall,Skey-Deploy.exe,Skey-Deploy.exe,1
 FileInstall,UnRAR.exe,UnRAR.exe,1
 FileInstall,Vdrive.exe,Vdrive.exe,1
@@ -939,6 +952,7 @@ FileInstall,splash.png,splash.png,1
 FileInstall,tip.png,tip.png,1
 FileInstall,favicon.ico,favicon.ico,1
 FileInstall,Helper.ico,Helper.ico,1
+FileInstall,Install.ico,Install.ico,1
 FileInstall,key.ico,key.ico,1
 FileInstall,lnch.ico,lnch.ico,1
 FileInstall,sysico\Acorn - Archimedes.ico,sysico\Acorn - Archimedes.ico,1
@@ -982,6 +996,7 @@ FileInstall,sysico\Commodore - 64.ico,sysico\Commodore - 64.ico,1
 FileInstall,sysico\Commodore - Amiga CD32.ico,sysico\Commodore - Amiga CD32.ico,1
 FileInstall,sysico\Commodore - Amiga.ico,sysico\Commodore - Amiga.ico,1
 FileInstall,sysico\Commodore - VIC-20.ico,sysico\Commodore - VIC-20.ico,1
+FileInstall,sysico\Commodore - VIC20.ico,sysico\Commodore - VIC20.ico,1
 FileInstall,sysico\Daphne - Daphne Laser Disc.ico,sysico\Daphne - Daphne Laser Disc.ico,1
 FileInstall,sysico\DOS.ico,sysico\DOS.ico,1
 FileInstall,sysico\Emerson - Arcadia 2001.ico,sysico\Emerson - Arcadia 2001.ico,1
@@ -1079,6 +1094,7 @@ FileInstall,sysico\VTech - CreatiVision.ico,sysico\VTech - CreatiVision.ico,1
 FileInstall,sysico\VTech - Socrates.ico,sysico\VTech - Socrates.ico,1
 FileInstall,sysico\Watara - SuperVision.ico,sysico\Watara - SuperVision.ico,1
 FileInstall,sysico\Windows - Games.ico,sysico\Windows - Games.ico,1
+FileInstall,sysico\Windows Games.ico,sysico\Windows Games.ico,1
 FileInstall,sysico\WoW - Action Max.ico,sysico\WoW - Action Max.ico,1
 FileInstall,sysico\XaviXPORT.ico,sysico\XaviXPORT.ico,1
 FileInstall,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.set,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.set,1
@@ -1215,6 +1231,7 @@ FileInstall,gam\Sinclair - ZX Spectrum.gam,gam\Sinclair - ZX Spectrum.gam,1
 FileInstall,gam\SNK - Neo Geo MVS.gam,gam\SNK - Neo Geo MVS.gam,1
 FileInstall,gam\SNK - Neo Geo Pocket Color.gam,gam\SNK - Neo Geo Pocket Color.gam,1
 FileInstall,gam\SNK - Neo Geo Pocket.gam,gam\SNK - Neo Geo Pocket.gam,1
+FileInstall,gam\SNK - NeoGeo Pocket.gam,gam\SNK - NeoGeo Pocket.gam,1
 FileInstall,gam\Sony - Playstation 2.gam,gam\Sony - Playstation 2.gam,1
 FileInstall,gam\Sony - Playstation Portable.gam,gam\Sony - Playstation Portable.gam,1
 FileInstall,gam\Sony - Playstation.gam,gam\Sony - Playstation.gam,1
@@ -1236,6 +1253,7 @@ FileInstall,gam\MAME - Systems\a1200n.gam,gam\MAME - Systems\a1200n.gam,1
 FileInstall,gam\MAME - Systems\a2000n.gam,gam\MAME - Systems\a2000n.gam,1
 FileInstall,gam\MAME - Systems\a2600.gam,gam\MAME - Systems\a2600.gam,1
 FileInstall,gam\MAME - Systems\a2600p.gam,gam\MAME - Systems\a2600p.gam,1
+FileInstall,gam\MAME - Systems\a3000.gam,gam\MAME - Systems\a3000.gam,1
 FileInstall,gam\MAME - Systems\a3000n.gam,gam\MAME - Systems\a3000n.gam,1
 FileInstall,gam\MAME - Systems\a310.gam,gam\MAME - Systems\a310.gam,1
 FileInstall,gam\MAME - Systems\a500n.gam,gam\MAME - Systems\a500n.gam,1
@@ -1254,6 +1272,7 @@ FileInstall,gam\MAME - Systems\alice32.gam,gam\MAME - Systems\alice32.gam,1
 FileInstall,gam\MAME - Systems\alice90.gam,gam\MAME - Systems\alice90.gam,1
 FileInstall,gam\MAME - Systems\alphatro.gam,gam\MAME - Systems\alphatro.gam,1
 FileInstall,gam\MAME - Systems\altos5.gam,gam\MAME - Systems\altos5.gam,1
+FileInstall,gam\MAME - Systems\amiga.gam,gam\MAME - Systems\amiga.gam,1
 FileInstall,gam\MAME - Systems\ampro.gam,gam\MAME - Systems\ampro.gam,1
 FileInstall,gam\MAME - Systems\apc.gam,gam\MAME - Systems\apc.gam,1
 FileInstall,gam\MAME - Systems\apfimag.gam,gam\MAME - Systems\apfimag.gam,1
@@ -1267,6 +1286,7 @@ FileInstall,gam\MAME - Systems\apple3.gam,gam\MAME - Systems\apple3.gam,1
 FileInstall,gam\MAME - Systems\apricot.gam,gam\MAME - Systems\apricot.gam,1
 FileInstall,gam\MAME - Systems\aquarius.gam,gam\MAME - Systems\aquarius.gam,1
 FileInstall,gam\MAME - Systems\arcadia.gam,gam\MAME - Systems\arcadia.gam,1
+FileInstall,gam\MAME - Systems\archimedes.gam,gam\MAME - Systems\archimedes.gam,1
 FileInstall,gam\MAME - Systems\astrocde.gam,gam\MAME - Systems\astrocde.gam,1
 FileInstall,gam\MAME - Systems\atom.gam,gam\MAME - Systems\atom.gam,1
 FileInstall,gam\MAME - Systems\attache.gam,gam\MAME - Systems\attache.gam,1
@@ -1301,6 +1321,7 @@ FileInstall,gam\MAME - Systems\compclr2.gam,gam\MAME - Systems\compclr2.gam,1
 FileInstall,gam\MAME - Systems\compis.gam,gam\MAME - Systems\compis.gam,1
 FileInstall,gam\MAME - Systems\comx35.gam,gam\MAME - Systems\comx35.gam,1
 FileInstall,gam\MAME - Systems\copera.gam,gam\MAME - Systems\copera.gam,1
+FileInstall,gam\MAME - Systems\cpc.gam,gam\MAME - Systems\cpc.gam,1
 FileInstall,gam\MAME - Systems\cpc6128p.gam,gam\MAME - Systems\cpc6128p.gam,1
 FileInstall,gam\MAME - Systems\crvision.gam,gam\MAME - Systems\crvision.gam,1
 FileInstall,gam\MAME - Systems\cx3000tc.gam,gam\MAME - Systems\cx3000tc.gam,1
@@ -1338,6 +1359,7 @@ FileInstall,gam\MAME - Systems\gamepock.gam,gam\MAME - Systems\gamepock.gam,1
 FileInstall,gam\MAME - Systems\gba.gam,gam\MAME - Systems\gba.gam,1
 FileInstall,gam\MAME - Systems\gbcolor.gam,gam\MAME - Systems\gbcolor.gam,1
 FileInstall,gam\MAME - Systems\genesis.gam,gam\MAME - Systems\genesis.gam,1
+FileInstall,gam\MAME - Systems\genius.gam,gam\MAME - Systems\genius.gam,1
 FileInstall,gam\MAME - Systems\genius6.gam,gam\MAME - Systems\genius6.gam,1
 FileInstall,gam\MAME - Systems\gimix.gam,gam\MAME - Systems\gimix.gam,1
 FileInstall,gam\MAME - Systems\gjmovie.gam,gam\MAME - Systems\gjmovie.gam,1
@@ -1357,6 +1379,7 @@ FileInstall,gam\MAME - Systems\hp9835a.gam,gam\MAME - Systems\hp9835a.gam,1
 FileInstall,gam\MAME - Systems\hp9845a.gam,gam\MAME - Systems\hp9845a.gam,1
 FileInstall,gam\MAME - Systems\hp9845b.gam,gam\MAME - Systems\hp9845b.gam,1
 FileInstall,gam\MAME - Systems\ht68k.gam,gam\MAME - Systems\ht68k.gam,1
+FileInstall,gam\MAME - Systems\hx20.gam,gam\MAME - Systems\hx20.gam,1
 FileInstall,gam\MAME - Systems\i7000.gam,gam\MAME - Systems\i7000.gam,1
 FileInstall,gam\MAME - Systems\ibm5140.gam,gam\MAME - Systems\ibm5140.gam,1
 FileInstall,gam\MAME - Systems\ibm5150.gam,gam\MAME - Systems\ibm5150.gam,1
@@ -1403,6 +1426,11 @@ FileInstall,gam\MAME - Systems\mo5.gam,gam\MAME - Systems\mo5.gam,1
 FileInstall,gam\MAME - Systems\mo6.gam,gam\MAME - Systems\mo6.gam,1
 FileInstall,gam\MAME - Systems\mpu1000.gam,gam\MAME - Systems\mpu1000.gam,1
 FileInstall,gam\MAME - Systems\mpz80.gam,gam\MAME - Systems\mpz80.gam,1
+FileInstall,gam\MAME - Systems\msx1.gam,gam\MAME - Systems\msx1.gam,1
+FileInstall,gam\MAME - Systems\msx2.gam,gam\MAME - Systems\msx2.gam,1
+FileInstall,gam\MAME - Systems\msx2p.gam,gam\MAME - Systems\msx2p.gam,1
+FileInstall,gam\MAME - Systems\msxr.gam,gam\MAME - Systems\msxr.gam,1
+FileInstall,gam\MAME - Systems\mtx.gam,gam\MAME - Systems\mtx.gam,1
 FileInstall,gam\MAME - Systems\mtx512.gam,gam\MAME - Systems\mtx512.gam,1
 FileInstall,gam\MAME - Systems\myvision.gam,gam\MAME - Systems\myvision.gam,1
 FileInstall,gam\MAME - Systems\mz2000.gam,gam\MAME - Systems\mz2000.gam,1
@@ -1427,24 +1455,30 @@ FileInstall,gam\MAME - Systems\orionide.gam,gam\MAME - Systems\orionide.gam,1
 FileInstall,gam\MAME - Systems\orionpro.gam,gam\MAME - Systems\orionpro.gam,1
 FileInstall,gam\MAME - Systems\osborne1.gam,gam\MAME - Systems\osborne1.gam,1
 FileInstall,gam\MAME - Systems\osborne2.gam,gam\MAME - Systems\osborne2.gam,1
+FileInstall,gam\MAME - Systems\p500.gam,gam\MAME - Systems\p500.gam,1
 FileInstall,gam\MAME - Systems\partner.gam,gam\MAME - Systems\partner.gam,1
 FileInstall,gam\MAME - Systems\pasogo.gam,gam\MAME - Systems\pasogo.gam,1
 FileInstall,gam\MAME - Systems\pb2000c.gam,gam\MAME - Systems\pb2000c.gam,1
+FileInstall,gam\MAME - Systems\pc1000.gam,gam\MAME - Systems\pc1000.gam,1
 FileInstall,gam\MAME - Systems\pc1512.gam,gam\MAME - Systems\pc1512.gam,1
 FileInstall,gam\MAME - Systems\pc1640.gam,gam\MAME - Systems\pc1640.gam,1
 FileInstall,gam\MAME - Systems\pc8201.gam,gam\MAME - Systems\pc8201.gam,1
 FileInstall,gam\MAME - Systems\pc8801.gam,gam\MAME - Systems\pc8801.gam,1
 FileInstall,gam\MAME - Systems\pc88va.gam,gam\MAME - Systems\pc88va.gam,1
+FileInstall,gam\MAME - Systems\pc98.gam,gam\MAME - Systems\pc98.gam,1
 FileInstall,gam\MAME - Systems\pc9821xs.gam,gam\MAME - Systems\pc9821xs.gam,1
 FileInstall,gam\MAME - Systems\pce.gam,gam\MAME - Systems\pce.gam,1
 FileInstall,gam\MAME - Systems\pcw.gam,gam\MAME - Systems\pcw.gam,1
 FileInstall,gam\MAME - Systems\pcw16.gam,gam\MAME - Systems\pcw16.gam,1
+FileInstall,gam\MAME - Systems\pecom.gam,gam\MAME - Systems\pecom.gam,1
 FileInstall,gam\MAME - Systems\pecom32.gam,gam\MAME - Systems\pecom32.gam,1
 FileInstall,gam\MAME - Systems\pegasus.gam,gam\MAME - Systems\pegasus.gam,1
 FileInstall,gam\MAME - Systems\pencil2.gam,gam\MAME - Systems\pencil2.gam,1
+FileInstall,gam\MAME - Systems\pentagon.gam,gam\MAME - Systems\pentagon.gam,1
 FileInstall,gam\MAME - Systems\pet64.gam,gam\MAME - Systems\pet64.gam,1
 FileInstall,gam\MAME - Systems\phc25.gam,gam\MAME - Systems\phc25.gam,1
 FileInstall,gam\MAME - Systems\picno.gam,gam\MAME - Systems\picno.gam,1
+FileInstall,gam\MAME - Systems\pico.gam,gam\MAME - Systems\pico.gam,1
 FileInstall,gam\MAME - Systems\picou.gam,gam\MAME - Systems\picou.gam,1
 FileInstall,gam\MAME - Systems\pippin.gam,gam\MAME - Systems\pippin.gam,1
 FileInstall,gam\MAME - Systems\plus4.gam,gam\MAME - Systems\plus4.gam,1
@@ -1477,7 +1511,9 @@ FileInstall,gam\MAME - Systems\rwtrntcs.gam,gam\MAME - Systems\rwtrntcs.gam,1
 FileInstall,gam\MAME - Systems\rx78.gam,gam\MAME - Systems\rx78.gam,1
 FileInstall,gam\MAME - Systems\sage2.gam,gam\MAME - Systems\sage2.gam,1
 FileInstall,gam\MAME - Systems\samcoupe.gam,gam\MAME - Systems\samcoupe.gam,1
+FileInstall,gam\MAME - Systems\sat.gam,gam\MAME - Systems\sat.gam,1
 FileInstall,gam\MAME - Systems\saturnu.gam,gam\MAME - Systems\saturnu.gam,1
+FileInstall,gam\MAME - Systems\sawatte.gam,gam\MAME - Systems\sawatte.gam,1
 FileInstall,gam\MAME - Systems\sc3000.gam,gam\MAME - Systems\sc3000.gam,1
 FileInstall,gam\MAME - Systems\scv.gam,gam\MAME - Systems\scv.gam,1
 FileInstall,gam\MAME - Systems\sf7000.gam,gam\MAME - Systems\sf7000.gam,1
@@ -1502,11 +1538,14 @@ FileInstall,gam\MAME - Systems\spc1000.gam,gam\MAME - Systems\spc1000.gam,1
 FileInstall,gam\MAME - Systems\spc1500.gam,gam\MAME - Systems\spc1500.gam,1
 FileInstall,gam\MAME - Systems\spec128.gam,gam\MAME - Systems\spec128.gam,1
 FileInstall,gam\MAME - Systems\special.gam,gam\MAME - Systems\special.gam,1
+FileInstall,gam\MAME - Systems\specpls3.gam,gam\MAME - Systems\specpls3.gam,1
+FileInstall,gam\MAME - Systems\spectrum.gam,gam\MAME - Systems\spectrum.gam,1
 FileInstall,gam\MAME - Systems\st.gam,gam\MAME - Systems\st.gam,1
 FileInstall,gam\MAME - Systems\studio2.gam,gam\MAME - Systems\studio2.gam,1
 FileInstall,gam\MAME - Systems\stv.gam,gam\MAME - Systems\stv.gam,1
 FileInstall,gam\MAME - Systems\super6.gam,gam\MAME - Systems\super6.gam,1
 FileInstall,gam\MAME - Systems\super80.gam,gam\MAME - Systems\super80.gam,1
+FileInstall,gam\MAME - Systems\superpet.gam,gam\MAME - Systems\superpet.gam,1
 FileInstall,gam\MAME - Systems\supracan.gam,gam\MAME - Systems\supracan.gam,1
 FileInstall,gam\MAME - Systems\sv8000.gam,gam\MAME - Systems\sv8000.gam,1
 FileInstall,gam\MAME - Systems\svi318.gam,gam\MAME - Systems\svi318.gam,1
@@ -1551,6 +1590,9 @@ FileInstall,gam\MAME - Systems\vip.gam,gam\MAME - Systems\vip.gam,1
 FileInstall,gam\MAME - Systems\visicom.gam,gam\MAME - Systems\visicom.gam,1
 FileInstall,gam\MAME - Systems\vixen.gam,gam\MAME - Systems\vixen.gam,1
 FileInstall,gam\MAME - Systems\vsmile.gam,gam\MAME - Systems\vsmile.gam,1
+FileInstall,gam\MAME - Systems\vsmileb.gam,gam\MAME - Systems\vsmileb.gam,1
+FileInstall,gam\MAME - Systems\vsmilef.gam,gam\MAME - Systems\vsmilef.gam,1
+FileInstall,gam\MAME - Systems\vsmileg.gam,gam\MAME - Systems\vsmileg.gam,1
 FileInstall,gam\MAME - Systems\vz.gam,gam\MAME - Systems\vz.gam,1
 FileInstall,gam\MAME - Systems\wangpc.gam,gam\MAME - Systems\wangpc.gam,1
 FileInstall,gam\MAME - Systems\waveterm.gam,gam\MAME - Systems\waveterm.gam,1
@@ -1560,9 +1602,11 @@ FileInstall,gam\MAME - Systems\wscolor.gam,gam\MAME - Systems\wscolor.gam,1
 FileInstall,gam\MAME - Systems\wswan.gam,gam\MAME - Systems\wswan.gam,1
 FileInstall,gam\MAME - Systems\x07.gam,gam\MAME - Systems\x07.gam,1
 FileInstall,gam\MAME - Systems\x1.gam,gam\MAME - Systems\x1.gam,1
+FileInstall,gam\MAME - Systems\x68k.gam,gam\MAME - Systems\x68k.gam,1
 FileInstall,gam\MAME - Systems\x68ksupr.gam,gam\MAME - Systems\x68ksupr.gam,1
 FileInstall,gam\MAME - Systems\x820ii.gam,gam\MAME - Systems\x820ii.gam,1
 FileInstall,gam\MAME - Systems\xegs.gam,gam\MAME - Systems\xegs.gam,1
+FileInstall,gam\MAME - Systems\xerox820.gam,gam\MAME - Systems\xerox820.gam,1
 FileInstall,gam\MAME - Systems\z80ne.gam,gam\MAME - Systems\z80ne.gam,1
 FileInstall,gam\MAME - Systems\z88.gam,gam\MAME - Systems\z88.gam,1
 FileInstall,gam\MAME - Systems\zorba.gam,gam\MAME - Systems\zorba.gam,1
@@ -1800,6 +1844,7 @@ FileInstall,rj\emucfgs\m2emulator\P1kbP2kb.input.set,rj\emucfgs\m2emulator\P1kbP
 FileInstall,rj\emucfgs\m5\m5.ini.set,rj\emucfgs\m5\m5.ini.set,1
 FileInstall,rj\emucfgs\m88x\M88x.ini.set,rj\emucfgs\m88x\M88x.ini.set,1
 FileInstall,rj\emucfgs\MAME\default.cfg.set,rj\emucfgs\MAME\default.cfg.set,1
+FileInstall,rj\emucfgs\MAME\input.cfg.set,rj\emucfgs\MAME\input.cfg.set,1
 FileInstall,rj\emucfgs\MAME\mame.ini.ret,rj\emucfgs\MAME\mame.ini.ret,1
 FileInstall,rj\emucfgs\map1010\map1010.ini.set,rj\emucfgs\map1010\map1010.ini.set,1
 FileInstall,rj\emucfgs\mastersystem\mastersystem.ini.set,rj\emucfgs\mastersystem\mastersystem.ini.set,1
@@ -2021,6 +2066,7 @@ FileInstall,rj\emucfgs\virtualJaguar\P2_POST.cmd.set,rj\emucfgs\virtualJaguar\P2
 FileInstall,rj\emucfgs\virtualJaguar\PRE.cmd.set,rj\emucfgs\virtualJaguar\PRE.cmd.set,1
 FileInstall,rj\emucfgs\VirtualNES\VirtuaNES.ini.ret,rj\emucfgs\VirtualNES\VirtuaNES.ini.ret,1
 FileInstall,rj\emucfgs\visualboyadvance\vba.ini.ret,rj\emucfgs\visualboyadvance\vba.ini.ret,1
+FileInstall,rj\emucfgs\visualboyadvance\vbam.ini.ret,rj\emucfgs\visualboyadvance\vbam.ini.ret,1
 FileInstall,rj\emucfgs\visualboyadvance\VisualBoyAdvance.cfg.set,rj\emucfgs\visualboyadvance\VisualBoyAdvance.cfg.set,1
 FileInstall,rj\emucfgs\visualboyAdvance-M\vbam.ini.ret,rj\emucfgs\visualboyAdvance-M\vbam.ini.ret,1
 FileInstall,rj\emucfgs\vivanonno\settings.xml.set,rj\emucfgs\vivanonno\settings.xml.set,1
@@ -2876,10 +2922,14 @@ FileInstall,rj\joyCfgs\Xpadder\Joystick\Fujitsu - FM Towns\Player1.xpadderprofil
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Fujitsu - FM Towns\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Fujitsu - FM Towns\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Fujitsu - FM-7\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Fujitsu - FM-7\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Fujitsu - FM-7\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Fujitsu - FM-7\Player2.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Joystick\Galeco\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Galeco\Player1.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Joystick\Galeco\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Galeco\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Galeco - Galeco\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Galeco - Galeco\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Galeco - Galeco\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Galeco - Galeco\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\GCE - Vectrex\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\GCE - Vectrex\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\GCE - Vectrex\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\GCE - Vectrex\Player2.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Joystick\Hikaru\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Hikaru\Player1.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Joystick\Hikaru\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Hikaru\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\MAME - Arcade\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\MAME - Arcade\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\MAME - Arcade\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\MAME - Arcade\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Mattel - Intellivision\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Mattel - Intellivision\Player1.xpadderprofile,1
@@ -2894,6 +2944,10 @@ FileInstall,rj\joyCfgs\Xpadder\Joystick\Microsoft - MSX 2\Player1.xpadderprofile
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Microsoft - MSX 2\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Microsoft - MSX 2\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Microsoft - MSX Turbo\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Microsoft - MSX Turbo\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Microsoft - MSX Turbo\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Microsoft - MSX Turbo\Player2.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Joystick\MS D-O-S\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\MS D-O-S\Player1.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Joystick\MS D-O-S\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\MS D-O-S\Player2.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Joystick\NEC - FM Towns\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\NEC - FM Towns\Player1.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Joystick\NEC - FM Towns\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\NEC - FM Towns\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\NEC - PC Engine\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\NEC - PC Engine\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\NEC - PC Engine\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\NEC - PC Engine\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\NEC - PC Engine - SuperGrafx\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\NEC - PC Engine - SuperGrafx\Player1.xpadderprofile,1
@@ -3062,10 +3116,14 @@ FileInstall,rj\joyCfgs\Xpadder\Keyboard\Fujitsu - FM Towns\Player1.xpadderprofil
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Fujitsu - FM Towns\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Fujitsu - FM Towns\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Fujitsu - FM-7\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Fujitsu - FM-7\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Fujitsu - FM-7\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Fujitsu - FM-7\Player2.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Keyboard\Galeco\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Galeco\Player1.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Keyboard\Galeco\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Galeco\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Galeco - Galeco\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Galeco - Galeco\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Galeco - Galeco\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Galeco - Galeco\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\GCE - Vectrex\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\GCE - Vectrex\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\GCE - Vectrex\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\GCE - Vectrex\Player2.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Keyboard\Hikaru\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Hikaru\Player1.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Keyboard\Hikaru\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Hikaru\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\MAME - Arcade\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\MAME - Arcade\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\MAME - Arcade\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\MAME - Arcade\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Mattel - Intellivision\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Mattel - Intellivision\Player1.xpadderprofile,1
@@ -3080,6 +3138,10 @@ FileInstall,rj\joyCfgs\Xpadder\Keyboard\Microsoft - MSX 2\Player1.xpadderprofile
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Microsoft - MSX 2\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Microsoft - MSX 2\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Microsoft - MSX Turbo\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Microsoft - MSX Turbo\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Microsoft - MSX Turbo\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Microsoft - MSX Turbo\Player2.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Keyboard\MS D-O-S\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\MS D-O-S\Player1.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Keyboard\MS D-O-S\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\MS D-O-S\Player2.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Keyboard\NEC - FM Towns\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\NEC - FM Towns\Player1.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Keyboard\NEC - FM Towns\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\NEC - FM Towns\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\NEC - PC Engine\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\NEC - PC Engine\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\NEC - PC Engine\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\NEC - PC Engine\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\NEC - PC Engine - TurboGrafx 16\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\NEC - PC Engine - TurboGrafx 16\Player1.xpadderprofile,1
