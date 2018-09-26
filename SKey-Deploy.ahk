@@ -2660,7 +2660,7 @@ StringReplace,arcorg,arcorg,[SOURCEHOST],%UPDTURL%,All
 StringReplace,arcorg,arcorg,[IPLK],%GETIPADR%,All
 FileAppend,%themes%,%SKELD%\Themes.set
 FileAppend,%arcorg%,%SKELD%\arcorg.set
-
+FileDelete, %SKELD%\skeletonKey.exe
 FileDelete,%SKELD%\skeletonkey.tmp
 FileMove,%SKELD%\skeletonkey.ahk,%SKELD%\skel.bak,1
 FileCopy, %SKELD%\working.ahk, %SKELD%\skeletonkey.tmp,1
@@ -2690,6 +2690,7 @@ ifexist, %SKELD%\SKey-Deploy.exe
 	{
 		FileMove, %SKELD%\SKey-Deploy.exe, %SKELD%\SKey-Deploy.exe.bak,1
 	}
+	
 if (INITINCL = 1)
 	{
 			exprt= 
