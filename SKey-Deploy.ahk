@@ -430,7 +430,7 @@ if (GITRLS = "")
 	}
 if (GITRLS = "")
 	{
-		msgbox,1,,Git-Release.exe must be set to deploy executables to github.
+		msgbox,1,,github-release.exe must be set to deploy executables to github.
 	}
 if (BUILDIR = "")
 	{
@@ -689,7 +689,7 @@ Gui Add, Tab2, x2 y-1 w487 h171 vTABMENU Bottom, Setup|Deploy
 Gui, Tab, 1
 Gui, Tab, Setup
 Gui, Add, Text,x164 y5, Location
-Gui, Add, DropDownList, x8 y2 w100 vSRCDD gSrcDD, Project||Git.exe|Git-Release|Source|Compiler|Site|Deployment|Build|NSIS|NP++
+Gui, Add, DropDownList, x8 y2 w100 vSRCDD gSrcDD, Project||Git.exe|github-release|Source|Compiler|Site|Deployment|Build|NSIS|NP++
 Gui, Add, Button, x109 y2 w52 h21 vSELDIR gSelDir, Select
 Gui, Add, Button, x109 y26 w52 h21 vRESGET gRESGET, Clone
 Gui Add, DropDownList,x331 y2 w92 vResDD gResDD, All||Dev-Build|Portable-Build|Stable-Build|Deployer|Site-URL|Update-URL|Shader-URL|Repo-URL|Internet-IP-URL|Git-User|Git-Password|Git-URL
@@ -831,7 +831,7 @@ if (AUTOINSTALL >= 1)
 		GITAPP= %A_MyDocuments%\Git\bin\git.exe
 		splitpath,GITAPP,,GITAPPD
 		iniwrite,%GITAPP%,skopt.cfg,GLOBAL,git_app
-		GITRLS= %GITAPPD%\git-release.exe
+		GITRLS= %GITAPPD%\github-release.exe
 		iniwrite,%GITRLS%,skopt.cfg,GLOBAL,git_rls
 		GITD= %GITROOT%\skeletonKey
 		iniwrite,%GITD%,skopt.cfg,GLOBAL,Project_Directory
@@ -979,7 +979,7 @@ if (INIT = 1)
 	{
 		SRCDD= Build
 	}
-if (SRCDD = "Git-release")
+if (SRCDD = "github-release")
 	{
 		splitpath,gitapp,,gitrlstmp
 		gosub, GetRls
@@ -1579,7 +1579,7 @@ return
 
 GetRls:
 splitpath,GITAPP,,gitrlstmp
-gitrlstmp= %gitrlstmp%\git-release.exe
+gitrlstmp= %gitrlstmp%\github-release.exe
 gaptrtmp= %A_MyDocuments%
 ifnotexist,%gitrlstmp%
 	{
@@ -1599,7 +1599,7 @@ if (GITRLS <> "")
 	{
 		if (GITRLST = "")
 			{
-				SB_SetText("Git-Release is " GITRLS " ")
+				SB_SetText("github-release is " GITRLS " ")
 				return
 			}
 	}	
@@ -1839,7 +1839,7 @@ if (SRCDD = "Git.exe")
 		gitapdtmp= %A_MyDocuments%	
 		goto, GetGITZ
 	}
-if (SRCDD = "Git-Release")
+if (SRCDD = "github-release")
 	{
 		goto, GetGITRZ
 	}
@@ -2014,15 +2014,15 @@ ifexist, %save%
 	{
 		GITRLS= 
 		GITRLSDT= 
-		FileSelectFolder, GITRLSDT,%gaptrtmp%,0,Location to extract the Git-Release Program
+		FileSelectFolder, GITRLSDT,%gaptrtmp%,0,Location to extract the github-release Program
 		if (GITRLSDT = "")
 			{
 				return
 			}
-		Runwait, 7za.exe x -y "%save%" -O"%GITRLSDT%" "Git\Bin\git-release.exe"	
-		GITRLS= %GITRLSDT%\git-release.exe
+		Runwait, 7za.exe x -y "%save%" -O"%GITRLSDT%" "Git\Bin\github-release.exe"	
+		GITRLS= %GITRLSDT%\github-release.exe
 		iniwrite, %GITRLS%,skopt.cfg,GLOBAL,git_rls
-		SB_SetText("Git-Release is " GITRLS " ")
+		SB_SetText("github-release is " GITRLS " ")
 	}
 return
 
@@ -2155,7 +2155,7 @@ if (SRCDD = "NSIS")
 	{
 		SB_SetText(" " NSIS " ")
 	}
-if (SRCDD = "Git-Release")
+if (SRCDD = "github-release")
 	{
 		SB_SetText(" " GITRLS " ")
 	}
@@ -2341,7 +2341,7 @@ if (RESDD = "NSIS")
 			}
 	}
 
-if (RESDD = "Git-Release")
+if (RESDD = "github-release")
 	{
 		MsgBox,1,Confirm Tool Reset, Are You sure you want to reset the github-release.exe?
 		IfMsgBox, OK
