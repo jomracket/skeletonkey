@@ -20,6 +20,25 @@ save= %cacheloc%\BuildTools-%ARCH%.7z
 npsave= %cacheloc%\Notepad_PlusPlus.7z
 
 optionONE= %1%
+optionTWO= %2%
+optionTHREE= %3%
+optionFOUR= %4%
+
+ifinstring,optionONE,-gituser
+	{
+		stringsplit,vvi,optionONE,=
+		GITUSER= %vvi2%
+		ifinstring,optionTWO,-gitpass
+			{
+				stringsplit,vvb,optionTWO,=
+				GITPASS= %vvb2%
+				ifinstring,optionTHREE,-gittoken
+					{
+						stringsplit,vvc,optionTHREE,=
+						GITPAT= %vvc2%
+					}
+			}
+	}
 
 ifinstring,optionONE,-reset
 	{
@@ -30,13 +49,9 @@ ifinstring,optionONE,-reset
 			{
 				goto, QUITOUT
 			}
-		ifmsgbox,No
-			{
-				GITPASS= 
-				GITUSER=
-				GITPAT=
-			}
+		cntrst= 1	
 		GITROOT=
+		SITEURL=
 		BUILDIR=
 		BUILDW=
 		SKELD=
@@ -45,7 +60,6 @@ ifinstring,optionONE,-reset
 		NSIS=
 		GITAPP=
 		GITD=
-		SITEURL=
 		SITEDIR=
 		SHDRPURL=
 		GETIPADR=
@@ -53,9 +67,16 @@ ifinstring,optionONE,-reset
 		REPOURL=
 		UPDTURL=
 		GITSRC=
-		GITAPP=
 		GITRLS=
 		NPPR=
+		ifmsgbox,No
+			{
+				GITPASS= 
+				GITUSER=
+				GITPAT=
+				cntrst= 
+			}
+		filedelete,skopt.cfg
 	}
 
 Loop, %save%
@@ -166,9 +187,27 @@ if ("%1%" = "show")
 IfNotExist, skopt.cfg
 	{
 		INIT= 1
-		gosub, SelDir
+		if (cntrst = 1)
+			{
+				if (GITUSER <> "")
+					{
+						iniwrite,%GITUSER%,skopt.cfg,GLOBAL,git_username
+					}
+				if (GITPASS <> "")
+					{
+						iniwrite,%GITPASS%,skopt.cfg,GLOBAL,git_password
+					}
+				if (GITPAT <> "")
+					{
+						iniwrite,%GITPAT%,skopt.cfg,GLOBAL,git_token
+					}
+				goto, READSKOPT
+			}
+			
+		gosub, SelDXB
 	}
 	
+READSKOPT:	
 Loop, Read, skopt.cfg
 	{
 		curvl1= 
@@ -626,6 +665,7 @@ if (vernum = "")
 FileReadLine,initchk,skopt.cfg,21
 if (initchk = "")
 	{
+		msgbox,,,incomplete config
 		filedelete,skopt.cfg
 		exitapp
 	}	
@@ -692,12 +732,45 @@ Return
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+SelDXB:
+Msgbox,3,Quick-Setup,This tool can automatically install and initialize a development environment in:`n%A_MyDocuments%`n`nProceed? 
+ifmsgbox,No
+	{
+		goto, SelDir
+	}
+ifmsgbox,Cancel
+	{
+		goto, QUITOUT
+	}
+AUTOINSTALL= 1
+ifnotexist, %save%
+	{
+		gosub, getbldtlz
+	}
+AUTOINSTALL+= 1	
+ifnotexist, %npsave%
+	{
+		gosub, getNPPz
+	}
+ifnotexist, %npsave%
+	{
+		AUTOINSTALL-= 1	
+	}
+ifnotexist, %save%
+	{
+		AUTOINSTALL= 
+	}
+	
+	
 SelDir:
 gui,submit,nohide
 
 if (INIT = 1)
 	{
-		gosub, GetGUSR
+		if (GITUSER = "")
+			{
+				gosub, GetGUSR
+			}
 	}
 if (SRCDD = "Git-User")
 	{
@@ -710,8 +783,109 @@ if (SRCDD = "Git-User")
 if (INIT = 1)
 	{
 		GITPASST= *******
-		gosub, GitGPass
+		if (GITPASS = "")
+			{
+				gosub, GitGPass
+			}
 	}
+if (INIT = 1)
+	{
+		if (GITPAT = "")
+			{
+				GITPAT= XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+			}
+	}
+if (GITPAT = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+	{
+		msgbox,1,,Git Personal Access Token must be set to deploy executables.
+		gosub, GetGPAC
+	}
+
+if (AUTOINSTALL >= 1)
+	{
+		iniwrite,%GITUSER%,skopt.cfg,GLOBAL,git_username
+		iniwrite,%GITPASS%,skopt.cfg,GLOBAL,git_password
+		iniwrite,%GITPAT%,skopt.cfg,GLOBAL,git_token
+		Progress,10,Extracting Tools
+		Runwait, 7za.exe x -y "%save%" -O"%A_MyDocuments%",,%rntp%
+		Progress,100,Complete
+		Sleep, 1000
+		Progress,Off
+		GITROOT= %A_MyDocuments%\GitHub
+		iniwrite,%GITROOT%,skopt.cfg,GLOBAL,Git_Root
+		
+		SITEURL= https://%gituser%.github.io
+		
+		BUILDIR= %A_ScriptDir%
+		iniwrite,%BUILDIR%,skopt.cfg,GLOBAL,Build_Directory
+		BUILDW= %A_ScriptDir%\working.ahk
+		iniwrite,%BUILDW%,skopt.cfg,GLOBAL,working_file
+		SKELD= %A_ScriptDir%
+		iniwrite,%SKELD%,skopt.cfg,GLOBAL,source_Directory
+		AHKDIR= %A_MyDocuments%\AutoHotkey\Compiler
+		iniwrite,%AHKDIR%,skopt.cfg,GLOBAL,Compiler_Directory
+		DEPL= %GITROOT%\skeletonkey.deploy
+		iniwrite,%DEPL%,skopt.cfg,GLOBAL,Deployment_Directory
+		NSIS= %A_MyDocuments%\NSIS\makensis.exe
+		iniwrite,%NSIS%,skopt.cfg,GLOBAL,NSIS
+		GITAPP= %A_MyDocuments%\Git\bin\git.exe
+		splitpath,GITAPP,,GITAPPD
+		iniwrite,%GITAPP%,skopt.cfg,GLOBAL,git_app
+		GITRLS= %GITAPPD%\git-release.exe
+		iniwrite,%GITRLS%,skopt.cfg,GLOBAL,git_rls
+		GITD= %GITROOT%\skeletonKey
+		iniwrite,%GITD%,skopt.cfg,GLOBAL,Project_Directory
+		SITEDIR= %GITROOT%\%GITUSER%.github.io
+		iniwrite,%SITEDIR%,skopt.cfg,GLOBAL,site_directory
+		SHDRPURL= http://raw.githubusercontent.com/libretro/shader-previews/master/
+		iniwrite,%SHDRPURL%,skopt.cfg,GLOBAL,shader_url
+		GETIPADR= http://www.netikus.net/show_ip.html
+		iniwrite,%GETIPADR%,skopt.cfg,GLOBAL,net_ip
+		NLOB= http://newlobby.libretro.com/list
+		iniwrite,%NLOB%,skopt.cfg,GLOBAL,lobby_url
+		REPOURL= https://github.com/%gituser%
+		iniwrite,%REPOURL%,skopt.cfg,GLOBAL,repository_url
+		UPDTURL= http://raw.githubusercontent.com/%gituser%/skeletonkey/master/version.txt
+		iniwrite,%UPDTURL%,skopt.cfg,GLOBAL,update_url
+		GITSRC= http://github.com/%GITUSER%/skeletonkey
+		iniwrite,%GITSRC%,skopt.cfg,GLOBAL,git_url
+		
+		ifnotexist, %GITROOT%
+			{
+				FileCreateDir, %GITROOT%
+			}	
+			
+		ifnotexist, %DEPL%
+			{
+				FileCreateDir,%DEPL%
+			}
+		Progress,10,Cloning skeletonKey from github	
+		ifnotexist, %GITD%
+			{
+				Runwait, "%gitapp%" clone %GITSRC%,%gitroot%,%rntp%
+			}
+		Progress,90,Cloning skeletonKey website
+		ifnotexist, %SITEDIR%
+			{
+				Runwait, "%gitapp%" clone https://github.com/%gituser%/%gituser%.github.io,%GITROOT%,%rntp%
+			}
+		Progress,100,Complete
+		Sleep,1000
+		Progress, off
+		if (AUTOINSTALL > 1)
+			{
+				Progress,1,Extracting Notepad++
+				Runwait, 7za.exe x -y "%npsave%" -O"%A_MyDocuments%",,%rntp%
+				Progress,100,Complete
+				Sleep,1000
+				Progress,off
+				NPPR= %A_MyDocuments%\Notepad_PlusPlus\notepad++.exe
+				iniwrite,%NPPR%,skopt.cfg,GLOBAL,Notepad_PlusPlus
+			}
+		INIT= 
+		return
+	}
+
 if (INIT = 1)
 	{
 		SRCDD= Source
@@ -1237,9 +1411,10 @@ ifnotexist, %STLOC%
 				Runwait, %gitapp% clone http://github.com/romjacket/romjacket.github.io,%GITROOT%
 				FileMoveDir, %GITROOT%\romjacket.github.io,%GITROOT%\%gituser%.github.io,1
 			}
-	}	
-iniwrite, %STLOC%,skopt.cfg,GLOBAL,Site_Directory
-if (STLOC = "")
+	}
+SITEDIR= %STLOC%	
+iniwrite, %SITEDIR%,skopt.cfg,GLOBAL,Site_Directory
+if (SITEDIR = "")
 	{
 		Msgbox,3,Website Directory,Website Environment not found`nRetry
 		IfMsgBox, Yes
