@@ -692,7 +692,7 @@ Gui, Add, Text,x164 y5, Location
 Gui, Add, DropDownList, x8 y2 w100 vSRCDD gSrcDD, Project||Git.exe|github-release|Source|Compiler|Site|Deployment|Build|NSIS|NP++
 Gui, Add, Button, x109 y2 w52 h21 vSELDIR gSelDir, Select
 Gui, Add, Button, x109 y26 w52 h21 vRESGET gRESGET, Clone
-Gui Add, DropDownList,x331 y2 w92 vResDD gResDD, All||Dev-Build|Portable-Build|Stable-Build|Deployer|Site-URL|Update-URL|Shader-URL|Repo-URL|Internet-IP-URL|Git-User|Git-Password|Git-URL
+Gui Add, DropDownList,x331 y2 w92 vResDD gResDD, All||Dev-Build|Portable-Build|Stable-Build|Deployer|Site-URL|Update-URL|Shader-URL|Repo-URL|Internet-IP-URL|Git-User|Git-Password|Git-Token|Git-URL
 Gui Add, Button, x425 y2 w52 h21 vResB gResB, Reset
 
 Gui Add, Text,x4 y125, %ARCH%-bit
@@ -1704,6 +1704,7 @@ if (GITPAT <> "")
 	}
 GITPAT= %GITPATT%	
 iniwrite, %GITPAT%,skopt.cfg,GLOBAL,git_token
+SB_SetText(" Git Access token is " GITPAT " ")
 return
 
 
@@ -2234,6 +2235,10 @@ if (RESDD = "Git-User")
 	{
 		SB_SetText(" " GITUSER " ")
 	}
+if (RESDD = "Git-Token")
+	{
+		SB_SetText(" " GITPAT " ")
+	}
 if (RESDD = "Repo-URL")
 	{
 		REPORURLT= %GITUSER%.github.io
@@ -2395,6 +2400,11 @@ if (RESDD = "Update-URL")
 	{
 		UPDTURLT= %UPDTURL%
 		Gosub, UpdateURL
+	}
+if (RESDD = "Git-Token")
+	{
+		GITPAT= XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+		Gosub, GetGPAC
 	}
 if (RESDD = "Git-User")
 	{

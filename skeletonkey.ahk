@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-26 2:22 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-27 2:17 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-09-26 2:22 PM
-VERSION= v0.99.58.57
+RELEASE= 2018-09-27 2:17 PM
+VERSION= v0.99.58.58
 RASTABLE= 1.7.4
 #Include tf.ahk
 #Include lbex.ahk
@@ -14786,7 +14786,6 @@ Loop, Parse, semu,|
 						guicontrol,,EMPRDDL,|%sysni%||%addemu%
 						runlist:= corelist . "|" . addemu
 						guicontrol,,LCORE,|%runlist%
-						;;msgbox,,,addemu=%addemu%
 						guicontrol,,EMPRDDL,|Emulators||%addemu%
 						guicontrol,,PLCORE,|%runlist%
 						guicontrol,,ARCCORES,|Select_a_Core||%runlist%
@@ -54796,17 +54795,19 @@ Loop, Parse, apov,`n
 					{
 						continue
 					}
-				
+					if (appn2 <> 0)
+						;;msgbox,,,appn1=%appn1%`nappn2=%appn2%`nloop=%A_LoopField%`nrunadd=%runadd%`nemup2=%emup2%`nsiv=%siv%
 				appn2= %A_LoopField%			
 				ifinstring,runadd,|%appn2%|
 					{
 						continue
 					}
+					/*
 				if (emup2 = siv)
 					{
 						continue
 					}
-
+					*/
 				if (appn2 <> 0)
 					{
 						overDD .= appn1 . "|"
@@ -54876,6 +54877,7 @@ Loop, Parse, pxtn,`n
 					}
 			}
 	}
+
 if (tstxtn = ".zip")
 	{
 		gosub, ZIPOpen
@@ -55006,6 +55008,7 @@ ifexist, %libretrodirectory%\%opncor%_libretro.dll
 	{
 		coreselv= %opncor%_libretro.dll
 	}
+;;msgbox,,,opnapp=%opnapp%`ncvrv=%cvrv%`noverdd=%overdd%`napln=%APLN%
 Loop, Parse, overDD,|
 	{
 		if (A_LoopField = "")
@@ -57783,6 +57786,9 @@ RUNROMCBX= %romf%
 iniwrite, "%romf%", Settings.ini,GLOBAL,last_rom
 guicontrol,,RUNSYSDDL,|History||%plistfiles%
 guicontrol,,RUNROMCBX, |%romf%||%HISTORY%
+guicontrol,,LCORE,||%runlist%
+guicontrol,enable,LNCHBUT
+guicontrol,enable,RCLLNCH
 ;;guicontrol,,RUNROMCBX, |%romf%||%poptadd%
 Gui, submit, nohide
 return
