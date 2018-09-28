@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-27 2:17 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-27 8:22 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-09-27 2:17 PM
-VERSION= v0.99.58.58
+RELEASE= 2018-09-27 8:22 PM
+VERSION= v0.99.58.59
 RASTABLE= 1.7.4
 #Include tf.ahk
 #Include lbex.ahk
@@ -8348,7 +8348,6 @@ if (romf <> "")
 					}
 			}
 	}
-	
 guicontrol,,RUNROMCBX,|%romf%||%poptadd%
 if (SRCHCOMPL = 1)
 	{
@@ -54802,12 +54801,10 @@ Loop, Parse, apov,`n
 					{
 						continue
 					}
-					/*
-				if (emup2 = siv)
+				if (appn2 = siv)
 					{
 						continue
 					}
-					*/
 				if (appn2 <> 0)
 					{
 						overDD .= appn1 . "|"
@@ -56292,6 +56289,11 @@ if (romf = "")
 		return
 	}
 	
+if (romf = ".........indexing............")
+	{
+		return
+	}
+	
 ifinstring,OPTYP,:=:
 	{
 		Loop, Parse, lkupa,`n`r
@@ -56520,6 +56522,11 @@ ASVRM= 1
 gosub,EMUCFGCOPY
 ;;guicontrol,focus,RUNROMCBX	
 RUNSYSCHNG= 
+if ((romf <> "") && (coreselv <> ""))
+	{
+		guicontrol,enable,LNCHBUT
+		guicontrol,enable,RCLLNCH
+	}
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
