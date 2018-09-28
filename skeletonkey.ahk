@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-28 11:40 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-28 1:39 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-09-28 11:40 AM
-VERSION= v0.99.58.60
+RELEASE= 2018-09-28 1:39 PM
+VERSION= v0.99.58.61
 RASTABLE= 1.7.4
 #Include tf.ahk
 #Include lbex.ahk
@@ -2084,16 +2084,16 @@ Gui Tab, Emu:=:Sys
 ;;Gui, Add, Picture, x526 y405 w189 h90, ins.png
 Gui,Font,, %fontName%
 Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x7 y5 w268 h478 vCACGRP, Systems
+Gui, Add, GroupBox, x3 y5 w273 h478 vCACGRP, Systems
 Gui,Font,%fontXsm% Norm
 
 Gui,Font,%fontXsm% Bold
 Gui, Add, GroupBox, x470 y25 w263 h94 Center +0x400000 vGRPDROPBIOS hidden, Drop BIOS here
 Gui,Font,%fontXsm% Norm
 
-Gui, Add, ListBox,x15 y29 w253 h446 HWNDtrxvail vUAVAIL gUAvailSel hidden, %systoemu%
+Gui, Add, ListBox,x4 y29 w269 h446 HWNDtrxvail vUAVAIL gUAvailSel hidden, %systoemu%
 
-Gui, Add, ListBox, Multi x15 y29 w253 h446 HWNDeavlbx vEAVAIL gEAvailSel, %systoemu%
+Gui, Add, ListBox, Multi x4 y29 w269 h446 HWNDeavlbx vEAVAIL gEAvailSel, %systoemu%
 Gui, Add, ListBox, Multi x15 y23 w227 h433 hwndAVWIND vAVAIL gAvailSel Hidden, %corezips%
 
 Gui, Add, Button, x258 y341 w48 h20 vUPDCL gGetCoreList hidden, Refresh
@@ -9803,12 +9803,17 @@ if (LNCHPRDDL = "retroarch")
 		LNCHPT= 0
 		Loop, Parse, origsys,`n`r
 			{
-				stringsplit,fif,A_LoopField,=
-				iniwrite, "0",Assignments.ini,OVERRIDES,%fif1%
+				stringsplit,fif,A_LoopField,=,"
+				;"
+				ifinstring,fif1,%A_Space%-%A_Space%
+					{
+						iniwrite, "0",Assignments.ini,OVERRIDES,%fif1%
+					}
 			}
 		Loop, Parse, origasi,`n`r
 			{
-				stringsplit,fif,A_LoopField,=
+				stringsplit,fif,A_LoopField,=,"
+				;"
 				iniwrite, "%fif2%",Assignments.ini,ASSIGNMENTS,%fif1%
 				Loop, Parse, SysEmuSet,`n`r
 					{
@@ -9823,9 +9828,13 @@ if (LNCHPRDDL = "retroarch")
 									{
 										ifexist,%libretrodirectory%\%A_LoopField%
 											{
-												iniwrite, "%A_LoopField%",Assignments.ini,ASSIGNMENTS,%fif1%
-												sysfnd= 1
-												break
+												
+												ifinstring,fif1,%A_Space%-%A_Space%
+													{
+														iniwrite, "%A_LoopField%",Assignments.ini,ASSIGNMENTS,%fif1%
+														sysfnd= 1
+														break
+													}
 											}
 									}
 								if (sysfnd = 1)
@@ -9846,7 +9855,8 @@ if (LNCHPRDDL <> "retroarch")
 					}
 				fei1=
 				fei2=
-				stringsplit,fei,A_LoopField,=
+				stringsplit,fei,A_LoopField,=,"
+				;"
 				Loop, Parse, SysEmuSet,`n`r
 					{
 						if (A_LoopField = "")
@@ -9899,7 +9909,10 @@ if (LNCHPRDDL <> "retroarch")
 									{
 										repaden.= fej
 										reaptot:= reapri . repaden
-										iniwrite, "%reaptot%",Assignments.ini,OVERRIDES,%fei1%									
+										ifinstring,fei1,%A_Space%-%A_Space%
+											{
+												iniwrite, "%reaptot%",Assignments.ini,OVERRIDES,%fei1%									
+											}
 									}
 							}
 					}
@@ -15603,7 +15616,7 @@ CORETABNAME= |Cores
 if (raexefile = "NOT-FOUND.exe")
 	{
 		CORETABNAME=
-		guicontrol,,LNCHPT,1
+		;;guicontrol,,LNCHPT,1
 	}
 ifexist, Assignments.ini
 	{
@@ -57497,7 +57510,7 @@ if (OVRLKUPNM <> "OBSERVED_VOID")
 		lcore= %fiin%
 	}
 coreselv= %lcore%
-
+APLN= 1
 ifinstring,lcore,_libretro.dll
 	{
 		APLN= 

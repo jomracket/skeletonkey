@@ -280,7 +280,7 @@ Philips - PC2000|MAME|:mame_libretro.dll
 Philips - VG-5000|dcvg5k|MAME|:mame_libretro.dll
 Philips - Videopac Plus G7400|o2em|MAME|:mame_libretro.dll
 Philips - Videopac|o2em|MAME|:mame_libretro.dll
-PopCap|BSL
+PopCap - PopCap|BSL
 Processor Technology Corporation - SOL-20|MAME|:mame_libretro.dll
 Psion - Organiser I|MAME|:mame_libretro.dll
 Psion - Organiser II|MAME|:mame_libretro.dll
@@ -408,7 +408,7 @@ Tomy - Prin-C|MAME|:mame_libretro.dll
 Tomy - Tutor - Pyuuta|MAME|:mame_libretro.dll
 Tomy - Tutor|MAME|:mame_libretro.dll
 Toshiba - Visicom|MAME|:mame_libretro.dll
-Touhou|Anex86|Winx68k|:nekop2_libretro.dll|np2kai_libretro.dll|mame_libretro.dll
+NEC - PC98 - Touhou|Anex86|Winx68k|:nekop2_libretro.dll|np2kai_libretro.dll|mame_libretro.dll
 Triumph-Adler - Alphatronic PC|MAME|:mame_libretro.dll
 Unisonic - Champion 2711|MAME|:mame_libretro.dll
 V-Tech - Laser 2001|MAME|:mame_libretro.dll

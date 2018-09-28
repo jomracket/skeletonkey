@@ -1334,7 +1334,7 @@ RJROMXT=.bin,.rom,zip
 MAME?RJEMUOPTS=<videopac -cart<
 RJZIPPEEK=0
 
-[PopCap]
+[PopCap - PopCap]
 RJEMUPRESET=BSL
 RJROMXT=.lnk,.exe,.bat,.cmd,.jar
 
@@ -1691,7 +1691,7 @@ RJMAMENM=tutor
 RJROMXT=.wav,.bin,.zip
 MAME?RJEMUOPTS=<tutor -[RJRTYP]<|<tutor -cass<|<tutor -cart<
 
-[Touhou]
+[NEC - PC98 - Touhou]
 RJEMUPRESET=Anex86
 RJMAMENM=pc9821xs
 RJROMXT=dsk,.ima,.img,.ufi,.360,.hdm,.fdi,.fdd,.dcp,.dcu,.dip,.nfd,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.zip
