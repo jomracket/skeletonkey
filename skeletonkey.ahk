@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-27 8:22 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-28 11:40 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-09-27 8:22 PM
-VERSION= v0.99.58.59
+RELEASE= 2018-09-28 11:40 AM
+VERSION= v0.99.58.60
 RASTABLE= 1.7.4
 #Include tf.ahk
 #Include lbex.ahk
@@ -9796,6 +9796,7 @@ stringreplace,smuemu,smuemu,=,|,All
 stringreplace,smuemu,smuemu,",,All
 ;"
 smuemu:= "|" . smuemu
+SB_SetText(" Prioritizing " LNCHPRDDL " ")
 if (LNCHPRDDL = "retroarch")
 	{
 		iniwrite, 0,Settings.ini,GLOBAL,Launcher_Priority
@@ -9905,7 +9906,10 @@ if (LNCHPRDDL <> "retroarch")
 			}
 		iniwrite, 1,Settings.ini,GLOBAL,Launcher_Priority
 	}
-
+SB_SetText("Systems now assigned to " LNCHPRDDL " where possible.")
+guicontrol,,SaList,|Systems||Emulators|RetroArch|Utilities|Frontends
+gosub, SaList
+GuiControl, Choose, EAVAIL, 0
 guicontrol,enable,LNCHPT	
 fileread,aei,Assignments.ini
 FileDelete,Assignments.ini

@@ -332,19 +332,11 @@ FileCreateDir,rj\joyCfgs\Antimicro\Keyboard
 FileCreateDir,rj\joyCfgs\Antimicro\Blank\All
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Acorn - BBC
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Acorn - Electron
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Acorn BBC
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Acorn Electron
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Adobe - Flash
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Amstrad - CPC
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Amstrad - GX4000
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Amstrad CPC
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Amstrad GX4000
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Apple - IIe
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Apple - IIgs
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Apple IIe
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Apple IIgs
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Arcade
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Arcadia 2001
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Atari - 2600
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Atari - 5200
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Atari - 7800
@@ -354,55 +346,27 @@ FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Atari - Jaguar
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Atari - Jaguar CD
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Atari - Lynx
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Atari - ST
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Atari 2600
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Atari 5200
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Atari 7800
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Atari 800
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Atari 8Bit
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Atari Jaguar
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Atari Jaguar CD
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Atari Lynx
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Atari ST
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Atomiswave
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Bandai - WonderSwan
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Bandai - WonderSwan Color
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Bandai Wonder Swan
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Bandai Wonder Swan Color
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Capcom - PlaySystem - CPS
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Capcom - PlaySystem - CPS II
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Capcom - PlaySystem - CPS III
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Coleco - ColecoVision
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\ColecoVision
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Commodore - 64
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Commodore - Amiga
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Commodore - Amiga CD32
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Commodore - Amiga CDTV
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Commodore 64
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Commodore Amiga
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Commodore Amiga CD32
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Commodore Amiga CDTV
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\CPS
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\CPS 2
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\CPS 3
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\DOS
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Emerson - Arcadia 2001
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Flash Games
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\FM Towns
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\FM-7
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Fujitsu - FM Towns
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Fujitsu - FM-7
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Galeco
+FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Galeco - Galeco
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\GCE - Vectrex
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Hikaru
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Intellivision
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\MAME - Arcade
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Mattel - Intellivision
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\MGT - Sam Coupe
+FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Microsoft - DOS
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Microsoft - MSX
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Microsoft - MSX 2
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\MS D-O-S
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\MSX
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Naomi
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\NEC - FM Towns
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\NEC - PC Engine
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\NEC - PC Engine - TurboGrafx 16
@@ -412,13 +376,6 @@ FileCreateDir,rj\joyCfgs\Antimicro\Joystick\NEC - PC Engine SuperGrafx
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\NEC - PC-FX
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\NEC - PC88
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\NEC - PC98
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\NEC PC-FX
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\NEC PC88
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\NEC PC98
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\NeoGeo CD
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\NeoGeo MVS
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\NeoGeo Pocket
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\NeoGeo Pocket Color
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo - Famicom
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo - Game Boy
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo - Game Boy Advance
@@ -432,27 +389,13 @@ FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo - Super Game Boy
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo - Super Nintendo Entertainment System
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo - Virtual Boy
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo - Wii
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo 64
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo DS
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo Entertainment System
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo Famicom
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo Game Boy
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo Game Boy Advance
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo Game Boy Color
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo GameCube
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo Virtual Boy
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo Wii
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Other
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Panasonic 3DO
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\PC Engine
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\PC Engine CD
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Phillips - CD-I
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Phillips CD-I
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sam Coupe
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sammy - Atomiswave
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sega - 32X
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sega - Dreamcast
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sega - Game Gear
+FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sega - Hikaru
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sega - Master System - Mark III
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sega - Mega Drive
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sega - Mega Drive - Genesis
@@ -462,60 +405,29 @@ FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sega - Model 3
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sega - NAOMI
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sega - PICO
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sega - Saturn
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sega 32X
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sega CD
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sega Dreamcast
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sega Game Gear
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sega Genesis
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sega Master System
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sega MegaDrive
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sega Model 2
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sega Model 3
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sega Pico
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sega Saturn
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sharp - X1
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sharp - x68000
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sharp X1
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sinclair - ZX Spectrum
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sinclair ZX Spectrum
+FileCreateDir,rj\joyCfgs\Antimicro\Joystick\SNK - Neo Geo CD
+FileCreateDir,rj\joyCfgs\Antimicro\Joystick\SNK - Neo Geo MVS
+FileCreateDir,rj\joyCfgs\Antimicro\Joystick\SNK - Neo Geo Pocket
+FileCreateDir,rj\joyCfgs\Antimicro\Joystick\SNK - Neo Geo Pocket Color
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sony - Playstation
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sony - Playstation 2
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sony - Playstation Portable
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sony Playstation
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sony Playstation 2
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sony PSP
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Super Famicom
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Super Game Boy
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Super Nintendo
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\SuperGrafx
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Taito - Taito Type X 2
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Taito Type X 2
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\The 3DO Company - 3DO
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Touhou
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\TurboGrafx 16
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\TurboGrafx CD
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Vectrex
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Windows Games
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Windows Games - Copy
-FileCreateDir,rj\joyCfgs\Antimicro\Joystick\x68000
+FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Windows - Games
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Acorn - Archimedes
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Acorn - BBC
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Acorn - Electron
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Acorn Archimedes
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Acorn BBC
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Acorn Electron
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Adobe - Flash
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\ALT
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Amstrad - CPC
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Amstrad - GX4000
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Amstrad CPC
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Amstrad GX4000
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Apple - IIe
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Apple - IIgs
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Apple IIe
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Apple IIgs
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Arcade
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Arcadia 2001
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Atari - 2600
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Atari - 5200
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Atari - 7800
@@ -525,55 +437,27 @@ FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Atari - Jaguar
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Atari - Jaguar CD
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Atari - Lynx
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Atari - ST
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Atari 2600
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Atari 5200
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Atari 7800
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Atari 800
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Atari 8Bit
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Atari Jaguar
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Atari Jaguar CD
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Atari Lynx
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Atari ST
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Atomiswave
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Bandai - WonderSwan
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Bandai - WonderSwan Color
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Bandai Wonder Swan
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Bandai Wonder Swan Color
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Capcom - PlaySystem - CPS
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Capcom - PlaySystem - CPS II
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Capcom - PlaySystem - CPS III
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Coleco - ColecoVision
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\ColecoVision
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Commodore - 64
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Commodore - Amiga
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Commodore - Amiga CD32
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Commodore - Amiga CDTV
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Commodore 64
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Commodore Amiga
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Commodore Amiga CD32
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Commodore Amiga CDTV
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\CPS
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\CPS 2
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\CPS 3
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\DOS
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Emerson - Arcadia 2001
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Flash Games
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\FM Towns
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\FM-7
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Fujitsu - FM Towns
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Fujitsu - FM-7
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Galeco
+FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Galeco - Galeco
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\GCE - Vectrex
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Hikaru
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Intellivision
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\MAME - Arcade
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Mattel - Intellivision
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\MGT - Sam Coupe
+FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Microsoft - DOS
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Microsoft - MSX
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Microsoft - MSX 2
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\MS D-O-S
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\MSX
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Naomi
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\NEC - FM Towns
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\NEC - PC Engine
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\NEC - PC Engine - TurboGrafx 16
@@ -583,13 +467,6 @@ FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\NEC - PC Engine SuperGrafx
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\NEC - PC-FX
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\NEC - PC88
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\NEC - PC98
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\NEC PC-FX
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\NEC PC88
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\NEC PC98
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\NeoGeo CD
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\NeoGeo MVS
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\NeoGeo Pocket
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\NeoGeo Pocket Color
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Famicom
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Game Boy
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Game Boy Advance
@@ -602,27 +479,13 @@ FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Super Game Boy
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Super Nintendo Entertainment System
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Virtual Boy
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Wii
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo 64
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo DS
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo Entertainment System
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo Famicom
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo Game Boy
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo Game Boy Advance
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo Game Boy Color
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo GameCube
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo Virtual Boy
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo Wii
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Other
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Panasonic 3DO
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\PC Engine
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\PC Engine CD
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Philips - CD-I
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Philips CD-I
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sam Coupe
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sammy - Atomiswave
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sega - 32X
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sega - Dreamcast
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sega - Game Gear
+FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sega - Hikaru
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sega - Master System - Mark III
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sega - Mega Drive
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sega - Mega Drive - Genesis
@@ -634,44 +497,18 @@ FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sega - NAOMI
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sega - PICO
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sega - Saturn
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sega - SG-1000
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sega 32X
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sega CD
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sega Dreamcast
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sega Game Gear
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sega Genesis
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sega Master System
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sega Mega-CD
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sega MegaDrive
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sega Model 2
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sega Model 3
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sega Pico
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sega Saturn
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sega SG-1000
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sharp - X1
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sharp - x68000
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sharp X1
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sinclair - ZX Spectrum
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sinclair ZX Spectrum
+FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\SNK - Neo Geo CD
+FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\SNK - Neo Geo MVS
+FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\SNK - Neo Geo Pocket
+FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\SNK - Neo Geo Pocket Color
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sony - Playstation
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sony - Playstation 2
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sony - Playstation Portable
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sony Playstation
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sony Playstation 2
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sony PSP
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Super Famicom
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Super Game Boy
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Super Nintendo
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\SuperGrafx
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Taito - Taito Type X 2
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Taito Type X 2
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\The 3DO Company - 3DO
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Touhou
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\TurboGrafx 16
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\TurboGrafx CD
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Vectrex
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Windows Games
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Windows Games - Copy
-FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\x68000
+FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Windows - Games
 FileCreateDir,rj\joyCfgs\Xpadder\Blank
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard
@@ -707,10 +544,8 @@ FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Commodore - Amiga CDTV
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Emerson - Arcadia 2001
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Fujitsu - FM Towns
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Fujitsu - FM-7
-FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Galeco
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Galeco - Galeco
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\GCE - Vectrex
-FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Hikaru
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\MAME - Arcade
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Mattel - Intellivision
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\MGT - Sam Coupe
@@ -718,7 +553,6 @@ FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Microsoft - DOS
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Microsoft - MSX
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Microsoft - MSX 2
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Microsoft - MSX Turbo
-FileCreateDir,rj\joyCfgs\Xpadder\Joystick\MS D-O-S
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\NEC - FM Towns
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\NEC - PC Engine
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\NEC - PC Engine - SuperGrafx
@@ -761,9 +595,7 @@ FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Sony - Playstation
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Sony - Playstation 2
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Sony - Playstation Portable
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\The 3DO Company - 3DO
-FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Touhou
-FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Windows Games
-FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Windows Games - Copy
+FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Windows - Games
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Acorn - Archimedes
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Acorn - BBC
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Acorn - Electron
@@ -797,15 +629,11 @@ FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Commodore - 64
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Commodore - Amiga
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Commodore - Amiga CD32
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Commodore - Amiga CDTV
-FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\DOS
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Emerson - Arcadia 2001
-FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\EMU
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Fujitsu - FM Towns
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Fujitsu - FM-7
-FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Galeco
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Galeco - Galeco
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\GCE - Vectrex
-FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Hikaru
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\MAME - Arcade
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Mattel - Intellivision
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\MGT - Sam Coupe
@@ -813,7 +641,6 @@ FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Microsoft - DOS
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Microsoft - MSX
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Microsoft - MSX 2
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Microsoft - MSX Turbo
-FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\MS D-O-S
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\NEC - FM Towns
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\NEC - PC Engine
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\NEC - PC Engine - TurboGrafx 16
@@ -853,7 +680,6 @@ FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Sega - NAOMI
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Sega - PICO
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Sega - Saturn
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Sega - SG-1000
-FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Sega SG-1000
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Sharp - X1
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Sharp - x68000
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Sinclair - ZX Spectrum
@@ -861,9 +687,7 @@ FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Sony - Playstation
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Sony - Playstation 2
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Sony - Playstation Portable
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Taito - Taito Type X 2
-FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Touhou
-FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Windows Games
-FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Windows Games - Copy
+FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Windows - Games
 FileCreateDir,rj\KODI\ADVL
 FileCreateDir,rj\KODI\AEL
 FileCreateDir,rj\KODI\IAGL
@@ -901,7 +725,6 @@ FileInstall,eslkup.set,eslkup.set,1
 FileInstall,es_input.cfg.set,es_input.cfg.set,1
 FileInstall,es_settings.cfg.set,es_settings.cfg.set,1
 FileInstall,excludeExtract.set,excludeExtract.set,1
-FileInstall,ExeRec.set,ExeRec.set,1
 FileInstall,Frontends.set,Frontends.set,1
 FileInstall,fuzSysLk.set,fuzSysLk.set,1
 FileInstall,jacketSys.set,jacketSys.set,1
@@ -2168,32 +1991,16 @@ FileInstall,rj\joyCfgs\Antimicro\Joystick\Acorn - BBC\Player1.amgp,rj\joyCfgs\An
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Acorn - BBC\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Acorn - BBC\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Acorn - Electron\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Acorn - Electron\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Acorn - Electron\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Acorn - Electron\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Acorn BBC\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Acorn BBC\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Acorn BBC\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Acorn BBC\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Acorn Electron\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Acorn Electron\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Acorn Electron\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Acorn Electron\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Adobe - Flash\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Adobe - Flash\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Adobe - Flash\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Adobe - Flash\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Amstrad - CPC\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Amstrad - CPC\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Amstrad - CPC\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Amstrad - CPC\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Amstrad - GX4000\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Amstrad - GX4000\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Amstrad - GX4000\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Amstrad - GX4000\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Amstrad CPC\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Amstrad CPC\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Amstrad CPC\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Amstrad CPC\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Amstrad GX4000\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Amstrad GX4000\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Amstrad GX4000\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Amstrad GX4000\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Apple - IIe\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Apple - IIe\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Apple - IIe\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Apple - IIe\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Apple - IIgs\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Apple - IIgs\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Apple - IIgs\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Apple - IIgs\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Apple IIe\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Apple IIe\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Apple IIe\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Apple IIe\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Apple IIgs\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Apple IIgs\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Apple IIgs\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Apple IIgs\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Arcade\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Arcade\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Arcade\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Arcade\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Arcadia 2001\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Arcadia 2001\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Arcadia 2001\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Arcadia 2001\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Atari - 2600\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Atari - 2600\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Atari - 2600\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Atari - 2600\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Atari - 5200\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Atari - 5200\Player1.amgp,1
@@ -2211,29 +2018,8 @@ FileInstall,rj\joyCfgs\Antimicro\Joystick\Atari - Jaguar CD\Player2.amgp,rj\joyC
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Atari - Lynx\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Atari - Lynx\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Atari - ST\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Atari - ST\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Atari - ST\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Atari - ST\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Atari 2600\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Atari 2600\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Atari 2600\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Atari 2600\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Atari 5200\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Atari 5200\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Atari 5200\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Atari 5200\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Atari 7800\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Atari 7800\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Atari 7800\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Atari 7800\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Atari 800\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Atari 800\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Atari 800\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Atari 800\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Atari 8Bit\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Atari 8Bit\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Atari 8Bit\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Atari 8Bit\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Atari Jaguar\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Atari Jaguar\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Atari Jaguar\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Atari Jaguar\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Atari Jaguar CD\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Atari Jaguar CD\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Atari Jaguar CD\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Atari Jaguar CD\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Atari Lynx\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Atari Lynx\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Atari ST\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Atari ST\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Atari ST\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Atari ST\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Atomiswave\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Atomiswave\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Atomiswave\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Atomiswave\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Bandai - WonderSwan\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Bandai - WonderSwan\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Bandai - WonderSwan Color\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Bandai - WonderSwan Color\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Bandai Wonder Swan\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Bandai Wonder Swan\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Bandai Wonder Swan Color\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Bandai Wonder Swan Color\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Capcom - PlaySystem - CPS\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Capcom - PlaySystem - CPS\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Capcom - PlaySystem - CPS\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Capcom - PlaySystem - CPS\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Capcom - PlaySystem - CPS II\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Capcom - PlaySystem - CPS II\Player1.amgp,1
@@ -2244,8 +2030,6 @@ FileInstall,rj\joyCfgs\Antimicro\Joystick\Capcom - PlaySystem - CPS III\Player1.
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Capcom - PlaySystem - CPS III\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Capcom - PlaySystem - CPS III\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Coleco - ColecoVision\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Coleco - ColecoVision\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Coleco - ColecoVision\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Coleco - ColecoVision\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\ColecoVision\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\ColecoVision\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\ColecoVision\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\ColecoVision\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Commodore - 64\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Commodore - 64\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Commodore - 64\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Commodore - 64\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Commodore - Amiga\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Commodore - Amiga\Player1.amgp,1
@@ -2254,60 +2038,28 @@ FileInstall,rj\joyCfgs\Antimicro\Joystick\Commodore - Amiga CD32\Player1.amgp,rj
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Commodore - Amiga CD32\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Commodore - Amiga CD32\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Commodore - Amiga CDTV\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Commodore - Amiga CDTV\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Commodore - Amiga CDTV\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Commodore - Amiga CDTV\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Commodore 64\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Commodore 64\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Commodore 64\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Commodore 64\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Commodore Amiga\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Commodore Amiga\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Commodore Amiga\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Commodore Amiga\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Commodore Amiga CD32\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Commodore Amiga CD32\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Commodore Amiga CD32\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Commodore Amiga CD32\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Commodore Amiga CDTV\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Commodore Amiga CDTV\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Commodore Amiga CDTV\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Commodore Amiga CDTV\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\CPS\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\CPS\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\CPS\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\CPS\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\CPS 2\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\CPS 2\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\CPS 2\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\CPS 2\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\CPS 3\FBA1.amgp,rj\joyCfgs\Antimicro\Joystick\CPS 3\FBA1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\CPS 3\FBA2.amgp,rj\joyCfgs\Antimicro\Joystick\CPS 3\FBA2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\CPS 3\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\CPS 3\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\CPS 3\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\CPS 3\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\DOS\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\DOS\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\DOS\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\DOS\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Emerson - Arcadia 2001\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Emerson - Arcadia 2001\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Emerson - Arcadia 2001\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Emerson - Arcadia 2001\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Flash Games\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Flash Games\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Flash Games\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Flash Games\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\FM Towns\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\FM Towns\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\FM Towns\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\FM Towns\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\FM-7\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\FM-7\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\FM-7\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\FM-7\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Fujitsu - FM Towns\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Fujitsu - FM Towns\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Fujitsu - FM Towns\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Fujitsu - FM Towns\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Fujitsu - FM-7\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Fujitsu - FM-7\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Fujitsu - FM-7\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Fujitsu - FM-7\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Galeco\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Galeco\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Galeco\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Galeco\Player2.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Joystick\Galeco - Galeco\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Galeco - Galeco\Player1.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Joystick\Galeco - Galeco\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Galeco - Galeco\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\GCE - Vectrex\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\GCE - Vectrex\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\GCE - Vectrex\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\GCE - Vectrex\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Hikaru\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Hikaru\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Hikaru\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Hikaru\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Intellivision\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Intellivision\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Intellivision\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Intellivision\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\MAME - Arcade\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\MAME - Arcade\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\MAME - Arcade\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\MAME - Arcade\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Mattel - Intellivision\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Mattel - Intellivision\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Mattel - Intellivision\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Mattel - Intellivision\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\MGT - Sam Coupe\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\MGT - Sam Coupe\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\MGT - Sam Coupe\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\MGT - Sam Coupe\Player2.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Joystick\Microsoft - DOS\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Microsoft - DOS\Player1.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Joystick\Microsoft - DOS\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Microsoft - DOS\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Microsoft - MSX\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Microsoft - MSX\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Microsoft - MSX\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Microsoft - MSX\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Microsoft - MSX 2\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Microsoft - MSX 2\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Microsoft - MSX 2\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Microsoft - MSX 2\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\MS D-O-S\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\MS D-O-S\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\MS D-O-S\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\MS D-O-S\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\MSX\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\MSX\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\MSX\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\MSX\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Naomi\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Naomi\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Naomi\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Naomi\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\NEC - FM Towns\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\NEC - FM Towns\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\NEC - FM Towns\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\NEC - FM Towns\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\NEC - PC Engine\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\NEC - PC Engine\Player1.amgp,1
@@ -2326,18 +2078,6 @@ FileInstall,rj\joyCfgs\Antimicro\Joystick\NEC - PC88\Player1.amgp,rj\joyCfgs\Ant
 FileInstall,rj\joyCfgs\Antimicro\Joystick\NEC - PC88\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\NEC - PC88\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\NEC - PC98\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\NEC - PC98\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\NEC - PC98\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\NEC - PC98\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\NEC PC-FX\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\NEC PC-FX\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\NEC PC-FX\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\NEC PC-FX\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\NEC PC88\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\NEC PC88\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\NEC PC88\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\NEC PC88\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\NEC PC98\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\NEC PC98\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\NEC PC98\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\NEC PC98\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\NeoGeo CD\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\NeoGeo CD\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\NeoGeo CD\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\NeoGeo CD\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\NeoGeo MVS\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\NeoGeo MVS\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\NeoGeo MVS\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\NeoGeo MVS\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\NeoGeo Pocket\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\NeoGeo Pocket\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\NeoGeo Pocket Color\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\NeoGeo Pocket Color\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo - Famicom\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo - Famicom\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo - Famicom\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo - Famicom\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo - Game Boy\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo - Game Boy\Player1.amgp,1
@@ -2359,22 +2099,6 @@ FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo - Super Nintendo Entertainmen
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo - Virtual Boy\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo - Virtual Boy\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo - Wii\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo - Wii\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo - Wii\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo - Wii\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo 64\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo 64\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo 64\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo 64\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo DS\No$GBA.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo DS\No$GBA.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo DS\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo DS\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo Entertainment System\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo Entertainment System\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo Entertainment System\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo Entertainment System\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo Famicom\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo Famicom\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo Famicom\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo Famicom\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo Game Boy\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo Game Boy\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo Game Boy Advance\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo Game Boy Advance\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo Game Boy Color\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo Game Boy Color\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo GameCube\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo GameCube\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo GameCube\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo GameCube\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo Virtual Boy\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo Virtual Boy\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo Wii\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo Wii\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo Wii\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo Wii\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Other\cps31.amgp,rj\joyCfgs\Antimicro\Joystick\Other\cps31.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Other\cps32.amgp,rj\joyCfgs\Antimicro\Joystick\Other\cps32.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Other\mednafen1.amgp,rj\joyCfgs\Antimicro\Joystick\Other\mednafen1.amgp,1
@@ -2387,18 +2111,8 @@ FileInstall,rj\joyCfgs\Antimicro\Joystick\Other\Player1.amgp,rj\joyCfgs\Antimicr
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Other\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Other\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Other\RetroArch1.amgp,rj\joyCfgs\Antimicro\Joystick\Other\RetroArch1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Other\RetroArch2.amgp,rj\joyCfgs\Antimicro\Joystick\Other\RetroArch2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Panasonic 3DO\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Panasonic 3DO\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Panasonic 3DO\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Panasonic 3DO\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\PC Engine\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\PC Engine\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\PC Engine\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\PC Engine\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\PC Engine CD\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\PC Engine CD\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\PC Engine CD\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\PC Engine CD\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Phillips - CD-I\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Phillips - CD-I\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Phillips - CD-I\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Phillips - CD-I\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Phillips CD-I\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Phillips CD-I\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Phillips CD-I\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Phillips CD-I\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sam Coupe\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sam Coupe\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sam Coupe\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sam Coupe\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Sammy - Atomiswave\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sammy - Atomiswave\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Sammy - Atomiswave\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sammy - Atomiswave\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega - 32X\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sega - 32X\Player1.amgp,1
@@ -2409,6 +2123,8 @@ FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega - Dreamcast\Player1.amgp,rj\joyCf
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega - Dreamcast\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sega - Dreamcast\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega - Game Gear\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sega - Game Gear\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega - Game Gear\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sega - Game Gear\Player2.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega - Hikaru\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sega - Hikaru\Player1.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega - Hikaru\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sega - Hikaru\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega - Master System - Mark III\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sega - Master System - Mark III\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega - Master System - Mark III\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sega - Master System - Mark III\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega - Mega Drive\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sega - Mega Drive\Player1.amgp,1
@@ -2427,79 +2143,32 @@ FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega - PICO\Player1.amgp,rj\joyCfgs\An
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega - PICO\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sega - PICO\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega - Saturn\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sega - Saturn\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega - Saturn\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sega - Saturn\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega 32X\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sega 32X\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega 32X\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sega 32X\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega CD\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sega CD\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega CD\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sega CD\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega Dreamcast\nulldc_II_.amgp,rj\joyCfgs\Antimicro\Joystick\Sega Dreamcast\nulldc_II_.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega Dreamcast\nulldc_I_.amgp,rj\joyCfgs\Antimicro\Joystick\Sega Dreamcast\nulldc_I_.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega Dreamcast\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sega Dreamcast\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega Dreamcast\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sega Dreamcast\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega Game Gear\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sega Game Gear\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega Game Gear\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sega Game Gear\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega Genesis\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sega Genesis\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega Genesis\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sega Genesis\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega Master System\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sega Master System\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega Master System\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sega Master System\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega MegaDrive\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sega MegaDrive\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega MegaDrive\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sega MegaDrive\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega Model 2\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sega Model 2\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega Model 2\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sega Model 2\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega Model 3\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sega Model 3\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega Model 3\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sega Model 3\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega Pico\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sega Pico\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega Pico\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sega Pico\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega Saturn\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sega Saturn\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sega Saturn\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sega Saturn\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Sharp - X1\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sharp - X1\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Sharp - X1\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sharp - X1\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Sharp - x68000\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sharp - x68000\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Sharp - x68000\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sharp - x68000\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sharp X1\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sharp X1\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sharp X1\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sharp X1\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Sinclair - ZX Spectrum\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sinclair - ZX Spectrum\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Sinclair - ZX Spectrum\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sinclair - ZX Spectrum\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Sinclair ZX Spectrum\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sinclair ZX Spectrum\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Sinclair ZX Spectrum\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sinclair ZX Spectrum\Player2.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Joystick\SNK - Neo Geo CD\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\SNK - Neo Geo CD\Player1.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Joystick\SNK - Neo Geo CD\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\SNK - Neo Geo CD\Player2.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Joystick\SNK - Neo Geo MVS\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\SNK - Neo Geo MVS\Player1.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Joystick\SNK - Neo Geo MVS\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\SNK - Neo Geo MVS\Player2.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Joystick\SNK - Neo Geo Pocket\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\SNK - Neo Geo Pocket\Player1.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Joystick\SNK - Neo Geo Pocket Color\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\SNK - Neo Geo Pocket Color\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Sony - Playstation\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sony - Playstation\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Sony - Playstation\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sony - Playstation\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Sony - Playstation 2\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sony - Playstation 2\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Sony - Playstation 2\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sony - Playstation 2\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Sony - Playstation Portable\JPCSP_Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sony - Playstation Portable\JPCSP_Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Sony - Playstation Portable\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sony - Playstation Portable\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sony Playstation\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sony Playstation\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sony Playstation\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sony Playstation\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sony Playstation 2\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sony Playstation 2\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sony Playstation 2\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Sony Playstation 2\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sony PSP\JPCSP_Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sony PSP\JPCSP_Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Sony PSP\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Sony PSP\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Super Famicom\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Super Famicom\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Super Famicom\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Super Famicom\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Super Game Boy\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Super Game Boy\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Super Nintendo\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Super Nintendo\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Super Nintendo\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Super Nintendo\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\SuperGrafx\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\SuperGrafx\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\SuperGrafx\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\SuperGrafx\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Taito - Taito Type X 2\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Taito - Taito Type X 2\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Taito - Taito Type X 2\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Taito - Taito Type X 2\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Taito Type X 2\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Taito Type X 2\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Taito Type X 2\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Taito Type X 2\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\The 3DO Company - 3DO\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\The 3DO Company - 3DO\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\The 3DO Company - 3DO\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\The 3DO Company - 3DO\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Touhou\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Touhou\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Touhou\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Touhou\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\TurboGrafx 16\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\TurboGrafx 16\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\TurboGrafx 16\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\TurboGrafx 16\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\TurboGrafx CD\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\TurboGrafx CD\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\TurboGrafx CD\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\TurboGrafx CD\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Vectrex\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Vectrex\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Vectrex\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Vectrex\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Windows Games\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Windows Games\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Windows Games\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Windows Games\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Windows Games - Copy\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Windows Games - Copy\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\Windows Games - Copy\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Windows Games - Copy\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\x68000\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\x68000\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Joystick\x68000\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\x68000\Player2.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Joystick\Windows - Games\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Windows - Games\Player1.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Joystick\Windows - Games\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Windows - Games\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Acorn - Archimedes\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Acorn - Archimedes\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Acorn - Archimedes\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Acorn - Archimedes\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Acorn - BBC\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Acorn - BBC\Player1.amgp,1
@@ -2508,33 +2177,16 @@ FileInstall,rj\joyCfgs\Antimicro\Keyboard\Acorn - Electron\Player1.amgp,rj\joyCf
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Acorn - Electron\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Acorn - Electron\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Acorn Archimedes\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Acorn Archimedes\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Acorn Archimedes\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Acorn Archimedes\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Acorn BBC\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Acorn BBC\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Acorn BBC\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Acorn BBC\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Acorn Electron\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Acorn Electron\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Acorn Electron\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Acorn Electron\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Adobe - Flash\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Adobe - Flash\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Adobe - Flash\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Adobe - Flash\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\ALT\JPCSP_Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\ALT\JPCSP_Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Amstrad - CPC\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Amstrad - CPC\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Amstrad - CPC\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Amstrad - CPC\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Amstrad - GX4000\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Amstrad - GX4000\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Amstrad - GX4000\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Amstrad - GX4000\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Amstrad CPC\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Amstrad CPC\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Amstrad CPC\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Amstrad CPC\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Amstrad GX4000\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Amstrad GX4000\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Amstrad GX4000\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Amstrad GX4000\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Apple - IIe\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Apple - IIe\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Apple - IIe\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Apple - IIe\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Apple - IIgs\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Apple - IIgs\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Apple - IIgs\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Apple - IIgs\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Apple IIe\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Apple IIe\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Apple IIe\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Apple IIe\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Apple IIgs\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Apple IIgs\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Apple IIgs\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Apple IIgs\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Arcade\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Arcade\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Arcade\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Arcade\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Arcadia 2001\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Arcadia 2001\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Arcadia 2001\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Arcadia 2001\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Atari - 2600\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Atari - 2600\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Atari - 2600\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Atari - 2600\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Atari - 5200\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Atari - 5200\Player1.amgp,1
@@ -2552,29 +2204,8 @@ FileInstall,rj\joyCfgs\Antimicro\Keyboard\Atari - Jaguar CD\Player2.amgp,rj\joyC
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Atari - Lynx\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Atari - Lynx\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Atari - ST\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Atari - ST\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Atari - ST\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Atari - ST\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Atari 2600\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Atari 2600\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Atari 2600\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Atari 2600\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Atari 5200\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Atari 5200\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Atari 5200\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Atari 5200\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Atari 7800\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Atari 7800\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Atari 7800\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Atari 7800\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Atari 800\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Atari 800\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Atari 800\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Atari 800\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Atari 8Bit\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Atari 8Bit\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Atari 8Bit\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Atari 8Bit\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Atari Jaguar\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Atari Jaguar\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Atari Jaguar\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Atari Jaguar\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Atari Jaguar CD\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Atari Jaguar CD\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Atari Jaguar CD\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Atari Jaguar CD\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Atari Lynx\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Atari Lynx\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Atari ST\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Atari ST\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Atari ST\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Atari ST\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Atomiswave\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Atomiswave\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Atomiswave\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Atomiswave\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Bandai - WonderSwan\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Bandai - WonderSwan\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Bandai - WonderSwan Color\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Bandai - WonderSwan Color\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Bandai Wonder Swan\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Bandai Wonder Swan\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Bandai Wonder Swan Color\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Bandai Wonder Swan Color\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Capcom - PlaySystem - CPS\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Capcom - PlaySystem - CPS\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Capcom - PlaySystem - CPS\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Capcom - PlaySystem - CPS\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Capcom - PlaySystem - CPS II\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Capcom - PlaySystem - CPS II\Player1.amgp,1
@@ -2585,8 +2216,6 @@ FileInstall,rj\joyCfgs\Antimicro\Keyboard\Capcom - PlaySystem - CPS III\Player1.
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Capcom - PlaySystem - CPS III\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Capcom - PlaySystem - CPS III\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Coleco - ColecoVision\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Coleco - ColecoVision\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Coleco - ColecoVision\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Coleco - ColecoVision\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\ColecoVision\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\ColecoVision\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\ColecoVision\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\ColecoVision\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Commodore - 64\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Commodore - 64\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Commodore - 64\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Commodore - 64\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Commodore - Amiga\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Commodore - Amiga\Player1.amgp,1
@@ -2595,60 +2224,28 @@ FileInstall,rj\joyCfgs\Antimicro\Keyboard\Commodore - Amiga CD32\Player1.amgp,rj
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Commodore - Amiga CD32\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Commodore - Amiga CD32\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Commodore - Amiga CDTV\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Commodore - Amiga CDTV\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Commodore - Amiga CDTV\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Commodore - Amiga CDTV\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Commodore 64\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Commodore 64\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Commodore 64\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Commodore 64\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Commodore Amiga\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Commodore Amiga\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Commodore Amiga\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Commodore Amiga\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Commodore Amiga CD32\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Commodore Amiga CD32\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Commodore Amiga CD32\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Commodore Amiga CD32\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Commodore Amiga CDTV\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Commodore Amiga CDTV\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Commodore Amiga CDTV\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Commodore Amiga CDTV\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\CPS\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\CPS\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\CPS\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\CPS\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\CPS 2\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\CPS 2\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\CPS 2\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\CPS 2\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\CPS 3\FBA1.amgp,rj\joyCfgs\Antimicro\Keyboard\CPS 3\FBA1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\CPS 3\FBA2.amgp,rj\joyCfgs\Antimicro\Keyboard\CPS 3\FBA2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\CPS 3\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\CPS 3\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\CPS 3\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\CPS 3\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\DOS\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\DOS\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\DOS\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\DOS\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Emerson - Arcadia 2001\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Emerson - Arcadia 2001\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Emerson - Arcadia 2001\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Emerson - Arcadia 2001\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Flash Games\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Flash Games\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Flash Games\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Flash Games\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\FM Towns\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\FM Towns\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\FM Towns\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\FM Towns\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\FM-7\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\FM-7\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\FM-7\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\FM-7\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Fujitsu - FM Towns\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Fujitsu - FM Towns\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Fujitsu - FM Towns\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Fujitsu - FM Towns\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Fujitsu - FM-7\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Fujitsu - FM-7\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Fujitsu - FM-7\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Fujitsu - FM-7\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Galeco\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Galeco\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Galeco\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Galeco\Player2.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Keyboard\Galeco - Galeco\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Galeco - Galeco\Player1.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Keyboard\Galeco - Galeco\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Galeco - Galeco\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\GCE - Vectrex\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\GCE - Vectrex\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\GCE - Vectrex\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\GCE - Vectrex\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Hikaru\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Hikaru\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Hikaru\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Hikaru\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Intellivision\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Intellivision\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Intellivision\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Intellivision\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\MAME - Arcade\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\MAME - Arcade\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\MAME - Arcade\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\MAME - Arcade\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Mattel - Intellivision\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Mattel - Intellivision\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Mattel - Intellivision\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Mattel - Intellivision\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\MGT - Sam Coupe\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\MGT - Sam Coupe\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\MGT - Sam Coupe\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\MGT - Sam Coupe\Player2.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Keyboard\Microsoft - DOS\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Microsoft - DOS\Player1.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Keyboard\Microsoft - DOS\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Microsoft - DOS\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Microsoft - MSX\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Microsoft - MSX\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Microsoft - MSX\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Microsoft - MSX\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Microsoft - MSX 2\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Microsoft - MSX 2\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Microsoft - MSX 2\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Microsoft - MSX 2\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\MS D-O-S\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\MS D-O-S\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\MS D-O-S\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\MS D-O-S\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\MSX\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\MSX\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\MSX\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\MSX\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Naomi\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Naomi\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Naomi\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Naomi\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\NEC - FM Towns\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\NEC - FM Towns\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\NEC - FM Towns\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\NEC - FM Towns\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\NEC - PC Engine\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\NEC - PC Engine\Player1.amgp,1
@@ -2667,18 +2264,6 @@ FileInstall,rj\joyCfgs\Antimicro\Keyboard\NEC - PC88\Player1.amgp,rj\joyCfgs\Ant
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\NEC - PC88\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\NEC - PC88\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\NEC - PC98\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\NEC - PC98\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\NEC - PC98\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\NEC - PC98\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\NEC PC-FX\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\NEC PC-FX\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\NEC PC-FX\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\NEC PC-FX\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\NEC PC88\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\NEC PC88\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\NEC PC88\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\NEC PC88\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\NEC PC98\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\NEC PC98\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\NEC PC98\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\NEC PC98\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\NeoGeo CD\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\NeoGeo CD\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\NeoGeo CD\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\NeoGeo CD\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\NeoGeo MVS\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\NeoGeo MVS\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\NeoGeo MVS\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\NeoGeo MVS\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\NeoGeo Pocket\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\NeoGeo Pocket\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\NeoGeo Pocket Color\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\NeoGeo Pocket Color\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Famicom\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Famicom\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Famicom\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Famicom\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Game Boy\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Game Boy\Player1.amgp,1
@@ -2700,24 +2285,6 @@ FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Super Nintendo Entertainmen
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Virtual Boy\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Virtual Boy\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Wii\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Wii\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Wii\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Wii\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo 64\mupen64plus1.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo 64\mupen64plus1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo 64\mupen64plus2.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo 64\mupen64plus2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo 64\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo 64\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo 64\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo 64\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo DS\No$GBA.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo DS\No$GBA.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo DS\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo DS\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo Entertainment System\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo Entertainment System\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo Entertainment System\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo Entertainment System\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo Famicom\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo Famicom\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo Famicom\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo Famicom\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo Game Boy\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo Game Boy\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo Game Boy Advance\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo Game Boy Advance\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo Game Boy Color\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo Game Boy Color\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo GameCube\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo GameCube\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo GameCube\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo GameCube\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo Virtual Boy\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo Virtual Boy\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo Wii\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo Wii\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo Wii\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo Wii\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Other\cps31.amgp,rj\joyCfgs\Antimicro\Keyboard\Other\cps31.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Other\cps32.amgp,rj\joyCfgs\Antimicro\Keyboard\Other\cps32.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Other\mednafen1.amgp,rj\joyCfgs\Antimicro\Keyboard\Other\mednafen1.amgp,1
@@ -2730,18 +2297,8 @@ FileInstall,rj\joyCfgs\Antimicro\Keyboard\Other\Player1.amgp,rj\joyCfgs\Antimicr
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Other\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Other\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Other\RetroArch1.amgp,rj\joyCfgs\Antimicro\Keyboard\Other\RetroArch1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Other\RetroArch2.amgp,rj\joyCfgs\Antimicro\Keyboard\Other\RetroArch2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Panasonic 3DO\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Panasonic 3DO\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Panasonic 3DO\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Panasonic 3DO\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\PC Engine\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\PC Engine\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\PC Engine\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\PC Engine\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\PC Engine CD\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\PC Engine CD\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\PC Engine CD\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\PC Engine CD\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Philips - CD-I\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Philips - CD-I\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Philips - CD-I\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Philips - CD-I\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Philips CD-I\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Philips CD-I\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Philips CD-I\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Philips CD-I\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sam Coupe\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sam Coupe\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sam Coupe\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sam Coupe\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sammy - Atomiswave\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sammy - Atomiswave\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sammy - Atomiswave\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sammy - Atomiswave\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega - 32X\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega - 32X\Player1.amgp,1
@@ -2752,6 +2309,8 @@ FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega - Dreamcast\Player1.amgp,rj\joyCf
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega - Dreamcast\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega - Dreamcast\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega - Game Gear\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega - Game Gear\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega - Game Gear\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega - Game Gear\Player2.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega - Hikaru\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega - Hikaru\Player1.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega - Hikaru\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega - Hikaru\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega - Master System - Mark III\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega - Master System - Mark III\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega - Master System - Mark III\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega - Master System - Mark III\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega - Mega Drive\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega - Mega Drive\Player1.amgp,1
@@ -2774,44 +2333,18 @@ FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega - Saturn\Player1.amgp,rj\joyCfgs\
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega - Saturn\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega - Saturn\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega - SG-1000\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega - SG-1000\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega - SG-1000\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega - SG-1000\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega 32X\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega 32X\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega 32X\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega 32X\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega CD\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega CD\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega CD\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega CD\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega Dreamcast\nulldc_II_.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega Dreamcast\nulldc_II_.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega Dreamcast\nulldc_I_.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega Dreamcast\nulldc_I_.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega Dreamcast\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega Dreamcast\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega Dreamcast\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega Dreamcast\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega Game Gear\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega Game Gear\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega Game Gear\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega Game Gear\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega Genesis\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega Genesis\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega Genesis\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega Genesis\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega Master System\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega Master System\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega Master System\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega Master System\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega Mega-CD\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega Mega-CD\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega Mega-CD\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega Mega-CD\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega MegaDrive\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega MegaDrive\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega MegaDrive\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega MegaDrive\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega Model 2\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega Model 2\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega Model 2\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega Model 2\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega Model 3\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega Model 3\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega Model 3\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega Model 3\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega Pico\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega Pico\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega Pico\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega Pico\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega Saturn\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega Saturn\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega Saturn\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega Saturn\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega SG-1000\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega SG-1000\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sega SG-1000\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sega SG-1000\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sharp - X1\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sharp - X1\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sharp - X1\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sharp - X1\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sharp - x68000\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sharp - x68000\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sharp - x68000\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sharp - x68000\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sharp X1\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sharp X1\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sharp X1\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sharp X1\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sinclair - ZX Spectrum\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sinclair - ZX Spectrum\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sinclair - ZX Spectrum\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sinclair - ZX Spectrum\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sinclair ZX Spectrum\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sinclair ZX Spectrum\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sinclair ZX Spectrum\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sinclair ZX Spectrum\Player2.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Keyboard\SNK - Neo Geo CD\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\SNK - Neo Geo CD\Player1.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Keyboard\SNK - Neo Geo CD\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\SNK - Neo Geo CD\Player2.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Keyboard\SNK - Neo Geo MVS\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\SNK - Neo Geo MVS\Player1.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Keyboard\SNK - Neo Geo MVS\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\SNK - Neo Geo MVS\Player2.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Keyboard\SNK - Neo Geo Pocket\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\SNK - Neo Geo Pocket\Player1.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Keyboard\SNK - Neo Geo Pocket Color\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\SNK - Neo Geo Pocket Color\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sony - Playstation\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sony - Playstation\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sony - Playstation\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sony - Playstation\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sony - Playstation\psxA.amgp,rj\joyCfgs\Antimicro\Keyboard\Sony - Playstation\psxA.amgp,1
@@ -2819,42 +2352,11 @@ FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sony - Playstation\psxB.amgp,rj\joyCfg
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sony - Playstation 2\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sony - Playstation 2\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sony - Playstation 2\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sony - Playstation 2\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sony - Playstation Portable\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sony - Playstation Portable\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sony Playstation\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sony Playstation\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sony Playstation\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sony Playstation\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sony Playstation\psxA.amgp,rj\joyCfgs\Antimicro\Keyboard\Sony Playstation\psxA.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sony Playstation\psxB.amgp,rj\joyCfgs\Antimicro\Keyboard\Sony Playstation\psxB.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sony Playstation 2\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sony Playstation 2\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sony Playstation 2\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Sony Playstation 2\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Sony PSP\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Sony PSP\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Super Famicom\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Super Famicom\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Super Famicom\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Super Famicom\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Super Game Boy\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Super Game Boy\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Super Nintendo\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Super Nintendo\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Super Nintendo\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Super Nintendo\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\SuperGrafx\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\SuperGrafx\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\SuperGrafx\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\SuperGrafx\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Taito - Taito Type X 2\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Taito - Taito Type X 2\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Taito - Taito Type X 2\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Taito - Taito Type X 2\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Taito - Taito Type X 2\Wacky Races.amgp,rj\joyCfgs\Antimicro\Keyboard\Taito - Taito Type X 2\Wacky Races.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Taito Type X 2\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Taito Type X 2\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Taito Type X 2\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Taito Type X 2\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Taito Type X 2\Wacky Races.amgp,rj\joyCfgs\Antimicro\Keyboard\Taito Type X 2\Wacky Races.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\The 3DO Company - 3DO\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\The 3DO Company - 3DO\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\The 3DO Company - 3DO\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\The 3DO Company - 3DO\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Touhou\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Touhou\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Touhou\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Touhou\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\TurboGrafx 16\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\TurboGrafx 16\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\TurboGrafx 16\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\TurboGrafx 16\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\TurboGrafx CD\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\TurboGrafx CD\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\TurboGrafx CD\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\TurboGrafx CD\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Vectrex\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Vectrex\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Vectrex\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Vectrex\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Windows Games\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Windows Games\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Windows Games\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Windows Games\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Windows Games - Copy\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Windows Games - Copy\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\Windows Games - Copy\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Windows Games - Copy\Player2.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\x68000\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\x68000\Player1.amgp,1
-FileInstall,rj\joyCfgs\Antimicro\Keyboard\x68000\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\x68000\Player2.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Keyboard\Windows - Games\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Windows - Games\Player1.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Keyboard\Windows - Games\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Windows - Games\Player2.amgp,1
 FileInstall,rj\joyCfgs\Xpadder\MediaCenter.xpadderprofile,rj\joyCfgs\Xpadder\MediaCenter.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Blank\All\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Blank\All\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Blank\All\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Blank\All\Player2.xpadderprofile,1
@@ -2921,14 +2423,10 @@ FileInstall,rj\joyCfgs\Xpadder\Joystick\Fujitsu - FM Towns\Player1.xpadderprofil
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Fujitsu - FM Towns\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Fujitsu - FM Towns\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Fujitsu - FM-7\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Fujitsu - FM-7\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Fujitsu - FM-7\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Fujitsu - FM-7\Player2.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Joystick\Galeco\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Galeco\Player1.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Joystick\Galeco\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Galeco\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Galeco - Galeco\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Galeco - Galeco\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Galeco - Galeco\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Galeco - Galeco\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\GCE - Vectrex\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\GCE - Vectrex\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\GCE - Vectrex\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\GCE - Vectrex\Player2.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Joystick\Hikaru\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Hikaru\Player1.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Joystick\Hikaru\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Hikaru\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\MAME - Arcade\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\MAME - Arcade\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\MAME - Arcade\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\MAME - Arcade\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Mattel - Intellivision\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Mattel - Intellivision\Player1.xpadderprofile,1
@@ -2943,8 +2441,6 @@ FileInstall,rj\joyCfgs\Xpadder\Joystick\Microsoft - MSX 2\Player1.xpadderprofile
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Microsoft - MSX 2\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Microsoft - MSX 2\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Microsoft - MSX Turbo\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Microsoft - MSX Turbo\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Microsoft - MSX Turbo\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Microsoft - MSX Turbo\Player2.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Joystick\MS D-O-S\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\MS D-O-S\Player1.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Joystick\MS D-O-S\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\MS D-O-S\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\NEC - FM Towns\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\NEC - FM Towns\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\NEC - FM Towns\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\NEC - FM Towns\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\NEC - PC Engine\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\NEC - PC Engine\Player1.xpadderprofile,1
@@ -3037,12 +2533,8 @@ FileInstall,rj\joyCfgs\Xpadder\Joystick\Sony - Playstation Portable\JPCSP_Player
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Sony - Playstation Portable\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Sony - Playstation Portable\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\The 3DO Company - 3DO\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\The 3DO Company - 3DO\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\The 3DO Company - 3DO\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\The 3DO Company - 3DO\Player2.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Joystick\Touhou\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Touhou\Player1.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Joystick\Touhou\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Touhou\Player2.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Joystick\Windows Games\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Windows Games\Player1.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Joystick\Windows Games\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Windows Games\Player2.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Joystick\Windows Games - Copy\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Windows Games - Copy\Player1.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Joystick\Windows Games - Copy\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Windows Games - Copy\Player2.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Joystick\Windows - Games\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Windows - Games\Player1.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Joystick\Windows - Games\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Windows - Games\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Acorn - Archimedes\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Acorn - Archimedes\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Acorn - Archimedes\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Acorn - Archimedes\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Acorn - BBC\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Acorn - BBC\Player1.xpadderprofile,1
@@ -3107,22 +2599,16 @@ FileInstall,rj\joyCfgs\Xpadder\Keyboard\Commodore - Amiga CD32\Player1.xpadderpr
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Commodore - Amiga CD32\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Commodore - Amiga CD32\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Commodore - Amiga CDTV\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Commodore - Amiga CDTV\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Commodore - Amiga CDTV\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Commodore - Amiga CDTV\Player2.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Keyboard\DOS\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\DOS\Player1.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Keyboard\DOS\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\DOS\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Emerson - Arcadia 2001\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Emerson - Arcadia 2001\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Emerson - Arcadia 2001\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Emerson - Arcadia 2001\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Fujitsu - FM Towns\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Fujitsu - FM Towns\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Fujitsu - FM Towns\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Fujitsu - FM Towns\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Fujitsu - FM-7\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Fujitsu - FM-7\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Fujitsu - FM-7\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Fujitsu - FM-7\Player2.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Keyboard\Galeco\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Galeco\Player1.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Keyboard\Galeco\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Galeco\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Galeco - Galeco\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Galeco - Galeco\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Galeco - Galeco\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Galeco - Galeco\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\GCE - Vectrex\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\GCE - Vectrex\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\GCE - Vectrex\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\GCE - Vectrex\Player2.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Keyboard\Hikaru\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Hikaru\Player1.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Keyboard\Hikaru\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Hikaru\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\MAME - Arcade\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\MAME - Arcade\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\MAME - Arcade\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\MAME - Arcade\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Mattel - Intellivision\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Mattel - Intellivision\Player1.xpadderprofile,1
@@ -3137,8 +2623,6 @@ FileInstall,rj\joyCfgs\Xpadder\Keyboard\Microsoft - MSX 2\Player1.xpadderprofile
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Microsoft - MSX 2\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Microsoft - MSX 2\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Microsoft - MSX Turbo\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Microsoft - MSX Turbo\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Microsoft - MSX Turbo\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Microsoft - MSX Turbo\Player2.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Keyboard\MS D-O-S\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\MS D-O-S\Player1.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Keyboard\MS D-O-S\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\MS D-O-S\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\NEC - FM Towns\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\NEC - FM Towns\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\NEC - FM Towns\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\NEC - FM Towns\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\NEC - PC Engine\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\NEC - PC Engine\Player1.xpadderprofile,1
@@ -3226,8 +2710,6 @@ FileInstall,rj\joyCfgs\Xpadder\Keyboard\Sega - Saturn\Player1.xpadderprofile,rj\
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Sega - Saturn\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Sega - Saturn\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Sega - SG-1000\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Sega - SG-1000\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Sega - SG-1000\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Sega - SG-1000\Player2.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Keyboard\Sega SG-1000\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Sega SG-1000\Player1.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Keyboard\Sega SG-1000\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Sega SG-1000\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Sharp - X1\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Sharp - X1\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Sharp - X1\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Sharp - X1\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Sharp - x68000\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Sharp - x68000\Player1.xpadderprofile,1
@@ -3244,12 +2726,8 @@ FileInstall,rj\joyCfgs\Xpadder\Keyboard\Sony - Playstation Portable\Player1.xpad
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Taito - Taito Type X 2\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Taito - Taito Type X 2\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Taito - Taito Type X 2\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Taito - Taito Type X 2\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Taito - Taito Type X 2\Wacky Races.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Taito - Taito Type X 2\Wacky Races.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Keyboard\Touhou\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Touhou\Player1.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Keyboard\Touhou\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Touhou\Player2.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Keyboard\Windows Games\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Windows Games\Player1.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Keyboard\Windows Games\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Windows Games\Player2.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Keyboard\Windows Games - Copy\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Windows Games - Copy\Player1.xpadderprofile,1
-FileInstall,rj\joyCfgs\Xpadder\Keyboard\Windows Games - Copy\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Windows Games - Copy\Player2.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Keyboard\Windows - Games\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Windows - Games\Player1.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Keyboard\Windows - Games\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Windows - Games\Player2.xpadderprofile,1
 FileInstall, 7zsd32.sfx,7zsd32.sfx
 FileInstall, 7zsd64.sfx,7zsd64.sfx
 FileInstall, Portable.bat,Portable.bat,1

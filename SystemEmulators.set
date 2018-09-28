@@ -307,7 +307,7 @@ San Bergmans - Izabella Malcolm - SITCOM|MAME|:mame_libretro.dll
 Sanyo - MBC-200 - 1200|MAME|:mame_libretro.dll
 Sanyo - MBC-55x|MAME|:mame_libretro.dll
 Sanyo - PHC-25|MAME|:mame_libretro.dll
-ScummVM|ScummVM|:scummvm_libretro.dll
+ScummVM - ScummVM|ScummVM|:scummvm_libretro.dll
 Sega - 32X - JAP|Fusion|gensplus|gens|MAME|:picodrive_libretro.dll|mame_libretro.dll
 Sega - 32X - PAL|Fusion|gensplus|gens|MAME|:picodrive_libretro.dll|mame_libretro.dll
 Sega - 32X|Fusion|gensplus|gens|MAME|:picodrive_libretro.dll

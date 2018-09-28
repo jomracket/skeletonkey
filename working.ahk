@@ -9796,6 +9796,7 @@ stringreplace,smuemu,smuemu,=,|,All
 stringreplace,smuemu,smuemu,",,All
 ;"
 smuemu:= "|" . smuemu
+SB_SetText(" Prioritizing " LNCHPRDDL " ")
 if (LNCHPRDDL = "retroarch")
 	{
 		iniwrite, 0,Settings.ini,GLOBAL,Launcher_Priority
@@ -9905,7 +9906,10 @@ if (LNCHPRDDL <> "retroarch")
 			}
 		iniwrite, 1,Settings.ini,GLOBAL,Launcher_Priority
 	}
-
+SB_SetText("Systems now assigned to " LNCHPRDDL " where possible.")
+guicontrol,,SaList,|Systems||Emulators|RetroArch|Utilities|Frontends
+gosub, SaList
+GuiControl, Choose, EAVAIL, 0
 guicontrol,enable,LNCHPT	
 fileread,aei,Assignments.ini
 FileDelete,Assignments.ini
