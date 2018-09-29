@@ -4,11 +4,11 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-28 4:34 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-29 1:16 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-09-28 4:34 PM
+RELEASE= 2018-09-29 1:16 PM
 VERSION= v0.99.58.62
 RASTABLE= 1.7.4
 #Include tf.ahk
@@ -54811,9 +54811,10 @@ Loop, Parse, apov,`n
 					{
 						continue
 					}
-					if (appn2 <> 0)
-						;;msgbox,,,appn1=%appn1%`nappn2=%appn2%`nloop=%A_LoopField%`nrunadd=%runadd%`nemup2=%emup2%`nsiv=%siv%
-				appn2= %A_LoopField%			
+				if (appn2 <> 0)
+					{
+						appn2= %A_LoopField%			
+					}
 				ifinstring,runadd,|%appn2%|
 					{
 						continue
@@ -54896,7 +54897,6 @@ if (tstxtn = ".zip")
 	{
 		gosub, ZIPOpen
 	}
-
 gosub, ExtTables
 
 if (opncor <> "")
@@ -54992,13 +54992,13 @@ if (coe <> "dll")
 		stringreplace,RunArgs,RunArgs,[ROMPATH],%rompth%,All		
 		stringreplace,RunOptions,RunOptions,[EMUPATH],%emupth%,All
 		stringreplace,RunArgs,RunArgs,[EMUPATH],%emupth%,All
+		;;msgbox,,,%coreselv%`nemupth=%emupth%`n%coe%
 		if (DDRUN = 1)
 			{
 				Gui,Destroy
 			}
 		goto, LNCHAPP
 	}
-
 goto, LNCH
 return
 
@@ -55021,9 +55021,8 @@ ROMSYS= %opnapp%
 ifexist, %libretrodirectory%\%opncor%_libretro.dll
 	{
 		coreselv= %opncor%_libretro.dll
-	}
-;;msgbox,,,opnapp=%opnapp%`ncvrv=%cvrv%`noverdd=%overdd%`napln=%APLN%
-Loop, Parse, overDD,|
+	}overDD
+Loop, Parse, ,|
 	{
 		if (A_LoopField = "")
 			{
@@ -56805,6 +56804,7 @@ ifinstring,systoemu,tmpcc|
 		iniwrite, "%LCORE%", Settings.ini,GLOBAL,last_core
 		gosub, LNCHCHK
 	}
+
 restru= 
 if (tmpcc <> bltm) 
 	{
@@ -57230,6 +57230,7 @@ if (dmchk = 1)
 	}	
 
 SB_SetText(" ..\" xenm "" RunOptions "" RUNROM "" RunArgs "|||from " runbrv " ")
+;;msgbox,,, "%OvrExtAs%"%RunOptions%%RUNROM%%RunArgs%|%runloc%
 RunWait, "%OvrExtAs%"%RunOptions%%RUNROM%%RunArgs%,%runloc%,,overxtpid
 GLBLRUN= 
 process, close, %overxtpid%
