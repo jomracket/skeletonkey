@@ -121,7 +121,7 @@ DOS|*microsoft*dos*|*ms*dos*|*d.o.s*|*dosbox*>MSDOS
 CPS|*cps*1*|*CPS I|*CPSI>CPS
 *cps*2*|*CPS II|*CPSII>CPSII
 *cps*3*|*CPS*III*|*CPSIII*>CPSIII
-*mame*|arcade*>MAMARC
+mame|arcade*>MAMARC
 *naomi*>SNAOMI
 *scumm*>SCUMV
 *model*3*>SMOD3
