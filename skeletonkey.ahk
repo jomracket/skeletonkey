@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-29 1:16 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-30 2:52 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-09-29 1:16 PM
-VERSION= v0.99.58.62
+RELEASE= 2018-09-30 2:52 PM
+VERSION= v0.99.58.63
 RASTABLE= 1.7.4
 #Include tf.ahk
 #Include lbex.ahk
@@ -55021,8 +55021,8 @@ ROMSYS= %opnapp%
 ifexist, %libretrodirectory%\%opncor%_libretro.dll
 	{
 		coreselv= %opncor%_libretro.dll
-	}overDD
-Loop, Parse, ,|
+	}
+Loop, Parse,overDD,|
 	{
 		if (A_LoopField = "")
 			{

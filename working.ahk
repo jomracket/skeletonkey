@@ -55021,8 +55021,8 @@ ROMSYS= %opnapp%
 ifexist, %libretrodirectory%\%opncor%_libretro.dll
 	{
 		coreselv= %opncor%_libretro.dll
-	}overDD
-Loop, Parse, ,|
+	}
+Loop, Parse,overDD,|
 	{
 		if (A_LoopField = "")
 			{

@@ -34,7 +34,6 @@ FileCreateDir,rj\emuCfgs\atari800
 FileCreateDir,rj\emuCfgs\atomulator
 FileCreateDir,rj\emuCfgs\aurex
 FileCreateDir,rj\emuCfgs\babbage2nd
-FileCreateDir,rj\emuCfgs\batchScriptLauncher
 FileCreateDir,rj\emuCfgs\BeebEm
 FileCreateDir,rj\emuCfgs\bem
 FileCreateDir,rj\emuCfgs\bgb
@@ -47,7 +46,6 @@ FileCreateDir,rj\emuCfgs\c4pc
 FileCreateDir,rj\emuCfgs\calice
 FileCreateDir,rj\emuCfgs\callus
 FileCreateDir,rj\emuCfgs\caprice32
-FileCreateDir,rj\emuCfgs\cemu
 FileCreateDir,rj\emuCfgs\cen64
 FileCreateDir,rj\emuCfgs\citra
 FileCreateDir,rj\emuCfgs\classic99
@@ -84,7 +82,6 @@ FileCreateDir,rj\emuCfgs\familybasic
 FileCreateDir,rj\emuCfgs\fceux
 FileCreateDir,rj\emuCfgs\finalBurnAlpha
 FileCreateDir,rj\emuCfgs\fishnchips
-FileCreateDir,rj\emuCfgs\FlashPlayer
 FileCreateDir,rj\emuCfgs\fm16pi
 FileCreateDir,rj\emuCfgs\fm7
 FileCreateDir,rj\emuCfgs\fm77
@@ -184,7 +181,6 @@ FileCreateDir,rj\emuCfgs\NeoPop
 FileCreateDir,rj\emuCfgs\neoRaine
 FileCreateDir,rj\emuCfgs\Nestopia
 FileCreateDir,rj\emuCfgs\ngae
-FileCreateDir,rj\emuCfgs\nlmsx
 FileCreateDir,rj\emuCfgs\no$2k6
 FileCreateDir,rj\emuCfgs\no$c64
 FileCreateDir,rj\emuCfgs\no$cpc
@@ -293,7 +289,7 @@ FileCreateDir,rj\emuCfgs\virtpanajr
 FileCreateDir,rj\emuCfgs\virtualapf
 FileCreateDir,rj\emuCfgs\virtualJaguar
 FileCreateDir,rj\emuCfgs\VirtualNES
-FileCreateDir,rj\emuCfgs\visualboyadvance
+FileCreateDir,rj\emuCfgs\visualboyAdvance
 FileCreateDir,rj\emuCfgs\visualboyAdvance-M
 FileCreateDir,rj\emuCfgs\vivanonno
 FileCreateDir,rj\emuCfgs\vivanono
@@ -709,9 +705,6 @@ FileCreateDir,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browse
 }
 FileCreateDir, rj\ES
 FileCreateDir, rj\netArt
-FileInstall,Muli-ExtraBold.ttf,Muli-ExtraBold.ttf,1
-FileInstall,Muli.ttf,Muli.ttf,1
-FileInstall,Opticon.ttf,Opticon.ttf,1
 FileInstall,AppParams.set,AppParams.set,1
 FileInstall,arcorg.set,arcorg.set,1
 FileInstall,Assignments.set,Assignments.set,1
@@ -787,6 +780,7 @@ FileInstall,sysico\American - Laser Games.ico,sysico\American - Laser Games.ico,
 FileInstall,sysico\Amstrad - CPC.ico,sysico\Amstrad - CPC.ico,1
 FileInstall,sysico\Amstrad - GX4000.ico,sysico\Amstrad - GX4000.ico,1
 FileInstall,sysico\Android - Android.ico,sysico\Android - Android.ico,1
+FileInstall,sysico\Android.ico,sysico\Android.ico,1
 FileInstall,sysico\APF - Imagination Machine.ico,sysico\APF - Imagination Machine.ico,1
 FileInstall,sysico\Apogee - BK-01.ico,sysico\Apogee - BK-01.ico,1
 FileInstall,sysico\Apple - IIe.ico,sysico\Apple - IIe.ico,1
@@ -821,6 +815,7 @@ FileInstall,sysico\Commodore - Amiga.ico,sysico\Commodore - Amiga.ico,1
 FileInstall,sysico\Commodore - VIC-20.ico,sysico\Commodore - VIC-20.ico,1
 FileInstall,sysico\Commodore - VIC20.ico,sysico\Commodore - VIC20.ico,1
 FileInstall,sysico\Daphne - Daphne Laser Disc.ico,sysico\Daphne - Daphne Laser Disc.ico,1
+FileInstall,sysico\DOS.ico,sysico\DOS.ico,1
 FileInstall,sysico\Emerson - Arcadia 2001.ico,sysico\Emerson - Arcadia 2001.ico,1
 FileInstall,sysico\Entech - Adventure Vision.ico,sysico\Entech - Adventure Vision.ico,1
 FileInstall,sysico\Enterprise - 64.ico,sysico\Enterprise - 64.ico,1
@@ -828,9 +823,11 @@ FileInstall,sysico\Entex - Adventure Vision.ico,sysico\Entex - Adventure Vision.
 FileInstall,sysico\Epoch - Super Cassette Vision.ico,sysico\Epoch - Super Cassette Vision.ico,1
 FileInstall,sysico\Fairchild - Channel F.ico,sysico\Fairchild - Channel F.ico,1
 FileInstall,sysico\Fightcade - Fightcade.ico,sysico\Fightcade - Fightcade.ico,1
+FileInstall,sysico\Fightcade.ico,sysico\Fightcade.ico,1
 FileInstall,sysico\Fujitsu - FM Towns.ico,sysico\Fujitsu - FM Towns.ico,1
 FileInstall,sysico\Fujitsu - FM-7.ico,sysico\Fujitsu - FM-7.ico,1
 FileInstall,sysico\Funtech - Super A'can.ico,sysico\Funtech - Super A'can.ico,1
+FileInstall,sysico\Game & Watch.ico,sysico\Game & Watch.ico,1
 FileInstall,sysico\Game - & - Watch.ico,sysico\Game - & - Watch.ico,1
 FileInstall,sysico\Game Wave - Family Entertainment System.ico,sysico\Game Wave - Family Entertainment System.ico,1
 FileInstall,sysico\Gamepark - GP32.ico,sysico\Gamepark - GP32.ico,1
@@ -875,8 +872,10 @@ FileInstall,sysico\Nintendo - Wii U.ico,sysico\Nintendo - Wii U.ico,1
 FileInstall,sysico\Nintendo - Wii.ico,sysico\Nintendo - Wii.ico,1
 FileInstall,sysico\Nokia - N-Gage.ico,sysico\Nokia - N-Gage.ico,1
 FileInstall,sysico\Nuon - Nuon.ico,sysico\Nuon - Nuon.ico,1
+FileInstall,sysico\Nuon.ico,sysico\Nuon.ico,1
 FileInstall,sysico\Philips - CD-I.ico,sysico\Philips - CD-I.ico,1
 FileInstall,sysico\Pinball - Pinball.ico,sysico\Pinball - Pinball.ico,1
+FileInstall,sysico\Pinball.ico,sysico\Pinball.ico,1
 FileInstall,sysico\RCA - Studio II.ico,sysico\RCA - Studio II.ico,1
 FileInstall,sysico\Sammy - Atomiswave.ico,sysico\Sammy - Atomiswave.ico,1
 FileInstall,sysico\Sega - 32X.ico,sysico\Sega - 32X.ico,1
@@ -913,12 +912,15 @@ FileInstall,sysico\Tandy - TRS-80.ico,sysico\Tandy - TRS-80.ico,1
 FileInstall,sysico\Tangerine - Oric Amos.ico,sysico\Tangerine - Oric Amos.ico,1
 FileInstall,sysico\Texas Instruments - TI 99-4A.ico,sysico\Texas Instruments - TI 99-4A.ico,1
 FileInstall,sysico\The 3DO Company - 3DO.ico,sysico\The 3DO Company - 3DO.ico,1
+FileInstall,sysico\Touhou.ico,sysico\Touhou.ico,1
 FileInstall,sysico\VTech - CreatiVision.ico,sysico\VTech - CreatiVision.ico,1
 FileInstall,sysico\VTech - Socrates.ico,sysico\VTech - Socrates.ico,1
 FileInstall,sysico\Watara - SuperVision.ico,sysico\Watara - SuperVision.ico,1
 FileInstall,sysico\Windows - Games.ico,sysico\Windows - Games.ico,1
+FileInstall,sysico\Windows Games.ico,sysico\Windows Games.ico,1
 FileInstall,sysico\WoW - Action Max.ico,sysico\WoW - Action Max.ico,1
 FileInstall,sysico\XaviXPORT - XaviXPORT.ico,sysico\XaviXPORT - XaviXPORT.ico,1
+FileInstall,sysico\XaviXPORT.ico,sysico\XaviXPORT.ico,1
 FileInstall,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.set,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.set,1
 FileInstall,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.xml.Begin.set,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.xml.Begin.set,1
 FileInstall,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.xml.End.set,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.xml.End.set,1
@@ -1887,9 +1889,9 @@ FileInstall,rj\emucfgs\virtualJaguar\P2K_DEFAULT.set,rj\emucfgs\virtualJaguar\P2
 FileInstall,rj\emucfgs\virtualJaguar\P2_POST.cmd.set,rj\emucfgs\virtualJaguar\P2_POST.cmd.set,1
 FileInstall,rj\emucfgs\virtualJaguar\PRE.cmd.set,rj\emucfgs\virtualJaguar\PRE.cmd.set,1
 FileInstall,rj\emucfgs\VirtualNES\VirtuaNES.ini.ret,rj\emucfgs\VirtualNES\VirtuaNES.ini.ret,1
-FileInstall,rj\emucfgs\visualboyadvance\vba.ini.ret,rj\emucfgs\visualboyadvance\vba.ini.ret,1
-FileInstall,rj\emucfgs\visualboyadvance\vbam.ini.ret,rj\emucfgs\visualboyadvance\vbam.ini.ret,1
-FileInstall,rj\emucfgs\visualboyadvance\VisualBoyAdvance.cfg.set,rj\emucfgs\visualboyadvance\VisualBoyAdvance.cfg.set,1
+FileInstall,rj\emucfgs\visualboyAdvance\vba.ini.ret,rj\emucfgs\visualboyAdvance\vba.ini.ret,1
+FileInstall,rj\emucfgs\visualboyAdvance\vbam.ini.ret,rj\emucfgs\visualboyAdvance\vbam.ini.ret,1
+FileInstall,rj\emucfgs\visualboyAdvance\VisualBoyAdvance.cfg.set,rj\emucfgs\visualboyAdvance\VisualBoyAdvance.cfg.set,1
 FileInstall,rj\emucfgs\visualboyAdvance-M\vbam.ini.ret,rj\emucfgs\visualboyAdvance-M\vbam.ini.ret,1
 FileInstall,rj\emucfgs\vivanonno\settings.xml.set,rj\emucfgs\vivanonno\settings.xml.set,1
 FileInstall,rj\emucfgs\vivanono\settings.xml.set,rj\emucfgs\vivanono\settings.xml.set,1
