@@ -4,11 +4,11 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-30 2:52 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-30 9:11 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-09-30 2:52 PM
+RELEASE= 2018-09-30 9:11 PM
 VERSION= v0.99.58.63
 RASTABLE= 1.7.4
 #Include tf.ahk
@@ -1383,6 +1383,7 @@ ifnotexist, %BSLPTH%\BSL.exe
 		FileCreateDir,%RJEMUD%\BSL
 		FileCopy,BSL.exe,%RJEMUD%\BSL\BSL.exe,1
 		iniwrite,"%bsltmp%",apps.ini,EMULATORS,BSL
+		iniwrite,"%bsltmp%",Assignments.ini,ASSIGNMENTS,BSL
 		splitpath, bsltmp,,BSLPTH
 	}
 if (INITIAL = 1)
@@ -7128,6 +7129,7 @@ IfNotExist,%RJEMUD%\BSL\BSL.exe
 		FileCreateDir,%RJEMUD%\BSL
 		FileCopy,BSL.exe,%RJEMUD%\BSL\BSL.exe,1
 		iniwrite,"%RJEMUD%\BSL\BSL.exe",apps.ini,EMULATORS,BSL
+		iniwrite,"%RJEMUD%\BSL\BSL.exe",Assignments.ini,ASSIGNMENTS,BSL
 	}
 
 IniWrite, "%RJEMUD%",Settings.ini,GLOBAL,emulators_directory
@@ -12307,6 +12309,7 @@ Loop, Parse,UrlIndex,`n`r
 					{
 						inisect= EMULATORS
 						iniwrite, "%xtractmfp%",apps.ini,%inisect%,%selfnd%
+						iniwrite, "%xtractmfp%",Assignments.ini,ASSIGNMENTS,%selfnd%
 						ifnotinstring,addemu,|%selfnd%
 							{
 								addemu.= "|" . selfnd
