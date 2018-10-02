@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-09-30 9:11 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-01 7:02 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-09-30 9:11 PM
-VERSION= v0.99.58.63
+RELEASE= 2018-10-01 7:02 PM
+VERSION= v0.99.58.64
 RASTABLE= 1.7.4
 #Include tf.ahk
 #Include lbex.ahk
@@ -12313,8 +12313,10 @@ Loop, Parse,UrlIndex,`n`r
 						ifnotinstring,addemu,|%selfnd%
 							{
 								addemu.= "|" . selfnd
-							}
+							}	
+						gosub, RBLDRUNLST	
 						guicontrol,,EMPRDDL,|%addemu%
+						guicontrol,,ARCCORES,|%runlist%
 					}
 ;;			}
 				if (EMUASIGN = 1)
@@ -17717,6 +17719,10 @@ if (LNCHPT = 0)
 	}
 Loop,Parse,SysEmuSet,`n`r
 	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
 		LineNum+=1
 		selfnd= 
 		stemu= 
@@ -17735,6 +17741,7 @@ Loop,Parse,SysEmuSet,`n`r
 				iniread,oil,Assignments.ini,OVERRIDES,%ARCSYS%
 				stringsplit,aix,oil,|
 				oil= %aix1%
+				recore=
 				prioco=	
 				Loop, Parse, sdspl1,|
 					{
@@ -17767,6 +17774,7 @@ Loop,Parse,SysEmuSet,`n`r
 									{
 										prioco= %fia%
 									}
+						;;msgbox,,,fia=%fia%`nsdspl1=%sdspl1%`nfaf=%faf%`nrecore=%recore%
 							}
 					}
 				break	
@@ -17786,12 +17794,12 @@ if (prioco <> "")
 		{
 			topcore:= prioco . "||" . recore . runlist
 		}
-
+;;msgbox,,,prioco=%prioco%`ntopcore=%topcore%`nrecore=%recore%`nfia=%fia%`noil=%oil%`nselctdcore=%selctdcore%
 guicontrol,,LCORE, |%topcore%
 guicontrol,,ARCCORES, |%topcore%
 if (CLActive = 1)
 	{
-		guicontrol,,NETCORE, |%topcore%
+		guicontrol,,NETCORE,|%topcore%
 	}
 return
 
@@ -20529,7 +20537,7 @@ if (MAMESWCHK = 1)
 guicontrol,,ARCSYS,|Select a System||%syslist%
 guicontrol,,SRCHDDL,|All||%syslist%
 return
-	
+
 ArchiveSystems:
 guicontrol,disable,ARCLNCH
 guicontrol,disable,ARCNCT
