@@ -71,7 +71,6 @@ No$GBA=No$GBA/No$GBA.7z=No$GBA.exe=No$GBA.ini|NoZoomer.ini
 Nostalgia=Nostalgia/Nostalgia.7z=Nostalgia.exe=ini
 NullDC=NullDC/NullDC.7z=nullDC_Win32_Release.exe=NullDC.cfg=*.bin
 Ootake=Ootake/Ootake.7z=Ootake.exe=Ootake.dat
-Oricutron=Oricutron/Oricutron.7z=Oricutron.exe=
 PC6001VW=PC6001VW/PC6001VW.7z=p6snap.exe=
 PC6001VX=PC6001VX/PC6001VX.7z=PC6001VX.exe=
 PPSSPP=PPSSPP/PPSSPP-[ARCH].7z=PPSSPPWindows[ARCH].exe=memstick\PSP\SYSTEM\ppsspp.ini|memstick\PSP\SYSTEM\controls.ini=memstick\PSP\SAVEDATA\*=memstick\PSP\PPSSPP_STATE\*
@@ -282,9 +281,7 @@ no$psx=no$psx/no$psx.7z=NO$PSX.EXE=
 no$sns=no$sns/no$sns.7z=NO$SNS.EXE=
 no$zx=no$zx/no$zx.7z=NO$ZX.EXE=
 nova=nova/nova.7z=nova.exe=
-openmsx=openmsx/openMSX.7z=
-openmsx=openmsx/openmsx-[ARCH].7z=openmsx.exe=
-openmsx=openmsx/openmsx-[ARCH].zip=openmsx.exe=ini
+openmsx=openmsx/openmsx-[ARCH].7z=openmsx.exe=ini
 osmose=osmose/osmose.7z=Osmose.exe=
 pc6001=pc6001/pc6001.7z=pc6001.exe=pc6001.ini=
 pc6001mk2=pc6001mk2/pc6001mk2.7z=pc6001mk2.exe=pc6001mk2.ini=
@@ -294,7 +291,6 @@ pc6601sr=pc6601sr/pc6601sr.7z=pc6601sr.exe=pc6601sr.ini=
 pc8001mk2sr=pc8001mk2sr/pc8001mk2sr.7z=pc8001mk2sr.exe=pc8001mk2sr.ini=
 pc8201=pc8201/pc8201.7z=pc8201.exe=pc8201.ini=
 pc8201a=pc8201a/pc8201a.7z=pc8201a.exe=pc8201a.ini=
-pc8801ma=pc8801ma/pc8801ma.7z=pc8801ma.exe=
 pc8801ma=pc8801ma/pc8801ma.7z=pc8801ma.exe=pc8801ma.ini=
 pc9801=pc9801/pc9801.7z=pc9801.exe=pc9801.ini=
 pc9801e=pc9801e/pc9801e.7z=pc9801e.exe=pc9801e.ini=

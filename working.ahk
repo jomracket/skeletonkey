@@ -146,6 +146,7 @@ if (romf <> "")
 				guicontrol,,LCORE,|%coreselv%||%runlist%
 				gosub,LNCH
 			}
+		CHOSEN=	
 		return
 	}
 
@@ -418,9 +419,12 @@ ifNotExist, sys.ini
 	{
 		gosub, resetSYS
 	}
-ifNotExist, cores.ini
+if (raexefile <> "NOT-FOUND.exe")
 	{
-		gosub resetCORES
+		ifNotExist, cores.ini
+			{
+				gosub resetCORES
+			}
 	}
 if (INITIAL = 1)
 	{
@@ -428,9 +432,12 @@ if (INITIAL = 1)
 		SplashImage = net.png
 		SplashImageGUI(SplashImage, "Center", "Center", true)
 	}
-ifNotExist, gl.ini
+if (raexefile <> "NOT-FOUND.exe")
 	{
-		gosub, resetGL
+		ifNotExist, gl.ini
+			{
+				gosub, resetGL
+			}
 	}
 if (INITIAL = 1)
 	{
@@ -438,9 +445,12 @@ if (INITIAL = 1)
 		SplashImage = emu.png
 		SplashImageGUI(SplashImage, "Center", "Center", true)
 	}
-ifNotExist, cg.ini
+if (raexefile <> "NOT-FOUND.exe")
 	{
-		gosub, resetCG
+		ifNotExist, cg.ini
+			{
+				gosub, resetCG
+			}
 	}
 if (INITIAL = 1)
 	{	
@@ -448,9 +458,12 @@ if (INITIAL = 1)
 		SplashImage = Ins.png
 		SplashImageGUI(SplashImage, "Center", "Center", true)
 	}
-ifNotExist, sl.ini
+if (raexefile <> "NOT-FOUND.exe")
 	{
-		gosub resetSL
+		ifNotExist, sl.ini
+			{
+				gosub resetSL
+			}
 	}
 if (INITIAL = 1)
 	{
@@ -458,11 +471,13 @@ if (INITIAL = 1)
 		SplashImage = cor.png
 		SplashImageGUI(SplashImage, "Center", "Center", true)
 	}
-ifNotExist, fltlist.ini
+if (raexefile <> "NOT-FOUND.exe")
 	{
-		gosub, resetFILT
+		ifNotExist, fltlist.ini
+			{
+				gosub, resetFILT
+			}
 	}
-
 Loop,Read,fltlist.ini
 fltlist .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
 CORENUM:= 0
@@ -12317,7 +12332,14 @@ Loop, Parse,UrlIndex,`n`r
 						gosub, RBLDRUNLST	
 						guicontrol,,EMPRDDL,|%addemu%
 						guicontrol,,ARCCORES,|%runlist%
-					}
+						if (selfnd = "MAME")
+							{
+								ifnotexist,lm.ini
+									{
+										gosub, MAMETOG
+									}
+							}
+		}
 ;;			}
 				if (EMUASIGN = 1)
 						{
@@ -17774,7 +17796,6 @@ Loop,Parse,SysEmuSet,`n`r
 									{
 										prioco= %fia%
 									}
-						;;msgbox,,,fia=%fia%`nsdspl1=%sdspl1%`nfaf=%faf%`nrecore=%recore%
 							}
 					}
 				break	
@@ -17794,7 +17815,6 @@ if (prioco <> "")
 		{
 			topcore:= prioco . "||" . recore . runlist
 		}
-;;msgbox,,,prioco=%prioco%`ntopcore=%topcore%`nrecore=%recore%`nfia=%fia%`noil=%oil%`nselctdcore=%selctdcore%
 guicontrol,,LCORE, |%topcore%
 guicontrol,,ARCCORES, |%topcore%
 if (CLActive = 1)
@@ -26520,6 +26540,7 @@ gosub, EMUCFGCOPY
 return
 
 MAMETOG:
+SB_SetText(" Creating MAME database ")
 guicontrol, %fndtog%, emuBUTJ
 guicontrol, %fndtog%, emuPRGA
 emuprgpl=0
@@ -54804,7 +54825,7 @@ DewDrop:
 tstxtn= .%inputext%
 iniread,apov,Assignments.ini,OVERRIDES,
 runadd= 
-overDD= 	
+overDD= 
 siv=
 Loop, Parse, apov,`n
 	{
@@ -54826,10 +54847,6 @@ Loop, Parse, apov,`n
 					{
 						appn2= %A_LoopField%			
 					}
-				ifinstring,runadd,|%appn2%|
-					{
-						continue
-					}
 				if (appn2 = siv)
 					{
 						continue
@@ -54849,7 +54866,11 @@ Loop, Parse, apov,`n
 									{
 										continue
 									}
-					runadd .= "|" . appn2
+								ifinstring,runadd,|%appn2%|
+									{
+										continue
+									}
+								runadd .= "|" . appn2
 							}
 					}
 				siv= %appn2%	
@@ -54908,6 +54929,7 @@ if (tstxtn = ".zip")
 	{
 		gosub, ZIPOpen
 	}
+
 gosub, ExtTables
 
 if (opncor <> "")
@@ -55003,7 +55025,6 @@ if (coe <> "dll")
 		stringreplace,RunArgs,RunArgs,[ROMPATH],%rompth%,All		
 		stringreplace,RunOptions,RunOptions,[EMUPATH],%emupth%,All
 		stringreplace,RunArgs,RunArgs,[EMUPATH],%emupth%,All
-		;;msgbox,,,%coreselv%`nemupth=%emupth%`n%coe%
 		if (DDRUN = 1)
 			{
 				Gui,Destroy
@@ -57240,9 +57261,10 @@ if (dmchk = 1)
 			}
 	}	
 
+guicontrol,,LCORE,|%coreselv%||%runlist%
 SB_SetText(" ..\" xenm "" RunOptions "" RUNROM "" RunArgs "|||from " runbrv " ")
-;;msgbox,,, "%OvrExtAs%"%RunOptions%%RUNROM%%RunArgs%|%runloc%
 RunWait, "%OvrExtAs%"%RunOptions%%RUNROM%%RunArgs%,%runloc%,,overxtpid
+CHOSEN= 0
 GLBLRUN= 
 process, close, %overxtpid%
 if (dmchk = 1)

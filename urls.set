@@ -321,7 +321,6 @@ mz800/mz800.7z
 mz80a/mz80a.7z
 mz80b/mz80b.7z
 mz80k/mz80k.7z
-oricutron/oricutron.7z
 realityboy/realityboy.7z
 ngae/ngae.7z
 vbjin/vbjin.7z
@@ -353,7 +352,6 @@ no$zx/no$zx.7z
 nova/nova.7z
 openmsx/openMSX.7z
 openmsx/openmsx-[ARCH].7z
-openmsx=openmsx/openmsx-[ARCH].zip=openmsx.exe=ini
 osmose/osmose.7z
 pasopia/pasopia.7z
 pasopia7/pasopia7.7z
@@ -381,7 +379,7 @@ pcengine/pcengine.7z
 pcsxr/pcsxr.7z
 phc20/phc20.7z
 phc25/phc25.7z
-phoenix=phoenix\PhoenixEmuProject.exe=
+phoenix/phoenix.7z
 pom1/pom1.7z
 potator/potator.7z
 project64k/project64k.7z
