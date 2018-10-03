@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-03 12:43 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-03 4:33 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-10-03 12:43 PM
-VERSION= v0.99.58.65
+RELEASE= 2018-10-03 4:33 PM
+VERSION= v0.99.58.66
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -20687,7 +20687,14 @@ if (ARCSYS = "MAME - BIOS")
 		gosub, DOWNONLY
 		guicontrol,,EXTRURL,0
 	}
-
+if (ARCSYS = "Sony - Playstation 2")
+	{
+		guicontrol,,EXTRURL,1
+		guicontrol,,RUNXTRACT,1
+		guicontrol,,JACKETMODE,1
+		gosub, ExtractURL
+		guicontrol,,EXTEXPLD,0
+	}
 if (ARCSYS = "MAME_C")
 	{
 		OVDCHK= MAME - Arcade

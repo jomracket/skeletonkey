@@ -20687,7 +20687,14 @@ if (ARCSYS = "MAME - BIOS")
 		gosub, DOWNONLY
 		guicontrol,,EXTRURL,0
 	}
-
+if (ARCSYS = "Sony - Playstation 2")
+	{
+		guicontrol,,EXTRURL,1
+		guicontrol,,RUNXTRACT,1
+		guicontrol,,JACKETMODE,1
+		gosub, ExtractURL
+		guicontrol,,EXTEXPLD,0
+	}
 if (ARCSYS = "MAME_C")
 	{
 		OVDCHK= MAME - Arcade
