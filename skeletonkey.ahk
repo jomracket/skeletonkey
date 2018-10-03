@@ -4,13 +4,13 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-02 5:55 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-03 12:43 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-10-02 5:55 PM
-VERSION= v0.99.58.64
-RASTABLE= 1.7.4
+RELEASE= 2018-10-03 12:43 PM
+VERSION= v0.99.58.65
+RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
 #Include LVA.ahk
@@ -2239,6 +2239,7 @@ Gui, Add, Button, x699 y100 w20 h22 vSKSVAS gSAVECFG hidden,As
 Gui, Add, Text, x644 y42 vSKCCTXT hidden, %SKCCTXT%
 Gui, Add, Text,x589 y154 w130 h29 vRAVERTXT hidden, version:  %RAVERS%  build:  %RAVBLD%
 Gui, Add, Button,x533 y158 w45 h17 vGRAVER gGRAVER hidden, version
+Gui, Add, Button,x533 y188 w40 h22 vQRSETUP gQRSETUP hidden, QUICK
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -3860,6 +3861,7 @@ GPUSS_TT :="Snaps screenshots as they are displayed through your videocard (with
 GPUVREC_TT :="Records video as it's displayed through your videocard (with shaders)"
 GPUV_TT :="Sets how many frames CPU can run ahead of GPU when using video_hard_sync."
 GRAVER_TT :="Detect RetroArch version and build number"
+QRSETUP_TT :="Quick-setup RetroArch with popular cores."
 GROM_TT :="Browse for a ROM"
 GTHMB_TT :="Browse for any jpg or png file to use as a thumbnail."
 HKEYDD_TT :="hotkeys define emulator and retroArch abilities.`n''Input_enable_hotkey'' should be used to minimize conflicts"
@@ -10624,16 +10626,6 @@ return
 ;{;;;;;;;;;;;;;    RETROARCH FUNCTIONS     ;;;;;;;;;;;;;;;;
 
 QINSTALL:
-GuiControl, Enable, CNCLDWN
-GuiControl, Disable, AVAIL
-GuiControl, Disable, LOCEMUIN
-GuiControl, Disable, EMUINST
-GuiControl, Disable, MULTINST
-GuiControl, Disable, INSTEMUDDL
-GuiControl, Disable, UPDBTN
-GuiControl, Disable, EXELIST
-GuiControl, Disable, EAVAIL
-GuiControl, Disable, SaList
 MsgBox,4100,Quick Install,Install RetroArch and popular emulator cores?
 IfMsgBox, Yes
 	{
@@ -10644,18 +10636,43 @@ IfMsgBox, Yes
 				return true  ; true = 1
 			}
 	}
-		EXELIST= 1		
-		gosub, STABLE
-		EXELIST= 0
-		RALIST= 1
-		SLCTCORES= 4do_libretro.dll.zip|bluemsx_libretro.dll.zip|desmume_libretro.dll.zip|doxbox_libretro.dll.zip|fbalpha2012_libretro.dll.zip|freeintv_libretro.dll.zip|gambatte_libretro.dll.zip|genesis_plus_gx_libretro.dll.zip|pcsx_rearmed_libretro.dll.zip|handy_libretro.dll.zip|mame_libretro.dll.zip|mednafen_ngp_libretro.dll.zip|mednafen_pce_fast_libretro.dll.zip|mdednafen_pcfx_libretro.dll.zip|mednafen_psx_libretro.dll.zip|mednafen_supergrafx_libretro.dll.zip|mednafen_vb_libretro.dll.zip|mednafen_wsawn_libretro.dll.zip|mess2014_libretro.dll.zip|mgba_libretro.dll.zip|nestopia_libretro.dll.zip|parallel_n64_libretro.dll.zip|picodrive_libretro.dll.zip|prosystem_libretro.dll.zip|snes9x_libretro.dll.zip|stella_libretro.dll.zip|virtualjaguar_libretro.dll.zip|crocods_libretro.dll.zip|px68k_libretro.dll.zip|openlara_libretro.dll.zip|atari800_libretro.dll.zip|np2kai_libretro.dll.zip|vice_x64_libretro.dll.zip|vice_xplus4_libretro.dll.zip|vice_xvic_libretro.dll.zip|pokemini_libretro.dll.zip
-		if (ARCH = "64")
-			{
-				SLCTCORES .= "|" . "reicast_libretro.dll.zip" . "|" . "dolphin_libretro.dll.zip" . "|" . "mednafen_saturn_libretro.dll.zip" . "|" . "nekop2_libretro.dll.zip" . "|" . "citra_libretro.dll.zip"
-			}
-		gosub, UpdateCores
-		SB_SetText(" complete ")
+		gosub, RASETUPCONT
 	}
+return
+
+QRSETUP:
+if (raexefile <> "NOT-FOUND.exe")
+	{
+		Msgbox,1,Install,Retroarch is installed.`nReinstall with the current stable version?`n    %RASTABLE%   ?
+		ifmsgbox,Cancel
+			{
+				SB_SetText(" Install Cancelled ")
+				return
+			}
+	}
+RASETUPCONT:	
+GuiControl, Enable, CNCLDWN
+GuiControl, Disable, AVAIL
+GuiControl, Disable, LOCEMUIN
+GuiControl, Disable, EMUINST
+GuiControl, Disable, MULTINST
+GuiControl, Disable, INSTEMUDDL
+GuiControl, Disable, UPDBTN
+GuiControl, Disable, EXELIST
+GuiControl, Disable, EAVAIL
+GuiControl, Disable, SaList
+EXELIST= 1		
+gosub, STABLE
+EXELIST= 0
+RALIST= 1
+SLCTCORES= 4do_libretro.dll.zip|bluemsx_libretro.dll.zip|desmume_libretro.dll.zip|doxbox_libretro.dll.zip|fbalpha2012_libretro.dll.zip|freeintv_libretro.dll.zip|gambatte_libretro.dll.zip|genesis_plus_gx_libretro.dll.zip|pcsx_rearmed_libretro.dll.zip|handy_libretro.dll.zip|mame_libretro.dll.zip|mednafen_ngp_libretro.dll.zip|mednafen_pce_fast_libretro.dll.zip|mdednafen_pcfx_libretro.dll.zip|mednafen_psx_libretro.dll.zip|mednafen_supergrafx_libretro.dll.zip|mednafen_vb_libretro.dll.zip|mednafen_wsawn_libretro.dll.zip|mess2014_libretro.dll.zip|mgba_libretro.dll.zip|nestopia_libretro.dll.zip|parallel_n64_libretro.dll.zip|picodrive_libretro.dll.zip|prosystem_libretro.dll.zip|snes9x_libretro.dll.zip|stella_libretro.dll.zip|virtualjaguar_libretro.dll.zip|crocods_libretro.dll.zip|px68k_libretro.dll.zip|openlara_libretro.dll.zip|atari800_libretro.dll.zip|np2kai_libretro.dll.zip|vice_x64_libretro.dll.zip|vice_xplus4_libretro.dll.zip|vice_xvic_libretro.dll.zip|pokemini_libretro.dll.zip|reicast_libretro.dll.zip|mednafen_saturn_libretro.dll.zip
+if (ARCH = "64")
+	{
+		SLCTCORES .= "|" . "|" . "dolphin_libretro.dll.zip" . "|" . "|" . "|" . "citra_libretro.dll.zip"
+	}
+gosub, UpdateCores
+SB_SetText(" complete ")
+
 GuiControl, Disable, CNCLDWN
 GuiControl, Enable, AVAIL
 GuiControl, Enable, LOCEMUIN
@@ -10867,6 +10884,7 @@ guicontrol,show,SKSAVTXT
 guicontrol,show,SKIMPRATXT
 guicontrol,show,SKRAIMP
 guicontrol,show,GRAVER
+guicontrol,show,QRSETUP
 guicontrol,show,RAVERTXT
 guicontrol,show,SKCCTXT
 guicontrol,show,SKSVAS
@@ -11034,6 +11052,7 @@ guicontrol,hide,SKSAVTXT
 guicontrol,hide,SKRAIMP
 guicontrol,hide,SKIMPRATXT
 guicontrol,hide,GRAVER
+guicontrol,hide,QRSETUP
 guicontrol,hide,RAVERTXT
 guicontrol,hide,SKCCTXT
 guicontrol,hide,SKSVAS
@@ -23532,6 +23551,7 @@ guicontrol,%moptog%,SKRAEXE
 guicontrol,%moptog%,SKRAXETXT
 guicontrol,%moptog%,RAVERTXT
 guicontrol,%moptog%,GRAVER
+guicontrol,%moptog%,QRSETUP
 guicontrol,%moptog%,SKRADISP
 guicontrol,%moptog%,SKIMPRATXT
 guicontrol,%moptog%,SKRAIMP
@@ -57914,7 +57934,12 @@ if (locfnd = 1)
 	{
 		return
 	}
-msgbox,,Not Found, Select a RetroArch executable file.,5
+msgbox,1,No RA Found, Select a RetroArch executable file.`nor cancel to skip.,5
+ifmsgbox, Cancel
+	{
+		gosub, BLANKRA
+		return
+	}
 gosub, RAEXE
 return
 
@@ -57996,6 +58021,7 @@ if (raexeloctmp <> "")
 				return
 			}
 	}
+	
 RAEXE:
 FileSelectFile, RaExePath, 3, , Select a retroarch.exe, retroarch exe(*.exe)
 if (RaExePath = "")
@@ -58004,39 +58030,26 @@ if (RaExePath = "")
 		LNCHPT= 1
 		if (INITIAL = 1)
 			{
-				raexeloc= %RJEMUD%\retroArch
-				RaExefile= NOT-FOUND.exe
-				locfnd= 1
-				ifnotexist,%raexeloc%
-					{
-						FileCreateDir,%raexeloc%
-					}
-				iniwrite, "%raexeloc%",Settings.ini,GLOBAL,retroarch_location
-				iniwrite, "%raexefile%",Settings.ini,GLOBAL,retroarch_executable
-				ifexist,%raexeloc%\retroarch.cfg
-					{
-						gosub, IMPRTCFG
-					}
-				TrayTip, skeletonkey, skeletonKey is initializing settings`nPlease be patient,999,48
+				gosub, BLANKRA
 				return
 				;;gosub, selRaLoc
 			}
 		if (raexeloc <> "")
 			{
-				MsgBox,3,Clear,Clear the current retroarch assignment?
+				MsgBox,1,Clear,Clear the current retroarch assignment?
 				ifmsgbox,Yes
 					{								
-						raexeloc= %RJEMUD%\retroarch
+						raexeloc= %raexeloctmp%
+						if (raexeloctmp = "")
+							{
+								raexeloc= %RJEMUD%\retroarch
+							}
 						ifnotexist, %raexeloc%\
 							{
 								FileCreateDir, %raexeloc%
 							}
 						raexefile= NOT-FOUND.exe
 						raexepath= %raexeloc%\%raexefile%
-					}
-				ifmsgbox,No
-					{
-						return
 					}
 				ifmsgbox,Cancel
 					{
@@ -58074,6 +58087,23 @@ gosub, PlaylistInit
 gosub, resetPlaylists
 gosub, ShaderDBInit
 gosub, CoreOptInit
+return
+
+BLANKRA:
+raexeloc= %RJEMUD%\retroArch
+RaExefile= NOT-FOUND.exe
+locfnd= 1
+ifnotexist,%raexeloc%
+	{
+		FileCreateDir,%raexeloc%
+	}
+iniwrite, "%raexeloc%",Settings.ini,GLOBAL,retroarch_location
+iniwrite, "%raexefile%",Settings.ini,GLOBAL,retroarch_executable
+ifexist,%raexeloc%\retroarch.cfg
+	{
+		gosub, IMPRTCFG
+	}
+TrayTip, skeletonkey, skeletonKey is initializing settings`nPlease be patient,999,48
 return
 
 selRaLoc:
