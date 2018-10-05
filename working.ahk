@@ -12353,6 +12353,8 @@ Loop, Parse,UrlIndex,`n`r
 						guicontrol,,ARCCORES,|%runlist%
 						if (selfnd = "MAME")
 							{
+								splitpath,xtractmfp,,mamevpth
+								filecreateDir,%mamevpth%\roms
 								ifnotexist,lm.ini
 									{
 										gosub, MAMETOG
@@ -12404,6 +12406,15 @@ Loop, Parse,UrlIndex,`n`r
 							GuiControl, Enable, EMUASIGN
 							GuiControl, Disable, CNCLDWN
 							guicontrol,,EMPRLST,|%EMPRLT%
+							if (selfnd = "MAME")
+								{
+									splitpath,xtractmfp,,mamevpth
+									filecreateDir,%mamevpth%\roms
+									ifnotexist,lm.ini
+										{
+											gosub, MAMETOG
+										}
+								}
 							return
 						}
 			}
@@ -26557,32 +26568,34 @@ if (uuniv = "X")
 		guicontrol,move,FNDGUI, x720 y516 w42 h19
 		guicontrol,,FNDGUI,find
 	}
-guicontrol, %emutog%, emuBUTJ
-guicontrol, move, emuBUTJ,x694 y486 w66 h23
-guicontrol,,emuBUTJ,BUILD
-guicontrol, %emutog%, emuPRGA
-guicontrol,,emuPRGA,0
+;guicontrol, %emutog%, emuBUTJ
+;guicontrol, move, emuBUTJ,x694 y486 w66 h23
+;guicontrol,,emuBUTJ,BUILD
+;guicontrol, %emutog%, emuPRGA
+;guicontrol,,emuPRGA,0
 
 gosub, EMUCFGCOPY
 return
 
 MAMETOG:
 SB_SetText(" Creating MAME database ")
-guicontrol, %fndtog%, emuBUTJ
-guicontrol, %fndtog%, emuPRGA
+;guicontrol, %fndtog%, emuBUTJ
+;guicontrol, %fndtog%, emuPRGA
 emuprgpl=0
 emuprgpl+=10
 ifnotexist,lm.ini
 	{
-		guicontrol,,emuPRGA,%emuprgpl%
+		;guicontrol,,emuPRGA,%emuprgpl%
 		iniread,mame_verx,Apps.ini,EMULATORS,MAME
+		splitpath,mame_verx,,mamevpth
 		if (mame_verx = "ERROR")
 			{
 				SB_SetText(" MAME NOT FOUND ")
 				return
 			}	
-		RunWait,%comspec% /c "%mame_verx%" -lm >lm.ini,%A_WorkingDir%,Min
-		guicontrol,,emuPRGA,%emuprgpl%
+		RunWait,%comspec% /c "%mame_verx%" -lm >"%A_ScriptDir%\lm.ini",%mamevpth%,Min
+		RunWait,%comspec% /c "%mame_verx%" -cc,%mamevpth%,Min
+;		guicontrol,,emuPRGA,%emuprgpl%
 	}
 emuprgpl+=40
 ifexist,lm.ini
@@ -26593,7 +26606,7 @@ ifexist,lm.ini
 				gosub, MAMELMREAD
 			}
 	}
-guicontrol,,emuPRGA, 0
+;guicontrol,,emuPRGA, 0
 SB_SetText(" COMPLETE ")
 
 return
@@ -27076,7 +27089,7 @@ if (LCORE = "retroArch")
 				guicontrol,show,emuTXTA				
 				guicontrol,move,emuTXTA,x683 y26 w32 h17
 				guicontrol,,emuTXTA,core
-				guicontrol,move, emuBUTJ,x694 y486 w66 h23
+				guicontrol,move,emuBUTJ,x694 y486 w66 h23
 				guicontrol,,emuBUTJ,SAVE
 			}
 		return
