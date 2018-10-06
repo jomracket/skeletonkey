@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-05 8:42 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-05 5:43 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-10-05 8:42 AM
-VERSION= v0.99.58.66
+RELEASE= 2018-10-05 5:43 PM
+VERSION= v0.99.58.67
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -2182,9 +2182,9 @@ Gui, Add, Button, x694 y79 w42 h19 vSAVNSYS gSavNSys Hidden, save
 Gui, Add, Text, x577 y75 h23 vOVSETTXT, Extension-Override
 Gui, Add, Button, x557 y75 w15 h15 vOVSETRM gOVSETRM hidden,X
 
-Gui, Add, Radio, x505 y122 h19 vDCORE gDCore Checked, Default Core
-Gui, Add, Radio, x505 y144 h16 vARDCORE gARDCore disabled, Core
-Gui, Add, Radio, x505 y170 h16 vDAPP gDApp disabled, Application
+Gui, Add, Radio, x501 y122 h19 vDCORE gDCore Checked, Default Core
+Gui, Add, Radio, x501 y144 h16 vARDCORE gARDCore disabled, Core
+Gui, Add, Radio, x501 y170 h16 vDAPP gDApp disabled, Application
 
 Gui, Add, DropDownList, x550 y144 w184 vASCORE gASCore hidden, %corelist%
 Gui, Add, Button, x577 y168 w56 h17 vSELAPP gSelApp hidden, BROWSE
@@ -20688,15 +20688,26 @@ if (ARCSYS = "MAME - Arcade")
 	{
 		guicontrol,,EXTRURL,0
 	}
-if (ARCSYS = "MAME - BIOS")
+if (ARCSYS = "BIOSPACK")
 	{
 		OVDCHK= MAME - Arcade
-		guicontrol,,OVDLDS,|MAME - Arcade|Matching|%systmfldrs%
-		guicontrol,,OVDTXT,%RJSYSTEMS%\MAME - Arcade
+		iniread,mame_verx,Apps.ini,EMULATORS,MAME
+		splitpath,mame_verx,,mamepth
+		OVDFLDR= %cacheDirectory%
+		guicontrol,,OVDTXT,%OVDFLDR%
+		guicontrol,,OVDLDS,|%OVDFLDR%||Matching|%systmfldrs%
 		guicontrol,,OVDCHK,1
 		guicontrol,,DOWNONLY,1
 		gosub, DOWNONLY
 		guicontrol,,EXTRURL,0
+	}
+if (ARCSYS = "MAME - BIOS")
+	{
+		gosub, MAMEBIOSFIRM
+	}
+if (ARCSYS = "_firmware_")
+	{
+		gosub, MAMEBIOSFIRM
 	}
 if (ARCSYS = "Sony - Playstation 2")
 	{
@@ -26547,6 +26558,18 @@ gui,submit,nohide
 SVTGTS= 1
 return
 
+MAMEBIOSFIRM:
+OVDCHK= MAME - Arcade
+iniread,mame_verx,Apps.ini,EMULATORS,MAME
+splitpath,mame_verx,,mamepth
+OVDFLDR= %mamepth%\roms
+guicontrol,,OVDTXT,%OVDFLDR%
+guicontrol,,OVDLDS,|%OVDFLDR%||Matching|%systmfldrs%
+guicontrol,,OVDCHK,1
+guicontrol,,DOWNONLY,1
+gosub, DOWNONLY
+guicontrol,,EXTRURL,0
+return	
 
 ;};;;;;;;;;;;;;;;;;;;;;
 
@@ -26593,8 +26616,8 @@ ifnotexist,lm.ini
 				SB_SetText(" MAME NOT FOUND ")
 				return
 			}	
-		RunWait,%comspec% /c "%mame_verx%" -lm >"%A_ScriptDir%\lm.ini",%mamevpth%,Min
-		RunWait,%comspec% /c "%mame_verx%" -cc,%mamevpth%,Min
+		RunWait,%comspec% /c ""%mame_verx%" -lm >"%A_ScriptDir%\lm.ini"",,Min
+		RunWait,%comspec% /c ""%mame_verx%" -cc",%mamevpth%,Min
 ;		guicontrol,,emuPRGA,%emuprgpl%
 	}
 emuprgpl+=40
