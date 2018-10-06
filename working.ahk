@@ -2143,8 +2143,8 @@ Gui, Add, DropDownList, x603 y430 w118 vEMDDLF gEMDDLF disabled, Pre-Command||Po
 Gui, Add, Button, x723 y429 w21 h23 vEMBUTG gEMBUTG disabled, +
 Gui, Add, Combobox, x578 y452 w143 vEMCBXH gEMCBXH +0x2 +E0x5000 Right hidden disabled,
 Gui, Add, DropDownList, x578 y452 w143 vEMDDLP gEMDDLP +0x2 +E0x5000 disabled, 
-Gui, Add, Button, x598 y477 w43 h23 vEMBUTO gEMBUTO hidden disabled, Add
-Gui, Add, Edit, x578 y477 w163 h21 vEMEDTO gEMEDTO disabled
+Gui, Add, Button, x723 y477 w33 h23 vEMBUTO gEMBUTO hidden disabled, Add
+Gui, Add, Edit, x558 y477 w163 h21 vEMEDTO gEMEDTO disabled
 Gui, Add, Button, x723 y451 w21 h23 vEMBUTH gEMBUTH disabled, X ;PrePostDelete
 
 
@@ -12378,7 +12378,7 @@ Loop, Parse,UrlIndex,`n`r
 										{
 											emuxe= %emuprt3%
 											OVRKND= %emuprt1%
-											iniwrite, "%xtractmu%\%emuxe%",apps.ini,EMULATORS,%selfnd%
+											iniwrite, "%xtractmu%\%emuxe%",apps.ini,%inisect%,%selfnd%
 											ifnotinstring,preEmuCfg,%selfnd%
 												{
 													preEmuCfg.= selfnd . "|"
@@ -12562,10 +12562,10 @@ return
 EMRad11A:
 gui,submit,nohide
 guicontrol,hide,EMEDTO
+guicontrol,show,EMBUTO
 guicontrol,show,EMCBXH
 guicontrol,hide,EMBUTG
 guicontrol,hide,EMDDLP
-guicontrol,show,EMBUTO
 guicontrolget,PRPS,,EMDDLF
 CMDRO= EMPREOPT
 CMDRT= EMPRERUN
@@ -12755,9 +12755,10 @@ ADDAK=
 prepnd= 
 FileSelectFile,ADDFT,1,,Select An executable or script
 if (ADDFT = "")
-	{
+	{	
 		return
 	}
+guicontrol,show,EMBUTO	
 IniRead, EMOPV,AppParams.ini,%sysni%,%CMDRO%
 IniRead, ADDFN,AppParams.ini,%sysni%,%CMDRT%
 IniRead, EMSTV,AppParams.ini,%sysni%,%CMDRS%
@@ -42007,7 +42008,16 @@ gui,submit,nohide
 guicontrol,,RJENMAP,0
 if (rjaval2 = 1)
 	{
-		guicontrol,,RJENMAP,1
+		iniread,kmpchkt,apps.ini,KEYBOARD_MAPPERS,Xpadder
+		if (kmpchkt <> "ERROR")
+			{
+				guicontrol,,RJENMAP,1
+			}
+		iniread,kmpchkt,apps.ini,KEYBOARD_MAPPERS,Antimicro
+		if (kmpchkt <> "ERROR")
+			{
+				guicontrol,,RJENMAP,1
+			}
 		guicontrol,enable,RJOVKM
 		guicontrol,enable,RJMAPDD
 		guicontrol,enable,RJMAPRET
