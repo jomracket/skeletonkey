@@ -20605,7 +20605,8 @@ topcore=
 fnne= 
 
 gui, submit, nohide
-guicontrol, ,OVDCHK,0
+guicontrol,,DOWNONLY,0
+guicontrol,,OVDCHK,0
 gosub, OvdChk
 BRKO= 1
 guicontrol,,SRCHRSLT,|
@@ -32012,6 +32013,12 @@ iniread,EmulationStation,apps.ini,HTPC_FRONTENDS,EmulationStation
 if (EmulationStation = "ERROR")
 	{
 		SB_SetText("Use the Install tab to install EmulationStation.")
+		guicontrol,choose,TABMENU,3
+		guicontrol,,SALIST,|Frontends||Systems|Emulators|RetroArch|Utilities
+		gosub, SALIST
+		;;Loop, read, frontends.set
+		Guicontrol,choose,EAVAIL,|5
+		guicontrol, ChooseString, EAVAIL,EmulationStation
 		return
 	}
 ifnotexist,EScfg.ini
