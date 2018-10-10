@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-09 6:16 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-10 1:03 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-10-09 6:16 PM
-VERSION= v0.99.58.69
+RELEASE= 2018-10-10 1:03 PM
+VERSION= v0.99.58.70
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -9807,6 +9807,9 @@ return
 LNCHPT:
 gui,submit,nohide
 guicontrol,disable,LNCHPT
+guicontrol,disable,AVAIL
+guicontrol,disable,EVAIL
+guicontrol,disable,UVAIL
 guicontrolget,LNCHPRDDL,,LNCHPRDDL
 guicontrolget,LNCHPT,,LNCHPT
 iniread,smuemu,apps.ini,EMULATORS,
@@ -9942,7 +9945,10 @@ SB_SetText("Systems now assigned to " LNCHPRDDL " where possible.")
 guicontrol,,SaList,|Systems||Emulators|RetroArch|Utilities|Frontends
 gosub, SaList
 GuiControl, Choose, EAVAIL, 0
-guicontrol,enable,LNCHPT	
+guicontrol,enable,LNCHPT
+guicontrol,enable,AVAIL
+guicontrol,enable,EVAIL
+guicontrol,enable,UVAIL
 fileread,aei,Assignments.ini
 FileDelete,Assignments.ini
 stringreplace,aei,aei,|",",All
@@ -10668,7 +10674,7 @@ RALIST= 1
 SLCTCORES= 4do_libretro.dll.zip|bluemsx_libretro.dll.zip|desmume_libretro.dll.zip|doxbox_libretro.dll.zip|fbalpha2012_libretro.dll.zip|freeintv_libretro.dll.zip|gambatte_libretro.dll.zip|genesis_plus_gx_libretro.dll.zip|pcsx_rearmed_libretro.dll.zip|handy_libretro.dll.zip|mame_libretro.dll.zip|mednafen_ngp_libretro.dll.zip|mednafen_pce_fast_libretro.dll.zip|mdednafen_pcfx_libretro.dll.zip|mednafen_psx_libretro.dll.zip|mednafen_supergrafx_libretro.dll.zip|mednafen_vb_libretro.dll.zip|mednafen_wsawn_libretro.dll.zip|mgba_libretro.dll.zip|nestopia_libretro.dll.zip|parallel_n64_libretro.dll.zip|picodrive_libretro.dll.zip|prosystem_libretro.dll.zip|snes9x_libretro.dll.zip|stella_libretro.dll.zip|virtualjaguar_libretro.dll.zip|crocods_libretro.dll.zip|px68k_libretro.dll.zip|openlara_libretro.dll.zip|atari800_libretro.dll.zip|np2kai_libretro.dll.zip|vice_x64_libretro.dll.zip|vice_xplus4_libretro.dll.zip|vice_xvic_libretro.dll.zip|pokemini_libretro.dll.zip|reicast_libretro.dll.zip|mednafen_saturn_libretro.dll.zip
 if (ARCH = "64")
 	{
-		SLCTCORES .= "|" . "|" . "dolphin_libretro.dll.zip" . "|" . "|" . "|" . "citra_libretro.dll.zip"
+		SLCTCORES .= "|" . "dolphin_libretro.dll.zip" . "|" . "citra_libretro.dll.zip"
 	}
 gosub, UpdateCores
 SB_SetText(" complete ")
@@ -14081,6 +14087,10 @@ Loop, Parse, SLCTCORES,|
 								}
 					}
 				}
+		ifnotexist,%libretrodirectory%\%dwncore%
+			{
+				SB_SetText(" core archive not found ")
+			}
 		gosub, downloadingcores
 		ifnotexist, %save%
 			{
@@ -14385,6 +14395,11 @@ return
 
 XTRACTCORE:
 splitpath, save, corename, savepth, ext, corenoxt, coredrive
+if (corename = "")
+	{
+		SB_SetText(" core not found")
+		return
+	}
 SB_SetText(" " save " " "extracting")
 guicontrolget,BCKCORE,,BCKCORE
 if (BCKCORE = 1)
@@ -56647,7 +56662,10 @@ if (coreselv = "")
 iniwrite, "%romf%",Settings.ini,GLOBAL,last_rom
 gosub, LNCHCHK
 ASVRM= 1
-gosub,EMUCFGCOPY
+if (AUTOPGS = 1)
+	{
+		gosub,EMUCFGCOPY
+	}
 ;;guicontrol,focus,RUNROMCBX	
 RUNSYSCHNG= 
 if ((romf <> "") && (coreselv <> ""))
