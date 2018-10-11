@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-10 1:03 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-10 6:37 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-10-10 1:03 PM
-VERSION= v0.99.58.70
+RELEASE= 2018-10-10 6:37 PM
+VERSION= v0.99.58.71
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -2107,6 +2107,8 @@ Gui,Font,%fontXsm% Bold
 Gui, Add, GroupBox, x470 y25 w263 h94 Center +0x400000 vGRPDROPBIOS hidden, Drop BIOS here
 Gui,Font,%fontXsm% Norm
 
+Gui, Add, Button, x470 y122 w42 h19 vAUTOBIOS gAUTOBIOS hidden,auto
+
 Gui, Add, ListBox,x4 y29 w269 h446 HWNDtrxvail vUAVAIL gUAvailSel hidden, %systoemu%
 
 Gui, Add, ListBox, Multi x4 y29 w269 h446 HWNDeavlbx vEAVAIL gEAvailSel, %systoemu%
@@ -3920,6 +3922,7 @@ NETCORE_TT := "Assigns a core to the ROM to connect to the selected host"
 NETCOREASSETS_TT :="Select a filter for skeletonKey to search within.`n -- Selecting ''All_Playlists'' -- will search through every playlist for a matching ROM. --"
 NETDWNL_TT := "Select a subdirectory from your core-assets directory."
 NETIPRAD_TT :="Internet ip address"
+AUTOBIOS_TT :="Automatically downloads and installs BIOS files for supported emulators"
 NETNAME_TT :="Your netplay user name"
 NETPLIST_TT := "Select a playlist file to parse for the matching ROM"
 NETPW_TT :="Netplay Password"
@@ -6280,6 +6283,34 @@ Loop, Read, %historyLoc%
 	}
 return
 
+AUTOBIOS:
+ifnotexist,%cacheloc%\bios
+	{
+		filecreatedir,%cacheloc%\bios	
+	}
+gui,submit,nohide
+Loop, Read, gam\AutoBios.gam
+	{
+		if (A_LoopReadLine = "")
+			{
+				continue
+			}
+		stringsplit,aiv,A_LoopReadLine,=
+		splitpath,aiv1,biosname
+		save= %cacheloc%\bios\%biosname%
+		DownloadFile(aiv1,save,True,True)
+		SB_SetText("Downloading " biosname " ")
+		ifnotexist, %save%
+			{
+				Msgbox,,Not Found,Could not download %biosname%,4
+				continue
+			}
+		SB_SetText("extracting " biosname " ")	
+		Runwait, %comspec% cmd /c "7za.exe e -y "%A_LoopReadLine%" -O"%save%" ",,hide
+		gosub, BiosProc
+	}
+return
+
 GuiDropFiles:
 guicontrolget,TABMENU,,TABMENU
 ROMDRP= 1
@@ -7591,8 +7622,6 @@ return
 
 ;{;;;;;;;;;;;;;;;;;;;;;;;    BIOS FUNCTION   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 BiosProc:
-
-
 FileDelete, crcs.ini
 sysDir= %systemDirectory%
 IniRead, bsys,Apps.ini,EMULATORS
@@ -9807,9 +9836,10 @@ return
 LNCHPT:
 gui,submit,nohide
 guicontrol,disable,LNCHPT
+guicontrol,disable,SaList
 guicontrol,disable,AVAIL
-guicontrol,disable,EVAIL
-guicontrol,disable,UVAIL
+guicontrol,disable,EAVAIL
+guicontrol,disable,UAVAIL
 guicontrolget,LNCHPRDDL,,LNCHPRDDL
 guicontrolget,LNCHPT,,LNCHPT
 iniread,smuemu,apps.ini,EMULATORS,
@@ -9946,9 +9976,10 @@ guicontrol,,SaList,|Systems||Emulators|RetroArch|Utilities|Frontends
 gosub, SaList
 GuiControl, Choose, EAVAIL, 0
 guicontrol,enable,LNCHPT
+guicontrol,enable,SaList
 guicontrol,enable,AVAIL
-guicontrol,enable,EVAIL
-guicontrol,enable,UVAIL
+guicontrol,enable,EAVAIL
+guicontrol,enable,UAVAIL
 fileread,aei,Assignments.ini
 FileDelete,Assignments.ini
 stringreplace,aei,aei,|",",All
@@ -11050,6 +11081,7 @@ guicontrol,hide,EMPRBUTD
 guicontrol,hide,EMPRBUTX
 guicontrol,hide,DELCFGPGC
 guicontrol,hide,GRPDROPBIOS
+guicontrol,hide,AUTOBIOS
 
 
 guicontrol,hide,SKRAEXE
@@ -11172,6 +11204,7 @@ if (SALIST = "Systems")
 		guicontrol,show,OVEXTL
 		guicontrol,show,OVSETRM		
 		guicontrol,hide,GRPDROPBIOS
+		guicontrol,hide,AUTOBIOS
 		guicontrol,hide,UPDBTN
 		guicontrol,hide,LNCHPRDDL
 		guicontrol,hide,LNCHPT
@@ -11240,6 +11273,7 @@ if (SALIST = "Frontends")
 		guicontrol,,UAVAIL,|Mirrored_Links|Media|retroFE|Hyperspin|EmulationStation|Kodi_XBMC|IRAL|AdvancedLauncher|ROM_Collection_Browser|MediaBrowser|CabrioFE|ICE
 		guicontrol,hide,UPDBTN
 		guicontrol,hide,GRPDROPBIOS
+		guicontrol,hide,AUTOBIOS
 		guicontrol, hide, RALIST
 		guicontrol, hide, EXELIST
 		guicontrol,hide,LNCHPRDDL
@@ -11322,6 +11356,7 @@ if (SALIST = "Utilities")
 		guicontrol,,UAVAIL,|Xinput_Drivers|DirectX|Daemon_Tools|DS4Windows|Display_Changer|Xpadder|Antimicro|Visual_C++_Runtimes
 		guicontrol,hide,UPDBTN
 		guicontrol,hide,GRPDROPBIOS
+		guicontrol,hide,AUTOBIOS
 		guicontrol, hide, RALIST
 		guicontrol, hide, EXELIST
 		guicontrol,hide,LNCHPRDDL
@@ -11388,6 +11423,7 @@ if (SALIST = "Emulators")
 		guicontrol,,UAVAIL,|%emuinstpop%
 		guicontrol,hide,UPDBTN
 		guicontrol,show,GRPDROPBIOS
+		guicontrol,show,AUTOBIOS
 		guicontrol,,SKRAstch,Skeletonkey-Emulator-Associations
 		guicontrol, hide, RALIST
 		guicontrol, hide, EXELIST
@@ -12232,6 +12268,10 @@ GuiControl, Enable, CNCLDWN
 
 Loop, Parse,UrlIndex,`n`r
 	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
 		urloc= 
 		urloc1= 
 		urloc2= 
@@ -26633,13 +26673,20 @@ ifnotexist,lm.ini
 				SB_SetText(" MAME NOT FOUND ")
 				return
 			}	
-		RunWait,%comspec% /c ""%mame_verx%" -lm >"%A_ScriptDir%\lm.ini"",,Min
-		RunWait,%comspec% /c ""%mame_verx%" -cc",%mamevpth%,Min
+		RunWait,%comspec% cmd /c " "%mame_verx%" -lm >"%A_ScriptDir%\lm.ini"",,Min
+		RunWait,%comspec% cmd /c " "%mame_verx%" -cc",%mamevpth%,Min
 ;		guicontrol,,emuPRGA,%emuprgpl%
 	}
 emuprgpl+=40
 ifexist,lm.ini
 	{
+		FileGetSize,lmsz,lm.ini,K
+		if (lmsz > 500)
+			{
+				SB_SetText(" media database not created properly.")
+				FileDelete,lm.ini
+				return
+			}
 		fileread,mamelistedmedia,lm.ini
 		if (mlmed = "")
 			{

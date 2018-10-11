@@ -891,8 +891,8 @@ RJROMXT=.wav,.bin,.rom,.zip
 RJEMUPRESET=MAME
 RJMAMENM=advision
 RJMULTIDISC=1
-MAME?RJEMUOPTS=.bin,.zip
-RJROMXT=<advision -cart<
+MAME?RJEMUOPTS=<advision -cart<
+RJROMXT=.bin,.zip
 RJZIPPEEK=0
 
 [Epoch - Super Cassette Vision]
