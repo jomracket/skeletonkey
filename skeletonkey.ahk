@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-10 6:37 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-11 12:53 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-10-10 6:37 PM
-VERSION= v0.99.58.71
+RELEASE= 2018-10-11 12:53 PM
+VERSION= v0.99.58.72
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -6283,21 +6283,44 @@ Loop, Read, %historyLoc%
 	}
 return
 
-AUTOBIOS:
-ifnotexist,%cacheloc%\bios
-	{
-		filecreatedir,%cacheloc%\bios	
-	}
+AUTOBIOS
+filecreatedir,%cacheloc%\firmware
+filecreatedir,%cacheloc%\bios
 gui,submit,nohide
+iniread,pcsx2_verx,Apps.ini,EMULATORS,PCSX2
+splitpath,pcsx2_verx,,pcsx2_path
+iniread,mame_verx,Apps.ini,EMULATORS,MAME
+splitpath,mame_verx,,mame_path
+iniread,demul_file,apps.ini,EMULATORS,Demul
+splitpath,demul_file,,demul_path
 Loop, Read, gam\AutoBios.gam
 	{
 		if (A_LoopReadLine = "")
 			{
 				continue
 			}
-		stringsplit,aiv,A_LoopReadLine,=
+		stringsplit,aiv,A_LoopReadLine,|
 		splitpath,aiv1,biosname
 		save= %cacheloc%\bios\%biosname%
+		biosout= %cacheloc%\bios
+		if (aiv2 = "DEMUL")
+			{
+				if (demul_file = "ERROR")
+					{
+						continue
+					}
+				biosout= %demul_path%\roms
+				save= %cacheloc%\firmware\%biosname%
+			}
+		if (aiv2 = "MESS")
+			{
+				if (mame_verx = "ERROR")
+					{
+						continue
+					}
+				biosout= %mame_path%\roms
+				save= %cacheloc%\firmware\%biosname%
+			}
 		DownloadFile(aiv1,save,True,True)
 		SB_SetText("Downloading " biosname " ")
 		ifnotexist, %save%
@@ -6305,10 +6328,15 @@ Loop, Read, gam\AutoBios.gam
 				Msgbox,,Not Found,Could not download %biosname%,4
 				continue
 			}
-		SB_SetText("extracting " biosname " ")	
-		Runwait, %comspec% cmd /c "7za.exe e -y "%A_LoopReadLine%" -O"%save%" ",,hide
-		gosub, BiosProc
+		SB_SetText("extracting " biosname " ")
+		if (aiv2 = "MAME")
+			{
+				filecopy,%save%,%mame_path%
+				continue
+			}
+		Runwait, %comspec% cmd /c "7za.exe e -y "%A_LoopReadLine%" -O"%biosout%" ",,hide			
 	}
+gosub, BiosProc
 return
 
 GuiDropFiles:
@@ -7624,6 +7652,14 @@ return
 BiosProc:
 FileDelete, crcs.ini
 sysDir= %systemDirectory%
+if (sysdir = "")
+	{
+		sysdir= %raexeloc%\system
+	}
+ifnotexist, %sysdir%
+	{
+		filecreatedir,%sysdir%
+	}
 IniRead, bsys,Apps.ini,EMULATORS
 kbemu= 
 Loop, Parse, bsys,`n,`r
@@ -7661,6 +7697,11 @@ Loop, Files, %cacheloc%\bios\*,
 						fileappend,%A_LoopFileFullPath%|%CRCM1%|%CRCM2%%kfn%`n,crcs.ini
 					}						
 			}
+	}
+ifnotexist,crcs.ini
+	{
+		msgbox,,,BIOS NOT FOUND
+		return
 	}
 Fileread,curbios,crcs.ini
 Loop, Parse, curbios, `n

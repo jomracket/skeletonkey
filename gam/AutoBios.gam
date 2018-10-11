@@ -1,27 +1,23 @@
-http://archive.org/download/fba029740/fba029740.zip/neogeo.zip=NEOGEO
-http://archive.org/download/MAME_0.197_ROMs_merged/MAME_0.197_ROMs_merged.zip/MAME 0.197 ROMs (merged)/neocdz.zip=NEOCD
-http://archive.org/download/MAME_0.197_ROMs_merged/MAME_0.197_ROMs_merged.zip/MAME 0.197 ROMs (merged)/qsound.zip=QSOUND
-http://archive.org/download/No-Intro-Collection_2016-01-03/Atari - Jaguar.zip/Atari - Jaguar/[BIOS] Atari Jaguar (World).zip=JAGUAR
-http://archive.org/download/No-Intro-Collection_2016-01-03/Atari - Jaguar.zip/Atari - Jaguar/[BIOS] Atari Jaguar CD (World).zip=JAGCD
-http://archive.org/download/No-Intro-Collection_2016-01-03/Commodore-Amiga.zip/Commodore - Amiga/[BIOS] Kickstart (USA, Europe) (v1.3 Rev 34.005) (A500, A2000).zip=A500
-http://archive.org/download/No-Intro-Collection_2016-01-03/Commodore-Amiga.zip/Commodore - Amiga/[BIOS] Kickstart (USA, Europe) (v1.4 Rev 36.016) (A3000).zip=A3000
-http://archive.org/download/No-Intro-Collection_2016-01-03/Commodore-Amiga.zip/Commodore - Amiga/[BIOS] Kickstart (USA, Europe) (v3.1 Rev 40.063) (A500, A600, A2000).zip=A2000
-http://archive.org/download/No-Intro-Collection_2016-01-03/Commodore-Amiga.zip/Commodore - Amiga/[BIOS] Kickstart (USA, Europe) (v3.1 Rev 40.070) (A4000T).zip=A4000T
-http://archive.org/download/No-Intro-Collection_2016-01-03/Entex-Adventure Vision.zip/Entex - Adventure Vision/[BIOS] Entex Adventure Vision (USA, Europe).zip=ADVIS
-http://archive.org/download/No-Intro-Collection_2016-01-03/GCE-Vectrex.zip/GCE - Vectrex/[BIOS] GCE Vectrex (World).zip=VECTREX
-http://archive.org/download/No-Intro-Collection_2016-01-03/Magnavox-Odyssey2.zip/Magnavox - Odyssey2/[BIOS] Magnavox Odyssey2 (USA, Europe).zip=O2
-http://archive.org/download/MAME_0.197_ROMs_merged/MAME_0.197_ROMs_merged.zip/MAME 0.197 ROMs (merged)/3dobios.zip=3DO
-http://archive.org/download/MAME_0.197_ROMs_merged/MAME_0.197_ROMs_merged.zip/MAME 0.197 ROMs (merged)/awbios.zip=ATOMIS
-http://archive.org/download/MAME_0.197_ROMs_merged/MAME_0.197_ROMs_merged.zip/MAME 0.197 ROMs (merged)/naomi.zip=NAOMI
-http://archive.org/download/MAME_0.197_ROMs_merged/MAME_0.197_ROMs_merged.zip/MAME 0.197 ROMs (merged)/naomi2.zip=NAOMI2
-http://archive.org/download/MAME_0.197_ROMs_merged/MAME_0.197_ROMs_merged.zip/MAME 0.197 ROMs (merged)/naomigd.zip=NAOMIGD
-http://archive.org/download/No-Intro-Collection_2016-01-03/Sega-32x.zip/Sega - 32X/[BIOS] 32X M68000 (USA).zip=32XG
-http://archive.org/download/No-Intro-Collection_2016-01-03/Sega-32x.zip/Sega - 32X/[BIOS] 32X SH-2 Master (USA).zip=32XM
-http://archive.org/download/No-Intro-Collection_2016-01-03/Sega-32x.zip/Sega - 32X/[BIOS] 32X SH-2 Slave (USA).zip=32XS
-https://archive.org/download/skeletonkeyBIOS/Demul-BIOS.zip=DEMUL
-https://archive.org/download/skeletonkeyBIOS/FONT.ROM=FONT
-https://archive.org/download/skeletonkeyBIOS/MAME-BIOS.zip=MESS
-https://archive.org/download/skeletonkeyBIOS/NDS-BIOS.zip=NDS
-https://archive.org/download/skeletonkeyBIOS/Retroarch-BIOS.zip=RETROARCH
-https://archive.org/download/skeletonkeyBIOS/x68000-BIOS.zip=X68K
-https://archive.org/download/SonyPlayStation2BIOS_Redump.org_2017-11-12/ps2-dvd-311.7z=PS2
+http://archive.org/download/fba029740/fba029740.zip/neogeo.zip|MAME
+http://archive.org/download/MAME_0.197_ROMs_merged/MAME_0.197_ROMs_merged.zip/MAME 0.197 ROMs (merged)/neocdz.zip|MAME
+http://archive.org/download/MAME_0.197_ROMs_merged/MAME_0.197_ROMs_merged.zip/MAME 0.197 ROMs (merged)/qsound.zip|MAME
+http://archive.org/download/No-Intro-Collection_2016-01-03/Atari - Jaguar.zip/Atari - Jaguar/[BIOS] Atari Jaguar (World).zip|JAGUAR
+http://archive.org/download/No-Intro-Collection_2016-01-03/Atari - Jaguar.zip/Atari - Jaguar/[BIOS] Atari Jaguar CD (World).zip|JAGCD
+http://archive.org/download/No-Intro-Collection_2016-01-03/Commodore-Amiga.zip/Commodore - Amiga/[BIOS] Kickstart (USA, Europe) (v1.3 Rev 34.005) (A500, A2000).zip|A500
+http://archive.org/download/No-Intro-Collection_2016-01-03/Commodore-Amiga.zip/Commodore - Amiga/[BIOS] Kickstart (USA, Europe) (v1.4 Rev 36.016) (A3000).zip|A3000
+http://archive.org/download/No-Intro-Collection_2016-01-03/Commodore-Amiga.zip/Commodore - Amiga/[BIOS] Kickstart (USA, Europe) (v3.1 Rev 40.063) (A500, A600, A2000).zip|A2000
+http://archive.org/download/No-Intro-Collection_2016-01-03/Commodore-Amiga.zip/Commodore - Amiga/[BIOS] Kickstart (USA, Europe) (v3.1 Rev 40.070) (A4000T).zip|A4000T
+http://archive.org/download/No-Intro-Collection_2016-01-03/Entex-Adventure Vision.zip/Entex - Adventure Vision/[BIOS] Entex Adventure Vision (USA, Europe).zip|ADVIS
+http://archive.org/download/No-Intro-Collection_2016-01-03/GCE-Vectrex.zip/GCE - Vectrex/[BIOS] GCE Vectrex (World).zip|VECTREX
+http://archive.org/download/No-Intro-Collection_2016-01-03/Magnavox-Odyssey2.zip/Magnavox - Odyssey2/[BIOS] Magnavox Odyssey2 (USA, Europe).zip|O2
+http://archive.org/download/MAME_0.197_ROMs_merged/MAME_0.197_ROMs_merged.zip/MAME 0.197 ROMs (merged)/3dobios.zip|3DO
+http://archive.org/download/No-Intro-Collection_2016-01-03/Sega-32x.zip/Sega - 32X/[BIOS] 32X M68000 (USA).zip|32XG
+http://archive.org/download/No-Intro-Collection_2016-01-03/Sega-32x.zip/Sega - 32X/[BIOS] 32X SH-2 Master (USA).zip|32XM
+http://archive.org/download/No-Intro-Collection_2016-01-03/Sega-32x.zip/Sega - 32X/[BIOS] 32X SH-2 Slave (USA).zip|32XS
+https://archive.org/download/skeletonkeyBIOS/Demul-BIOS.zip|DEMUL
+https://archive.org/download/skeletonkeyBIOS/FONT.ROM|FONT
+https://archive.org/download/skeletonkeyBIOS/MAME-BIOS.zip|MESS
+https://archive.org/download/skeletonkeyBIOS/NDS-BIOS.zip|NDS
+https://archive.org/download/skeletonkeyBIOS/Retroarch-BIOS.zip|RETROARCH
+https://archive.org/download/skeletonkeyBIOS/x68000-BIOS.zip|X68K
+https://archive.org/download/SonyPlayStation2BIOS_Redump.org_2017-11-12/ps2-dvd-311.7z|PS2
