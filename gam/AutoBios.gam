@@ -1,4 +1,3 @@
-http://archive.org/download/fba029740/fba029740.zip/neogeo.zip|MAME
 http://archive.org/download/MAME_0.197_ROMs_merged/MAME_0.197_ROMs_merged.zip/MAME 0.197 ROMs (merged)/neocdz.zip|MAME
 http://archive.org/download/MAME_0.197_ROMs_merged/MAME_0.197_ROMs_merged.zip/MAME 0.197 ROMs (merged)/qsound.zip|MAME
 http://archive.org/download/No-Intro-Collection_2016-01-03/Atari - Jaguar.zip/Atari - Jaguar/[BIOS] Atari Jaguar (World).zip|JAGUAR
@@ -10,14 +9,14 @@ http://archive.org/download/No-Intro-Collection_2016-01-03/Commodore-Amiga.zip/C
 http://archive.org/download/No-Intro-Collection_2016-01-03/Entex-Adventure Vision.zip/Entex - Adventure Vision/[BIOS] Entex Adventure Vision (USA, Europe).zip|ADVIS
 http://archive.org/download/No-Intro-Collection_2016-01-03/GCE-Vectrex.zip/GCE - Vectrex/[BIOS] GCE Vectrex (World).zip|VECTREX
 http://archive.org/download/No-Intro-Collection_2016-01-03/Magnavox-Odyssey2.zip/Magnavox - Odyssey2/[BIOS] Magnavox Odyssey2 (USA, Europe).zip|O2
-http://archive.org/download/MAME_0.197_ROMs_merged/MAME_0.197_ROMs_merged.zip/MAME 0.197 ROMs (merged)/3dobios.zip|3DO
 http://archive.org/download/No-Intro-Collection_2016-01-03/Sega-32x.zip/Sega - 32X/[BIOS] 32X M68000 (USA).zip|32XG
 http://archive.org/download/No-Intro-Collection_2016-01-03/Sega-32x.zip/Sega - 32X/[BIOS] 32X SH-2 Master (USA).zip|32XM
 http://archive.org/download/No-Intro-Collection_2016-01-03/Sega-32x.zip/Sega - 32X/[BIOS] 32X SH-2 Slave (USA).zip|32XS
-https://archive.org/download/skeletonkeyBIOS/Demul-BIOS.zip|DEMUL
-https://archive.org/download/skeletonkeyBIOS/FONT.ROM|FONT
-https://archive.org/download/skeletonkeyBIOS/MAME-BIOS.zip|MESS
-https://archive.org/download/skeletonkeyBIOS/NDS-BIOS.zip|NDS
-https://archive.org/download/skeletonkeyBIOS/Retroarch-BIOS.zip|RETROARCH
-https://archive.org/download/skeletonkeyBIOS/x68000-BIOS.zip|X68K
-https://archive.org/download/SonyPlayStation2BIOS_Redump.org_2017-11-12/ps2-dvd-311.7z|PS2
+http://archive.org/download/skeletonkeyBIOS/Demul-BIOS.zip|DEMUL
+http://archive.org/download/skeletonkeyBIOS/neogeo.zip|MAME
+http://archive.org/download/skeletonkeyBIOS/FONT.ROM|FONT
+http://archive.org/download/skeletonkeyBIOS/MAME-BIOS.zip|MESS
+http://archive.org/download/skeletonkeyBIOS/NDS-BIOS.zip|NDS
+http://archive.org/download/skeletonkeyBIOS/Retroarch-BIOS.zip|RETROARCH
+http://archive.org/download/skeletonkeyBIOS/x68000-BIOS.zip|X68K
+http://archive.org/download/SonyPlayStation2BIOS_Redump.org_2017-11-12/ps2-dvd-311.7z|PS2

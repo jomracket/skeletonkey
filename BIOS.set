@@ -12,6 +12,8 @@ Winx68k=XM6=retroarch\system\keropi=:X68000 IPL CG Rom (1987)(Sharp)[dat].dat:3B
 Winx68k=XM6=retroarch\system\keropi=:X68000 SRAM (1987)(Sharp)[dat].dat:5EDC1E7B>
 Winx68k=XM6=retroarch\system\keropi=:X68000 SRAM (1987)(Sharp)[ram].ram:B809D38A>
 
+steem=retroarch\system=:TOS.img:3B5CD0C5>
+
 XM7=:Boot_bas.rom:C70F0C74>
 XM7=:Boot_dos.rom:198614FF>
 XM7=:DicRom.rom:B142ACBC>
@@ -106,14 +108,16 @@ retroarch\system=:o2rom.bin:8016A315>
 4DO=3doplay\BIOS=retroarch\system=:panafz10 [h].bin:230E6FEB
 4DO=3doplay\BIOS=retroarch\system=:sanyotry.bin:D5CBC509>
 
-Altirra=Atari800=Atari800winplus\rom=Atariplusplus=:ATARIBAS.ROM:7D684184>
-Altirra=Atari800=Atari800winplus\rom=Atariplusplus=:ATARIOSB.ROM:3E28A1FE>
-Altirra=Atari800=Atari800winplus\rom=Atariplusplus=:ATARIXL.ROM:1F9CD270>
-Altirra=Atari800=Atari800winplus\rom=Atariplusplus=:5200.rom:4248D3E3>
-Altirra=Atari800=Atari800winplus\rom=Atariplusplus=:5200a.rom:C2BA2613>
+Altirra=Atari800=Atari800winplus\rom=Atariplusplus=retroarch\system=:ATARIBAS.ROM:7D684184>
+Altirra=Atari800=Atari800winplus\rom=Atariplusplus=retroarch\system:ATARIOSB.ROM:3E28A1FE>
+Altirra=Atari800=Atari800winplus\rom=Atariplusplus=retroarch\system:ATARIXL.ROM:1F9CD270>
+Altirra=Atari800=Atari800winplus\rom=Atariplusplus=retroarch\system:5200.rom:4248D3E3>
+Altirra=Atari800=Atari800winplus\rom=Atariplusplus=retroarch\system:5200a.rom:C2BA2613>
 
 mednafen=retroarch\system=:pcfx.rom:AC3ED590>
 mednafen=retroarch\system=:pcfx.bios:76FFB97A>
+
+retroarch\system=mednafen=fusion\BIOS=:bios.gg:C611B498
 
 retroarch\system=:rtc.ram:16CF848D>
 
@@ -194,6 +198,7 @@ mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:us_s
 
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:32X_M_BIOS.BIN:DD9C46B8
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:32X_S_BIOS.BIN:BFDA1FE5
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:32X_G_BIOS.BIN:5C12EAE8
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:bios32xg.68k:4EF8231F
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:BIOS32XG.BIN:5D9017FA>
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:BIOS32XM.BIN:D3D57C39>
@@ -278,6 +283,8 @@ pcsx2\bios=play\bios=:DTL-H30001_BIOS_V2_USA_110.NVM:82A6B781
 pcsx2\bios=play\bios=:DTL-H30001_BIOS_V2_USA_110.ROM1:B7094978
 pcsx2\bios=play\bios=:erom.bin:6932E64C
 pcsx2\bios=play\bios=:fps2bios.rom:BA45BD94
+
+gambatte=retroarch\system=mgba=:dmg_boot.bin:59C8598E>
 
 desmume=corgids=melonds=retroarch\system=:bios7.bin:1280F0D5>
 desmume=corgids=melonds=retroarch\system=:bios9.bin:2AB23573>

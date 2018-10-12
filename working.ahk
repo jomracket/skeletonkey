@@ -1573,6 +1573,8 @@ Menu, UTRCLMENU, Add, Add Selection, UTLADDFESEL
 
 Menu, UTRCLMENU, Add, Remove Selection, UTLREMFESEL
 
+Menu, BDRCLMENU, Add, Delete Bios Cache, BIOSREMFESEL
+
 Menu, FERCLMENU, Add, Toggle Selection, TOGFESEL
 
 Menu, FERCLMENU, Add, Add Selection, ADDFESEL
@@ -2107,7 +2109,7 @@ Gui,Font,%fontXsm% Bold
 Gui, Add, GroupBox, x470 y25 w263 h94 Center +0x400000 vGRPDROPBIOS hidden, Drop BIOS here
 Gui,Font,%fontXsm% Norm
 
-Gui, Add, Button, x470 y122 w42 h19 vAUTOBIOS gAUTOBIOS hidden,auto
+Gui, Add, Button, x480 y40 w42 h19 vAUTOBIOS gAUTOBIOS hidden,auto
 
 Gui, Add, ListBox,x4 y29 w269 h446 HWNDtrxvail vUAVAIL gUAvailSel hidden, %systoemu%
 
@@ -4888,6 +4890,11 @@ If A_GuiControlEvent RightClick
 			return
 		}
 
+	if A_GuiControl = AUTOBIOS
+		{
+			Menu, BDRCLMENU, Show, %A_GuiX% %A_GuiY%
+			return
+		}
 	if A_GuiControl = UTLLVA
 		{
 			if (SelectedRow <> 0)
@@ -6287,6 +6294,9 @@ AUTOBIOS:
 filecreatedir,%cacheloc%\firmware
 filecreatedir,%cacheloc%\bios
 gui,submit,nohide
+guicontrol,disable,EAVAIL
+guicontrol,disable,UAVAIL
+guicontrol,disable,AVAIL
 iniread,pcsx2_verx,Apps.ini,EMULATORS,PCSX2
 splitpath,pcsx2_verx,,pcsx2_path
 iniread,mame_verx,Apps.ini,EMULATORS,MAME
@@ -6321,8 +6331,11 @@ Loop, Read, gam\AutoBios.gam
 				biosout= %mame_path%\roms
 				save= %cacheloc%\firmware\%biosname%
 			}
-		DownloadFile(aiv1,save,True,True)
-		SB_SetText("Downloading " biosname " ")
+		ifnotexist, %save%
+			{
+				SB_SetText("Downloading " biosname " ")
+				DownloadFile(aiv1,save,True,True)
+			}
 		ifnotexist, %save%
 			{
 				Msgbox,,Not Found,Could not download %biosname%,4
@@ -6337,6 +6350,9 @@ Loop, Read, gam\AutoBios.gam
 		Runwait, %comspec% cmd /c "7za.exe e -y "%save%" -O"%biosout%" ",,hide			
 	}
 gosub, BiosProc
+guicontrol,enable,EAVAIL
+guicontrol,enable,UAVAIL
+guicontrol,enable,AVAIL
 return
 
 GuiDropFiles:
@@ -6802,6 +6818,7 @@ if (nask = "")
 		JUNCTOPT= 1
 		RJSYSTEMS= %RJSYSTEMF%
 		nfemu= 1
+		stringreplace,RJSYSTEMS,RJSYSTEMS,\\,\,All
 		IniWrite, "%RJSYSTEMS%",Settings.ini,GLOBAL,systems_directory
 	}
 ifnotexist, %RJSYSTEMF%
@@ -6869,6 +6886,7 @@ ifmsgbox,no
 SJMPOT:
 RJSYSTEMS= %RJSYSTEMF%
 nfemu= 1
+stringreplace,RJSYSTEMS,RJSYSTEMS,\\,\,All
 guicontrol,,SKSYSDISP,%RJSYSTEMS%
 IniWrite, "%RJSYSTEMS%",Settings.ini,GLOBAL,systems_directory
 gosub, RJSYSRESET
@@ -7200,6 +7218,7 @@ if (usremum = A_Username)
 
 CNFUR:	
 RJEMUD= %RJEMUF%
+stringreplace,RJEMUD,RJEMUD,\\,\,All
 IfNotExist,%RJEMUD%\BSL\BSL.exe
 	{
 		FileCreateDir,%RJEMUD%\BSL
@@ -7704,12 +7723,12 @@ ifnotexist,crcs.ini
 		return
 	}
 Fileread,curbios,crcs.ini
-Loop, Parse, curbios, `n
+Loop, Parse, curbios,`n
 	{
 		juf1= 
 		juf2= 
 		juf3= 
-		stringsplit,juf,A_LoopField,|,>
+		stringsplit,juf,A_LoopField,|,>`n`r
 		stringreplace,juf3,juf3,>,,All
 		Loop, Parse, kbemu,`n
 			{
@@ -7750,7 +7769,7 @@ Loop, Parse, curbios, `n
 											{
 												FilecreateDir,%fiad%%apndpth%
 											}
-										FileCopy,%juf1%,%fiad%%apndpth%\%juf3%,1
+										FileCopy, %juf1%, %fiad%%apndpth%\%juf3%,1
 										ifinstring,A_LoopField,>
 											{
 												FileSetAttrib,+R,%fiad%%apndpth%\%juf3%
@@ -10754,7 +10773,7 @@ if (ARCH = "64")
 	}
 gosub, UpdateCores
 SB_SetText(" complete ")
-
+gosub, GRAVER
 GuiControl, Disable, CNCLDWN
 GuiControl, Enable, AVAIL
 GuiControl, Enable, LOCEMUIN
@@ -12307,6 +12326,8 @@ if (selfnd = "")
 	}
 
 GuiControl, Disable, EAVAIL
+GuiControl, Disable, UAVAIL
+GuiControl, Disable, AVAIL
 GuiControl, Disable, EMUASIGN
 GuiControl, Disable, EMUINST
 GuiControl, Enable, CNCLDWN
@@ -12347,6 +12368,8 @@ Loop, Parse,UrlIndex,`n`r
 					{
 						msgbox,0,, %selfnd%`n''%URLFILE%`n'' was not downloaded, 20
 						GuiControl, Enable, EAVAIL
+						GuiControl, Enable, UAVAIL
+						GuiControl, Enable, AVAIL
 						GuiControl, Enable, EMUASIGN
 						GuiControl, Enable, EMUINST
 						GuiControl, Disable, CNCLBTN
@@ -12521,6 +12544,8 @@ reasign .= semu . "|"
 GuiControl,,ADDCORE,|Select_A_System||%reasign%
 Guicontrol, ,DWNPRGRS, 0
 GuiControl, Enable, EAVAIL
+GuiControl, Enable, UAVAIL
+GuiControl, Enable, AVAIL
 GuiControl, Enable, EMUINST
 GuiControl, Enable, EMUASIGN
 GuiControl, Disable, CNCLDWN
@@ -35597,6 +35622,15 @@ Loop
 			}	
 	}
 return
+
+BIOSREMFESEL:
+gui,submit,nohide
+SB_SetText("Deleteing BIOS cache")
+FileRemoveDir, %cacheloc%\bios,1
+FileRemoveDir, %cacheloc%\firmware,1
+SB_SetText("BIOS cache cleared")
+return
+
 
 UTLREMFESEL:
 gui,submit,nohide
