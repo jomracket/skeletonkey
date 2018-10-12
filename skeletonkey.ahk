@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-11 12:53 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-11 5:16 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-10-11 12:53 PM
-VERSION= v0.99.58.72
+RELEASE= 2018-10-11 5:16 PM
+VERSION= v0.99.58.73
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -6283,7 +6283,7 @@ Loop, Read, %historyLoc%
 	}
 return
 
-AUTOBIOS
+AUTOBIOS:
 filecreatedir,%cacheloc%\firmware
 filecreatedir,%cacheloc%\bios
 gui,submit,nohide
@@ -6331,10 +6331,10 @@ Loop, Read, gam\AutoBios.gam
 		SB_SetText("extracting " biosname " ")
 		if (aiv2 = "MAME")
 			{
-				filecopy,%save%,%mame_path%
+				filecopy,%save%,%mame_path%\roms
 				continue
 			}
-		Runwait, %comspec% cmd /c "7za.exe e -y "%A_LoopReadLine%" -O"%biosout%" ",,hide			
+		Runwait, %comspec% cmd /c "7za.exe e -y "%save%" -O"%biosout%" ",,hide			
 	}
 gosub, BiosProc
 return
@@ -7711,8 +7711,12 @@ Loop, Parse, curbios, `n
 		juf3= 
 		stringsplit,juf,A_LoopField,|,>
 		stringreplace,juf3,juf3,>,,All
-		Loop, Parse, kbemu, `n
+		Loop, Parse, kbemu,`n
 			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
 				stringsplit,fia,A_LoopField,=,"
 				;"
 				SplitPath,fia2,,fiad
@@ -26722,7 +26726,7 @@ emuprgpl+=40
 ifexist,lm.ini
 	{
 		FileGetSize,lmsz,lm.ini,K
-		if (lmsz > 500)
+		if (lmsz < 500)
 			{
 				SB_SetText(" media database not created properly.")
 				FileDelete,lm.ini
