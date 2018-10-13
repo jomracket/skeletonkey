@@ -7758,7 +7758,7 @@ Loop, Parse, curbios,`n
 										ifinstring,juf2,.zip
 											{
 												splitpath,juf2,fnm
-												RunWait, %comspec% /c " 7za.exe a -y "%fiad%%apndpth%" "%juf3%" "
+												RunWait, %comspec% /c " 7za.exe a -y "%fiad%%apndpth%" "%juf3%" ",,hide
 												ifinstring,A_LoopField,>
 													{
 														FileSetAttrib,+R,%fiad%%apndpth%\%juf3%

@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-13 12:40 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-13 4:51 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-10-13 12:40 PM
-VERSION= v0.99.58.75
+RELEASE= 2018-10-13 4:51 PM
+VERSION= v0.99.58.76
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -7758,7 +7758,7 @@ Loop, Parse, curbios,`n
 										ifinstring,juf2,.zip
 											{
 												splitpath,juf2,fnm
-												RunWait, %comspec% /c " 7za.exe a -y "%fiad%%apndpth%" "%juf3%" "
+												RunWait, %comspec% /c " 7za.exe a -y "%fiad%%apndpth%" "%juf3%" ",,hide
 												ifinstring,A_LoopField,>
 													{
 														FileSetAttrib,+R,%fiad%%apndpth%\%juf3%
