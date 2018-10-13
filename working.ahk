@@ -2243,7 +2243,7 @@ Gui, Add, Button, x699 y100 w20 h22 vSKSVAS gSAVECFG hidden,As
 Gui, Add, Text, x644 y42 vSKCCTXT hidden, %SKCCTXT%
 Gui, Add, Text,x589 y154 w130 h29 vRAVERTXT hidden, version:  %RAVERS%  build:  %RAVBLD%
 Gui, Add, Button,x533 y158 w45 h17 vGRAVER gGRAVER hidden, version
-Gui, Add, Button,x533 y188 w40 h22 vQRSETUP gQRSETUP hidden, QUICK
+Gui, Add, Button,x578 y188 w45 h22 vQRSETUP gQRSETUP hidden, QUICK
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -10727,7 +10727,7 @@ return
 ;{;;;;;;;;;;;;;    RETROARCH FUNCTIONS     ;;;;;;;;;;;;;;;;
 
 QINSTALL:
-MsgBox,4100,Quick Install,Install RetroArch and popular emulator cores?
+MsgBox,4356,Quick Install,Install RetroArch and popular emulator cores?
 IfMsgBox, Yes
 	{
 		GuiClose(skelWin) {  ; Declaring this parameter is optional.
@@ -58138,13 +58138,13 @@ if (locfnd = 1)
 	{
 		return
 	}
-msgbox,1,No RA Found, Select a RetroArch executable file.`nor cancel to skip.,5
-ifmsgbox, Cancel
+msgbox,257,No RA Found, Select a RetroArch executable file.`nor cancel to skip.,5
+ifmsgbox, OK
 	{
-		gosub, BLANKRA
+		gosub, RAEXE
 		return
 	}
-gosub, RAEXE
+gosub, BLANKRA
 return
 
 GRAVER:
