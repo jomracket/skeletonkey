@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-14 8:41 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-15 12:44 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-10-14 8:41 PM
-VERSION= v0.99.58.77
+RELEASE= 2018-10-15 12:44 PM
+VERSION= v0.99.58.78
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -1574,6 +1574,9 @@ Menu, UTRCLMENU, Add, Add Selection, UTLADDFESEL
 Menu, UTRCLMENU, Add, Remove Selection, UTLREMFESEL
 
 Menu, BDRCLMENU, Add, Delete Bios Cache, BIOSREMFESEL
+
+Menu, EMURCLMENU, Add, Clear Emulator, EMUREMFESEL
+Menu, EMURCLMENU, Add, Delete Emulator, EMUDELFESEL
 
 Menu, FERCLMENU, Add, Toggle Selection, TOGFESEL
 
@@ -4891,6 +4894,12 @@ If A_GuiControlEvent RightClick
 			return
 		}
 
+	if A_GuiControl = INSTEMUDDL
+		{
+			Menu, EMURCLMENU, Show, %A_GuiX% %A_GuiY%
+			return
+		}
+	
 	if A_GuiControl = AUTOBIOS
 		{
 			Menu, BDRCLMENU, Show, %A_GuiX% %A_GuiY%
@@ -10776,6 +10785,7 @@ if (ARCH = "64")
 gosub, UpdateCores
 SB_SetText(" complete ")
 gosub, GRAVER
+Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
 GuiControl, Disable, CNCLDWN
 GuiControl, Enable, AVAIL
 GuiControl, Enable, LOCEMUIN
@@ -12382,6 +12392,17 @@ Loop, Parse,UrlIndex,`n`r
 						break
 					}
 				gosub, XTRACTEMU
+				if (XTRACTFAIL = 1)
+					{
+						SB_SetText(" " selfnd " could not be installed.")
+						GuiControl, Enable, EAVAIL
+						GuiControl, Enable, UAVAIL
+						GuiControl, Enable, AVAIL
+						GuiControl, Enable, EMUINST
+						GuiControl, Enable, EMUASIGN
+						GuiControl, Disable, CNCLDWN
+						return
+					}
 				Loop, Parse, EmuPartSet,`n`r
 					{
 						emuxetmp1=
@@ -12519,6 +12540,8 @@ Loop, Parse,UrlIndex,`n`r
 							guicontrol,,DAPP,1
 							Guicontrol, ,DWNPRGRS, 0
 							GuiControl, Enable, EAVAIL
+							GuiControl, Enable, UAVAIL
+							GuiControl, Enable, AVAIL
 							GuiControl, Enable, EMUINST
 							GuiControl, Enable, EMUASIGN
 							GuiControl, Disable, CNCLDWN
@@ -14536,15 +14559,16 @@ if (KARC= 0)
 return
 
 XTRACTEMU:
+XTRACTFAIL= 
 SB_SetText(" " save " " "extracting")
 runwait, %comspec% cmd /c "7za.exe x -y "%save%" -O"%xtractmu%" ", ,hide
 SB_SetText(" " save " " "was extracted")
 ifnotexist, %xtractmu%
 		{
 			SB_SetText(" " save " " "was NOT extracted")
-						
+			XTRACTFAIL= 1
 		}
-if (KARC= 0)
+if (KARC = 0)
 	{
 		filedelete, %save%
 	}
@@ -35632,6 +35656,33 @@ SB_SetText("Deleteing BIOS cache")
 FileRemoveDir, %cacheloc%\bios,1
 FileRemoveDir, %cacheloc%\firmware,1
 SB_SetText("BIOS cache cleared")
+return
+
+EMUDELFESEL:
+gui,submit,nohide
+guicontrolget,selfnd,,INSTEMUDDL
+guicontrolget,SaList,,SaList
+SB_SetText("Deleteing Emulator")
+Guicontrolget,emutd,,EINSTLOC
+splitpath,emutd,emuxtd,emuptd
+FileRemoveDir,%emuptd%,1
+inidelete,Apps.ini,%SaList%,%selfnd%
+iniwrite,"",Assignments.ini,ASSIGNMENTS,%selfnd%
+gosub, RBLDRUNLST
+gosub, SALIST
+SB_SetText("Emulator Deleted")
+return
+
+EMUREMFESEL:
+gui,submit,nohide
+guicontrolget,selfnd,,INSTEMUDDL
+guicontrolget,SaList,,SaList
+SB_SetText("Clearing Emulator")
+inidelete,Apps.ini,%SaList%,%selfnd%
+iniwrite,"",Assignments.ini,ASSIGNMENTS,%selfnd%
+gosub, RBLDRUNLST
+gosub, SALIST
+SB_SetText("Emulator cleared")
 return
 
 
