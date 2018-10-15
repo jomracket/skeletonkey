@@ -385,6 +385,7 @@ FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo - Super Game Boy
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo - Super Nintendo Entertainment System
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo - Virtual Boy
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo - Wii
+FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo - WiiWare
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Other
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Phillips - CD-I
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Sammy - Atomiswave
@@ -475,6 +476,7 @@ FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Super Game Boy
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Super Nintendo Entertainment System
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Virtual Boy
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Wii
+FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo - WiiWare
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Other
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Philips - CD-I
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Sammy - Atomiswave
@@ -568,6 +570,7 @@ FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Nintendo - Nintendo DS
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Nintendo - Nintendo Entertainment System
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Nintendo - Virtual Boy
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Nintendo - Wii
+FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Nintendo - WiiWare
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Other
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Philips - CD-I
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Sammy - Atomiswave
@@ -659,6 +662,7 @@ FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Super Game Boy
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Super Nintendo Entertainment System
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Virtual Boy
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Wii
+FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Nintendo - WiiWare
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Other
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Philips - CD-I
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Sammy - Atomiswave
@@ -869,6 +873,7 @@ FileInstall,sysico\Nintendo - Super Nintendo Entertainment System.ico,sysico\Nin
 FileInstall,sysico\Nintendo - Virtual Boy.ico,sysico\Nintendo - Virtual Boy.ico,1
 FileInstall,sysico\Nintendo - Wii U.ico,sysico\Nintendo - Wii U.ico,1
 FileInstall,sysico\Nintendo - Wii.ico,sysico\Nintendo - Wii.ico,1
+FileInstall,sysico\Nintendo - WiiWare.ico,sysico\Nintendo - WiiWare.ico,1
 FileInstall,sysico\Nokia - N-Gage.ico,sysico\Nokia - N-Gage.ico,1
 FileInstall,sysico\Nuon - Nuon.ico,sysico\Nuon - Nuon.ico,1
 FileInstall,sysico\Nuon.ico,sysico\Nuon.ico,1
@@ -1028,6 +1033,7 @@ FileInstall,gam\Nintendo - Satellaview.gam,gam\Nintendo - Satellaview.gam,1
 FileInstall,gam\Nintendo - Sufami Turbo.gam,gam\Nintendo - Sufami Turbo.gam,1
 FileInstall,gam\Nintendo - Super Nintendo Entertainment System.gam,gam\Nintendo - Super Nintendo Entertainment System.gam,1
 FileInstall,gam\Nintendo - Virtual Boy.gam,gam\Nintendo - Virtual Boy.gam,1
+FileInstall,gam\Nintendo - WiiWare.gam,gam\Nintendo - WiiWare.gam,1
 FileInstall,gam\Nokia - N-Gage.gam,gam\Nokia - N-Gage.gam,1
 FileInstall,gam\Philips - CDI.gam,gam\Philips - CDI.gam,1
 FileInstall,gam\Philips - Videopac .gam,gam\Philips - Videopac .gam,1
@@ -2101,6 +2107,8 @@ FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo - Super Nintendo Entertainmen
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo - Virtual Boy\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo - Virtual Boy\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo - Wii\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo - Wii\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo - Wii\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo - Wii\Player2.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo - WiiWare\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo - WiiWare\Player1.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo - WiiWare\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo - WiiWare\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Other\cps31.amgp,rj\joyCfgs\Antimicro\Joystick\Other\cps31.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Other\cps32.amgp,rj\joyCfgs\Antimicro\Joystick\Other\cps32.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Other\mednafen1.amgp,rj\joyCfgs\Antimicro\Joystick\Other\mednafen1.amgp,1
@@ -2287,6 +2295,8 @@ FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Super Nintendo Entertainmen
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Virtual Boy\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Virtual Boy\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Wii\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Wii\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Wii\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Wii\Player2.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo - WiiWare\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo - WiiWare\Player1.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo - WiiWare\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo - WiiWare\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Other\cps31.amgp,rj\joyCfgs\Antimicro\Keyboard\Other\cps31.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Other\cps32.amgp,rj\joyCfgs\Antimicro\Keyboard\Other\cps32.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Other\mednafen1.amgp,rj\joyCfgs\Antimicro\Keyboard\Other\mednafen1.amgp,1
@@ -2477,6 +2487,8 @@ FileInstall,rj\joyCfgs\Xpadder\Joystick\Nintendo - Nintendo Entertainment System
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Nintendo - Virtual Boy\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Nintendo - Virtual Boy\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Nintendo - Wii\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Nintendo - Wii\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Nintendo - Wii\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Nintendo - Wii\Player2.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Joystick\Nintendo - WiiWare\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Nintendo - WiiWare\Player1.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Joystick\Nintendo - WiiWare\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Nintendo - WiiWare\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Other\cps31.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Other\cps31.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Other\cps32.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Other\cps32.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Other\mednafen1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Other\mednafen1.xpadderprofile,1
@@ -2666,6 +2678,8 @@ FileInstall,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Super Nintendo Entertainment 
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Virtual Boy\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Virtual Boy\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Wii\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Wii\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Wii\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Wii\Player2.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Keyboard\Nintendo - WiiWare\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Nintendo - WiiWare\Player1.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Keyboard\Nintendo - WiiWare\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Nintendo - WiiWare\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Other\cps31.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Other\cps31.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Other\cps32.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Other\cps32.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Other\mednafen1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Other\mednafen1.xpadderprofile,1

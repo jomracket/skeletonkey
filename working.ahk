@@ -494,11 +494,11 @@ Loop,Read,cores.ini
 	}
 SKCCTXT= %CORENUM% cores
 
-CORETABNAME= |Cores
+RACORETAB= |Netplay|Cores
 if (raexefile = "NOT-FOUND.exe")
 	{
 		LNCHPT= 1
-		CORETABNAME=
+		RACORETAB=
 		SKCCTXT= Not Found	
 	}
 FileRead, RepoLst,RepoList.ini
@@ -1403,10 +1403,10 @@ ifnotexist, %BSLPTH%\BSL.exe
 	}
 if (INITIAL = 1)
 {
-	CORETABNAME= |Cores
+	RACORETAB= |Netplay|Cores
 	if (raexefile = "NOT-FOUND.exe")
 		{
-			CORETABNAME= 
+			RACORETAB= 
 			LNCHPT= 1
 		}
 	if (raexefile = "")
@@ -1640,7 +1640,7 @@ Menu, ARCART, Add
 	
 Gui, Add, StatusBar, vSTATUS, Helpy Helperton
 Gui,Font,Bold
-Gui, Add, Tab2, x0 y0 w765 h535 vTABMENU Bottom, Settings||:=: MAIN :=:|Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Netplay|Cores|Util
+Gui, Add, Tab2, x0 y0 w765 h535 vTABMENU Bottom, Settings||:=: MAIN :=:|Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;   ~~~~~GLOBAL SKELEOTNKEY~~~~~   ;;;;;;;;;;;
@@ -3302,197 +3302,11 @@ if (RJQNUM > 0)
 }
 Gui, Add, Button, x407 y460 w91 h40 vRJPROCQ gRJPROCQ %CNFRMT%, CONFIRM %RJQNUM%
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[ NETPLAY TAB ]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;gosub, DestroySplashGUI
-;;SplashImage = net.png
-;;SplashImageGUI(SplashImage, "Center", "Center", true)
-;SplashTextOn, ,skeletonKey,Loading Netplay Interface ..........,
-Progress, 78,Loading Netplay Interface ..........
-Gui, Tab, 9
-Gui, Tab, Netplay
-Gui, Add, Picture,x83 y238 w128 h113 vINVADERPIC, ;net.png
-
-Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x8 y1 w746 h503 Center, Hosted Games
-Gui,Font,%fontXsm% Norm 
-;;gui, Add, ListView, x14 y42 w731 h400 AltSubmit -Multi Sort  hwndHostView vNETHOSTLIST gNetHostList hidden, USER|ROM|CRC|CORE|(Ver)|IP|PORT|TYPE|PASS|
-Gui, Add, ListView, x14 y42 w731 h366 AltSubmit -Multi Sort  hwndHostView vNETHOSTLIST gNetHostList hidden, User|ROM|CRC|Core|(Build)|OS|IP|Port|Open|Password|Region|Vers|
-
-;;gui, Add, Text, x672 y11 h15, Port-Check
-;;gui, Add, CheckBox, x730 y11 w15 h14 vCHKPORTS gChkPorts,
-Gui,Font,%fontXmed% Bold
-Gui, Add, Radio, x13 y20 h18 vHOSTSWITCH gHostSwitch, Host
-Gui, Add, Radio, x70 y20 h18 vCLIENTSWITCH gClientSwitch Checked, Client
-Gui,Font,%fontXsm% Norm 
-
-
-Gui, Add, Button, x667 y10 w79 h30 vREFHOST gRefHosts, Refresh Hosts
-Gui, Add, Button, x455 y471 w57 h18 vNETROM gNetROM, BROWSE
-;;gui, Add, DropDownList, x14 y20 w108 vHOSTCORES gHostCores Disabled, |Room Filter||%coreNamz%
-Gui, Font, bold
-Gui, Add, Text, x123 y14 w541 h28 cred Center vNETHINFO, Connection Information:
-gui, font, normal
-
-Gui, Add, DropDownList, x13 y471 w280 vNETCOREASSETS gCLNetCoreAssets,
-Gui, Add, DropDownList, x138 y446 w472 vNETROMLIST gNetROMList +0x2 +E0x5000 Right, 
-Gui, Add, Radio, x75 y441 h12 vNETPLIST gNetPlist, Playlists
-Gui, Add, Radio, x75 y455 h12  vNETDWNL gNetDwnl, Folders
-Gui, Add, CheckBox, x516 y470 h23 vAUTOCORE gAutoCore Checked, Auto-Core
-gui, Add, CheckBox, x620 y445 h23 vFORCEROM gForceROM hidden, Force
-Gui, Add, Button, x670 y444 w75 h23 vNETCONNECT gNetConnect disabled, CONNECT
-Gui, Add, ComboBox, x585 y471 w156 vNetCore gNetCore disabled, %corelist%
-
-Gui, Add, Edit,x561 y410 w29 h21 vIPA gIp_A Number, 
-Gui, Add, Edit, x592 y410 w29 h21 vIPB gIp_B Number, 
-Gui, Add, Edit, x622 y410 w28 h21 vIPC gIp_C Number, 
-Gui, Add, Edit, x651 y410 w31 h21 vIPD gIp_D Number, 
-Gui, Add, Edit, x685 y410 w60 h21 vCPORTNUM gCSetPort Right Number
-
-Gui, Add, Progress, x15 y492 w736 h7 cBlue vpgrTransfer Range0-600, 0
-
-Gui, Add, CheckBox, x300 y473 h16 vAUTSYS gAutSys Checked, Auto-Sys
-Gui, Add, Checkbox,x365 y474 h13 vSRCHARCORG gArcFind Checked, Web-Lookup
-Gui, Add, CheckBox, x365 y473 h16 vRETROM gRetROM hidden, Recieve ROM
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    HOSTING   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-Gui, Add, CheckBox, x13 y411 h13 vINETHOST gInetHost hidden, Relay-Host
-Gui Add, DropDownList, x14 y443 w55 vRELYSRV gRELYSRV hidden, |nyc||%RASERVERLIST%
-Gui, Add, Checkbox, x13 y427 h13 vNOSTATE gNoState hidden, Stateless
-Gui, Add, CheckBox, x172 y411 h13 vPRVTSV gPrvtSv hidden, Private
-Gui, Add, CheckBox, x89 y411 h13 vALSLV gAlSlv Checked hidden, Allow Slaves
-Gui, Add, CheckBox, x93 y427 h13 vSlvOnly gSlvOnly hidden, Slaves Only
-;;gui, Add, Checkbox,x172 y427 h13 vINVADE gInvading, Invade
-Gui, Add, ComboBox, x14 y410 w157 vROOMFILTER gRoomFilter, |Room Filter||%corenamz%
-Gui, Add, Edit, x685 y410 w60 h21 vIPORTNUM gSetPort Right Number hidden, %netplayIpPort%
-;;gui, Add, Text, x702 y295, PORT
-
-Gui, Add, Text, x348 y473  h13 vCHKFTXT hidden, Check
-Gui, Add, Edit, x306 y470 w40 h21 vCHECKFRAMES gGetCHKFRM hidden, %CHECKFRAMES%
-Gui, Add, UpDown, x328 y470 w18 h21 vCHKFRSLD hidden, %CHECKFRAMES%
-Gui, Add, Text, x432 y473 h13 vMINLATTXT hidden, Latency
-Gui, Add, Edit, x390 y470 w40 h21 vMINLAT gMinLat hidden, %netplayInputLatencyFramesMin%
-Gui, Add, UpDown, x313 y470 w18 h21 vMINLATSLD hidden, %netplayInputLatencyFramesMin%
-Gui, Add, Text, x517 y473 h13 vLATRNGTXT hidden, Range
-Gui, Add, Edit, x476 y470 w40 h21 vLATRNG gLatRng hidden, %netplayInputLatencyFramesRange%
-Gui, Add, UpDown, x498 y470 w17 h21 vLATRNGSLD hidden, %netplayInputLatencyFramesRange%
-
-Gui, Add, Button, x618 y444 w41 h23 vNETCROM gNetCROM, ROM
-Gui, Add, Button, x618 y444 w41 h23 vNETHROM gNetHROM hidden, ROM
-Gui, Add, Button, x670 y444 w75 h23 vHostButton gLOCALHOSTING hidden, HOST
-Gui, Add, Button, x520 y411 w40 h17 vPSTIP gPstBut, Paste
-;;gui, Add, Button, x656 y307 w90 h20 vCNCTBUT gConnectRA, Connect
-Gui, Add, Text, x248 y431 h13 vNETPLNTXT, netplay name
-Gui, Add, Text, x398 y431 h13 vNETPLPWTXT, password
-Gui, Add, Edit, x228 y410 w156 h21 vNETNAME gGetNetName,
-Gui, Add, Edit, x392 y410 w56 h21 vNETPW gNetPW,
-Gui, Add, Edit, x392 y410 w56 h21 vNETSPECPW hidden gNetSpecPW,
-Gui, Add, Edit, x575 y415 w86 h16 -E0x200 +Readonly vHOSTIP hidden, Your IP Address
-Gui, Add, Text, x455 y431 w54 h13 vFSRVTXT hidden, file-server
-Gui, Add, CheckBox,x450 y415 w14 h12 vFILESERV gFileServ hidden,
-Gui, Add, Edit, x465 y411 w54 h18 vSERVPORT Disabled gServPort Number hidden, %fileServerPort%
-Gui, Add, Button, x520 y411 w40 h17 vGETIP gIP_Get hidden, Get IP
-Gui, Add, Button, x520 y411 w40 h17 vGETLAN gLAN_Get hidden, Get IP
-Gui, Add, Radio, x525 y432 vNETIPRAD gNetSET Checked hidden, NET
-Gui, Add, Radio, x570 y432 vLANIPRAD gLanSET hidden, LAN
-
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;{;;;;;;;;;;;;;;;;;;;;;;;;        [[ CORE OPTIONS TAB ]]        ;;;;;;;;;;;;;;;;;;;;;
-;;gosub, DestroySplashGUI
-;;SplashImage = cor.png
-;;SplashImageGUI(SplashImage, "Center", "Center", true)
-;SplashTextOn, ,skeletonKey,Loading Emulator Options ...........,
-Progress, 83,Loading Emulator Options ...........
-
-Gui, Tab, 10
-Gui, Tab, Cores
-Gui, Add, Picture, x36 y355 w128 h94 vPICINV, ;cor.png
-
-Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x18 y24 w732 h457, Core Options
-Gui,Font,%fontXsm% Norm 
-Gui, Add, DropDownList, x96 y56 w194 vCOREDDLA gCoreDDLA, Select_A_Core||%corelist%
-Gui, Add, Text, x56 y56 w33 h22, Core
-Gui, Add, DropDownList, x136 y96 w151 vCOREDDLB gCoreDDLB,
-Gui, Add, DropDownList, x136 y128 w151 vCOREDDLC gCoreDDLC,
-Gui, Add, DropDownList, x136 y160 w151 vCOREDDLD gCoreDDLD,
-Gui, Add, DropDownList, x136 y192 w151 vCOREDDLE gCoreDDLE,
-Gui, Add, Text, x40 y96 w90 vCOREDDLTXTB, CoreDDLtxtB
-Gui, Add, Text, x40 y128 w90 vCOREDDLTXTC, CoreDDLtxtC
-Gui, Add, Text, x40 y160 w90 vCOREDDLTXTD, CoreDDLtxtD
-Gui, Add, Text, x40 y192 w90 vCOREDDLTXTE, CoreDDLtxtE
-Gui, Add, Radio, x40 y224 w118 vCORERADA gCoreRadA, CoreRadA
-Gui, Add, Radio, x40 y248 w118 vCORERADB gCoreRadB, CoreRadB
-Gui, Add, ComboBox, x160 y224 w127 vCORECMBA gCoreCMBA, ComboBox
-Gui, Add, Text, x168 y248 w118 vCORECMBTXTA, CoreCMBtxtA
-Gui, Add, Radio, x40 y280 w165 vCORERADC gCoreRadC, CoreRadC
-Gui, Add, Radio, x40 y304 w165 vCORERADD gCoreRadD, CoreRadD
-Gui, Add, Radio, x40 y328 w165 vCORERADE gCoreRadE, CoreRadE
-Gui, Add, Radio, x40 y352 w165 vCORERADF gCoreRadF, CoreRadF
-Gui, Add, CheckBox, x312 y96 w140 vCORECHKA gCoreCHKA, CoreCHKA
-Gui, Add, CheckBox, x312 y120 w140 vCORECHKB gCoreCHKB, CoreCHKB
-Gui, Add, CheckBox, x312 y144 w140 vCORECHKC gCoreCHKC, CoreCHKC
-Gui, Add, DropDownList, x312 y176 w143 vCOREDDLF gCoreDDLF,
-Gui, Add, Text, x464 y176 w95 vCOREDDLTXTF, CoreDDLtxtF
-Gui, Add, Radio, x312 y208 w145 vCORERADG gCoreRadG, CoreRadG
-Gui, Add, Radio, x312 y232 w145 vCORERADH gCoreRadH, CoreRadH
-Gui, Add, CheckBox, x216 y296 w125 vCORECHKD gCoreCHKD, CoreCHKD
-Gui, Add, CheckBox, x216 y320 w125 vCORECHKE gCoreCHKE, CoreCHKE
-Gui, Add, ComboBox, x168 y352 w168 vCORECMBB gCoreCMBB, ComboBox
-Gui, Add, Text, x176 y376 w160 vCORECMBTXTB, CoreCMBtxtB
-Gui, Add, Slider, x352 y296 w151 h25 vCORESLDA gCoreSLDA, 50
-Gui, Add, Text, x512 y296 w125 vCORESLDTXTA, CoreSLDtxtA
-Gui, Add, Radio, x472 y56 w68 w90 vCORERADI gCoreRadI, CoreRadI
-Gui, Add, Radio, x472 y80 w68 w90 vCORERADJ gCoreRadJ, CoreRadJ
-Gui, Add, Radio, x472 y104 w128 vCORERADK gCoreRadK, CoreRadK
-Gui, Add, Radio, x472 y124 w128 vCORERADL gCoreRadL, CoreRadL
-Gui, Add, DropDownList, x40 y408 w169 vCOREDDLG gCoreDDLG,
-Gui, Add, DropDownList, x40 y440 w169 vCOREDDLH gCoreDDLH,
-Gui, Add, Text, x224 y408 w115 vCOREDDLTXTG, CoreDDLtxtG
-Gui, Add, Text, x224 y440 w115 vCOREDDLTXTH, CoreDDLtxtH
-Gui, Add, CheckBox, x464 y208 w90 vCORECHKF gCoreCHKF, CoreCHKF
-Gui, Add, CheckBox, x464 y232 w94 vCORECHKG gCoreCHKG, CoreCHKG
-Gui, Add, Radio, x360 y344 w138 vCORERADM gCoreRadM, CoreRadM
-Gui, Add, Radio, x504 y344 w138 vCORERADN gCoreRadN, CoreRadN
-Gui, Add, DropDownList, x560 y144 w100 vCOREDDLI gCoreDDLI,
-Gui, Add, Radio, x605 y104 w150 vCORERADO gCoreRadO, CoreRadO
-Gui, Add, Radio, x605 y124 w150 vCORERADP gCoreRadP, CoreRadP
-Gui, Add, CheckBox, x669 y144 w85 vCORECHKH gCoreCHKH, CoreCHKH
-Gui, Add, Radio, x563 y178 w72 w90 vCORERADQ gCoreRadQ, CoreRadQ
-Gui, Add, Radio, x563 y201 w72 w90 vCORERADR gCoreRadR, CoreRadR
-Gui, Add, DropDownList, x560 y144 w100 vCOREDDLJ gCoreDDLJ,
-Gui, Add, Radio, x465 y264 w72 w132 vCORERADS gCoreRadS, CoreRadS
-Gui, Add, Radio, x608 y264 w72 w132 vCORERADT gCoreRadT, CoreRadT
-Gui, Add, DropDownList, x562 y228 w100 vCOREDDLK gCoreDDLK,
-Gui, Add, Text, x459 y148 w95 h13 vCOREDDLTXTI, CoreDDLtxtI
-Gui, Add, CheckBox, x667 y232 w85 vCORECHKI gCoreCHKI, CoreCHKI
-Gui, Add, Radio, x654 y178 w72 w90 vCORERADU gCoreRadU, CoreRadU
-Gui, Add, Radio, x655 y200 w72 w90 vCORERADV gCoreRadV, CoreRadV
-Gui, Add, DropDownList, x560 y144 w100 vCOREDDLL gCoreDDLL, 
-
-Gui, Add, CheckBox, x313 y57 h18 vCOREOPTCPY gCoreOptCopy, =Enable=
-
-Gui, Add, Button, x685 y57 w50 h17 vLOADRACORE gLoadRACFG, LOAD
-Gui, Add, Button, x623 y57 w50 h17 vSAVECOREOPT gSaveCoreOptions, SAVE
-Gui, Add, Button, x564 y57 w50 h17 vRESETCOREOPT gResetCoreOptions, RESET
-
-GuiControl,,COREOPTCPY,%CORECOPY%
-Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x558 y38 w184 h43, retroarch-core-options.cfg
-Gui, Add, GroupBox, x347 y397 w403 h83, Core-Override Configuration File
-Gui,Font,%fontXsm% Norm 
-Gui, Add, Edit, x474 y425 w254 h21 vCORENAMEDT,
-Gui, Add, Button, x635 y452 w50 h17 vSELCORCFGLOC gSelectCoreCfgLoc, Browse
-Gui, Add, Button, x690 y452 w50 h17 vSAVECORECFG gSaveCoreCfg, Save
-Gui, Add, Text, x365 y423 w102 h23 vCORENAMTXT, CoreOverride Confg
-Gui, Add, Button, x731 y426 w13 h19 vDELCORECFG gDeleteCoreCfg, X
-
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[ UTILITIES TAB ]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;SplashTextOn, ,skeletonKey,Loading Utilities ........,
-Progress, 88,Loading Utilities ........
+Progress, 78,Loading Utilities ........
 
-Gui, Tab, 11
+Gui, Tab, 9
 Gui, Tab, Util
 
 utltog= Hide
@@ -3627,6 +3441,193 @@ Gui, Add, Text, x696 y344 vutltTXTJ %utlvis%, utltTXTJ
 Gui, Add, Text, x696 y368 vutlTXTK %utlvis%, utlTXTK
 Gui, Add, Text, x624 y488 vutltTXTL %utlvis%, utltTXTL
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[ NETPLAY TAB ]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;gosub, DestroySplashGUI
+;;SplashImage = net.png
+;;SplashImageGUI(SplashImage, "Center", "Center", true)
+;SplashTextOn, ,skeletonKey,Loading Netplay Interface ..........,
+Progress, 83,Loading Netplay Interface ..........
+Gui, Tab, 10
+Gui, Tab, Netplay
+Gui, Add, Picture,x83 y238 w128 h113 vINVADERPIC, ;net.png
+
+Gui,Font,%fontXsm% Bold
+Gui, Add, GroupBox, x8 y1 w746 h503 Center, Hosted Games
+Gui,Font,%fontXsm% Norm 
+;;gui, Add, ListView, x14 y42 w731 h400 AltSubmit -Multi Sort  hwndHostView vNETHOSTLIST gNetHostList hidden, USER|ROM|CRC|CORE|(Ver)|IP|PORT|TYPE|PASS|
+Gui, Add, ListView, x14 y42 w731 h366 AltSubmit -Multi Sort  hwndHostView vNETHOSTLIST gNetHostList hidden, User|ROM|CRC|Core|(Build)|OS|IP|Port|Open|Password|Region|Vers|
+
+;;gui, Add, Text, x672 y11 h15, Port-Check
+;;gui, Add, CheckBox, x730 y11 w15 h14 vCHKPORTS gChkPorts,
+Gui,Font,%fontXmed% Bold
+Gui, Add, Radio, x13 y20 h18 vHOSTSWITCH gHostSwitch, Host
+Gui, Add, Radio, x70 y20 h18 vCLIENTSWITCH gClientSwitch Checked, Client
+Gui,Font,%fontXsm% Norm 
+
+
+Gui, Add, Button, x667 y10 w79 h30 vREFHOST gRefHosts, Refresh Hosts
+Gui, Add, Button, x455 y471 w57 h18 vNETROM gNetROM, BROWSE
+;;gui, Add, DropDownList, x14 y20 w108 vHOSTCORES gHostCores Disabled, |Room Filter||%coreNamz%
+Gui, Font, bold
+Gui, Add, Text, x123 y14 w541 h28 cred Center vNETHINFO, Connection Information:
+gui, font, normal
+
+Gui, Add, DropDownList, x13 y471 w280 vNETCOREASSETS gCLNetCoreAssets,
+Gui, Add, DropDownList, x138 y446 w472 vNETROMLIST gNetROMList +0x2 +E0x5000 Right, 
+Gui, Add, Radio, x75 y441 h12 vNETPLIST gNetPlist, Playlists
+Gui, Add, Radio, x75 y455 h12  vNETDWNL gNetDwnl, Folders
+Gui, Add, CheckBox, x516 y470 h23 vAUTOCORE gAutoCore Checked, Auto-Core
+gui, Add, CheckBox, x620 y445 h23 vFORCEROM gForceROM hidden, Force
+Gui, Add, Button, x670 y444 w75 h23 vNETCONNECT gNetConnect disabled, CONNECT
+Gui, Add, ComboBox, x585 y471 w156 vNetCore gNetCore disabled, %corelist%
+
+Gui, Add, Edit,x561 y410 w29 h21 vIPA gIp_A Number, 
+Gui, Add, Edit, x592 y410 w29 h21 vIPB gIp_B Number, 
+Gui, Add, Edit, x622 y410 w28 h21 vIPC gIp_C Number, 
+Gui, Add, Edit, x651 y410 w31 h21 vIPD gIp_D Number, 
+Gui, Add, Edit, x685 y410 w60 h21 vCPORTNUM gCSetPort Right Number
+
+Gui, Add, Progress, x15 y492 w736 h7 cBlue vpgrTransfer Range0-600, 0
+
+Gui, Add, CheckBox, x300 y473 h16 vAUTSYS gAutSys Checked, Auto-Sys
+Gui, Add, Checkbox,x365 y474 h13 vSRCHARCORG gArcFind Checked, Web-Lookup
+Gui, Add, CheckBox, x365 y473 h16 vRETROM gRetROM hidden, Recieve ROM
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    HOSTING   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+Gui, Add, CheckBox, x13 y411 h13 vINETHOST gInetHost hidden, Relay-Host
+Gui Add, DropDownList, x14 y443 w55 vRELYSRV gRELYSRV hidden, |nyc||%RASERVERLIST%
+Gui, Add, Checkbox, x13 y427 h13 vNOSTATE gNoState hidden, Stateless
+Gui, Add, CheckBox, x172 y411 h13 vPRVTSV gPrvtSv hidden, Private
+Gui, Add, CheckBox, x89 y411 h13 vALSLV gAlSlv Checked hidden, Allow Slaves
+Gui, Add, CheckBox, x93 y427 h13 vSlvOnly gSlvOnly hidden, Slaves Only
+;;gui, Add, Checkbox,x172 y427 h13 vINVADE gInvading, Invade
+Gui, Add, ComboBox, x14 y410 w157 vROOMFILTER gRoomFilter, |Room Filter||%corenamz%
+Gui, Add, Edit, x685 y410 w60 h21 vIPORTNUM gSetPort Right Number hidden, %netplayIpPort%
+;;gui, Add, Text, x702 y295, PORT
+
+Gui, Add, Text, x348 y473  h13 vCHKFTXT hidden, Check
+Gui, Add, Edit, x306 y470 w40 h21 vCHECKFRAMES gGetCHKFRM hidden, %CHECKFRAMES%
+Gui, Add, UpDown, x328 y470 w18 h21 vCHKFRSLD hidden, %CHECKFRAMES%
+Gui, Add, Text, x432 y473 h13 vMINLATTXT hidden, Latency
+Gui, Add, Edit, x390 y470 w40 h21 vMINLAT gMinLat hidden, %netplayInputLatencyFramesMin%
+Gui, Add, UpDown, x313 y470 w18 h21 vMINLATSLD hidden, %netplayInputLatencyFramesMin%
+Gui, Add, Text, x517 y473 h13 vLATRNGTXT hidden, Range
+Gui, Add, Edit, x476 y470 w40 h21 vLATRNG gLatRng hidden, %netplayInputLatencyFramesRange%
+Gui, Add, UpDown, x498 y470 w17 h21 vLATRNGSLD hidden, %netplayInputLatencyFramesRange%
+
+Gui, Add, Button, x618 y444 w41 h23 vNETCROM gNetCROM, ROM
+Gui, Add, Button, x618 y444 w41 h23 vNETHROM gNetHROM hidden, ROM
+Gui, Add, Button, x670 y444 w75 h23 vHostButton gLOCALHOSTING hidden, HOST
+Gui, Add, Button, x520 y411 w40 h17 vPSTIP gPstBut, Paste
+;;gui, Add, Button, x656 y307 w90 h20 vCNCTBUT gConnectRA, Connect
+Gui, Add, Text, x248 y431 h13 vNETPLNTXT, netplay name
+Gui, Add, Text, x398 y431 h13 vNETPLPWTXT, password
+Gui, Add, Edit, x228 y410 w156 h21 vNETNAME gGetNetName,
+Gui, Add, Edit, x392 y410 w56 h21 vNETPW gNetPW,
+Gui, Add, Edit, x392 y410 w56 h21 vNETSPECPW hidden gNetSpecPW,
+Gui, Add, Edit, x575 y415 w86 h16 -E0x200 +Readonly vHOSTIP hidden, Your IP Address
+Gui, Add, Text, x455 y431 w54 h13 vFSRVTXT hidden, file-server
+Gui, Add, CheckBox,x450 y415 w14 h12 vFILESERV gFileServ hidden,
+Gui, Add, Edit, x465 y411 w54 h18 vSERVPORT Disabled gServPort Number hidden, %fileServerPort%
+Gui, Add, Button, x520 y411 w40 h17 vGETIP gIP_Get hidden, Get IP
+Gui, Add, Button, x520 y411 w40 h17 vGETLAN gLAN_Get hidden, Get IP
+Gui, Add, Radio, x525 y432 vNETIPRAD gNetSET Checked hidden, NET
+Gui, Add, Radio, x570 y432 vLANIPRAD gLanSET hidden, LAN
+
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;;;;;;;;;;;        [[ CORE OPTIONS TAB ]]        ;;;;;;;;;;;;;;;;;;;;;
+;;gosub, DestroySplashGUI
+;;SplashImage = cor.png
+;;SplashImageGUI(SplashImage, "Center", "Center", true)
+;SplashTextOn, ,skeletonKey,Loading Emulator Options ...........,
+Progress, 88,Loading Emulator Options ...........
+
+Gui, Tab, 11
+Gui, Tab, Cores
+Gui, Add, Picture, x36 y355 w128 h94 vPICINV, ;cor.png
+
+Gui,Font,%fontXsm% Bold
+Gui, Add, GroupBox, x18 y24 w732 h457, Core Options
+Gui,Font,%fontXsm% Norm 
+Gui, Add, DropDownList, x96 y56 w194 vCOREDDLA gCoreDDLA, Select_A_Core||%corelist%
+Gui, Add, Text, x56 y56 w33 h22, Core
+Gui, Add, DropDownList, x136 y96 w151 vCOREDDLB gCoreDDLB,
+Gui, Add, DropDownList, x136 y128 w151 vCOREDDLC gCoreDDLC,
+Gui, Add, DropDownList, x136 y160 w151 vCOREDDLD gCoreDDLD,
+Gui, Add, DropDownList, x136 y192 w151 vCOREDDLE gCoreDDLE,
+Gui, Add, Text, x40 y96 w90 vCOREDDLTXTB, CoreDDLtxtB
+Gui, Add, Text, x40 y128 w90 vCOREDDLTXTC, CoreDDLtxtC
+Gui, Add, Text, x40 y160 w90 vCOREDDLTXTD, CoreDDLtxtD
+Gui, Add, Text, x40 y192 w90 vCOREDDLTXTE, CoreDDLtxtE
+Gui, Add, Radio, x40 y224 w118 vCORERADA gCoreRadA, CoreRadA
+Gui, Add, Radio, x40 y248 w118 vCORERADB gCoreRadB, CoreRadB
+Gui, Add, ComboBox, x160 y224 w127 vCORECMBA gCoreCMBA, ComboBox
+Gui, Add, Text, x168 y248 w118 vCORECMBTXTA, CoreCMBtxtA
+Gui, Add, Radio, x40 y280 w165 vCORERADC gCoreRadC, CoreRadC
+Gui, Add, Radio, x40 y304 w165 vCORERADD gCoreRadD, CoreRadD
+Gui, Add, Radio, x40 y328 w165 vCORERADE gCoreRadE, CoreRadE
+Gui, Add, Radio, x40 y352 w165 vCORERADF gCoreRadF, CoreRadF
+Gui, Add, CheckBox, x312 y96 w140 vCORECHKA gCoreCHKA, CoreCHKA
+Gui, Add, CheckBox, x312 y120 w140 vCORECHKB gCoreCHKB, CoreCHKB
+Gui, Add, CheckBox, x312 y144 w140 vCORECHKC gCoreCHKC, CoreCHKC
+Gui, Add, DropDownList, x312 y176 w143 vCOREDDLF gCoreDDLF,
+Gui, Add, Text, x464 y176 w95 vCOREDDLTXTF, CoreDDLtxtF
+Gui, Add, Radio, x312 y208 w145 vCORERADG gCoreRadG, CoreRadG
+Gui, Add, Radio, x312 y232 w145 vCORERADH gCoreRadH, CoreRadH
+Gui, Add, CheckBox, x216 y296 w125 vCORECHKD gCoreCHKD, CoreCHKD
+Gui, Add, CheckBox, x216 y320 w125 vCORECHKE gCoreCHKE, CoreCHKE
+Gui, Add, ComboBox, x168 y352 w168 vCORECMBB gCoreCMBB, ComboBox
+Gui, Add, Text, x176 y376 w160 vCORECMBTXTB, CoreCMBtxtB
+Gui, Add, Slider, x352 y296 w151 h25 vCORESLDA gCoreSLDA, 50
+Gui, Add, Text, x512 y296 w125 vCORESLDTXTA, CoreSLDtxtA
+Gui, Add, Radio, x472 y56 w68 w90 vCORERADI gCoreRadI, CoreRadI
+Gui, Add, Radio, x472 y80 w68 w90 vCORERADJ gCoreRadJ, CoreRadJ
+Gui, Add, Radio, x472 y104 w128 vCORERADK gCoreRadK, CoreRadK
+Gui, Add, Radio, x472 y124 w128 vCORERADL gCoreRadL, CoreRadL
+Gui, Add, DropDownList, x40 y408 w169 vCOREDDLG gCoreDDLG,
+Gui, Add, DropDownList, x40 y440 w169 vCOREDDLH gCoreDDLH,
+Gui, Add, Text, x224 y408 w115 vCOREDDLTXTG, CoreDDLtxtG
+Gui, Add, Text, x224 y440 w115 vCOREDDLTXTH, CoreDDLtxtH
+Gui, Add, CheckBox, x464 y208 w90 vCORECHKF gCoreCHKF, CoreCHKF
+Gui, Add, CheckBox, x464 y232 w94 vCORECHKG gCoreCHKG, CoreCHKG
+Gui, Add, Radio, x360 y344 w138 vCORERADM gCoreRadM, CoreRadM
+Gui, Add, Radio, x504 y344 w138 vCORERADN gCoreRadN, CoreRadN
+Gui, Add, DropDownList, x560 y144 w100 vCOREDDLI gCoreDDLI,
+Gui, Add, Radio, x605 y104 w150 vCORERADO gCoreRadO, CoreRadO
+Gui, Add, Radio, x605 y124 w150 vCORERADP gCoreRadP, CoreRadP
+Gui, Add, CheckBox, x669 y144 w85 vCORECHKH gCoreCHKH, CoreCHKH
+Gui, Add, Radio, x563 y178 w72 w90 vCORERADQ gCoreRadQ, CoreRadQ
+Gui, Add, Radio, x563 y201 w72 w90 vCORERADR gCoreRadR, CoreRadR
+Gui, Add, DropDownList, x560 y144 w100 vCOREDDLJ gCoreDDLJ,
+Gui, Add, Radio, x465 y264 w72 w132 vCORERADS gCoreRadS, CoreRadS
+Gui, Add, Radio, x608 y264 w72 w132 vCORERADT gCoreRadT, CoreRadT
+Gui, Add, DropDownList, x562 y228 w100 vCOREDDLK gCoreDDLK,
+Gui, Add, Text, x459 y148 w95 h13 vCOREDDLTXTI, CoreDDLtxtI
+Gui, Add, CheckBox, x667 y232 w85 vCORECHKI gCoreCHKI, CoreCHKI
+Gui, Add, Radio, x654 y178 w72 w90 vCORERADU gCoreRadU, CoreRadU
+Gui, Add, Radio, x655 y200 w72 w90 vCORERADV gCoreRadV, CoreRadV
+Gui, Add, DropDownList, x560 y144 w100 vCOREDDLL gCoreDDLL, 
+
+Gui, Add, CheckBox, x313 y57 h18 vCOREOPTCPY gCoreOptCopy, =Enable=
+
+Gui, Add, Button, x685 y57 w50 h17 vLOADRACORE gLoadRACFG, LOAD
+Gui, Add, Button, x623 y57 w50 h17 vSAVECOREOPT gSaveCoreOptions, SAVE
+Gui, Add, Button, x564 y57 w50 h17 vRESETCOREOPT gResetCoreOptions, RESET
+
+GuiControl,,COREOPTCPY,%CORECOPY%
+Gui,Font,%fontXsm% Bold
+Gui, Add, GroupBox, x558 y38 w184 h43, retroarch-core-options.cfg
+Gui, Add, GroupBox, x347 y397 w403 h83, Core-Override Configuration File
+Gui,Font,%fontXsm% Norm 
+Gui, Add, Edit, x474 y425 w254 h21 vCORENAMEDT,
+Gui, Add, Button, x635 y452 w50 h17 vSELCORCFGLOC gSelectCoreCfgLoc, Browse
+Gui, Add, Button, x690 y452 w50 h17 vSAVECORECFG gSaveCoreCfg, Save
+Gui, Add, Text, x365 y423 w102 h23 vCORENAMTXT, CoreOverride Confg
+Gui, Add, Button, x731 y426 w13 h19 vDELCORECFG gDeleteCoreCfg, X
+
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 ;};;;;;;;;;;;;;;;        ----    END MENU SYSTEM    ----        ;;;;;;;;;;;;;;;;;;;
 
@@ -3649,7 +3650,7 @@ GuiID:=WinExist()
 Gui, Show, Autosize,skeletonKey
 SplashTextOff
 Progress, off
-Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Netplay%CORETABNAME%|Util
+Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util%RACORETAB%
 
 setPortable:
 OnMessage(0x200, "WM_MOUSEMOVE")
@@ -10049,10 +10050,10 @@ FileDelete,Assignments.ini
 stringreplace,aei,aei,|",",All
 stringreplace,aei,aei,"|,",All
 FileAppend,%aei%,Assignments.ini
-CORETABNAME= |Cores	
+RACORETAB= |Netplay|Cores
 if (raexefile = "NOT-FOUND.exe")
 	{
-		CORETABNAME= 
+		RACORETAB= 
 		return		
 	}
 return
@@ -10754,6 +10755,7 @@ if (raexefile <> "NOT-FOUND.exe")
 RASETUPCONT:	
 GuiControl, Enable, CNCLDWN
 GuiControl, Disable, AVAIL
+GuiControl, Disable, QRSETUP
 GuiControl, Disable, LOCEMUIN
 GuiControl, Disable, EMUINST
 GuiControl, Disable, MULTINST
@@ -10777,6 +10779,7 @@ gosub, GRAVER
 GuiControl, Disable, CNCLDWN
 GuiControl, Enable, AVAIL
 GuiControl, Enable, LOCEMUIN
+GuiControl, Enable, QRSETUP
 GuiControl, Enable, EMUINST
 GuiControl, Enable, MULTINST
 GuiControl, Enable, INSTEMUDDL
@@ -15795,10 +15798,10 @@ emuxelst=
 guicontrol,disable,LNCHPT
 guicontrol,disable,EMUDETECT
 SB_SetText("...Indexing Emulator Directory....")
-CORETABNAME= |Cores
+RACORETAB= |Netplay|Cores
 if (raexefile = "NOT-FOUND.exe")
 	{
-		CORETABNAME=
+		RACORETAB=
 		;;guicontrol,,LNCHPT,1
 	}
 ifexist, Assignments.ini
@@ -22972,7 +22975,7 @@ return
 EMUOPTPOP:
 guicontrol,,CFGSWITCH,
 gui,submit,nohide
-Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Netplay%CORETABNAME%|Util
+Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util%RACORETAB%
 EMUOPTINIT:
 guicontrol,hide,SWHOST		
 guicontrol,disable,OPNCORE
@@ -43602,7 +43605,7 @@ ifinstring,LCORE,_libretro
 	{
 		ASVRM= 
 		guicontrol,,CoreDDLA, |%LCORE%||Select_A_Core|%corelist%
-		Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Netplay%CORETABNAME%|Util
+		Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util%RACORETAB%
 		moptog= hide
 		raoptgl= show
 		emutog= hide
@@ -58197,7 +58200,7 @@ if (INITIAL > 1)
 		progress, off
 	}
 RaExePath=	
-CORETABNAME= |Cores
+RACORETAB= |Netplay|Cores
 raexeloctmp=
 RaExePathtmp= 
 raexeloctmp=
@@ -58230,7 +58233,7 @@ RAEXE:
 FileSelectFile, RaExePath, 3, , Select a retroarch.exe, retroarch exe(*.exe)
 if (RaExePath = "")
 	{
-		CORETABNAME= 
+		RACORETAB= 
 		LNCHPT= 1
 		if (INITIAL = 1)
 			{
@@ -58382,7 +58385,7 @@ if (raexeloc = "")
 			goto, REINPUTRA
 		}
 INITIATEGEN:
-CORETABNAME= |Cores
+RACORETAB= |Netplay|Cores
 iniwrite, "%raexeloc%",Settings.ini,GLOBAL,retroarch_location
 raexefile= NOT-FOUND.exe
 ifexist, %raexeloc%\retroarch.exe
@@ -58392,7 +58395,7 @@ ifexist, %raexeloc%\retroarch.exe
 iniwrite, "%raexefile%", Settings.ini,GLOBAL,retroarch_executable
 if (raexefile = "NOT-FOUND.exe")
 	{
-	   CORETABNAME= 
+	   RACORETAB= 
 	   LNCHPT= 1	
 	}
 if (INITIAL = 1)

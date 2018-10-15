@@ -253,6 +253,7 @@ Nintendo - Super Nintendo Entertainment System|snes9x|Mednafen|no$sns|MAME|zsnes
 Nintendo - Switch|yuzu|ryujinx
 Nintendo - Virtual Boy|Mednafen|realityboy|vbjin|retrorach|MAME|:mednafen_vboy_libretro.dll
 Nintendo - WiiU|CEMU
+Nintendo - WiiWare|Dolphin|ishiiruka|:dolphin_libretro.dll
 Nintendo - Wii|Dolphin|ishiiruka|:dolphin_libretro.dll
 Nokia - N-Gage|MAME|:mame_libretro.dll
 Northstar - Advantage|MAME|:mame_libretro.dll
