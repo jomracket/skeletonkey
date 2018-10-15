@@ -6313,7 +6313,7 @@ iniread,mame_verx,Apps.ini,EMULATORS,MAME
 splitpath,mame_verx,,mame_path
 iniread,demul_file,apps.ini,EMULATORS,Demul
 splitpath,demul_file,,demul_path
-Loop, Read, gam\AutoBios.gam
+Loop, Read, AutoBios.set
 	{
 		if (A_LoopReadLine = "")
 			{
@@ -20842,7 +20842,7 @@ if (ARCSYS = "MAME - Arcade")
 	{
 		guicontrol,,EXTRURL,0
 	}
-if (ARCSYS = "BIOSPACK")
+if (ARCSYS = "BIOS")
 	{
 		OVDCHK= MAME - Arcade
 		iniread,mame_verx,Apps.ini,EMULATORS,MAME

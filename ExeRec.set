@@ -712,6 +712,7 @@ FileCreateDir, rj\netArt
 FileInstall,AppParams.set,AppParams.set,1
 FileInstall,arcorg.set,arcorg.set,1
 FileInstall,Assignments.set,Assignments.set,1
+FileInstall,AutoBios.set,AutoBios.set,1
 FileInstall,autoconfig.set,autoconfig.set,1
 FileInstall,BIOS.set,BIOS.set,1
 FileInstall,config.set,config.set,1
@@ -954,9 +955,9 @@ FileInstall,gam\Atari - 7800.gam,gam\Atari - 7800.gam,1
 FileInstall,gam\Atari - Jaguar.gam,gam\Atari - Jaguar.gam,1
 FileInstall,gam\Atari - Lynx.gam,gam\Atari - Lynx.gam,1
 FileInstall,gam\Atari - ST.gam,gam\Atari - ST.gam,1
-FileInstall,gam\AutoBios.gam,gam\AutoBios.gam,1
 FileInstall,gam\Bandai - WonderSwan Color.gam,gam\Bandai - WonderSwan Color.gam,1
 FileInstall,gam\Bandai - WonderSwan.gam,gam\Bandai - WonderSwan.gam,1
+FileInstall,gam\BIOS.gam,gam\BIOS.gam,1
 FileInstall,gam\Camputers - Lynx.gam,gam\Camputers - Lynx.gam,1
 FileInstall,gam\Capcom Play System - CPS II.gam,gam\Capcom Play System - CPS II.gam,1
 FileInstall,gam\Capcom Play System - CPS III.gam,gam\Capcom Play System - CPS III.gam,1

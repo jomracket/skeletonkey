@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-15 12:44 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-15 4:53 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-10-15 12:44 PM
-VERSION= v0.99.58.78
+RELEASE= 2018-10-15 4:53 PM
+VERSION= v0.99.58.79
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -6313,7 +6313,7 @@ iniread,mame_verx,Apps.ini,EMULATORS,MAME
 splitpath,mame_verx,,mame_path
 iniread,demul_file,apps.ini,EMULATORS,Demul
 splitpath,demul_file,,demul_path
-Loop, Read, gam\AutoBios.gam
+Loop, Read, AutoBios.set
 	{
 		if (A_LoopReadLine = "")
 			{
@@ -20842,7 +20842,7 @@ if (ARCSYS = "MAME - Arcade")
 	{
 		guicontrol,,EXTRURL,0
 	}
-if (ARCSYS = "BIOSPACK")
+if (ARCSYS = "BIOS")
 	{
 		OVDCHK= MAME - Arcade
 		iniread,mame_verx,Apps.ini,EMULATORS,MAME

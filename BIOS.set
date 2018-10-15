@@ -207,7 +207,6 @@ mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:BIOS
 nostalgia=retroarch\system=:exec.bin:CBCE86F7>
 nostalgia=retroarch\system=:grom.bin:683A4158>
 
-pcsx2\bios=play\bios=:ps2-0100j-20000117.bin:B7EF81A9
 pcsx2\bios=play\bios=:ps2-0101j-20000217.bin:211DFB6A
 pcsx2\bios=play\bios=:ps2-0101xd-20000224.bin:2FEF9FAF
 pcsx2\bios=play\bios=:ps2-0110a-20000727.bin:9678AD6A
@@ -257,7 +256,6 @@ pcsx2\bios=play\bios=:ps2-dvd-302u.bin:A1092A68
 pcsx2\bios=play\bios=:ps2-dvd-310.bin:DF8F104F
 pcsx2\bios=play\bios=:rom1.bin:2C3BCD32
 pcsx2\bios=play\bios=:rom2.bin:B5FAD94A
-pcsx2\bios=play\bios=:SCPH-10000_BIOS_V1_JAP_010.bin:B7EF81A9
 pcsx2\bios=play\bios=:SCPH-30003_BIOS_Vx_PAL_120.bin:7B08C33B
 pcsx2\bios=play\bios=:SCPH-30004.bin:9386A740
 pcsx2\bios=play\bios=:SCPH-39001_BIOS_V7_USA_160.bin:A19E0BF5
@@ -270,12 +268,10 @@ pcsx2\bios=play\bios=:SCPH-70006.bin:B57201BF
 pcsx2\bios=play\bios=:SCPH-70008_BIOS_PAL_200.bin:92AA71A2
 pcsx2\bios=play\bios=:SCPH-70012_BIOS_V12_USA_200.bin:7EBD68DE
 pcsx2\bios=play\bios=:SCPH-90006_BIOS_VX_HK _220.BIN:493C1E58
-pcsx2\bios=play\bios=:scph10000.bin:B7EF81A9
+pcsx2\bios=play\bios=:scph10000.bin:B7EF81A9>
 pcsx2\bios=play\bios=:SCPH50003.bin:A5860B09
 pcsx2\bios=play\bios=:SCPH77001.bin:1279FCE9>
 pcsx2\bios=play\bios=:Sony PlayStation 2 BIOS (E)(v2.0)(2004-06-14)[SCPH70008].bin:92887B09
-pcsx2\bios=play\bios=:Sony PlayStation 2 BIOS (E)(v2.0)(2004-11-04)[SCPH50003].bin:A5860B09
-pcsx2\bios=play\bios=:Sony PlayStation 2 SCPH-10000 System ROM v5.0 build 01.00 (2000-01-17)(Sony)(JP).bin:B7EF81A9
 pcsx2\bios=play\bios=:Sony PlayStation 2 SCPH-18000 System ROM v5.0 build 01.20 (2000-10-27)(Sony)(JP).bin:0DCCE9D7
 pcsx2\bios=play\bios=:DTL-H10000_X_Dev_0101_20000224_v0_[8DCC8219].nvm:83301F23
 pcsx2\bios=play\bios=:DTL-H30001_BIOS_V2_USA_110.EROM:423292F8
