@@ -25809,7 +25809,7 @@ Loop, parse, micfg,`n, `r
 
 FileRead,mednafenopts,%MEDCFGLOC%
 guicontrol,,emuDDLJ,|%RJMEDNM%||%mednfsc%
-Loop, Parse, mednafenopts,`n, `r
+Loop, Parse, mednafenopts,`n`r
 	{
 		if (A_LoopField = "")
 			{
@@ -25838,6 +25838,7 @@ Loop, Parse, mednafenopts,`n, `r
 				if (msplkv = "shader")
 					{
 						guicontrol,,emuDDLA,|%msplke%||none|autoip|autoipsharper|scale2x|sabr|ipsharper|ipxnoty|ipynotx|ipxnotysharper|ipynotxsharper|goat
+						MEDemuDDLA= %msplke%
 					}
 				if (msplkv = "shader.goat.vdiv")
 					{
@@ -26046,6 +26047,8 @@ gui,submit,nohide
 FileDelete, %indvcp%\*.*
 FileCopy, %indvcp%\mednafen.cfg.ret,%MEDCFGLOC%,1
 goto, MednafenRESETPOP
+MEDemuvdiv= 0.5
+MEDemuhdiv= 0.5
 MEDemuCHKD= 0
 MEDemuCHKB= 0
 MEDemuCHKC= 0
@@ -26185,14 +26188,19 @@ return
 
 mednafenCHKB:
 gui,submit,nohide
+guicontrol,enable,emuEDTD
+guicontrol,enable,emuSLDA
 if (emuCHKB = 0)
 	{
 		guicontrol,,emuEDTD,0
 		guicontrol,,emuSLDA,0
+		emuEDTD= 0
+		guicontrol,disable,emuEDTD
+		guicontrol,disable,emuSLDA
 	}
 guicontrolget,emuEDTD,,emuEDTD
 guicontrolget,emuSLDA,,emuSLDA
-stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.scanlines%A_Space%%repledtd%,%RJMEDNM%.scanlines%A_Space%%emuEDTD%,All
+stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.scanlines%A_Space%%MEDemuEDTD%,%RJMEDNM%.scanlines%A_Space%%emuEDTD%,All
 MEDemuCHKB= %emuCHKB%
 FileDelete,%MEDCFGLOC%
 FileAppend,%mednafenopts%,%MEDCFGLOC%
@@ -26328,7 +26336,7 @@ gextn= vdiv
 if (emuRAD11A = 1)
 	{
 		gextn= hdiv
-	}
+	}	
 curedt= % MEDemu%gextn%	
 emuSLDE:= curedt * 10
 guicontrolget,emuEDTC,,emuEDTC
@@ -26575,7 +26583,7 @@ return
 
 mednafenSLDA:
 gui,submit,nohide
-guicontrolget,MEDemuEDTD,,emuEDTD
+;;guicontrolget,MEDemuEDTD,,emuEDTD
 guicontrolget,emuSLDA,,emuSLDA
 guicontrol,,emuEDTD,%emuSLDA%
 stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.scanlines%A_Space%%MEDemuEDTD%,%RJMEDNM%.scanlines%A_Space%%emuSLDA%,All
@@ -57431,6 +57439,10 @@ if (EPGC = 1)
 		emupts= 
 		Loop, Parse, EmuPartSet,`n`r
 			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
 				pgpts1= 
 				pgpts2= 
 				pgpts3= 
@@ -57496,6 +57508,7 @@ if (EPGC = 1)
 	}
 
 splitpath,OvrExtAs,xenm,xenmp
+msgbox,,,cfg\%ROMSYS%\%emucfgn%\%romname%\%pgptf%||%ptsp%\%A_LoopField%`npgpts1=%pgpts1%`novrextas=%ovrextas%`nCUSTMOPT=%CUSTMOPT%
 guicontrol, Disable, LNCHBUT
 guicontrol, Disable, RCLLNCH
 guicontrol, Disable, CNCTBUT
