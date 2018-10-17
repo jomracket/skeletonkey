@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-16 3:50 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-16 5:38 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-10-16 3:50 PM
-VERSION= v0.99.58.80
+RELEASE= 2018-10-16 5:38 PM
+VERSION= v0.99.58.81
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -25896,24 +25896,24 @@ Loop, Parse, mednafenopts,`n`r
 					}
 				if (msplkv = "videoip")
 					{
-						if (msplkv = "none")
+						if (msplk2 = 0)
 							{
-								emuVIDIP= 0
+								MEDemuDDLC= none
 							}
-						if (msplkv = "bilinear")
+						if (msplk2 = 1)
 							{
-								emuVIDIP= 1
+								MEDemuDDLC= bilinear
 							}
-						if (msplkv = "x-axis")
+						if (msplk2 = "x")
 							{
-								emuVIDIP= x
+								MEDemuDDLC= x-axis
 							}
-						if (msplkv = "y-axis")
+						if (msplk2 = "y")
 							{
-								emuVIDIP= y
+								MEDemuDDLC= y-axis
 							}
-						guicontrol,,emuDDLC,|%emuVIDIP%||none|bilinear|x-axis|y-axis
-						MEDemuDDLC= %emuVIDIP%
+						guicontrol,,emuDDLC,|%MEDemuDDLC%||none|bilinear|x-axis|y-axis
+						MEDemuVIDIP= %msplke%
 					}
 				if (msplkv = "stretch")
 					{
@@ -26059,6 +26059,7 @@ MEDemuCHKH= 0
 MEDemuDDLA= none
 MEDemuDDLB= none
 MEDemuDDLC= none
+MEDemuVIDIP= 0
 MEDemuDDLD= weave
 MEDemuDDLE= opengl
 MEDemuDDLF= default
@@ -26156,9 +26157,15 @@ return
 
 mednafenCHKH:
 gui,submit,nohide
+guicontrol,enable,emuRAD3A
+guicontrol,enable,emuRAD3B
+guicontrol,enable,emuRAD3C
 if (emuCHKH = 1)
 	{
 		emuSTRETCH= 0
+		guicontrol,disable,emuRAD3A
+		guicontrol,disable,emuRAD3B
+		guicontrol,disable,emuRAD3C
 	}
 if (emuCHKH = 0)
 	{
@@ -26179,8 +26186,8 @@ if (emuCHKH = 0)
 				emuSTRETCH= aspect_mult2
 			}
 	}
-stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.stretch%A_Space%%MEDemuCHKH%,%RJMEDNM%.stretch%A_Space%%emuSTRETCH%,All
-MEDemuCHKH= %emuSTRETCH%
+stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.stretch%A_Space%%MEDemuRAD3%,%RJMEDNM%.stretch%A_Space%%emuSTRETCH%,All
+MEDemuRAD3= %emuSTRETCH%
 FileDelete,%MEDCFGLOC%
 FileAppend,%mednafenopts%,%MEDCFGLOC%
 FileRead,mednafenopts,%MEDCFGLOC%
@@ -26256,8 +26263,8 @@ if (emuDDLC = "y-axis")
 	{
 		emuVIDIP= y
 	}
-stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.videoip%A_Space%%MEDemuDDLC%,%RJMEDNM%.videoip%A_Space%%emuVIDIP%,All
-MEDemuDDLC= %emuVIDIP%
+stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.videoip%A_Space%%MEDemuVIDIP%,%RJMEDNM%.videoip%A_Space%%emuVIDIP%,All
+MEDemuVIDIP= %emuVIDIP%
 FileDelete,%MEDCFGLOC%
 FileAppend,%mednafenopts%,%MEDCFGLOC%
 FileRead,mednafenopts,%MEDCFGLOC%
@@ -26612,10 +26619,11 @@ if (emuRAD11A = 1)
 	{
 		gextn= hdiv
 	}
+curedt= % MEDemu%gextn%		
 guicontrolget,emuSLDE,,emuSLDE
 emuEDTC:= (emuSLDE / 10)
 guicontrol,,emuEDTC,%emuSLDE%
-stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.shader.goat.%gextn%%A_Space%%MEDemuEDTC%,%RJMEDNM%.shader.goat.%gextn%%A_Space%%emuEDTC%,All
+stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.shader.goat.%gextn%%A_Space%%curedt%,%RJMEDNM%.shader.goat.%gextn%%A_Space%%emuEDTC%,All
 MEDemuSLDE= %emuSLDE%
 MEDemuEDTC= %emuEDTC%
 guicontrol,,emuEDTC,%emuEDTC%
@@ -57508,7 +57516,6 @@ if (EPGC = 1)
 	}
 
 splitpath,OvrExtAs,xenm,xenmp
-msgbox,,,cfg\%ROMSYS%\%emucfgn%\%romname%\%pgptf%||%ptsp%\%A_LoopField%`npgpts1=%pgpts1%`novrextas=%ovrextas%`nCUSTMOPT=%CUSTMOPT%
 guicontrol, Disable, LNCHBUT
 guicontrol, Disable, RCLLNCH
 guicontrol, Disable, CNCTBUT
