@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-17 4:23 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-17 7:12 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-10-17 4:23 PM
-VERSION= v0.99.58.82
+RELEASE= 2018-10-17 7:12 PM
+VERSION= v0.99.58.83
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -15124,7 +15124,40 @@ Loop, Parse, addemu,|
 		ahri.= A_LoopField . "|"	
 	}
 runlist:= corelist . "|" . ahri
-
+nodel= 
+Loop, Parse, origasi,`n
+	{
+		stringsplit,ai,A_LoopField,=,"
+		;"
+		if (ai1 = sysni)
+			{
+				nodel= 1
+				SB_SetText(" Resetting " sysni "")
+				Iniread,defaprm,AppParams.set,%sysni%
+				Loop, Parse, defaprm,`n
+					{
+						stringsplit,defp,A_LoopField,"
+						;"
+						IniWrite,%defp2%,AppParams.ini,%sysni%,%defp1%
+					}
+				break
+			}
+	}
+if (nodel = "")
+	{
+		vki= 
+		IniDelete,%sysni%,Assignments.ini,ASSIGNMENTS
+		IniRead,vin,Assignments.ini,OVERRIDES,%sysni%
+		Loop, Parse,vin,|
+			{
+				if (A_LoopField = sysni)
+					{
+						continue
+					}
+				vki.= A_LoopField . "|"	
+			}
+		IniWrite,"%vki%",Assignments.ini,OVERRIDES,%ADDCORE%	
+	}
 preemucfg= %pemu%	
 addemu= %ahri%
 guicontrol,,EMPRDDL,|%addemu%	
@@ -15163,6 +15196,7 @@ if (SALIST = "Emulators")
 	}
 gosub, Dapp
 gosub, AppParamPop
+gosub, EAvailSel
 return
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -15727,7 +15761,13 @@ if (SALIST = "Systems")
 		xdisp= .ext
 		aparg= %apparg%
 		IniWrite, "%appasi%",Assignments.ini,ASSIGNMENTS,%sysni%
-		IniWrite, "%sysni%",Assignments.ini,OVERRIDES,%ADDCORE%
+		IniRead,avr,Assignments.ini,OVERRIDES,%ADDCORE%
+		sysniad= %sysni%
+		ifnotinstring,A_LoopField,%sysni%
+			{
+				sysniad:= sysni . "|" avr
+			}
+		IniWrite, "%sysniad%",Assignments.ini,OVERRIDES,%ADDCORE%
 		iniwrite, "%APPOPT%",AppParams.ini,%appasn%,options
 		iniwrite, "%APPARG%",AppParams.ini,%appasn%,arguments
 		iniwrite, "%NOEXTN%",AppParams.ini,%appasn%,extension
@@ -15770,6 +15810,7 @@ gosub, ResetRunList
 guicontrol,,JCORE,|%runlist%
 guicontrol,,LCORE,|%runlist%
 guicontrol,,PLCORE,|%lastcore%||%runlist%
+gosub, EAvailSel
 return
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -23050,10 +23091,11 @@ if (ASVRM = 1)
 		cfginik= ASSIGNMENTS
 		cfgemc= %LCORE%
 	}
-IniRead,nicktst,%cfginif%,%cfginik%,%cfgemc%
+guicontrolget,nicktst,,LCORE	
+IniRead,nicktstj,%cfginif%,%cfginik%,%cfgemc%
 if (ASVRM = 1)
 	{
-		SplitPath,nicktst,tmpmund
+		SplitPath,nicktstj,tmpmund
 		Loop, Parse, EmuPartSet,`n`r
 			{
 				emuidnt1=
@@ -23062,19 +23104,19 @@ if (ASVRM = 1)
 				stringsplit,emuidnt,A_LoopField,=
 				if (emuidnt3 = tmpmund)
 					{
-						nicktst= %emuidnt1%
+						nicktstk= %emuidnt1%
 						break
 					}
 			}
 	}
-if (nicktst <> "")
+if (nicktstk <> "")
 	{
-		subemuname= %nicktst%
+		subemuname= %nicktstk%
 	}
 if (subemuname <> "")
 	{
 		gosub, TOGRAOPTS
-		SplitPath,nicktst,EMUFN,EMUL,EMUXTYP,EMUSN,EMUDRV
+		SplitPath,nicktstj,EMUFN,EMUL,EMUXTYP,EMUSN,EMUDRV
 		Loop, Parse, EmuPartSet,`n`r
 			{
 				jemun1= 
@@ -23105,7 +23147,7 @@ if (subemuname <> "")
 											{
 												if (svgbrnv = "")
 													{
-														gosub, TOGSKELONLY
+														
 														gosub, TOGSKELGUI
 													}
 											}
@@ -23703,7 +23745,6 @@ guicontrol,move,SRCHROMBUT,x707 y79 w43 h23
 guicontrol,move,SRCHLOCDDL,x214 y79 w260
 return
 
-TOGSKELONLY:
 NOTOG:
 retroarchTOG:
 
@@ -23787,7 +23828,7 @@ TOGPROF:
 gosub, TOGRAOPTS
 gosub, EMUUNPOP
 gosub, TOGSKELGUI
-gosub, TOGSKELONLY
+
 
 GuiControl, Choose, TABMENU, 2
 return
@@ -23980,7 +24021,7 @@ if (ASVRM = 1)
 				RVLKUP= %MEDNFSYS%
 			}
 		MEDCFGLOC= cfg\%MEDNFSYS%\%nicktst%\%EDTRMFN%\%medcfg%
-		indvcp= %A_WorkingDir%\cfg\%MEDNFSYS%\%nicktst%\%EDTRMFN%
+		indvcp= %A_ScriptDir%\cfg\%MEDNFSYS%\%nicktst%\%EDTRMFN%
 	}
 gosub, SHRTNMLkUp
 %SHRTNM%CFGF= 
@@ -25342,7 +25383,7 @@ srchtog= hide
 
 gosub, TOGRAOPTS
 gosub, TOGSKELGUI
-gosub, TOGSKELONLY
+
 gosub, TOGGLESEARCHBOX
 
 guicontrolget,uuniv,,FNDGUI
@@ -25390,7 +25431,7 @@ srchtog= hide
 
 gosub, TOGRAOPTS
 gosub, TOGSKELGUI
-gosub, TOGSKELONLY
+
 gosub, TOGGLESEARCHBOX
 guicontrolget,uuniv,,FNDGUI
 
@@ -25677,8 +25718,12 @@ medcfg= mednafen.cfg
 ;};;
 
 EMUCFGOVRTGL= 0
+MEDCFGLOC= cfg\%MEDNFSYS%\%nicktst%\%EDTRMFN%\%medcfg%
+ifnotexist, %MEDCFGLOC%
+	{
+		gosub, EMUCFGCOPY
+	}
 
-gosub, EMUCFGCOPY
 
 if (ASVRM = "")
 	{
@@ -25698,10 +25743,12 @@ guicontrolget,EMUDDLJ,,EMUDDLJ
 return
 
 MednafenPOP:
+/*
 ifexist, %MEDCFGLOC%
 	{
 		Filedelete,%MEDCFGLOC%
 	}
+*/
 	
 MednafenRESETPOP:	
 FileRead,mkbl,rj\emuCfgs\mednafen\mednafenjoy.set.ret
@@ -25710,11 +25757,16 @@ if (RJMEDNM = "ERROR")
 	{
 		RJMEDNM= %emuDDLJ%
 	}
+ifexist, %MEDCFGLOC%
+	{
+		goto, LOADMEDNAFENOPTS
+	}
 IniRead, mtafg,rj\emuCfgs\mednafen\defaults.ini.ret,%RJMEDNM%
 IniRead, mtcfg,rj\emuCfgs\mednafen\defaults.ini.ret,GLOBAL
 IniRead, micfg,rj\emuCfgs\mednafen\defaults.ini.ret,INPUT
 IniRead, mtrfg,rj\emuCfgs\mednafen\defaults.ini.ret,COMMON
 stringreplace,mtrfg,mtrfg,<system>,%RJMEDNM%,All
+
 Loop, parse, mtcfg,`n,`r
 	{
 		aii1=
@@ -25746,12 +25798,12 @@ Loop, parse, mtcfg,`n,`r
 		FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
 	}
 Loop, parse, mtafg,`n, `r
-	{		aii1=
+	{		
+		aii1=
 		aii2=
 		stringsplit,aii,A_LoopField,=,`n`r
 		FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
 	}
-	
 Loop, parse, mtrfg,`n, `r
 	{
 		aii1=
@@ -25807,6 +25859,7 @@ Loop, parse, micfg,`n, `r
 			}
 	}
 
+LOADMEDNAFENOPTS:
 FileRead,mednafenopts,%MEDCFGLOC%
 guicontrol,,emuDDLJ,|%RJMEDNM%||%mednfsc%
 Loop, Parse, mednafenopts,`n`r
@@ -26039,6 +26092,7 @@ Loop, Parse, mednafenopts,`n`r
 				MEDemuCHKE= %msplke%
 			}
 	}
+	
 return
 
 ;{;;;;;;;;;;;;    RESET MEDNAFEN   ;;;;;;;;;;;;;;;;;;;;;
@@ -26751,7 +26805,7 @@ srchtog= hide
 
 gosub, TOGRAOPTS
 gosub, TOGSKELGUI
-gosub, TOGSKELONLY
+
 gosub, TOGGLESEARCHBOX
 guicontrolget,uuniv,,FNDGUI
 if (uuniv = "X")
@@ -26825,7 +26879,7 @@ emutog= hide
 gosub, EMUUNPOP
 gosub, TOGRAOPTS
 gosub, TOGSKELGUI
-gosub, TOGSKELONLY
+
 return
 
 FlashPlayer_GUI:
@@ -43676,7 +43730,6 @@ ifinstring,LCORE,_libretro
 		moptog= hide
 		raoptgl= show
 		emutog= hide
-		gosub, TOGSKELONLY
 		gosub, EMUUNPOP
 		gosub, TOGRAOPTS
 		;;guicontrol, show, LCORE
@@ -43693,7 +43746,6 @@ emutog= hide
 ASVRM= 1
 RJEMUTG= %LCORE%
 gosub, TOGRAOPTS
-gosub, TOGSKELONLY
 gosub, EMUUNPOP
 gosub, EMUNAMEPOP
 if (ASVRM = 1)
@@ -57098,7 +57150,7 @@ ifinstring,systoemu,tmpcc|
 					emutog= hide	
 					moptog= hide
 					raoptgl= show
-					gosub, TOGSKELONLY
+					
 					gosub, TOGRAOPTS
 					gosub, EMUUNPOP
 					guicontrol,show,SWHOST
@@ -58905,16 +58957,11 @@ Loop,Parse,emuj,`n
 		emup2= 	
 		stringsplit,emup,A_LoopField,=,"
 		;"
-		if (emup1 = 4)
+		ifinstring,emup1,%A_Space%-%A_Space%
 			{
-				PBEGN= 1
 				continue
 			}
 		if (emup2 = "")
-			{
-				continue
-			}
-		if (PBEGN <> 1)
 			{
 				continue
 			}

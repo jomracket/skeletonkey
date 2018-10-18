@@ -166,7 +166,7 @@ video.glvsync=1
 gb.system_type=auto
 [-------------------------------------]
 [GBA]
-gba.bios=gba.rom
+gba.bios=
 [-------------------------------------]
 [LYNX]
 lynx.lowpass=1
@@ -181,7 +181,7 @@ md.reported_region=same
 nes.clipsides=0
 nes.fnscan=1
 nes.gg=0
-nes.ggrom=gg.rom
+nes.ggrom=
 nes.n106bs=0
 nes.no8lim=0
 nes.nofs=0
