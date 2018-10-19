@@ -25644,11 +25644,11 @@ guicontrol, move,emuRAD11B,x167 y241 w38 h14
 
 guicontrol, %emutog%, emuRAD8A
 guicontrol,,emuRAD8A,FullScreen
-guicontrol,,emuRAD8A, 1
 guicontrol, move,emuRAD8A,x461 y88 w71 h13
 
 guicontrol, %emutog%, emuRAD8B
 guicontrol,,emuRAD8B,Windowed
+guicontrol,,emuRAD8B, 1
 guicontrol, move,emuRAD8B,x461 y68 w70 h13
 
 guicontrol, %emutog%, emuRad5B
@@ -55387,6 +55387,7 @@ partition=
 gosub, zpkproc
 splitpath,ROMZ,,,tstxtn,romname
 tstxtn= .%tstxtn%
+msgbox,,,romz=%ROMZ%`ntstxtn=%tstxtn%`nromname=%romname%
 FINR= 1
 return
 
@@ -56912,7 +56913,7 @@ gosub, LNCHCHK
 ASVRM= 1
 if (AUTOPGS = 1)
 	{
-		gosub,EMUCFGCOPY
+		gosub, EMUCFGCOPY
 	}
 ;;guicontrol,focus,RUNROMCBX	
 RUNSYSCHNG= 

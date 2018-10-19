@@ -363,6 +363,7 @@ x86Box=x86Box/x86Box.7z=86Box.exe=
 x88=x88/x88.7z=x88x24.exe=
 xe=xe/xe.7z=xe.exe=rc\xerc=
 xebra=xebra/xebra.7z=XEBRA.EXE=
+xqemu=xqemu/xqemu.7z=xqemuw.exe=
 yape=yape/yape.7z=Yape.exe=
 yuzu=yuzu/yuzu.7z=yuzu.exe=qt-config.ini
 z26=z26/z26.7z=z26.exe=
@@ -392,7 +393,7 @@ Antimicro=Antimicro/antimicro-64.7z=antimicro.exe=
 Xinput_Drivers=Xinput_Drivers/Xbox360-[ARCH]Eng.7z=Xbox360_[ARCH]Eng.exe=
 Xpadder=Xpadder/Xpadder.7z=XPadder.exe=
 Visual_C++_Runtimes=Visual_C++_Runtimes/vcrs.7z=VBCRedist_AIO_x86_x64.exe=
-DS4Windows=DS4Windows/DS4Windows.7z=DS4Windows.exe=
+DS4Windows=DS4Windows/DS4Windows[ARCH].7z=DS4Windows.exe=
 DirectX=DirectX/dxwebsetup.7z=dxwebsetup.exe=
 Display_Changer=DisplayChanger/dc.7z=dc64.exe=
 XOutput=XOutput/XOutput.7z=XOutput.exe=configs\*.ini=
