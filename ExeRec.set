@@ -757,7 +757,6 @@ FileInstall,Scraper.exe,Scraper.exe,1
 FileInstall,Skey-Deploy.exe,Skey-Deploy.exe,1
 FileInstall,UnRAR.exe,UnRAR.exe,1
 FileInstall,Vdrive.exe,Vdrive.exe,1
-FileInstall,working.exe,working.exe,1
 FileInstall,youtube-dl.exe,youtube-dl.exe,1
 FileInstall,cor.png,cor.png,1
 FileInstall,emu.png,emu.png,1
