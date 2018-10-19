@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-19 10:51 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-19 2:10 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-10-19 10:51 AM
-VERSION= v0.99.58.85
+RELEASE= 2018-10-19 2:10 PM
+VERSION= v0.99.58.86
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -2543,7 +2543,7 @@ Gui, Add, Text, x280 y213 h17 vemjZTXT Hidden, emjZTXT
 ;{;;;;;;;;;;;;;  ==Emu Buttons==  ;;;;;;;;;;;;;;;;;;
 Gui, Add, Button, x355 y192 w20 h20 vemjTURBOIN gemjTURBOIN Hidden, +
 Gui, Add, Button, x206 y202 w20 h20 vemjLTRIGIN gemjLTRIGIN Hidden, +
-Gui, Add, Button, x151 y222 w20 h20 vemjLBUMPIN gemjLBUMPIN Hidden, +
+Gui, Add, Button, x151 y223 w20 h20 vemjLBUMPIN gemjLBUMPIN Hidden, +
 Gui, Add, Button, x598 y202 w20 h20 vemjRTRIGIN gemjRTRIGIN Hidden, +
 Gui, Add, Button, x649 y225 w20 h20 vemjRBUMPIN gemjRBUMPIN Hidden, +
 Gui, Add, Button, x180 y277 w20 h20 vemjLSTICKUPIN gemjLSTICKUPIN Hidden, +
@@ -51583,7 +51583,7 @@ if (JOYCORE = "Global")
 		gosub, Joyvalz
 		guicontrol,,JOYPIC,%joyimg%
 		gosub, PlayerType
-		SB_SetText("Joytick config is " joycfg " ")	
+		SB_SetText("Joystick GLOBAL config is " joycfg " ")	
 		return
 	}
 emujchk= 
@@ -51672,7 +51672,7 @@ guicontrol,move,JOYPIC,x260 y253 w252 h126
 guicontrol,,JOYPIC,%joyimg%
 rajoytog= Show
 emjtog= Hide
-SB_SetText("Joytick config is " joycfg " ")	
+SB_SetText("Joystick config is " joycfg " ")	
 if (JOYCFGMODE = "emulator")
 	{
 		SB_SetText("Emulator Joy-config is " joycfg " ")	
@@ -52508,6 +52508,18 @@ return
 
 GetJoystickInput:
 JoystickNumber:= PLAYERNUM
+
+Medb1=joystick 00000000000%JoystickNumber%0000 0000000c
+Medb2=joystick 00000000000%JoystickNumber%0000 0000000d
+Medb3=joystick 00000000000%JoystickNumber%0000 0000000e
+Medb4=joystick 00000000000%JoystickNumber%0000 0000000f
+Medb5=joystick 00000000000%JoystickNumber%0000 00000008
+Medb6=joystick 00000000000%JoystickNumber%0000 00000009
+Medb7=joystick 00000000000%JoystickNumber%0000 00000005
+Medb8=joystick 00000000000%JoystickNumber%0000 00000004
+Medb9=joystick 00000000000%JoystickNumber%0000 00000006
+Medb0=joystick 00000000000%JoystickNumber%0000 00000007
+
 if JoystickNumber <= 0
 {
 	Loop 16
@@ -52575,6 +52587,7 @@ if (setup = "")
 if (buttons_down <> "")
 	{
 		JOYCOLLECT:= buttons_down-1
+		MEDNAFENCOLLECT:= % Medb%buttons_down%
 		break
 	}
 inputparse1=
@@ -52587,80 +52600,94 @@ stringsplit, inputparse, axis_info, %A_Space%, X Y Z R U POV
 if (inputparse1 > lstkxvarianceA)
 	{
 		JOYCOLLECT= +0
+		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00008000
 		break
 	}
 	
 if (inputparse1 <  lstkxvarianceB)
 	{
 		JOYCOLLECT= \-0
+		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 0000c000
 		break
 	}
 	
 if (inputparse3 > lstkyvarianceA)
 	{
 		JOYCOLLECT= +1
+		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 0000c001
 		break
 	}
 	
 if (inputparse3 <  lstkyvarianceB)
 	{
 		JOYCOLLECT= \-1
+		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00008001
 		break
 	}
 	
 if (inputparse5 >  trigvarianceA)
 	{
 		JOYCOLLECT= +5
+		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00008004
 		break
 	}
 	
 if (inputparse5 <  trigvarianceB)
 	{
 		JOYCOLLECT= +4
+		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00008005
 		break
 	}
 	
 if (inputparse7 > rstkxvarianceA)
 	{
 		JOYCOLLECT= +3
+		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 0000c003
 		break
 	}
 	
 if (inputparse7 <  rstkxvarianceB)
 	{
 		JOYCOLLECT= \-3
+		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00008003
 		break
 	}
 	
 if (inputparse9 > rstkyvarianceA)
 	{
 		JOYCOLLECT= +2
+		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00008002
 		break
 	}
 	
 if (inputparse9 < rstkyvarianceB)
 	{
 		JOYCOLLECT= \-2
+		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 0000c002
 		break
 	}
 	if (inputparse11 > 22501)
 	{
 		JOYCOLLECT= h0left
+		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00000002
 		break
 	}
 	if (inputparse11 > 13501)
 	{
 		JOYCOLLECT= h0down
+		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00000001
 		break
 	}
 	if (inputparse11 > 4499)
 	{
 		JOYCOLLECT= h0right
+		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00000003
 		break
 	}
 	if (inputparse11 > -1)
 	{
 		JOYCOLLECT= h0up
+		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00000000
 		break
 	}
 	
@@ -53530,13 +53557,17 @@ if (RJMEDNM = "")
 		RJMEDNM= psx
 	}
 mednjbuts= 
-FileRead, mednjbuts, rj\emuCfgs\mednafen\xinputdefault.set
+FileRead, mednjbuts, rj\emuCfgs\mednafen\xinput.default.set
 stringreplace,mednjbuts,mednjbuts,[PLAYERNUM],1,All
 stringreplace,mednjbuts,mednjbuts,[JOYINDEX],1,All
 if (medjbid = "")
 	{				
-		Loop, parse, mednjbuts,`n,`r
+		Loop, parse, mednjbuts,`n`r
 			{	
+				if (A_LoopField = "")
+					{
+						continue
+					}
 				ae1=	
 				ae2=	
 				stringsplit,ae,A_LoopField,=
@@ -53562,6 +53593,7 @@ if (medjname = "")
 				medjname.= jnam1 . "|"
 			}
 	}
+
 gosub, JMednafenRAD3A
 guicontrol,,emjCBA,|%medjname%
 guicontrol,,emjDDLA,|advance_frame|exit|fast_forward|insert_coin|insert_eject_disk|load_movie|load_state|power|reset|rotate_screen|run_normal|save_movie|save_state|select_disk|slow_forward|state_rewind|state_slot_dec|state_slot_inc|take_scaled_snapshot|take_snapshot|toggle_fps_view|toggle_fs|toggle_grab|toggle_state_rewind|togglecheatactive|togglecheatview|togglenetview
@@ -53595,8 +53627,11 @@ guicontrol,,emjA,|%medjname%
 guicontrol,,emjl2,|%medjname%
 guicontrol,,emjr2,|%medjname%
 */
+
+
 gosub, MED%RJMEDNM%JOY
 SB_SetText(" Mednafen joystick loading complete ")
+fileappend,%mednjbuts%, %indvcp%\testing.joy
 return
 
 MEDCCLRE:
@@ -54359,30 +54394,30 @@ if (JSW= 1)
 
 PLYRT:
 ;{;;;;;;;;;;;;;;;;;;;;;;      Joystick Init Values    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-JRXMinus= \-2
-JLXMinus= \-0
-Jr= 5
-Jl= 4
-JRXPlus= +2
-JLYPlus= \-1
-JRYMinus= +3
-JR3= 9
-JL3= 8
-JLYMinus= +1
-Jselect= 6
-Jstart= 7
 Jup= h0up
 Jleft= h0left
 Jright= h0right
 Jdown= h0down
+JR3= 9
+JL3= 8
+Jr= 5
+Jl= 4
+Jselect= 6
+Jstart= 7
 Jy= 3	
 Jx= 2
 Jb= 0
 Ja= 1
-JLXPlus= +0
 Jl2= +5
-JRYPlus= \-3
 Jr2= +4
+JRXMinus= \-2
+JRXPlus= +2
+JRYMinus= +3
+JRYPlus= \-3
+JLXMinus= \-0
+JLYPlus= \-1
+JLYMinus= +1
+JLXPlus= +0
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;;;;;;;;;;;;;;;      KB1 init Values     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -54630,6 +54665,7 @@ guicontrol,show,emjXBUTIN
 guicontrol,show,emjBBUTIN
 guicontrol,show,emjABUTIN
 guicontrol,show,emjINPBUTIN
+
 Loop, parse,joyiterate,|
 	{
 			INPDBX= 
@@ -54752,131 +54788,285 @@ return
 ;{;;;;;;;;   Mednafen Joy Button Functions  ;;;;;;;;;;;;;;;;;
 JMednafenTURBOIN:
 gui, submit, nohide
-
+SB_SetText(" Waiting for input TURBO")
+gosub, GetJoystickInput
+if (MEDNAFENCOLLECT <> "")
+	{
+		guicontrol,,emjTRBCMB,|%MEDNAFENCOLLECT%||%medjbid%
+	}
+SB_SetText(" MEDNAFENCOLLECT ")
 return
 
 JMednafenLTRIGIN:
 gui, submit, nohide
-
+SB_SetText(" Waiting for input L Trigger ")
+gosub, GetJoystickInput
+if (MEDNAFENCOLLECT <> "")
+	{
+		guicontrol,,emjl2,|%MEDNAFENCOLLECT%||%medjbid%
+	}
+SB_SetText(" MEDNAFENCOLLECT ")
 return
 
 JMednafenLBUMPIN:
 gui, submit, nohide
-
+SB_SetText(" Waiting for input L Bumper ")
+gosub, GetJoystickInput
+if (MEDNAFENCOLLECT <> "")
+	{
+		guicontrol,,emjL,|%MEDNAFENCOLLECT%||%medjbid%
+	}
+SB_SetText(" MEDNAFENCOLLECT ")
 return
 
 JMednafenRTRIGIN:
 gui, submit, nohide
-
+SB_SetText(" Waiting for input R Trigger ")
+gosub, GetJoystickInput
+if (MEDNAFENCOLLECT <> "")
+	{
+		guicontrol,,emjr2,|%MEDNAFENCOLLECT%||%medjbid%
+	}
+SB_SetText(" MEDNAFENCOLLECT ")
 return
 
 JMednafenRBUMPIN:
 gui, submit, nohide
-
+SB_SetText(" Waiting for input R Bumper ")
+gosub, GetJoystickInput
+if (MEDNAFENCOLLECT <> "")
+	{
+		guicontrol,,emjR,|%MEDNAFENCOLLECT%||%medjbid%
+	}
+SB_SetText(" MEDNAFENCOLLECT ")
 return
 
 JMednafenLSTICKUPIN:
 gui, submit, nohide
-
+SB_SetText(" Waiting for input L-Stick Up ")
+gosub, GetJoystickInput
+if (MEDNAFENCOLLECT <> "")
+	{
+		guicontrol,,emjLYPlus,|%MEDNAFENCOLLECT%||%medjbid%
+	}
+SB_SetText(" MEDNAFENCOLLECT ")
 return
 
 JMednafenLSTICKLFTIN:
 gui, submit, nohide
-
+SB_SetText(" Waiting for input L-Stick Left ")
+gosub, GetJoystickInput
+if (MEDNAFENCOLLECT <> "")
+	{
+		guicontrol,,emjLYMinus,|%MEDNAFENCOLLECT%||%medjbid%
+	}
+SB_SetText(" MEDNAFENCOLLECT ")
 return
 
 JMednafenLSTICKRTIN:
 gui, submit, nohide
-
+SB_SetText(" Waiting for input L-Stick Right ")
+gosub, GetJoystickInput
+if (MEDNAFENCOLLECT <> "")
+	{
+		guicontrol,,emjLXPlus,|%MEDNAFENCOLLECT%||%medjbid%
+	}
+SB_SetText(" MEDNAFENCOLLECT ")
 return
 
 JMednafenLSTICKDWNIN:
 gui, submit, nohide
-
+SB_SetText(" Waiting for input L-Stick Down ")
+gosub, GetJoystickInput
+if (MEDNAFENCOLLECT <> "")
+	{
+		guicontrol,,emjLXMinus,|%MEDNAFENCOLLECT%||%medjbid%
+	}
+SB_SetText(" MEDNAFENCOLLECT ")
 return
 
 JMednafenLSTICKBUTIN:
 gui, submit, nohide
-
+SB_SetText(" Waiting for input L3 Button ")
+gosub, GetJoystickInput
+if (MEDNAFENCOLLECT <> "")
+	{
+		guicontrol,,emjL3,|%MEDNAFENCOLLECT%||%medjbid%
+	}
+SB_SetText(" MEDNAFENCOLLECT ")
 return
 
 JMednafenRSTICKUPIN:
 gui, submit, nohide
-
+SB_SetText(" Waiting for input R-Stick Up ")
+gosub, GetJoystickInput
+if (MEDNAFENCOLLECT <> "")
+	{
+		guicontrol,,emjRYPlus,|%MEDNAFENCOLLECT%||%medjbid%
+	}
+SB_SetText(" MEDNAFENCOLLECT ")
 return
 
 JMednafenRSTICKLFTIN:
 gui, submit, nohide
-
+SB_SetText(" Waiting for input R-Stick Left ")
+gosub, GetJoystickInput
+if (MEDNAFENCOLLECT <> "")
+	{
+		guicontrol,,emjRXMinus,|%MEDNAFENCOLLECT%||%medjbid%
+	}
+SB_SetText(" MEDNAFENCOLLECT ")
 return
 
 JMednafenRSTICKRTIN:
 gui, submit, nohide
+SB_SetText(" Waiting for input R-Stick Right ")
 
+gosub, GetJoystickInput
+if (MEDNAFENCOLLECT <> "")
+	{
+		guicontrol,,emjRXPlus,|%MEDNAFENCOLLECT%||%medjbid%
+	}
+SB_SetText(" MEDNAFENCOLLECT ")
 return
 
 JMednafenRSTICKDWNIN:
 gui, submit, nohide
-
+SB_SetText(" Waiting for input R-Stick Down ")
+gosub, GetJoystickInput
+if (MEDNAFENCOLLECT <> "")
+	{
+		guicontrol,,emjRYMinus,|%MEDNAFENCOLLECT%||%medjbid%
+	}
+SB_SetText(" MEDNAFENCOLLECT ")
 return
 
 JMednafenRSTICKBUTIN:
 gui, submit, nohide
-
+SB_SetText(" Waiting for input R3 Button ")
+gosub, GetJoystickInput
+if (MEDNAFENCOLLECT <> "")
+	{
+		guicontrol,,emjR3,|%MEDNAFENCOLLECT%||%medjbid%
+	}
+SB_SetText(" MEDNAFENCOLLECT ")
 return
 
 JMednafenDPADDWNIN:
 gui, submit, nohide
-
+SB_SetText(" Waiting for input DPad Down")
+gosub, GetJoystickInput
+if (MEDNAFENCOLLECT <> "")
+	{
+		guicontrol,,emjdown,|%MEDNAFENCOLLECT%||%medjbid%
+	}
+SB_SetText(" MEDNAFENCOLLECT ")
 return
 
 JMednafenDPADUPIN:
 gui, submit, nohide
+SB_SetText(" Waiting for input DPad Up")
+gosub, GetJoystickInput
+if (MEDNAFENCOLLECT <> "")
+	{
+		guicontrol,,emup,|%MEDNAFENCOLLECT%||%medjbid%
+	}
+SB_SetText(" MEDNAFENCOLLECT ")
 
 return
 
 JMednafenDPADLFTIN:
 gui, submit, nohide
+SB_SetText(" Waiting for input DPad Left")
 
+gosub, GetJoystickInput
+if (MEDNAFENCOLLECT <> "")
+	{
+		guicontrol,,emjleft,|%MEDNAFENCOLLECT%||%medjbid%
+	}
+SB_SetText(" MEDNAFENCOLLECT ")
 return
 
 JMednafenDPADRTIN:
 gui, submit, nohide
+SB_SetText(" Waiting for input DPad Right")
+gosub, GetJoystickInput
+if (MEDNAFENCOLLECT <> "")
+	{
+		guicontrol,,emjright,|%MEDNAFENCOLLECT%||%medjbid%
+	}
+SB_SetText(" MEDNAFENCOLLECT ")
 
 return
 
 JMednafenSLCTBUTIN:
 gui, submit, nohide
+SB_SetText(" Waiting for input Select Button")
 
+gosub, GetJoystickInput
+if (MEDNAFENCOLLECT <> "")
+	{
+		guicontrol,,emjselect,|%MEDNAFENCOLLECT%||%medjbid%
+	}
+SB_SetText(" MEDNAFENCOLLECT ")
 return
 
 JMednafenSTRTBUTIN:
 gui, submit, nohide
-
+SB_SetText(" Waiting for input Start Button")
+gosub, GetJoystickInput
+if (MEDNAFENCOLLECT <> "")
+	{
+		guicontrol,,emjstart,|%MEDNAFENCOLLECT%||%medjbid%
+	}
+SB_SetText(" MEDNAFENCOLLECT ")
 return
 
 JMednafenYBUTIN:
 gui, submit, nohide
+SB_SetText(" Waiting for input Y Button")
+gosub, GetJoystickInput
+if (MEDNAFENCOLLECT <> "")
+	{
+		guicontrol,,emjY,|%MEDNAFENCOLLECT%||%medjbid%
+	}
+SB_SetText(" MEDNAFENCOLLECT ")
 
 return
 
 JMednafenXBUTIN:
 gui, submit, nohide
+SB_SetText(" Waiting for input X Button")
+gosub, GetJoystickInput
+if (MEDNAFENCOLLECT <> "")
+	{
+		guicontrol,,emjX,|%MEDNAFENCOLLECT%||%medjbid%
+	}
+SB_SetText(" MEDNAFENCOLLECT ")
 
 return
 
 JMednafenBBUTIN:
 gui, submit, nohide
+SB_SetText(" Waiting for input B Button")
 
 return
 
 JMednafenABUTIN:
 gui, submit, nohide
+SB_SetText(" Waiting for input A Button")
+gosub, GetJoystickInput
+if (MEDNAFENCOLLECT <> "")
+	{
+		guicontrol,,emjA,|%MEDNAFENCOLLECT%||%medjbid%
+	}
+SB_SetText(" MEDNAFENCOLLECT ")
 
 return
 
 JMednafenINPBUTIN:
 gui, submit, nohide
+SB_SetText(" Waiting for input")
 
 return
 
