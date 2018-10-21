@@ -25431,8 +25431,21 @@ srchtog= hide
 
 gosub, TOGRAOPTS
 gosub, TOGSKELGUI
-
 gosub, TOGGLESEARCHBOX
+
+if (mact = "")
+	{
+		fileread,mact,rj\emucfgs\mednafen\mednafenjoy.set.ret
+	}
+if (macx = "")
+	{	
+		fileread,macx,rj\emucfgs\mednafen\xinput.default.set
+	}
+if (macv = "")
+	{
+		fileread,macv,rj\emucfgs\mednafen\defaults.ini.ret
+	}
+
 guicontrolget,uuniv,,FNDGUI
 
 if (uuniv = "X")
@@ -25766,7 +25779,7 @@ IniRead, mtcfg,rj\emuCfgs\mednafen\defaults.ini.ret,GLOBAL
 IniRead, micfg,rj\emuCfgs\mednafen\defaults.ini.ret,INPUT
 IniRead, mtrfg,rj\emuCfgs\mednafen\defaults.ini.ret,COMMON
 stringreplace,mtrfg,mtrfg,<system>,%RJMEDNM%,All
-
+;;;global export;;;;
 Loop, parse, mtcfg,`n,`r
 	{
 		aii1=
@@ -25797,6 +25810,7 @@ Loop, parse, mtcfg,`n,`r
 			}
 		FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
 	}
+;;;;system unique export;;;;
 Loop, parse, mtafg,`n, `r
 	{		
 		aii1=
@@ -25804,6 +25818,7 @@ Loop, parse, mtafg,`n, `r
 		stringsplit,aii,A_LoopField,=,`n`r
 		FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
 	}
+;;;;common system export;;;;
 Loop, parse, mtrfg,`n, `r
 	{
 		aii1=
@@ -25811,6 +25826,7 @@ Loop, parse, mtrfg,`n, `r
 		stringsplit,aii,A_LoopField,=,`n`r
 		FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
 	}
+;;;;input export;;;;
 Loop, parse, micfg,`n, `r
 	{
 		aii1=
@@ -25823,16 +25839,50 @@ Loop, parse, micfg,`n, `r
 		stringsplit,api,aii1,.
 		if (api1 = RJMEDNM)
 			{
-				inmic= 
-				ifinstring,aii2,[
+			/*
+				Loop, parse, mact,`n`r
 					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						stringsplit,afv,A_LoopField,~,`n`r
+						stringmid,pn,afv2,3,1
+						Loop, Parse, macv,`n`r
+							{
+								if (A_LoopField = "")
+									{
+										continue
+									}
+								mnow= %A_LoopField%
+								stringsplit,ii,A_LOopField,=,`n`r
+								if (ii2 = afv2)
+									{
+										Loop, Parse,macx,`n`r
+											{
+												if (A_LoopField = "")
+													{
+														continue
+													}
+												stringreplace,ayu,A_LoopField,[PLAYERNUM],%pn%,All
+												stringreplace,ayu,ayu,[JOYINDEX],%pn%,All
+												stringsplit,nn,ayu,=,`n`r
+												nna= [%nn1%]
+												if (nna = afv2)
+													{
+														stringreplace,macv,macv,%mnow%,%ii1%=%afv1%~%nn2%,All
+													}
+											}
+									}
+							}
+					}
 						stringtrimleft,aiix,aii2,3
 						Loop, parse, mkbl,`n,`r
 							{	
 								ifinstring,A_LoopField,%aii2%
 									{
 										jifnl= %aii2%
-										Loop,Parse,medjbid,`n`r
+										Loop,Parse,medjbid,|
 											{
 												mjsplb1=
 												mjsplb2=
@@ -25855,7 +25905,8 @@ Loop, parse, micfg,`n, `r
 								continue
 							}
 					}
-				FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
+				*/
+				;;FileAppend,%macv%`n,%MEDCFGLOC%
 			}
 	}
 
@@ -55577,7 +55628,6 @@ partition=
 gosub, zpkproc
 splitpath,ROMZ,,,tstxtn,romname
 tstxtn= .%tstxtn%
-msgbox,,,romz=%ROMZ%`ntstxtn=%tstxtn%`nromname=%romname%
 FINR= 1
 return
 

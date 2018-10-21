@@ -513,7 +513,7 @@ pce_fast.input.port2.gamepad.select=[P2SET1BUT7]
 pce_fast.input.port2.gamepad.up=[P2SET1PADUP]
 pce_fast.input.port2.gamepad.v=[P2SET1BUT4]
 pce_fast.input.port2.gamepad.vi=[P2SET1BUT6]
-pce_fast.mouse_sensitivity=0.50	
+pce_fast.mouse_sensitivity=0.50
 
 pcfx.input.port1=gamepad
 pcfx.input.port1.gamepad.down=[P1SET1PADDOWN]
@@ -557,7 +557,7 @@ psx.input.port1.dualshock.analog=[P1SET1MODE]
 psx.input.port1.dualshock.circle=[P1SET1BUT1]
 psx.input.port1.dualshock.cross=[P1SET1BUT2]
 psx.input.port1.dualshock.down=[P1SET1PADDOWN]
-psx.input.port1.dualshock.l1=[P1SET1BUT5] 
+psx.input.port1.dualshock.l1=[P1SET1BUT5]
 psx.input.port1.dualshock.l2=[P1SET1TRIGLEFT]
 psx.input.port1.dualshock.l3=[P1SET1BUT9]
 psx.input.port1.dualshock.left=[P1SET1PADLEFT]
@@ -586,10 +586,10 @@ psx.input.port1.gamepad.l2=[P1SET1TRIGLEFT]
 psx.input.port1.gamepad.left=[P1SET1PADLEFT]
 psx.input.port1.gamepad.r1=[P1SET1BUT6]
 psx.input.port1.gamepad.r2=[P1SET1TRIGRIGHT]
-psx.input.port1.gamepad.rapid_circle 
-psx.input.port1.gamepad.rapid_cross 
-psx.input.port1.gamepad.rapid_square 
-psx.input.port1.gamepad.rapid_triangle 
+psx.input.port1.gamepad.rapid_circle
+psx.input.port1.gamepad.rapid_cross
+psx.input.port1.gamepad.rapid_square
+psx.input.port1.gamepad.rapid_triangle
 psx.input.port1.gamepad.right=[P1SET1PADRIGHT]
 psx.input.port1.gamepad.select=[P1SET1BUT7]
 psx.input.port1.gamepad.square=[P1SET1BUT3]
@@ -601,7 +601,7 @@ psx.input.port2.dualshock.analog=[P2SET1MODE]
 psx.input.port2.dualshock.circle=[P2SET1BUT1]
 psx.input.port2.dualshock.cross=[P2SET1BUT2]
 psx.input.port2.dualshock.down=[P2SET1PADDOWN]
-psx.input.port2.dualshock.l1=[P2SET1BUT5] 
+psx.input.port2.dualshock.l1=[P2SET1BUT5]
 psx.input.port2.dualshock.l2=[P2SET1TRIGLEFT]
 psx.input.port2.dualshock.l3=[P2SET1BUT9]
 psx.input.port2.dualshock.left=[P2SET1PADLEFT]
