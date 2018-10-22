@@ -1680,10 +1680,8 @@ FileInstall,rj\emucfgs\MAME\mame.ini.ret,rj\emucfgs\MAME\mame.ini.ret,1
 FileInstall,rj\emucfgs\map1010\map1010.ini.set,rj\emucfgs\map1010\map1010.ini.set,1
 FileInstall,rj\emucfgs\mastersystem\mastersystem.ini.set,rj\emucfgs\mastersystem\mastersystem.ini.set,1
 FileInstall,rj\emucfgs\MBS-1\mbs1.ini.set,rj\emucfgs\MBS-1\mbs1.ini.set,1
-FileInstall,rj\emucfgs\mednafen\defaults.ini.ret,rj\emucfgs\mednafen\defaults.ini.ret,1
 FileInstall,rj\emucfgs\mednafen\defaults.ini.set,rj\emucfgs\mednafen\defaults.ini.set,1
 FileInstall,rj\emucfgs\mednafen\med.cfg.set,rj\emucfgs\mednafen\med.cfg.set,1
-FileInstall,rj\emucfgs\mednafen\mednafen.cfg.ret,rj\emucfgs\mednafen\mednafen.cfg.ret,1
 FileInstall,rj\emucfgs\mednafen\mednafenjoy.set.ret,rj\emucfgs\mednafen\mednafenjoy.set.ret,1
 FileInstall,rj\emucfgs\mednafen\mednafenkb.set.ret,rj\emucfgs\mednafen\mednafenkb.set.ret,1
 FileInstall,rj\emucfgs\mednafen\xinput.default.set,rj\emucfgs\mednafen\xinput.default.set,1

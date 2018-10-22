@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-20 5:51 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-21 9:39 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-10-20 5:51 PM
-VERSION= v0.99.58.87
+RELEASE= 2018-10-21 9:39 PM
+VERSION= v0.99.58.88
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -25433,17 +25433,25 @@ gosub, TOGRAOPTS
 gosub, TOGSKELGUI
 gosub, TOGGLESEARCHBOX
 
-if (mact = "")
+if (medtj = "")
 	{
-		fileread,mact,rj\emucfgs\mednafen\mednafenjoy.set.ret
+		fileread,medtj,rj\emucfgs\mednafen\mednafenjoy.set.ret
 	}
-if (macx = "")
+if (medxi = "")
 	{	
-		fileread,macx,rj\emucfgs\mednafen\xinput.default.set
+		fileread,medxi,rj\emucfgs\mednafen\xinput.default.set
 	}
-if (macv = "")
+if (medao = "")
 	{
-		fileread,macv,rj\emucfgs\mednafen\defaults.ini.ret
+		fileread,medao,rj\emucfgs\mednafen\defaults.ini.set
+		Loop,Parse,medao,=
+			{
+				ifinstring,A_LoopField,=
+					{
+						stringsplit,amedo,A_LoopField
+						allmedo.= amedo1 . "|"
+					}
+			}
 	}
 
 guicontrolget,uuniv,,FNDGUI
@@ -25774,10 +25782,10 @@ ifexist, %MEDCFGLOC%
 	{
 		goto, LOADMEDNAFENOPTS
 	}
-IniRead, mtafg,rj\emuCfgs\mednafen\defaults.ini.ret,%RJMEDNM%
-IniRead, mtcfg,rj\emuCfgs\mednafen\defaults.ini.ret,GLOBAL
-IniRead, micfg,rj\emuCfgs\mednafen\defaults.ini.ret,INPUT
-IniRead, mtrfg,rj\emuCfgs\mednafen\defaults.ini.ret,COMMON
+IniRead, mtafg,rj\emuCfgs\mednafen\defaults.ini.set,%RJMEDNM%
+IniRead, mtcfg,rj\emuCfgs\mednafen\defaults.ini.set,GLOBAL
+IniRead, micfg,rj\emuCfgs\mednafen\defaults.ini.set,INPUT
+IniRead, mtrfg,rj\emuCfgs\mednafen\defaults.ini.set,COMMON
 stringreplace,mtrfg,mtrfg,<system>,%RJMEDNM%,All
 ;;;global export;;;;
 Loop, parse, mtcfg,`n,`r
@@ -25827,7 +25835,7 @@ Loop, parse, mtrfg,`n, `r
 		FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
 	}
 ;;;;input export;;;;
-Loop, parse, micfg,`n, `r
+Loop, parse, micfg,`n`r
 	{
 		aii1=
 		aii2=
@@ -25839,74 +25847,11 @@ Loop, parse, micfg,`n, `r
 		stringsplit,api,aii1,.
 		if (api1 = RJMEDNM)
 			{
-			/*
-				Loop, parse, mact,`n`r
-					{
-						if (A_LoopField = "")
-							{
-								continue
-							}
-						stringsplit,afv,A_LoopField,~,`n`r
-						stringmid,pn,afv2,3,1
-						Loop, Parse, macv,`n`r
-							{
-								if (A_LoopField = "")
-									{
-										continue
-									}
-								mnow= %A_LoopField%
-								stringsplit,ii,A_LOopField,=,`n`r
-								if (ii2 = afv2)
-									{
-										Loop, Parse,macx,`n`r
-											{
-												if (A_LoopField = "")
-													{
-														continue
-													}
-												stringreplace,ayu,A_LoopField,[PLAYERNUM],%pn%,All
-												stringreplace,ayu,ayu,[JOYINDEX],%pn%,All
-												stringsplit,nn,ayu,=,`n`r
-												nna= [%nn1%]
-												if (nna = afv2)
-													{
-														stringreplace,macv,macv,%mnow%,%ii1%=%afv1%~%nn2%,All
-													}
-											}
-									}
-							}
-					}
-						stringtrimleft,aiix,aii2,3
-						Loop, parse, mkbl,`n,`r
-							{	
-								ifinstring,A_LoopField,%aii2%
-									{
-										jifnl= %aii2%
-										Loop,Parse,medjbid,|
-											{
-												mjsplb1=
-												mjsplb2=
-												stringsplit,mjsplb,A_LoopField,~
-												stringtrimleft,kiix,mjsplb2,3
-												if (aiix = kiix)
-													{
-														FileAppend,%aii1% %kiix1%~%jifnl%~%kiix2%`n,%MEDCFGLOC%
-														inmic= 1
-														continue
-													}
-											}
-										FileAppend,%aii1% %A_LoopField%`n,%MEDCFGLOC%
-										inmic= 1
-										continue
-									}
-							}
-						if (inmic = 1)
-							{
-								continue
-							}
-					}
-				*/
-				;;FileAppend,%macv%`n,%MEDCFGLOC%
+				FileAppend,%aii1%%A_Space%%aii2%`n,%MEDCFGLOC%
+			}
+		if (RJMEDNM	= "")
+			{
+				FileAppend,%aii1%%A_Space%%aii2%`n,%MEDCFGLOC%
 			}
 	}
 
@@ -37980,7 +37925,7 @@ guicontrol,,LCORE,|%RJEMUTG%||%runlist%
 EMUSN= %RJEMUTG%
 gosub, EMUOPTPOP
 svgbrnv=
-guicontrol,,JOYCORE,|%EMUSN%||Global|%corelist%|Xpadder|Antimicro%addemu%
+guicontrol,,JOYCORE,|%EMUSN%||Global|Xpadder|Antimicro|%corelist%%addemu%
 gosub, JOYEMUCORE
 guicontrol,,CFGSWITCH,|||RJ|||
 return
@@ -51637,6 +51582,7 @@ if (JOYCORE = "Global")
 		SB_SetText("Joystick GLOBAL config is " joycfg " ")	
 		return
 	}
+
 emujchk= 
 emujchk1= 
 emujchk2= 
@@ -51677,7 +51623,6 @@ if (emujchk2 <> "dll")
 					}
 				gosub, MEDCCLRE
 				gosub %JOYCORE%CTRLS
-				
 			}
 
 		if (ejcex = "")
@@ -53608,6 +53553,7 @@ if (RJMEDNM = "")
 		RJMEDNM= psx
 	}
 mednjbuts= 
+
 FileRead, mednjbuts, rj\emuCfgs\mednafen\xinput.default.set
 stringreplace,mednjbuts,mednjbuts,[PLAYERNUM],1,All
 stringreplace,mednjbuts,mednjbuts,[JOYINDEX],1,All
@@ -53678,11 +53624,9 @@ guicontrol,,emjA,|%medjname%
 guicontrol,,emjl2,|%medjname%
 guicontrol,,emjr2,|%medjname%
 */
-
-
+MEDNAFENJPRELOAD:
 gosub, MED%RJMEDNM%JOY
 SB_SetText(" Mednafen joystick loading complete ")
-fileappend,%mednjbuts%, %indvcp%\testing.joy
 return
 
 MEDCCLRE:
@@ -53755,8 +53699,141 @@ guicontrol,,emjDDLB,|1||2|3|4
 return
 
 MEDnesJOY:
+guicontrolget,emjddlf,,emjddlf
+FileRead,medjimp,%MEDCFGLOC%
+mednesbut= a|b|down|left|right|select|start|up
+Loop, Parse, medjimp,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		aik1=	
+		aik2=	
+		aik3=	
+		aik4=	
+		aik5=	
+		stringsplit,aik,A_LoopField,.
+		if ((aik1 = RJMEDNM)&&(aik2 = "input"))
+			{
+				aip1= 
+				aip2= 
+				aip3= 
+				aip4= 
+				aip5= 
+				aip6= 
+				aip7= 
+				aip8= 
+				stringsplit,aip,A_LoopField,%A_Space%
+				aisp= %aip2%
+				if (aip3 <> "")
+					{
+						aisp= %aip2% %aip3%
+					}
+				if (aip4 <> "")
+					{
+						aisp= %aip2% %aip3% %aip4%
+					}
+				if (aip5 <> "")
+					{
+						aisp= %aip2% %aip3% %aip4% %aip5%
+					}
+				if (aip6 <> "")
+					{
+						aisp= %aip2% %aip3% %aip4% %aip5% %aip6%
+					}
+				if (aip7 <> "")
+					{
+						aisp= %aip2% %aip3% %aip4% %aip5% %aip6% %aip7%
+					}
+				if (aip8 <> "")
+					{
+						aisp= %aip2% %aip3% %aip4% %aip5% %aip6% %aip7% %aip8%
+					}
+				if (aip9 <> "")
+					{
+						aisp= %aip2% %aip3% %aip4% %aip5% %aip6% %aip7% %aip8% %aip9%
+					}
+				if (aik4 = "")
+					{
+						guicontrol,,emjDDLF,|%aip2%||gamepad|powerpad|arkanoid|zapper
+						continue
+					}
+				ifinstring,aik3,port
+					{
+						stringright,curjport,aik3,1
+					}
+				Loop, Parse,mednesbut,|
+					{
+						meditbv= %A_LoopField%
+						if (A_LoopField = "a")
+							{
+								meditbv= B
+							}
+						if (A_LoopField = "b")
+							{
+								meditbv= A
+							}
+						mjkpop= %aisp%
+						ifinstring,aisp,~
+							{
+								stringsplit,medjval,aisp,~
+                                mjkpop= %medjval1%
+								if (medjval2 = "")
+									{
+										stringsplit,mjvpop,medjval1,+
+										mjkpop= %mjvpop1%
+									}	
+								ifinstring,mjkpop,joystick
+									{
+										stringmid,mpljn,mjkpop,21,21
+										stringsplit,jplx,mjkpop,%A_Space%
+										if (mpljn = curjport)
+											{
+												Loop, Parse, medxi,`n`r
+													{
+														if (A_LoopField = "")
+															{
+																continue
+															}
+														stringsplit,mjvak,A_LoopField,=]
+														stringmid,meditbd,mjvak2,5,13
+														stringmid,aiv,mjvak4,6,13
+														if (aiv = jplx3)
+															{
+																guicontrol,,emj%meditbv%,|%meditbd%||%medjbid%
+																continue
+															}
+														
+													}
+											}
+										continue	
+									}
+								ifinstring,medjval1,keyboard
+									{
+										Loop,Parse,mednjctrls,`n`r
+											{
+												if (A_LoopField = "")
+													{
+														continue
+													}
+												stringsplit,din,mjkpop,%A_Space%~
+												msgbox,,,aip3=%aip3%`ndin2=%din2%
+												if (aip3 = din2)
+													{
+														guicontrol,,emj%meditbv%,|%din1%||%medjbid%
+													}
+											}
+									}
+								continue
+							}
+						stringsplit,medjval,A_LoopField,%A_Space%~
+						
+					}
+			}
+		
+	}
 guicontrol,,emjDDLB,|1||2|3|4|5|6|7|8
-guicontrol,,emjDDLF,|gamepad||powerpad|arkanoid|zapper
 return
 
 MEDpceJOY:
@@ -53780,7 +53857,7 @@ guicontrol,,emjDDLB,|1||2|3|4|5|6|7|8
 return
 
 MEDsmsJOY:
-guicontrol,,emjDDLF,|gamepad||
+guicontrol,,emjDDLF,|gamepad||lightgun
 guicontrol,,emjDDLB,|1||2|3|4
 return
 
@@ -54723,6 +54800,7 @@ Loop, parse,joyiterate,|
 			StringReplace,INPDBX,A_LoopField,_,,All
 			guicontrol,,emj%INPDBX%,|%medjbid%
 	}
+gosub, MEDNAFENJPRELOAD	
 return
 
 JMednafenBUTA:
