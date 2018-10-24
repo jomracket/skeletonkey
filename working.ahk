@@ -707,7 +707,7 @@ noinstallers= |Media|Mirrored_Links|IRAL|AdvancedLauncher|ROM_Collection_Browser
 INPKND= KB|J|AXIS
 PLAYERSET=1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16
 
-mednfsc= gb|gg|gba|lynx|md|nes|pce|pce_fast|pcfx|psx|sms|snes|snes_faust|ss|vb|wswan
+mednfsc= gb|gg|gba|lynx|md|nes|ngp|pce|pce_fast|pcfx|psx|sms|snes|snes_faust|ss|vb|wswan
 
 JOYSET=0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|h0up|h0down|h0left|h0right|\-1|+1|\-0|+0|\-2|+2|\-3|+3|+4|+5|nul
 
@@ -2452,25 +2452,25 @@ Gui, Add, ComboBox, x523 y202 w75  vr2 gr2, +4||%JOYSET%
 emjtog= Hide
 emjvis= Hidden
 Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x16 y13 w94 h116 vemjAGRP Hidden, emjAGRP
+Gui, Add, GroupBox, x16 y13 w94 h116 vemjAGRP Hidden,
 Gui,Font,%fontXsm% Norm 
-Gui, Add, Radio, x24 y29 h23 vemjRAD1A gemjRAD1A Hidden, emjRAD1A
-Gui, Add, Radio, x24 y53 h23 vemjRAD1B gemjRAD1B Hidden, emjRAD1B
-Gui, Add, Radio, x24 y77 h23 vemjRAD1C gemjRAD1C Hidden, emjRAD1C
-Gui, Add, Radio, x24 y101 h23 vemjRAD1D gemjRAD1D Hidden, emjRAD1D
+Gui, Add, Radio, x24 y29 h23 vemjRAD1A gemjRAD1A Hidden,
+Gui, Add, Radio, x24 y53 h23 vemjRAD1B gemjRAD1B Hidden,
+Gui, Add, Radio, x24 y77 h23 vemjRAD1C gemjRAD1C Hidden,
+Gui, Add, Radio, x24 y101 h23 vemjRAD1D gemjRAD1D Hidden,
 
 Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x115 y13 w80 h70 vemjBGRP Hidden, emjBGRP
+Gui, Add, GroupBox, x115 y13 w80 h70 vemjBGRP Hidden,
 Gui,Font, Normal
-Gui, Add, Radio, x123 y30 h13 vemjRAD2A gemjRAD2A Hidden, emjRAD2A
-Gui, Add, Radio, x123 y48 h13 vemjRAD2B gemjRAD2B Hidden, emjRAD2B
-Gui, Add, Radio, x123 y64 h13 vemjRAD2C gemjRAD2C Hidden, emjRAD2C
+Gui, Add, Radio, x123 y30 h13 vemjRAD2A gemjRAD2A Hidden,
+Gui, Add, Radio, x123 y48 h13 vemjRAD2B gemjRAD2B Hidden,
+Gui, Add, Radio, x123 y64 h13 vemjRAD2C gemjRAD2C Hidden,
 
 Gui,Font,%fontXsm% Bold
 Gui, Add, GroupBox, x46 y259 w216 h120 vemjCGRP Hidden, Left Analog Stick
 Gui, Add, GroupBox, x512 y259 w216 h120 vemjDGRP Hidden, Right Analog Stick
 Gui, Add, GroupBox, x46 y386 w215 h90 vemjEGRP Hidden, Directional Pad
-Gui, Add, GroupBox, x523 y101 w232 h91 vemjFGRP Hidden, emjFGRP
+Gui, Add, GroupBox, x523 y101 w232 h91 vemjFGRP Hidden,
 Gui,Font,%fontXsm% Norm 
 
 Gui, Add, Text, x721 y427 h23 +0x200 vemjATXT Hidden, (1)
@@ -2487,58 +2487,58 @@ Gui, Add, Text, x678 y221 h23 +0x200 vemjJTXT Hidden, (5)Right Bumper
 Gui, Add, Text, x325 y405 h16 vemjLTXT Hidden, (6)Select
 Gui, Add, Text, x427 y405 h16 vemjMTXT Hidden, (7)Start
 Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x307 y6 w150 h105 Center vemjHGRP Hidden, emjHGRP
+Gui, Add, GroupBox, x307 y6 w150 h105 Center vemjHGRP Hidden,
 Gui,Font,%fontXsm% Norm 
-Gui, Add, Text, x463 y6 w170 h90 vemjNTXT Hidden, emjNTXT
-Gui, Add, Button, x220 y17 w60 h18 vemjBUTB gemjBUTB Hidden, emjBUTB
-Gui, Add, Button, x220 y40 w60 h18 vemjBUTA gemjBUTA Hidden, emjBUTA
+Gui, Add, Text, x463 y6 w170 h90 vemjNTXT Hidden,
+Gui, Add, Button, x220 y17 w60 h18 vemjBUTB gemjBUTB Hidden,
+Gui, Add, Button, x220 y40 w60 h18 vemjBUTA gemjBUTA Hidden,
 Gui, Add, Text, x197 y63 vemjOTXT Hidden,emjOTXT
 Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x248 y118 w273 h59 vemjGGRP Hidden, emjGGRP
+Gui, Add, GroupBox, x248 y118 w273 h59 vemjGGRP Hidden,
 Gui,Font,%fontXsm% Norm
-Gui, Add, Radio, x317 y32 h13 vemjRAD3A gemjRAD3A Hidden, emjRAD3A
-Gui, Add, Radio, x383 y32 h13 vemjRAD3B gemjRAD3B Hidden, emjRAD3B
+Gui, Add, Radio, x317 y32 h13 vemjRAD3A gemjRAD3A Hidden,
+Gui, Add, Radio, x383 y32 h13 vemjRAD3B gemjRAD3B Hidden,
 
-Gui, Add, ComboBox, x409 y136 w75 vemjCBA gemjCBA Hidden, emjCBA||
-Gui, Add, DDL, x254 y137 w139 vemjDDLA gemjDDLA Hidden, emjDDLA||
-Gui, Add, Text, x373 y50 h23 +0x200 vemjPTXT Hidden, emjPTXT
-Gui, Add, DDL, x409 y50 w40  vemjDDLB gemjDDLB Hidden, emjDDLB||
-Gui, Add, Text, x146 y135 h23 +0x200 vemjQTXT Hidden, emjQTXT
-Gui, Add, Text, x103 y160 w121 +0x200 vemjRTXT Hidden,emjRTXT 
-Gui, Add, DropDownList,x102 y136 w40 vemjDDLC gemjDDLC Hidden, emjDDLC||
-Gui, Add, Text, x31 y132 h23 +0x200 vemjSTXT Hidden, emjSTXT
-Gui, Add, DropDownList, x34 y158 w40 vemjDDLD gemjDDLD Hidden, emjDDLD||
-Gui, Add, CheckBox, x605 y5 h18 +0x20 vemjCHKA gemjCHKA Hidden, emjCHKA
-Gui, Add, CheckBox, x624 y24 h18 +0x20 vemjCHKB gemjCHKB Hidden, emjCHKB
-Gui, Add, CheckBox, x664 y44 h18 +0x20 vemjCHKC gemjCHKC Hidden, emjCHKC
-Gui, Add, CheckBox, x633 y64 h18 +0x20 vemjCHKD gemjCHKD Hidden, emjCHKD
-Gui, Add, CheckBox, x656 y84 h18 +0x20 vemjCHKE gemjCHKE Hidden, emjCHKE
-Gui, Add, Text, x334 y77 h23 +0x200 vemjTTXT Hidden, emjTTXT
-Gui, Add, DropDownList, x409 y77 w40 vemjDDLE gemjDDLE Hidden, emjDDLE||
+Gui, Add, ComboBox, x409 y136 w75 vemjCBA gemjCBA Hidden,
+Gui, Add, DDL, x254 y137 w139 vemjDDLA gemjDDLA Hidden,
+Gui, Add, Text, x373 y50 h23 +0x200 vemjPTXT Hidden,
+Gui, Add, DDL, x409 y50 w40  vemjDDLB gemjDDLB Hidden,
+Gui, Add, Text, x146 y135 h23 +0x200 vemjQTXT Hidden,
+Gui, Add, Text, x103 y160 w121 +0x200 vemjRTXT Hidden,
+Gui, Add, DropDownList,x102 y136 w40 vemjDDLC gemjDDLC Hidden,
+Gui, Add, Text, x31 y132 h23 +0x200 vemjSTXT Hidden,
+Gui, Add, DropDownList, x34 y158 w40 vemjDDLD gemjDDLD Hidden,
+Gui, Add, CheckBox, x605 y5 h18 +0x20 vemjCHKA gemjCHKA Hidden,
+Gui, Add, CheckBox, x624 y24 h18 +0x20 vemjCHKB gemjCHKB Hidden,
+Gui, Add, CheckBox, x664 y44 h18 +0x20 vemjCHKC gemjCHKC Hidden,
+Gui, Add, CheckBox, x633 y64 h18 +0x20 vemjCHKD gemjCHKD Hidden,
+Gui, Add, CheckBox, x656 y84 h18 +0x20 vemjCHKE gemjCHKE Hidden,
+Gui, Add, Text, x334 y77 h23 +0x200 vemjTTXT Hidden,
+Gui, Add, DropDownList, x409 y77 w40 vemjDDLE gemjDDLE Hidden,
 Gui,Font,Bold
-Gui, Add, GroupBox, x314 y419 w160 h80 Center vemjJGRP Hidden,emjJGRP
+Gui, Add, GroupBox, x314 y419 w160 h80 Center vemjJGRP Hidden,
 Gui, Font, Normal
-;;gui, Add, Text, x349 y429 h18 vemjUTXT Hidden, emjUTXT
-Gui, Add, Text, x320 y448 w130 h18 vemjVTXT Center Hidden, emjUTXT
-Gui, Add, Slider, x320 y472 w152 h24 Range0-100000 vemjSLDA gemjSLDA Hidden, emjSLDA
+;;gui, Add, Text, x349 y429 h18 vemjUTXT Hidden,
+Gui, Add, Text, x320 y448 w130 h18 vemjVTXT Center Hidden,
+Gui, Add, Slider, x320 y472 w152 h24 Range0-100000 vemjSLDA gemjSLDA Hidden,
 
-Gui, Add, CheckBox, x118 y112 w83 h16 vemjCHKF gemjCHKF Hidden, emjCHKF
-Gui, Add, DropDownList, x158 y88 w100 vemjDDLF gemjDDLF Hidden, emjDDLF||
-Gui, Add, Text, x268 y91 w34 h15 vemjWTXT Hidden, emjWTXT
+Gui, Add, CheckBox, x118 y112 w83 h16 vemjCHKF gemjCHKF Hidden,
+Gui, Add, DropDownList, x158 y88 w100 vemjDDLF gemjDDLF Hidden,
+Gui, Add, Text, x268 y91 w34 h15 vemjWTXT Hidden,
 
 Gui, Add, GroupBox, x272 y173 w225 h70 vemjIGRP Hidden,
-Gui, Add, Text, x437 y187 h18 vemjXTXT Hidden, emjXTXT
-Gui, Add, Edit, x388 y184 w45 h21 vemjEDTA gemjEDTA Hidden, emjEDTA
+Gui, Add, Text, x437 y187 h18 vemjXTXT Hidden,
+Gui, Add, Edit, x388 y184 w45 h21 vemjEDTA gemjEDTA Hidden,
 Gui, Add, UpDown, x412 y185 w17 h21 vemjUDA Hidden, 
 
-Gui, Add, CheckBox, x665 y110 h15 vemjCHKH gemjCHKH hidden, emjCHKH
+Gui, Add, CheckBox, x665 y110 h15 vemjCHKH gemjCHKH hidden,
 
-Gui, Add, Text, x437 y209 h18 vemjYTXT Hidden, emjYTXT
+Gui, Add, Text, x437 y209 h18 vemjYTXT Hidden,
 Gui, Add, Edit, x388 y209 w45 h21 vemjEDTB gemjEDTB Number Hidden,
 Gui, Add, UpDown, x405 y209 w17 h21 vemjUDB Hidden, 
 
-Gui, Add, CheckBox, x49 y363 vemjCHKG gemjCHKG Hidden, emjCHKG
-Gui, Add, Text, x280 y213 h17 vemjZTXT Hidden, emjZTXT
+Gui, Add, CheckBox, x49 y363 vemjCHKG gemjCHKG Hidden,
+Gui, Add, Text, x280 y213 h17 vemjZTXT Hidden,
 
 ;{;;;;;;;;;;;;;  ==Emu Buttons==  ;;;;;;;;;;;;;;;;;;
 Gui, Add, Button, x355 y192 w20 h20 vemjTURBOIN gemjTURBOIN Hidden, +
@@ -2571,30 +2571,30 @@ Gui, Add, Button, x484 y137 w20 h20 vemjINPBUTIN gemjINPBUTIN Hidden, +
 
 ;{;;;;;;;;;;;;;;     ==  EmuComboBoxes ==    ;;;;;;;;;;;
 Gui, Add, ComboBox, x280 y191 w75 vemjTRBCMB gemjTRBCMB Hidden, 
-Gui, Add, ComboBox, x521 y300 w75  vemjRXMinus gemjRXMinus Hidden,
-Gui, Add, ComboBox, x570 y279 w75  vemjRYPlus gemjRYPlus Hidden,
-Gui, Add, ComboBox, x574 y224 w75  vemjR gemjR Hidden,
-Gui, Add, ComboBox, x76 y221 w75  vemjL gemjL Hidden,
-Gui, Add, ComboBox, x622 y300 w75  vemjRXPlus gemjRXPlus Hidden,
-Gui, Add, ComboBox, x570 y320 w75  vemjRYMinus gemjRYMinus Hidden,
-Gui, Add, ComboBox, x521 y340 w75  vemjR3 gemjR3 Hidden,
-Gui, Add, ComboBox, x155 y340 w75  vemjL3 gemjL3 Hidden,
-Gui, Add, ComboBox, x57 y298 w75  vemjLXMinus gemjLXMinus Hidden, 
-Gui, Add, ComboBox, x105 y277 w75  vemjLYPlus gemjLYPlus Hidden,
-Gui, Add, ComboBox, x105 y318 w75  vemjLYMinus gemjLYMinus Hidden,
-Gui, Add, ComboBox, x158 y298 w75  vemjLXPlus gemjLXPlus Hidden,
-Gui, Add, ComboBox, x300 y385 w75  vemjselect gemjselect Hidden,
-Gui, Add, ComboBox, x401 y385 w75  vemjstart gemjstart Hidden,
-Gui, Add, ComboBox, x104 y401 w75  vemjup gemjup Hidden,
-Gui, Add, ComboBox, x53 y422 w75  vemjleft gemjleft Hidden,
-Gui, Add, ComboBox, x154 y422 w75  vemjright gemjright Hidden,
-Gui, Add, ComboBox, x104 y443 w75  vemjdown gemjdown Hidden,
-Gui, Add, ComboBox, x567 y404 w75  vemjY gemjY Hidden,
-Gui, Add, ComboBox, x515 y427 w75  vemjX gemjX Hidden,
-Gui, Add, ComboBox, x566 y449 w75  vemjB gemjB Hidden,
-Gui, Add, ComboBox, x616 y427 w75  vemjA gemjA Hidden,
-Gui, Add, ComboBox, x131 y201 w75  vemjl2 gemjl2 Hidden,
-Gui, Add, ComboBox, x523 y202 w75  vemjr2 gemjr2 Hidden,
+Gui, Add, ComboBox, x521 y300 w75 vemjRXMinus gemjRXMinus Hidden,
+Gui, Add, ComboBox, x570 y279 w75 vemjRYPlus gemjRYPlus Hidden,
+Gui, Add, ComboBox, x574 y224 w75 vemjR gemjR Hidden,
+Gui, Add, ComboBox, x76 y221 w75 vemjL gemjL Hidden,
+Gui, Add, ComboBox, x622 y300 w75 vemjRXPlus gemjRXPlus Hidden,
+Gui, Add, ComboBox, x570 y320 w75 vemjRYMinus gemjRYMinus Hidden,
+Gui, Add, ComboBox, x521 y340 w75 vemjR3 gemjR3 Hidden,
+Gui, Add, ComboBox, x155 y340 w75 vemjL3 gemjL3 Hidden,
+Gui, Add, ComboBox, x57 y298 w75 vemjLXMinus gemjLXMinus Hidden, 
+Gui, Add, ComboBox, x105 y277 w75 vemjLYPlus gemjLYPlus Hidden,
+Gui, Add, ComboBox, x105 y318 w75 vemjLYMinus gemjLYMinus Hidden,
+Gui, Add, ComboBox, x158 y298 w75 vemjLXPlus gemjLXPlus Hidden,
+Gui, Add, ComboBox, x300 y385 w75 vemjselect gemjselect Hidden,
+Gui, Add, ComboBox, x401 y385 w75 vemjstart gemjstart Hidden,
+Gui, Add, ComboBox, x104 y401 w75 vemjup gemjup Hidden,
+Gui, Add, ComboBox, x53 y422 w75 vemjleft gemjleft Hidden,
+Gui, Add, ComboBox, x154 y422 w75 vemjright gemjright Hidden,
+Gui, Add, ComboBox, x104 y443 w75 vemjdown gemjdown Hidden,
+Gui, Add, ComboBox, x567 y404 w75 vemjY gemjY Hidden,
+Gui, Add, ComboBox, x515 y427 w75 vemjX gemjX Hidden,
+Gui, Add, ComboBox, x566 y449 w75 vemjB gemjB Hidden,
+Gui, Add, ComboBox, x616 y427 w75 vemjA gemjA Hidden,
+Gui, Add, ComboBox, x131 y201 w75 vemjl2 gemjl2 Hidden,
+Gui, Add, ComboBox, x523 y202 w75 vemjr2 gemjr2 Hidden,
 ;;gui, Add, ComboBox, x327 y274 w75  vemjHome gemjHome Disabled Hidden,
 
 ;};;;;;;;;;;;;
@@ -25586,7 +25586,7 @@ guicontrol,,emuDDLF,|default||alsa|openbsd|oss|wasapish|dsound|wasapi|sdl|jack
 guicontrol, move,emuDDLF,x468 y147 w78
 
 guicontrol, %emutog%, emuDDLJ
-guicontrol,,emuDDLJ,|gb||gg|gba|lynx|md|nes|pce|pce_fast|pcfx|psx|sms|snes|snes_faust|ss|vb|wswan
+guicontrol,,emuDDLJ,|gb||%mednfsc%
 guicontrol, move,emuDDLJ,x645 y84 w82
 
 guicontrol, %emutog%, emuEDTA
@@ -26090,8 +26090,8 @@ return
 ;{;;;;;;;;;;;;    RESET MEDNAFEN   ;;;;;;;;;;;;;;;;;;;;;
 mednafenBUTC:
 gui,submit,nohide
-FileDelete, %indvcp%\*.*
-FileCopy, %indvcp%\mednafen.cfg.ret,%MEDCFGLOC%,1
+;;FileDelete, %indvcp%\*.*
+;;FileCopy, %indvcp%\mednafen.cfg.ret,%MEDCFGLOC%,1
 goto, MednafenRESETPOP
 MEDemuvdiv= 0.5
 MEDemuhdiv= 0.5
@@ -26116,8 +26116,8 @@ MEDemuEDTC= 0.5
 MEDemuEDTD= 0
 MEDemuEDTE= 0.5
 MEDemuEDTF= 0
-MEDemuEDTG= 0
-MEDemuEDTH= 0
+MEDemuEDTG= 640
+MEDemuEDTH= 480
 MEDemuEDTI= 4096
 MEDemuCBXA= %A_Username%
 MEDemuCBXB= netplay.fobby.net
@@ -53543,7 +53543,11 @@ guicontrol,,emjPTXT,Player
 guicontrol,move,emjPTXT,x368 y50 w34 h23
 guicontrol,,emjGGRP,Hotkeys
 guicontrol,, emjgGRP, Shortcuts
-guicontrol,,emjDDLB,|1||
+if (emjddlb = "")
+	{
+		emjddlb= 1
+	}
+guicontrol,,emjDDLB,|%emjddlb%||
 
 if (RJMEDNM = "0")
 	{
@@ -53625,6 +53629,10 @@ guicontrol,,emjl2,|%medjname%
 guicontrol,,emjr2,|%medjname%
 */
 MEDNAFENJPRELOAD:
+if (emjddlb = "")
+	{
+		emjddlb= 1
+	}
 gosub, MED%RJMEDNM%JOY
 SB_SetText(" Mednafen joystick loading complete ")
 return
@@ -53675,257 +53683,603 @@ return
 MED0JOY:
 MEDJOY:
 guicontrol,,emjDDLF,|gamepad||
-guicontrol,,emjDDLB,|1||2|3|4
+guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4
 return
 
 MEDggJOY:
-guicontrol,,emjDDLF,|builtin||
-guicontrol,,emjDDLB,|1||2|3|4
+guicontrol,,emjDDLF,|gamepad||
+guicontrol,,emjDDLB,|n||
+
+supinp= gamepad
+medswapB= button1
+medswapA= button2
+medswapX= 
+medswapY= 
+medswapStart= start
+medswapSelect= 
+medswapDown= down
+medswapUp= up
+medswapLeft= left
+medswapRight= right
+medswapL= 
+medswapR= 
+medswapL2= 
+medswapR2= 
+medswapR3= 
+medswapL3= 
+medswapLXMinus= 
+medswapRXMinus= 
+medswapRXPlus= 
+medswapLXPlus= 
+medswapLYPlus= 
+medswapLYMinus= 
+medswapRYPlus= 
+medswapRYMinus= 
+medswapHome= 
+
+gosub, MednafenSwap
+guicontrol,,INDWRN,%medlkup%
 return
 
 MEDgbJOY:
-guicontrol,,emjDDLF,|builtin||tilt
-guicontrol,,emjDDLB,|1||2|3|4
+guicontrol,,emjDDLF,|gamepad||
+guicontrol,,emjDDLB,|n||
+
+supinp= gamepad
+medswapB= a
+medswapA= b
+medswapX= 
+medswapY= 
+medswapStart= start
+medswapSelect= select
+medswapDown= down
+medswapUp= up
+medswapLeft= left
+medswapRight= right
+medswapL= 
+medswapR= 
+medswapL2= 
+medswapR2= 
+medswapR3= 
+medswapL3= 
+medswapLXMinus= 
+medswapRXMinus= 
+medswapRXPlus= 
+medswapLXPlus= 
+medswapLYPlus= 
+medswapLYMinus= 
+medswapRYPlus= 
+medswapRYMinus= 
+medswapHome= 
+
+gosub, MednafenSwap
+guicontrol,,INDWRN,%medlkup%
 return
 
 MEDgbaJOY:
-guicontrol,,emjDDLF,|builtin||
-guicontrol,,emjDDLB,|1||2|3|4
+guicontrol,,emjDDLF,|gamepad||
+guicontrol,,emjDDLB,|n||
+
+supinp= gamepad
+medswapB= a
+medswapA= b
+medswapX= y
+medswapY= x
+medswapStart= start
+medswapSelect= select
+medswapDown= down
+medswapUp= up
+medswapLeft= left
+medswapRight= right
+medswapL= shoulder_l
+medswapR= shoulder_r
+medswapL2= 
+medswapR2= 
+medswapR3= 
+medswapL3= 
+medswapLXMinus= 
+medswapRXMinus= 
+medswapRXPlus= 
+medswapLXPlus= 
+medswapLYPlus= 
+medswapLYMinus= 
+medswapRYPlus= 
+medswapRYMinus= 
+medswapHome= 
+
+gosub, MednafenSwap
+guicontrol,,INDWRN,%medlkup%
 return
 
 MEDlynxJOY:
-guicontrol,,emjDDLF,|builtin||
-guicontrol,,emjDDLB,|1||2|3|4
+guicontrol,,emjDDLF,|gamepad||
+guicontrol,,emjDDLB,|n||
+
+supinp= gamepad
+medswapB= a
+medswapA= b
+medswapX= option_1
+medswapY= option_2
+medswapStart= pause
+medswapSelect= 
+medswapDown= down
+medswapUp= up
+medswapLeft= left
+medswapRight= right
+medswapL= 
+medswapR= 
+medswapL2= 
+medswapR2= 
+medswapR3= 
+medswapL3= 
+medswapLXMinus= 
+medswapRXMinus= 
+medswapRXPlus= 
+medswapLXPlus= 
+medswapLYPlus= 
+medswapLYMinus= 
+medswapRYPlus= 
+medswapRYMinus= 
+medswapHome= 
+
+gosub, MednafenSwap
+guicontrol,,INDWRN,%medlkup%
+return
+
+MEDngpJOY:
+guicontrol,,emjDDLF,|gamepad||
+guicontrol,,emjDDLB,|n||
+
+supinp= gamepad
+medswapB= a
+medswapA= b
+medswapX= 
+medswapY= 
+medswapStart= option
+medswapSelect= 
+medswapDown= down
+medswapUp= up
+medswapLeft= left
+medswapRight= right
+medswapL= 
+medswapR= 
+medswapL2= 
+medswapR2= 
+medswapR3= 
+medswapL3= 
+medswapLXMinus= 
+medswapRXMinus= 
+medswapRXPlus= 
+medswapLXPlus= 
+medswapLYPlus= 
+medswapLYMinus= 
+medswapRYPlus= 
+medswapRYMinus= 
+medswapHome= 
+
+gosub, MednafenSwap
+guicontrol,,INDWRN,%medlkup%
 return
 
 MEDmdJOY:
 guicontrol,,emjDDLF,|gamepad|gamepad6||megamouse
-guicontrol,,emjDDLB,|1||2|3|4
+guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4
+
+supinp= gamepad|gamepad6
+medswapB= a
+medswapA= b
+medswapX= c
+medswapY= x
+medswapStart= start
+medswapSelect= mode
+medswapDown= down
+medswapUp= up
+medswapLeft= left
+medswapRight= right
+medswapL= y
+medswapR= z
+medswapL2= 
+medswapR2= 
+medswapR3= 
+medswapL3= 
+medswapLXMinus= 
+medswapRXMinus= 
+medswapRXPlus= 
+medswapLXPlus= 
+medswapLYPlus= 
+medswapLYMinus= 
+medswapRYPlus= 
+medswapRYMinus= 
+medswapHome= 
+
+gosub, MednafenSwap
+guicontrol,,INDWRN,%medlkup%
 return
 
 MEDnesJOY:
 ;;guicontrolget,RJMEDNM,,emjDDLD
 guicontrol,,emjDDLF,|gamepad||powerpad|arkanoid|zapper|partytap
-guicontrolget,emjDDLB,,emjDDLB
-FileRead,medjimp,%MEDCFGLOC%
-medlkup= 
-mednesbut= a|b|down|left|right|select|start|up
-medlkup= 
-Loop, Parse, medjimp,`n`r
-	{
-		if (A_LoopField = "")
-			{
-				continue
-			}
-		aik1=	
-		aik2=	
-		aik3=	
-		aik4=	
-		aik5=	
-		stringsplit,aik,A_LoopField,%A_Space%.
-		if ((aik1 = RJMEDNM)&&(aik2 = "input")&&(aik4 = "gamepad"))
-			{								
-				meditbv= %aik5%
-				if (aik5 = "a")
-					{
-						meditbv= B
-					}
-				if (aik5 = "b")
-					{
-						meditbv= A
-					}
-				stringright,curjport,aik3,1
-				aip1= 
-				aip2= 
-				aip3= 
-				aip4= 
-				aip5= 
-				aip6= 
-				aip7= 
-				aip8= 
-				stringsplit,aip,A_LoopField,%A_Space%
-				aisp= %aip2%
-				if (aip3 <> "")
-					{
-						aisp= %aip2% %aip3%
-					}
-				if (aip4 <> "")
-					{
-						aisp= %aip2% %aip3% %aip4%
-					}
-				if (aip5 <> "")
-					{
-						aisp= %aip2% %aip3% %aip4% %aip5%
-					}
-				if (aip6 <> "")
-					{
-						aisp= %aip2% %aip3% %aip4% %aip5% %aip6%
-					}
-				if (aip7 <> "")
-					{
-						aisp= %aip2% %aip3% %aip4% %aip5% %aip6% %aip7%
-					}
-				if (aip8 <> "")
-					{
-						aisp= %aip2% %aip3% %aip4% %aip5% %aip6% %aip7% %aip8%
-					}
-				if (aip9 <> "")
-					{
-						aisp= %aip2% %aip3% %aip4% %aip5% %aip6% %aip7% %aip8% %aip9%
-					}
-				if (emjRAD3B = 1)
-					{
-						ifinstring,aisp,joystick
-							{
-								jprs= 
-								stringreplace,aispx,aisp,~,%A_Space%,All
-								Loop, Parse,aispx,%A_Space%
-									{
-										if ((A_loopfield <> "joystick")&&(jprs = ""))
-											{
-												continue
-											}
-										if (A_loopfield = "joystick")
-											{
-												jprs= 1
-												continue
-											}
-										if (jprs = 1)
-											{
-												jprs+= 1
-												stringmid,plnum,A_LoopField,12,12
-												continue
-											}
-										if (jprs = 2)
-											{
-												;;stringsplit,tildp,A_LoopField,~
-												medjcd= %A_LoopField%
-												Loop, Parse, medxi,`n`r
-													{
-														if (A_LoopField = "")
-															{
-																continue
-															}
-														stringsplit,mjvak,A_LoopField,=]
-														stringsplit,mjvcdp,mjvak4,%A_Space%
-														stringmid,meditbd,mjvak2,5,13
-														if (mjvcdp2 = medjcd)
-															{
-																ifnotinstring,medlkup,%meditbv%=
-																	{
-																		medlkup.= meditbv . "=" meditbd . "`n"
-																	}
-																guicontrol,,emj%meditbv%,|%meditbd%||%medjbid%
-																break
-															}	
-													}
-												break
-											}
-										break	
-									}
-							}
-						continue
-					}
-				if (emjRAD3A = 1)  ;;kb
-					{
-						ifinstring,aisp,keyboard
-							{
-								jprs= 
-								stringreplace,aispx,aisp,~,%A_Space%,All
-								Loop, Parse,aispx,%A_Space%
-									{
-										if ((A_loopfield <> "keyboard")&&(jprs = ""))
-											{
-												continue
-											}
-										if (A_loopfield = "keyboard")
-											{
-												jprs= 1
-												continue
-											}
-										if (jprs = 1)
-											{
-												if (A_LoopField = "0x0")
-													{
-														continue
-													}
-												;;stringsplit,tildp,A_LoopField,~
-												mknum:= A_LoopField
-												Loop,Parse,mednkbctrls,`n`r
-													{
-														stringsplit,din,A_LoopField,=
-														if (A_LoopField = "")
-															{
-																continue
-															}
-														if (din2 = mknum)
-															{
-																ifnotinstring,medlkup,%meditbv%=
-																	{
-																		medlkup.= meditbv . "=" din1 . "`n"
-																	}
-																guicontrol,,emj%meditbv%,|%din1%||%medjbid%
-																break
-															}
-													}
-												break	
-											}
-										break	
-									}
-							}
-						
-					}
-			}
-		
-	}
-guicontrol,,emjDDLB,|1||2|3|4|5|6|7|8
+guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4|5|6|7|8
+
+supinp= gamepad
+medswapB= a
+medswapA= b
+medswapX= 
+medswapY= 
+medswapStart= start
+medswapSelect= select
+medswapDown= down
+medswapUp= up
+medswapLeft= left
+medswapRight= right
+medswapL= 
+medswapR= 
+medswapL2= 
+medswapR2= 
+medswapR3= 
+medswapL3= 
+medswapLXMinus= 
+medswapRXMinus= 
+medswapRXPlus= 
+medswapLXPlus= 
+medswapLYPlus= 
+medswapLYMinus= 
+medswapRYPlus= 
+medswapRYMinus= 
+medswapHome= 
+
+gosub, MednafenSwap
 guicontrol,,INDWRN,%medlkup%
 return
 
 MEDpceJOY:
 guicontrol,,emjDDLF,|gamepad||lightgun
-guicontrol,,emjDDLB,|1||2|3|4|5|6|7|8
+guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4|5|6|7|8
+
+supinp= gamepad
+medswapB= i
+medswapA= ii
+medswapX= iii
+medswapY= iv
+medswapStart= run
+medswapSelect= 
+medswapDown= down
+medswapUp= up
+medswapLeft= left
+medswapRight= right
+medswapL= v
+medswapR= vi
+medswapL2= 
+medswapR2= 
+medswapR3= mode_select
+medswapL3= 
+medswapLXMinus= 
+medswapRXMinus= 
+medswapRXPlus= 
+medswapLXPlus= 
+medswapLYPlus= 
+medswapLYMinus= 
+medswapRYPlus= 
+medswapRYMinus= 
+medswapHome= 
+
+gosub, MednafenSwap
+guicontrol,,INDWRN,%medlkup%
 return
 
 MEDpce_fastJOY:
 guicontrol,,emjDDLF,|gamepad||lightgun
-guicontrol,,emjDDLB,|1||2|3|4|5|6|7|8
+guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4|5|6|7|8
+
+supinp= gamepad
+medswapB= i
+medswapA= ii
+medswapX= iii
+medswapY= iv
+medswapStart= run
+medswapSelect= 
+medswapDown= down
+medswapUp= up
+medswapLeft= left
+medswapRight= right
+medswapL= v
+medswapR= vi
+medswapL2= 
+medswapR2= 
+medswapR3= mode_select
+medswapL3= 
+medswapLXMinus= 
+medswapRXMinus= 
+medswapRXPlus= 
+medswapLXPlus= 
+medswapLYPlus= 
+medswapLYMinus= 
+medswapRYPlus= 
+medswapRYMinus= 
+medswapHome= 
+
+gosub, MednafenSwap
+guicontrol,,INDWRN,%medlkup%
 return
 
 MEDpcfxJOY:
 guicontrol,,emjDDLF,|gamepad||lightgun
-guicontrol,,emjDDLB,|1||2|3|4
+guicontrol,,emjDDLB|%emjddlb%||1|2|3|4
+
+supinp= gamepad
+medswapB= i
+medswapA= ii
+medswapX= iii
+medswapY= iv
+medswapStart= run
+medswapSelect= 
+medswapDown= down
+medswapUp= up
+medswapLeft= left
+medswapRight= right
+medswapL= v
+medswapR= vi
+medswapL2= 
+medswapR2= 
+medswapR3= mode1
+medswapL3= mode2
+medswapLXMinus= 
+medswapRXMinus= 
+medswapRXPlus= 
+medswapLXPlus= 
+medswapLYPlus= 
+medswapLYMinus= 
+medswapRYPlus= 
+medswapRYMinus= 
+medswapHome= 
+
+gosub, MednafenSwap
+guicontrol,,INDWRN,%medlkup%
 return
 
 MEDpsxJOY:
 guicontrol,,emjDDLF,|dualshock||gamepad|justifier|mouse
-guicontrol,,emjDDLB,|1||2|3|4|5|6|7|8
+guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4|5|6|7|8
+
+supinp= gamepad|dualshock
+medswapB= cross
+medswapA= circle
+medswapX= square
+medswapY= triangle
+medswapStart= start
+medswapSelect= select
+medswapDown= down
+medswapUp= up
+medswapLeft= left
+medswapRight= right
+medswapL= l1
+medswapR= r1
+medswapL2= l2
+medswapR2= r2
+medswapR3= r3
+medswapL3= l3
+medswapLXMinus= lstick_left
+medswapRXMinus= rstick_left
+medswapRXPlus= rstick_right
+medswapLXPlus= lstick_right
+medswapLYPlus= lstick_up
+medswapLYMinus= lstick_down
+medswapRYPlus= rstick_up
+medswapRYMinus= rstick_down
+medswapHome= 
+
+gosub, MednafenSwap
+guicontrol,,INDWRN,%medlkup%
 return
 
 MEDsmsJOY:
 guicontrol,,emjDDLF,|gamepad||lightgun
-guicontrol,,emjDDLB,|1||2|3|4
+guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4
+
+supinp= gamepad
+medswapB= fire1
+medswapA= fire2
+medswapX= 
+medswapY= 
+medswapStart= pause
+medswapSelect= 
+medswapDown= down
+medswapUp= up
+medswapLeft= left
+medswapRight= right
+medswapL= 
+medswapR= 
+medswapL2= 
+medswapR2= 
+medswapR3= 
+medswapL3= 
+medswapLXMinus= 
+medswapRXMinus= 
+medswapRXPlus= 
+medswapLXPlus= 
+medswapLYPlus= 
+medswapLYMinus= 
+medswapRYPlus= 
+medswapRYMinus= 
+medswapHome= 
+
+gosub, MednafenSwap
+guicontrol,,INDWRN,%medlkup%
 return
 
 MEDsnesJOY:
 guicontrol,,emjDDLF,|gamepad||superscope
-guicontrol,,emjDDLB,|1||2|3|4|5|6|7|8
+guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4|5|6|7|8
+
+supinp= gamepad
+medswapB= a
+medswapA= b
+medswapX= y
+medswapY= x
+medswapStart= start
+medswapSelect= select
+medswapDown= down
+medswapUp= up
+medswapLeft= left
+medswapRight= right
+medswapL= l
+medswapR= r
+medswapL2= 
+medswapR2= 
+medswapR3= 
+medswapL3= 
+medswapLXMinus= 
+medswapRXMinus= 
+medswapRXPlus= 
+medswapLXPlus= 
+medswapLYPlus= 
+medswapLYMinus= 
+medswapRYPlus= 
+medswapRYMinus= 
+medswapHome= 
+
+gosub, MednafenSwap
+guicontrol,,INDWRN,%medlkup%
 return
+
 MEDsnes_faustJOY:
 guicontrol,,emjDDLF,|gamepad||superscope
-guicontrol,,emjDDLB,|1||2|3|4|5|6|7|8
+guicontrol,,emjDDLB|%emjddlb%||1|2|3|4|5|6|7|8
+
+supinp= gamepad
+medswapB= a
+medswapA= b
+medswapX= y
+medswapY= x
+medswapStart= start
+medswapSelect= select
+medswapDown= down
+medswapUp= up
+medswapLeft= left
+medswapRight= right
+medswapL= l
+medswapR= r
+medswapL2= 
+medswapR2= 
+medswapR3= 
+medswapL3= 
+medswapLXMinus= 
+medswapRXMinus= 
+medswapRXPlus= 
+medswapLXPlus= 
+medswapLYPlus= 
+medswapLYMinus= 
+medswapRYPlus= 
+medswapRYMinus= 
+medswapHome= 
+
+gosub, MednafenSwap
+guicontrol,,INDWRN,%medlkup%
 return
+
 MEDssJOY:
 guicontrol,,emjDDLF,|gamepad||3dpad|mission|dmission|keyboard|wheel
-guicontrol,,emjDDLB,|1||2|3|4|5|6|7|8
+guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4|5|6|7|8
+
+supinp= gamepad|3dpad
+medswapB= a
+medswapA= b
+medswapX= c
+medswapY= x
+medswapStart= start
+medswapSelect= mode
+medswapDown= down
+medswapUp= up
+medswapLeft= left
+medswapRight= right
+medswapL= y
+medswapR= z
+medswapL2= ls
+medswapR2= rs
+medswapR3= 
+medswapL3= 
+medswapLXMinus= analog_left
+medswapRXMinus= 
+medswapRXPlus= 
+medswapLXPlus= analog_right
+medswapLYPlus= analog_up
+medswapLYMinus= analog_down
+medswapRYPlus= 
+medswapRYMinus= 
+medswapHome= 
+
+gosub, MednafenSwap
+guicontrol,,INDWRN,%medlkup%
 return
+
 MEDvbJOY:
-guicontrol,,emjDDLF,|builtin||
-guicontrol,,emjDDLB,|1||2|3|4
+guicontrol,,emjDDLF,|gamepad||
+guicontrol,,emjDDLB,|n||
+
+supinp= gamepad
+medswapB= a
+medswapA= b
+medswapX= 
+medswapY= 
+medswapStart= start
+medswapSelect= select
+medswapDown= down-l
+medswapUp= up-l
+medswapLeft= left-l
+medswapLeft= right-l
+medswapL= 
+medswapR= 
+medswapL2= 
+medswapR2= 
+medswapR3= rt
+medswapL3= 
+medswapLXMinus= 
+medswapRXMinus= left-r
+medswapRXPlus= right-r
+medswapLXPlus= 
+medswapLYPlus= 
+medswapLYMinus= 
+medswapRYPlus= up-r
+medswapRYMinus= down-r
+medswapHome= 
+
+gosub, MednafenSwap
+guicontrol,,INDWRN,%medlkup%
 return
+
 MEDwswanJOY:
-guicontrol,,emjDDLF,|builtin||
-guicontrol,,emjDDLB,|1||2|3|4
+guicontrol,,emjDDLF,|gamepad||gamepadraa
+guicontrol,,emjDDLB,|n||
+
+supinp= gamepad|gamepadraa
+medswapB= a
+medswapA= b
+medswapX= 
+medswapY= 
+medswapStart= start
+medswapSelect= 
+medswapDown= down-x
+medswapUp= up-x
+medswapLeft= left-x
+medswapLeft= right-x
+medswapL= 
+medswapR= 
+medswapL2= 
+medswapR2= 
+medswapR3= 
+medswapL3= 
+medswapLXMinus= 
+medswapRXMinus= left-y
+medswapRXPlus= right-y
+medswapLXPlus= 
+medswapLYPlus= 
+medswapLYMinus= 
+medswapRYPlus= up-y
+medswapRYMinus= down-y
+medswapHome= 
+
+gosub, MednafenSwap
+guicontrol,,INDWRN,%medlkup%
 return
 
 ;{;;;;;;;;;;;;;;   RETROARCH JOYOPT TOGGLE  ;;;;;;;;
@@ -54064,8 +54418,292 @@ guicontrol,%rajoytog%,Home
 
 return
 ;};;;;;;;;;;;;;;;
-
+MednafenSwap:
+guicontrolget,emjDDLB,,emjDDLB
+FileRead,medjimp,%MEDCFGLOC%
+medlkup= 
+Loop, Parse, medjimp,`n`r
+	{
+		mdlnval= %A_LoopField%
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringleft,skln,A_LoopField,1
+		if (skln = ";")
+			{
+				continue
+			}
+		aik1=	
+		aik2=	
+		aik3=	
+		aik4=	
+		aik5=	
+		stringsplit,aik,A_LoopField,%A_Space%.
+		stringright,curjport,aik3,1
+		if (curjport <> emjDDLB)
+			{
+				continue
+			}
+		if ((aik1 = RJMEDNM)&&(aik2 = "input"))
+			{								
+				ifnotinstring,supinp,%aik4%
+					{
+						continue
+					}
+				meditbv= %aik5%
+				if (aik5 = medswapB)
+					{
+						meditbv= B
+					}
+				if (aik5 = medswapA)
+					{
+						meditbv= A
+					}
+				if (aik5 = medswapX)
+					{
+						meditbv= X
+					}
+				if (aik5 = medswapY)
+					{
+						meditbv= Y
+					}
+				if (aik5 = medswapSelect)
+					{
+						meditbv= select
+					}
+				if (aik5 = medswapStart)
+					{
+						meditbv= start
+					}
+				if (aik5 = medswapR3)
+					{
+						meditbv= r3
+					}
+				if (aik5 = medswapL3)
+					{
+						meditbv= l3
+					}
+				if (aik5 = medswapR2)
+					{
+						meditbv= r2
+					}
+				if (aik5 = medswapL2)
+					{
+						meditbv= l2
+					}
+				if (aik5 = medswapUp)
+					{
+						meditbv= up
+					}
+				if (aik5 = medswapDown)
+					{
+						meditbv= down
+					}
+				if (aik5 = medswapLeft)
+					{
+						meditbv= left
+					}
+				if (aik5 = medswapRight)
+					{
+						meditbv= right
+					}
+				if (aik5 = medswapR)
+					{
+						meditbv= r
+					}
+				if (aik5 = medswapL)
+					{
+						meditbv= l
+					}
+				if (aik5 = medswapRXMinus)
+					{
+						meditbv= rxminus
+					}
+				if (aik5 = medswapRXPlus)
+					{
+						meditbv= rxplus
+					}
+				if (aik5 = medswapLXMinus)
+					{
+						meditbv= lxminus
+					}
+				if (aik5 = medswapLXPlus)
+					{
+						meditbv= lxplus
+					}
+				if (aik5 = medswapRYMinus)
+					{
+						meditbv= ryminus
+					}
+				if (aik5 = medswapRYPlus)
+					{
+						meditbv= ryplus
+					}
+				if (aik5 = medswapLYMinus)
+					{
+						meditbv= lyminus
+					}
+				if (aik5 = medswapLYPlus)
+					{
+						meditbv= lyplus
+					}
+				if (aik5 = medswapHome)
+					{
+						meditbv= home
+					}
+				aip1= 
+				aip2= 
+				aip3= 
+				aip4= 
+				aip5= 
+				aip6= 
+				aip7= 
+				aip8= 
+				stringsplit,aip,A_LoopField,%A_Space%
+				aisp= %aip2%
+				if (aip3 <> "")
+					{
+						aisp= %aip2% %aip3%
+					}
+				if (aip4 <> "")
+					{
+						aisp= %aip2% %aip3% %aip4%
+					}
+				if (aip5 <> "")
+					{
+						aisp= %aip2% %aip3% %aip4% %aip5%
+					}
+				if (aip6 <> "")
+					{
+						aisp= %aip2% %aip3% %aip4% %aip5% %aip6%
+					}
+				if (aip7 <> "")
+					{
+						aisp= %aip2% %aip3% %aip4% %aip5% %aip6% %aip7%
+					}
+				if (aip8 <> "")
+					{
+						aisp= %aip2% %aip3% %aip4% %aip5% %aip6% %aip7% %aip8%
+					}
+				if (aip9 <> "")
+					{
+						aisp= %aip2% %aip3% %aip4% %aip5% %aip6% %aip7% %aip8% %aip9%
+					}
+				if (emjRAD3B = 1)
+					{
+						ifinstring,aisp,joystick
+							{
+								jprs= 
+								stringreplace,aispx,aisp,~,%A_Space%,All
+								Loop, Parse,aispx,%A_Space%
+									{
+										if ((A_loopfield <> "joystick")&&(jprs = ""))
+											{
+												continue
+											}
+										if (A_loopfield = "joystick")
+											{
+												jprs= 1
+												continue
+											}
+										if (jprs = 1)
+											{
+												jprs+= 1
+												stringmid,plnum,A_LoopField,12,12
+												continue
+											}
+										if (jprs = 2)
+											{
+												;;stringsplit,tildp,A_LoopField,~
+												medjcd= %A_LoopField%
+												Loop, Parse, medxi,`n`r
+													{
+														if (A_LoopField = "")
+															{
+																continue
+															}
+														stringsplit,mjvak,A_LoopField,=]
+														stringsplit,mjvcdp,mjvak4,%A_Space%
+														stringmid,meditbd,mjvak2,5,13
+														if (mjvcdp2 = medjcd)
+															{
+																ifnotinstring,medlkup,%meditbv%=
+																	{
+																		medlkup.= meditbv . "=" meditbd . "`n"
+																	}
+																guicontrol,,emj%meditbv%,|%meditbd%||%medjbid%
+																kmj%meditbv%= %mdlnval%
+																break
+															}	
+													}
+												break
+											}
+										break	
+									}
+							}
+						continue
+					}
+				if (emjRAD3A = 1)  ;;kb
+					{
+						ifinstring,aisp,keyboard
+							{
+								jprs= 
+								stringreplace,aispx,aisp,~,%A_Space%,All
+								Loop, Parse,aispx,%A_Space%
+									{
+										if ((A_loopfield <> "keyboard")&&(jprs = ""))
+											{
+												continue
+											}
+										if (A_loopfield = "keyboard")
+											{
+												jprs= 1
+												continue
+											}
+										if (jprs = 1)
+											{
+												if (A_LoopField = "0x0")
+													{
+														continue
+													}
+												;;stringsplit,tildp,A_LoopField,~
+												mknum:= A_LoopField
+												Loop,Parse,mednkbctrls,`n`r
+													{
+														stringsplit,din,A_LoopField,=
+														if (A_LoopField = "")
+															{
+																continue
+															}
+														if (din2 = mknum)
+															{
+																ifnotinstring,medlkup,%meditbv%=
+																	{
+																		medlkup.= meditbv . "=" din1 . "`n"
+																	}
+																guicontrol,,emj%meditbv%,|%din1%||%medjname%
+																break
+															}
+													}
+												break	
+											}
+										break	
+									}
+							}
+						
+					}
+			}
+		
+	}
+return	
 ;};;;;;;;;;;;;;;;
+
+MedKBREV:
+return
+
+MedJREV:
+return
 
 ;{;;;;;;;;;;;;;;  Emu Joy Option Functions  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 emjRAD1A:
@@ -54303,6 +54941,8 @@ return
 emjTRBCMB:
 gosub, J%EMUSN%TRBCMB
 return
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 emjRXMinus:
 gosub, J%EMUSN%RXMinus
@@ -54921,7 +55561,8 @@ return
 
 JMednafenDDLB:
 gui, submit, nohide
-
+guicontrolget,emjDDLB,,emjDDLB
+gosub, mednafenCTRLS
 return
 
 JMednafenDDLC:
@@ -55411,127 +56052,160 @@ return
 
 JMednafenRXMinus:
 gui, submit, nohide
-
+guicontrolget,emjRXMinus,,emjRXMinus
+if (emjRAD3A = 1)
+	{
+		gosub, medkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, medjrev
+	}
+stringreplace,medcfgloc,medcfgloc,%kmjRXMinus%,%emjRXMinus%,All
 return
 
 JMednafenRYPlus:
 gui, submit, nohide
-
+guicontrolget,emjRYPlus,,emjRYPlus
+stringreplace,medcfgloc,medcfgloc,%kmjRYPlus%,%emjRYPlus%,All
 return
 
 JMednafenR:
 gui, submit, nohide
-
+guicontrolget,emjR,,emjR
+stringreplace,medcfgloc,medcfgloc,%kmjR%,%emjR%,All
 return
 
 JMednafenL:
 gui, submit, nohide
-
+guicontrolget,emjL,,emjL
+stringreplace,medcfgloc,medcfgloc,%kmjL%,%emjL%,All
 return
 
 JMednafenRXPlus:
 gui, submit, nohide
-
+guicontrolget,emjRXPlus,,emjRXPlus
+stringreplace,medcfgloc,medcfgloc,%kmjRXPlus%,%emjRXPlus%,All
 return
 
 JMednafenRYMinus:
 gui, submit, nohide
-
+guicontrolget,emjRYMinus,,emjRYMinus
+stringreplace,medcfgloc,medcfgloc,%kmjRYMinus%,%emjRYMinus%,All
 return
 
 JMednafenR3:
 gui, submit, nohide
-
+guicontrolget,emjR3,,emjR3
+stringreplace,medcfgloc,medcfgloc,%kmjR3%,%emjR3%,All
 return
 
 JMednafenL3:
 gui, submit, nohide
-
+guicontrolget,emjL3,,emjL3
+stringreplace,medcfgloc,medcfgloc,%kmjL3%,%emjL3%,All
 return
 
 JMednafenLXMinus:
 gui, submit, nohide
-
+guicontrolget,emjLXMinus,,emjLXMinus
+stringreplace,medcfgloc,medcfgloc,%kmjLXMinus%,%emjLXMinus%,All
 return
 
 JMednafenLYPlus:
 gui, submit, nohide
-
+guicontrolget,emjLYPlus,,emjLYPlus
+stringreplace,medcfgloc,medcfgloc,%kmjLYPlus%,%emjLYPlus%,All
 return
 
 JMednafenLYMinus:
 gui, submit, nohide
-
+guicontrolget,emjLYMinus,,emjLYMinus
+stringreplace,medcfgloc,medcfgloc,%kmjLYMinus%,%emjLYMinus%,All
 return
 
 JMednafenLXPlus:
 gui, submit, nohide
-
+guicontrolget,emjLXPlus,,emjLXPlus
+stringreplace,medcfgloc,medcfgloc,%kmjLXPlus%,%emjLXPlus%,All
 return
 
 JMednafenselect:
 gui, submit, nohide
-
+guicontrolget,emjselect,,emjselect
+stringreplace,medcfgloc,medcfgloc,%kmjselect%,%emjselect%,All
 return
 
 JMednafenstart:
 gui, submit, nohide
-
+guicontrolget,emjstart,,emjstart
+stringreplace,medcfgloc,medcfgloc,%kmjstart%,%emjstart%,All
 return
 
 JMednafenup:
 gui, submit, nohide
-
+guicontrolget,emjup,,emjup
+stringreplace,medcfgloc,medcfgloc,%kmjup%,%emjup%,All
 return
 
 JMednafenleft:
 gui, submit, nohide
-
+guicontrolget,emjleft,,emjleft
+stringreplace,medcfgloc,medcfgloc,%kmjleft%,%emjleft%,All
 return
 
 JMednafenright:
 gui, submit, nohide
-
+guicontrolget,emjright,,emjright
+stringreplace,medcfgloc,medcfgloc,%kmjright%,%emjright%,All
 return
 
 JMednafendown:
 gui, submit, nohide
-
+guicontrolget,emjdown,,emjdown
+stringreplace,medcfgloc,medcfgloc,%kmjdown%,%emjdown%,All
 return
 
 JMednafenY:
 gui, submit, nohide
-
+guicontrolget,emjY,,emjY
+stringreplace,medcfgloc,medcfgloc,%kmjY%,%emjY%,All
 return
 
 JMednafenX:
 gui, submit, nohide
-
+guicontrolget,emjX,,emjX
+stringreplace,medcfgloc,medcfgloc,%kmjX%,%emjX%,All
 return
 
 JMednafenB:
 gui, submit, nohide
-
+guicontrolget,emjB,,emjB
+stringreplace,medcfgloc,medcfgloc,%kmjB%,%emjB%,All
 return
 
 JMednafenA:
 gui, submit, nohide
-
+guicontrolget,emjA,,emjA
+stringreplace,medcfgloc,medcfgloc,%kmjA%,%emjA%,All
 return
 
 JMednafenl2:
 gui, submit, nohide
-
+guicontrolget,emjL2,,emjL2
+stringreplace,medcfgloc,medcfgloc,%kmjL2%,%emjL2%,All
 return
 
 JMednafenr2:
 gui, submit, nohide
-
+guicontrolget,emjR2,,emjR2
+stringreplace,medcfgloc,medcfgloc,%kmjR2%,%emjR2%,All
 return
 
 JMednafenHome:
 gui, submit, nohide
-
+guicontrolget,emjHome,,emjHome
+stringreplace,medcfgloc,medcfgloc,%kmjHome%,%emjHome%,All
 return
 ;};;;;;;;;
 
