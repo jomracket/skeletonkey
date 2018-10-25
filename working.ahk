@@ -2327,7 +2327,7 @@ Gui, Add, Text, x525 y359 h13 +0x200 vR3butTXT,[R3](9)
 Gui, Add, Text, x66 y197 h23 +0x200 vLTrigTXT, Left Trigger
 Gui, Add, Text, x628 y199 h23 +0x200 vRTrigTXT, Right Trigger
 Gui, Add, Text, x175 y221 h23 vLbutTXT, (4)Left Bumper
-Gui, Add, Text, x678 y221 h23 +0x200 vRbutTXT, Right Bumper(5)
+Gui, Add, Text, x678 y221 h23 vRbutTXT, Right Bumper(5)
 ;;gui, Add, Text, x349 y297 h23 +0x200 Disabled vHBTNTXT, Home Button
 Gui, Add, Text, x325 y405 h16 vSELECTbutTXT, (6)Select
 Gui, Add, Text, x427 y405 h16 vSTARTbutTXT, (7)Start
@@ -2478,11 +2478,11 @@ Gui, Add, Text, x614 y381 h17 +0x200 vemjBTXT Hidden, (3)
 Gui, Add, Text, x501 y426 h23 +0x200 vemjCTXT Hidden, (2)
 Gui, Add, Text, x616 y478 h13 +0x200 vemjDTXT Hidden, (0)
 Gui, Add, Text, x120 y336 h23 +0x200 vemjETXT Hidden, (8)[L3] 
-Gui, Add, Text, x617 y337 h23 +0x200 vemjFTXT Hidden, (9)[R3] 
+Gui, Add, Text, x617 y337 h23 vemjFTXT Hidden, (9)[R3] 
 Gui, Add, Text, x66 y197 h23 +0x200 vemjGTXT Hidden, Left Trigger
-Gui, Add, Text, x628 y199 h23 +0x200 vemjHTXT Hidden, Right Trigger
+Gui, Add, Text, x628 y199 h23 vemjHTXT Hidden, Right Trigger
 Gui, Add, Text, x175 y221 h23 +0x200 vemjITXT Hidden, (4)Left Bumper
-Gui, Add, Text, x678 y221 h23 +0x200 vemjJTXT Hidden, (5)Right Bumper
+Gui, Add, Text, x678 y221 h23 vemjJTXT Hidden, (5)Right Bumper
 ;;gui, Add, Text, x349 y297 h23 +0x200 vemjKTXT Hidden, Home Button
 Gui, Add, Text, x325 y405 h16 vemjLTXT Hidden, (6)Select
 Gui, Add, Text, x427 y405 h16 vemjMTXT Hidden, (7)Start
@@ -8238,6 +8238,8 @@ gui,submit,nohide
 Sleep, 1000
 RUNSYSCHNG= 1
 indexCONSOLE= 
+MEDCFGLOC= 
+RJMEDNM= 
 indvcp= 
 qmen= 
 guicontrolget,OPTDLT,,RUNPLRAD
@@ -11752,8 +11754,6 @@ RegWrite, REG_DWORD, HKEY_CURRENT_USER\Software\Disc Soft\DAEMON Tools Pro\Optio
 Daemon_Tools=%xtractmul%\DTLite.exe
 guicontrol,disable,CNCLDWN
 return
-
-
 
 UAvailSel:
 gui, submit, nohide
@@ -24016,7 +24016,7 @@ if (ASVRM = 1)
 							}
 					}
 			}
-		if MEDNFSYS <> "")
+		if (MEDNFSYS <> "")
 			{
 				RVLKUP= %MEDNFSYS%
 			}
@@ -25414,7 +25414,6 @@ if (ASVRM = "")
 gosub, EMUCFGCOPY
 gosub, %EMUSN%POP
 guicontrolget,EMUDDLJ,,EMUDDLJ
-
 return
 
 ALTIRRAPOP:
@@ -25760,12 +25759,12 @@ guicontrolget,EMUDDLJ,,EMUDDLJ
 return
 
 MednafenPOP:
-/*
+
 ifexist, %MEDCFGLOC%
 	{
 		Filedelete,%MEDCFGLOC%
 	}
-*/
+
 	
 MednafenRESETPOP:	
 FileRead,mkbl,rj\emuCfgs\mednafen\mednafenjoy.set.ret
@@ -54630,7 +54629,7 @@ Loop, Parse, medjimp,`n`r
 															{
 																ifnotinstring,medlkup,%meditbv%=
 																	{
-																		medlkup.= meditbv . "=" meditbd . "`n"
+																		medlkup.= aik5 . "=" meditbd . "`n"
 																	}
 																guicontrol,,emj%meditbv%,|%meditbd%||%medjbid%
 																kmj%meditbv%= %mdlnval%
@@ -54680,9 +54679,10 @@ Loop, Parse, medjimp,`n`r
 															{
 																ifnotinstring,medlkup,%meditbv%=
 																	{
-																		medlkup.= meditbv . "=" din1 . "`n"
+																		medlkup.= aik5 . "=" din1 . "`n"
 																	}
 																guicontrol,,emj%meditbv%,|%din1%||%medjname%
+																kmj%meditbv%= %mdlnval%
 																break
 															}
 													}
@@ -54700,6 +54700,50 @@ return
 ;};;;;;;;;;;;;;;;
 
 MedKBREV:
+stringsplit,vprx,vprm,%A_Space%
+stringsplit,vprv,vprx2,%A_Space%
+jprs= 
+Loop, %vprv0%
+	{
+		if (A_LoopField = "keyboard")
+			{
+				jprs= 1
+				continue
+			}
+		if (jprs = 1)
+			{
+				if (A_LoopField = "0x0")
+					{
+						continue
+					}
+				stringsplit,kiv,A_LoopField,~
+				mvpn= %kiv1%
+				mvpns= %kiv1%
+				if (kiv2 <> "")
+					{
+						mpvns= %kiv1%~%kiv2%
+					}
+				Loop,Parse,mednkbctrls,`n`r
+					{
+						stringsplit,din,A_LoopField,=
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						if (din1 = kprm)
+							{
+								svpr= %din2%
+							}
+						if (din2 = mvpn)
+							{
+								msgbox,,,k
+							}
+					}	
+					
+				break
+			}
+			
+	}
 return
 
 MedJREV:
@@ -56052,7 +56096,8 @@ return
 
 JMednafenRXMinus:
 gui, submit, nohide
-guicontrolget,emjRXMinus,,emjRXMinus
+guicontrolget,kprm,,emjRXMinus
+vrpm= %kmjRXMinus%
 if (emjRAD3A = 1)
 	{
 		gosub, medkbrev
@@ -56061,151 +56106,154 @@ if (emjRAD3B = 1)
 	{
 		gosub, medjrev
 	}
-stringreplace,medcfgloc,medcfgloc,%kmjRXMinus%,%emjRXMinus%,All
+stringreplace,medjimp,medjimp,%kmjRXMinus%,%emjRXMinus%,All
+filedelete,%medcfgloc%
+fileappend,%medjimp%,%medcfgloc%
 return
 
 JMednafenRYPlus:
 gui, submit, nohide
-guicontrolget,emjRYPlus,,emjRYPlus
-stringreplace,medcfgloc,medcfgloc,%kmjRYPlus%,%emjRYPlus%,All
+guicontrolget,kprm,,emjRYPlus
+vrpm= %kmjryplus%
+stringreplace,medjimp,medjimp,%kmjRYPlus%,%emjRYPlus%,All
 return
 
 JMednafenR:
 gui, submit, nohide
-guicontrolget,emjR,,emjR
-stringreplace,medcfgloc,medcfgloc,%kmjR%,%emjR%,All
+guicontrolget,kprm,,emjR
+stringreplace,medjimp,medjimp,%kmjR%,%emjR%,All
 return
 
 JMednafenL:
 gui, submit, nohide
-guicontrolget,emjL,,emjL
-stringreplace,medcfgloc,medcfgloc,%kmjL%,%emjL%,All
+guicontrolget,kprm,,emjL
+stringreplace,medjimp,medjimp,%kmjL%,%emjL%,All
 return
 
 JMednafenRXPlus:
 gui, submit, nohide
-guicontrolget,emjRXPlus,,emjRXPlus
-stringreplace,medcfgloc,medcfgloc,%kmjRXPlus%,%emjRXPlus%,All
+guicontrolget,kprm,,emjRXPlus
+stringreplace,medjimp,medjimp,%kmjRXPlus%,%emjRXPlus%,All
 return
 
 JMednafenRYMinus:
 gui, submit, nohide
-guicontrolget,emjRYMinus,,emjRYMinus
-stringreplace,medcfgloc,medcfgloc,%kmjRYMinus%,%emjRYMinus%,All
+guicontrolget,kprm,,emjRYMinus
+stringreplace,medjimp,medjimp,%kmjRYMinus%,%emjRYMinus%,All
 return
 
 JMednafenR3:
 gui, submit, nohide
-guicontrolget,emjR3,,emjR3
-stringreplace,medcfgloc,medcfgloc,%kmjR3%,%emjR3%,All
+guicontrolget,kprm,,emjR3
+stringreplace,medjimp,medjimp,%kmjR3%,%emjR3%,All
 return
 
 JMednafenL3:
 gui, submit, nohide
-guicontrolget,emjL3,,emjL3
-stringreplace,medcfgloc,medcfgloc,%kmjL3%,%emjL3%,All
+guicontrolget,kprm,,emjL3
+stringreplace,medjimp,medjimp,%kmjL3%,%emjL3%,All
 return
 
 JMednafenLXMinus:
 gui, submit, nohide
-guicontrolget,emjLXMinus,,emjLXMinus
-stringreplace,medcfgloc,medcfgloc,%kmjLXMinus%,%emjLXMinus%,All
+guicontrolget,kprm,,emjLXMinus
+stringreplace,medjimp,medjimp,%kmjLXMinus%,%emjLXMinus%,All
 return
 
 JMednafenLYPlus:
 gui, submit, nohide
-guicontrolget,emjLYPlus,,emjLYPlus
-stringreplace,medcfgloc,medcfgloc,%kmjLYPlus%,%emjLYPlus%,All
+guicontrolget,kprm,,emjLYPlus
+stringreplace,medjimp,medjimp,%kmjLYPlus%,%emjLYPlus%,All
 return
 
 JMednafenLYMinus:
 gui, submit, nohide
-guicontrolget,emjLYMinus,,emjLYMinus
-stringreplace,medcfgloc,medcfgloc,%kmjLYMinus%,%emjLYMinus%,All
+guicontrolget,kprm,,emjLYMinus
+stringreplace,medjimp,medjimp,%kmjLYMinus%,%emjLYMinus%,All
 return
 
 JMednafenLXPlus:
 gui, submit, nohide
-guicontrolget,emjLXPlus,,emjLXPlus
-stringreplace,medcfgloc,medcfgloc,%kmjLXPlus%,%emjLXPlus%,All
+guicontrolget,kprm,,emjLXPlus
+stringreplace,medjimp,medjimp,%kmjLXPlus%,%emjLXPlus%,All
 return
 
 JMednafenselect:
 gui, submit, nohide
-guicontrolget,emjselect,,emjselect
-stringreplace,medcfgloc,medcfgloc,%kmjselect%,%emjselect%,All
+guicontrolget,kprm,,emjselect
+stringreplace,medjimp,medjimp,%kmjselect%,%emjselect%,All
 return
 
 JMednafenstart:
 gui, submit, nohide
-guicontrolget,emjstart,,emjstart
-stringreplace,medcfgloc,medcfgloc,%kmjstart%,%emjstart%,All
+guicontrolget,kprm,,emjstart
+stringreplace,medjimp,medjimp,%kmjstart%,%emjstart%,All
 return
 
 JMednafenup:
 gui, submit, nohide
-guicontrolget,emjup,,emjup
-stringreplace,medcfgloc,medcfgloc,%kmjup%,%emjup%,All
+guicontrolget,kprm,,emjup
+stringreplace,medjimp,medjimp,%kmjup%,%emjup%,All
 return
 
 JMednafenleft:
 gui, submit, nohide
-guicontrolget,emjleft,,emjleft
-stringreplace,medcfgloc,medcfgloc,%kmjleft%,%emjleft%,All
+guicontrolget,kprm,,emjleft
+stringreplace,medjimp,medjimp,%kmjleft%,%emjleft%,All
 return
 
 JMednafenright:
 gui, submit, nohide
-guicontrolget,emjright,,emjright
-stringreplace,medcfgloc,medcfgloc,%kmjright%,%emjright%,All
+guicontrolget,kprm,,emjright
+stringreplace,medjimp,medjimp,%kmjright%,%emjright%,All
 return
 
 JMednafendown:
 gui, submit, nohide
-guicontrolget,emjdown,,emjdown
-stringreplace,medcfgloc,medcfgloc,%kmjdown%,%emjdown%,All
+guicontrolget,kprm,,emjdown
+stringreplace,medjimp,medjimp,%kmjdown%,%emjdown%,All
 return
 
 JMednafenY:
 gui, submit, nohide
-guicontrolget,emjY,,emjY
-stringreplace,medcfgloc,medcfgloc,%kmjY%,%emjY%,All
+guicontrolget,kprm,,emjY
+stringreplace,medjimp,medjimp,%kmjY%,%emjY%,All
 return
 
 JMednafenX:
 gui, submit, nohide
-guicontrolget,emjX,,emjX
-stringreplace,medcfgloc,medcfgloc,%kmjX%,%emjX%,All
+guicontrolget,kprm,,emjX
+stringreplace,medjimp,medjimp,%kmjX%,%emjX%,All
 return
 
 JMednafenB:
 gui, submit, nohide
-guicontrolget,emjB,,emjB
-stringreplace,medcfgloc,medcfgloc,%kmjB%,%emjB%,All
+guicontrolget,kprm,,emjB
+stringreplace,medjimp,medjimp,%kmjB%,%emjB%,All
 return
 
 JMednafenA:
 gui, submit, nohide
-guicontrolget,emjA,,emjA
-stringreplace,medcfgloc,medcfgloc,%kmjA%,%emjA%,All
+guicontrolget,kprm,,emjA
+stringreplace,medjimp,medjimp,%kmjA%,%emjA%,All
 return
 
 JMednafenl2:
 gui, submit, nohide
-guicontrolget,emjL2,,emjL2
-stringreplace,medcfgloc,medcfgloc,%kmjL2%,%emjL2%,All
+guicontrolget,kprm,,emjL2
+stringreplace,medjimp,medjimp,%kmjL2%,%emjL2%,All
 return
 
 JMednafenr2:
 gui, submit, nohide
-guicontrolget,emjR2,,emjR2
-stringreplace,medcfgloc,medcfgloc,%kmjR2%,%emjR2%,All
+guicontrolget,kprm,,emjR2
+stringreplace,medjimp,medjimp,%kmjR2%,%emjR2%,All
 return
 
 JMednafenHome:
 gui, submit, nohide
-guicontrolget,emjHome,,emjHome
-stringreplace,medcfgloc,medcfgloc,%kmjHome%,%emjHome%,All
+guicontrolget,kprm,,emjHome
+stringreplace,medjimp,medjimp,%kmjHome%,%emjHome%,All
 return
 ;};;;;;;;;
 
@@ -57858,14 +57906,15 @@ romindnum=
 stilltyp:
 Gui, submit, nohide
 guicontrolget,OPTYP,,RUNSYSDDL
-indvcp= 
 Guicontrolget,romf,,RUNROMCBX
 guicontrol,+Altsubmit,RUNROMCBX
 gui,submit,nohide
 ;;guicontrolget,romindnum,,RUNROMCBX
 guicontrol,-Altsubmit,RUNROMCBX
 gui,submit,nohide
-
+indvcp= 
+MEDCFGLOC=
+EDTRMFN=
 if (romf = "")
 	{
 		iniread, romf, Settings.ini,GLOBAL,last_rom
