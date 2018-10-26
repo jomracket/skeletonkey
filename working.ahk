@@ -25814,7 +25814,7 @@ Loop, parse, mtcfg,`n,`r
 		FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
 	}
 ;;;;system unique export;;;;
-Loop, parse, mtafg,`n, `r
+Loop, parse, mtafg,`n`r
 	{		
 		aii1=
 		aii2=
@@ -54590,12 +54590,12 @@ Loop, Parse, medjimp,`n`r
 					{
 						aisp= %aip2% %aip3% %aip4% %aip5% %aip6% %aip7% %aip8% %aip9%
 					}
-				if (emjRAD3B = 1)
+				if (emjRAD3B = 1)  ;;joy
 					{
 						ifinstring,aisp,joystick
 							{
 								jprs= 
-								stringreplace,aispx,aisp,~,%A_Space%,All
+								stringreplace,aispx,aisp,|,%A_Space%,All
 								Loop, Parse,aispx,%A_Space%
 									{
 										if ((A_loopfield <> "joystick")&&(jprs = ""))
@@ -54610,12 +54610,13 @@ Loop, Parse, medjimp,`n`r
 										if (jprs = 1)
 											{
 												jprs+= 1
-												stringmid,plnum,A_LoopField,12,12
+												;;stringmid,plnum,A_LoopField,12,12
+												stringmid,plnum,A_LoopField,20,20
 												continue
 											}
 										if (jprs = 2)
 											{
-												;;stringsplit,tildp,A_LoopField,~
+												;;stringsplit,tildp,A_LoopField,|
 												medjcd= %A_LoopField%
 												Loop, Parse, medxi,`n`r
 													{
@@ -54649,7 +54650,7 @@ Loop, Parse, medjimp,`n`r
 						ifinstring,aisp,keyboard
 							{
 								jprs= 
-								stringreplace,aispx,aisp,~,%A_Space%,All
+								stringreplace,aispx,aisp,|,%A_Space%,All
 								Loop, Parse,aispx,%A_Space%
 									{
 										if ((A_loopfield <> "keyboard")&&(jprs = ""))
@@ -54667,7 +54668,7 @@ Loop, Parse, medjimp,`n`r
 													{
 														continue
 													}
-												;;stringsplit,tildp,A_LoopField,~
+												;;stringsplit,tildp,A_LoopField,|
 												mknum:= A_LoopField
 												Loop,Parse,mednkbctrls,`n`r
 													{
@@ -54737,19 +54738,19 @@ inhx1=
 inhx2= 
 inhx3= 
 inhx4= 
-stringsplit,inhx,orsp,~
+stringsplit,inhx,orsp,|
 sola= %inhx1%
 if (inhx2 <> "")
 	{
-		sola= ~%inhx2%
+		sola= ||%inhx2%
 	}
 if (inhx3 <> "")
 	{
-		sola= ~%inhx2%~%inhx3%
+		sola= ||%A_Space%%inhx2%%A_Space%||%A_Space%%inhx3%
 	}
 if (inhx4 <> "")
 	{
-		sola= ~%inhx2%~%inhx3%~%inhx4%
+		sola= ||%A_Space%%inhx2%%A_Space%||%A_Space%%inhx3%%A_Space%||%A_Space%%inhx4%
 	}
 Loop, Parse,inhx1,%A_Space%
 	{
@@ -54788,17 +54789,20 @@ Loop, Parse,inhx1,%A_Space%
 						if (din1 = kprm)
 							{
 								svpr= %din2%%jink%
-								;;reinj.= "0x0" . A_Space . svpr
-								reinj.= svpr
+								reinj.= "0x0" . A_Space . svpr
+								;reinj.= svpr
+								break
 							}
 					}
-				jprs+= 1
-				continue
+				;;jprs+= 1
+				;;continue
+				break
 			}
-		reinj.= A_LoopField
+		;reinj.= A_LoopField
 	}
-reinj.= sola	
+;;reinj.= sola	
 stringreplace,medjimp,medjimp,%orsp%,%reinj%,All
+stringreplace,medjimp,medjimp,||||,%A_Space%||%A_Space%,All
 emjtog= enable
 gosub, emjbtog
 return
@@ -56154,7 +56158,7 @@ return
 JMednafenRXMinus:
 gui, submit, nohide
 guicontrolget,kprm,,emjRXMinus
-emjbtog= disable
+emjtog= disable
 gosub, emjbtog
 vprm= %kmjRXMinus%
 if (emjRAD3A = 1)
@@ -56173,10 +56177,10 @@ return
 JMednafenRYPlus:
 gui, submit, nohide
 guicontrolget,kprm,,emjRYPlus
-emjbtog= disable
+emjtog= disable
 gosub, emjbtog
 vprm= %kmjryplus%
-emjbtog= disable
+emjtog= disable
 gosub, emjbtog
 vprm= %kmjdown%
 if (emjRAD3A = 1)
@@ -56195,7 +56199,7 @@ return
 JMednafenR:
 gui, submit, nohide
 guicontrolget,kprm,,emjR
-emjbtog= disable
+emjtog= disable
 gosub, emjbtog
 vprm= %kmjR%
 if (emjRAD3A = 1)
@@ -56214,7 +56218,7 @@ return
 JMednafenL:
 gui, submit, nohide
 guicontrolget,kprm,,emjL
-emjbtog= disable
+emjtog= disable
 gosub, emjbtog
 vprm= %kmjL%
 if (emjRAD3A = 1)
@@ -56233,7 +56237,7 @@ return
 JMednafenRXPlus:
 gui, submit, nohide
 guicontrolget,kprm,,emjRXPlus
-emjbtog= disable
+emjtog= disable
 gosub, emjbtog
 vprm= %kmjRXPlus%
 if (emjRAD3A = 1)
@@ -56252,7 +56256,7 @@ return
 JMednafenRYMinus:
 gui, submit, nohide
 guicontrolget,kprm,,emjRYMinus
-emjbtog= disable
+emjtog= disable
 gosub, emjbtog
 vprm= %kmjRYMinus%
 if (emjRAD3A = 1)
@@ -56271,7 +56275,7 @@ return
 JMednafenR3:
 gui, submit, nohide
 guicontrolget,kprm,,emjR3
-emjbtog= disable
+emjtog= disable
 gosub, emjbtog
 vprm= %kmjR3%
 if (emjRAD3A = 1)
@@ -56290,7 +56294,7 @@ return
 JMednafenL3:
 gui, submit, nohide
 guicontrolget,kprm,,emjL3
-emjbtog= disable
+emjtog= disable
 gosub, emjbtog
 vprm= %kmjR3%
 if (emjRAD3A = 1)
@@ -56309,7 +56313,7 @@ return
 JMednafenLXMinus:
 gui, submit, nohide
 guicontrolget,kprm,,emjLXMinus
-emjbtog= disable
+emjtog= disable
 gosub, emjbtog
 vprm= %kmjLXMinus%
 if (emjRAD3A = 1)
@@ -56328,7 +56332,7 @@ return
 JMednafenLYPlus:
 gui, submit, nohide
 guicontrolget,kprm,,emjLYPlus
-emjbtog= disable
+emjtog= disable
 gosub, emjbtog
 vprm= %kmjLYPlus%
 if (emjRAD3A = 1)
@@ -56347,7 +56351,7 @@ return
 JMednafenLYMinus:
 gui, submit, nohide
 guicontrolget,kprm,,emjLYMinus
-emjbtog= disable
+emjtog= disable
 gosub, emjbtog
 vprm= %kmjLYMinus%
 if (emjRAD3A = 1)
@@ -56366,7 +56370,7 @@ return
 JMednafenLXPlus:
 gui, submit, nohide
 guicontrolget,kprm,,emjLXPlus
-emjbtog= disable
+emjtog= disable
 gosub, emjbtog
 vprm= %kmjLXPlus%
 if (emjRAD3A = 1)
@@ -56385,7 +56389,7 @@ return
 JMednafenselect:
 gui, submit, nohide
 guicontrolget,kprm,,emjselect
-emjbtog= disable
+emjtog= disable
 gosub, emjbtog
 vprm= %kmjselect%
 if (emjRAD3A = 1)
@@ -56404,7 +56408,7 @@ return
 JMednafenstart:
 gui, submit, nohide
 guicontrolget,kprm,,emjstart
-emjbtog= disable
+emjtog= disable
 gosub, emjbtog
 vprm= %kmjstart%
 if (emjRAD3A = 1)
@@ -56423,7 +56427,7 @@ return
 JMednafenup:
 gui, submit, nohide
 guicontrolget,kprm,,emjup
-emjbtog= disable
+emjtog= disable
 gosub, emjbtog
 vprm= %kmjup%
 if (emjRAD3A = 1)
@@ -56442,7 +56446,7 @@ return
 JMednafenleft:
 gui, submit, nohide
 guicontrolget,kprm,,emjleft
-emjbtog= disable
+emjtog= disable
 gosub, emjbtog
 vprm= %kmjleft%
 if (emjRAD3A = 1)
@@ -56461,7 +56465,7 @@ return
 JMednafenright:
 gui, submit, nohide
 guicontrolget,kprm,,emjright
-emjbtog= disable
+emjtog= disable
 gosub, emjbtog
 vprm= %kmjright%
 if (emjRAD3A = 1)
@@ -56480,7 +56484,7 @@ return
 JMednafendown:
 gui, submit, nohide
 guicontrolget,kprm,,emjdown
-emjbtog= disable
+emjtog= disable
 gosub, emjbtog
 vprm= %kmjdown%
 if (emjRAD3A = 1)
@@ -56499,7 +56503,7 @@ return
 JMednafenY:
 gui, submit, nohide
 guicontrolget,kprm,,emjY
-emjbtog= disable
+emjtog= disable
 gosub, emjbtog
 vprm= %kmjY%
 if (emjRAD3A = 1)
@@ -56518,7 +56522,7 @@ return
 JMednafenX:
 gui, submit, nohide
 guicontrolget,kprm,,emjX
-emjbtog= disable
+emjtog= disable
 gosub, emjbtog
 vprm= %kmjX%
 if (emjRAD3A = 1)
@@ -56537,7 +56541,7 @@ return
 JMednafenB:
 gui, submit, nohide
 guicontrolget,kprm,,emjB
-emjbtog= disable
+emjtog= disable
 gosub, emjbtog
 vprm= %kmjB%
 if (emjRAD3A = 1)
@@ -56556,7 +56560,7 @@ return
 JMednafenA:
 gui, submit, nohide
 guicontrolget,kprm,,emjA
-emjbtog= disable
+emjtog= disable
 gosub, emjbtog
 vprm= %kmjA%
 if (emjRAD3A = 1)
@@ -56575,7 +56579,7 @@ return
 JMednafenl2:
 gui, submit, nohide
 guicontrolget,kprm,,emjL2
-emjbtog= disable
+emjtog= disable
 gosub, emjbtog
 vprm= %kmjL2%
 if (emjRAD3A = 1)
@@ -56594,7 +56598,7 @@ return
 JMednafenr2:
 gui, submit, nohide
 guicontrolget,kprm,,emjR2
-emjbtog= disable
+emjtog= disable
 gosub, emjbtog
 vprm= %kmjR2%
 if (emjRAD3A = 1)
@@ -56613,7 +56617,7 @@ return
 JMednafenHome:
 gui, submit, nohide
 guicontrolget,kprm,,emjHome
-emjbtog= disable
+emjtog= disable
 gosub, emjbtog
 vprm= %kmjHome%
 if (emjRAD3A = 1)
