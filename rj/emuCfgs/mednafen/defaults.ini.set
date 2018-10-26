@@ -155,6 +155,7 @@ video.glvsync=1
 <system>.shader.goat.slen=1
 <system>.shader.goat.tp=0.50
 <system>.shader.goat.vdiv=0.50
+<system>.shader=none
 <system>.special=none
 <system>.stretch=aspect_mult2
 <system>.videoip=0

@@ -53329,6 +53329,7 @@ goto, EMJTOG
 MameCTRLS:
 FusionCTRLS:
 ejcex= 1
+
 EMJTOG:
 guicontrol,%emjtog%,emjAGRP
 guicontrol,%emjtog%,emjRAD1A
@@ -53397,7 +53398,7 @@ guicontrol,%emjtog%,emjEDTB
 guicontrol,%emjtog%,emjUDB
 guicontrol,%emjtog%,emjCHKG
 guicontrol,%emjtog%,emjZTXT
-
+EMJBTOG:
 guicontrol,%emjtog%,emjTURBOIN
 guicontrol,%emjtog%,emjLTRIGIN
 guicontrol,%emjtog%,emjLBUMPIN
@@ -53464,7 +53465,6 @@ return
 mednafenCTRLS:
 ejcex= 1
 SB_SetText(" Loading Mednafen Joystick config ")
-guicontrol,show,emjCBA
 
 guicontrol,show,INDWRN
 guicontrol,move,INDWRN,x262 y180 w200 h200
@@ -53487,6 +53487,7 @@ guicontrol,hide,emjTURBOIN
 
 guicontrol,hide,SAVEJOY
 
+guicontrol,show,emjCBA
 guicontrol,show,emjBUTA
 guicontrol,,emjBUTA,Load
 guicontrol,show,emjBUTB
@@ -54700,14 +54701,66 @@ return
 ;};;;;;;;;;;;;;;;
 
 MedKBREV:
-stringsplit,vprx,vprm,%A_Space%
-stringsplit,vprv,vprx2,%A_Space%
-jprs= 
-Loop, %vprv0%
+stringsplit,orp,vprm,%A_Space%
+if (orp3 <> "")
 	{
+		orsp= %orp2% %orp3%
+	}
+if (orp4 <> "")
+	{
+		orsp= %orp2% %orp3% %orp4%
+	}
+if (orp5 <> "")
+	{
+		orsp= %orp2% %orp3% %orp4% %orp5%
+	}
+if (orp6 <> "")
+	{
+		orsp= %orp2% %orp3% %orp4% %orp5% %orp6%
+	}
+if (orp7 <> "")
+	{
+		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7%
+	}
+if (orp8 <> "")
+	{
+		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8%
+	}
+if (orp9 <> "")
+	{
+		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9%
+	}
+jprs= 
+
+reinj= 
+inhx1= 
+inhx2= 
+inhx3= 
+inhx4= 
+stringsplit,inhx,orsp,~
+sola= %inhx1%
+if (inhx2 <> "")
+	{
+		sola= ~%inhx2%
+	}
+if (inhx3 <> "")
+	{
+		sola= ~%inhx2%~%inhx3%
+	}
+if (inhx4 <> "")
+	{
+		sola= ~%inhx2%~%inhx3%~%inhx4%
+	}
+Loop, Parse,inhx1,%A_Space%
+	{
+		if (reinj <> "")
+			{
+				reinj.= A_Space
+			}
 		if (A_LoopField = "keyboard")
 			{
 				jprs= 1
+				reinj= keyboard
 				continue
 			}
 		if (jprs = 1)
@@ -54716,15 +54769,17 @@ Loop, %vprv0%
 					{
 						continue
 					}
-				stringsplit,kiv,A_LoopField,~
-				mvpn= %kiv1%
-				mvpns= %kiv1%
-				if (kiv2 <> "")
+				jink= 	
+				mvpn= %A_LoopField%
+				ifinstring,A_LoopField,+
 					{
-						mpvns= %kiv1%~%kiv2%
+						stringsplit,kiv,A_LoopField,+
+						mvpn= %kiv1%
+						jink= +%kiv2%
 					}
 				Loop,Parse,mednkbctrls,`n`r
 					{
+						svpr= 
 						stringsplit,din,A_LoopField,=
 						if (A_LoopField = "")
 							{
@@ -54732,18 +54787,20 @@ Loop, %vprv0%
 							}
 						if (din1 = kprm)
 							{
-								svpr= %din2%
+								svpr= %din2%%jink%
+								;;reinj.= "0x0" . A_Space . svpr
+								reinj.= svpr
 							}
-						if (din2 = mvpn)
-							{
-								msgbox,,,k
-							}
-					}	
-					
-				break
+					}
+				jprs+= 1
+				continue
 			}
-			
+		reinj.= A_LoopField
 	}
+reinj.= sola	
+stringreplace,medjimp,medjimp,%orsp%,%reinj%,All
+emjtog= enable
+gosub, emjbtog
 return
 
 MedJREV:
@@ -56097,7 +56154,9 @@ return
 JMednafenRXMinus:
 gui, submit, nohide
 guicontrolget,kprm,,emjRXMinus
-vrpm= %kmjRXMinus%
+emjbtog= disable
+gosub, emjbtog
+vprm= %kmjRXMinus%
 if (emjRAD3A = 1)
 	{
 		gosub, medkbrev
@@ -56106,154 +56165,468 @@ if (emjRAD3B = 1)
 	{
 		gosub, medjrev
 	}
-stringreplace,medjimp,medjimp,%kmjRXMinus%,%emjRXMinus%,All
 filedelete,%medcfgloc%
 fileappend,%medjimp%,%medcfgloc%
+gosub, mednafenswap
 return
 
 JMednafenRYPlus:
 gui, submit, nohide
 guicontrolget,kprm,,emjRYPlus
-vrpm= %kmjryplus%
-stringreplace,medjimp,medjimp,%kmjRYPlus%,%emjRYPlus%,All
+emjbtog= disable
+gosub, emjbtog
+vprm= %kmjryplus%
+emjbtog= disable
+gosub, emjbtog
+vprm= %kmjdown%
+if (emjRAD3A = 1)
+	{
+		gosub, medkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, medjrev
+	}
+filedelete,%medcfgloc%
+fileappend,%medjimp%,%medcfgloc%
+gosub, mednafenswap
 return
 
 JMednafenR:
 gui, submit, nohide
 guicontrolget,kprm,,emjR
-stringreplace,medjimp,medjimp,%kmjR%,%emjR%,All
+emjbtog= disable
+gosub, emjbtog
+vprm= %kmjR%
+if (emjRAD3A = 1)
+	{
+		gosub, medkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, medjrev
+	}
+filedelete,%medcfgloc%
+fileappend,%medjimp%,%medcfgloc%
+gosub, mednafenswap
 return
 
 JMednafenL:
 gui, submit, nohide
 guicontrolget,kprm,,emjL
-stringreplace,medjimp,medjimp,%kmjL%,%emjL%,All
+emjbtog= disable
+gosub, emjbtog
+vprm= %kmjL%
+if (emjRAD3A = 1)
+	{
+		gosub, medkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, medjrev
+	}
+filedelete,%medcfgloc%
+fileappend,%medjimp%,%medcfgloc%
+gosub, mednafenswap
 return
 
 JMednafenRXPlus:
 gui, submit, nohide
 guicontrolget,kprm,,emjRXPlus
-stringreplace,medjimp,medjimp,%kmjRXPlus%,%emjRXPlus%,All
+emjbtog= disable
+gosub, emjbtog
+vprm= %kmjRXPlus%
+if (emjRAD3A = 1)
+	{
+		gosub, medkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, medjrev
+	}
+filedelete,%medcfgloc%
+fileappend,%medjimp%,%medcfgloc%
+gosub, mednafenswap
 return
 
 JMednafenRYMinus:
 gui, submit, nohide
 guicontrolget,kprm,,emjRYMinus
-stringreplace,medjimp,medjimp,%kmjRYMinus%,%emjRYMinus%,All
+emjbtog= disable
+gosub, emjbtog
+vprm= %kmjRYMinus%
+if (emjRAD3A = 1)
+	{
+		gosub, medkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, medjrev
+	}
+filedelete,%medcfgloc%
+fileappend,%medjimp%,%medcfgloc%
+gosub, mednafenswap
 return
 
 JMednafenR3:
 gui, submit, nohide
 guicontrolget,kprm,,emjR3
-stringreplace,medjimp,medjimp,%kmjR3%,%emjR3%,All
+emjbtog= disable
+gosub, emjbtog
+vprm= %kmjR3%
+if (emjRAD3A = 1)
+	{
+		gosub, medkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, medjrev
+	}
+filedelete,%medcfgloc%
+fileappend,%medjimp%,%medcfgloc%
+gosub, mednafenswap
 return
 
 JMednafenL3:
 gui, submit, nohide
 guicontrolget,kprm,,emjL3
-stringreplace,medjimp,medjimp,%kmjL3%,%emjL3%,All
+emjbtog= disable
+gosub, emjbtog
+vprm= %kmjR3%
+if (emjRAD3A = 1)
+	{
+		gosub, medkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, medjrev
+	}
+filedelete,%medcfgloc%
+fileappend,%medjimp%,%medcfgloc%
+gosub, mednafenswap
 return
 
 JMednafenLXMinus:
 gui, submit, nohide
 guicontrolget,kprm,,emjLXMinus
-stringreplace,medjimp,medjimp,%kmjLXMinus%,%emjLXMinus%,All
+emjbtog= disable
+gosub, emjbtog
+vprm= %kmjLXMinus%
+if (emjRAD3A = 1)
+	{
+		gosub, medkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, medjrev
+	}
+filedelete,%medcfgloc%
+fileappend,%medjimp%,%medcfgloc%
+gosub, mednafenswap
 return
 
 JMednafenLYPlus:
 gui, submit, nohide
 guicontrolget,kprm,,emjLYPlus
-stringreplace,medjimp,medjimp,%kmjLYPlus%,%emjLYPlus%,All
+emjbtog= disable
+gosub, emjbtog
+vprm= %kmjLYPlus%
+if (emjRAD3A = 1)
+	{
+		gosub, medkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, medjrev
+	}
+filedelete,%medcfgloc%
+fileappend,%medjimp%,%medcfgloc%
+gosub, mednafenswap
 return
 
 JMednafenLYMinus:
 gui, submit, nohide
 guicontrolget,kprm,,emjLYMinus
-stringreplace,medjimp,medjimp,%kmjLYMinus%,%emjLYMinus%,All
+emjbtog= disable
+gosub, emjbtog
+vprm= %kmjLYMinus%
+if (emjRAD3A = 1)
+	{
+		gosub, medkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, medjrev
+	}
+filedelete,%medcfgloc%
+fileappend,%medjimp%,%medcfgloc%
+gosub, mednafenswap
 return
 
 JMednafenLXPlus:
 gui, submit, nohide
 guicontrolget,kprm,,emjLXPlus
-stringreplace,medjimp,medjimp,%kmjLXPlus%,%emjLXPlus%,All
+emjbtog= disable
+gosub, emjbtog
+vprm= %kmjLXPlus%
+if (emjRAD3A = 1)
+	{
+		gosub, medkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, medjrev
+	}
+filedelete,%medcfgloc%
+fileappend,%medjimp%,%medcfgloc%
+gosub, mednafenswap
 return
 
 JMednafenselect:
 gui, submit, nohide
 guicontrolget,kprm,,emjselect
-stringreplace,medjimp,medjimp,%kmjselect%,%emjselect%,All
+emjbtog= disable
+gosub, emjbtog
+vprm= %kmjselect%
+if (emjRAD3A = 1)
+	{
+		gosub, medkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, medjrev
+	}
+filedelete,%medcfgloc%
+fileappend,%medjimp%,%medcfgloc%
+gosub, mednafenswap
 return
 
 JMednafenstart:
 gui, submit, nohide
 guicontrolget,kprm,,emjstart
-stringreplace,medjimp,medjimp,%kmjstart%,%emjstart%,All
+emjbtog= disable
+gosub, emjbtog
+vprm= %kmjstart%
+if (emjRAD3A = 1)
+	{
+		gosub, medkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, medjrev
+	}
+filedelete,%medcfgloc%
+fileappend,%medjimp%,%medcfgloc%
+gosub, mednafenswap
 return
 
 JMednafenup:
 gui, submit, nohide
 guicontrolget,kprm,,emjup
-stringreplace,medjimp,medjimp,%kmjup%,%emjup%,All
+emjbtog= disable
+gosub, emjbtog
+vprm= %kmjup%
+if (emjRAD3A = 1)
+	{
+		gosub, medkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, medjrev
+	}
+filedelete,%medcfgloc%
+fileappend,%medjimp%,%medcfgloc%
+gosub, mednafenswap
 return
 
 JMednafenleft:
 gui, submit, nohide
 guicontrolget,kprm,,emjleft
-stringreplace,medjimp,medjimp,%kmjleft%,%emjleft%,All
+emjbtog= disable
+gosub, emjbtog
+vprm= %kmjleft%
+if (emjRAD3A = 1)
+	{
+		gosub, medkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, medjrev
+	}
+filedelete,%medcfgloc%
+fileappend,%medjimp%,%medcfgloc%
+gosub, mednafenswap
 return
 
 JMednafenright:
 gui, submit, nohide
 guicontrolget,kprm,,emjright
-stringreplace,medjimp,medjimp,%kmjright%,%emjright%,All
+emjbtog= disable
+gosub, emjbtog
+vprm= %kmjright%
+if (emjRAD3A = 1)
+	{
+		gosub, medkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, medjrev
+	}
+filedelete,%medcfgloc%
+fileappend,%medjimp%,%medcfgloc%
+gosub, mednafenswap
 return
 
 JMednafendown:
 gui, submit, nohide
 guicontrolget,kprm,,emjdown
-stringreplace,medjimp,medjimp,%kmjdown%,%emjdown%,All
+emjbtog= disable
+gosub, emjbtog
+vprm= %kmjdown%
+if (emjRAD3A = 1)
+	{
+		gosub, medkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, medjrev
+	}
+filedelete,%medcfgloc%
+fileappend,%medjimp%,%medcfgloc%
+gosub, mednafenswap
 return
 
 JMednafenY:
 gui, submit, nohide
 guicontrolget,kprm,,emjY
-stringreplace,medjimp,medjimp,%kmjY%,%emjY%,All
+emjbtog= disable
+gosub, emjbtog
+vprm= %kmjY%
+if (emjRAD3A = 1)
+	{
+		gosub, medkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, medjrev
+	}
+filedelete,%medcfgloc%
+fileappend,%medjimp%,%medcfgloc%
+gosub, mednafenswap
 return
 
 JMednafenX:
 gui, submit, nohide
 guicontrolget,kprm,,emjX
-stringreplace,medjimp,medjimp,%kmjX%,%emjX%,All
+emjbtog= disable
+gosub, emjbtog
+vprm= %kmjX%
+if (emjRAD3A = 1)
+	{
+		gosub, medkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, medjrev
+	}
+filedelete,%medcfgloc%
+fileappend,%medjimp%,%medcfgloc%
+gosub, mednafenswap
 return
 
 JMednafenB:
 gui, submit, nohide
 guicontrolget,kprm,,emjB
-stringreplace,medjimp,medjimp,%kmjB%,%emjB%,All
+emjbtog= disable
+gosub, emjbtog
+vprm= %kmjB%
+if (emjRAD3A = 1)
+	{
+		gosub, medkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, medjrev
+	}
+filedelete,%medcfgloc%
+fileappend,%medjimp%,%medcfgloc%
+gosub, mednafenswap
 return
 
 JMednafenA:
 gui, submit, nohide
 guicontrolget,kprm,,emjA
-stringreplace,medjimp,medjimp,%kmjA%,%emjA%,All
+emjbtog= disable
+gosub, emjbtog
+vprm= %kmjA%
+if (emjRAD3A = 1)
+	{
+		gosub, medkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, medjrev
+	}
+filedelete,%medcfgloc%
+fileappend,%medjimp%,%medcfgloc%
+gosub, mednafenswap
 return
 
 JMednafenl2:
 gui, submit, nohide
 guicontrolget,kprm,,emjL2
-stringreplace,medjimp,medjimp,%kmjL2%,%emjL2%,All
+emjbtog= disable
+gosub, emjbtog
+vprm= %kmjL2%
+if (emjRAD3A = 1)
+	{
+		gosub, medkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, medjrev
+	}
+filedelete,%medcfgloc%
+fileappend,%medjimp%,%medcfgloc%
+gosub, mednafenswap
 return
 
 JMednafenr2:
 gui, submit, nohide
 guicontrolget,kprm,,emjR2
-stringreplace,medjimp,medjimp,%kmjR2%,%emjR2%,All
+emjbtog= disable
+gosub, emjbtog
+vprm= %kmjR2%
+if (emjRAD3A = 1)
+	{
+		gosub, medkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, medjrev
+	}
+filedelete,%medcfgloc%
+fileappend,%medjimp%,%medcfgloc%
+gosub, mednafenswap
 return
 
 JMednafenHome:
 gui, submit, nohide
 guicontrolget,kprm,,emjHome
-stringreplace,medjimp,medjimp,%kmjHome%,%emjHome%,All
+emjbtog= disable
+gosub, emjbtog
+vprm= %kmjHome%
+if (emjRAD3A = 1)
+	{
+		gosub, medkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, medjrev
+	}
+filedelete,%medcfgloc%
+fileappend,%medjimp%,%medcfgloc%
+gosub, mednafenswap
 return
 ;};;;;;;;;
 
