@@ -4,11 +4,11 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-26 4:55 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-27 4:50 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-10-26 4:55 PM
+RELEASE= 2018-10-27 4:50 PM
 VERSION= v0.99.58.93
 RASTABLE= 1.7.5
 #Include tf.ahk
@@ -25730,7 +25730,26 @@ guicontrol,move,emuSLDC,x215 y270 w120 h24
 ;;//change this to a listed variable
 medcfg= mednafen.cfg
 
-
+if (medjgrab = "")
+	{
+		SetTitleMatchMode,1
+		iniread,medapx,Assignments.ini,ASSIGNMENTS,mednafen
+		blockinput, on
+		Run, %comspec% /c " "%medapx%" nofile >"tmp.tmp"",,hide
+		WinWait, Mednafen, Error opening file "nofile": No such file or directory
+		WinClose, Mednafen, Error opening file "nofile": No such file or directory
+		blockinput, off
+		kbr= 
+		Loop, Read, tmp.tmp
+			{
+				ifinstring,A_LoopReadLine,ID:
+					{
+						stringsplit,fvir,A_LoopReadLine,:-,%A_Space%
+						medjgrab.= (kbr < 1 ? "" : "|") . fvir2
+						kbr+= 1
+					}
+			}
+	}
 ;};;
 
 EMUCFGOVRTGL= 0
@@ -26081,6 +26100,30 @@ Loop, Parse, mednafenopts,`n`r
 			{
 				guicontrol,,emuCHKE,%msplke%
 				MEDemuCHKE= %msplke%
+			}
+		if (medjgrab = "")
+			{
+				medjgrab= 0x0
+			}
+		jnum= 	
+		Loop, 16
+			{
+				jnum+= 1
+				Loop, Parse, medjgrab,|
+					{
+						jman+= 1
+						jvar= 
+						if (A_Index = jnum)
+							{
+								stringreplace,mednafenopts,mednafenopts,[JOYINJ%A_Index%],%A_LoopField%,All
+								jvar= %A_LoopField%
+								break
+							}
+					}
+				if (jvar = "")
+					{
+						stringreplace,mednafenopts,mednafenopts,[JOYINJ%A_Index%],0x0,All
+					}
 			}
 	}
 	
@@ -54731,6 +54774,30 @@ if (orp9 <> "")
 	{
 		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9%
 	}
+if (orp10 <> "")
+	{
+		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9% %orp10%
+	}
+if (orp11 <> "")
+	{
+		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9% %orp10% %orp11%
+	}
+if (orp12 <> "")
+	{
+		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9% %orp10% %orp11% %orp12%
+	}
+if (orp13 <> "")
+	{
+		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9% %orp10% %orp11% %orp12% %orp13%
+	}
+if (orp14 <> "")
+	{
+		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9% %orp10% %orp11% %orp12% %orp13% %orp14%
+	}
+if (orp15 <> "")
+	{
+		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9% %orp10% %orp11% %orp12% %orp13% %orp14% %orp15%
+	}
 jprs= 
 
 reinj= 
@@ -54738,11 +54805,11 @@ inhx1=
 inhx2= 
 inhx3= 
 inhx4= 
-stringsplit,inhx,orsp,|
+stringsplit,inhx,orsp,|,%A_Space%
 sola= %inhx1%
 if (inhx2 <> "")
 	{
-		sola= ||%inhx2%
+		sola= %A_Space%||%A_Space%%inhx2%
 	}
 if (inhx3 <> "")
 	{
@@ -54754,6 +54821,10 @@ if (inhx4 <> "")
 	}
 Loop, Parse,inhx1,%A_Space%
 	{
+		if (A_LoopField = "0x0")
+			{
+				continue
+			}
 		if (reinj <> "")
 			{
 				reinj.= A_Space
@@ -54766,10 +54837,7 @@ Loop, Parse,inhx1,%A_Space%
 			}
 		if (jprs = 1)
 			{
-				if (A_LoopField = "0x0")
-					{
-						continue
-					}
+				
 				jink= 	
 				mvpn= %A_LoopField%
 				ifinstring,A_LoopField,+
@@ -54802,7 +54870,7 @@ Loop, Parse,inhx1,%A_Space%
 	}
 ;;reinj.= sola	
 stringreplace,medjimp,medjimp,%orsp%,%reinj%,All
-stringreplace,medjimp,medjimp,||||,%A_Space%||%A_Space%,All
+;;stringreplace,medjimp,medjimp,||||,%A_Space%||%A_Space%,All
 emjtog= enable
 gosub, emjbtog
 return
