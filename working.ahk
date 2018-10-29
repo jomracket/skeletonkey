@@ -197,7 +197,8 @@ OSVRZ3=
 stringsplit, OSVRZ, A_OSVersion,.,
 OSVRZ:= "Win" . OSVRZ1 . "." . OSVRZ2 . "x" . ARCH
 formattime, date, YYYY_MM_DD, yyyy-MM-dd
-RAUPDT= %date%_RetroArch.7z
+;;RAUPDT= %date%_RetroArch.7z
+RAUPDT= RetroArch_update.zip
 ARCHR= 
 if (ARCH = 64)
 {
@@ -1659,8 +1660,8 @@ Gui, Add, Checkbox, x422 y23 vAUTOLNCH gAutoLaunch Checked, Auto-Launch
 Gui ,Add, Picture, x627 y338 w122 h121, key.png
 Gui, Add, Button, x74 y136 w43 h23 vSETEMUD gSETEMUD, SET
 Gui, Add, Button, x74 y53 w43 h23 vSETJKD gSETJKD, SET
-Gui, Add, Text, x4 y81 vSKSYSTXT, Systems ROOT
-Gui, Add, Text, x4 y163 vSKEMUDTXT, Emulators Dir
+Gui, Add, Text, x8 y81 vSKSYSTXT, Systems ROOT
+Gui, Add, Text, x8 y163 vSKEMUDTXT, Emulators Dir
 Gui, Add, CheckBox,  x174 y105 vSKFILTSUP gSKFILTSUP, Filter Unsupported
 Gui,Font,Normal
 Gui, Add, Button, x579 y450 w55 h18 vUpdateSK gUpdateSK, UPDATE
@@ -1769,7 +1770,7 @@ Gui,Font,%fontXsm% Norm
 Gui, Add, Radio, x140 y62 w50 h16 vRMENU gRGUI hidden, RGUI
 Gui, Add, Radio, x140 y84 w45 h16 vXMENU gXMB Checked hidden, XMB
 Gui, Add, Radio, x140 y106 w45 h16 vGMENU gGLUI hidden, GLUI
-Gui, Add, Radio, x140 y128 w60 h16 vZMENU gZARCH hidden, ZARCH
+Gui, Add, Radio, x140 y128 w60 h16 vZMENU gOZONE hidden, OZONE
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;~~~OUTPUT MENU GROUP~~~;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -2478,7 +2479,7 @@ Gui, Add, Text, x614 y381 h17 +0x200 vemjBTXT Hidden, (3)
 Gui, Add, Text, x501 y426 h23 +0x200 vemjCTXT Hidden, (2)
 Gui, Add, Text, x616 y478 h13 +0x200 vemjDTXT Hidden, (0)
 Gui, Add, Text, x120 y336 h23 +0x200 vemjETXT Hidden, (8)[L3] 
-Gui, Add, Text, x617 y337 h23 vemjFTXT Hidden, (9)[R3] 
+Gui, Add, Text, x617 y344 h23 vemjFTXT Hidden, (9)[R3] 
 Gui, Add, Text, x66 y197 h23 +0x200 vemjGTXT Hidden, Left Trigger
 Gui, Add, Text, x628 y199 h23 vemjHTXT Hidden, Right Trigger
 Gui, Add, Text, x175 y221 h23 +0x200 vemjITXT Hidden, (4)Left Bumper
@@ -4244,7 +4245,7 @@ XMBTHM_TT :="Icon theme number"
 XMENU_TT :="Playstation-style GUI.  The Default"
 ZIPSEEK_TT :="Searches within archives (.zip/.7z) for files.`nturn this off for Arcade/MAME-Style ROMs and archives." 
 ZIPSEEK_TT :="Gets and writes the CRC Hash number of ROMs to the playlist.`nThis can be expensive for CD/DVD systems.`nturn this off for Arcade/MAME-Style ROMs and archives." 
-ZMENU_TT :="dunno.  might work."
+ZMENU_TT :="Nintendo Switch menu style."
 SHDEN_TT :="Toggles shader"
 SKFILTSUP_TT :="Any dropdown listing the contents of your ''systems'' directory`n will filter out any directories which have not been detected or assigned"
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -10638,9 +10639,9 @@ gui, submit, nohide
 menuDriver= glui
 IniWrite, "%menuDriver%", %curcfg%,OPTIONS,menu_driver
 return
-ZARCH:
+OZONE:
 gui, submit, nohide
-menuDriver= zarch
+menuDriver= ozone
 IniWrite, "%menuDriver%", %curcfg%,OPTIONS,menu_driver
 return
 
@@ -14293,7 +14294,7 @@ if (updfilsz < 110)
 	{
 		filedelete,%RAUPDF%
 	}
-ifnotexist, %A_WorkingDir%\%RAUPDF%
+ifnotexist, %cacheloc%\%RAUPDF%
 	{
 		GuiControl, Enable, AVAIL
 		GuiControl, Enable, UPDBTN
@@ -25734,11 +25735,11 @@ if (medjgrab = "")
 	{
 		SetTitleMatchMode,1
 		iniread,medapx,Assignments.ini,ASSIGNMENTS,mednafen
-		blockinput, on
-		Run, %comspec% /c " "%medapx%" nofile >"tmp.tmp"",,hide
-		WinWait, Mednafen, Error opening file "nofile": No such file or directory
-		WinClose, Mednafen, Error opening file "nofile": No such file or directory
-		blockinput, off
+		;;blockinput, on
+		RunWait, %comspec% /c " set MEDNAFEN_NOPOPUPS=1&&"%medapx%" nofile >"tmp.tmp"",,hide
+		;;WinWait, Mednafen, Error opening file "nofile": No such file or directory
+		;;WinClose, Mednafen, Error opening file "nofile": No such file or directory
+		;;blockinput, off
 		kbr= 
 		Loop, Read, tmp.tmp
 			{
@@ -25746,6 +25747,7 @@ if (medjgrab = "")
 					{
 						stringsplit,fvir,A_LoopReadLine,:-,%A_Space%
 						medjgrab.= (kbr < 1 ? "" : "|") . fvir2
+						medjid%A_Index%= fvir2
 						kbr+= 1
 					}
 			}
@@ -26105,7 +26107,8 @@ Loop, Parse, mednafenopts,`n`r
 			{
 				medjgrab= 0x0
 			}
-		jnum= 	
+		jnum= 
+		jvar= 
 		Loop, 16
 			{
 				jnum+= 1
@@ -26123,6 +26126,7 @@ Loop, Parse, mednafenopts,`n`r
 				if (jvar = "")
 					{
 						stringreplace,mednafenopts,mednafenopts,[JOYINJ%A_Index%],0x0,All
+						medjid%A_Index%= 0x0
 					}
 			}
 	}
@@ -54633,6 +54637,26 @@ Loop, Parse, medjimp,`n`r
 					{
 						aisp= %aip2% %aip3% %aip4% %aip5% %aip6% %aip7% %aip8% %aip9%
 					}
+				if (aip10<> "")
+					{
+						aisp= %aip2% %aip3% %aip4% %aip5% %aip6% %aip7% %aip8% %aip9% %aip10%
+					}
+				if (aip11 <> "")
+					{
+						aisp= %aip2% %aip3% %aip4% %aip5% %aip6% %aip7% %aip8% %aip9% %aip10% %aip11%
+					}
+				if (aip12 <> "")
+					{
+						aisp= %aip2% %aip3% %aip4% %aip5% %aip6% %aip7% %aip8% %aip9% %aip10% %aip11% %aip12%
+					}
+				if (aip13 <> "")
+					{
+						aisp= %aip2% %aip3% %aip4% %aip5% %aip6% %aip7% %aip8% %aip9% %aip10% %aip11% %aip12% %aip13%
+					}
+				if (aip14 <> "")
+					{
+						aisp= %aip2% %aip3% %aip4% %aip5% %aip6% %aip7% %aip8% %aip9% %aip10% %aip11% %aip12% %aip13% %aip14%
+					}
 				if (emjRAD3B = 1)  ;;joy
 					{
 						ifinstring,aisp,joystick
@@ -54655,6 +54679,10 @@ Loop, Parse, medjimp,`n`r
 												jprs+= 1
 												;;stringmid,plnum,A_LoopField,12,12
 												stringmid,plnum,A_LoopField,20,20
+												if (plnum = "")
+													{
+														plnum= %emjDDLB%
+													}
 												continue
 											}
 										if (jprs = 2)
@@ -54677,6 +54705,7 @@ Loop, Parse, medjimp,`n`r
 																		medlkup.= aik5 . "=" meditbd . "`n"
 																	}
 																guicontrol,,emj%meditbv%,|%meditbd%||%medjbid%
+																stringreplace,meditbv,meditbv,-,_,All
 																kmj%meditbv%= %mdlnval%
 																break
 															}	
@@ -54727,6 +54756,7 @@ Loop, Parse, medjimp,`n`r
 																		medlkup.= aik5 . "=" din1 . "`n"
 																	}
 																guicontrol,,emj%meditbv%,|%din1%||%medjname%
+																stringreplace,meditbv,meditbv,-,_,All
 																kmj%meditbv%= %mdlnval%
 																break
 															}
@@ -54805,26 +54835,49 @@ inhx1=
 inhx2= 
 inhx3= 
 inhx4= 
-stringsplit,inhx,orsp,|,%A_Space%
-sola= %inhx1%
+stringsplit,inhx,orsp,|
+sola= 
+ifinstring,inhx1,keyboard
+	{
+		inhxsp= %inhx1%
+	}
 if (inhx2 <> "")
 	{
-		sola= %A_Space%||%A_Space%%inhx2%
+		sola= ||%inhx2%
 	}
 if (inhx3 <> "")
 	{
-		sola= ||%A_Space%%inhx2%%A_Space%||%A_Space%%inhx3%
+		sola= ||%inhx2%||%inhx3%
 	}
 if (inhx4 <> "")
 	{
-		sola= ||%A_Space%%inhx2%%A_Space%||%A_Space%%inhx3%%A_Space%||%A_Space%%inhx4%
+		sola= ||%inhx2%||%inhx3%||%inhx4%
 	}
-Loop, Parse,inhx1,%A_Space%
+ifinstring,inhx4,keyboard
 	{
-		if (A_LoopField = "0x0")
+		inhxsp= %inhx4%
+		sola= ||%inhx1%||%inhx2%||%inhx3%
+	}
+ifinstring,inhx3,keyboard
+	{
+		inhxsp= %inhx3%
+		sola= ||%inhx1%||%inhx2%
+	}
+ifinstring,inhx2,keyboard
+	{
+		inhxsp= %inhx2%
+		sola= ||%inhx1%
+	}
+Loop, Parse,inhxsp,%A_Space%
+	{
+		if (A_LoopField = "||")
 			{
 				continue
 			}
+		;if (A_LoopField = "0x0")
+			;{
+			;	continue
+		;	}
 		if (reinj <> "")
 			{
 				reinj.= A_Space
@@ -54837,7 +54890,6 @@ Loop, Parse,inhx1,%A_Space%
 			}
 		if (jprs = 1)
 			{
-				
 				jink= 	
 				mvpn= %A_LoopField%
 				ifinstring,A_LoopField,+
@@ -54857,25 +54909,179 @@ Loop, Parse,inhx1,%A_Space%
 						if (din1 = kprm)
 							{
 								svpr= %din2%%jink%
-								reinj.= "0x0" . A_Space . svpr
+								reinj.= "0x0" . A_Space . svpr 
 								;reinj.= svpr
 								break
 							}
 					}
-				;;jprs+= 1
-				;;continue
+				jprs+= 1
+				continue
 				break
 			}
-		;reinj.= A_LoopField
+		reinj.= A_LoopField
 	}
-;;reinj.= sola	
+reinj.= sola	
 stringreplace,medjimp,medjimp,%orsp%,%reinj%,All
-;;stringreplace,medjimp,medjimp,||||,%A_Space%||%A_Space%,All
+stringreplace,medjimp,medjimp,||||,||,All
 emjtog= enable
 gosub, emjbtog
 return
 
 MedJREV:
+medjinjid= % medjid%emjDDLB%
+stringsplit,orp,vprm,%A_Space%
+if (orp3 <> "")
+	{
+		orsp= %orp2% %orp3%
+	}
+if (orp4 <> "")
+	{
+		orsp= %orp2% %orp3% %orp4%
+	}
+if (orp5 <> "")
+	{
+		orsp= %orp2% %orp3% %orp4% %orp5%
+	}
+if (orp6 <> "")
+	{
+		orsp= %orp2% %orp3% %orp4% %orp5% %orp6%
+	}
+if (orp7 <> "")
+	{
+		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7%
+	}
+if (orp8 <> "")
+	{
+		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8%
+	}
+if (orp9 <> "")
+	{
+		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9%
+	}
+if (orp10 <> "")
+	{
+		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9% %orp10%
+	}
+if (orp11 <> "")
+	{
+		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9% %orp10% %orp11%
+	}
+if (orp12 <> "")
+	{
+		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9% %orp10% %orp11% %orp12%
+	}
+if (orp13 <> "")
+	{
+		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9% %orp10% %orp11% %orp12% %orp13%
+	}
+if (orp14 <> "")
+	{
+		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9% %orp10% %orp11% %orp12% %orp13% %orp14%
+	}
+if (orp15 <> "")
+	{
+		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9% %orp10% %orp11% %orp12% %orp13% %orp14% %orp15%
+	}
+jprs= 
+
+reinj= 
+inhx1= 
+inhx2= 
+inhx3= 
+inhx4= 
+stringsplit,inhx,orsp,|
+sola= 
+ifinstring,inhx1,joystick
+	{
+		inhxsp= %inhx1%
+	}
+if (inhx2 <> "")
+	{
+		sola= ||%inhx2%
+	}
+if (inhx3 <> "")
+	{
+		sola= ||%inhx2%||%inhx3%
+	}
+if (inhx4 <> "")
+	{
+		sola= ||%inhx2%||%inhx3%||%inhx4%
+	}
+ifinstring,inhx4,joystick
+	{
+		inhxsp= %inhx4%
+		sola= ||%inhx1%||%inhx2%||%inhx3%
+	}
+ifinstring,inhx3,joystick
+	{
+		inhxsp= %inhx3%
+		sola= ||%inhx1%||%inhx2%
+	}
+ifinstring,inhx2,joystick
+	{
+		inhxsp= %inhx2%
+		sola= ||%inhx1%
+	}
+Loop, Parse,inhxsp,%A_Space%
+	{
+		if (A_LoopField = "||")
+			{
+				continue
+			}
+		;if (A_LoopField = "0x0")
+			;{
+			;	continue
+		;	}
+		if (reinj <> "")
+			{
+				reinj.= A_Space
+			}
+		if (A_LoopField = "joystick")
+			{
+				jprs= 1
+				reinj= joystick
+				continue
+			}
+		if (jprs = 1)
+			{
+				jink= 	
+				mvpn= %A_LoopField%
+				ifinstring,A_LoopField,+
+					{
+						stringsplit,kiv,A_LoopField,+
+						mvpn= %kiv1%
+						jink= +%kiv2%
+					}
+				medjcd= %A_LoopField%
+				Loop, Parse, medxi,`n`r
+					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						stringsplit,mjvak,A_LoopField,=]
+						stringsplit,mjvcdp,mjvak4,%A_Space%
+						stringmid,meditbd,mjvak2,5,13
+						if (mjvcdp2 = medjcd)
+							{
+								ifnotinstring,medlkup,%meditbv%=
+									{
+										reinj.= medjinjid . A_Space . svpr
+										break
+									}
+							}	
+					}	
+				jprs+= 1
+				continue
+				break
+			}
+		reinj.= A_LoopField
+	}
+reinj.= sola	
+stringreplace,medjimp,medjimp,%orsp%,%reinj%,All
+stringreplace,medjimp,medjimp,||||,||,All
+emjtog= enable
+gosub, emjbtog
 return
 
 ;{;;;;;;;;;;;;;;  Emu Joy Option Functions  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -63224,7 +63430,7 @@ if (inival2 = "rgui")
 		GuiControl,, RMENU, 1
 		return
 	}
-if (inival2 = "zarch")
+if (inival2 = "ozone")
 	{
 		GuiControl,, ZMENU, 1
 		return
@@ -66459,4 +66665,4 @@ ifmsgbox, no
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;}#################################################################
+;}################################################################
