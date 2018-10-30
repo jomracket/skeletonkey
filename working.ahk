@@ -25751,6 +25751,35 @@ if (medjgrab = "")
 						kbr+= 1
 					}
 			}
+		if (medjgrab = "")
+			{
+				medjgrab= 0x0
+			}
+		jnum= 
+		jvar= 
+		jman= 
+		Loop, 16
+			{
+				jnum+= 1
+				jvar= 
+				Loop, Parse, medjgrab,|
+					{
+						jman+= 1
+						if (A_Index = jnum)
+							{
+								stringreplace,mednafenopts,mednafenopts,[0x0%jman%],%A_LoopField%,All
+								jvar= %A_LoopField%
+								medjid%jnum%= %A_LoopField%
+								break
+							}
+					}
+				if (jvar = "")
+					{
+						stringreplace,mednafenopts,mednafenopts,[0x0%A_Index%],0x0,All
+						medjid%A_Index%= 0x0
+					}
+				medjindex= % medjid%A_index%	
+			}	
 	}
 ;};;
 
@@ -25851,6 +25880,28 @@ Loop, parse, mtrfg,`n, `r
 		FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
 	}
 ;;;;input export;;;;
+Loop, 16
+			{
+				jnum+= 1
+				jvar= 
+				Loop, Parse, medjgrab,|
+					{
+						jman+= 1
+						if (A_Index = jnum)
+							{
+								stringreplace,micfg,micfg,[0x0%jman%],%A_LoopField%,All
+								jvar= %A_LoopField%
+								medjid%jnum%= %A_LoopField%
+								break
+							}
+					}
+				if (jvar = "")
+					{
+						stringreplace,micfg,micfg,[0x0%A_Index%],0x0,All
+						medjid%A_Index%= 0x0
+					}
+				medjindex= % medjid%A_index%	
+			}	
 Loop, parse, micfg,`n`r
 	{
 		aii1=
@@ -26102,32 +26153,6 @@ Loop, Parse, mednafenopts,`n`r
 			{
 				guicontrol,,emuCHKE,%msplke%
 				MEDemuCHKE= %msplke%
-			}
-		if (medjgrab = "")
-			{
-				medjgrab= 0x0
-			}
-		jnum= 
-		jvar= 
-		Loop, 16
-			{
-				jnum+= 1
-				Loop, Parse, medjgrab,|
-					{
-						jman+= 1
-						jvar= 
-						if (A_Index = jnum)
-							{
-								stringreplace,mednafenopts,mednafenopts,[JOYINJ%A_Index%],%A_LoopField%,All
-								jvar= %A_LoopField%
-								break
-							}
-					}
-				if (jvar = "")
-					{
-						stringreplace,mednafenopts,mednafenopts,[JOYINJ%A_Index%],0x0,All
-						medjid%A_Index%= 0x0
-					}
 			}
 	}
 	
@@ -54677,7 +54702,6 @@ Loop, Parse, medjimp,`n`r
 										if (jprs = 1)
 											{
 												jprs+= 1
-												;;stringmid,plnum,A_LoopField,12,12
 												stringmid,plnum,A_LoopField,20,20
 												if (plnum = "")
 													{
@@ -54687,7 +54711,6 @@ Loop, Parse, medjimp,`n`r
 											}
 										if (jprs = 2)
 											{
-												;;stringsplit,tildp,A_LoopField,|
 												medjcd= %A_LoopField%
 												Loop, Parse, medxi,`n`r
 													{
@@ -54705,7 +54728,7 @@ Loop, Parse, medjimp,`n`r
 																		medlkup.= aik5 . "=" meditbd . "`n"
 																	}
 																guicontrol,,emj%meditbv%,|%meditbd%||%medjbid%
-																stringreplace,meditbv,meditbv,-,_,All
+																stringreplace,meditbv,meditbv,-,#,All
 																kmj%meditbv%= %mdlnval%
 																break
 															}	
@@ -54756,7 +54779,7 @@ Loop, Parse, medjimp,`n`r
 																		medlkup.= aik5 . "=" din1 . "`n"
 																	}
 																guicontrol,,emj%meditbv%,|%din1%||%medjname%
-																stringreplace,meditbv,meditbv,-,_,All
+																stringreplace,meditbv,meditbv,-,#,All
 																kmj%meditbv%= %mdlnval%
 																break
 															}
@@ -54775,153 +54798,62 @@ return
 ;};;;;;;;;;;;;;;;
 
 MedKBREV:
-stringsplit,orp,vprm,%A_Space%
-if (orp3 <> "")
+stringreplace,orz,vprm,%A_Space%,-
+stringsplit,ors,orz,-
+stringreplace,orj,ors2,%A_Space%,-,All
+jprs=
+reinj= %A_Space%
+orzf= %A_Space%
+Loop, Parse, orj,-
 	{
-		orsp= %orp2% %orp3%
-	}
-if (orp4 <> "")
-	{
-		orsp= %orp2% %orp3% %orp4%
-	}
-if (orp5 <> "")
-	{
-		orsp= %orp2% %orp3% %orp4% %orp5%
-	}
-if (orp6 <> "")
-	{
-		orsp= %orp2% %orp3% %orp4% %orp5% %orp6%
-	}
-if (orp7 <> "")
-	{
-		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7%
-	}
-if (orp8 <> "")
-	{
-		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8%
-	}
-if (orp9 <> "")
-	{
-		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9%
-	}
-if (orp10 <> "")
-	{
-		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9% %orp10%
-	}
-if (orp11 <> "")
-	{
-		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9% %orp10% %orp11%
-	}
-if (orp12 <> "")
-	{
-		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9% %orp10% %orp11% %orp12%
-	}
-if (orp13 <> "")
-	{
-		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9% %orp10% %orp11% %orp12% %orp13%
-	}
-if (orp14 <> "")
-	{
-		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9% %orp10% %orp11% %orp12% %orp13% %orp14%
-	}
-if (orp15 <> "")
-	{
-		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9% %orp10% %orp11% %orp12% %orp13% %orp14% %orp15%
-	}
-jprs= 
-
-reinj= 
-inhx1= 
-inhx2= 
-inhx3= 
-inhx4= 
-stringsplit,inhx,orsp,|
-sola= 
-ifinstring,inhx1,keyboard
-	{
-		inhxsp= %inhx1%
-	}
-if (inhx2 <> "")
-	{
-		sola= ||%inhx2%
-	}
-if (inhx3 <> "")
-	{
-		sola= ||%inhx2%||%inhx3%
-	}
-if (inhx4 <> "")
-	{
-		sola= ||%inhx2%||%inhx3%||%inhx4%
-	}
-ifinstring,inhx4,keyboard
-	{
-		inhxsp= %inhx4%
-		sola= ||%inhx1%||%inhx2%||%inhx3%
-	}
-ifinstring,inhx3,keyboard
-	{
-		inhxsp= %inhx3%
-		sola= ||%inhx1%||%inhx2%
-	}
-ifinstring,inhx2,keyboard
-	{
-		inhxsp= %inhx2%
-		sola= ||%inhx1%
-	}
-Loop, Parse,inhxsp,%A_Space%
-	{
-		if (A_LoopField = "||")
-			{
-				continue
-			}
-		;if (A_LoopField = "0x0")
-			;{
-			;	continue
-		;	}
-		if (reinj <> "")
+		if (A_Index <> 1)
 			{
 				reinj.= A_Space
+				orzf.= A_Space
 			}
-		if (A_LoopField = "keyboard")
+		if (jprs = "")
 			{
-				jprs= 1
-				reinj= keyboard
-				continue
+				orzf.= A_LoopField
+				ifinstring,A_LoopField,keyboard
+					{
+						reinj.= "keyboard"
+						jprs:= 1
+						continue
+					}
+				reinj.= A_LoopField
 			}
 		if (jprs = 1)
 			{
-				jink= 	
-				mvpn= %A_LoopField%
-				ifinstring,A_LoopField,+
+				if (A_LoopField = "0x0")
 					{
-						stringsplit,kiv,A_LoopField,+
-						mvpn= %kiv1%
-						jink= +%kiv2%
+						orzf.= A_LoopField
+						reinj.= A_LoopField
+						continue
 					}
+				orzf.= A_LoopField
 				Loop,Parse,mednkbctrls,`n`r
 					{
-						svpr= 
 						stringsplit,din,A_LoopField,=
 						if (A_LoopField = "")
 							{
 								continue
-							}
+							}	
 						if (din1 = kprm)
 							{
-								svpr= %din2%%jink%
-								reinj.= "0x0" . A_Space . svpr 
-								;reinj.= svpr
+								reinj.= din2
 								break
 							}
 					}
 				jprs+= 1
 				continue
-				break
 			}
-		reinj.= A_LoopField
+		if (jprs <> "")
+			{
+				orzf.= A_LoopField
+				reinj.= A_LoopField
+			}
 	}
-reinj.= sola	
-stringreplace,medjimp,medjimp,%orsp%,%reinj%,All
+stringreplace,medjimp,medjimp,%ors1%%A_Space%%orzf%,%ors1%%A_Space%%reinj%,All
 stringreplace,medjimp,medjimp,||||,||,All
 emjtog= enable
 gosub, emjbtog
@@ -54929,130 +54861,40 @@ return
 
 MedJREV:
 medjinjid= % medjid%emjDDLB%
-stringsplit,orp,vprm,%A_Space%
-if (orp3 <> "")
-	{
-		orsp= %orp2% %orp3%
-	}
-if (orp4 <> "")
-	{
-		orsp= %orp2% %orp3% %orp4%
-	}
-if (orp5 <> "")
-	{
-		orsp= %orp2% %orp3% %orp4% %orp5%
-	}
-if (orp6 <> "")
-	{
-		orsp= %orp2% %orp3% %orp4% %orp5% %orp6%
-	}
-if (orp7 <> "")
-	{
-		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7%
-	}
-if (orp8 <> "")
-	{
-		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8%
-	}
-if (orp9 <> "")
-	{
-		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9%
-	}
-if (orp10 <> "")
-	{
-		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9% %orp10%
-	}
-if (orp11 <> "")
-	{
-		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9% %orp10% %orp11%
-	}
-if (orp12 <> "")
-	{
-		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9% %orp10% %orp11% %orp12%
-	}
-if (orp13 <> "")
-	{
-		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9% %orp10% %orp11% %orp12% %orp13%
-	}
-if (orp14 <> "")
-	{
-		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9% %orp10% %orp11% %orp12% %orp13% %orp14%
-	}
-if (orp15 <> "")
-	{
-		orsp= %orp2% %orp3% %orp4% %orp5% %orp6% %orp7% %orp8% %orp9% %orp10% %orp11% %orp12% %orp13% %orp14% %orp15%
-	}
+stringreplace,orz,vprm,%A_Space%,-
+stringsplit,ors,orz,-
+stringreplace,orj,ors2,%A_Space%,-,All
 jprs= 
+reinj= %A_Space%
+orzf= %A_Space%
 
-reinj= 
-inhx1= 
-inhx2= 
-inhx3= 
-inhx4= 
-stringsplit,inhx,orsp,|
-sola= 
-ifinstring,inhx1,joystick
+Loop, Parse, orj,-
 	{
-		inhxsp= %inhx1%
-	}
-if (inhx2 <> "")
-	{
-		sola= ||%inhx2%
-	}
-if (inhx3 <> "")
-	{
-		sola= ||%inhx2%||%inhx3%
-	}
-if (inhx4 <> "")
-	{
-		sola= ||%inhx2%||%inhx3%||%inhx4%
-	}
-ifinstring,inhx4,joystick
-	{
-		inhxsp= %inhx4%
-		sola= ||%inhx1%||%inhx2%||%inhx3%
-	}
-ifinstring,inhx3,joystick
-	{
-		inhxsp= %inhx3%
-		sola= ||%inhx1%||%inhx2%
-	}
-ifinstring,inhx2,joystick
-	{
-		inhxsp= %inhx2%
-		sola= ||%inhx1%
-	}
-Loop, Parse,inhxsp,%A_Space%
-	{
-		if (A_LoopField = "||")
-			{
-				continue
-			}
-		;if (A_LoopField = "0x0")
-			;{
-			;	continue
-		;	}
-		if (reinj <> "")
+		if (A_Index <> 1)
 			{
 				reinj.= A_Space
+				orzf.= A_Space
 			}
-		if (A_LoopField = "joystick")
+		if (jprs = "")
 			{
-				jprs= 1
-				reinj= joystick
-				continue
+				orzf.= A_LoopField
+				ifinstring,A_LoopField,joystick
+					{
+						reinj.= "joystick"
+						jprs:= 1
+						continue
+					}
+				reinj.= A_LoopField
 			}
 		if (jprs = 1)
 			{
-				jink= 	
-				mvpn= %A_LoopField%
-				ifinstring,A_LoopField,+
+				ifinstring,A_LoopField,0x0
 					{
-						stringsplit,kiv,A_LoopField,+
-						mvpn= %kiv1%
-						jink= +%kiv2%
+						orzf.= A_LoopField
+						reinj.= medjinjid
+						continue
 					}
-				medjcd= %A_LoopField%
+				orzf.= A_LoopField
 				Loop, Parse, medxi,`n`r
 					{
 						if (A_LoopField = "")
@@ -55060,26 +54902,25 @@ Loop, Parse,inhxsp,%A_Space%
 								continue
 							}
 						stringsplit,mjvak,A_LoopField,=]
-						stringsplit,mjvcdp,mjvak4,%A_Space%
+						stringreplace,mjvcdp,mjvak4,%A_Space%,,All
 						stringmid,meditbd,mjvak2,5,13
-						if (mjvcdp2 = medjcd)
+						if (meditbd = kprm)
 							{
-								ifnotinstring,medlkup,%meditbv%=
-									{
-										reinj.= medjinjid . A_Space . svpr
-										break
-									}
+								reinj.= mjvcdp
+								break
 							}	
-					}	
-				jprs+= 1
+					}
+				jprs+=1
 				continue
-				break
 			}
-		reinj.= A_LoopField
+		if (jprs <> "")
+			{
+				orzf.= A_LoopField
+				reinj.= A_LoopField
+			}
 	}
-reinj.= sola	
-stringreplace,medjimp,medjimp,%orsp%,%reinj%,All
-stringreplace,medjimp,medjimp,||||,||,All
+stringreplace,medjimp,medjimp,%ors1%%A_Space%%orzf%,%ors1%%A_Space%%reinj%,All
+stringreplace,medjimp,medjimp,||||,||,All	
 emjtog= enable
 gosub, emjbtog
 return
@@ -66665,4 +66506,4 @@ ifmsgbox, no
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;}################################################################
+;}#################################################################
