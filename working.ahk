@@ -2547,30 +2547,30 @@ Gui, Add, Text, x280 y213 h17 vemjZTXT Hidden,
 
 ;{;;;;;;;;;;;;;  ==Emu Buttons==  ;;;;;;;;;;;;;;;;;;
 Gui, Add, Button, x355 y192 w20 h20 vemjTURBOIN gemjTURBOIN Hidden, +
-Gui, Add, Button, x206 y202 w20 h20 vemjLTRIGIN gemjLTRIGIN Hidden, +
-Gui, Add, Button, x151 y223 w20 h20 vemjLBUMPIN gemjLBUMPIN Hidden, +
-Gui, Add, Button, x598 y202 w20 h20 vemjRTRIGIN gemjRTRIGIN Hidden, +
-Gui, Add, Button, x649 y225 w20 h20 vemjRBUMPIN gemjRBUMPIN Hidden, +
-Gui, Add, Button, x180 y277 w20 h20 vemjLSTICKUPIN gemjLSTICKUPIN Hidden, +
-Gui, Add, Button, x132 y298 w20 h20 vemjLSTICKLFTIN gemjLSTICKLFTIN Hidden, +
-Gui, Add, Button, x233 y299 w20 h20 vemjLSTICKRTIN gemjLSTICKRTIN Hidden, +
-Gui, Add, Button, x180 y319 w20 h20 vemjLSTICKDWNIN gemjLSTICKDWNIN Hidden, +
-Gui, Add, Button, x230 y339 w20 h20 vemjLSTICKBUTIN gemjLSTICKBUTIN Hidden, +
-Gui, Add, Button, x645 y280 w20 h20 vemjRSTICKUPIN gemjRSTICKUPIN Hidden, +
-Gui, Add, Button, x596 y300 w20 h20 vemjRSTICKLFTIN gemjRSTICKLFTIN Hidden, +
-Gui, Add, Button, x697 y300 w20 h20 vemjRSTICKRTIN gemjRSTICKRTIN Hidden, +
-Gui, Add, Button, x645 y321 w20 h20 vemjRSTICKDWNIN gemjRSTICKDWNIN Hidden, +
-Gui, Add, Button, x596 y341 w20 h20 vemjRSTICKBUTIN gemjRSTICKBUTIN Hidden, +
-Gui, Add, Button,x179 y444 w20 h20 vemjDPADDWNIN gemjDPADDWNIN Hidden, +
-Gui, Add, Button, x179 y401 w20 h20 vemjDPADUPIN gemjDPADUPIN Hidden, +
-Gui, Add, Button,x128 y423 w20 h20 vemjDPADLFTIN gemjDPADLFTIN Hidden, +
-Gui, Add, Button,x229 y423 w20 h20 vemjDPADRTIN gemjDPADRTIN Hidden, +
-Gui, Add, Button, x375 y386 w20 h20 vemjSLCTBUTIN gemjSLCTBUTIN Hidden, +
-Gui, Add, Button, x476 y386 w20 h20 vemjSTRTBUTIN gemjSTRTBUTIN Hidden, +
-Gui, Add, Button, x642 y405 w20 h20 vemjYBUTIN gemjYBUTIN Hidden, +
-Gui, Add, Button, x590 y428 w20 h20 vemjXBUTIN gemjXBUTIN Hidden, +
-Gui, Add, Button,x641 y450 w20 h20 vemjBBUTIN gemjBBUTIN Hidden, +
-Gui, Add, Button, x691 y428 w20 h20 vemjABUTIN gemjABUTIN Hidden, +
+Gui, Add, Button, x206 y202 w20 h20 vemjL2In gemjL2In Hidden, +
+Gui, Add, Button, x151 y223 w20 h20 vemjLIn gemjLIn Hidden, +
+Gui, Add, Button, x598 y202 w20 h20 vemjR2In gemjR2In Hidden, +
+Gui, Add, Button, x649 y225 w20 h20 vemjRIn gemjRIn Hidden, +
+Gui, Add, Button, x180 y277 w20 h20 vemjLYPlusIN gemjLYPlusIn Hidden, +
+Gui, Add, Button, x132 y298 w20 h20 vemjLXMinusIn gemjLXMinusIn Hidden, +
+Gui, Add, Button, x233 y299 w20 h20 vemjLXPlusIn gemjLXPlusIn Hidden, +
+Gui, Add, Button, x180 y319 w20 h20 vemjLYMinusIn gemjLYMinusIn Hidden, +
+Gui, Add, Button, x230 y339 w20 h20 vemjL3In gemjL3In Hidden, +
+Gui, Add, Button, x645 y280 w20 h20 vemjRYPlusIn gemjRYPlusIn Hidden, +
+Gui, Add, Button, x596 y300 w20 h20 vemjRXMinusIn gemjRXMinusIn Hidden, +
+Gui, Add, Button, x697 y300 w20 h20 vemjRXPlusIn gemjRXPlusIn Hidden, +
+Gui, Add, Button, x645 y321 w20 h20 vemjRYMinusIn gemjRYMinusIn Hidden, +
+Gui, Add, Button, x596 y341 w20 h20 vemjR3In gemjR3In Hidden, +
+Gui, Add, Button,x179 y444 w20 h20 vemjDownIn gemjDownIn Hidden, +
+Gui, Add, Button, x179 y401 w20 h20 vemjUpIn gemjUpIn Hidden, +
+Gui, Add, Button,x128 y423 w20 h20 vemjLeftIn gemjLeftIn Hidden, +
+Gui, Add, Button,x229 y423 w20 h20 vemjRightIn gemjRightIn Hidden, +
+Gui, Add, Button, x375 y386 w20 h20 vemjSelectIn gemjSelectIn Hidden, +
+Gui, Add, Button, x476 y386 w20 h20 vemjStartIn gemjStartIn Hidden, +
+Gui, Add, Button, x642 y405 w20 h20 vemjYIn gemjYIn Hidden, +
+Gui, Add, Button, x590 y428 w20 h20 vemjXIn gemjXIn Hidden, +
+Gui, Add, Button,x641 y450 w20 h20 vemjBIn gemjBIn Hidden, +
+Gui, Add, Button, x691 y428 w20 h20 vemjAIn gemjAIn Hidden, +
 Gui, Add, Button, x484 y137 w20 h20 vemjINPBUTIN gemjINPBUTIN Hidden, +
 ;};;;;;;
 
@@ -25884,27 +25884,27 @@ Loop, parse, mtrfg,`n, `r
 	}
 ;;;;input export;;;;
 Loop, 16
+	{
+		jnum+= 1
+		jvar= 
+		Loop, Parse, medjgrab,|
 			{
-				jnum+= 1
-				jvar= 
-				Loop, Parse, medjgrab,|
+				jman+= 1
+				if (A_Index = jnum)
 					{
-						jman+= 1
-						if (A_Index = jnum)
-							{
-								stringreplace,micfg,micfg,[0x0%jman%],%A_LoopField%,All
-								jvar= %A_LoopField%
-								medjid%jnum%= %A_LoopField%
-								break
-							}
+						stringreplace,micfg,micfg,[0x0%jman%],%A_LoopField%,All
+						jvar= %A_LoopField%
+						medjid%jnum%= %A_LoopField%
+						break
 					}
-				if (jvar = "")
-					{
-						stringreplace,micfg,micfg,[0x0%A_Index%],0x0,All
-						medjid%A_Index%= 0x0
-					}
-				medjindex= % medjid%A_index%	
-			}	
+			}
+		if (jvar = "")
+			{
+				stringreplace,micfg,micfg,[0x0%A_Index%],0x0,All
+				medjid%A_Index%= 0x0
+			}
+		medjindex= % medjid%A_index%	
+	}	
 Loop, parse, micfg,`n`r
 	{
 		aii1=
@@ -53478,30 +53478,30 @@ guicontrol,%emjtog%,emjDDLC
 guicontrol,%emjtog%,emjQTXT
 EMJBTOG:
 guicontrol,%emjtog%,emjTURBOIN
-guicontrol,%emjtog%,emjLTRIGIN
-guicontrol,%emjtog%,emjLBUMPIN
-guicontrol,%emjtog%,emjRTRIGIN
-guicontrol,%emjtog%,emjRBUMPIN
-guicontrol,%emjtog%,emjLSTICKUPIN
-guicontrol,%emjtog%,emjLSTICKLFTIN
-guicontrol,%emjtog%,emjLSTICKRTIN
-guicontrol,%emjtog%,emjLSTICKDWNIN
-guicontrol,%emjtog%,emjLSTICKBUTIN
-guicontrol,%emjtog%,emjRSTICKUPIN
-guicontrol,%emjtog%,emjRSTICKLFTIN
-guicontrol,%emjtog%,emjRSTICKRTIN
-guicontrol,%emjtog%,emjRSTICKDWNIN
-guicontrol,%emjtog%,emjRSTICKBUTIN
-guicontrol,%emjtog%,emjDPADDWNIN
-guicontrol,%emjtog%,emjDPADUPIN
-guicontrol,%emjtog%,emjDPADLFTIN
-guicontrol,%emjtog%,emjDPADRTIN
-guicontrol,%emjtog%,emjSLCTBUTIN
-guicontrol,%emjtog%,emjSTRTBUTIN
-guicontrol,%emjtog%,emjYBUTIN
-guicontrol,%emjtog%,emjXBUTIN
-guicontrol,%emjtog%,emjBBUTIN
-guicontrol,%emjtog%,emjABUTIN
+guicontrol,%emjtog%,emjL2In
+guicontrol,%emjtog%,emjLIn
+guicontrol,%emjtog%,emjR2In
+guicontrol,%emjtog%,emjRIn
+guicontrol,%emjtog%,emjLYPlusIn
+guicontrol,%emjtog%,emjLXMinusIn
+guicontrol,%emjtog%,emjLXPlusIn
+guicontrol,%emjtog%,emjLYMinusIn
+guicontrol,%emjtog%,emjL3In
+guicontrol,%emjtog%,emjRYPlusIn
+guicontrol,%emjtog%,emjRXMinusIn
+guicontrol,%emjtog%,emjRXPlusIn
+guicontrol,%emjtog%,emjRYMinusIn
+guicontrol,%emjtog%,emjR3In
+guicontrol,%emjtog%,emjDownIn
+guicontrol,%emjtog%,emjUpIn
+guicontrol,%emjtog%,emjLeftIn
+guicontrol,%emjtog%,emjRightIn
+guicontrol,%emjtog%,emjSelectIn
+guicontrol,%emjtog%,emjStartIn
+guicontrol,%emjtog%,emjYIn
+guicontrol,%emjtog%,emjXIn
+guicontrol,%emjtog%,emjBIn
+guicontrol,%emjtog%,emjAIn
 guicontrol,%emjtog%,emjINPBUTIN
 guicontrol,%emjtog%,emjTRBCMB
 guicontrol,%emjtog%,emjRXMinus
@@ -53547,7 +53547,7 @@ if (emjDDLC = "")
 		emjDDLC= 1
 	}
 SB_SetText(" Loading Mednafen Joystick config ")
-
+medswaps= medswapB|medswapA|medswapX|medswapY|medswapStart|medswapSelect|medswapDown|medswapUp|medswapLeft|medswapRight|medswapL|medswapR|medswapL2|medswapR2|medswapR3|medswapL3|medswapLXMinus|medswapRXMinus|medswapRXPlus|medswapLXPlus|medswapLYPlus|medswapLYMinus|medswapRYPlus|medswapRYMinus|medswapHome|medSwapATXT|medSwapBTXT|medSwapCTXT|medSwapDTXT|medSwapETXT|medSwapFTXT|medSwapGTXT|medSwapHTXT|medSwapITXT|medSwapJTXT|medSwapLTXT|medSwapMTXT|medSwapCGRP|medSwapDGRP|medSwapEGRP
 guicontrol,show,INDWRN
 guicontrol,move,INDWRN,x262 y180 w200 h200
 guicontrol,,INDWRN,
@@ -53594,7 +53594,7 @@ guicontrol,,emjDDLC,|%emjDDLC%||1|2|3|4|5|6
 guicontrol,hide,emjTURBOIN
 guicontrol,hide,emjOTXT
 guicontrol,hide,emjTTXT
-guicontrol,hide,emjJTXT
+;guicontrol,hide,emjJTXT
 guicontrol,hide,emjYTXT
 guicontrol,hide,emjXTXT
 guicontrol,hide,emjZTXT
@@ -53837,6 +53837,21 @@ medswapRYPlus=
 medswapRYMinus= 
 medswapHome= 
 
+MedSwapATXT= b1
+MedSwapBTXT= 
+MedSwapCTXT= b2
+MedSwapDTXT=
+MedSwapETXT=
+MedSwapFTXT=
+MedSwapGTXT=
+MedSwapHTXT=
+MedSwapITXT=
+MedSwapJTXT=
+MedSwapLTXT=
+MedSwapMTXT= start
+
+MedSwapCGRP= 
+MedSwapDGRP= 
 gosub, MednafenSwap
 return
 
@@ -53875,6 +53890,21 @@ medswapRYPlus=
 medswapRYMinus= 
 medswapHome= 
 
+MedSwapATXT= a
+MedSwapBTXT= 
+MedSwapCTXT= b
+MedSwapDTXT=
+MedSwapETXT=
+MedSwapFTXT=
+MedSwapGTXT=
+MedSwapHTXT=
+MedSwapITXT=
+MedSwapJTXT=
+MedSwapLTXT= select
+MedSwapMTXT= start
+
+MedSwapCGRP= 
+MedSwapDGRP= 
 gosub, MednafenSwap
 return
 
@@ -53913,6 +53943,21 @@ medswapRYPlus=
 medswapRYMinus= 
 medswapHome= 
 
+MedSwapATXT= a
+MedSwapBTXT= y
+MedSwapCTXT= x
+MedSwapDTXT= b
+MedSwapETXT=
+MedSwapFTXT=
+MedSwapGTXT=
+MedSwapHTXT=
+MedSwapITXT= l
+MedSwapJTXT= r
+MedSwapLTXT= select
+MedSwapMTXT= start
+
+MedSwapCGRP= 
+MedSwapDGRP= 
 gosub, MednafenSwap
 return
 
@@ -53951,6 +53996,21 @@ medswapRYPlus=
 medswapRYMinus= 
 medswapHome= 
 
+MedSwapATXT= a
+MedSwapBTXT= 1
+MedSwapCTXT= b
+MedSwapDTXT= 2
+MedSwapETXT=
+MedSwapFTXT=
+MedSwapGTXT=
+MedSwapHTXT=
+MedSwapITXT=
+MedSwapJTXT=
+MedSwapLTXT=
+MedSwapMTXT= pause
+
+MedSwapCGRP= 
+MedSwapDGRP= 
 gosub, MednafenSwap
 return
 
@@ -53989,6 +54049,21 @@ medswapRYPlus=
 medswapRYMinus= 
 medswapHome= 
 
+MedSwapATXT= a
+MedSwapBTXT=
+MedSwapCTXT= b
+MedSwapDTXT=
+MedSwapETXT=
+MedSwapFTXT=
+MedSwapGTXT=
+MedSwapHTXT=
+MedSwapITXT=
+MedSwapJTXT=
+MedSwapLTXT=
+MedSwapMTXT= option
+
+MedSwapCGRP= 
+MedSwapDGRP= 
 gosub, MednafenSwap
 return
 
@@ -54001,10 +54076,10 @@ if (curmedINPT = "")
 guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4
 
 supinp= gamepad|gamepad6
-medswapB= a
-medswapA= b
+medswapB= x
+medswapA= a
 medswapX= c
-medswapY= x
+medswapY= b
 medswapStart= start
 medswapSelect= mode
 medswapDown= down
@@ -54027,6 +54102,21 @@ medswapRYPlus=
 medswapRYMinus= 
 medswapHome= 
 
+MedSwapATXT= a
+MedSwapBTXT= c
+MedSwapCTXT= b
+MedSwapDTXT= x
+MedSwapETXT=
+MedSwapFTXT=
+MedSwapGTXT=
+MedSwapHTXT=
+MedSwapITXT= y
+MedSwapJTXT= z
+MedSwapLTXT= mode
+MedSwapMTXT= start
+
+MedSwapCGRP= 
+MedSwapDGRP= 
 gosub, MednafenSwap
 return
 
@@ -54066,6 +54156,21 @@ medswapRYPlus=
 medswapRYMinus= 
 medswapHome= 
 
+MedSwapATXT= a
+MedSwapBTXT=
+MedSwapCTXT= b
+MedSwapDTXT=
+MedSwapETXT=
+MedSwapFTXT=
+MedSwapGTXT=
+MedSwapHTXT=
+MedSwapITXT=
+MedSwapJTXT=
+MedSwapLTXT= select
+MedSwapMTXT= start
+
+MedSwapCGRP= 
+MedSwapDGRP= 
 gosub, MednafenSwap
 return
 
@@ -54104,6 +54209,21 @@ medswapRYPlus=
 medswapRYMinus= 
 medswapHome= 
 
+MedSwapATXT= i 
+MedSwapBTXT= iii
+MedSwapCTXT= iv
+MedSwapDTXT= ii
+MedSwapETXT=
+MedSwapFTXT= mode
+MedSwapGTXT=
+MedSwapHTXT=
+MedSwapITXT= v
+MedSwapJTXT= vi
+MedSwapLTXT= 
+MedSwapMTXT= run
+
+MedSwapCGRP= 
+MedSwapDGRP= Right Analog Stick
 gosub, MednafenSwap
 return
 
@@ -54142,6 +54262,21 @@ medswapRYPlus=
 medswapRYMinus= 
 medswapHome= 
 
+MedSwapATXT= i 
+MedSwapBTXT= iii
+MedSwapCTXT= iv
+MedSwapDTXT= ii
+MedSwapETXT=
+MedSwapFTXT= mode
+MedSwapGTXT=
+MedSwapHTXT=
+MedSwapITXT= v
+MedSwapJTXT= vi
+MedSwapLTXT= 
+MedSwapMTXT= run
+
+MedSwapCGRP= 
+MedSwapDGRP= Right Analog Stick
 gosub, MednafenSwap
 return
 
@@ -54180,6 +54315,21 @@ medswapRYPlus=
 medswapRYMinus= 
 medswapHome= 
 
+MedSwapATXT= i 
+MedSwapBTXT= iii
+MedSwapCTXT= iv
+MedSwapDTXT= ii
+MedSwapETXT= mode2
+MedSwapFTXT= mode
+MedSwapGTXT=
+MedSwapHTXT=
+MedSwapITXT= v
+MedSwapJTXT= vi
+MedSwapLTXT= 
+MedSwapMTXT= run
+
+MedSwapCGRP= Left Analog Stick
+MedSwapDGRP= Right Analog Stick
 gosub, MednafenSwap
 return
 
@@ -54218,6 +54368,21 @@ medswapRYPlus= rstick_up
 medswapRYMinus= rstick_down
 medswapHome= 
 
+MedSwapATXT= o
+MedSwapBTXT= ^
+MedSwapCTXT= []
+MedSwapDTXT= x
+MedSwapETXT= l3
+MedSwapFTXT= r3
+MedSwapGTXT= LTrig
+MedSwapHTXT= RTrig
+MedSwapITXT= L
+MedSwapJTXT= R
+MedSwapLTXT= select
+MedSwapMTXT= start
+
+MedSwapCGRP= Left Analog Stick
+MedSwapDGRP= Right Analog Stick
 gosub, MednafenSwap
 return
 
@@ -54256,6 +54421,21 @@ medswapRYPlus=
 medswapRYMinus= 
 medswapHome= 
 
+MedSwapATXT= f1
+MedSwapBTXT=
+MedSwapCTXT= f2
+MedSwapDTXT=
+MedSwapETXT=
+MedSwapFTXT=
+MedSwapGTXT=
+MedSwapHTXT=
+MedSwapITXT=
+MedSwapJTXT=
+MedSwapLTXT=
+MedSwapMTXT= pause
+
+MedSwapCGRP= 
+MedSwapDGRP= 
 gosub, MednafenSwap
 return
 
@@ -54295,6 +54475,21 @@ medswapRYPlus=
 medswapRYMinus= 
 medswapHome= 
 
+MedSwapATXT= a 
+MedSwapBTXT= y
+MedSwapCTXT= x
+MedSwapDTXT= b
+MedSwapETXT=
+MedSwapFTXT=
+MedSwapGTXT=
+MedSwapHTXT=
+MedSwapITXT= L
+MedSwapJTXT= R
+MedSwapLTXT= select
+MedSwapMTXT= start
+
+MedSwapCGRP= 
+MedSwapDGRP= 
 gosub, MednafenSwap
 return
 
@@ -54333,6 +54528,21 @@ medswapRYPlus=
 medswapRYMinus= 
 medswapHome= 
 
+MedSwapATXT= a 
+MedSwapBTXT= y
+MedSwapCTXT= x
+MedSwapDTXT= b
+MedSwapETXT=
+MedSwapFTXT=
+MedSwapGTXT=
+MedSwapHTXT=
+MedSwapITXT= L
+MedSwapJTXT= R
+MedSwapLTXT= select
+MedSwapMTXT= start
+
+MedSwapCGRP= 
+MedSwapDGRP= 
 gosub, MednafenSwap
 return
 
@@ -54371,6 +54581,21 @@ medswapRYPlus=
 medswapRYMinus= 
 medswapHome= 
 
+MedSwapATXT= a
+MedSwapBTXT= x
+MedSwapCTXT= b
+MedSwapDTXT= c
+MedSwapETXT=
+MedSwapFTXT= 
+MedSwapGTXT= L2
+MedSwapHTXT= R2
+MedSwapITXT= y
+MedSwapJTXT= z
+MedSwapLTXT= mode
+MedSwapMTXT= start
+
+MedSwapCGRP= Left Analog Stick
+MedSwapDGRP= 
 gosub, MednafenSwap
 return
 
@@ -54409,6 +54634,21 @@ medswapRYPlus= up-r
 medswapRYMinus= down-r
 medswapHome= 
 
+MedSwapATXT= a
+MedSwapBTXT= 
+MedSwapCTXT= b
+MedSwapDTXT= 
+MedSwapETXT=
+MedSwapFTXT= 
+MedSwapGTXT= 
+MedSwapHTXT= rt
+MedSwapITXT= 
+MedSwapJTXT= 
+MedSwapLTXT= select
+MedSwapMTXT= start
+
+MedSwapCGRP= Left Analog Stick
+MedSwapDGRP= Right Analog Stick
 gosub, MednafenSwap
 return
 
@@ -54447,6 +54687,21 @@ medswapRYPlus= up-y
 medswapRYMinus= down-y
 medswapHome= 
 
+MedSwapATXT= a
+MedSwapBTXT=
+MedSwapCTXT= b
+MedSwapDTXT=
+MedSwapETXT=
+MedSwapFTXT=
+MedSwapGTXT=
+MedSwapHTXT=
+MedSwapITXT=
+MedSwapJTXT=
+MedSwapLTXT=
+MedSwapMTXT= start
+
+MedSwapCGRP= 
+MedSwapDGRP= 
 gosub, MednafenSwap
 return
 
@@ -54830,6 +55085,24 @@ Loop, Parse, medjimp,`n`r
 		
 	}
 guicontrol,,INDWRN,%medlkup%
+Loop, Parse, Medswaps,|
+	{
+		fie= % %A_LoopField%
+		stringreplace,fin,A_LoopField,medswap,,All
+		if (fie = "")
+			{
+				guicontrol,hide,emj%fin%
+				guicontrol,hide,emj%fin%In
+			}
+		ifinstring,fin,TXT
+			{
+				guicontrol,,emj%fin%,%fie%
+			}
+		ifinstring,fin,GRP
+			{
+				guicontrol,,emj%fin%,%fie%
+			}
+	}
 return	
 ;};;;;;;;;;;;;;;;
 
@@ -55172,100 +55445,100 @@ emjTURBOIN:
 gosub, J%EMUSN%TURBOIN
 return
 
-emjLTRIGIN:
-gosub, J%EMUSN%LTRIGIN
+emjL2In:
+gosub, J%EMUSN%L2In
 return
 
-emjLBUMPIN:
-gosub, J%EMUSN%LBUMPIN
+emjLIn:
+gosub, J%EMUSN%LIn
 return
 
-emjRTRIGIN:
-gosub, J%EMUSN%RTRIGIN
+emjR2In:
+gosub, J%EMUSN%R2In
 return
 
-emjRBUMPIN:
-gosub, J%EMUSN%RBUMPIN
+emjRIn:
+gosub, J%EMUSN%RIn
 return
 
-emjLSTICKUPIN:
-gosub, J%EMUSN%LSTICKUPIN
+emjLYPlusIn:
+gosub, J%EMUSN%LYPlusIn
 return
 
-emjLSTICKLFTIN:
-gosub, J%EMUSN%LSTICKLFTIN
+emjLXMinusIn:
+gosub, J%EMUSN%LXMinusIn
 return
 
-emjLSTICKRTIN:
-gosub, J%EMUSN%LSTICKRTIN
+emjLXPlusIn:
+gosub, J%EMUSN%LXPlusIn
 return
 
-emjLSTICKDWNIN:
-gosub, J%EMUSN%LSTICKDWNIN
+emjLYMinusIn:
+gosub, J%EMUSN%LYMinusIn
 return
 
-emjLSTICKBUTIN:
-gosub, J%EMUSN%LSTICKBUTIN
+emjL3In:
+gosub, J%EMUSN%L3In
 return
 
-emjRSTICKUPIN:
-gosub, J%EMUSN%RSTICKUPIN
+emjRYPlusIn:
+gosub, J%EMUSN%RYPlusIn
 return
 
-emjRSTICKLFTIN:
-gosub, J%EMUSN%RSTICKLFTIN
+emjRXMinusIn:
+gosub, J%EMUSN%RXMinusIn
 return
 
-emjRSTICKRTIN:
-gosub, J%EMUSN%RSTICKRTIN
+emjRXPlusIn:
+gosub, J%EMUSN%RXPlusIn
 return
 
-emjRSTICKDWNIN:
-gosub, J%EMUSN%RSTICKDWNIN
+emjRYMinusIn:
+gosub, J%EMUSN%RYMinusIn
 return
 
-emjRSTICKBUTIN:
-gosub, J%EMUSN%RSTICKBUTIN
+emjR3In:
+gosub, J%EMUSN%R3In
 return
 
-emjDPADDWNIN:
-gosub, J%EMUSN%DPADDWNIN
+emjDownIn:
+gosub, J%EMUSN%DownIn
 return
 
-emjDPADUPIN:
-gosub, J%EMUSN%DPADUPIN
+emjUpIn:
+gosub, J%EMUSN%UpIn
 return
 
-emjDPADLFTIN:
-gosub, J%EMUSN%DPADLFTIN
+emjLeftIn:
+gosub, J%EMUSN%LeftIn
 return
 
-emjDPADRTIN:
-gosub, J%EMUSN%DPADRTIN
+emjRightIn:
+gosub, J%EMUSN%RightIn
 return
 
-emjSLCTBUTIN:
-gosub, J%EMUSN%SLCTBUTIN
+emjSelectIn:
+gosub, J%EMUSN%SelectIn
 return
 
-emjSTRTBUTIN:
-gosub, J%EMUSN%STRTBUTIN
+emjStartIn:
+gosub, J%EMUSN%StartIn
 return
 
-emjYBUTIN:
-gosub, J%EMUSN%YBUTIN
+emjYIn:
+gosub, J%EMUSN%YIn
 return
 
-emjXBUTIN:
-gosub, J%EMUSN%XBUTIN
+emjXIn:
+gosub, J%EMUSN%XIn
 return
 
-emjBBUTIN:
-gosub, J%EMUSN%BBUTIN
+emjBIn:
+gosub, J%EMUSN%BIn
 return
 
-emjABUTIN:
-gosub, J%EMUSN%ABUTIN
+emjAIn:
+gosub, J%EMUSN%AIn
 return
 
 emjINPBUTIN:
@@ -55754,30 +56027,30 @@ return
 JMednafenRAD3A:
 gui, submit, nohide
 guicontrol,hide,emjTURBOIN
-guicontrol,hide,emjLTRIGIN
-guicontrol,hide,emjLBUMPIN
-guicontrol,hide,emjRTRIGIN
-guicontrol,hide,emjRBUMPIN
-guicontrol,hide,emjLSTICKUPIN
-guicontrol,hide,emjLSTICKLFTIN
-guicontrol,hide,emjLSTICKRTIN
-guicontrol,hide,emjLSTICKDWNIN
-guicontrol,hide,emjLSTICKBUTIN
-guicontrol,hide,emjRSTICKUPIN
-guicontrol,hide,emjRSTICKLFTIN
-guicontrol,hide,emjRSTICKRTIN
-guicontrol,hide,emjRSTICKDWNIN
-guicontrol,hide,emjRSTICKBUTIN
-guicontrol,hide,emjDPADDWNIN
-guicontrol,hide,emjDPADUPIN
-guicontrol,hide,emjDPADLFTIN
-guicontrol,hide,emjDPADRTIN
-guicontrol,hide,emjSLCTBUTIN
-guicontrol,hide,emjSTRTBUTIN
-guicontrol,hide,emjYBUTIN
-guicontrol,hide,emjXBUTIN
-guicontrol,hide,emjBBUTIN
-guicontrol,hide,emjABUTIN
+guicontrol,hide,emjL2In
+guicontrol,hide,emjLIn
+guicontrol,hide,emjR2In
+guicontrol,hide,emjRIn
+guicontrol,hide,emjLYPlusIn
+guicontrol,hide,emjLXMinusIn
+guicontrol,hide,emjLXPlusIn
+guicontrol,hide,emjLYMinusIn
+guicontrol,hide,emjL3In
+guicontrol,hide,emjRYPlusIn
+guicontrol,hide,emjRXMinusIn
+guicontrol,hide,emjRXPlusIn
+guicontrol,hide,emjRYMinusIn
+guicontrol,hide,emjR3In
+guicontrol,hide,emjDownIn
+guicontrol,hide,emjUpIn
+guicontrol,hide,emjLeftIn
+guicontrol,hide,emjRightIn
+guicontrol,hide,emjSelectIn
+guicontrol,hide,emjStartIn
+guicontrol,hide,emjYIn
+guicontrol,hide,emjXIn
+guicontrol,hide,emjBIn
+guicontrol,hide,emjAIn
 guicontrol,hide,emjINPBUTIN
 
 Loop, parse,joyiterate,|
@@ -55791,30 +56064,30 @@ return
 
 JMednafenRAD3B:
 gui, submit, nohide
-guicontrol,show,emjLTRIGIN
-guicontrol,show,emjLBUMPIN
-guicontrol,show,emjRTRIGIN
-guicontrol,show,emjRBUMPIN
-guicontrol,show,emjLSTICKUPIN
-guicontrol,show,emjLSTICKLFTIN
-guicontrol,show,emjLSTICKRTIN
-guicontrol,show,emjLSTICKDWNIN
-guicontrol,show,emjLSTICKBUTIN
-guicontrol,show,emjRSTICKUPIN
-guicontrol,show,emjRSTICKLFTIN
-guicontrol,show,emjRSTICKRTIN
-guicontrol,show,emjRSTICKDWNIN
-guicontrol,show,emjRSTICKBUTIN
-guicontrol,show,emjDPADDWNIN
-guicontrol,show,emjDPADUPIN
-guicontrol,show,emjDPADLFTIN
-guicontrol,show,emjDPADRTIN
-guicontrol,show,emjSLCTBUTIN
-guicontrol,show,emjSTRTBUTIN
-guicontrol,show,emjYBUTIN
-guicontrol,show,emjXBUTIN
-guicontrol,show,emjBBUTIN
-guicontrol,show,emjABUTIN
+guicontrol,show,emjL2In
+guicontrol,show,emjLIn
+guicontrol,show,emjR2In
+guicontrol,show,emjRIn
+guicontrol,show,emjLYPlusIn
+guicontrol,show,emjLXMinusIn
+guicontrol,show,emjLXPlusIn
+guicontrol,show,emjLYMinusIn
+guicontrol,show,emjL3In
+guicontrol,show,emjRYPlusIn
+guicontrol,show,emjRXMinusIn
+guicontrol,show,emjRXPlusIn
+guicontrol,show,emjRYMinusIn
+guicontrol,show,emjR3In
+guicontrol,show,emjDownIn
+guicontrol,show,emjUpIn
+guicontrol,show,emjLeftIn
+guicontrol,show,emjRightIn
+guicontrol,show,emjSelectIn
+guicontrol,show,emjStartIn
+guicontrol,show,emjYIn
+guicontrol,show,emjXIn
+guicontrol,show,emjBIn
+guicontrol,show,emjAIn
 guicontrol,show,emjINPBUTIN
 guicontrol,,emjDDLA,|%mednafsc%
 guicontrol,,emjCBA,|%medjname%%medjbid%
@@ -56033,7 +56306,8 @@ return
 
 JMednafenDDLD:
 gui, submit, nohide
-
+guicontrolget,emjDDLD,,emjDDLD
+gosub, MED%emjDDLD%Joy
 return
 
 JMednafenCHKA:
@@ -56249,7 +56523,7 @@ SB_SetText(" MEDNAFENCOLLECT ")
 gosub, emjTRBCMB
 return
 
-JMednafenLTRIGIN:
+JMednafenL2In:
 gui, submit, nohide
 SB_SetText(" Waiting for input L Trigger ")
 gosub, GetJoystickInput
@@ -56261,7 +56535,7 @@ SB_SetText(" MEDNAFENCOLLECT ")
 gosub, emjl2
 return
 
-JMednafenLBUMPIN:
+JMednafenLIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input L Bumper ")
 gosub, GetJoystickInput
@@ -56273,7 +56547,7 @@ SB_SetText(" MEDNAFENCOLLECT ")
 gosub, emjL
 return
 
-JMednafenRTRIGIN:
+JMednafenR2In:
 gui, submit, nohide
 SB_SetText(" Waiting for input R Trigger ")
 gosub, GetJoystickInput
@@ -56285,7 +56559,7 @@ SB_SetText(" MEDNAFENCOLLECT ")
 gosub, emjr2
 return
 
-JMednafenRBUMPIN:
+JMednafenRIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input R Bumper ")
 gosub, GetJoystickInput
@@ -56297,7 +56571,7 @@ SB_SetText(" MEDNAFENCOLLECT ")
 gosub, emjR
 return
 
-JMednafenLSTICKUPIN:
+JMednafenLYPlusIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input L-Stick Up ")
 gosub, GetJoystickInput
@@ -56309,7 +56583,7 @@ SB_SetText(" MEDNAFENCOLLECT ")
 gosub, emjLYPlus
 return
 
-JMednafenLSTICKLFTIN:
+JMednafenLXMinusIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input L-Stick Left ")
 gosub, GetJoystickInput
@@ -56321,7 +56595,7 @@ SB_SetText(" MEDNAFENCOLLECT ")
 gosub, emjLYMinus
 return
 
-JMednafenLSTICKRTIN:
+JMednafenLXPlusIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input L-Stick Right ")
 gosub, GetJoystickInput
@@ -56333,7 +56607,7 @@ SB_SetText(" MEDNAFENCOLLECT ")
 gosub, emjLXPlus
 return
 
-JMednafenLSTICKDWNIN:
+JMednafenLYMinusIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input L-Stick Down ")
 gosub, GetJoystickInput
@@ -56345,7 +56619,7 @@ SB_SetText(" MEDNAFENCOLLECT ")
 gosub, emjLXMinus
 return
 
-JMednafenLSTICKBUTIN:
+JMednafenL3In:
 gui, submit, nohide
 SB_SetText(" Waiting for input L3 Button ")
 gosub, GetJoystickInput
@@ -56357,7 +56631,7 @@ SB_SetText(" MEDNAFENCOLLECT ")
 gosub, emjL3
 return
 
-JMednafenRSTICKUPIN:
+JMednafenRYPlusIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input R-Stick Up ")
 gosub, GetJoystickInput
@@ -56369,7 +56643,7 @@ SB_SetText(" MEDNAFENCOLLECT ")
 gosub, emjRYPlus
 return
 
-JMednafenRSTICKLFTIN:
+JMednafenRXMinusIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input R-Stick Left ")
 gosub, GetJoystickInput
@@ -56381,7 +56655,7 @@ SB_SetText(" MEDNAFENCOLLECT ")
 gosub, emjRXMinus
 return
 
-JMednafenRSTICKRTIN:
+JMednafenRXPlusIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input R-Stick Right ")
 gosub, GetJoystickInput
@@ -56393,7 +56667,7 @@ SB_SetText(" MEDNAFENCOLLECT ")
 gosub, emjRXPlus
 return
 
-JMednafenRSTICKDWNIN:
+JMednafenRYMinusIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input R-Stick Down ")
 gosub, GetJoystickInput
@@ -56405,7 +56679,7 @@ SB_SetText(" MEDNAFENCOLLECT ")
 gosub, emjRYMinus
 return
 
-JMednafenRSTICKBUTIN:
+JMednafenR3In:
 gui, submit, nohide
 SB_SetText(" Waiting for input R3 Button ")
 gosub, GetJoystickInput
@@ -56417,7 +56691,7 @@ SB_SetText(" MEDNAFENCOLLECT ")
 gosub, emjR3
 return
 
-JMednafenDPADDWNIN:
+JMednafenDownIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input DPad Down")
 gosub, GetJoystickInput
@@ -56429,7 +56703,7 @@ SB_SetText(" MEDNAFENCOLLECT ")
 gosub, emjdown
 return
 
-JMednafenDPADUPIN:
+JMednafenUpIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input DPad Up")
 gosub, GetJoystickInput
@@ -56441,7 +56715,7 @@ SB_SetText(" MEDNAFENCOLLECT ")
 gosub, emjup
 return
 
-JMednafenDPADLFTIN:
+JMednafenLeftIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input DPad Left")
 gosub, GetJoystickInput
@@ -56453,7 +56727,7 @@ SB_SetText(" MEDNAFENCOLLECT ")
 gosub, emjleft
 return
 
-JMednafenDPADRTIN:
+JMednafenRightIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input DPad Right")
 gosub, GetJoystickInput
@@ -56465,7 +56739,7 @@ SB_SetText(" MEDNAFENCOLLECT ")
 gosub, emjright
 return
 
-JMednafenSLCTBUTIN:
+JMednafenSelectIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input Select Button")
 gosub, GetJoystickInput
@@ -56477,7 +56751,7 @@ SB_SetText(" MEDNAFENCOLLECT ")
 gosub, emjselect
 return
 
-JMednafenSTRTBUTIN:
+JMednafenStartIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input Start Button")
 gosub, GetJoystickInput
@@ -56489,7 +56763,7 @@ SB_SetText(" MEDNAFENCOLLECT ")
 gosub, emjstart
 return
 
-JMednafenYBUTIN:
+JMednafenYIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input Y Button")
 gosub, GetJoystickInput
@@ -56501,7 +56775,7 @@ SB_SetText(" MEDNAFENCOLLECT ")
 gosub, emjY
 return
 
-JMednafenXBUTIN:
+JMednafenXIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input X Button")
 gosub, GetJoystickInput
@@ -56513,7 +56787,7 @@ SB_SetText(" MEDNAFENCOLLECT ")
 gosub, emjX
 return
 
-JMednafenBBUTIN:
+JMednafenBIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input B Button")
 gosub, GetJoystickInput
@@ -56525,7 +56799,7 @@ SB_SetText(" MEDNAFENCOLLECT ")
 gosub, emjB
 return
 
-JMednafenABUTIN:
+JMednafenAIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input A Button")
 gosub, GetJoystickInput
@@ -58675,6 +58949,7 @@ stilltyp:
 Gui, submit, nohide
 guicontrolget,OPTYP,,RUNSYSDDL
 Guicontrolget,romf,,RUNROMCBX
+splitpath,RUNROMCBX,EDTRMF,EDTRMP,EDTRMX,EDTRMFN
 guicontrol,+Altsubmit,RUNROMCBX
 gui,submit,nohide
 ;;guicontrolget,romindnum,,RUNROMCBX
@@ -58925,10 +59200,12 @@ if (coreselv = "")
 iniwrite, "%romf%",Settings.ini,GLOBAL,last_rom
 gosub, LNCHCHK
 ASVRM= 1
+/*
 if (AUTOPGS = 1)
 	{
 		gosub, EMUCFGCOPY
 	}
+*/	
 ;;guicontrol,focus,RUNROMCBX	
 RUNSYSCHNG= 
 if ((romf <> "") && (coreselv <> ""))
