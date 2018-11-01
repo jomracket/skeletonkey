@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-31 5:33 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-31 5:56 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-10-31 5:33 PM
-VERSION= v0.99.58.97
+RELEASE= 2018-10-31 5:56 PM
+VERSION= v0.99.58.98
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -43876,6 +43876,11 @@ ifinstring,LCORE,_libretro
 		emutog= hide
 		gosub, EMUUNPOP
 		gosub, TOGRAOPTS
+		if (AUTOPGS = 1)
+			{
+				guicontrol,,JOYCORE,|%lcore%||Global|%corelist%|Xpadder|Antimicro%addemu%
+				gosub, JOYCORE
+			}
 		;;guicontrol, show, LCORE
 		;;guicontrol,show,SWHOST
 		runningcore= core

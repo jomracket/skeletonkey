@@ -43876,6 +43876,11 @@ ifinstring,LCORE,_libretro
 		emutog= hide
 		gosub, EMUUNPOP
 		gosub, TOGRAOPTS
+		if (AUTOPGS = 1)
+			{
+				guicontrol,,JOYCORE,|%lcore%||Global|%corelist%|Xpadder|Antimicro%addemu%
+				gosub, JOYCORE
+			}
 		;;guicontrol, show, LCORE
 		;;guicontrol,show,SWHOST
 		runningcore= core
