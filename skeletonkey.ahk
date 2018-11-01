@@ -4,11 +4,11 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-31 2:52 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-31 5:33 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-10-31 2:52 PM
+RELEASE= 2018-10-31 5:33 PM
 VERSION= v0.99.58.97
 RASTABLE= 1.7.5
 #Include tf.ahk
@@ -121,11 +121,7 @@ if (romf <> "")
 		IniRead,raexeloc,Settings.ini,GLOBAL,retroarch_location
 		IniRead,RaExeFile,Settings.ini,GLOBAL,retroarch_executable
 		IniRead,autoExec,Settings.ini,GLOBAL,auto_exec
-		FileReadLine, optline, %curcfg%, 1
-		if (optline <> "[OPTIONS]")
-			{
-				gosub WriteTop
-			}
+		gosub, RACHKOPTLINE
 		IniRead,libretroDirectory,%curcfg%,OPTIONS,libretro_directory
 		if (libretrodirectory = "")
 			{
@@ -7871,11 +7867,7 @@ return
 
 
 GetIniVars:
-FileReadLine, optline, %curcfg%, 1
-if (optline <> "[OPTIONS]")
-{
-	gosub WriteTop
-}
+gosub, RACHKOPTLINE
 ;;;;;;;;;;;;;;;;;;;;;;;;;;       READ OPTIONS       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 SB_SetText(" Loading Config ")
 Loop, parse,optiterate,|
@@ -8525,6 +8517,7 @@ else if (REWEN = 1)
 		rewindEnable= true
 		guicontrol, Enable, REWGRAN
 	}
+gosub, RACHKOPTLINE
 IniWrite, "%rewindEnable%", %curcfg%,OPTIONS,rewind_enable
 return
 
@@ -8599,6 +8592,7 @@ if (SAVSRT = 1)
 	{
 		sortSavefilesEnable= true
 	}
+gosub, RACHKOPTLINE
 iniwrite, "%sortSavefilesEnable%",%curcfg%,OPTIONS,sort_savefiles_enable
 return
 ROMOverride:
@@ -8611,12 +8605,14 @@ Granularity:
 gui, submit, nohide
 rewindGranularity= %REWGRAN%
 guicontrolget, REWGRAN
+gosub, RACHKOPTLINE
 IniWrite, "%rewindGranularity%", %curcfg%,OPTIONS,rewind_granularity
 return
 
 autoSave:
 gui, submit, nohide
 autoSaveInterval= %SVINT%
+gosub, RACHKOPTLINE
 IniWrite, "%autoSaveInterval%", %curcfg%,OPTIONS,auto_savestate_interval
 return
 
@@ -8627,6 +8623,7 @@ if (STAI = 1)
 	{
 		savestateAutoIndex= true
 	}
+gosub, RACHKOPTLINE
 IniWrite, "%savestateAutoIndex%", %curcfg%,OPTIONS,savestate_auto_index
 return
 
@@ -8638,6 +8635,7 @@ if (STAS = 1)
 		savestateAutoSave= true
 		guicontrol, enable, SVINT
 	}
+gosub, RACHKOPTLINE
 IniWrite, "%savestateAutoSave%", %curcfg%,OPTIONS,savestate_auto_save
 return
 
@@ -8660,6 +8658,7 @@ if (STORT = 1)
 	{
 		sortSavestatesEnable= true
 	}
+gosub, RACHKOPTLINE
 IniWrite, "%sortSavestatesEnable%", %curcfg%,OPTIONS,sort_savestates_enable
 return
 
@@ -8671,6 +8670,7 @@ if PGM= 1
 	{
 		gameSpecificOptions= true
 	}
+gosub, RACHKOPTLINE
 IniWrite, "%gameSpecificOptions%", %curcfg%,OPTIONS,game_specific_options
 return
 AutoOverride:
@@ -8679,6 +8679,7 @@ guicontrol,, AUO, %AUO%
 autoOverridesEnable= false
 if AUO= 1 
 	autoOverridesEnable= false
+gosub, RACHKOPTLINE
 IniWrite, "%autoOverridesEnable%", %curcfg%,OPTIONS,auto_overrides_enable
 return
 
@@ -8687,7 +8688,8 @@ gui, submit, nohide
 guicontrol,, COV, %COV%
 coreSpecificConfig= false
 if COV= 1
-coreSpecificConfig= true	
+coreSpecificConfig= true
+gosub, RACHKOPTLINE
 IniWrite, "%coreSpecificConfig%", %curcfg%,OPTIONS,core_specific_config
 return
 
@@ -8699,13 +8701,17 @@ if GPUVREC= 1
 		videoGpuRecord= true
 		BSV= -R
 	}
+gosub, RACHKOPTLINE
 IniWrite, "%videoGpuRecord%", %curcfg%,OPTIONS,video_gpu_record
 return
 GPUScreenShot:
 gui, submit, nohide
 videoGpuScreenshot= true
 if GPUSS= 0 
-	videoGpuScreenshot= false
+	{
+		videoGpuScreenshot= false
+	}
+gosub, RACHKOPTLINE
 IniWrite, "%videoGpuScreenshot%", %curcfg%,OPTIONS,video_gpu_screenshot
 return
 
@@ -9140,36 +9146,42 @@ if (GLBLAUDIO = 1)
 		guicontrol, enable, WASAPI
 		guicontrol, enable, OPENAL
 	}
+gosub, RACHKOPTLINE
 IniWrite, "%audioEnable%", %curcfg%,OPTIONS,audio_enable
 return
 
 dSound:
 gui, submit, nohide
 audioDriver= dsound
+gosub, RACHKOPTLINE
 IniWrite, "%audioDriver%", %curcfg%,OPTIONS,audio_driver
 return
 
 xaudioSound:
 gui, submit, nohide
 audioDriver= xaudio
+gosub, RACHKOPTLINE
 IniWrite, "%audioDriver%", %curcfg%,OPTIONS,audio_driver
 return
 
 sdlSound:
 gui, submit, nohide
 audioDriver= sdl2
+gosub, RACHKOPTLINE
 IniWrite, "%audioDriver%", %curcfg%,OPTIONS,audio_driver
 return
 
 Wasapi:
 gui, submit, nohide
 audioDriver= wasapi
+gosub, RACHKOPTLINE
 IniWrite, "%audioDriver%", %curcfg%,OPTIONS,audio_driver
 return
 
 OpenAL:
 gui, submit, nohide
 audioDriver= openal
+gosub, RACHKOPTLINE
 IniWrite, "%audioDriver%", %curcfg%,OPTIONS,audio_driver
 return
 
@@ -9182,6 +9194,7 @@ If (ASYNC = 1)
 	{
 		audioSync= true
 	}
+gosub, RACHKOPTLINE
 IniWrite, "%audioSync%", %curcfg%,OPTIONS,audio_sync
 return
 
@@ -9192,11 +9205,13 @@ if (ART = 0)
 	{
 		audioRateControl= false
 	}
+gosub, RACHKOPTLINE
 IniWrite, "%audioRateControl%", %curcfg%,OPTIONS,audio_rate_control
 return
 
 RateSlider:
 gui, submit, nohide
+gosub, RACHKOPTLINE
 IniWrite, "%audioRateControlDelta%", %curcfg%,OPTIONS,audio_rate_control_delta
 return
 
@@ -9205,8 +9220,9 @@ gui, submit, nohide
 audioMuteEnable= false
 if (MUTE = 1)
 	{
-	audioMuteEnable= true
+		audioMuteEnable= true
 	}
+gosub, RACHKOPTLINE
 IniWrite, "%audioMuteEnable%", %curcfg%,OPTIONS,audio_mute_enable
 return
 
@@ -9214,6 +9230,7 @@ AudLat:
 gui, submit, nohide
 audioLatency= %LATENCY%
 guicontrol,, LATENCY, |%LATENCY%||32|64|128
+gosub, RACHKOPTLINE
 IniWrite, "%audioLatency%", %curcfg%,OPTIONS,audio_latency
 Return
 
@@ -9234,6 +9251,7 @@ GuiControl,, MONXREZ, %fscrez1%
 GuiControl,, MONYREZ, %fscrez2%
 videoFullscreenX= %fscrez1%
 videoFullscreenY= %fscrez2%
+gosub, RACHKOPTLINE
 IniWrite, "%videoFullscreenX%", %curcfg%,OPTIONS,video_fullscreen_x
 IniWrite, "%videoFullscreenY%", %curcfg%,OPTIONS,video_fullscreen_y
 return
@@ -9251,6 +9269,7 @@ GuiControl,, IntXres, %nwrez1%
 GuiControl,, IntYres, %nwrez2%
 customViewportWidth= %nwrez1%
 customViewportHeight= %nwrez2%
+gosub, RACHKOPTLINE
 IniWrite, "%IntYres%", %curcfg%,OPTIONS,custom_viewport_height
 IniWrite, "%IntXres%", %curcfg%,OPTIONS,custom_viewport_width
 return
@@ -9258,12 +9277,14 @@ return
 GetIntYrez:
 Gui, submit, nohide
 GuiControlget, IntYres
+gosub, RACHKOPTLINE
 IniWrite, "%IntYres%", %curcfg%,OPTIONS,custom_viewport_height
 return
 
 GetIntXrez:
 Gui, submit, nohide
 GuiControlget, IntXres
+gosub, RACHKOPTLINE
 IniWrite, "%IntXres%", %curcfg%,OPTIONS,custom_viewport_width
 return
 
@@ -9272,6 +9293,7 @@ MonResX:
 gui, submit, nohide
 guicontrolget, MONXREZ,,MONXREZ
 videoFullscreenX= %MONXREZ%
+gosub, RACHKOPTLINE
 IniWrite, "%videoFullscreenX%", %curcfg%,OPTIONS,video_fullscreen_x
 return
 
@@ -9279,18 +9301,21 @@ MonResY:
 gui, submit, nohide
 guicontrolget, MONYREZ,,MONYREZ
 videoFullscreenY= %MONYREZ%
+gosub, RACHKOPTLINE
 IniWrite, "%videoFullscreenY%", %curcfg%,OPTIONS,video_fullscreen_y
 return
 
 VidPosY:
 Gui, submit, nohide
 GuiControlget, VidYLoc
+gosub, RACHKOPTLINE
 IniWrite, "%VidYLoc%", %curcfg%,OPTIONS,custom_viewport_y
 return
 
 VidPosX:
 Gui, submit, nohide
 GuiControlget VidXLoc
+gosub, RACHKOPTLINE
 IniWrite, "%VidXLoc%", %curcfg%,OPTIONS,custom_viewport_x
 return
 
@@ -9312,6 +9337,7 @@ guicontrol,, OUTFW 0
 guiControl,, MONXREZ, %videoFullscreenX%
 guiControl,, MONYREZ, %videoFullscreenY%
 
+gosub, RACHKOPTLINE
 IniWrite, "%IntYres%", %curcfg%,OPTIONS,custom_viewport_height
 IniWrite, "%IntXres%", %curcfg%,OPTIONS,custom_viewport_width
 IniWrite, "%IntXres%", %curcfg%,OPTIONS,video_fullscreen_x
@@ -9328,6 +9354,7 @@ customViewportWidth= %MonitorWorkAreaRight%
 customViewportHeight= %MonitorWorkAreaBottom%
 videoFullscreenX= %MonitorWorkAreaRight%
 videoFullscreenY= %MonitorWorkAreaBottom%
+gosub, RACHKOPTLINE
 IniWrite, "%MonitorWorkAreaBottom%", %curcfg%,OPTIONS,custom_viewport_height
 IniWrite, "%MonitorWorkAreaRight%", %curcfg%,OPTIONS,custom_viewport_width
 IniWrite, "%MonitorWorkAreaRight%", %curcfg%,OPTIONS,video_fullscreen_x
@@ -9353,6 +9380,7 @@ GetFRMDL:
 gui, submit, nohide
 guicontrolget, FRAMEDELAY,,FRAMEDELAY
 netplayDelayFrames= %FRAMEDELAY%
+gosub, RACHKOPTLINE
 IniWrite, "%netplayDelayFrames%", %curcfg%,OPTIONS,netplay_delay_frames
 return
 
@@ -9360,6 +9388,7 @@ GetCHKFRM:
 gui, submit, nohide
 guicontrolget, CHECKFRAMES,,CHECKFRAMES
 netplayCheckFrames= %CHECKFRAMES%
+gosub, RACHKOPTLINE
 IniWrite, "%netplayCheckFrames%", %curcfg%,OPTIONS,netplay_check_frames
 return
 
@@ -9367,6 +9396,7 @@ MinLat:
 gui,submit,nohide
 guicontrolget,MINLAT,,MINLAT
 netplayInputLatencyFramesMin= %MINLAT%
+gosub, RACHKOPTLINE
 iniwrite, "%netplayInputLatencyFramesMin%",%curcfg%,OPTIONS,netplay_Input_Latency_Frames_Min
 return
 
@@ -9374,6 +9404,7 @@ LatRng:
 gui,submit,nohide
 guicontrolget,LATRNG,,LATRNG
 netplayInputLatencyFramesRange= %LATRNG%
+gosub, RACHKOPTLINE
 iniwrite, "%netplayInputLatencyFramesRange%",%curcfg%,OPTIONS,netplay_Input_Latency_Frames_Range
 return
 
@@ -9403,6 +9434,7 @@ SelectShader:
 gui, submit, nohide
 videoShader=
 FileSelectFile, videoShader, 3, %raexeloc%\shaders, any shader, (*.*)
+gosub, RACHKOPTLINE
 IniWrite, "%videoShader%", %curcfg%,OPTIONS,video_shader
 return
 
@@ -9410,12 +9442,14 @@ SelectFilter:
 gui, submit, nohide
 videoFilter=
 FileSelectFile, videoFilter, 3, %raexeloc%\filters\video, any filter, (*.*)
+gosub, RACHKOPTLINE
 IniWrite, "%filtvar%", %curcfg%,OPTIONS,video_filter
 return
 
 MswChI:
 gui,submit,nohide
 guicontrolget,videoMaxSwapchainImages,,MSWCHI
+gosub, RACHKOPTLINE
 IniWrite, "%videoMaxSwapchainImages%",%curcfg%,OPTIONS,video_max_swapchain_images
 return
 
@@ -9426,12 +9460,14 @@ if (AUTSHD = 0)
 {
 autoShadersEnable= false
 }
+gosub, RACHKOPTLINE
 IniWrite, "%autoShadersEnable%", %curcfg%,OPTIONS,auto_shaders_enable
 return
 
 GPUIV:
 gui, submit, nohide
 videoHardSyncFrames= %GPUV%
+gosub, RACHKOPTLINE
 IniWrite, "%videoHardSyncFrames%", %curcfg%,OPTIONS,video_hard_sync_frames
 return
 
@@ -9447,18 +9483,21 @@ else if (HSYNC = 0)
 	{
 		guicontrol, disable, GPUV
 	}
+gosub, RACHKOPTLINE
 IniWrite, "%videoHardSync%", %curcfg%,OPTIONS,video_hard_sync
 return
 
 VidFrmDelay:
 Gui, Submit, NoHide
 videoFrameDelay= %FRMDL%
+gosub, RACHKOPTLINE
 IniWrite, "%videoFrameDelay%", %curcfg%,OPTIONS,video_frame_delay
 return
 
 GLDISP:
 gui, submit, nohide
 videoDriver= gl
+gosub, RACHKOPTLINE
 IniWrite, "%videoDriver%", %curcfg%,OPTIONS,video_driver
 return
 
@@ -9467,6 +9506,7 @@ gui, submit, nohide
 videoDriver= d3d12
 guicontrol,,RMENU,1
 gosub, RGUI
+gosub, RACHKOPTLINE
 IniWrite, "%videoDriver%", %curcfg%,OPTIONS,video_driver
 return
 
@@ -9475,6 +9515,7 @@ gui, submit, nohide
 videoDriver= d3d11
 guicontrol,,RMENU,1
 gosub, RGUI
+gosub, RACHKOPTLINE
 IniWrite, "%videoDriver%", %curcfg%,OPTIONS,video_driver
 return
 
@@ -9483,18 +9524,21 @@ gui, submit, nohide
 videoDriver= d3d9
 guicontrol,,RMENU,1
 gosub, RGUI
+gosub, RACHKOPTLINE
 IniWrite, "%videoDriver%", %curcfg%,OPTIONS,video_driver
 return
 
 SDLDISP:
 gui, submit, nohide
 videoDriver= sdl2
+gosub, RACHKOPTLINE
 IniWrite, "%videoDriver%", %curcfg%,OPTIONS,video_driver
 return
 
 GDIDISP:
 gui, submit, nohide
 videoDriver= gdi
+gosub, RACHKOPTLINE
 IniWrite, "%videoDriver%", %curcfg%,OPTIONS,video_driver
 return
 
@@ -9502,6 +9546,7 @@ VLKDISP:
 gui, submit, nohide
 videoDriver= Vulkan
 guicontrol,,SLCT,1
+gosub, RACHKOPTLINE
 IniWrite, "%videoDriver%", %curcfg%,OPTIONS,video_driver
 return
 
@@ -9532,6 +9577,7 @@ Gui, Submit, NoHide
 tripleBufferingEnable= false
 If TRIPB = 1
 tripleBufferingEnable= true
+gosub, RACHKOPTLINE
 IniWrite, "%tripleBufferingEnable%", %curcfg%,OPTIONS,triple_buffering_enable
 return
 
@@ -9561,6 +9607,7 @@ else if (SHDEN = 0)
 		guicontrol, Disable, CGSHDVAR
 		guicontrol, Disable, SHDSEL
 	}
+gosub, RACHKOPTLINE
 IniWrite, "%videoShaderEnable%", %curcfg%,OPTIONS,video_shader_enable
 return
 
@@ -9582,6 +9629,7 @@ if (SHAREDV = 1)
 	{
 		videoSharedContext= true
 	}
+gosub, RACHKOPTLINE
 IniWrite, "%videoSharedContext%", %curcfg%,OPTIONS,video_shared_context
 return
 
@@ -9592,6 +9640,7 @@ if (RUN2ND = 1)
 	{
 		runaheadsecondaryinstance= true		
 	}
+gosub, RACHKOPTLINE
 IniWrite, "%runaheadsecondaryinstance%", %curcfg%,OPTIONS,run_ahead_secondary_instance
 return
 
@@ -9599,6 +9648,7 @@ RUNAFRMS:
 gui,submit,nohide
 guicontrolget,RUNAFRMS,,RUNAFRMS
 runaheadframes= %RUNAFRMS%
+gosub, RACHKOPTLINE
 IniWrite, "%RUNAFRMS%", %curcfg%,OPTIONS,run_ahead_frames
 return
 
@@ -9619,8 +9669,10 @@ if (RUNAHEAD = 0)
 		runaheadsecondaryinstance= false
 		guicontrol, disable, RUN2ND
 		guicontrol, disable, RUNAFRMS
+		gosub, RACHKOPTLINE
 		IniWrite, "%runaheadsecondaryinstance%", %curcfg%,OPTIONS,run_ahead_secondary_instance
 	}
+gosub, RACHKOPTLINE
 IniWrite, "%runaheadenabled%", %curcfg%,OPTIONS,run_ahead_enabled
 return
 
@@ -9640,6 +9692,7 @@ If (THRDV = 1)
 		guicontrol, disable, REFRESH
 		guicontrol, disable, REFSLD
 	}
+gosub, RACHKOPTLINE
 IniWrite, "%videoThreaded%", %curcfg%,OPTIONS,video_threaded
 return
 
@@ -9647,6 +9700,7 @@ Rotate:
 gui, submit, nohide
 guicontrolget,ROTATE,,ROTATE
 videoRotaton= %ROTATE%
+gosub, RACHKOPTLINE
 IniWrite, "%videoRotation%", %curcfg%,OPTIONS,video_rotation
 return
 
@@ -9654,6 +9708,7 @@ VideoMon:
 gui, submit, nohide
 guicontrol,, MONUM, |%MONUM%||0|1|2|3|4
 videoMonitorIndex= %MONUM%
+gosub, RACHKOPTLINE
 IniWrite, "%videoMonitorIndex%", %curcfg%,OPTIONS,video_monitor_index
 return
 
@@ -9661,6 +9716,7 @@ NetPW:
 gui,submit,nohide
 guicontrolget,NETWP,,NETPW
 netplayPassword= %NETPW%
+gosub, RACHKOPTLINE
 IniWrite, "%netplayPassword%",%curcfg%,OPTIONS,netplay_password
 return
 
@@ -9668,6 +9724,7 @@ NetSpecPW:
 gui,submit,nohide
 guicontrolget,NETSPECPW,,NETSPECPW
 netplaySpectatePassword= %NETSPECPW%
+gosub, RACHKOPTLINE
 IniWrite, "%netplaySpectatePassword%",%curcfg%,OPTIONS,netplay_spectate_password
 return
 
@@ -9681,6 +9738,7 @@ if (DTCOMP = 0)
 	{
 		videoDisablecomposition= true
 	}
+gosub, RACHKOPTLINE
 IniWrite, "%videoDisableComposition%", %curcfg%,OPTIONS,video_disable_composition
 return
 
@@ -9696,6 +9754,7 @@ else if (FLK = 0)
 	{
 		Guicontrol,disable, FLICKF
 	}
+gosub, RACHKOPTLINE
 IniWrite, "%flickerFilterEnable%", %curcfg%,OPTIONS,flicker_filter_enable
 return
 
@@ -9703,6 +9762,7 @@ FlckFrms:
 gui, submit, nohide
 guicontrol,, FLICKF, |%FLICKF%||0|1|2|3
 flickerFilterIndex= %FLICKF%
+gosub, RACHKOPTLINE
 IniWrite, "%flickerFilterIndex%", %curcfg%,OPTIONS,flicker_filter_index
 return
 
@@ -9712,6 +9772,7 @@ gui, submit, nohide
 videoWindowedFullscreen= false
 videoFullscreen= true
 guicontrol, enable, OUTFW
+gosub, RACHKOPTLINE
 IniWrite, "%videoFullscreen%", %curcfg%,OPTIONS,video_fullscreen
 IniWrite, "%videoWindowedFullscreen%", %curcfg%,OPTIONS,video_windowed_fullscreen
 return
@@ -9720,6 +9781,7 @@ WIND:
 gui, submit, nohide
 videoFullscreen= false
 guicontrol, disable, OUTFW
+gosub, RACHKOPTLINE
 IniWrite, "%videoFullscreen%", %curcfg%,OPTIONS,video_fullscreen
 return
 
@@ -9736,6 +9798,7 @@ if (OUTFW= 0)
 		guicontrol, enable, FSREZ
 		vidoWindowedFullscreen= false
 	}
+gosub, RACHKOPTLINE
 IniWrite, "%videoFullscreen%", %curcfg%,OPTIONS,video_fullscreen
 IniWrite, "%videoWindowedFullscreen%", %curcfg%,OPTIONS,video_windowed_fullscreen
 return
@@ -9744,7 +9807,10 @@ FAspect:
 gui, submit, nohide
 videoForceAspect= true
 if (FORCEAR = 0)
-	videoForceAspect= false
+	{
+		videoForceAspect= false
+	}
+gosub, RACHKOPTLINE
 IniWrite, "%videoForceAspect%", %curcfg%,OPTIONS,video_force_aspect
 return
 
@@ -9752,7 +9818,10 @@ CropOS:
 gui, submit, nohide
 videoCropOverscan= false
 if (CROP = 1)
-	videoCropOverscan = true
+	{
+		videoCropOverscan = true
+	}
+gosub, RACHKOPTLINE
 IniWrite, "%videoCropOverscan%", %curcfg%,OPTIONS,video_crop_overscan
 return
 
@@ -9765,12 +9834,14 @@ if (BFI = 0)
 	{
 		videoBlackFrameInsertion= false
 	}
+gosub, RACHKOPTLINE
 IniWrite, "%videoBlackFrameInsertion%", %curcfg%,OPTIONS,video_black_frame_insertion
 return
 
 SwapFrames:
 Gui, Submit, nohide
 videoSwapInterval= %SWPV%
+gosub, RACHKOPTLINE
 IniWrite, "%videoSwapInterval%", %curcfg%,OPTIONS,video_swap_interval
 return
 
@@ -9786,6 +9857,7 @@ else if (VIDSYNC = 0)
 	{
 		guicontrol,Disable, SWPV
 	}
+gosub, RACHKOPTLINE
 IniWrite, "%videoVsync%", %curcfg%,OPTIONS,video_vsync
 return
 
@@ -9793,7 +9865,10 @@ AARatio:
 gui, submit, nohide
 videoAspectRatioAuto= true
 if (AUTOASPECT = 0)
-	videoAspectRatioAuto= false
+	{
+		videoAspectRatioAuto= false
+	}
+gosub, RACHKOPTLINE
 IniWrite, "%videoAspectRatioAuto%", %curcfg%,OPTIONS,video_aspect_ratio_auto
 return
 
@@ -9801,6 +9876,7 @@ SclVid:
 Gui, submit, nohide
 guicontrolget, VIDSCL, ,VIDSCL
 videoScale= %VIDSCL%
+gosub, RACHKOPTLINE
 IniWrite, "%videoScale%", %curcfg%,OPTIONS,video_scale
 return
 
@@ -9814,6 +9890,7 @@ if (INTG = 0)
 	}
 guicontrol,,INTG, %INTG%
 guicontrol,,STRCH, %STRCH%
+gosub, RACHKOPTLINE
 IniWrite, "%videoScaleInteger%", %curcfg%,OPTIONS,video_scale_integer
 return
 
@@ -9821,7 +9898,11 @@ Gamma:
 gui, submit, nohide
 gammaCorrection= false
 if (GCOR = 1)
-	gammaCorrection= true
+	{
+		gammaCorrection= true
+	}
+
+gosub, RACHKOPTLINE	
 IniWrite, "%gammaCorrection%", %curcfg%,OPTIONS,gamma_correction
 return
 
@@ -9851,6 +9932,7 @@ Loop %ArrayCount%
 	  ARIAPND .= Array[A_Index]"|"
 	}
 VIDTMP .= "|"ARIENUM "||" ARIAPND
+gosub, RACHKOPTLINE
 IniWrite, "%aspectRatioIndex%", %curcfg%,OPTIONS,aspect_ratio_index
 return
 
@@ -9860,6 +9942,7 @@ shdvar= %GLSHDVAR%
 if (shdvar = "nul")
 	{
 		videoShader=
+		gosub, RACHKOPTLINE
 		IniWrite, "%videoShader%", %curcfg%,OPTIONS,video_shader
 		return
 	}
@@ -9877,6 +9960,7 @@ if (ShaderName <> "")
 if ShaderName = nul
 	videoShader=
 SB_SetText(" " ShaderName " ")
+gosub, RACHKOPTLINE
 IniWrite, "%videoShader%", %curcfg%,OPTIONS,video_shader
 return
 
@@ -10098,6 +10182,7 @@ shdvar= %SLSHDVAR%
 if (shdvar = "nul")
 	{
 		videoShader=
+	gosub, RACHKOPTLINE
 		IniWrite, "%videoShader%", %curcfg%,OPTIONS,video_shader
 		return
 	}
@@ -10115,6 +10200,7 @@ if (ShaderName <> "")
 if ShaderName = nul
 	videoShader=
 SB_SetText(" " ShaderName " ")
+gosub, RACHKOPTLINE
 IniWrite, "%videoShader%", %curcfg%,OPTIONS,video_shader
 return
 
@@ -10148,6 +10234,7 @@ vfilt= %FLTFILE%
 if (vfilt = "nul")
 	{
 		videoFilter= nul
+		gosub, RACHKOPTLINE
 		IniWrite, "%videoFilter%", %curcfg%,OPTIONS,video_filter
 		return
 	}
@@ -10161,8 +10248,11 @@ loop files, %raexeloc%\filters\video\*.filt, R
 			break
 	}
 if (FilterName <> "")
-	videoFilter= %FilterDir%\%FilterName%
+	{
+		videoFilter= %FilterDir%\%FilterName%
+	}
 SB_SetText(" " FilterName " ")
+gosub, RACHKOPTLINE
 IniWrite, "%videoFilter%", %curcfg%,OPTIONS,video_filter
 return
 
@@ -10237,6 +10327,7 @@ if (netplayNickname = "")
 		guicontrol,, HNETNAME, %netplayNickname%
 		guicontrol,, NETNAME, %netplayNickname%
 	}
+gosub, RACHKOPTLINE
 IniWrite, "%netplayNickname%",%curcfg%,OPTIONS,netplay_nickname%A_Space%
 return
 
@@ -10263,6 +10354,7 @@ Return
 CSetPort:
 gui, submit, nohide
 guicontrolget, clientPlayIpPort,,CPORTNUM
+gosub, RACHKOPTLINE
 IniWrite, "%clientPlayIpPort%", %curcfg%,OPTIONS,netplay_ip_port
 IniWrite, "%clientPlayIpPort%", Settings.ini,GLOBAL,last_port
 return
@@ -10333,6 +10425,7 @@ if (INETHOST = 1)
 		guicontrol,enable,AlSlv
 		netplayUseMitmServer= true
 	}
+gosub, RACHKOPTLINE
 iniwrite, "%netplayUseMitmServer%",%curcfg%,OPTIONS,netplay_use_mitm_server
 return
 
@@ -10346,6 +10439,7 @@ if (ALSLV = 0)
 		guicontrol,hide,SLVONLY
 		netplayAllowSlaves= false
 	}
+gosub, RACHKOPTLINE
 iniwrite, "%netplayAllowSlaves%",%curcfg%,OPTIONS,netplay_allow_slaves
 return
 
@@ -10357,6 +10451,7 @@ if (SLVONLY = 1)
 	{
 		netplayRequireSlaves= true
 	}
+gosub, RACHKOPTLINE
 iniwrite, "%netplayRequireSlaves%",%curcfg%,OPTIONS,netplay_require_slaves
 return
 
@@ -10368,6 +10463,7 @@ if (NOSTATE = 1)
 	{
 		netplayStatelessMode= true
 	}	
+gosub, RACHKOPTLINE
 iniwrite, "%netplayStatelessMode%",%curcfg%,OPTIONS,netplay_stateless_mode
 return
 
@@ -10598,7 +10694,10 @@ gui, submit, nohide
 confirmOnExit= false
 guicontrolget, CONFEXIT
 if (CONFEXIT = 1)
-confirmOnExit= true	
+	{
+		confirmOnExit= true	
+	}
+gosub, RACHKOPTLINE
 IniWrite, "%confirmOnExit%", %curcfg%,OPTIONS,confirm_on_exit
 return
 
@@ -10615,6 +10714,7 @@ else if (SAVEXIT = 0)
 		configSaveOnExit= false
 		guicontrol, show, RLDISP
 	}
+gosub, RACHKOPTLINE
 IniWrite, "%configSaveOnExit%", %curcfg%,OPTIONS,config_save_on_exit
 return
 
@@ -10625,27 +10725,32 @@ if (PAUSEBG = 0)
 {
 	pauseNonactive= false
 }
+gosub, RACHKOPTLINE
 IniWrite, "%pauseNonactive%", %curcfg%,OPTIONS,pause_nonactive
 return
 
 RGUI:
 gui, submit, nohide
 menuDriver= rgui
+gosub, RACHKOPTLINE
 IniWrite, "%menuDriver%", %curcfg%,OPTIONS,menu_driver
 return
 XMB:
 gui, submit, nohide
 menuDriver= xmb
+gosub, RACHKOPTLINE
 IniWrite, "%menuDriver%", %curcfg%,OPTIONS,menu_driver
 return
 GLUI:
 gui, submit, nohide
 menuDriver= glui
+gosub, RACHKOPTLINE
 IniWrite, "%menuDriver%", %curcfg%,OPTIONS,menu_driver
 return
 OZONE:
 gui, submit, nohide
 menuDriver= ozone
+gosub, RACHKOPTLINE
 IniWrite, "%menuDriver%", %curcfg%,OPTIONS,menu_driver
 return
 
@@ -12587,6 +12692,7 @@ if (EMUASIGN = 1)
 				goto, MultInst
 			}
 	}
+gosub, uavailsel
 return
 
 MultiSys:
@@ -12648,40 +12754,6 @@ UniqLnk:
 gui,submit,nohide
 gosub, AppParamPop
 return
-
-;{;;;;;;;;    DEAD???  ;;;;;;;;;;;;
-SysToEmuWrite:
-iniread,skex,Assignments.ini,OVERRIDES,
-Loop, Parse,skex,`n
-{
-		stringsplit,skexa,A_LoopField,=,"
-;;"
-		stringsplit,aij,skexa2,|
-		skexa2= %aij1%
-		if (skexa2 = OVRKND)
-			{
-				enumsys= 
-				if skexa2 is not digit
-					{
-						enumsys+=1
-						OVRKND= %skexa2%%enumsys%
-					}
-			}
-	}
-iniwrite, "%EINSTLOC%",apps.ini,EMULATORS,%selfnd%
-gosub, ResetEmuList
-iniwrite, "%EINSTLOC%",Assignments.ini,ASSIGNMENTS,%OVRKND%
-iniwrite, "%OVRKND%",Assignments.ini,OVERRIDES,%semu%
-gosub, ResetRunList
-guicontrol,,JCORE,|%runlist%
-guicontrol,,LCORE,|%runlist%
-guicontrol,,PLCORE,|%lastcore%||%runlist%
-ADDCORE:= semu
-guicontrol,,ADDCORE,|%semu%||Select_A_System|%reasign%
-guicontrol,,DAPP,1
-gosub,DApp
-return
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 EMPREW:
 return
@@ -17673,6 +17745,7 @@ SaveToPl:
 gui,submit,nohide
 SB_SetText("Creating Playlist ... ")
 ;{;;;;;fold
+plsave= %playlistLoc%
 if (plsave = "") 
 	{
 		plsave= %raexeloc%\playlists
@@ -18166,7 +18239,12 @@ if (CRCZ <> "")
 							}
 					}
 				SplitPath,A_LoopField,zipt,zipp,zipxt,ziprn
-				
+				stringleft,ziptst,zipt,1
+				if (ziptst = A_Space)
+					{
+						stringtrimleft,zipt,zipt,1
+						stringtrimleft,ziprn,ziprn,1
+					}
 				if (CRCENBL = 0)
 					{
 						CRCZ= 0000000
@@ -58830,6 +58908,7 @@ LocPath:
 gui, submit, nohide
 tmpth=
 guicontrol,, LOCPTH, |%LOCPTH%||%pathlocations%
+gosub, RACHKOPTLINE
 iniread, tmpth, %curcfg%,OPTIONS,%LOCPTH%
 	SB_SetText("" LOCPTH " is " . tmpth . "")
 return
@@ -58855,6 +58934,7 @@ LocFolder:
 tmpdir=
 gui, submit, nohide
 guicontrol,, LOCDIR, |%LOCDIR%||%dirlocations%
+gosub, RACHKOPTLINE
 iniread, tmpdir, %curcfg%,OPTIONS,%LOCDIR%
 SB_SetText("" LOCDIR " is " . tmpdir . "")
 return
@@ -60839,6 +60919,14 @@ if (CORECOPY = 1)
 return
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+RACHKOPTLINE:
+FileReadLine, optline, %curcfg%, 1
+if (optline <> "[OPTIONS]")
+	{
+		gosub, WriteTop
+	}
+return	
 
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;    RESETTING   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 RESET:
