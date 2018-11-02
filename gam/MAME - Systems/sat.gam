@@ -1,18 +1,18 @@
-sat_cart/kof95.zip=The King of Fighters '95 (Euro, Jpn) (Support Cartridge)
-sat_cart/ultraman.zip=Ultraman (Jpn) (Support Cartridge)
-sat_cart/test1f.zip=Test Menu v1.0f
-sat_cart/ar.zip=Action Replay
-sat_cart/ram8.zip=Extended RAM 8Mbit cartridge
-sat_cart/ram32.zip=Extended RAM 32Mbit cartridge
-sat_cart/bram4.zip=Backup RAM 4Mbit cartridge
-sat_cart/bram8.zip=Backup RAM 8Mbit cartridge
-sat_cart/bram16.zip=Backup RAM 16Mbit cartridge
-sat_cart/bram32.zip=Backup RAM 32Mbit cartridge
-sat_vccart/vcd.zip=Video CD Card (Euro, v1.105)
-sat_vccart/hivcd2d.zip=Hitachi Video CD Card (Jpn, Two Dots, v1.011)
-sat_vccart/hivcd1d.zip=Hitachi Video CD Card (Jpn, One Dot, v1.009)
-sat_vccart/ssmovie.zip=SegaSaturn Movie Card (Jpn, v1.102)
-sat_vccart/jvcvc20.zip=JVC Video CD - Photo CD Decoder (Jpn, v3.000)
-sat_vccart/jvcvc2.zip=Victor Twin Operator Video CD & Photo CD (Jpn, v2.001)
-sat_vccart/jvcvc2a.zip=Victor Twin Operator Video CD & Photo CD (Jpn, v2.000)
-sat_vccart/jvcvc1.zip=Victor Video CD Decoder (Jpn, v1.003)
+sat_cart/kof95.zip|The King of Fighters '95 (Euro, Jpn) (Support Cartridge)
+sat_cart/ultraman.zip|Ultraman (Jpn) (Support Cartridge)
+sat_cart/test1f.zip|Test Menu v1.0f
+sat_cart/ar.zip|Action Replay
+sat_cart/ram8.zip|Extended RAM 8Mbit cartridge
+sat_cart/ram32.zip|Extended RAM 32Mbit cartridge
+sat_cart/bram4.zip|Backup RAM 4Mbit cartridge
+sat_cart/bram8.zip|Backup RAM 8Mbit cartridge
+sat_cart/bram16.zip|Backup RAM 16Mbit cartridge
+sat_cart/bram32.zip|Backup RAM 32Mbit cartridge
+sat_vccart/vcd.zip|Video CD Card (Euro, v1.105)
+sat_vccart/hivcd2d.zip|Hitachi Video CD Card (Jpn, Two Dots, v1.011)
+sat_vccart/hivcd1d.zip|Hitachi Video CD Card (Jpn, One Dot, v1.009)
+sat_vccart/ssmovie.zip|SegaSaturn Movie Card (Jpn, v1.102)
+sat_vccart/jvcvc20.zip|JVC Video CD - Photo CD Decoder (Jpn, v3.000)
+sat_vccart/jvcvc2.zip|Victor Twin Operator Video CD & Photo CD (Jpn, v2.001)
+sat_vccart/jvcvc2a.zip|Victor Twin Operator Video CD & Photo CD (Jpn, v2.000)
+sat_vccart/jvcvc1.zip|Victor Video CD Decoder (Jpn, v1.003)

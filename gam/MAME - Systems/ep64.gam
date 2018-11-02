@@ -1,182 +1,182 @@
-ep64/basic.zip=BASIC (v2.1)
-ep64/basic10.zip=BASIC (v1.0)
-ep64/basic11.zip=BASIC (v1.1)
-ep64/basic21.zip=BASIC (v2.1, Alt)
-ep64/epdos.zip=EPDOS (v1.7)
-ep64/exdos.zip=EX-DOS EPROM
-ep64/exdosbf.zip=EXDos BASIC + FORTH
-ep64/forth.zip=Forth
-ep64/pascal.zip=HiSoft Pascal Enterprise (v1.01)
-ep64/hp.zip=HP Enterprise (v1.01)
-ep64/turboasm.zip=Turbo AsMon (v1.5)
-ep64/texisdos.zip=Turbo EXDOS+ISDOS
-ep64/uelisp.zip=UELISP (v0.6)
-ep64/zozotool.zip=ZozoTools (v1.8)
-ep64/brd.zip=brd
-ep64/3dstarfg.zip=3D Star Fighter
-ep64/airwolf.zip=Airwolf
-ep64/nodes.zip=Nodes of Yesod
-ep64/base.zip=The Base
-ep64/deadline.zip=Deadline
-ep64/gamesba.zip=Games Compilation Disk- BASIC
-ep64/gamesbaa.zip=Games Compilation Disk- BASIC (Alt)
-ep64/games01.zip=Games Compilation Disk 01
-ep64/games01a.zip=Games Compilation Disk 01 (Alt)
-ep64/games02.zip=Games Compilation Disk 02
-ep64/games02a.zip=Games Compilation Disk 02 (Alt)
-ep64/games03.zip=Games Compilation Disk 03
-ep64/games03a.zip=Games Compilation Disk 03 (Alt)
-ep64/games04.zip=Games Compilation Disk 04
-ep64/games04a.zip=Games Compilation Disk 04 (Alt)
-ep64/games05.zip=Games Compilation Disk 05
-ep64/games05a.zip=Games Compilation Disk 05 (Alt)
-ep64/games06.zip=Games Compilation Disk 06
-ep64/games06a.zip=Games Compilation Disk 06 (Alt)
-ep64/games07.zip=Games Compilation Disk 07
-ep64/games07a.zip=Games Compilation Disk 07 (Alt)
-ep64/games08.zip=Games Compilation Disk 08
-ep64/games08a.zip=Games Compilation Disk 08 (Alt)
-ep64/games09.zip=Games Compilation Disk 09
-ep64/games09a.zip=Games Compilation Disk 09 (Alt)
-ep64/games10.zip=Games Compilation Disk 10
-ep64/games10a.zip=Games Compilation Disk 10 (Alt)
-ep64/games11.zip=Games Compilation Disk 11
-ep64/games11a.zip=Games Compilation Disk 11 (Alt)
-ep64/games12.zip=Games Compilation Disk 12
-ep64/games12a.zip=Games Compilation Disk 12 (Alt)
-ep64/games13.zip=Games Compilation Disk 13
-ep64/games13a.zip=Games Compilation Disk 13 (Alt)
-ep64/games14.zip=Games Compilation Disk 14
-ep64/games14a.zip=Games Compilation Disk 14 (Alt)
-ep64/games15.zip=Games Compilation Disk 15
-ep64/games15a.zip=Games Compilation Disk 15 (Alt)
-ep64/games16.zip=Games Compilation Disk 16
-ep64/games16a.zip=Games Compilation Disk 16 (Alt)
-ep64/games17.zip=Games Compilation Disk 17
-ep64/games17a.zip=Games Compilation Disk 17 (Alt)
-ep64/games18.zip=Games Compilation Disk 18
-ep64/games18a.zip=Games Compilation Disk 18 (Alt)
-ep64/games19.zip=Games Compilation Disk 19
-ep64/games19a.zip=Games Compilation Disk 19 (Alt)
-ep64/games20.zip=Games Compilation Disk 20
-ep64/games20a.zip=Games Compilation Disk 20 (Alt)
-ep64/games21.zip=Games Compilation Disk 21
-ep64/games21a.zip=Games Compilation Disk 21 (Alt)
-ep64/games22.zip=Games Compilation Disk 22
-ep64/games22a.zip=Games Compilation Disk 22 (Alt)
-ep64/games23.zip=Games Compilation Disk 23
-ep64/games23a.zip=Games Compilation Disk 23 (Alt)
-ep64/games24.zip=Games Compilation Disk 24
-ep64/games24a.zip=Games Compilation Disk 24 (Alt)
-ep64/games25.zip=Games Compilation Disk 25
-ep64/games25a.zip=Games Compilation Disk 25 (Alt)
-ep64/games26.zip=Games Compilation Disk 26
-ep64/games26a.zip=Games Compilation Disk 26 (Alt)
-ep64/games27.zip=Games Compilation Disk 27
-ep64/games27a.zip=Games Compilation Disk 27 (Alt)
-ep64/games28.zip=Games Compilation Disk 28
-ep64/games28a.zip=Games Compilation Disk 28 (Alt)
-ep64/games29.zip=Games Compilation Disk 29
-ep64/games29a.zip=Games Compilation Disk 29 (Alt)
-ep64/games30.zip=Games Compilation Disk 30
-ep64/games30a.zip=Games Compilation Disk 30 (Alt)
-ep64/games31.zip=Games Compilation Disk 31
-ep64/games31a.zip=Games Compilation Disk 31 (Alt)
-ep64/games32.zip=Games Compilation Disk 32
-ep64/games32a.zip=Games Compilation Disk 32 (Alt)
-ep64/games33.zip=Games Compilation Disk 33
-ep64/games33a.zip=Games Compilation Disk 33 (Alt)
-ep64/games34.zip=Games Compilation Disk 34
-ep64/games34a.zip=Games Compilation Disk 34 (Alt)
-ep64/games35.zip=Games Compilation Disk 35
-ep64/games35a.zip=Games Compilation Disk 35 (Alt)
-ep64/games36.zip=Games Compilation Disk 36
-ep64/games36a.zip=Games Compilation Disk 36 (Alt)
-ep64/games37.zip=Games Compilation Disk 37
-ep64/games37a.zip=Games Compilation Disk 37 (Alt)
-ep64/games38.zip=Games Compilation Disk 38
-ep64/games38a.zip=Games Compilation Disk 38 (Alt)
-ep64/games39.zip=Games Compilation Disk 39
-ep64/games39a.zip=Games Compilation Disk 39 (Alt)
-ep64/games40.zip=Games Compilation Disk 40
-ep64/games40a.zip=Games Compilation Disk 40 (Alt)
-ep64/games41.zip=Games Compilation Disk 41
-ep64/games41a.zip=Games Compilation Disk 41 (Alt)
-ep64/games42.zip=Games Compilation Disk 42
-ep64/games42a.zip=Games Compilation Disk 42 (Alt)
-ep64/games43.zip=Games Compilation Disk 43
-ep64/games43a.zip=Games Compilation Disk 43 (Alt)
-ep64/games44.zip=Games Compilation Disk 44
-ep64/games44a.zip=Games Compilation Disk 44 (Alt)
-ep64/games45.zip=Games Compilation Disk 45
-ep64/games45a.zip=Games Compilation Disk 45 (Alt)
-ep64/games46.zip=Games Compilation Disk 46
-ep64/games46a.zip=Games Compilation Disk 46 (Alt)
-ep64/games47.zip=Games Compilation Disk 47
-ep64/games47a.zip=Games Compilation Disk 47 (Alt)
-ep64/games48.zip=Games Compilation Disk 48
-ep64/games48a.zip=Games Compilation Disk 48 (Alt)
-ep64/games49.zip=Games Compilation Disk 49
-ep64/games49a.zip=Games Compilation Disk 49 (Alt)
-ep64/games50.zip=Games Compilation Disk 50
-ep64/games50a.zip=Games Compilation Disk 50 (Alt)
-ep64/games51.zip=Games Compilation Disk 51
-ep64/games51a.zip=Games Compilation Disk 51 (Alt)
-ep64/games52.zip=Games Compilation Disk 52
-ep64/games52a.zip=Games Compilation Disk 52 (Alt)
-ep64/games53.zip=Games Compilation Disk 53
-ep64/games53a.zip=Games Compilation Disk 53 (Alt)
-ep64/games54.zip=Games Compilation Disk 54
-ep64/games54a.zip=Games Compilation Disk 54 (Alt)
-ep64/games55.zip=Games Compilation Disk 55
-ep64/games55a.zip=Games Compilation Disk 55 (Alt)
-ep64/games56.zip=Games Compilation Disk 56
-ep64/games56a.zip=Games Compilation Disk 56 (Alt)
-ep64/games57.zip=Games Compilation Disk 57
-ep64/games57a.zip=Games Compilation Disk 57 (Alt)
-ep64/games58.zip=Games Compilation Disk 58
-ep64/games58a.zip=Games Compilation Disk 58 (Alt)
-ep64/games59.zip=Games Compilation Disk 59
-ep64/games59a.zip=Games Compilation Disk 59 (Alt)
-ep64/games60.zip=Games Compilation Disk 60
-ep64/games60a.zip=Games Compilation Disk 60 (Alt)
-ep64/games61.zip=Games Compilation Disk 61
-ep64/games61a.zip=Games Compilation Disk 61 (Alt)
-ep64/games62.zip=Games Compilation Disk 62
-ep64/games62a.zip=Games Compilation Disk 62 (Alt)
-ep64/games63.zip=Games Compilation Disk 63
-ep64/games63a.zip=Games Compilation Disk 63 (Alt)
-ep64/games64.zip=Games Compilation Disk 64
-ep64/games64a.zip=Games Compilation Disk 64 (Alt)
-ep64/games65.zip=Games Compilation Disk 65
-ep64/games65a.zip=Games Compilation Disk 65 (Alt)
-ep64/games66.zip=Games Compilation Disk 66
-ep64/games66a.zip=Games Compilation Disk 66 (Alt)
-ep64/games67.zip=Games Compilation Disk 67
-ep64/games67a.zip=Games Compilation Disk 67 (Alt)
-ep64/games68.zip=Games Compilation Disk 68
-ep64/games68a.zip=Games Compilation Disk 68 (Alt)
-ep64/games69.zip=Games Compilation Disk 69
-ep64/games69a.zip=Games Compilation Disk 69 (Alt)
-ep64/games70.zip=Games Compilation Disk 70
-ep64/games70a.zip=Games Compilation Disk 70 (Alt)
-ep64/games71.zip=Games Compilation Disk 71
-ep64/games71a.zip=Games Compilation Disk 71 (Alt)
-ep64/games72.zip=Games Compilation Disk 72
-ep64/games72a.zip=Games Compilation Disk 72 (Alt)
-ep64/games73.zip=Games Compilation Disk 73
-ep64/games73a.zip=Games Compilation Disk 73 (Alt)
-ep64/games74.zip=Games Compilation Disk 74
-ep64/games74a.zip=Games Compilation Disk 74 (Alt)
-ep64/isdos.zip=IS-DOS v1.0
-ep64/island.zip=The Island
-ep64/seastalk.zip=Seastalker
-ep64/sokoban.zip=Sokoban 4K
-ep64/zork1.zip=Zork 1- The Great Underground Empire
-ep64/zork2.zip=Zork 2- The Wizard of Frobozz
-ep64/zork3.zip=Zork 3- The Dungeon Master
-ep64/dbase23.zip=dBase II (v2.3)
-ep64/dbase242hu.zip=dBase II (v2.42) (Hun)
-ep64/isdosa.zip=IS-DOS (Alt)
-ep64/tpascal.zip=Turbo Pascal (v3.03A)
-ep64/wordstar.zip=WordStar III
+ep64/basic.zip|BASIC (v2.1)
+ep64/basic10.zip|BASIC (v1.0)
+ep64/basic11.zip|BASIC (v1.1)
+ep64/basic21.zip|BASIC (v2.1, Alt)
+ep64/epdos.zip|EPDOS (v1.7)
+ep64/exdos.zip|EX-DOS EPROM
+ep64/exdosbf.zip|EXDos BASIC + FORTH
+ep64/forth.zip|Forth
+ep64/pascal.zip|HiSoft Pascal Enterprise (v1.01)
+ep64/hp.zip|HP Enterprise (v1.01)
+ep64/turboasm.zip|Turbo AsMon (v1.5)
+ep64/texisdos.zip|Turbo EXDOS+ISDOS
+ep64/uelisp.zip|UELISP (v0.6)
+ep64/zozotool.zip|ZozoTools (v1.8)
+ep64/brd.zip|brd
+ep64/3dstarfg.zip|3D Star Fighter
+ep64/airwolf.zip|Airwolf
+ep64/nodes.zip|Nodes of Yesod
+ep64/base.zip|The Base
+ep64/deadline.zip|Deadline
+ep64/gamesba.zip|Games Compilation Disk- BASIC
+ep64/gamesbaa.zip|Games Compilation Disk- BASIC (Alt)
+ep64/games01.zip|Games Compilation Disk 01
+ep64/games01a.zip|Games Compilation Disk 01 (Alt)
+ep64/games02.zip|Games Compilation Disk 02
+ep64/games02a.zip|Games Compilation Disk 02 (Alt)
+ep64/games03.zip|Games Compilation Disk 03
+ep64/games03a.zip|Games Compilation Disk 03 (Alt)
+ep64/games04.zip|Games Compilation Disk 04
+ep64/games04a.zip|Games Compilation Disk 04 (Alt)
+ep64/games05.zip|Games Compilation Disk 05
+ep64/games05a.zip|Games Compilation Disk 05 (Alt)
+ep64/games06.zip|Games Compilation Disk 06
+ep64/games06a.zip|Games Compilation Disk 06 (Alt)
+ep64/games07.zip|Games Compilation Disk 07
+ep64/games07a.zip|Games Compilation Disk 07 (Alt)
+ep64/games08.zip|Games Compilation Disk 08
+ep64/games08a.zip|Games Compilation Disk 08 (Alt)
+ep64/games09.zip|Games Compilation Disk 09
+ep64/games09a.zip|Games Compilation Disk 09 (Alt)
+ep64/games10.zip|Games Compilation Disk 10
+ep64/games10a.zip|Games Compilation Disk 10 (Alt)
+ep64/games11.zip|Games Compilation Disk 11
+ep64/games11a.zip|Games Compilation Disk 11 (Alt)
+ep64/games12.zip|Games Compilation Disk 12
+ep64/games12a.zip|Games Compilation Disk 12 (Alt)
+ep64/games13.zip|Games Compilation Disk 13
+ep64/games13a.zip|Games Compilation Disk 13 (Alt)
+ep64/games14.zip|Games Compilation Disk 14
+ep64/games14a.zip|Games Compilation Disk 14 (Alt)
+ep64/games15.zip|Games Compilation Disk 15
+ep64/games15a.zip|Games Compilation Disk 15 (Alt)
+ep64/games16.zip|Games Compilation Disk 16
+ep64/games16a.zip|Games Compilation Disk 16 (Alt)
+ep64/games17.zip|Games Compilation Disk 17
+ep64/games17a.zip|Games Compilation Disk 17 (Alt)
+ep64/games18.zip|Games Compilation Disk 18
+ep64/games18a.zip|Games Compilation Disk 18 (Alt)
+ep64/games19.zip|Games Compilation Disk 19
+ep64/games19a.zip|Games Compilation Disk 19 (Alt)
+ep64/games20.zip|Games Compilation Disk 20
+ep64/games20a.zip|Games Compilation Disk 20 (Alt)
+ep64/games21.zip|Games Compilation Disk 21
+ep64/games21a.zip|Games Compilation Disk 21 (Alt)
+ep64/games22.zip|Games Compilation Disk 22
+ep64/games22a.zip|Games Compilation Disk 22 (Alt)
+ep64/games23.zip|Games Compilation Disk 23
+ep64/games23a.zip|Games Compilation Disk 23 (Alt)
+ep64/games24.zip|Games Compilation Disk 24
+ep64/games24a.zip|Games Compilation Disk 24 (Alt)
+ep64/games25.zip|Games Compilation Disk 25
+ep64/games25a.zip|Games Compilation Disk 25 (Alt)
+ep64/games26.zip|Games Compilation Disk 26
+ep64/games26a.zip|Games Compilation Disk 26 (Alt)
+ep64/games27.zip|Games Compilation Disk 27
+ep64/games27a.zip|Games Compilation Disk 27 (Alt)
+ep64/games28.zip|Games Compilation Disk 28
+ep64/games28a.zip|Games Compilation Disk 28 (Alt)
+ep64/games29.zip|Games Compilation Disk 29
+ep64/games29a.zip|Games Compilation Disk 29 (Alt)
+ep64/games30.zip|Games Compilation Disk 30
+ep64/games30a.zip|Games Compilation Disk 30 (Alt)
+ep64/games31.zip|Games Compilation Disk 31
+ep64/games31a.zip|Games Compilation Disk 31 (Alt)
+ep64/games32.zip|Games Compilation Disk 32
+ep64/games32a.zip|Games Compilation Disk 32 (Alt)
+ep64/games33.zip|Games Compilation Disk 33
+ep64/games33a.zip|Games Compilation Disk 33 (Alt)
+ep64/games34.zip|Games Compilation Disk 34
+ep64/games34a.zip|Games Compilation Disk 34 (Alt)
+ep64/games35.zip|Games Compilation Disk 35
+ep64/games35a.zip|Games Compilation Disk 35 (Alt)
+ep64/games36.zip|Games Compilation Disk 36
+ep64/games36a.zip|Games Compilation Disk 36 (Alt)
+ep64/games37.zip|Games Compilation Disk 37
+ep64/games37a.zip|Games Compilation Disk 37 (Alt)
+ep64/games38.zip|Games Compilation Disk 38
+ep64/games38a.zip|Games Compilation Disk 38 (Alt)
+ep64/games39.zip|Games Compilation Disk 39
+ep64/games39a.zip|Games Compilation Disk 39 (Alt)
+ep64/games40.zip|Games Compilation Disk 40
+ep64/games40a.zip|Games Compilation Disk 40 (Alt)
+ep64/games41.zip|Games Compilation Disk 41
+ep64/games41a.zip|Games Compilation Disk 41 (Alt)
+ep64/games42.zip|Games Compilation Disk 42
+ep64/games42a.zip|Games Compilation Disk 42 (Alt)
+ep64/games43.zip|Games Compilation Disk 43
+ep64/games43a.zip|Games Compilation Disk 43 (Alt)
+ep64/games44.zip|Games Compilation Disk 44
+ep64/games44a.zip|Games Compilation Disk 44 (Alt)
+ep64/games45.zip|Games Compilation Disk 45
+ep64/games45a.zip|Games Compilation Disk 45 (Alt)
+ep64/games46.zip|Games Compilation Disk 46
+ep64/games46a.zip|Games Compilation Disk 46 (Alt)
+ep64/games47.zip|Games Compilation Disk 47
+ep64/games47a.zip|Games Compilation Disk 47 (Alt)
+ep64/games48.zip|Games Compilation Disk 48
+ep64/games48a.zip|Games Compilation Disk 48 (Alt)
+ep64/games49.zip|Games Compilation Disk 49
+ep64/games49a.zip|Games Compilation Disk 49 (Alt)
+ep64/games50.zip|Games Compilation Disk 50
+ep64/games50a.zip|Games Compilation Disk 50 (Alt)
+ep64/games51.zip|Games Compilation Disk 51
+ep64/games51a.zip|Games Compilation Disk 51 (Alt)
+ep64/games52.zip|Games Compilation Disk 52
+ep64/games52a.zip|Games Compilation Disk 52 (Alt)
+ep64/games53.zip|Games Compilation Disk 53
+ep64/games53a.zip|Games Compilation Disk 53 (Alt)
+ep64/games54.zip|Games Compilation Disk 54
+ep64/games54a.zip|Games Compilation Disk 54 (Alt)
+ep64/games55.zip|Games Compilation Disk 55
+ep64/games55a.zip|Games Compilation Disk 55 (Alt)
+ep64/games56.zip|Games Compilation Disk 56
+ep64/games56a.zip|Games Compilation Disk 56 (Alt)
+ep64/games57.zip|Games Compilation Disk 57
+ep64/games57a.zip|Games Compilation Disk 57 (Alt)
+ep64/games58.zip|Games Compilation Disk 58
+ep64/games58a.zip|Games Compilation Disk 58 (Alt)
+ep64/games59.zip|Games Compilation Disk 59
+ep64/games59a.zip|Games Compilation Disk 59 (Alt)
+ep64/games60.zip|Games Compilation Disk 60
+ep64/games60a.zip|Games Compilation Disk 60 (Alt)
+ep64/games61.zip|Games Compilation Disk 61
+ep64/games61a.zip|Games Compilation Disk 61 (Alt)
+ep64/games62.zip|Games Compilation Disk 62
+ep64/games62a.zip|Games Compilation Disk 62 (Alt)
+ep64/games63.zip|Games Compilation Disk 63
+ep64/games63a.zip|Games Compilation Disk 63 (Alt)
+ep64/games64.zip|Games Compilation Disk 64
+ep64/games64a.zip|Games Compilation Disk 64 (Alt)
+ep64/games65.zip|Games Compilation Disk 65
+ep64/games65a.zip|Games Compilation Disk 65 (Alt)
+ep64/games66.zip|Games Compilation Disk 66
+ep64/games66a.zip|Games Compilation Disk 66 (Alt)
+ep64/games67.zip|Games Compilation Disk 67
+ep64/games67a.zip|Games Compilation Disk 67 (Alt)
+ep64/games68.zip|Games Compilation Disk 68
+ep64/games68a.zip|Games Compilation Disk 68 (Alt)
+ep64/games69.zip|Games Compilation Disk 69
+ep64/games69a.zip|Games Compilation Disk 69 (Alt)
+ep64/games70.zip|Games Compilation Disk 70
+ep64/games70a.zip|Games Compilation Disk 70 (Alt)
+ep64/games71.zip|Games Compilation Disk 71
+ep64/games71a.zip|Games Compilation Disk 71 (Alt)
+ep64/games72.zip|Games Compilation Disk 72
+ep64/games72a.zip|Games Compilation Disk 72 (Alt)
+ep64/games73.zip|Games Compilation Disk 73
+ep64/games73a.zip|Games Compilation Disk 73 (Alt)
+ep64/games74.zip|Games Compilation Disk 74
+ep64/games74a.zip|Games Compilation Disk 74 (Alt)
+ep64/isdos.zip|IS-DOS v1.0
+ep64/island.zip|The Island
+ep64/seastalk.zip|Seastalker
+ep64/sokoban.zip|Sokoban 4K
+ep64/zork1.zip|Zork 1- The Great Underground Empire
+ep64/zork2.zip|Zork 2- The Wizard of Frobozz
+ep64/zork3.zip|Zork 3- The Dungeon Master
+ep64/dbase23.zip|dBase II (v2.3)
+ep64/dbase242hu.zip|dBase II (v2.42) (Hun)
+ep64/isdosa.zip|IS-DOS (Alt)
+ep64/tpascal.zip|Turbo Pascal (v3.03A)
+ep64/wordstar.zip|WordStar III

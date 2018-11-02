@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-10-31 5:56 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-01 5:42 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-10-31 5:56 PM
-VERSION= v0.99.58.98
+RELEASE= 2018-11-01 5:42 PM
+VERSION= v0.99.58.99
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -6312,6 +6312,7 @@ iniread,pcsx2_verx,Apps.ini,EMULATORS,PCSX2
 splitpath,pcsx2_verx,,pcsx2_path
 iniread,mame_verx,Apps.ini,EMULATORS,MAME
 splitpath,mame_verx,,mame_path
+iniread,demul_file,apps.ini,EMULATORS,retroarch
 iniread,demul_file,apps.ini,EMULATORS,Demul
 splitpath,demul_file,,demul_path
 Loop, Read, AutoBios.set
@@ -17729,7 +17730,7 @@ return
 NiceName:
 Loop, Read, gam\MAME.gam
 	{
-		stringsplit,romtitl,A_LoopReadLine,=
+		stringsplit,romtitl,A_LoopReadLine,|
 		if (romn = romtitl1)
 			{
 				romname= %romtitl2%
@@ -20572,7 +20573,7 @@ Loop, files, %SRCHMET%\%SRCHSYS%.gam
 			{
 				IfInString, A_LoopReadLine, %SRCHEDT%
 					{	
-						stringsplit,fndgam,A_loopReadLine,=
+						stringsplit,fndgam,A_loopReadLine,|
 							srchpop .= sys . "=" . fndgam2 . "|"
 					}
 			}
@@ -20724,7 +20725,7 @@ if (ARCSYS = "ScummVM")
 
 Loop, Read, gam\%ARCSYS%.gam
 	{
-		stringsplit,getpth,A_LoopReadLine,=
+		stringsplit,getpth,A_LoopReadLine,|
 		if (getpth2 = romfp)
 			{
 				EXTRAR= 
@@ -20905,7 +20906,7 @@ if (MAMESWCHK = 1)
 				iniread,ARCTRA,emuCfgPresets.set,%ARCSYS%,RJMAMENM
 				loop, Read, gam\MAME - Systems\%ARCTRA%.gam
 					{
-						stringsplit,romarray,A_LoopReadLine,=,`n`r
+						stringsplit,romarray,A_LoopReadLine,|,`n`r
 						if (romarray2 = "")
 							{
 								continue
@@ -20917,7 +20918,7 @@ if (MAMESWCHK = 1)
 			}
 		loop, Read, gam\MAME - Systems\%ARCSYS%.gam
 			{
-				stringsplit,romarray,A_LoopReadLine,=,`n`r
+				stringsplit,romarray,A_LoopReadLine,|,`n`r
 				if (romarray2 = "")
 					{
 						continue
@@ -20930,7 +20931,7 @@ if (MAMESWCHK = 1)
 
 loop, Read, gam\%ARCSYS%.gam
 	{
-		stringsplit,romarray,A_LoopReadLine,=,`n`r
+		stringsplit,romarray,A_LoopReadLine,|,`n`r
 		if (romarray2 = "")
 			{
 				continue
@@ -21264,7 +21265,7 @@ if (ARCSYS = "ScummVM")
 
 loop,Read, gam\%ARCSYS%.gam
 	{
-		stringsplit,rommatch,A_LoopReadLine,=
+		stringsplit,rommatch,A_LoopReadLine,|
 		if (rommatch2 = romtch)
 			{
 				romdwn= %rommatch1%
@@ -21282,7 +21283,7 @@ if (MAMESWCHK = 1)
 		iniread,ARCTRA,emuCfgPresets.set,%ARCSYS%,RJMAMENM
 		loop, Read, gam\MAME - Systems\%ARCTRA%.gam
 			{
-				stringsplit,romarray,A_LoopReadLine,=,`n`r
+				stringsplit,romarray,A_LoopReadLine,|,`n`r
 				if (romarray2 = romtch)
 						{
 							romdwn= %romarray1%
@@ -21291,7 +21292,7 @@ if (MAMESWCHK = 1)
 			}
 		loop, Read, gam\MAME - Systems\%ARCSYS%.gam
 			{
-				stringsplit,romarray,A_LoopReadLine,=,`n`r
+				stringsplit,romarray,A_LoopReadLine,|,`n`r
 				if (romarray2 = romtch)
 						{
 							romdwn= %romarray1%
@@ -30342,7 +30343,7 @@ if (mameget = 1)
 						realn2= 
 						realj1= 
 						realj2= 
-						stringsplit,realn,A_LoopField,=
+						stringsplit,realn,A_LoopField,|
 						stringsplit,realj,realn1,.
 						if (realj1 = jaktit)
 							{
@@ -39276,7 +39277,7 @@ Loop, Parse, fldmvr,`n
 		mvaba2= 
 		mvrpx1= 
 		mvrpx2= 
-		stringsplit,mvrpt,A_LoopField,=
+		stringsplit,mvrpt,A_LoopField,|
 		stringsplit,mvaba,mvrpt1,.
 		if (mvrom = mvaba1)
 			{
@@ -54708,11 +54709,11 @@ medswapR2=
 medswapR3= rt
 medswapL3= 
 medswapLXMinus= 
-medswapRXMinus= left-r
-medswapRXPlus= right-r
 medswapLXPlus= 
 medswapLYPlus= 
 medswapLYMinus= 
+medswapRXMinus= left-r
+medswapRXPlus= right-r
 medswapRYPlus= up-r
 medswapRYMinus= down-r
 medswapHome= 
@@ -54744,16 +54745,20 @@ if (curmedINPT = "")
 guicontrol,,emjDDLB,|n||
 
 supinp= gamepad|gamepadraa
+medswapStart= start
+medswapDown= down-x
+medswapUp= up-x
+medswapLeft= left-x
+medswapRight= right-x
+medswapRXPlus= right-y
+medswapRXMinus= left-y
+medswapRYPlus= up-y
+medswapRYMinus= down-y
 medswapB= a
 medswapA= b
 medswapX= 
 medswapY= 
-medswapStart= start
 medswapSelect= 
-medswapDown= down-x
-medswapUp= up-x
-medswapLeft= left-x
-medswapLeft= right-x
 medswapL= 
 medswapR= 
 medswapL2= 
@@ -54761,20 +54766,16 @@ medswapR2=
 medswapR3= 
 medswapL3= 
 medswapLXMinus= 
-medswapRXMinus= left-y
-medswapRXPlus= right-y
 medswapLXPlus= 
 medswapLYPlus= 
 medswapLYMinus= 
-medswapRYPlus= up-y
-medswapRYMinus= down-y
 medswapHome= 
 
 MedSwapATXT= a
 MedSwapBTXT=
-MedSwapCTXT= b
-MedSwapDTXT=
-MedSwapETXT=
+MedSwapCTXT= 
+MedSwapDTXT= b
+MedSwapETXT= 
 MedSwapFTXT=
 MedSwapGTXT=
 MedSwapHTXT=
@@ -54784,7 +54785,7 @@ MedSwapLTXT=
 MedSwapMTXT= start
 
 MedSwapCGRP= 
-MedSwapDGRP= 
+MedSwapDGRP= Right Analog Stick
 gosub, MednafenSwap
 return
 
@@ -55105,7 +55106,9 @@ Loop, Parse, medjimp,`n`r
 															}
 														stringsplit,mjvak,A_LoopField,=]
 														stringreplace,mjvcdp,mjvak4,%A_Space%,,All
-														if (mjvcdp = medjcd)
+														stringreplace,mav,mjvcdp,-,,All
+														stringreplace,mad,medjcd,-,,All
+														if (mav = mad)
 															{
 																stringmid,meditbd,mjvak2,5,13
 																ifnotinstring,medlkup,%aik5%=
@@ -55299,6 +55302,7 @@ Loop, Parse, orj,#
 						if (meditbd = kprm)
 							{
 								reinj.= mjvcdp
+								msgbox,,,%reinj%
 								break
 							}	
 					}
@@ -59029,6 +59033,7 @@ return
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;  ROM SELECT  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EDTROM:
 RUNSYSCHNG+=1
+curjport= 
 romindnum= 
 stilltyp:
 Gui, submit, nohide

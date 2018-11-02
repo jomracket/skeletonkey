@@ -326,7 +326,7 @@ Sega - MegaTech|Fusion|blastem|mednafen|gens|gensgs|dgen|gensplus|regen|genesisp
 Sega - Model 1|modeller|MAME|:mame_libretro.dll
 Sega - Model 2|m2emulator|MAME|:mame_libretro.dlls
 Sega - Model 3|supermodel
-Sega - NAOMI|Demul|reicast|NullDC|MAME|Makaron|:reicast_libretro.dll|reicast_OIT_libretro.dll|mame_libretro.dll
+Sega - NAOMI|Demul|reicast|NullDC|MAME|Makaron|:reicast_libretro.dll|mame_libretro.dll
 Sega - PICO|Fusion|picodrive|MAME|:picodrive_libretro.dll
 Sega - SC-3000|meka|sc3000|regen|vdmgr|MAME|:mame_libretro.dll
 Sega - SF-7000|meka|MAME|:mame_libretro.dll

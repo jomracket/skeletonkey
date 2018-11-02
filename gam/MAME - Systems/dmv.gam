@@ -1,113 +1,113 @@
-dmv/cpm80.zip=CP-M 2.2
-dmv/cpm80a.zip=CP-M 2.2 (Alt 1)
-dmv/cpm80b.zip=CP-M 2.2 (Alt 2)
-dmv/cpm80c.zip=CP-M 2.2 (Alt 3)
-dmv/cpm80d.zip=CP-M 2.2 (Alt 4)
-dmv/cpm80e.zip=CP-M 2.2 (Alt 5)
-dmv/cpm80su.zip=CP-M 2.2 Supplement
-dmv/cpm80sua.zip=CP-M 2.2 Supplement (Alt 1)
-dmv/cpm80sub.zip=CP-M 2.2 Supplement (Alt 2)
-dmv/cpm80suc.zip=CP-M 2.2 Supplement (Alt 3)
-dmv/cpm86.zip=CP-M-86 1.1
-dmv/cpm86a.zip=CP-M-86 1.1 (Alt 1)
-dmv/cpm86b.zip=CP-M-86 1.1 (Alt 2)
-dmv/cpm86c.zip=CP-M-86 1.1 (Alt 3)
-dmv/cpm86d.zip=CP-M-86 1.1 (Alt 4)
-dmv/cpm86e.zip=CP-M-86 1.1 (Alt 5)
-dmv/cpm86f.zip=CP-M-86 1.1 (Alt 6)
-dmv/cpm68k.zip=CP-M-68k
-dmv/cpm68ka.zip=CP-M-68k (Alt)
-dmv/psys.zip=UCSD p-System IV.13
-dmv/psysa.zip=UCSD p-System IV.13 (Alt)
-dmv/msdos211.zip=MS-DOS v2.11
-dmv/msdos20m.zip=MS-DOS v2.0 Master disk
-dmv/msdos211m.zip=MS-DOS v2.11 Master disk
-dmv/dmvge11.zip=Graphics Extension v1.1
-dmv/dmvge10.zip=Graphics Extension v1.0
-dmv/oaccess.zip=OPEN ACCESS
-dmv/gwbas106.zip=GW-BASIC v1.06
-dmv/gwbas104.zip=GW-BASIC v1.04
-dmv/zcom20.zip=Z-Com v2.0
-dmv/zcom20hd.zip=Z-Com v2.0 HD
-dmv/bs86dos.zip=BASIC-86 v5.28 (DOS)
-dmv/bs86cpm.zip=BASIC-86 v5.22 (CP-M)
-dmv/diagdsk.zip=DMV Diagnostic Diskette
-dmv/diag232.zip=DMV RS232 Inteface Diagnostic
-dmv/diagi488.zip=DMV IEEE-448 Inteface Diagnostic
-dmv/ncobol.zip=Nevada COBOL
-dmv/nedit.zip=Nevada Edit
-dmv/npascal.zip=Nevada Pascal
-dmv/npilot.zip=Nevada Pilot
-dmv/pc2pc.zip=NCR PC2PC Network Requester v1.01.00
-dmv/pc2pca.zip=NCR PC2PC Network Requester v1.01.00 (Alt)
-dmv/starbrst.zip=StarBurst v1.01
-dmv/dosterme.zip=NCR 7900 Terminal Emulators (DOS)
-dmv/cpmterme.zip=NCR 7900 Terminal Emulators V2.0 (CP-M)
-dmv/dmvcc.zip=C Compiler V1.2.3
-dmv/desq.zip=DESQ
-dmv/rmcobol.zip=RM-COBOL Compiler v1.5E
-dmv/supersrt.zip=Supersort v1.62
-dmv/tim3.zip=T.I.M. III v3.31
-dmv/msfortrn.zip=Microsoft FORTRAN 77 v3.13
-dmv/scalc112.zip=SuperCalc V1.12
-dmv/ws321.zip=WordStar 3.21
-dmv/ws30.zip=WordStar V3.0
-dmv/ws330.zip=WordStar V3.30
-dmv/ws330a.zip=WordStar V3.30 (Alt)
-dmv/ws330b.zip=WordStar V3.30 (Alt 2)
-dmv/ws330_86.zip=WordStar V3.30 (CP-M-86)
-dmv/ws340.zip=WordStar V3.40
-dmv/ws330smd.zip=WordStar V3.30 with SpellStar, Mailmerge and DataStar
-dmv/mailmerg.zip=Mailmerge
-dmv/spells.zip=SpellStar
-dmv/mm_ss.zip=Mailmerge + SpellStar (CP-M-86)
-dmv/mscobol.zip=COBOL
-dmv/mspascal.zip=MS-Pascal Compiler
-dmv/msbc.zip=Microsoft BASIC Compiler v5.50
-dmv/micropln.zip=MicroPlan v4.04
-dmv/fortran.zip=FORTRAN v3.44
-dmv/drgraph.zip=DR Graph
-dmv/drgrapha.zip=DR Graph (Alt)
-dmv/drdrawc.zip=DR Draw (Color)
-dmv/drdrawm.zip=DR Draw (Monochrome)
-dmv/tgdemo.zip=TUTBOGRAPH Demonstration Programs
-dmv/cpm86qd.zip=CP-M-86 1.1 with quad-density FDD support
-dmv/gsx86tst.zip=GSX-86 Test Suite
-dmv/msdosqd.zip=MS-DOS v2.11 with quad-density FDD support
-dmv/dbase238.zip=dBASE II v2.38
-dmv/dbase238a.zip=dBASE II v2.38 + WordStar
-dmv/dbase240.zip=dBASE II v2.40
-dmv/tpascal.zip=TURBO Pascal v3.01A
-dmv/datastar.zip=DataStar v1.42
-dmv/reports.zip=ReportStar v1.03
-dmv/ds_rs.zip=DataStar v1.42 + ReportStar v1.03
-dmv/exccpm.zip=EXCHANGE CP-M
-dmv/excdos.zip=EXCHANGE DOS
-dmv/acad.zip=AutoCAD
-dmv/acada.zip=AutoCAD (Alt 1)
-dmv/acadb.zip=AutoCAD (Alt 2)
-dmv/moveit.zip=Move-It
-dmv/cpmspiel.zip=CP-M 2.2 Spiele
-dmv/cpmsprei.zip=CP-M 2.2 Sprei
-dmv/cpmutil.zip=CP-M 2.2 Utilities
-dmv/cpmutila.zip=CP-M Utilities (Alt)
-dmv/cpmgames.zip=CP-M 2.2 Games
-dmv/cpmgamesa.zip=CP-M 2.2 Games (Alt)
-dmv/cpm86gam.zip=CP-M-86 Games
-dmv/mstone.zip=CP-M 2.2 Milestone
-dmv/cpmbasic.zip=MS-BASIC + NCR-BASIC
-dmv/dos211hd.zip=MS-DOS v2.11 HD
-dmv/dos211hda.zip=MS-DOS v2.11 HD (Alt)
-dmv/dos211hdb.zip=MS-DOS v2.11 HD (Alt 2)
-dmv/dos211hdc.zip=MS-DOS v2.11 HD (Alt 3)
-dmv/dostools.zip=DOS Tools
-dmv/dosut.zip=DOS Utilities
-dmv/nortonut.zip=Norton Utilities v3.00
-dmv/nortonuta.zip=Norton Utilities v3.00 (Alt)
-dmv/oaccessa.zip=OPEN ACCESS (3 LZH archives)
-dmv/printmst.zip=Print Master (2 LZH archives)
-dmv/ws4.zip=WordStar V4 (2 LZH archives)
-dmv/bradford.zip=Bradford (LZH archive)
-dmv/bdsc.zip=BD Software C Compiler
-dmv/apt.zip=Assembler Plus Tools
-dmv/msbas521.zip=MS-BASIC v5.21
+dmv/cpm80.zip|CP-M 2.2
+dmv/cpm80a.zip|CP-M 2.2 (Alt 1)
+dmv/cpm80b.zip|CP-M 2.2 (Alt 2)
+dmv/cpm80c.zip|CP-M 2.2 (Alt 3)
+dmv/cpm80d.zip|CP-M 2.2 (Alt 4)
+dmv/cpm80e.zip|CP-M 2.2 (Alt 5)
+dmv/cpm80su.zip|CP-M 2.2 Supplement
+dmv/cpm80sua.zip|CP-M 2.2 Supplement (Alt 1)
+dmv/cpm80sub.zip|CP-M 2.2 Supplement (Alt 2)
+dmv/cpm80suc.zip|CP-M 2.2 Supplement (Alt 3)
+dmv/cpm86.zip|CP-M-86 1.1
+dmv/cpm86a.zip|CP-M-86 1.1 (Alt 1)
+dmv/cpm86b.zip|CP-M-86 1.1 (Alt 2)
+dmv/cpm86c.zip|CP-M-86 1.1 (Alt 3)
+dmv/cpm86d.zip|CP-M-86 1.1 (Alt 4)
+dmv/cpm86e.zip|CP-M-86 1.1 (Alt 5)
+dmv/cpm86f.zip|CP-M-86 1.1 (Alt 6)
+dmv/cpm68k.zip|CP-M-68k
+dmv/cpm68ka.zip|CP-M-68k (Alt)
+dmv/psys.zip|UCSD p-System IV.13
+dmv/psysa.zip|UCSD p-System IV.13 (Alt)
+dmv/msdos211.zip|MS-DOS v2.11
+dmv/msdos20m.zip|MS-DOS v2.0 Master disk
+dmv/msdos211m.zip|MS-DOS v2.11 Master disk
+dmv/dmvge11.zip|Graphics Extension v1.1
+dmv/dmvge10.zip|Graphics Extension v1.0
+dmv/oaccess.zip|OPEN ACCESS
+dmv/gwbas106.zip|GW-BASIC v1.06
+dmv/gwbas104.zip|GW-BASIC v1.04
+dmv/zcom20.zip|Z-Com v2.0
+dmv/zcom20hd.zip|Z-Com v2.0 HD
+dmv/bs86dos.zip|BASIC-86 v5.28 (DOS)
+dmv/bs86cpm.zip|BASIC-86 v5.22 (CP-M)
+dmv/diagdsk.zip|DMV Diagnostic Diskette
+dmv/diag232.zip|DMV RS232 Inteface Diagnostic
+dmv/diagi488.zip|DMV IEEE-448 Inteface Diagnostic
+dmv/ncobol.zip|Nevada COBOL
+dmv/nedit.zip|Nevada Edit
+dmv/npascal.zip|Nevada Pascal
+dmv/npilot.zip|Nevada Pilot
+dmv/pc2pc.zip|NCR PC2PC Network Requester v1.01.00
+dmv/pc2pca.zip|NCR PC2PC Network Requester v1.01.00 (Alt)
+dmv/starbrst.zip|StarBurst v1.01
+dmv/dosterme.zip|NCR 7900 Terminal Emulators (DOS)
+dmv/cpmterme.zip|NCR 7900 Terminal Emulators V2.0 (CP-M)
+dmv/dmvcc.zip|C Compiler V1.2.3
+dmv/desq.zip|DESQ
+dmv/rmcobol.zip|RM-COBOL Compiler v1.5E
+dmv/supersrt.zip|Supersort v1.62
+dmv/tim3.zip|T.I.M. III v3.31
+dmv/msfortrn.zip|Microsoft FORTRAN 77 v3.13
+dmv/scalc112.zip|SuperCalc V1.12
+dmv/ws321.zip|WordStar 3.21
+dmv/ws30.zip|WordStar V3.0
+dmv/ws330.zip|WordStar V3.30
+dmv/ws330a.zip|WordStar V3.30 (Alt)
+dmv/ws330b.zip|WordStar V3.30 (Alt 2)
+dmv/ws330_86.zip|WordStar V3.30 (CP-M-86)
+dmv/ws340.zip|WordStar V3.40
+dmv/ws330smd.zip|WordStar V3.30 with SpellStar, Mailmerge and DataStar
+dmv/mailmerg.zip|Mailmerge
+dmv/spells.zip|SpellStar
+dmv/mm_ss.zip|Mailmerge + SpellStar (CP-M-86)
+dmv/mscobol.zip|COBOL
+dmv/mspascal.zip|MS-Pascal Compiler
+dmv/msbc.zip|Microsoft BASIC Compiler v5.50
+dmv/micropln.zip|MicroPlan v4.04
+dmv/fortran.zip|FORTRAN v3.44
+dmv/drgraph.zip|DR Graph
+dmv/drgrapha.zip|DR Graph (Alt)
+dmv/drdrawc.zip|DR Draw (Color)
+dmv/drdrawm.zip|DR Draw (Monochrome)
+dmv/tgdemo.zip|TUTBOGRAPH Demonstration Programs
+dmv/cpm86qd.zip|CP-M-86 1.1 with quad-density FDD support
+dmv/gsx86tst.zip|GSX-86 Test Suite
+dmv/msdosqd.zip|MS-DOS v2.11 with quad-density FDD support
+dmv/dbase238.zip|dBASE II v2.38
+dmv/dbase238a.zip|dBASE II v2.38 + WordStar
+dmv/dbase240.zip|dBASE II v2.40
+dmv/tpascal.zip|TURBO Pascal v3.01A
+dmv/datastar.zip|DataStar v1.42
+dmv/reports.zip|ReportStar v1.03
+dmv/ds_rs.zip|DataStar v1.42 + ReportStar v1.03
+dmv/exccpm.zip|EXCHANGE CP-M
+dmv/excdos.zip|EXCHANGE DOS
+dmv/acad.zip|AutoCAD
+dmv/acada.zip|AutoCAD (Alt 1)
+dmv/acadb.zip|AutoCAD (Alt 2)
+dmv/moveit.zip|Move-It
+dmv/cpmspiel.zip|CP-M 2.2 Spiele
+dmv/cpmsprei.zip|CP-M 2.2 Sprei
+dmv/cpmutil.zip|CP-M 2.2 Utilities
+dmv/cpmutila.zip|CP-M Utilities (Alt)
+dmv/cpmgames.zip|CP-M 2.2 Games
+dmv/cpmgamesa.zip|CP-M 2.2 Games (Alt)
+dmv/cpm86gam.zip|CP-M-86 Games
+dmv/mstone.zip|CP-M 2.2 Milestone
+dmv/cpmbasic.zip|MS-BASIC + NCR-BASIC
+dmv/dos211hd.zip|MS-DOS v2.11 HD
+dmv/dos211hda.zip|MS-DOS v2.11 HD (Alt)
+dmv/dos211hdb.zip|MS-DOS v2.11 HD (Alt 2)
+dmv/dos211hdc.zip|MS-DOS v2.11 HD (Alt 3)
+dmv/dostools.zip|DOS Tools
+dmv/dosut.zip|DOS Utilities
+dmv/nortonut.zip|Norton Utilities v3.00
+dmv/nortonuta.zip|Norton Utilities v3.00 (Alt)
+dmv/oaccessa.zip|OPEN ACCESS (3 LZH archives)
+dmv/printmst.zip|Print Master (2 LZH archives)
+dmv/ws4.zip|WordStar V4 (2 LZH archives)
+dmv/bradford.zip|Bradford (LZH archive)
+dmv/bdsc.zip|BD Software C Compiler
+dmv/apt.zip|Assembler Plus Tools
+dmv/msbas521.zip|MS-BASIC v5.21

@@ -1,14 +1,14 @@
-vixen/system12.zip=OSBORNE 4 System Disk
-vixen/cpm.zip=Vixen CPM
-vixen/crostalk.zip=Crosstalk
-vixen/turnkey.zip=Turnkey Rev 2.0
-vixen/wordstar.zip=WordStar
-vixen/vixfix.zip=Vixen Fix Program
-vixen/vixdemo.zip=Vixen Demonstration Program Version 1.01
-vixen/surpac.zip=Sur-pac Demo Version 1.0
-vixen/sysgen.zip=Vixen Sysgen
-vixen/vsetup.zip=Vixen Setup
-vixen/mrom.zip=Monitor Rom
-vixen/vmovcpm.zip=Mov CPM
-vixen/vbios.zip=CP-M 2.2 CBIOS
-vixen/vcopy.zip=Disk Utility
+vixen/system12.zip|OSBORNE 4 System Disk
+vixen/cpm.zip|Vixen CPM
+vixen/crostalk.zip|Crosstalk
+vixen/turnkey.zip|Turnkey Rev 2.0
+vixen/wordstar.zip|WordStar
+vixen/vixfix.zip|Vixen Fix Program
+vixen/vixdemo.zip|Vixen Demonstration Program Version 1.01
+vixen/surpac.zip|Sur-pac Demo Version 1.0
+vixen/sysgen.zip|Vixen Sysgen
+vixen/vsetup.zip|Vixen Setup
+vixen/mrom.zip|Monitor Rom
+vixen/vmovcpm.zip|Mov CPM
+vixen/vbios.zip|CP-M 2.2 CBIOS
+vixen/vcopy.zip|Disk Utility

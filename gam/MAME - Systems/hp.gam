@@ -1,38 +1,38 @@
-hp_ipc/memomakr.zip=MemoMaker for Integral
-hp_ipc/multipln.zip=Multiplan for Integral
-hp_ipc/basic_r5.zip=Integral BASIC Release 5
-hp_ipc/datacomm.zip=Datacomm r1.0.1
-hp_ipc/ipccdoc.zip=C Language 1of3 (docs)
-hp_ipc/ipccprep.zip=C Language 2of3 (preprocessor)
-hp_ipc/ipcctran.zip=C Language 3of3 (translator)
-hp_ipc/basicut.zip=HP-UX BASIC Utilities for Integral
-hp_ipc/ipcforut.zip=FORTRAN r5.0.0 1of2 (utilities)
-hp_ipc/ipcforcp.zip=FORTRAN r5.0.0 2of2 (translator)
-hp_ipc/lisppilt.zip=LISP and PILOT Languages
-hp_ipc/tksolve.zip=Tk!Solver
-hp_ipc/diagpgrm.zip=Diagraph for Integral 1of2 (program)
-hp_ipc/diagsymb.zip=Diagraph for Integral 2of2 (symbols)
-hp_ipc/microtrk.zip=MicroTrak v1.4f
-hp_ipc/ipcpascp.zip=PASCAL v5.0 1of2 (compiler)
-hp_ipc/ipcpasdc.zip=PASCAL v5.0 2of2 (docs)
-hp_ipc/ipcforth.zip=FORTH v1.0 for Integral
-hp_ipc/tutor.zip=Utility Discs for Integral 1of6 (Tutor)
-hp_ipc/utilitie.zip=Utility Discs for Integral 2of6 (Utilities)
-hp_ipc/diagnstc.zip=Utility Discs for Integral 3of6 (Diagnostic)
-hp_ipc/sysmdisc.zip=Utility Discs for Integral 4of6 (System Disc)
-hp_ipc/hp_ux1.zip=Utility Discs for Integral 5of6 (HP-UX Commands 1)
-hp_ipc/hp_ux2.zip=Utility Discs for Integral 6of6 (HP-UX Commands 2)
-hp_ipc/intgame1.zip=Integral Games 1of3
-hp_ipc/intgame2.zip=Integral Games 2of3
-hp_ipc/intgame3.zip=Integral Games 3of3
-hp_ipc/inthack.zip=Hack 3.0.2 for Integral
-hp_ipc/plotrack.zip=PlotTrack Rev 1.2b
-hp_ipc/ipcromtl.zip=EPROM-ROM Tools r5.0
-hp_ipc/ipcapl.zip=APL Plus v3.0 1of2
-hp_ipc/ipcaplw.zip=APL Plus v3.0 2of2
-hp_ipc/ipctranu.zip=PC File Translation Utilities
-hp_ipc/ipcsuput.zip=Super Utilities (LIF format file!)
-hp_ipc/ipcart.zip=Graphics, Text and Misc Utilities
-hp_ipc/ipcbasbn.zip=BASIC Bonus Disc
-hp_ipc/ipcdwd.zip=Driver Writers Disc
-hp_ipc/ipcmandl.zip=Mandelbrot
+hp_ipc/memomakr.zip|MemoMaker for Integral
+hp_ipc/multipln.zip|Multiplan for Integral
+hp_ipc/basic_r5.zip|Integral BASIC Release 5
+hp_ipc/datacomm.zip|Datacomm r1.0.1
+hp_ipc/ipccdoc.zip|C Language 1of3 (docs)
+hp_ipc/ipccprep.zip|C Language 2of3 (preprocessor)
+hp_ipc/ipcctran.zip|C Language 3of3 (translator)
+hp_ipc/basicut.zip|HP-UX BASIC Utilities for Integral
+hp_ipc/ipcforut.zip|FORTRAN r5.0.0 1of2 (utilities)
+hp_ipc/ipcforcp.zip|FORTRAN r5.0.0 2of2 (translator)
+hp_ipc/lisppilt.zip|LISP and PILOT Languages
+hp_ipc/tksolve.zip|Tk!Solver
+hp_ipc/diagpgrm.zip|Diagraph for Integral 1of2 (program)
+hp_ipc/diagsymb.zip|Diagraph for Integral 2of2 (symbols)
+hp_ipc/microtrk.zip|MicroTrak v1.4f
+hp_ipc/ipcpascp.zip|PASCAL v5.0 1of2 (compiler)
+hp_ipc/ipcpasdc.zip|PASCAL v5.0 2of2 (docs)
+hp_ipc/ipcforth.zip|FORTH v1.0 for Integral
+hp_ipc/tutor.zip|Utility Discs for Integral 1of6 (Tutor)
+hp_ipc/utilitie.zip|Utility Discs for Integral 2of6 (Utilities)
+hp_ipc/diagnstc.zip|Utility Discs for Integral 3of6 (Diagnostic)
+hp_ipc/sysmdisc.zip|Utility Discs for Integral 4of6 (System Disc)
+hp_ipc/hp_ux1.zip|Utility Discs for Integral 5of6 (HP-UX Commands 1)
+hp_ipc/hp_ux2.zip|Utility Discs for Integral 6of6 (HP-UX Commands 2)
+hp_ipc/intgame1.zip|Integral Games 1of3
+hp_ipc/intgame2.zip|Integral Games 2of3
+hp_ipc/intgame3.zip|Integral Games 3of3
+hp_ipc/inthack.zip|Hack 3.0.2 for Integral
+hp_ipc/plotrack.zip|PlotTrack Rev 1.2b
+hp_ipc/ipcromtl.zip|EPROM-ROM Tools r5.0
+hp_ipc/ipcapl.zip|APL Plus v3.0 1of2
+hp_ipc/ipcaplw.zip|APL Plus v3.0 2of2
+hp_ipc/ipctranu.zip|PC File Translation Utilities
+hp_ipc/ipcsuput.zip|Super Utilities (LIF format file!)
+hp_ipc/ipcart.zip|Graphics, Text and Misc Utilities
+hp_ipc/ipcbasbn.zip|BASIC Bonus Disc
+hp_ipc/ipcdwd.zip|Driver Writers Disc
+hp_ipc/ipcmandl.zip|Mandelbrot
