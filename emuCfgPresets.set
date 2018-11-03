@@ -1214,6 +1214,14 @@ RJMULTIDISC=1
 RJROMXT=.nes,.unif,.unf,.nsf,.fam,.fds,.bin,.zip
 MAME?RJEMUOPTS=<fds -[RJRTYP]<|<famitwin -flop<|<fds -flop<|<famitwin -cart<
 
+[Nintendo - Game Boy Advance (e-Cards)]
+RJEMUPRESET=VisualBoyAdvance-M
+RJMEDNM=gba
+RJMAMENM=gba
+RJROMXT=.gba,.gb,.gbc,.agb,.bin,.elf,.mb,.zip
+MAME?RJEMUOPTS=<gba -cart<
+RJZIPPEEK=0
+
 [Nintendo - Game Boy Advance]
 RJEMUPRESET=VisualBoyAdvance-M
 RJMEDNM=gba

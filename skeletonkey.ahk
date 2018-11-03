@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-01 6:41 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-02 5:44 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-11-01 6:41 PM
-VERSION= v0.99.59.00
+RELEASE= 2018-11-02 5:44 PM
+VERSION= v0.99.59.01
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -1612,6 +1612,8 @@ Menu, ASOCRUN, Add, Associate with System+, ASRUN
 Menu, ASOCRUN, Add, Configure Emulator, ASEMUCFG
 Menu,ASOCRUN,Add, 
 
+Menu, ARCGPCFG, Add, Configure Selected Game, ARCPCFG
+
 Menu, ASOCCFG, Add, Configure Association, ASCFG
 Menu,ASOCCFG,Add, 
 
@@ -3055,7 +3057,7 @@ Progress, 53,Loading Repository Interface .......
 Gui, Tab, 7
 Gui, Tab, Repository
 Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x16 y2 w332 h284 Center, SYSTEMS
+Gui, Add, GroupBox, x16 y2 w332 h284 vARCGSYS Center, SYSTEMS
 Gui,Font,%fontXsm% Normal
 ;;Gui, Add, Picture, x38 y355 w128 h119, opt.png
 
@@ -3078,15 +3080,16 @@ Gui, Add, Edit, x88 y258 w225 h21 vUrlTxt gREPOUrlEdt Readonly, %ArcSite%
 Gui, Add, Edit, x24 y215 w159 h21 vARCLOGIN gArcLogin hidden,
 Gui, Add, Edit, x187 y215 w154 h21 Password vARCPASS gArcPass hidden,
 Gui, Add, CheckBox, x240 y238 h15 vSAVPASS gSavPass hidden, save
-Gui, Add, Text, vARCUTXT x28 y236 h14 hidden, email login
-Gui, Add, Text, vARCPTXT x191 y236 h14 hidden, password
+Gui, Add, Text, x28 y236 h14 vARCUTXT hidden, email login
+Gui, Add, Text, x191 y236 h14 vARCPTXT hidden, password
 
 Gui, Add, Edit, x25 y286 w310 h21 vSRCHEDT gSearchInp,
 
 Gui,Font,%fontXmed% Bold
-Gui, Add, Button, x32 y312 w75 h23 gSearchArc , SEARCH
+Gui, Add, Button, x32 y312 w75 h23 vSearchArc gSearchArc , SEARCH
 gui,Font,%fontXsm% Normal
 Gui, Add, DropDownList, x125 y314 w199 vSRCHDDL, All||%syslist%
+Gui, Add, Button, x326 y316 w18 h18 vExpndASrch gExpndASrch hidden,+
 Gui, Add, ListBox, x24 y344 w320 h158 +Multi +HScroll HWNDsrchpopu vSRCHRSLT gArcSrchRes hidden,
 Gui, Add, Progress, x742 y20 w10 h459 Vertical -Smooth vARCDPRGRS, 0
 Gui, Add, ListBox, x350 y19 w388 h459 +Multi +HScroll HWNDarcpopu vARCPOP gArcPopulateList,
@@ -3932,6 +3935,7 @@ NETIPRAD_TT :="Internet ip address"
 AUTOBIOS_TT :="Automatically downloads and installs BIOS files for supported emulators"
 NETNAME_TT :="Your netplay user name"
 NETPLIST_TT := "Select a playlist file to parse for the matching ROM"
+ExpndASrch_TT :="Expands and contrats the search-list"
 NETPW_TT :="Netplay Password"
 NETROMLIST_TT := "The ROM which will be used to connect with the currenly selected host"
 NETROM_TT := "Browse for a ROM file"
@@ -4113,7 +4117,7 @@ RRJEARGSCBX_TT :="Arguments. `n   be sure to include a space before the argument
 RJEOPTSCBX_TT :="Options.`n  the ''<'' character can be used as a space character and is usually used before and after the exeutable. command`neg: ''<-option<''"
 RJCHKR_TT :="Enable Searching for multi-disk ROMs."
 RJCBXJ_TT :="comma seperate strings to search for."
-CLRNETP_TT :="Clear Netplay paramaters`nTEMPORARY"
+CLRNETP_TT :="Clear paramaters`nTEMPORARY"
 RJEDTA_TT :="command line output"
 RJZJP_TT :="Searches inside the zipped ROM for supported extensions.`nNeeded for dynamic meidatype assignments"
 RJQLSTDD_TT :="System queue"
@@ -4144,7 +4148,7 @@ ROMPOP_TT :="Select ROMs to add from here"
 ROOMFILTER_TT :="Filter the Lobby using any search term"
 RSTPLYR_TT :="Resets the currently selected player controls to default"
 RUNXTRACT_TT :="skeletonkey will try to run the extracted file"
-EXTEXPLD_TT :="archive will be extracted (exploded) ignoring any subdirectories."
+EXTEXPLD_TT :="archive will be extracted (exploded) ignoring any subdirectories.`n`nThis should be used in conjunction when saving into a jacket."
 SALIST_TT :="Install standalone emulators"
 SAVECOREOPT_TT := "Saves core-options config file for skeletonkey."
 SAVEXIT_TT :="Saves retroarch settings upon exit.  Turning this on will allow skeletonKey to reload new settings after retroArch shuts down."
@@ -4894,7 +4898,11 @@ If A_GuiControlEvent RightClick
 			Menu, ASOCCFG, Show, %A_GuiX% %A_GuiY%
 			return
 		}
-
+	if A_GuiControl = ARCCORES
+		{
+			MENU, ARCGPCFG, Show,%A_GuiX% %A_GuiY%
+			return
+		}
 	if A_GuiControl = INSTEMUDDL
 		{
 			Menu, EMURCLMENU, Show, %A_GuiX% %A_GuiY%
@@ -5144,6 +5152,27 @@ Loop, Parse, SysEmuSet,`n`r
 	}
 return	
 
+ARCPCFG:
+gui,submit,nohide
+guicontrolget,ARCCORES,,ARCCORES
+if (multsrch = 1)
+	{
+		return
+	}
+if (arcpnum > 1)
+	{
+		return
+	}
+ifnotinstring,systmfldrs,%ARCSYS%
+sysmfldrs.= ARCSYS . "|"
+guicontrol,,RUNFLRAD,1
+guicontrol,,RUNSYSDDL,|%ARCSYS%||%SYSTMFLDRS%
+guicontrol,,RUNROMCBX,|%romf%||%HISTORY%
+MEDNFSYS= %ARCSYS%
+EDTRMFN= %romname%
+gosub, OPNCORE
+return
+	
 ASCFG:
 gui,submit,nohide
 guicontrolget,RUNSYSDDL,,RUNSYSDDL
@@ -8237,6 +8266,7 @@ Sleep, 1000
 RUNSYSCHNG= 1
 indexCONSOLE= 
 MEDCFGLOC= 
+ARCSYS= 
 RJMEDNM= 
 indvcp= 
 qmen= 
@@ -10680,9 +10710,9 @@ if (JACKETMODE = 1)
 	}
 save= %raexeloc%\downloads\%romsys%\%rjinsfldr%%dwnlchk%
 if (httpchk = "http")
-{
-	URLDWN= 1
-}
+	{
+		URLDWN= 1
+	}
 return
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -20539,8 +20569,53 @@ if (ArcSite = "http://archive.org/download")
 SearchInp:
 gui, submit, nohide
 guicontrol,show,SRCHRSLT
+guicontrol,enable,ARCSYS
+guicontrol,enable,MAMESWCHK
 return
 
+
+ExpndASrch:
+gui,submit,nohide
+ExpndTog= show
+if (ExpndASrch = "")
+	{
+		ExpndASrch= 1
+		ExpndTog= hide
+		guicontrol,hide,urltxt
+		guicontrol,hide,arclogin
+		guicontrol,hide,ARCPOP
+		guicontrol,hide,ALTURL
+		guicontrol,hide,OVDTXT
+		guicontrol,hide,arcpass
+		guicontrol,hide,SavPass
+		guicontrol,hide,arcutxt
+		guicontrol,hide,arcptxt
+		guicontrol,hide,ARCGSYS
+		guicontrol,move,ExpndASrch,x670 y55 w18 h18
+		guicontrol,move,SRCHRSLT,x24 y157 w710 h325
+		guicontrol,move,SRCHEDT,x350 y19 w310 h21
+		guicontrol,move,SearchArc,x662 y19 w75 h23
+		guicontrol,move,SRCHDDL,x450 y55 w200 h21
+		guicontrol,,ExpndASrch,X
+		return
+	}
+ExpndASrch= 
+guicontrol,show,UrlTxt
+guicontrol,show,ARCPOP
+guicontrol,show,ALTURL
+guicontrol,show,OVDTXT
+guicontrol,show,ARCPOP
+guicontrol,show,ARCGSYS
+guicontrol,,ExpndASrch,+
+guicontrol,enable,MAMESWCHK
+guicontrol,enable,ARCSYS
+guicontrol,move,ExpndASrch,x326 y316 w18 h18
+guicontrol,move,SearchArc,x32 y312 w75 h23
+guicontrol,move,SRCHRSLT,x24 y344 w320 h158
+guicontrol,move,SRCHEDT,x25 y286 w310 h21
+guicontrol,move,SearchArc,x32 y312 w75 h23
+guicontrol,move,SRCHDDL,x125 y314 w199
+return
 
 SearchArc:
 srchpop= 
@@ -20578,11 +20653,15 @@ Loop, files, %SRCHMET%\%SRCHSYS%.gam
 					}
 			}
 	}
+guicontrol,disable,MAMESWCHK
+guicontrol,disable,ARCSYS
 guicontrol,,SRCHRSLT, |%srchpop%
+guicontrol,show,ExpndASrch
 return
 
 ArcPopulateList:
 tmprm= 
+tmpsr= 
 gui,submit,nohide
 guicontrolget,tmprm,,ARCPOP
 PostMessage, 0x186, -1, 0,,ahk_id %srchpopu%
@@ -20598,6 +20677,8 @@ Loop, parse, tmprm,|
 			}
 		arcpopcul= %A_LoopField%
 	}
+guicontrol,enable,MAMESWCHK
+guicontrol,enable,ARCSYS
 if (DownOnly = 0)
 	{
 		PostMessage, 0x185, 1, -1, ARCPOP  ; Select all items. 0x185 is LB_SETSEL.
@@ -20671,7 +20752,10 @@ return
 ArcSrchRes:
 gui, submit, nohide
 tmpsr= 
+ROMSYS= 
 guicontrolget,tmpsr,,SRCHRSLT
+guicontrol,disable,ARCSYS
+guicontrol,disable,MAMESWCHK
 PostMessage, 0x186, -1, 0,,ahk_id %arcpopu%
 PostMessage, 0x185, 0, -1, ARCPOP  ; Select all items. 0x185 is LB_SETSEL.
 GuiControl, Choose, ARCPOP, 0 
@@ -20687,6 +20771,7 @@ Loop, Parse, tmpsr,|
 			}
 		srchpopcul= %A_LoopField%	
 	}
+
 if (DownOnly = 0)
 	{
 		ARCSEL= 2
@@ -20704,9 +20789,11 @@ rompth=
 romtitle= 
 guicontrolget,SRCHRSLT,,SRCHRSLT
 ROMTRUN= %SRCHRSLT%
+srchspl1= 
+srchspl2= 
 StringSplit,srchspl,SRCHRSLT,=
-
 ARCSYS= %srchspl1%
+romsys= %ARCSYS%
 guicontrol,,ARCSYS,|%ARCSYS%||Select a System|%syslist%
 if (MAMESWCHK = 1)
 	{
@@ -20738,25 +20825,36 @@ Loop, Read, gam\%ARCSYS%.gam
 				stringreplace,dwnchk,dwnchk,`%26,&,All
 				stringreplace,romname,romname,`%26,&,All
 				if (cmdfun = 1)
-						{
-							emucmd= %getpth3%
-						}
+					{
+						emucmd= %getpth3%
+					}
 			}
 	}
-loop, Parse, ArcOrgSet
+loop, Parse, ArcOrgSet,`n`r
 	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		ARCSUBS= %ARCSYS%
+		if (MAMESWCHK = 1)
+			{
+				if (ARCSYS <> "_firmware_")
+					{
+						ARCSUBS= MAME - Systems
+					}
+			}
 		gamurl1= 
 		gamurl2= 
 		gamurl3= 
 		stringsplit,gamurl,A_LoopField,=
 			{
-				if (gamurl1 = ARCSYS)
+				if (gamurl1 = ARCSUBS)
 					{
 						sysurl= %gamurl2%
 					}
 			}
 	}
-
 if (ROMFLDR = "")
 	{
 		if (DOWNONLY = 0)
@@ -20765,7 +20863,6 @@ if (ROMFLDR = "")
 			}
 		;;guicontrol,hide,SETOVD
 	}
-
 rjinsfldr= 
 rjdwnfldr= 
 if (romsys = "")
@@ -20799,7 +20896,7 @@ if (JACKETMODE = 1)
 
 	}
 
-save= %RJSYSTEMS%\%ARCSYS%\%rjinsfldr%%dwnchk%
+save= %RJSYSTEMS%\%romsys%\%rjinsfldr%%dwnchk%
 
 if (OVDCHK = 1)
 	{
@@ -20822,6 +20919,11 @@ if (OVDCHK = 1)
 
 romf:= save
 URLFILE= %ArcSite%/%sysurl%%rompth%
+ifinstring,rompth,://
+	{
+		URLFILE= %rompth%
+	}
+
 gosub, GetCoreFromSys
 if (SRCHRSLT <> "")
 	{
@@ -20852,7 +20954,8 @@ CLRNETP:
 ARCRCLK=
 gui,submit,nohide
 guicontrol,,ARCDET,
-
+guicontrol,enable,ARCSYS
+guicontrol,enable,MAMESWCHK
 MAMESWCHK:
 guicontrolget,MAMESWCHK,,MAMESWCHK
 if (MAMESWCHK = 1)
@@ -20871,6 +20974,7 @@ guicontrol,disable,ARCLNCH
 guicontrol,disable,ARCNCT
 guicontrol, disable, ARCHOST
 
+ARCSEL= 
 romarray1= 
 romarray2= 
 pop_list= 
@@ -20949,7 +21053,6 @@ if (GLBLRUN = "")
 		gosub, MatchEmu
 	}
 
-	
 if (NPLC = "")
 	{
 		if (GLBLRUN = "1")
@@ -20961,7 +21064,6 @@ if (ARCSEL = 2)
 	{
 		return
 	}
-	
 guicontrol,,ARCPOP,|%pop_list%
 if (ARCSYS = "MAME - Arcade")
 	{
@@ -21197,6 +21299,11 @@ if (ARCSEL = 2)
 	{
 		goto, RunArcRom
 	}
+if (tmpsr <> "")
+	{
+		tmpsr= 
+		goto, RomDownload
+	}
 romf= 
 guicontrol,disable,ARCSYS
 guicontrol,disable,ARCPOP
@@ -21304,6 +21411,10 @@ lwall=
 sysurl= 
 loop, Parse, ArcOrgSet,`n`r
 	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
 		ARCSUBS= %ARCSYS%
 		if (MAMESWCHK = 1)
 			{
@@ -21317,7 +21428,6 @@ loop, Parse, ArcOrgSet,`n`r
 		gamurl3= 
 		stringsplit,gamurl,A_LoopField,=
 			{
-
 				if (gamurl1 = ARCSUBS)
 					{
 						sysurl= %gamurl2%
@@ -21485,6 +21595,7 @@ if (dxt2 <> "dll")
 	}
 
 RomDownload:
+DWNFLD= 	
 ifnotexist, %save%
 	{
 		if (gamurl3 = "$")
@@ -21505,22 +21616,32 @@ ifnotexist, %save%
 					}
 			}
 		DownloadFile(URLFILE,save, True, True)
+		filereadline,doct,%save%,1
+		if (doct = "<!DOCTYPE html>")
+			{
+				DWNFLD= 1 
+			}
 		FileGetSize,dwnfszt,%save%
 		if (dwnfszt < 15)
 			{
-				MsgBox,4421,Download Failed,"%romdwn% could not be retrieved`n%save%",5
+				DWNFLD= 1 
+			}
+		if (DWNFLD = 1)
+			{
+				MsgBox,4421,Download Failed,"%romdwn% could not be retrieved`n%URLFILE%`nto`n%save%",8
 				ifmsgbox,Retry
 					{
 						Filedelete, %save%
 						goto, RomDownload
 					}
+				DWNFLD= 
 				FileDelete, %save%
 				guicontrol,enable,ARCSYS
 				guicontrol,enable,ARCPOP
 				guicontrol,enable,ARCLNCH
 				guicontrol,enable,ARCHOST
-				guicontrol, hide, ARCNCT
-				guicontrol, show, ARCHOST				
+				guicontrol,hide,ARCNCT
+				guicontrol,show,ARCHOST				
 				guicontrol,enable,ARCCORES
 				return
 			}
@@ -21575,18 +21696,18 @@ Guicontrol, ,ARCDPRGRS, 0
 SB_SetText(" ")
 if (cmdfun = 1)
 	{
-	if (coreselv = "dosbox_libretro.dll")
-		{
-			SplitPath,emucmd,exen,dospth
-			FileCopy,dosbox.set,%rompth%\%romname%\dosbox.conf,1
-			FileAppend,Mount C: "%rompth%\%romname%"`nC:`ncd %dospth%`n%exen%,%rompth%\%romname%\dosbox.conf
-			romf= %rompth%\%romname%\dosbox.conf
-		}
-	if (coreselv = "scummvm_libretro.dll")
-		{
-			FileAppend,%emucmd%,%rompth%\%romname%\%romname%.scummvm
-			romf= %rompth%\%romname%\%romname%.scummvm
-		}
+		if (coreselv = "dosbox_libretro.dll")
+			{
+				SplitPath,emucmd,exen,dospth
+				FileCopy,dosbox.set,%rompth%\%romname%\dosbox.conf,1
+				FileAppend,Mount C: "%rompth%\%romname%"`nC:`ncd %dospth%`n%exen%,%rompth%\%romname%\dosbox.conf
+				romf= %rompth%\%romname%\dosbox.conf
+			}
+		if (coreselv = "scummvm_libretro.dll")
+			{
+				FileAppend,%emucmd%,%rompth%\%romname%\%romname%.scummvm
+				romf= %rompth%\%romname%\%romname%.scummvm
+			}
 	}
 	
 if (HOSTING = 1)
@@ -21757,8 +21878,44 @@ if (coreslc2 = "dll")
 			}
 			return
 	}
-
-	
+iniread,lookf,emucfgPresets,%romsys%,RJROMXT
+if (lookf = "ERROR")
+	{
+		return
+	}
+extrpth= %RJSYSTEMS%\%romsys%\%romname%
+if (OVDCHK = 1)
+	{
+		extrpth= %OVDFLDR%\%romname%
+		if (JACKETMODE = 1)
+			{
+				if (EXTEXPLD = 1)
+					{
+						extrpth= %OVDFLDR%
+					}
+			}
+	}	
+Loop, Parse, lookf,`,
+	{
+		matchdxt= %A_LoopField%
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		Loop, files,%extrpth%\*.*,R
+			{
+				ext= .%A_LoopFileExt%
+				if (ext = matchdxt)
+					{
+						romshere= X
+						romf= %A_LoopFileFullPath%
+						EXT7Z=
+						EXTRAR= 
+						break
+					}
+			}
+	}	
+return	
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 7zChk:
 ifnotexist, %save%
@@ -21780,6 +21937,13 @@ extrpth= %RJSYSTEMS%\%romsys%\%romname%
 if (OVDCHK = 1)
 	{
 		extrpth= %OVDFLDR%\%romname%
+		if (JACKETMODE = 1)
+			{
+				if (EXTEXPLD = 1)
+					{
+						extrpth= %OVDFLDR%
+					}
+			}
 	}
 ifexist, %extrpth%
 	{
@@ -21800,6 +21964,13 @@ extrpth= %RJSYSTEMS%\%romsys%\%romname%
 if (OVDCHK = 1)
 	{
 		extrpth= %OVDFLDR%\%romname%
+		if (JACKETMODE = 1)
+			{
+				if (EXTEXPLD = 1)
+					{
+						extrpth= %OVDFLDR%
+					}
+			}
 	}
 ifnotexist, %save%
 	{
@@ -22044,6 +22215,7 @@ ifExist, rj\scrapeArt\%SYSLKUP%\
 			{
 				SB_SetText("Some items could not be retrieved.")
 			}
+			DWNFLD= 
 			getboxart= 
 			getbackdrop= 
 			getsnapshot= 
@@ -23236,7 +23408,8 @@ if (subemuname <> "")
 													}
 											}
 								}
-						*/		
+						*/
+						
 						guicontrol,enable,OPNCORE		
 						return
 					}
@@ -55302,7 +55475,6 @@ Loop, Parse, orj,#
 						if (meditbd = kprm)
 							{
 								reinj.= mjvcdp
-								msgbox,,,%reinj%
 								break
 							}	
 					}
@@ -59606,6 +59778,7 @@ if (RUNCOREOVERRIDE <> "")
 		coreselv:= RUNCOREOVERRIDE
 	}	
 guicontrolget,ROMSTMP,,RUNSYSDDL
+
 ifinstring,ROMSTMP,:=:
 	{
 		ROMSYS= 
@@ -59613,27 +59786,41 @@ ifinstring,ROMSTMP,:=:
 		mtyp= 
 	}
 
-iniread,lpovrd,Assignments.ini,OVERRIDES,
 lknwnc=
-	Loop,Parse,lpovrd,`n
-		{
-			StringSplit,corsyt, A_LoopField,=,"
-			;"
-			stringsplit,aij,corsyt2,|
-			corsyt2= %aij1%
-			if (corsyt2 = coreselv)
-				{
-					lknwnc= %corsyt2%
-					iniread,OvrExtAs,Assignments.ini,ASSIGNMENTS,%corsyt2%
-					ifinstring,romf,%corsyt1%
-						{
-							emucfgn= %corsyt2%
-							mtyp= %corsyt1%
-							ROMSYS= %corsyt1%
-						}
-				}
-		}
+mtyp= %coreselv%
+iniread,OvrExtAs,Assignments.ini,ASSIGNMENTS,%coreselv%
+emucfgn=
+if (ROMSYS = "")
+	{
+		if (ARCSYS <> "")
+			{
+				ROMSYS= %ARCSYS%
+			}
+	}
 
+if (ROMSYS = "")
+	{
+		iniread,lpovrd,Assignments.ini,OVERRIDES,
+		Loop,Parse,lpovrd,`n
+			{
+				StringSplit,corsyt,A_LoopField,=,"
+				;"
+				stringsplit,aij,corsyt2,|
+				corsyt2= %aij1%
+				if (corsyt2 = coreselv)
+					{
+						lknwnc= %corsyt2%
+						iniread,OvrExtAs,Assignments.ini,ASSIGNMENTS,%corsyt2%
+						ifinstring,romf,%corsyt1%
+							{
+								emucfgn= %corsyt2%
+								mtyp= %corsyt1%
+								ROMSYS= %corsyt1%
+							}
+					}
+			}
+	}
+MEDNFSYS= %ROMSYS%
 if (ROMSYS = "")
 	{
 		emucfgn= %lknwnc%
@@ -59871,14 +60058,17 @@ if (EPGC = 1)
 		cfgc= 
 		cfgd= 
 		
-		IfNotExist,cfg\%ROMSYS%\%romname%
+		IfNotExist,cfg\%ROMSYS%\%emucfgn%\%romname%
 			{
 				FileCreateDir,cfg\%ROMSYS%\%emucfgn%\%romname%
+				EDTRMFN= %romname%
+				gosub, OPNCORE
 			}
 			
 		splitpath,OvrExtAs,,ptsp
 		splitpath,ptsp,emudx
 		emupts= 
+		
 		Loop, Parse, EmuPartSet,`n`r
 			{
 				if (A_LoopField = "")
