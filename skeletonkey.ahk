@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-02 5:44 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-03 4:52 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-11-02 5:44 PM
-VERSION= v0.99.59.01
+RELEASE= 2018-11-03 4:52 PM
+VERSION= v0.99.60.02
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -5163,13 +5163,18 @@ if (arcpnum > 1)
 	{
 		return
 	}
+if (tmprm = "")
+	{
+		return
+	}
 ifnotinstring,systmfldrs,%ARCSYS%
 sysmfldrs.= ARCSYS . "|"
 guicontrol,,RUNFLRAD,1
 guicontrol,,RUNSYSDDL,|%ARCSYS%||%SYSTMFLDRS%
-guicontrol,,RUNROMCBX,|%romf%||%HISTORY%
+guicontrol,,RUNROMCBX,|%afnchk%||%HISTORY%
 MEDNFSYS= %ARCSYS%
-EDTRMFN= %romname%
+EDTRMFN= %romfname%
+aemcfg= 1
 gosub, OPNCORE
 return
 	
@@ -20686,6 +20691,19 @@ if (DownOnly = 0)
 		GuiControl, Choose, ARCPOP, 0 
 		guicontrol, show, ARCNCT	
 		GuiControl, ChooseString, ARCPOP, %arcpopcul%
+		Loop, Read, gam\%ARCSYS%.gam
+			{
+				stringsplit,aftpth,A_LoopReadLine,|
+				if (aftpth2 = arcpopcul)
+					{
+						aftpth= %aftpth1%
+						stringreplace,aftmp,aftpth,/,\,All
+						splitpath,aftmp,afnchk
+						stringreplace,afnchk,afnchk,`%26,&,All
+						splitpath,afnchk,,,,romfname
+						break
+					}
+			}
 	}
 ARCRCLK= 1
 bltoh= 
@@ -20828,6 +20846,9 @@ Loop, Read, gam\%ARCSYS%.gam
 					{
 						emucmd= %getpth3%
 					}
+				afnchk= %dwnchk%	
+				romfname= %romname%	
+				break	
 			}
 	}
 loop, Parse, ArcOrgSet,`n`r
@@ -20852,6 +20873,7 @@ loop, Parse, ArcOrgSet,`n`r
 				if (gamurl1 = ARCSUBS)
 					{
 						sysurl= %gamurl2%
+						break
 					}
 			}
 	}
@@ -23337,7 +23359,7 @@ EMUL=
 EMUXTYP= 
 EMUSN= 
 EMUDRV= 
-
+emjDDLB= 
 cfginif= apps.ini
 cfginik= EMULATORS
 cfgemc= %RJEMUPRECFG%
@@ -26040,11 +26062,6 @@ if (medjgrab = "")
 
 EMUCFGOVRTGL= 0
 MEDCFGLOC= cfg\%MEDNFSYS%\%nicktst%\%EDTRMFN%\%medcfg%
-ifnotexist, %MEDCFGLOC%
-	{
-		gosub, EMUCFGCOPY
-	}
-
 
 if (ASVRM = "")
 	{
@@ -26058,15 +26075,18 @@ if (ASVRM = "")
 				MEDCFGLOC= rj\sysCfgs\%RJSYSDD%\%medcfg%
 			}
 	}
-
-gosub, %EMUSN%POP
+ifnotexist, %MEDCFGLOC%
+	{
+		gosub, EMUCFGCOPY
+	}
 guicontrolget,EMUDDLJ,,EMUDDLJ
-return
+goto, MednafenRESETPOP
+
 
 MednafenPOP:
 ifexist, %MEDCFGLOC%
 	{
-		;Filedelete,%MEDCFGLOC%
+		goto, LOADMEDNAFENOPTS
 	}
 
 	
@@ -44071,6 +44091,7 @@ RJEMUTG= %LCORE%
 gosub, TOGRAOPTS
 gosub, EMUUNPOP
 gosub, EMUNAMEPOP
+
 if (ASVRM = 1)
 	{
 		guicontrol,show,RUNSYSDDL
@@ -56513,7 +56534,6 @@ Loop, Parse, medjimp,`n`r
 				stringreplace,afe,A_LoopField,%A_Space%,#
 				stringsplit,fae,afe,#
 				mcbsi= %fae2%
-				;msgbox,,,aif1="%aif1%"`nmedcmd%fae2%="%mcbsi%"
 				ifinstring,mcbsi,alt
 					{
 						guicontrol,,emjCHKZ,1
@@ -59205,6 +59225,7 @@ return
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;  ROM SELECT  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EDTROM:
 RUNSYSCHNG+=1
+aemcfg= 
 curjport= 
 romindnum= 
 stilltyp:
@@ -59798,6 +59819,8 @@ if (ROMSYS = "")
 			}
 	}
 
+MEDNFSYS= %ROMSYS%
+emucfgn= %MEDNFSYS%
 if (ROMSYS = "")
 	{
 		iniread,lpovrd,Assignments.ini,OVERRIDES,
@@ -59820,7 +59843,6 @@ if (ROMSYS = "")
 					}
 			}
 	}
-MEDNFSYS= %ROMSYS%
 if (ROMSYS = "")
 	{
 		emucfgn= %lknwnc%
@@ -60461,6 +60483,12 @@ return
 LNCH:
 gui,submit,nohide
 guicontrolget,lcore,,LCORE
+if (aemcfg = 1)
+	{
+		aemcfg= 
+		guicontrol,choose,TABMENU,7
+		goto, ArcLaunch
+	}
 if (OVRLKUPNM <> "OBSERVED_VOID")
 	{
 		lcore= %fiin%
