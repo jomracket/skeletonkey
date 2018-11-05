@@ -87,7 +87,7 @@ SimCoupe=SimCoupe/SimCoupe.7z=SimCoupe.exe=SimCoupe.cfg
 Stella=Stella/Stella-[ARCH].7z=Stella.exe=stella.ini=|=*.st0
 Supermodel=Supermodel/Supermodel-[ARCH].7z=Supermodel.exe=Config\Supermodel.ini=|=Saves\*.*=NVRAM
 Unz=Unz/Unz.7z=Unz.exe=Unz.ini=|=*.unz
-SWFOpener=SWFOpener/SWFOpener.7z=SWFOpener.exe=
+SWFOpener=swfopener/SWFOpener.7z=SWFOpener.exe=
 VirtuaNes=VirtuaNes/VirtuaNes.7z=VirtuaNes.exe=virtualnes.ini
 VisualBoyAdvance=VisualBoyAdvance/VisualBoyAdvance.7z=VisualBoyAdvance.exe=visualboyadvance.cfg|*.ini=*.sav=*.sgm
 VisualBoyAdvance-M=VisualBoyAdvance-M/VisualBoyAdvance-Mx[ARCH].7z=VisualBoyAdvance-M.exe=v*.ini=*.sav=*.sgm
@@ -175,6 +175,7 @@ emu64=emu64/emu64[ARCH].7z=emu64.exe=
 dreamvmu=dreamvmu/dreamvmu.7z=DreamVMU.exe=
 emukon=emukon/emukon.7z=Emukon.exe=esms.cfg=
 euphoric=euphoric/euphoric.7z=euphoric.exe=
+einweggerat=einweggerat/einweggerat[ARCH].7z=einweggerat.exe=
 fceux=fceux/fceux.7z=fceux.exe=
 firegb=firegb/firegb.7z=FireGB.exe=
 fm77=fm77/fm77.7z=fm77.exe=fm77.ini=

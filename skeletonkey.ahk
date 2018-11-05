@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-03 4:52 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-04 9:30 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-11-03 4:52 PM
-VERSION= v0.99.60.02
+RELEASE= 2018-11-04 9:30 PM
+VERSION= v0.99.60.03
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -1419,6 +1419,7 @@ if (INITIAL = 1)
 	Loop, Parse, SysLLst,`n`r
 		{
 			stringsplit,syscfgfld,A_LoopField,=
+			allsupsys.= syscfgfld1 . "`n"
 			FileCreateDir, rj\sysCfgs\%syscfgfld1%
 		}
 }	
@@ -4684,7 +4685,11 @@ ifmsgbox, no
 return
 ifmsgbox,Cancel
 {
-	DWNCNCL= 
+	GuiControl, Enable, AVAIL
+	GuiControl, Enable, UPDBTN
+	GuiControl, Enable, EXELIST
+	GuiControl, Disable, CNCLBTN
+	;DWNCNCL= 
 	return
 }
 return
@@ -14261,7 +14266,6 @@ guicontrol, disable, UPDSELCT
 guicontrol, disable, UPDCL
 guicontrol, disable, GCUPDT
 guicontrol, enable, CNCLDWN
-
 corexist=
 redistr= redist.7z
 RAUPDF= RetroArch.7z
@@ -14278,6 +14282,7 @@ ifinstring,SLCTCORES,stable|
 				SLCTCORES.= RAUPDF
 			}
 	}
+updprts= 	
 Loop, Parse, SLCTCORES,|
 	{
 		URLFILE= %BLDBOT%/latest/%A_LoopField%
@@ -14298,68 +14303,75 @@ Loop, Parse, SLCTCORES,|
 			{
 				if (A_LoopField = RAUPDF)
 					{
-						goto, UpdtArch
+						gosub, UpdtArch
 					}
-				try, goto, R%crdub%
+				try, gosub, R%crdub%
 				catch {
 				}
+				if (DWNCNCL = 1)
+					{
+						break
+					}
 			}
-		bwSpeed= 
-		ifnotexist, coreavail.ini
+		if (RALIST = 1)
 			{
-				gosub, CoreupdtChk
-			}
-		ifexist, coreavail.ini
-			{
-				bwSpeed= 1
-			}
-		if (bwSpeed = 1)
-			{
-				if (locfnd <> 1)
-					{						
-						Loop, Read, coreavail.ini
-							{
-								if (A_LoopReadLine = coredll | ".zip")
+				bwSpeed= 
+				ifnotexist, coreavail.ini
+					{
+						gosub, CoreupdtChk
+					}
+				ifexist, coreavail.ini
+					{
+						bwSpeed= 1
+					}
+				if (bwSpeed = 1)
+					{
+						if (locfnd <> 1)
+							{						
+								Loop, Read, coreavail.ini
 									{
-										corexist= 1
-										gosub, crcChk
+										if (A_LoopReadLine = coredll | ".zip")
+											{
+												corexist= 1
+												gosub, crcChk
+												break
+											}
+									}
+								if (corexist= "")
+									{
+										break
+									}
+								if (nocoredwn = 1)
+									{
 										break
 									}
 							}
-							if (corexist= "")
-								{
-									break
-								}
-							if (nocoredwn = 1)
-								{
-									break
-								}
 					}
-				}
-		ifnotexist,%libretrodirectory%\%dwncore%
-			{
-				SB_SetText(" core archive not found ")
+				ifnotexist,%libretrodirectory%\%dwncore%
+					{
+						SB_SetText(" core archive not found ")
+					}
+				gosub, downloadingcores
+				ifnotexist, %save%
+					{
+						msgbox,0,, %dwncore%`n%URLFILE%`n was not downloaded,3
+						GuiControl, Enable, UPDBTN
+						GuiControl, Enable, EXELIST
+						GuiControl, Enable, AVAIL
+						GuiControl, Disable, CNCLDWN
+						continue
+					}
+				gosub, XTRACTCORE
 			}
-		gosub, downloadingcores
-		ifnotexist, %save%
-			{
-				msgbox,0,, %dwncore%`n%URLFILE%`n was not downloaded,3
-				GuiControl, Enable, UPDBTN
-				GuiControl, Enable, EXELIST
-				GuiControl, Enable, AVAIL
-				GuiControl, Disable, CNCLDWN
-				continue
-			}
-			gosub, XTRACTCORE
-			GuiControl, Enable, EXELIST
-			GuiControl, Enable, UPDBTN
-			GuiControl, Enable, AVAIL
-			GuiControl, Disable, CNCLDWN
-			guicontrol, enable, UPDSELCT
-			guicontrol, enable, UPDCL
-			guicontrol, enable, GCUPDT
 	}
-	gosub, GetCoreList
+GuiControl, Enable, EXELIST
+GuiControl, Enable, UPDBTN
+GuiControl, Enable, AVAIL
+GuiControl, Disable, CNCLDWN
+guicontrol, enable, UPDSELCT
+guicontrol, enable, UPDCL
+guicontrol, enable, GCUPDT
+gosub, GetCoreList
 return
 
 
@@ -14436,7 +14448,7 @@ if (ntna2 = RASTABLE)
 	{
 		NETNAME:= ntna1
 	}
- if (ntna2 = "nightly")
+ if (ntna2 = "RetroArch_Update")
 	{
 		NETNAME:= ntna1
 	}
@@ -14454,6 +14466,7 @@ return
 
 ;{;;;;;;;;;;;;;;;;   PARTS DOWNLOAD  ;;;;;;;;;;;;;;
 STABLE:
+SB_SetText("Downloading Stable")
 updtmsg= RetroArch.7z
 XTRACTLOC= %raexeloc%
 URLFILE= %buildBotCore%/stable/%RASTABLE%/windows/x86%ARCHR%/%updtmsg%
@@ -14466,7 +14479,7 @@ if (ntna2 = RASTABLE)
 	{
 		NETNAME:= ntna1
 	}
- if (ntna2 = "nightly")
+ if (ntna2 = "RetroArch_Update")
 	{
 		NETNAME:= ntna1
 	}
@@ -14475,6 +14488,7 @@ return
 
 
 RBundle:
+SB_SetText("Downloading Bundle")
 updtmsg= bundle.zip
 XTRACTLOC= %raexeloc%
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
@@ -14482,6 +14496,8 @@ gosub GettingRA
 return
 
 RRedist:
+
+SB_SetText("Downloading Redistributable")
 updtmsg= redist.7z
 XTRACTLOC= %raexeloc%
 URLFILE= %BLDBOT%/%updtmsg%
@@ -14489,6 +14505,8 @@ gosub GettingRA
 return
 
 RAssets:
+
+SB_SetText("Downloading Assets")
 updtmsg= assets.zip
 XTRACTLOC= %raexeloc%\assets
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
@@ -14497,6 +14515,7 @@ return
 
 
 Rinfo:
+SB_SetText("Downloading Info")
 updtmsg= info.zip
 XTRACTLOC= %raexeloc%\info
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
@@ -14504,6 +14523,7 @@ gosub GettingRA
 return
 
 Rdatabaserdb:
+SB_SetText("Downloading Databases")
 Rdatabasecursors:
 updtmsg= %crdll1%.zip
 XTRACTLOC= %raexeloc%\database\%crdll1%
@@ -14512,6 +14532,7 @@ gosub GettingRA
 return
 
 RCheats:
+SB_SetText("Downloading Cheats")
 updtmsg= cheats.zip
 XTRACTLOC= %raexeloc%\cheats
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
@@ -14519,6 +14540,7 @@ gosub GettingRA
 return
 
 ROverlays:
+SB_SetText("Downloading Overlays")
 updtmsg= overlays.zip
 XTRACTLOC= %raexeloc%\overlays
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
@@ -14526,6 +14548,7 @@ gosub GettingRA
 return
 
 RShadersslang:
+SB_SetText("Downloading Shaders")
 RShaderscg:
 RShadersglsl:
 shdtg1= 
@@ -14538,6 +14561,7 @@ gosub GettingRA
 return
 
 RAutoconfig:
+SB_SetText("Downloading Autoconfigs")
 updtmsg= autoconfig.zip
 XTRACTLOC= %raexeloc%\autoconfig
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
@@ -14546,6 +14570,7 @@ return
 
 
 RStable:
+SB_SetText("Downloading Stable")
 updtmsg= _RetroArch.7z
 XTRACTLOC= %raexeloc%
 URLFILE= %buildBotCore%/stable/%RASTABLE%/windows/x86%ARCHR%/%updtmsg%
@@ -14558,7 +14583,7 @@ if (ntna2 = RASTABLE)
 	{
 		NETNAME:= ntna1
 	}
- if (ntna2 = "nightly")
+ if (ntna2 = "RetroArch_Update")
 	{
 		NETNAME:= ntna1
 	}
@@ -14573,6 +14598,7 @@ if (DWNCNCL= 1)
 		return
 	}
 save= %cacheloc%\%updtmsg%
+SB_SetText("Downloading retroArch")
 saveloc= %cacheloc%
 DownloadFile(URLFILE, save, DWNOV, True)
 ifnotexist, %cacheloc%\%updtmsg%
@@ -14586,13 +14612,9 @@ ifnotexist, %cacheloc%\%updtmsg%
 	}
 ;;UPDATERAEXE= %updtmsg%
 	
-	Guicontrol, ,DWNPRGRS, 0
+Guicontrol, ,DWNPRGRS, 0
 SB_SetText(" ")
 gosub, XTRACTRA
-GuiControl, Enable, AVAIL
-GuiControl, Enable, UPDBTN
-GuiControl, Enable, EXELIST
-GuiControl, Disable, CNCLDWN
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -14893,14 +14915,10 @@ guicontrol,hide,LRUN
 guicontrol,hide,SELAPP
 guicontrol,hide,OPTTXT
 guicontrol,hide,ARGTXT
-
 guicontrol,show,EXTINP
-
 guicontrol,enable,ARDCORE
 guicontrol,enable,DAPP
-
 guicontrol,,DCORE,clear
-
 guicontrol,,DCORE,0
 guicontrol,,DAPP,0
 guicontrol,,ARDCORE,1
@@ -22175,7 +22193,15 @@ if (SYSLKUP = "Sega - NAOMI")
 	{
 		SYSLKUP= MAME - Arcade
 	}
+if (SYSLKUP = "Sega - Hikaru")
+	{
+		SYSLKUP= MAME - Arcade
+	}
 if (SYSLKUP = "Sega - Model 2")
+	{
+		SYSLKUP= MAME - Arcade
+	}
+if (SYSLKUP = "Galeco - Galeco")
 	{
 		SYSLKUP= MAME - Arcade
 	}
@@ -22183,7 +22209,7 @@ if (SYSLKUP = "Sega - Model 3")
 	{
 		SYSLKUP= MAME - Arcade
 	}
-if (SYSLKUP = "Cave")
+if (SYSLKUP = "Cave Systems - Cave")
 	{
 		SYSLKUP= MAME - Arcade
 	}
@@ -30064,6 +30090,16 @@ if (SYSLKUP = "SNK - Neo Geo MVS")
 		SYSLKUP= MAME - Arcade
 		mameget= 1
 	}
+if (SYSLKUP = "Sega - Hikaru")
+	{
+		SYSLKUP= MAME - Arcade
+		mameget= 1
+	}
+if (SYSLKUP = "Galeco - Galeco")
+	{
+		SYSLKUP= MAME - Arcade
+		mameget= 1
+	}
 if (SYSLKUP = "Sega - NAOMI")
 	{
 		SYSLKUP= MAME - Arcade
@@ -30079,7 +30115,7 @@ if (SYSLKUP = "Sega - Model 3")
 		SYSLKUP= MAME - Arcade
 		mameget= 1
 	}
-if (SYSLKUP = "Cave")
+if (SYSLKUP = "Cave Systems - Cave")
 	{
 		SYSLKUP= MAME - Arcade
 		mameget= 1
@@ -59802,9 +59838,23 @@ guicontrolget,ROMSTMP,,RUNSYSDDL
 
 ifinstring,ROMSTMP,:=:
 	{
+		stringsplit,EDTROMV,EDTROM,\
+		Loop, %romstmv0%
+			{
+				ifinstring,EDTROMV%A_index%,%A_space%-%A_Space%
+					{
+						rmsym= % EDTROMV%A_index%
+						Loop, Parse, allsupsys,`n
+							{
+								if (A_LoopField = rmsym)
+									{
+										ROMSYS= %A_LoopField%
+										break
+									}
+							}
+					}
+			}
 		ROMSYS= 
-		emucfgn= 
-		mtyp= 
 	}
 
 lknwnc=
@@ -59820,7 +59870,8 @@ if (ROMSYS = "")
 	}
 
 MEDNFSYS= %ROMSYS%
-emucfgn= %MEDNFSYS%
+emucfgn= %coreselv%
+
 if (ROMSYS = "")
 	{
 		iniread,lpovrd,Assignments.ini,OVERRIDES,
@@ -59836,7 +59887,7 @@ if (ROMSYS = "")
 						iniread,OvrExtAs,Assignments.ini,ASSIGNMENTS,%corsyt2%
 						ifinstring,romf,%corsyt1%
 							{
-								emucfgn= %corsyt2%
+								emucfgn= %coreselv%
 								mtyp= %corsyt1%
 								ROMSYS= %corsyt1%
 							}
@@ -59852,7 +59903,7 @@ if (ROMSYS = "")
 			{
 				if (lknwnc = "")
 					{
-						emucfgn= %MEDNFSYS%
+						emucfgn= %coreselv%
 						mtyp= %MEDNFSYS%
 					}
 				ROMSYS= %MEDNFSYS%
@@ -60220,6 +60271,7 @@ gosub, SKLPOST
 POSTEMULAUNCH:
 if (EPGC = 1)
 	{
+		SB_SetText("reloading settings")
 		if (cfga <> "")
 			{
 				Loop, Parse, cfga,|
@@ -60256,6 +60308,8 @@ if (EPGC = 1)
 			{
 				FileCopy,%ptsp%\*.ini,cfg\%ROMSYS%\%emucfgn%\%romname%\%pgptf%,1
 			}
+		gosub, opncore	
+		SB_SetText("settings reloaded")
 	}
 guicontrol, Enable, LNCHBUT
 guicontrol, Enable, RCLLNCH

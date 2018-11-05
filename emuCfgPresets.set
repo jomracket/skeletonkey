@@ -162,6 +162,13 @@ RJPRECFG=copy /y "qt-config.ini" "%EMUL%\user\config"
 RJPOSTCFG=copy /y "%EMUL%\user\config\qt-config.ini" "%GAMDIR%"
 RJLNCHP=0
 
+[einweggerat]
+RJPRECFG=copy /y "config.ini" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\config.ini" "%GAMDIR%"
+RJEMUOPTS=<-r<
+RJEMUARGS=<-c "[core]"<
+RJLNCHP=0
+
 [ElecEm]
 RJPRECFG=copy /Y "electrem.cfg" "%APPDATA%"
 RJPOSTCFG=copy /y "%APPDATA%\electrem.cfg" "%GAMDIR%"

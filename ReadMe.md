@@ -1,6 +1,6 @@
-skeletonKey v0.99.60.02
+skeletonKey v0.99.60.03
 
- 2018-11-03 4:52 PM
+ 2018-11-04 9:30 PM
  
 by romjacket 
 
@@ -32,9 +32,9 @@ SK-Deploy.ahk
 
 # Deployment.
 
-SKey-Deploy.ahk:  
+SKey-Deploy.exe:  
 
-To deploy your own installer, binary and website (including this tool) you will need:
+To deploy your own installer, binary and github website (including this tool) will need:
 
 		NSIS: Nullsoft Scriptable Install System
 				https://sourceforge.net/projects/nsis/
@@ -53,6 +53,9 @@ To deploy your own installer, binary and website (including this tool) you will 
 				
 (to deploy and maintain the binaries you release)
 
+These programs can be automatically downloaded using the skey-deploy executable.
+
+###########################################
 License information:
 This software is for personal, non-commercial use only.
 You can't deploy or distribute this tool in any manner which facilitates financial profit.  

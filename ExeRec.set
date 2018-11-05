@@ -948,6 +948,7 @@ FileInstall,gam\Acorn - BBC.gam,gam\Acorn - BBC.gam,1
 FileInstall,gam\Acorn - Electron.gam,gam\Acorn - Electron.gam,1
 FileInstall,gam\Amstrad - CPC.gam,gam\Amstrad - CPC.gam,1
 FileInstall,gam\Amstrad - GX4000.gam,gam\Amstrad - GX4000.gam,1
+FileInstall,gam\Apple - Bandai - Pippen.gam,gam\Apple - Bandai - Pippen.gam,1
 FileInstall,gam\Apple - IIgs.gam,gam\Apple - IIgs.gam,1
 FileInstall,gam\Atari - 2600.gam,gam\Atari - 2600.gam,1
 FileInstall,gam\Atari - 5200.gam,gam\Atari - 5200.gam,1
@@ -964,7 +965,7 @@ FileInstall,gam\Capcom Play System - CPS III.gam,gam\Capcom Play System - CPS II
 FileInstall,gam\Capcom Play System - CPS.gam,gam\Capcom Play System - CPS.gam,1
 FileInstall,gam\Casio - Loopy.gam,gam\Casio - Loopy.gam,1
 FileInstall,gam\Casio - PV-1000.gam,gam\Casio - PV-1000.gam,1
-FileInstall,gam\Cave.gam,gam\Cave.gam,1
+FileInstall,gam\Cave Systems - Cave.gam,gam\Cave Systems - Cave.gam,1
 FileInstall,gam\Coleco - ColecoVision.gam,gam\Coleco - ColecoVision.gam,1
 FileInstall,gam\Commodore - 64 (PP).gam,gam\Commodore - 64 (PP).gam,1
 FileInstall,gam\Commodore - 64 (Tapes).gam,gam\Commodore - 64 (Tapes).gam,1
@@ -992,19 +993,19 @@ FileInstall,gam\fightcadePCE.gam,gam\fightcadePCE.gam,1
 FileInstall,gam\fightcadeSG1K.gam,gam\fightcadeSG1K.gam,1
 FileInstall,gam\fightcadeSMS.gam,gam\fightcadeSMS.gam,1
 FileInstall,gam\Funtech - Super Acan.gam,gam\Funtech - Super Acan.gam,1
-FileInstall,gam\Galeco.gam,gam\Galeco.gam,1
+FileInstall,gam\Galeco - Galeco.gam,gam\Galeco - Galeco.gam,1
 FileInstall,gam\GamePark - GP32.gam,gam\GamePark - GP32.gam,1
 FileInstall,gam\GCE - Vectrex.gam,gam\GCE - Vectrex.gam,1
 FileInstall,gam\Hartung - Game Master.gam,gam\Hartung - Game Master.gam,1
-FileInstall,gam\Hikaru.gam,gam\Hikaru.gam,1
 FileInstall,gam\Infocom - Z-Machine.gam,gam\Infocom - Z-Machine.gam,1
-FileInstall,gam\Konami.gam,gam\Konami.gam,1
+FileInstall,gam\Konami - Konami.gam,gam\Konami - Konami.gam,1
 FileInstall,gam\Leapfrog - Leapster Learning Game System.gam,gam\Leapfrog - Leapster Learning Game System.gam,1
 FileInstall,gam\Magnavox - Odyssey2.gam,gam\Magnavox - Odyssey2.gam,1
 FileInstall,gam\MAME - Arcade.gam,gam\MAME - Arcade.gam,1
 FileInstall,gam\MAME - BIOS.gam,gam\MAME - BIOS.gam,1
 FileInstall,gam\MAME_C.gam,gam\MAME_C.gam,1
 FileInstall,gam\Mattel - Intellivision.gam,gam\Mattel - Intellivision.gam,1
+FileInstall,gam\Memotech - MTX.gam,gam\Memotech - MTX.gam,1
 FileInstall,gam\Microkey - Primo.gam,gam\Microkey - Primo.gam,1
 FileInstall,gam\Microsoft - DOS.gam,gam\Microsoft - DOS.gam,1
 FileInstall,gam\Microsoft - MSX TurboR.gam,gam\Microsoft - MSX TurboR.gam,1
@@ -1040,7 +1041,7 @@ FileInstall,gam\Philips - CDI.gam,gam\Philips - CDI.gam,1
 FileInstall,gam\Philips - Videopac .gam,gam\Philips - Videopac .gam,1
 FileInstall,gam\RCA - Studio II.gam,gam\RCA - Studio II.gam,1
 FileInstall,gam\Sammy - Atomiswave.gam,gam\Sammy - Atomiswave.gam,1
-FileInstall,gam\ScummVM.gam,gam\ScummVM.gam,1
+FileInstall,gam\ScummVM - ScummVM.gam,gam\ScummVM - ScummVM.gam,1
 FileInstall,gam\Sega - 32X.gam,gam\Sega - 32X.gam,1
 FileInstall,gam\Sega - Dreamcast.gam,gam\Sega - Dreamcast.gam,1
 FileInstall,gam\Sega - Game Gear.gam,gam\Sega - Game Gear.gam,1
@@ -1059,6 +1060,7 @@ FileInstall,gam\Sega - SG-1000.gam,gam\Sega - SG-1000.gam,1
 FileInstall,gam\Sharp - X1.gam,gam\Sharp - X1.gam,1
 FileInstall,gam\Sharp - X68000.gam,gam\Sharp - X68000.gam,1
 FileInstall,gam\Sinclair - ZX Spectrum.gam,gam\Sinclair - ZX Spectrum.gam,1
+FileInstall,gam\SNK - Neo Geo CD.gam,gam\SNK - Neo Geo CD.gam,1
 FileInstall,gam\SNK - Neo Geo MVS.gam,gam\SNK - Neo Geo MVS.gam,1
 FileInstall,gam\SNK - Neo Geo Pocket Color.gam,gam\SNK - Neo Geo Pocket Color.gam,1
 FileInstall,gam\SNK - Neo Geo Pocket.gam,gam\SNK - Neo Geo Pocket.gam,1
