@@ -1615,6 +1615,8 @@ Menu,ASOCRUN,Add,
 
 Menu, ARCGPCFG, Add, Configure Selected Game, ARCPCFG
 
+Menu, ARSOCCFG, Add, Configure Association, ARSCFG
+
 Menu, ASOCCFG, Add, Configure Association, ASCFG
 Menu,ASOCCFG,Add, 
 
@@ -4903,6 +4905,16 @@ If A_GuiControlEvent RightClick
 			Menu, ASOCCFG, Show, %A_GuiX% %A_GuiY%
 			return
 		}
+	if A_GuiControl = ARCSYS
+		{
+			guicontrolget,ARCSYS,,ARCSYS
+			if (ARCSYS = "Select a System")
+				{
+					return
+				}
+			Menu, ARSOCCFG, Show, %A_GuiX% %A_GuiY%
+			return
+		}
 	if A_GuiControl = ARCCORES
 		{
 			MENU, ARCGPCFG, Show,%A_GuiX% %A_GuiY%
@@ -5183,10 +5195,17 @@ aemcfg= 1
 gosub, OPNCORE
 return
 	
+ARSCFG:
+gui,submit,nohide
+guicontrolget,RCLSYSTEM,,ARCSYS
+goto, ARCFGCONT
+
 ASCFG:
 gui,submit,nohide
-guicontrolget,RUNSYSDDL,,RUNSYSDDL
-iniread,isrs,Assignments.ini,OVERRIDES,%RUNSYSDDL%
+guicontrolget,RCLSYSTEM,,RUNSYSDDL
+
+ARCFGCONT:
+iniread,isrs,Assignments.ini,OVERRIDES,%RCLSYSTEM%
 
 if (isrs = "ERROR")
 	{
@@ -5200,18 +5219,16 @@ semu= %aij1%
 guicontrol,choose,TABMENU,3
 guicontrol,,SALIST,|Systems||Emulators|RetroArch|Utilities|Frontends
 gosub, SALIST
-guicontrol,,ADDCORE,|%RUNSYSDDL%||Select_A_System|%reasign%
+guicontrol,,ADDCORE,|%RCLSYSTEM%||Select_A_System|%reasign%
 knum=
-Loop, Parse, SysLLst,`n`r
+Loop, Parse, allsupsys,`n`r
 	{
 		knum+=1
-		stringsplit,aeim,A_LoopField,=,`n`r
-		if (aeim1 = RUNSYSDDL)
+		if (A_LoopField = RCLSYSTEM)
 			{
 				guicontrol, choose, EAVAIL,%knum%
 			}
 	}
-
 gosub, ADDCORE
 return
 
@@ -20845,7 +20862,7 @@ if (ARCSYS = "ScummVM")
 	{
 		cmdfun= 1
 	}
-
+romelg= 
 Loop, Read, gam\%ARCSYS%.gam
 	{
 		stringsplit,getpth,A_LoopReadLine,|
@@ -20864,6 +20881,7 @@ Loop, Read, gam\%ARCSYS%.gam
 					{
 						emucmd= %getpth3%
 					}
+				romelg= %getpth3%	
 				afnchk= %dwnchk%	
 				romfname= %romname%	
 				break	
@@ -21409,17 +21427,18 @@ if (ARCSYS = "ScummVM")
 	{
 		cmdfun= 1
 	}
-
+romelg= 
 loop,Read, gam\%ARCSYS%.gam
 	{
 		stringsplit,rommatch,A_LoopReadLine,|
 		if (rommatch2 = romtch)
 			{
 				romdwn= %rommatch1%
+				romelg= %rommatch3%
 				if (cmdfun = 1)
 					{
 						emucmd= %rommatch3%
-					}	
+					}
 				break	
 			} 
 	}
@@ -21638,7 +21657,7 @@ RomDownload:
 DWNFLD= 	
 ifnotexist, %save%
 	{
-		if (gamurl3 = "$")
+		if (romelg = "$")
 			{
 				gosub, LoginWall
 			}

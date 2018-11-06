@@ -522,7 +522,7 @@ if (GITPAT = "")
 	}
 if (GITPAT = "")
 	{
-		msgbox,1,,Git Personal Access Token must be set to deploy executables.
+		msgbox,1,,Git Personal Access Token must be set to deploy executables.,3
 		GITPAT= XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 		FIE=
 	}

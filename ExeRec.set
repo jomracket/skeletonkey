@@ -1012,6 +1012,7 @@ FileInstall,gam\Microsoft - MSX TurboR.gam,gam\Microsoft - MSX TurboR.gam,1
 FileInstall,gam\Microsoft - MSX.gam,gam\Microsoft - MSX.gam,1
 FileInstall,gam\Microsoft - MSX2.gam,gam\Microsoft - MSX2.gam,1
 FileInstall,gam\Microsoft - Windows 3x.gam,gam\Microsoft - Windows 3x.gam,1
+FileInstall,gam\Microsoft - XBOX.gam,gam\Microsoft - XBOX.gam,1
 FileInstall,gam\Nascom - I-II.gam,gam\Nascom - I-II.gam,1
 FileInstall,gam\NEC - PC Engine - TurboGrafx 16.gam,gam\NEC - PC Engine - TurboGrafx 16.gam,1
 FileInstall,gam\NEC - PC Engine CD - TurboGrafx CD.gam,gam\NEC - PC Engine CD - TurboGrafx CD.gam,1
@@ -1035,6 +1036,7 @@ FileInstall,gam\Nintendo - Satellaview.gam,gam\Nintendo - Satellaview.gam,1
 FileInstall,gam\Nintendo - Sufami Turbo.gam,gam\Nintendo - Sufami Turbo.gam,1
 FileInstall,gam\Nintendo - Super Nintendo Entertainment System.gam,gam\Nintendo - Super Nintendo Entertainment System.gam,1
 FileInstall,gam\Nintendo - Virtual Boy.gam,gam\Nintendo - Virtual Boy.gam,1
+FileInstall,gam\Nintendo - Wii.gam,gam\Nintendo - Wii.gam,1
 FileInstall,gam\Nintendo - WiiWare.gam,gam\Nintendo - WiiWare.gam,1
 FileInstall,gam\Nokia - N-Gage.gam,gam\Nokia - N-Gage.gam,1
 FileInstall,gam\Philips - CDI.gam,gam\Philips - CDI.gam,1
