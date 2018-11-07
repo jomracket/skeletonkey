@@ -3078,13 +3078,13 @@ Gui, Add, CheckBox, x26 y75 w61 h17 vCUSTSWITCH gCustSwitch, switches
 
 ;;Gui, Add, Button, x88 y243 w45 h20 vALTURLSET gAltURLSet hidden, URL
 
-Gui, Add, Checkbox, x24 y263 vALTURL gEnableAltUrl, Override
+Gui, Add, Checkbox, x22 y263 vALTURL gEnableAltUrl, Override
 Gui, Add, Edit, x88 y258 w225 h21 vUrlTxt gREPOUrlEdt Readonly, %ArcSite%
-Gui, Add, Edit, x24 y215 w159 h21 vARCLOGIN gArcLogin hidden,
-Gui, Add, Edit, x187 y215 w154 h21 Password vARCPASS gArcPass hidden,
-Gui, Add, CheckBox, x240 y238 h15 vSAVPASS gSavPass hidden, save
-Gui, Add, Text, x28 y236 h14 vARCUTXT hidden, email login
-Gui, Add, Text, x191 y236 h14 vARCPTXT hidden, password
+Gui, Add, Edit, x24 y215 w159 h21 vARCLOGIN gArcLogin disabled,%ARC_USER%
+Gui, Add, Edit, x187 y215 w154 h21 Password vARCPASS gArcPass disabled,%ARC_PASS%
+Gui, Add, CheckBox, x260 y238 h15 vSAVPASS gSavPass disabled, save
+Gui, Add, Text, x28 y236 h14 vARCUTXT, email login
+Gui, Add, Text, x191 y236 h14 vARCPTXT, password
 
 Gui, Add, Edit, x25 y286 w310 h21 vSRCHEDT gSearchInp,
 
@@ -7907,12 +7907,12 @@ return
 ;{;;;;;;;;;;;;;;;;;;;;;;;    INI-READING FUNCTION      ;;;;;;;;;;;;;;;;;;;;;;;;
 
 ArchivePop:
-IniRead,ARCLOGIN,Settings.ini,GLOBAL,archive_login
+IniRead,ARC_USER,Settings.ini,GLOBAL,archive_login
 if (ARCLOGIN <> "")
 	{
 		guicontrol,,ARCLOGIN,%ARCLOGIN%
 	}
-IniRead,ARCPASS,Settings.ini,GLOBAL,archive_password
+IniRead,ARC_PASS,Settings.ini,GLOBAL,archive_password
 if (ARCPASS <> "")
 	{
 		guicontrol,,ARCPASS,%ARCPASS%
@@ -12086,7 +12086,7 @@ if (UAVAIL = "Antimicro")
 		if (kmprt = "Antimicro")
 			{
 				guicontrol,,EMUASIGN,1
-			}	
+			}
 		guicontrol,show,EMUASIGN
 		guicontrol,,EMUASIGN,Default Keymapper
 	}
@@ -20551,26 +20551,26 @@ gui, submit, nohide
 guicontrolget,ALTURL,,ALTURL
 if (ALTURL = 1)
 	{
-		guicontrol,show,ARCLOGIN
-		guicontrol,show,ARCPASS
-		guicontrol,show,SAVPASS
-		guicontrol,show,ARCUTXT
-		guicontrol,show,ARCPTXT
+		guicontrol,enable,ARCLOGIN
+		guicontrol,enable,ARCPASS
+		guicontrol,enable,SAVPASS
 		guicontrol,enable,UrlTxt
 		IniRead, ArcSite,Settings.ini,Global,RemoteRepository
+		IniRead, ARC_USER,Settings.ini,Global,archive_login
+		IniRead, ARC_PASS,Settings.ini,Global,archive_password
 		if (ARCSITE <> "ERROR")
 			{
+				guicontrol,,ARCPASS,%ARC_PASS%
+				guicontrol,,ARCLOGIN,%ARC_USER%
 				guicontrol,,UrlTxt,%ARCSITE%
 			}
 		guicontrol,show,ALTURLSET
 	}
 if (ALTURL = 0)
 	{
-		guicontrol,hide,ARCLOGIN
-		guicontrol,hide,ARCPASS
-		guicontrol,hide,SAVPASS
-		guicontrol,hide,ARCUTXT
-		guicontrol,hide,ARCPTXT
+		guicontrol,disable,ARCLOGIN
+		guicontrol,disable,ARCPASS
+		guicontrol,disable,SAVPASS
 		guicontrol,,ALTURL,0
 		guicontrol,hide,ALTURLSET
 		guicontrol,disable,UrlTxt
@@ -20622,10 +20622,10 @@ if (ExpndASrch = "")
 		ExpndASrch= 1
 		ExpndTog= hide
 		guicontrol,hide,urltxt
-		guicontrol,hide,arclogin
 		guicontrol,hide,ARCPOP
 		guicontrol,hide,ALTURL
 		guicontrol,hide,OVDTXT
+		guicontrol,hide,arclogin
 		guicontrol,hide,arcpass
 		guicontrol,hide,SavPass
 		guicontrol,hide,arcutxt
@@ -20641,6 +20641,9 @@ if (ExpndASrch = "")
 	}
 ExpndASrch= 
 guicontrol,show,UrlTxt
+guicontrol,show,arclogin
+guicontrol,show,arcpass
+guicontrol,show,SavPass
 guicontrol,show,ARCPOP
 guicontrol,show,ALTURL
 guicontrol,show,OVDTXT
@@ -21657,10 +21660,6 @@ RomDownload:
 DWNFLD= 	
 ifnotexist, %save%
 	{
-		if (romelg = "$")
-			{
-				gosub, LoginWall
-			}
 		ifnotexist,%RJSYSTEMS%\%romsys%\%rjinsfldr%
 			{
 				updtguirst= 	
@@ -21674,7 +21673,13 @@ ifnotexist, %save%
 						gosub, RJSYSRESET
 					}
 			}
+		if (romelg = "$")
+			{
+				gosub, LoginWall
+				goto, DWNLOADTST
+			}
 		DownloadFile(URLFILE,save, True, True)
+		DWNLOADTST:
 		filereadline,doct,%save%,1
 		if (doct = "<!DOCTYPE html>")
 			{
@@ -22129,7 +22134,6 @@ IniWrite,"%ARCPASS%",Settings.ini,GLOBAL,archive_password
 return
 
 LoginWall:
-SB_SetText("Logging in...Close IE window when download completes")
 if (ARCLOGIN = "")
 	{
 		SB_SetText(" You must enter a valid email login for archive.org to use this repository ")
@@ -22140,28 +22144,37 @@ if (ARCPASS = "")
 		SB_SetText(" You must enter a valid password for archive.org to use this repository ")
 		return
 	}
+	
+username_str:= ARC_USER
+password_str:= ARC_PASS
+file_save_location:= save
+Overwrite:=True
+get_site:= URLFILE
 
-AURL:= "https://archive.org/account/login.php"
-GETURL:= ""
-;;ArcSite= https://ia601904.us.archive.org/29/items/
-WB := ComObjCreate("InternetExplorer.Application")
-WB.Visible := true
-WB.Navigate(AURL)
-While wb.readyState != 4 || wb.document.readyState != "complete" || wb.busy ; wait for the page to load
-   Sleep, 10
-wb.document.getElementById("username").value := ARCLOGIN
-wb.document.getElementById("password").value := ARCPASS
-wb.document.getElementById("referer").value:= URLFILE
-wb.document.getElementByID("checkbox").checked := True
-;;wb.document.all.loginForm.submit()
-;;wb.document.getElementsByTagName("submit")[1].Click()
-wb.document.getElementByID("submit").Click()
-While wb.readyState != 4 || wb.document.readyState != "complete" || wb.busy ; wait for the page to load
-   Sleep, 25
-   ;;SB_SetText(" ... Downloading ... ")
-   ;;URLDownloadToFile, %URLFILE%, %save%
-	;;SB_SetText(" Complete ")
+SB_SetText(" Downloading " romname " to " save " ")
+post_site:="https://archive.org/account/login.php"
+post_data:="username=" username_str "&password=" password_str "&remember=CHECKED&referer=https://archive.org/download/XBOX_HDD_READY&action=login&submit=Log in"
+WebRequest := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+WebRequest.Open("POST", post_site)
+WebRequest.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+WebRequest.SetRequestHeader("Cookie", "test-cookie=1")
+WebRequest.Send(post_data)
+WebRequest.Open("HEAD",get_site)
+WebRequest.Send()
+arcfz= % WebRequest.GetResponseHeader("Content-Length")
+WebRequest.Open("GET",get_site)
+WebRequest.Send()
+ADODBObj := ComObjCreate("ADODB.Stream")
+ADODBObj.Type := 1
+ADODBObj.Open()
+ADODBObj.Write(WebRequest.ResponseBody)
+ADODBObj.SaveToFile(file_save_location, Overwrite ? 2:1)
+ADODBObj.Close()
+;WebRequest.Close()
+ADODBObj:=""
+WebRequest:=""
 return
+
 ;{;;;;;;;;;;;;;;;; ARCHIVE ASSET DOWNLOAD ;;;;;;;;;;;;;;;;;;;
 
 ARCGBOX:
@@ -26107,7 +26120,6 @@ if (medjgrab = "")
 
 EMUCFGOVRTGL= 0
 MEDCFGLOC= cfg\%MEDNFSYS%\%nicktst%\%EDTRMFN%\%medcfg%
-
 if (ASVRM = "")
 	{
 		guicontrol, %emutog%, emuBUTJ
@@ -60327,7 +60339,7 @@ if (EPGC = 1)
 			{
 				FileCopy,%ptsp%\*.ini,cfg\%ROMSYS%\%emucfgn%\%romname%\%pgptf%,1
 			}
-		gosub, opncore	
+		gosub, opncore
 		SB_SetText("settings reloaded")
 	}
 guicontrol, Enable, LNCHBUT
