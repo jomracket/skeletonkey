@@ -234,7 +234,7 @@ Nichibutsu - My Vision|MAME|:mame_libretro.dll
 Nintendo - Famicom Disk System|nestopia|virtuanes|xe|virtuanesplus|Mesen|BizHawk|no$nes|dsp|fceux|vdmgr|Mednafen|MAME|:fceumm_libretro.dll|nestopia_libretro.dll|quicknes_libretro.dll|bnes_libretro.dll|mesen_libretro.dll|mame_libretro.dll
 Nintendo - Famicom|nestopia|Mednafen|Mesen|xe|fceux|dsp|vdmgr|BizHawk|kindred|MAME|:fceumm_libretro.dll|nestopia_libretro.dll|quicknes_libretro.dll|bnes_libretro.dll|mesen_libretro.dll|mame_libretro.dll
 Nintendo - Game Boy Advance|VisualBoyAdvance-M|VisualBoyAdvance|xe|Mednafen|BizHawk|boycottadv|firegb|mgba|no$gba|gbeplus|vgba|rascalboyadv|MAME|:vbam_libretro.dll|mgba_libretro.dll|vba_next_libretro.dll|mame_libretro.dll
-Nintendo - Game Boy Color|bgb|mgba|dinoboy|no$gmb|tgbdual|gbeplus|xe|vgb|kigb|BizHawk|dsp|MAME|:gambatte_libretro.dll|sameboy_libretro.dll|mgba_libretro.dll|mame_libretro.dll
+Nintendo - Game Boy Color|bgb|mgba|dinoboy|no$gmb|tgbdual|gbeplus|mednafen|xe|vgb|kigb|BizHawk|dsp|MAME|:gambatte_libretro.dll|sameboy_libretro.dll|mgba_libretro.dll|mame_libretro.dll
 Nintendo - Game Boy|bgb|Mednafen|zboy|mgba|dinoboy|dmgboy|no$gmb|kindred|BizHawk|xe|vgb|dsp|tgbdual|gbeplus|gest|kigb|MAME|:gambatte_libretro.dll|sameboy_libretro.dll|mgba_libretro.dll|mame_libretro.dll
 Nintendo - GameCube|Dolphin|ishiiruka|supergamecube|ideas|:dolphin_libretro.dll
 Nintendo - Nintendo 3DS|Citra|tronds|:citra_libretro.dll|citra_canary_libretro.dll

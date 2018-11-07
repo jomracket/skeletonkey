@@ -500,22 +500,22 @@ if (raexefile = "NOT-FOUND.exe")
 	}
 FileRead, RepoLst,RepoList.ini
 stringreplace, RepoLst,RepoLst,`n,|,All
-FileRead, LibMatSet, libmatch.set
-FileRead, ArcOrgSet, arcorg.set
-FileRead, EsLkUp, eslkup.set
-FileRead, UrlIndex, Urls.set
+FileRead,LibMatSet,libmatch.set
+FileRead,ArcOrgSet,arcorg.set
+FileRead,EsLkUp,eslkup.set
+FileRead,UrlIndex,Urls.set
 stringreplace,UrlIndex,UrlIndex,[ARCH],%ARCH%,All
 iniread,origasi,Assignments.set,ASSIGNMENTS,
 iniread,origsys,Assignments.set,OVERRIDES,
-FileRead, UTILst, Utilities.set
-FileRead, KMPLst, Keymappers.set
-FileRead, FELst, Frontends.set
-FileRead, PrgLst, Programs.set
-FileRead, BiosFSet, Bios.set
-FileRead, fuzsys, fuzsyslk.set
-FileRead, SysLLst, lkup.set
-FileRead, SysEmuSet, SystemEmulators.set
-stringreplace, SysEmuSet, SysEmuSet,",,All
+FileRead,UTILst,Utilities.set
+FileRead,KMPLst,Keymappers.set
+FileRead,FELst,Frontends.set
+FileRead,PrgLst,Programs.set
+FileRead,BiosFSet,Bios.set
+FileRead,fuzsys,fuzsyslk.set
+FileRead,SysLLst,lkup.set
+FileRead,SysEmuSet,SystemEmulators.set
+stringreplace,SysEmuSet,SysEmuSet,",,All
 ;"
 FileRead, EmuPartSet, EmuParts.set
 stringreplace,EmuPartSet,EmuPartSet,[ARCH],%ARCH%,All
@@ -692,9 +692,9 @@ INJARG= [CUSTMARG]| -rp "[ROMPATH]" | -rp "[EMUPATH]\roms" | --startFullScreen |
 
 ;;SUPEMUOPT= mame
 Loop, rj\emuCfgs\*,2
-{
-	SUPEMUOPT.= A_LoopFileName . "|"
-}
+	{
+		SUPEMUOPT.= A_LoopFileName . "|"
+	}
 netiterate= network_cmd_port|netplay_nickname|netplay_ip_address|netplay_ip_port|netplay_check_frames|netplay_client_swap_input|netplay_password|netplay_spectate_password|netplay_stateless_mode|netplay_Input_Latency_Frames_Min|netplay_Input_Latency_Frames_Range|netplay_Nat_Traversal|netplay_Use_Mitm_Server|netplay_Mitm_Server|netplay_Allow_Slaves|netplay_Require_Slaves
 
 mediaordert= theGamesDB|OpenVGDB|ScreenScraper|arcadeitalia|mamedb|IARL
@@ -719,6 +719,10 @@ joyiterate= _L_X_Plus|_L_X_Minus|_R_X_Plus|_R_X_Minus|_L_Y_Plus|_L_Y_Minus|_R_Y_
 hkiterate= input_Audio_Mute|input_Cheat_Index_Minus|input_Cheat_Index_Plus|input_Cheat_Toggle|input_Disk_Eject_Toggle|input_Disk_Next|input_Disk_Prev|input_Enable_Hotkey|input_Exit_Emulator|input_Frame_Advance|input_Toggle_Fullscreen|input_Game_Focus_Toggle|input_Grab_Mouse_Toggle|input_Hold_Fast_Forward|input_Load_State|input_Menu_Toggle|input_Movie_Record_Toggle|input_netplay_game_watch|input_Osk_Toggle|input_Overlay_Next|input_Pause_Toggle|input_Reset|input_Rewind|input_Save_State|input_Screenshot|input_Shader_Next|input_Shader_Prev|input_Slowmotion|input_State_Slot_Decrease|input_State_Slot_Increase|input_Toggle_Fast_Forward|input_Toggle_Fullscreen|input_Volume_Down|input_Volume_Up|input_Turbo_Period|input_Duty_cycle
 
 KBSET=a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|1|2|3|4|5|6|7|8|9|0|minus|add|f1|f2|f3|f4|f5|f6|f7|f8|f9|f10|f11|f12|up|down|left|right|pageup|pagedown|home|end|tilde|semicolon|quote|comma|period|slash|backslash|leftbracket|rightbracket|rshift|lshift|numlock|kp_period|keypad1|keypad2|keypad3|keypad4|keypad5|keypad6|keypad7|keypad8|keypad9|keypad0|subtract|equals|multiply|alt|ctrl|tab|capslock|escape|nul
+
+mednafsc= advance_frame|exit|fast_forward|insert_coin|insert_eject_disk|load_movie|load_state|power|reset|rotate_screen|run_normal|save_movie|save_state|select_disk|slow_forward|state_rewind|state_slot_dec|state_slot_inc|take_scaled_snapshot|take_snapshot|toggle_fps_view|toggle_fs|toggle_grab|toggle_state_rewind|togglecheatactive|togglecheatview|togglenetview
+
+supgui= mednafen|mame|flashplayer|retroarch
 
 JSTSET= %JOYSET%
 RJSYSDN= Systems
@@ -7787,7 +7791,7 @@ Loop, Files, %cacheloc%\bios\*,
 	}
 ifnotexist,crcs.ini
 	{
-		msgbox,,,BIOS NOT FOUND
+		msgbox, ,,BIOS NOT FOUND
 		return
 	}
 Fileread,curbios,crcs.ini
@@ -8224,11 +8228,19 @@ return
 RUNFLRAD:
 gui,submit,nohide
 guicontrolget,lcrtst,,LCORE
+guicontrolget,EDTROM,,EDTROM
 
 guicontrol,disable,RUNROMCBX
 guicontrol,disable,RUNSYSDDL
 guicontrol,,RUNSYSDDL,|:=:System List:=:||%systmfldrs%
 gosub, RUNSYSDDL
+Loop,Parse,allsupsys,`n
+{
+if (EDTROM = A_LoopField)
+{
+guicontrol,,RUNSYSDDL,|%A_LoopField%|%systmfldrs%
+}
+}
 return
 
 FndGui:
@@ -8252,7 +8264,7 @@ if (uuniv = "X")
 			{
 				raoptgl= show
 				srchtog= show
-				gosub, TOGRAOPTS
+				gosub, RAGuiVisTog
 				gosub, TOGGLESEARCHBOX
 				guicontrol,move,FNDGUI, x720 y516 w42 h19
 				guicontrol,,FNDGUI,find
@@ -8273,7 +8285,7 @@ fndtog= hide
 uuniv= X
 if (tglratmp = 1)
 	{
-		gosub, TOGRAOPTS
+		gosub, RAGuiVisTog
 	}
 gosub, movesearchbox
 try, gosub, %EMUSN%TOG
@@ -21169,6 +21181,7 @@ if (ARCSYS = "MAME_C")
 return
 
 ArcCores:
+core_gui= 
 APLA= 
 dlx2= 
 guicontrol,show,CUSTSWITCH
@@ -23436,7 +23449,6 @@ if (ASVRM = 1)
 			{
 				emuidnt1=
 				emuidnt3=
-				;;stringreplace,sanloop,A_LoopField,[ARCH],%ARCH%,All
 				stringsplit,emuidnt,A_LoopField,=
 				if (emuidnt3 = tmpmund)
 					{
@@ -23451,7 +23463,6 @@ if (nicktstk <> "")
 	}
 if (subemuname <> "")
 	{
-		gosub, TOGRAOPTS
 		SplitPath,nicktstj,EMUFN,EMUL,EMUXTYP,EMUSN,EMUDRV
 		Loop, Parse, EmuPartSet,`n`r
 			{
@@ -23459,8 +23470,6 @@ if (subemuname <> "")
 				StringSplit,jemun,A_LoopField,=,"
 				;"
 			;;}
-		;;Loop, Parse, SUPEMUOPT, |
-			;;{
 				if (jemun1 = "")
 					{
 						continue
@@ -23470,32 +23479,19 @@ if (subemuname <> "")
 				if (jemun1 = EMUSN)
 					{
 						svgbrnv= 
-						;;gosub, TOGRAOPTS
-						gosub, %EMUFNS%_GUI
-						;;eguex= 
-						/*
-						try {
-								gosub, %EMUFNS%_GUI
+						guicontrol,enable,OPNCORE
+						ifinstring,supgui,%EMUFNS%
+							{
+								goto, %EMUFNS%_GUI
 							}
-								catch {
-										
-										if (eguex = "")
-											{
-												if (svgbrnv = "")
-													{
-														
-														gosub, TOGSKELGUI
-													}
-											}
-								}
-						*/
-						
-						guicontrol,enable,OPNCORE		
-						return
+						moptog= hide
+						raoptgl= hide
+						emutog= hide
+						gosub, RAGuiVisTog
+						gosub, EmuGuiVisTog
+						gosub, EMUNAMEPOP	
 					}
 			}
-		emutog= hide
-		gosub, EMUUNPOP
 	}
 guicontrol,enable,OPNCORE	
 return
@@ -23512,7 +23508,7 @@ if (emutog = "show")
 	{
 		emutog= show
 	}
-gosub, EMUUNPOP
+gosub, EmuGuiVisTog
 gosub, %EMUSN%BUTA:
 return
 
@@ -24027,8 +24023,6 @@ guicontrol,%moptog%,RCLLNCH
 guicontrol,%moptog%,CLRCUROM
 
 TOGSKELOPTS:
-
-
 guicontrol,%moptog%,SRCHGRP
 guicontrol,%moptog%,SRCHFLRAD
 guicontrol,%moptog%,SRCHPLRAD
@@ -24037,15 +24031,10 @@ guicontrol,%moptog%,SRCHROMEDT
 guicontrol,%moptog%,SRCHROMBUT
 guicontrol,%moptog%,SRCHLOCDDL
 guicontrol,%moptog%,ROMRPGRP
-
 guicontrol,%moptog%,SRCHROMLBX
 return
-;;guicontrol,%moptog%,JCORE
 
 TOGGLESEARCHBOX:
-;;guicontrol,%srchtog%,SRCHGRP
-;;guicontrol,%srchtog%,ROMRPGRP
-;;guicontrol,%srchtog%,DropHideLBX
 guicontrol,%srchtog%,SRCHLOCDDL
 guicontrol,%srchtog%,SRCHFLRAD
 guicontrol,%srchtog%,SRCHPLRAD
@@ -24057,7 +24046,6 @@ return
 
 INITSEARCHBOX:
 guicontrol,move,SRCHGRP,x487 y203 w268 h299
-;;guicontrol,move,ROMRPGRP,x342 y163 w138 h128
 guicontrol,move,DropHideLBX,x342 y163 w138 h128
 guicontrol,move,SRCHLOCDDL,x491 y231 w260
 guicontrol,move,SRCHFLRAD,x562 y212 w53 h18
@@ -24069,7 +24057,6 @@ guicontrol,move,SRCHRCRSCHK,x495 y212 w60 h16
 return
 
 MOVESEARCHBOX:
-;;guicontrol,move,ROMRPGRP,x17 y47 w150 h138
 guicontrol,move,DropHideLBX,x17 y47 w150 h138
 guicontrol,move,SRCHGRP,x172 y50 w583 h442
 guicontrol,move,SRCHROMLBX,x173 y111 w579 h368
@@ -24162,8 +24149,8 @@ moptog= show
 goto, TOGPROF
 
 TOGPROF:
-gosub, TOGRAOPTS
-gosub, EMUUNPOP
+gosub, RAGuiVisTog
+gosub, EmuGuiVisTog
 gosub, TOGSKELGUI
 
 
@@ -24174,7 +24161,7 @@ return
 
 ;{;;; ~~~~ OPTION-template items ~~~ ;;;
 
-EMUUNPOP:
+EmuGuiVisTog:
 guicontrol,%emutog%,emuBUTA
 guicontrol,%emutog%,emuBUTB
 guicontrol,%emutog%,emuBUTC
@@ -24386,7 +24373,7 @@ if (EMUSN = "")
 		guicontrol,enable,RUNROMCBX
 		return
 	}
-	
+
 Loop, rj\emuCfgs\%EMUSN%\*.*
 	{
 		appndum= 
@@ -25718,20 +25705,18 @@ moptog= hide
 raoptgl= hide
 srchtog= hide
 
-gosub, TOGRAOPTS
+gosub, RAGuiVisTog
 gosub, TOGSKELGUI
 
-gosub, TOGGLESEARCHBOX
 
 guicontrolget,uuniv,,FNDGUI
 
 if (uuniv = "X")
 	{
-		srchtog= hide
-		gosub, TOGGLESEARCHBOX
 		guicontrol,move,FNDGUI, x720 y516 w42 h19
 		guicontrol,,FNDGUI,find
 	}	
+gosub, TOGGLESEARCHBOX
 
 EMUCFGOVRTGL= 0
 medcfg= Altirra.ini
@@ -25761,12 +25746,6 @@ return
 ;{;;  create mednafen gui ;;
 Mednafen_GUI:
 eguex= 1
-moptog= hide
-raoptgl= hide
-srchtog= hide
-gosub, TOGRAOPTS
-gosub, TOGSKELGUI
-gosub, TOGGLESEARCHBOX
 
 if (medxi = "")
 	{	
@@ -25785,8 +25764,19 @@ if (medao = "")
 			}
 	}
 
+	
 guicontrolget,uuniv,,FNDGUI
-mednafsc= advance_frame|exit|fast_forward|insert_coin|insert_eject_disk|load_movie|load_state|power|reset|rotate_screen|run_normal|save_movie|save_state|select_disk|slow_forward|state_rewind|state_slot_dec|state_slot_inc|take_scaled_snapshot|take_snapshot|toggle_fps_view|toggle_fs|toggle_grab|toggle_state_rewind|togglecheatactive|togglecheatview|togglenetview
+if (core_gui = "mednafen")
+	{
+		goto, medguicreated
+	}
+moptog= hide
+raoptgl= hide
+srchtog= hide
+emutog= show
+gosub, RAGuiVisTog
+gosub, TOGSKELGUI
+gosub, TOGGLESEARCHBOX
 if (uuniv = "X")
 	{
 		srchtog= hide
@@ -25794,7 +25784,6 @@ if (uuniv = "X")
 		guicontrol,move,FNDGUI, x720 y516 w42 h19
 		guicontrol,,FNDGUI,find
 	}
-	
 guicontrol, %emutog%, emuTXTA
 guicontrol,move,emuTXTA,x240 y121 w48 h13
 guicontrol,,emuTXTA, Shader
@@ -25977,14 +25966,6 @@ guicontrol,move,emuCBXB,x406 y249 w194
 guicontrol,+0x2 +E0x5000 +Right,emuCBXB
 guicontrol,,emuCBXB,|netplay.fobby.net||node.asnitech.co.uk|mednafen-nl.emuparadise.org|mednafen-us.emuparadise.org|Speedvicio.dtdns.net|s1.mednafen-it.org|gs.emu-land.net|emu-russia.net
 
-
-;;guicontrol, %emutog%, emuUPDB
-;;guicontrol,move,emuUPDB,x476 y182 w17 h21 -16
-
-;;guicontrol, %emutog%, emuUPDA
-;;guicontrol,move,emuUPDA,x323 y395 w17 h21 -16
-;;guicontrol,+Range-100-100,emuUPDA
-
 guicontrol, %emutog%, emuRAD11A
 guicontrol,,emuRAD11A,Horz
 guicontrol,,emuRAD11A, 1
@@ -26064,6 +26045,7 @@ guicontrol,+Range0-10,emuSLDC
 guicontrol,move,emuSLDC,x215 y270 w120 h24
 
 ;;//change this to a listed variable
+core_gui= mednafen
 medcfg= mednafen.cfg
 
 if (medjgrab = "")
@@ -26117,7 +26099,7 @@ if (medjgrab = "")
 			}	
 	}
 ;};;
-
+medguicreated:
 EMUCFGOVRTGL= 0
 MEDCFGLOC= cfg\%MEDNFSYS%\%nicktst%\%EDTRMFN%\%medcfg%
 if (ASVRM = "")
@@ -26132,22 +26114,23 @@ if (ASVRM = "")
 				MEDCFGLOC= rj\sysCfgs\%RJSYSDD%\%medcfg%
 			}
 	}
-ifnotexist, %MEDCFGLOC%
-	{
-		gosub, EMUCFGCOPY
-	}
+	
 guicontrolget,EMUDDLJ,,EMUDDLJ
-goto, MednafenRESETPOP
-
-
-MednafenPOP:
 ifexist, %MEDCFGLOC%
 	{
 		goto, LOADMEDNAFENOPTS
 	}
+ifnotexist, %MEDCFGLOC%
+	{
+		gosub, EMUCFGCOPY
+		goto, MednafenRESETPOP
+	}
+
+
+MednafenPOP:
 
 	
-MednafenRESETPOP:	
+MednafenRESETPOP:
 curmedINPT= 
 FileRead,mkbl,rj\emuCfgs\mednafen\mednafenjoy.set.ret
 IniRead, RJMEDNM, emuCfgPresets.set,%MEDNFSYS%,RJMEDNM
@@ -26486,8 +26469,7 @@ Loop, Parse, mednafenopts,`n`r
 				guicontrol,,emuCHKE,%msplke%
 				MEDemuCHKE= %msplke%
 			}
-	}
-	
+	}	
 return
 
 ;{;;;;;;;;;;;;    RESET MEDNAFEN   ;;;;;;;;;;;;;;;;;;;;;
@@ -27198,7 +27180,7 @@ moptog= hide
 raoptgl= hide
 srchtog= hide
 
-gosub, TOGRAOPTS
+gosub, RAGuiVisTog
 gosub, TOGSKELGUI
 
 gosub, TOGGLESEARCHBOX
@@ -27271,8 +27253,8 @@ gosub, EMUCFGCOPY
 moptog= show
 raoptgl= hide
 emutog= hide
-gosub, EMUUNPOP
-gosub, TOGRAOPTS
+gosub, EmuGuiVisTog
+gosub, RAGuiVisTog
 gosub, TOGSKELGUI
 
 return
@@ -27528,9 +27510,9 @@ RAOPTPOP:
 guicontrolget,LCORE,,LCORE
 raoptgl= show
 emutog= hide
-gosub, EMUUNPOP
+gosub, EmuGuiVisTog
 
-TOGRAOPTS:
+RAGuiVisTog:
 guicontrol,%raoptgl%,ART
 guicontrol,%raoptgl%,ARTXT
 guicontrol,%raoptgl%,ASYNC
@@ -38328,6 +38310,7 @@ guicontrolget, RJEMUTG,,RJEMUPRECFG
 ASVRM= 
 guicontrol,,JCORE,|%runlist%
 svgbrnv= 1
+
 EMUNAMEPOP:
 GuiControl, Choose, TABMENU, 2
 guicontrol,,LCORE,|%RJEMUTG%||%runlist%
@@ -44135,30 +44118,29 @@ ifinstring,LCORE,_libretro
 		moptog= hide
 		raoptgl= show
 		emutog= hide
-		gosub, EMUUNPOP
-		gosub, TOGRAOPTS
+		gosub, EmuGuiVisTog
+		gosub, RAGuiVisTog
 		if (AUTOPGS = 1)
 			{
 				guicontrol,,JOYCORE,|%lcore%||Global|%corelist%|Xpadder|Antimicro%addemu%
 				gosub, JOYCORE
 			}
-		;;guicontrol, show, LCORE
-		;;guicontrol,show,SWHOST
 		runningcore= core
-		;GuiControl, Choose, TABMENU, 10
 		gosub, CoreDDLA
 		SB_SetText("Core-Options loaded in the Cores Tab")
 		return
 	}
+
+ASVRM= 1
+RJEMUTG= %LCORE%
+/*
 moptog= hide
 raoptgl= hide
 emutog= hide
-ASVRM= 1
-RJEMUTG= %LCORE%
-gosub, TOGRAOPTS
-gosub, EMUUNPOP
+gosub, RAGuiVisTog
+gosub, EmuGuiVisTog
+*/
 gosub, EMUNAMEPOP
-
 if (ASVRM = 1)
 	{
 		guicontrol,show,RUNSYSDDL
@@ -44194,9 +44176,9 @@ guicontrol,,CORENAMTXT,%corcfgnam%
 FileReadLine, optline, %racoreopt%, 1
 
 if (optline <> "[OPTIONS]")
-{
-	gosub, WriteCORETop
-}
+	{
+		gosub, WriteCORETop
+	}
 gosub, %ccv%DDLA
 return
 
@@ -52122,7 +52104,9 @@ guicontrol,disable,SAVEJOY
 guicontrol,disable,JOYCORE
 joycfgout= 
 if (JOYCORE <> "Global")
-		goto, jcdd
+		{
+			goto, jcdd
+		}
 guicontrol,,jCFGPT,,%JCFGEDT%
 splitpath,JCFGPT,,JCFGPD
 ifexist,%JCFLPD%\
@@ -52163,7 +52147,6 @@ emujchk3=
 StringSplit,emujchk,JOYCORE,.
 if (emujchk2 <> "dll")
 	{
-	
 		;;gosub, %JOYCORE%JOYSave
 		return
 	}
@@ -54000,7 +53983,6 @@ if (RJMEDNM = "")
 		RJMEDNM= psx
 	}
 mednjbuts= 
-
 FileRead, mednjbuts, rj\emuCfgs\mednafen\xinput.default.set
 stringreplace,mednjbuts,mednjbuts,[PLAYERNUM],1,All
 stringreplace,mednjbuts,mednjbuts,[JOYINDEX],1,All
@@ -54533,7 +54515,7 @@ medswapA= ii
 medswapX= iii
 medswapY= iv
 medswapStart= run
-medswapSelect= 
+medswapSelect= select
 medswapDown= down
 medswapUp= up
 medswapLeft= left
@@ -54564,7 +54546,7 @@ MedSwapGTXT=
 MedSwapHTXT=
 MedSwapITXT= v
 MedSwapJTXT= vi
-MedSwapLTXT= 
+MedSwapLTXT= select
 MedSwapMTXT= run
 
 MedSwapCGRP= 
@@ -54586,7 +54568,7 @@ medswapA= ii
 medswapX= iii
 medswapY= iv
 medswapStart= run
-medswapSelect= 
+medswapSelect= select
 medswapDown= down
 medswapUp= up
 medswapLeft= left
@@ -54617,7 +54599,7 @@ MedSwapGTXT=
 MedSwapHTXT=
 MedSwapITXT= v
 MedSwapJTXT= vi
-MedSwapLTXT= 
+MedSwapLTXT= select
 MedSwapMTXT= run
 
 MedSwapCGRP= 
@@ -55068,10 +55050,6 @@ guicontrol,%rajoytog%,RASTKGRP
 guicontrol,%rajoytog%,DPADGRP
 
 guicontrol,%rajoytog%,CIREMAPGRP
-;;guicontrol,%rajoytog%,JOYCORE
-;;guicontrol,%rajoytog%,JCFGADD
-;;guicontrol,%rajoytog%,JCFGEDT
-;;guicontrol,%rajoytog%,SAVEJOY
 guicontrol,%rajoytog%,BBUTTXT
 guicontrol,%rajoytog%,YBUTTXT
 guicontrol,%rajoytog%,XBUTTXT
@@ -56406,7 +56384,7 @@ Loop, parse,joyiterate,|
 			StringReplace,INPDBX,A_LoopField,_,,All
 			guicontrol,,emj%INPDBX%,|%medjname%
 	}
-gosub, MEDNAFENJPRELOAD	
+gosub, MEDNAFENJPRELOAD
 return
 
 JMednafenRAD3B:
@@ -58963,11 +58941,7 @@ guicontrol,enable,SKSAVE
 
 VARtoINI:
 SB_SetText("Saving")
-FileReadLine, optline, %curcfg%, 1
-if (optline <> "[OPTIONS]")
-{
-	gosub, WriteTop
-}
+gosub, RACHKOPTLINE
 
 ;{;;;;;;;;;;;;;;;;;;;;  OPTIONS  ;;;;;;;;;;;;;;
 
@@ -59148,9 +59122,9 @@ WriteOptVars:
 SB_SetText(" Writing Core options ")
 FileReadLine, optline, %racoreopt%, 1
 if (optline <> "[OPTIONS]")
-{
-	gosub WriteCORETop
-}
+	{
+		gosub WriteCORETop
+	}
 
 Loop, parse,COREVARS,|
 	{
@@ -59689,6 +59663,7 @@ return
 
 LnchCore:
 guicontrol,enable,LCORE
+core_gui= 
 indexCONSOLE= 
 BCSTO= 
 BCSTA= 
@@ -59700,7 +59675,7 @@ if (eguex = 1)
 		eguex= 
 		;;gosub, TOGSKELGUI
 		emutog= hide
-		gosub, EMUUNPOP
+		gosub, EmuGuiVisTog
 	}
 guicontrolget,tmpcc,,LCORE
 if (tmpcc = "")
@@ -59793,8 +59768,8 @@ ifinstring,systoemu,tmpcc|
 					moptog= hide
 					raoptgl= show
 					
-					gosub, TOGRAOPTS
-					gosub, EMUUNPOP
+					gosub, RAGuiVisTog
+					gosub, EmuGuiVisTog
 					guicontrol,show,SWHOST
 					guicontrol,show,LCORE
 					guicontrolget,RUNFLRAD,,RUNFLRAD
