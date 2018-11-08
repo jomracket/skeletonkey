@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-07 6:24 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-08 11:38 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-11-07 6:24 PM
-VERSION= v0.99.61.57
+RELEASE= 2018-11-08 11:38 AM
+VERSION= v0.99.61.58
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -1355,6 +1355,16 @@ ifnotexist, %BSLPTH%\BSL.exe
 		iniwrite,"%bsltmp%",apps.ini,EMULATORS,BSL
 		iniwrite,"%bsltmp%",Assignments.ini,ASSIGNMENTS,BSL
 		splitpath, bsltmp,,BSLPTH
+	}	
+Loop, Parse, SysLLst,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,syscfgfld,A_LoopField,=
+		allsupsys.= syscfgfld1 . "`n"
+		allsupport.= syscfgfld1 . "|"
 	}
 if (INITIAL = 1)
 {
@@ -1368,18 +1378,16 @@ if (INITIAL = 1)
 		{
 			LNCHPT= 1
 		}
-		
+	Loop, Parse, allsupport,|
+		{	
+			FileCreateDir, rj\sysCfgs\%syscfgfld1%
+		}
 	gosub, EmuDetect
 	ifnotexist, rj\sysCfgs
 		{
 			fileCreateDir, rj\sysCfgs
 		}
-	Loop, Parse, SysLLst,`n`r
-		{
-			stringsplit,syscfgfld,A_LoopField,=
-			allsupsys.= syscfgfld1 . "`n"
-			FileCreateDir, rj\sysCfgs\%syscfgfld1%
-		}
+
 }	
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -1995,9 +2003,9 @@ Gui,Font,%fontXsm% Norm
 
 Gui, Add, Button, x480 y40 w42 h19 vAUTOBIOS gAUTOBIOS hidden,auto
 
-Gui, Add, ListBox,x4 y29 w269 h446 HWNDtrxvail vUAVAIL gUAvailSel hidden, %allsupsys%
+Gui, Add, ListBox,x4 y29 w269 h446 HWNDtrxvail vUAVAIL gUAvailSel hidden, %allsupport%
 
-Gui, Add, ListBox, Multi x4 y29 w269 h446 HWNDeavlbx vEAVAIL gEAvailSel, %allsupsys%
+Gui, Add, ListBox, Multi x4 y29 w269 h446 HWNDeavlbx vEAVAIL gEAvailSel, %allsupport%
 Gui, Add, ListBox, Multi x15 y23 w227 h433 hwndAVWIND vAVAIL gAvailSel Hidden, %corezips%
 
 Gui, Add, Button, x258 y341 w48 h20 vUPDCL gGetCoreList hidden, Refresh
@@ -2059,7 +2067,7 @@ Gui, Add, Button, x368 y477 w42 h22 vLNCHPT gLNCHPT hidden,Priority
 Gui, Add, DropDownList, x470 y26 w251 vADDCORE gAddCore, Select_A_System||%reasign%
 Gui, Add, Button, x723 y25 w12 vOPNSYS gOpnSyS,+
 Gui, Add, DropDownList, x503 y73 w52 vOVEXTL gOVEXTL,All||
-Gui, Add, ComboBox, x471 y54 w264 vADDNSYS gAddNSys Hidden, %allsupsys%
+Gui, Add, ComboBox, x471 y54 w264 vADDNSYS gAddNSys Hidden, %allsupport%
 Gui, Add, Button, x694 y79 w42 h19 vSAVNSYS gSavNSys Hidden, save
 Gui, Add, Text, x577 y75 h23 vOVSETTXT, Extension-Override
 Gui, Add, Button, x557 y75 w15 h15 vOVSETRM gOVSETRM hidden,X
