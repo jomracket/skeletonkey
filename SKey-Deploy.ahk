@@ -797,7 +797,7 @@ if (INIT = 1)
 	}
 if (GITPAT = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
 	{
-		msgbox,1,,Git Personal Access Token must be set to deploy executables.
+		msgbox,1,,Git Personal Access Token must be set to deploy executables.,5
 		gosub, GetGPAC
 	}
 
