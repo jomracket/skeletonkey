@@ -443,6 +443,29 @@ if (raexefile <> "NOT-FOUND.exe")
 				gosub, resetFILT
 			}
 	}
+ARC_USER= Not Set
+IniRead,ARC_USERt,Settings.ini,GLOBAL,archive_login
+if (ARC_USERt <> "ERROR")
+	{
+		if (ARC_USERt <> "")
+			{
+				ARC_USER= %ARC_USERt%
+			}
+	}
+ARC_PASS= *****
+IniRead,ARC_PASSt,Settings.ini,GLOBAL,archive_password
+if (ARC_USERt <> "ERROR")
+	{
+		if (ARC_PASSt <> "")
+			{
+				ARC_PASS= %ARC_PASSt%
+			}
+	}
+if (INITIAL = 1)
+	{
+		ARC_USER= Not Set
+		ARC_PASS= *****
+	}
 Loop,Read,fltlist.ini
 fltlist .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
 CORENUM:= 0
@@ -1203,9 +1226,6 @@ Loop, %playlistLoc%\*.lpl,
 		SplitPath,A_LoopFileName,,,,plistNam
 		plistNamz .= plistNam . "|"
 	}
-
-
-
 ifNotExist, ovr.ini
 	{
 		gosub, resetOVR
@@ -1396,8 +1416,6 @@ if (INITIAL = 1)
 ;Sort, INJARG , Alphabetically D|
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
 DCHINST=Not Found
 if (DCHANGER <> "0")
 {
@@ -1563,7 +1581,7 @@ Gui, Add, Button, x74 y136 w43 h23 vSETEMUD gSETEMUD, SET
 Gui, Add, Button, x74 y53 w43 h23 vSETJKD gSETJKD, SET
 Gui, Add, Text, x8 y81 vSKSYSTXT, Systems ROOT
 Gui, Add, Text, x8 y163 vSKEMUDTXT, Emulators Dir
-Gui, Add, CheckBox,  x174 y105 vSKFILTSUP gSKFILTSUP, Filter Unsupported
+Gui, Add, CheckBox, x174 y105 vSKFILTSUP gSKFILTSUP, Filter Unsupported
 Gui,Font,Normal
 Gui, Add, Button, x579 y450 w55 h18 vUpdateSK gUpdateSK, UPDATE
 
@@ -1589,7 +1607,7 @@ Gui, Add, Text,  x582 y101 vSKDTTXT, Daemon Tools is %DAMINST%
 Gui, Add, DropDownList, x23 y12 w163 vSKRESDDL gSKRESDDL, All||Session|Jacket-Presets|Retroarch|Associations|Core-Cfgs|Playlist-DB
 Gui, Add, Button, x187 y12 w55 h20 vSKRESET gSKRESET, RESET
 Gui, Add, Edit, x117 y45 w443 h40 Multi ReadOnly vSKSYSDISP, %RJSYSTEMS%
-;;Gui, Add, CheckBox, x33 y480 h19 vLNCHPT gLNCHPT %LNCHPRIO%, Auto-Assign Emulators
+
 Gui, Add, CheckBox, x244 y5 vHOVPREV gHovPrev %hovvalue%, Hover-Preview
 Gui, Add, CheckBox,x244 y22 vSRCHCOMPLIO gSRCHCOMPL %SRCHCOMPLIO%, Auto-Populate Search-Window
 Gui, Add, CheckBox, x347 y7 vAUTOPGS gAUTOPGS %AUTOPGSIO%, Auto-Load Per-Game Settings
@@ -5011,6 +5029,7 @@ sysmfldrs.= ARCSYS . "|"
 guicontrol,,RUNFLRAD,1
 guicontrol,,RUNSYSDDL,|%ARCSYS%||%SYSTMFLDRS%
 guicontrol,,RUNROMCBX,|%afnchk%||%HISTORY%
+guicontrol,,LCORE,|%ARCCORES%||%runlist%
 MEDNFSYS= %ARCSYS%
 EDTRMFN= %romfname%
 aemcfg= 1
@@ -5224,7 +5243,7 @@ ifinstring,coreselv,mame
 								break
 							}
 					}
-			}				
+			}
 	}
 gosub, ArcLaunch
 return
@@ -24047,11 +24066,20 @@ gosub, SHRTNMLkUp
 %SHRTNM%CFGF= 
 %SHRTNM%CFGR= 
 %SHRTNM%NFP= 
-IfNotExist, %indvcp%
+IfNotExist, %indvcp%\
 	{
 		FileCreateDir,%indvcp%
+	}
+IfNotExist, %indvcp%\.Mem\
+	{
 		FileCreateDir,%indvcp%\.Mem
+	}
+IfNotExist, %indvcp%\.sstates\
+	{
 		FileCreateDir,%indvcp%\.sstates
+	}
+IfNotExist, %indvcp%\.snaps\
+	{		
 		FileCreateDir,%indvcp%\.snaps
 	}
 if (EMUCFGOVRTGL = 1)
@@ -26087,6 +26115,7 @@ Loop, Parse, mednafenopts,`n`r
 					}
 				if (msplkv = "tblur")
 					{
+						gmblr= %msplkv%
 						guicontrol,,emuRAD5B,%msplke%
 						MEDemuRAD5B= %msplke%
 					}
@@ -26174,6 +26203,7 @@ MEDemuCHKE= 1
 MEDemuCHKF= 1
 MEDemuCHKG= 1
 MEDemuCHKH= 0
+MEDemuSLDA= 0
 MEDemuDDLA= none
 MEDemuDDLB= none
 MEDemuDDLC= none
@@ -26187,7 +26217,10 @@ MEDemuEDTB= 1
 MEDemuEDTC= 0.5
 MEDemuEDTD= 0
 MEDemuEDTE= 0.5
-MEDemuEDTF= 0
+MEDemuEDTF= 50
+MEDemuSLDB= 50
+MEDemuSLDE= 50
+MEDemuSLDC= 50
 MEDemuEDTG= 640
 MEDemuEDTH= 480
 MEDemuEDTI= 4096
@@ -26226,6 +26259,10 @@ guicontrol,,emuCBXB,|%MEDemuCBXB%||node.asnitech.co.uk|mednafen-nl.emuparadise.o
 guicontrol,,emuRAD3B,1
 guicontrol,,emuRAD5A,1
 guicontrol,,emuRAD9B,1
+guicontrol,,emuSLDA,0
+guicontrol,,emuSLDB,50
+guicontrol,,emuSLDE,50
+guicontrol,,emuSLDC,50
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -26492,6 +26529,7 @@ guicontrolget,emuEDTF,,emuEDTF
 guicontrol,,emuSLDB,%emuEDTF%
 stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.tblur.accum.amount%A_Space%%MEDemuEDTF%,%RJMEDNM%.tblur.accum.amount%A_Space%%emuEDTF%,All
 MEDemuEDTF= %emuEDTF%
+MEDemuSLDB= %emuEDTF%
 FileDelete,%MEDCFGLOC%
 FileAppend,%mednafenopts%,%MEDCFGLOC%
 FileRead,mednafenopts,%MEDCFGLOC%
@@ -26553,6 +26591,22 @@ FileAppend,%mednafenopts%,%MEDCFGLOC%
 FileRead,mednafenopts,%MEDCFGLOC%
 return
 
+mednafenRad5A:
+gui,submit,nohide
+emuRAD5= 0
+stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.tblur%A_Space%%MEDemuRAD5B%,%RJMEDNM%.tblur%A_Space%0,All
+stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.tblur.accum%A_Space%%MEDemuRAD5C%,%RJMEDNM%.tblur.accum%A_Space%0,All
+guicontrol,,emuSLDB,0
+guicontrol,,emuEDTF,0
+MEDemuEDTF= 0
+MEDemuSLDB= 0
+MEDemuRAD5B= %emuRAD5%
+MEDemuRAD5C= %emuRAD5%
+FileDelete,%MEDCFGLOC%
+FileAppend,%mednafenopts%,%MEDCFGLOC%
+FileRead,mednafenopts,%MEDCFGLOC%
+return
+
 mednafenRad5B:
 gui,submit,nohide
 emuRAD5B= 1
@@ -26572,18 +26626,6 @@ stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.tblur%A_Space%%MEDemuRAD5C%,%
 stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.tblur.accum%A_Space%%MEDemuRAD5C%,%RJMEDNM%.tblur.accum%A_Space%%emuRAD5C%,All
 MEDemuRAD5C= %emuRAD5C%
 MEDemuRAD5B= %emuRAD5C%
-FileDelete,%MEDCFGLOC%
-FileAppend,%mednafenopts%,%MEDCFGLOC%
-FileRead,mednafenopts,%MEDCFGLOC%
-return
-
-mednafenRad5A:
-gui,submit,nohide
-emuRAD5= 0
-stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.tblur%A_Space%%MEDemuRAD5B%,%RJMEDNM%.tblur%A_Space%0,All
-stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.tblur.accum%A_Space%%MEDemuRAD5C%,%RJMEDNM%.tblur.accum%A_Space%0,All
-MEDemuRAD5B= %emuRAD5%
-MEDemuRAD5C= %emuRAD5%
 FileDelete,%MEDCFGLOC%
 FileAppend,%mednafenopts%,%MEDCFGLOC%
 FileRead,mednafenopts,%MEDCFGLOC%
@@ -26724,6 +26766,7 @@ guicontrolget,MEDemuEDTF,,emuSLDB
 guicontrol,,emuEDTF,%emuSLDB%
 stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.tblur.accum.amount%A_Space%%MEDemuEDTF%,%RJMEDNM%.tblur.accum.amount%A_Space%%emuSLDB%,All
 MEDemuEDTF= %emuSLDB%
+MEDemuSDB= %emuSLDB%
 FileDelete,%MEDCFGLOC%
 FileAppend,%mednafenopts%,%MEDCFGLOC%
 FileRead,mednafenopts,%MEDCFGLOC%
@@ -58863,6 +58906,7 @@ if (coreselx <> "ERROR")
 				if (coretmp <> coreselv)
 					{
 						gosub, opncore
+						alrcfg= 1
 					}				
 			}
 	}
@@ -58886,6 +58930,19 @@ if ((romf <> "") && (coreselv <> ""))
 	{
 		guicontrol,enable,LNCHBUT
 		guicontrol,enable,RCLLNCH
+	}
+if (AUTOPGS = 1)
+	{
+		if (alrcfg = 1)
+			{
+				alrcfg= 
+				return
+			}
+		alrcfg= 
+		ifinstring,supgui,%coreselv%
+			{
+				gosub, opncore
+			}
 	}
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -59142,7 +59199,7 @@ if (tmpcc <> LCORE)
 					}
 			}
 		gosub, opncore
-	}	
+	}
 guicontrolget,tmpcc,,LCORE
 return
 
@@ -59823,6 +59880,10 @@ guicontrolget,lcore,,LCORE
 if (aemcfg = 1)
 	{
 		aemcfg= 
+		if (lcore <> ARCCORES)
+			{
+				guicontrol,,ARCCORES,|%lcore%||%runlist%
+			}
 		guicontrol,choose,TABMENU,7
 		goto, ArcLaunch
 	}
