@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-08 7:33 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-09 5:47 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-11-08 7:33 PM
-VERSION= v0.99.65.00
+RELEASE= 2018-11-09 5:47 PM
+VERSION= v0.99.65.76
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -2075,7 +2075,8 @@ Gui, Add, ListBox, x258 y22 w198 h316 -LV0x20 Altsubmit HWNDnocrsl vCRNTCORS gNo
 Gui, Add, Radio, x123 y463 h14 vEXELIST gExeList hidden, Parts
 Gui, Add, Radio, x71 y463 h14 Checked vRALIST gRaList hidden, Cores
 Gui,Font,%fontXmed% Bold
-Gui, Add, DropDownList, x9 y484 w110 vSaList gSaList,Systems||Emulators|RetroArch|Utilities|Frontends
+Gui, Add, DropDownList, x9 y485 w110 vSaList gSaList,Systems||Emulators|RetroArch|Utilities|Frontends
+Gui, Add, Text, x145 y485 w80 h15,Installers
 Gui,Font,%fontXsm% Bold
 
 Gui, Add, GroupBox, x465 y6 w275 h358 vSKRAstch, Skeletonkey-System-Associations
@@ -2984,15 +2985,16 @@ Gui, Add, Progress, x742 y20 w10 h459 Vertical -Smooth vARCDPRGRS, 0
 Gui, Add, ListBox, x350 y19 w388 h459 +Multi +HScroll HWNDarcpopu vARCPOP gArcPopulateList,
 
 Gui, Add, Button, x350 y480 w61 h17 vCLIPURL gClipURL, CLIP URL
-Gui, Add, CheckBox, x143 y100 h17 vEXTRURL gExtractURL, Extract File
-Gui, Add, CheckBox, x211 y79 w122 h17  vRUNXTRACT gRunXtract Checked Hidden, Run extracted file
-Gui Add, CheckBox, x218 y100 w58 h17 vEXTEXPLD gEXTEXPLD hidden, explode
+Gui, Add, CheckBox, x256 y100 h17 vEXTRURL gExtractURL, Extract File
+Gui Add, CheckBox, x266 y119 w58 h17 vEXTEXPLD gEXTEXPLD hidden, explode
+Gui, Add, CheckBox, x240 y138 w105 h17 vRUNXTRACT gRunXtract Checked Hidden, Run extracted file
 
-Gui, Add, Button, x25 y137 w59 h17 vSETOVD gSetOvd, BROWSE
-Gui, Add, CheckBox, x26 y100 h17 vJACKETMODE gDWNINJACK, Save into Jacket
-Gui, Add, CheckBox, x26 y118 h17 vOVDCHK gOvdChk, Override Save Directory
-Gui, Add, DDL, x87 y135 w254 vOVDLDS gOvDlds,|Matching||%systmfldrs%
-Gui, Add, Edit, x23 y157 +Wrap w318 h55 vOVDTXT Disabled,
+Gui, Add, Button, x25 y157 w59 h17 vSETOVD gSetOvd disabled, BROWSE
+Gui, Add, CheckBox, x26 y100 h15 vJACKETMODE gDWNINJACK, Save into Jacket
+Gui, Add, Edit, x26 y116 h21 w218 vRNMJACK gRNMJACK hidden
+Gui, Add, CheckBox, x26 y138 h17 vOVDCHK gOvdChk, Override Save Directory
+Gui, Add, DDL, x87 y155 w254 vOVDLDS gOvDlds disabled,|Matching||%systmfldrs%
+Gui, Add, Edit, x23 y177 +Wrap w318 h35 vOVDTXT Disabled,
 
 Gui, Font,%fontXmed% Bold
 Gui, Add, Text, cred x218 y4 w531 h15 vARCDET Center,
@@ -3635,6 +3637,7 @@ CHECKFRAMES_TT :="Increase this number the further away you are from your partne
 CHEMUINST_TT :="Select a destination directory for the selected emulator.`n The emulator will be installed into its own folder"
 CINC_TT :="Currently Installed Cores"
 CLIENTSWITCH_TT :="Connect to hosts."
+RNMJACK_TT :="RE/Name of the Jacket`n**  if not empty, all selected files will be saved to this jacket name **`nThe File-Name will be used if this field is empty"
 CLIPURL_TT :="Copies the currently selected ROM's URL to the clipboard"
 CLRCUROM_TT := "Clear the currently selected ROM's settings and core."
 CLRDDL_TT :="Define the color of menu and video display items."
@@ -5016,7 +5019,7 @@ if (multsrch = 1)
 	{
 		return
 	}
-if (arcpnum > 1)
+if (arcpnum <> 1)
 	{
 		return
 	}
@@ -10539,26 +10542,31 @@ rjinsfldr=
 rjdwnfldr= 
 if (JACKETMODE = 1)
 	{
-		rjinsfldr= %romnmspl%\
+		guicontrolget,RNMJACK,,RNMJACK
+		rjinsfldr= %romnmspl%\		
+		if (RNMJACK <> "")
+			{
+				rjinsfldr= %RNMJACK%\
+			}
 		if (RJCHKJ = 1)
 			{
 				StringGetPos, fldrdlmt, rjinsfldr,%RJCNSLDD%
 				stringtrimright,rjdwnfldr,rjinsfldr,%fldrdlmt%
 				rjinsfldr= %rjdwnfldr%
 			}
-			IfNotExist,%RJSYSTEMS%\%romsys%\%rjinsfldr%
-				{
-					updtguirst= 	
-					ifnotexist,%RJSYSTEMS%\%romsys%
-						{
-							updtguirst= 1
-						}
-					FileCreateDir,%RJSYSTEMS%\%romsys%\%rjinsfldr%
-					if (updtguirst = 1)
-						{
-							gosub, RJSYSRESET
-						}
-				}
+		IfNotExist,%RJSYSTEMS%\%romsys%\%rjinsfldr%
+			{
+				updtguirst= 	
+				ifnotexist,%RJSYSTEMS%\%romsys%
+					{
+						updtguirst= 1
+					}
+				FileCreateDir,%RJSYSTEMS%\%romsys%\%rjinsfldr%
+				if (updtguirst = 1)
+					{
+						gosub, RJSYSRESET
+					}
+			}
 	}
 save= %raexeloc%\downloads\%romsys%\%rjinsfldr%%dwnlchk%
 if (httpchk = "http")
@@ -10772,7 +10780,7 @@ EXELIST= 1
 gosub, STABLE
 EXELIST= 0
 RALIST= 1
-SLCTCORES= 4do_libretro.dll.zip|bluemsx_libretro.dll.zip|desmume_libretro.dll.zip|doxbox_libretro.dll.zip|fbalpha2012_libretro.dll.zip|freeintv_libretro.dll.zip|gambatte_libretro.dll.zip|genesis_plus_gx_libretro.dll.zip|pcsx_rearmed_libretro.dll.zip|handy_libretro.dll.zip|mame_libretro.dll.zip|mednafen_ngp_libretro.dll.zip|mednafen_pce_fast_libretro.dll.zip|mdednafen_pcfx_libretro.dll.zip|mednafen_psx_libretro.dll.zip|mednafen_supergrafx_libretro.dll.zip|mednafen_vb_libretro.dll.zip|mednafen_wsawn_libretro.dll.zip|mgba_libretro.dll.zip|nestopia_libretro.dll.zip|parallel_n64_libretro.dll.zip|picodrive_libretro.dll.zip|prosystem_libretro.dll.zip|snes9x_libretro.dll.zip|stella_libretro.dll.zip|virtualjaguar_libretro.dll.zip|crocods_libretro.dll.zip|px68k_libretro.dll.zip|openlara_libretro.dll.zip|atari800_libretro.dll.zip|np2kai_libretro.dll.zip|vice_x64_libretro.dll.zip|vice_xplus4_libretro.dll.zip|vice_xvic_libretro.dll.zip|pokemini_libretro.dll.zip|reicast_libretro.dll.zip|mednafen_saturn_libretro.dll.zip
+SLCTCORES= 4do_libretro.dll.zip|bluemsx_libretro.dll.zip|desmume_libretro.dll.zip|doxbox_libretro.dll.zip|fbalpha2012_libretro.dll.zip|freeintv_libretro.dll.zip|gambatte_libretro.dll.zip|genesis_plus_gx_libretro.dll.zip|pcsx_rearmed_libretro.dll.zip|handy_libretro.dll.zip|mame_libretro.dll.zip|mednafen_ngp_libretro.dll.zip|mednafen_pce_fast_libretro.dll.zip|mdednafen_pcfx_libretro.dll.zip|mednafen_psx_libretro.dll.zip|mednafen_supergrafx_libretro.dll.zip|mednafen_vb_libretro.dll.zip|mednafen_wswawn_libretro.dll.zip|mgba_libretro.dll.zip|nestopia_libretro.dll.zip|parallel_n64_libretro.dll.zip|picodrive_libretro.dll.zip|prosystem_libretro.dll.zip|snes9x_libretro.dll.zip|stella_libretro.dll.zip|virtualjaguar_libretro.dll.zip|crocods_libretro.dll.zip|px68k_libretro.dll.zip|openlara_libretro.dll.zip|atari800_libretro.dll.zip|np2kai_libretro.dll.zip|vice_x64_libretro.dll.zip|vice_xplus4_libretro.dll.zip|vice_xvic_libretro.dll.zip|pokemini_libretro.dll.zip|reicast_libretro.dll.zip|mednafen_saturn_libretro.dll.zip
 if (ARCH = "64")
 	{
 		SLCTCORES .= "|" . "dolphin_libretro.dll.zip" . "|" . "citra_libretro.dll.zip"
@@ -20360,6 +20368,8 @@ if (ExpndASrch = "")
 		guicontrol,hide,arcutxt
 		guicontrol,hide,arcptxt
 		guicontrol,hide,ARCGSYS
+		guicontrol,move,SETOVD,x360 y136 w59 h17
+		guicontrol,move,OVDLDS,x430 y131 w254
 		guicontrol,move,ExpndASrch,x670 y55 w18 h18
 		guicontrol,move,SRCHRSLT,x24 y157 w710 h325
 		guicontrol,move,SRCHEDT,x350 y19 w310 h21
@@ -20381,6 +20391,8 @@ guicontrol,show,ARCGSYS
 guicontrol,,ExpndASrch,+
 guicontrol,enable,MAMESWCHK
 guicontrol,enable,ARCSYS
+guicontrol,move,SETOVD,x25 y157 w59 h17
+guicontrol,move,OVDLDS,x87 y155 w254
 guicontrol,move,ExpndASrch,x326 y316 w18 h18
 guicontrol,move,SearchArc,x32 y312 w75 h23
 guicontrol,move,SRCHRSLT,x24 y344 w320 h158
@@ -20650,6 +20662,8 @@ if (ROMFLDR = "")
 		if (DOWNONLY = 0)
 			{
 				guicontrol,,OVDCHK,0
+				guicontrol,disable,SETOVD
+				guicontrol,disable,OVDLDS
 			}
 		
 	}
@@ -20662,27 +20676,31 @@ if (romsys = "")
 
 if (JACKETMODE = 1)
 	{
-		rjinsfldr= %romname%\
+		guicontrolget,RNMJACK,,RNMJACK
+		rjinsfldr= %romname%\		
+		if (RNMJACK <> "")
+			{
+				rjinsfldr= %RNMJACK%\
+			}
 		if (RJCHKJ = 1)
 			{
 				StringGetPos, fldrdlmt, rjinsfldr,%RJCNSLDD%
 				stringtrimright,rjdwnfldr,rjinsfldr,%fldrdlmt%
 				rjinsfldr= %rjdwnfldr%
 			}
-			
-			IfNotExist,%RJSYSTEMS%\%romsys%\%rjinsfldr%
-				{
-					updtguirst= 	
-					ifnotexist,%RJSYSTEMS%\%romsys%
-						{
-							updtguirst= 1
-						}
-					FileCreateDir,%RJSYSTEMS%\%romsys%\%rjinsfldr%
-					if (updtguirst = 1)
-						{
-							gosub, RJSYSRESET
-						}
-				}
+		IfNotExist,%RJSYSTEMS%\%romsys%\%rjinsfldr%
+			{
+				updtguirst= 	
+				ifnotexist,%RJSYSTEMS%\%romsys%
+					{
+						updtguirst= 1
+					}
+				FileCreateDir,%RJSYSTEMS%\%romsys%\%rjinsfldr%
+				if (updtguirst = 1)
+					{
+						gosub, RJSYSRESET
+					}
+			}
 
 	}
 
@@ -20777,13 +20795,31 @@ fnne=
 
 gui, submit, nohide
 guicontrol,,DOWNONLY,0
+guicontrol,,CUSTMOPT,|%INJOPT%
+guicontrol,,CUSTMARG,|
+guicontrol,hide,CUSTMOPT
+guicontrol,hide,CUSTMARG
+guicontrol,,REDWN,0
 guicontrol,,OVDCHK,0
+guicontrol,,EXTRURL,0
+guicontrol,,RUNXTRACT,0
+guicontrol,,CUSTSWITCH,0
+guicontrol,,EXTEXPLD,0
+guicontrol,,JACKETMODE,0
+guicontrol,,RNMJACK,
+guicontrol,hide,RNMJACK
 gosub, OvdChk
 BRKO= 1
 guicontrol,,SRCHRSLT,|
 guicontrol,,ARCPOP,|
 gui, submit, nohide
 guicontrolget,ARCSYS,,ARCSYS
+if (ARCYS = "Select a System")
+	{
+		guicontrol,,ARCCORES,|Select_a_Core||%runlist%
+		guicontrol,,ARCPOP,|
+		return
+	}
 if (ARCSYS = "Microsoft - DOS")
 	{
 		cmdfun= 1
@@ -20868,6 +20904,8 @@ if (ARCSYS = "BIOS")
 		guicontrol,,OVDTXT,%OVDFLDR%
 		guicontrol,,OVDLDS,|%OVDFLDR%||Matching|%systmfldrs%
 		guicontrol,,OVDCHK,1
+		guicontrol,enable,OVDLDS
+		guicontrol,enable,SETOVD
 		guicontrol,,DOWNONLY,1
 		gosub, DOWNONLY
 		guicontrol,,EXTRURL,0
@@ -20879,6 +20917,14 @@ if (ARCSYS = "MAME - BIOS")
 if (ARCSYS = "_firmware_")
 	{
 		gosub, MAMEBIOSFIRM
+	}
+if (ARCSYS = "Sony - Playstation")
+	{
+		guicontrol,,EXTRURL,1
+		guicontrol,,RUNXTRACT,1
+		guicontrol,,JACKETMODE,1
+		gosub, ExtractURL
+		guicontrol,,EXTEXPLD,0
 	}
 if (ARCSYS = "Sony - Playstation 2")
 	{
@@ -20938,6 +20984,8 @@ if (OVDFLDR = "")
 		return
 	}
 guicontrol,,OVDCHK,1
+guicontrol,enable,OVDLDS
+guicontrol,enable,SETOVD
 guicontrol,,OVDLDS,|Matching||%systmfldrs%
 guicontrol,,OVDTXT,%OVDFLDR%
 return
@@ -20948,6 +20996,8 @@ guicontrolget,JACKETMODE,,JACKETMODE
 if (JACKETMODE = 0)
 	{
 		guicontrol,,EXTEXPLD,0
+		guicontrol,hide,RNMJACK
+		guicontrol,,RNMJACK,
 		guicontrolget,tmparcc,,ARCCORES
 		ifinstring, tmparcc,_libretro
 			{
@@ -20958,8 +21008,20 @@ if (JACKETMODE = 1)
 	{		
 		guicontrol,,EXTEXPLD,1
 		OVDFLDR= %OVDFLDR%\$ROMJACKET$
+		guicontrol,show,RNMJACK
 	}
 IniWrite, "%JACKETMODE%", Settings.ini,GLOBAL,jacket_mode
+return
+
+RNMJACK:
+gui,submit,nohide
+if (DWNINJACK = 0)
+	{
+		guicontrol,,RNMJACK,
+		RNMJACK= 
+		return
+	}
+guicontrolget,RNMJACK,,RNMJACK
 return
 
 OvdChk:
@@ -20967,6 +21029,8 @@ gui,submit,nohide
 guicontrolget,OVDHCK,,OVDCHK
 if (OVDCHK = 1)
 	{
+		guicontrol,enable,SETOVD
+		guicontrol,enable,OVDLDS
 		guicontrol,,OVDLDS,|Netplay||Matching|%systmfldrs%
 		if (OVDFLDR = "")
 			{
@@ -20982,6 +21046,8 @@ if (OVDCHK = 1)
 
 if (OVDCHK = 0)
 	{
+		guicontrol,disable,SETOVD
+		guicontrol,disable,OVDLDS
 		guicontrol,,OVDLDS,|Matching||%systmfldrs%
 		guicontrol,,OVDTXT,
 		OVDFLDR= 
@@ -20991,6 +21057,8 @@ return
 OvDlds:
 gui, submit, nohide
 guicontrol,,OVDCHK,1
+guicontrol,enable,OVDLDS
+guicontrol,enable,SETOVD
 guicontrolget,ovdnm,,OVDLDS
 OVDFLDR= %RJSYSTEMS%\%ovdnm%
 guicontrol,,OVDTXT,%OVDFLDR%
@@ -20998,6 +21066,7 @@ if (OVDLDS = "Matching")
 	{
 		guicontrol,,OVDCHK,0
 		gosub,OvdChk
+		guicontrol,,OVDTXT,%RJSYSTEMS%\%ARCSYS%\
 	}
 return
 
@@ -21259,6 +21328,8 @@ if (ROMFLDR = "")
 		if (DOWNONLY = 0)
 			{
 				guicontrol,,OVDCHK,0
+				guicontrol,disable,SETOVD
+				guicontrol,disable,OVDLDS
 			}
 	}
 
@@ -21282,7 +21353,12 @@ if (OVDCHK = 1)
 
 if (JACKETMODE = 1)
 	{
-		rjinsfldr= %rommatch2%\
+		guicontrolget,RNMJACK,,RNMJACK
+		rjinsfldr= %rommatch2%\		
+		if (RNMJACK <> "")
+			{
+				rjinsfldr= %RNMJACK%\
+			}
 		if (RJCHKJ = 1)
 			{
 				StringGetPos, fldrdlmt, rjinsfldr,%RJCNSLDD%
@@ -26896,6 +26972,8 @@ OVDFLDR= %mamepth%\roms
 guicontrol,,OVDTXT,%OVDFLDR%
 guicontrol,,OVDLDS,|%OVDFLDR%||Matching|%systmfldrs%
 guicontrol,,OVDCHK,1
+guicontrol,enable,OVDLDS
+guicontrol,enable,SETOVD
 guicontrol,,DOWNONLY,1
 gosub, DOWNONLY
 guicontrol,,EXTRURL,0
@@ -42631,7 +42709,7 @@ if (ccv = "fbalpha2012")
 if (ccv = "fbalpha2012_neogeo")
 	{
 		szip= 1
-		corcfgnam= FB Alpha 2012 NeoGeo
+		corcfgnam= FB Alpha 2012 Neo Geo
 	    return
     }
 if (ccv = "fbalpha")
@@ -42661,7 +42739,7 @@ if (ccv = "fb_alpha")
 if (ccv = "fb_alpha_neo")
 	{
 		szip= 1
-		corcfgnam= FB Alpha NeoGeo
+		corcfgnam= FB Alpha Neo Geo
 	    return
     }
 if (ccv = "fuse")
@@ -43093,7 +43171,7 @@ if (syslk = "FB Alpha 2012")
 		corelk= fbalpha2012
 	    return
 }
-if (syslk = "FB Alpha 2012 NeoGeo")
+if (syslk = "FB Alpha 2012 Neo Geo")
 	{
 		ASPOP= SNK - Neo Geo MVS
 		szip= 1
@@ -49715,6 +49793,7 @@ guicontrol, ,NETHINFO
 guicontrol, ,ARCDET
 BRKO= 1
 FileDelete,lobby.ini
+guicontrol,disable,NETHOSTLIST
 LV_Delete()
 HOSTSELECT= 
 guicontrol,,AUTOCORE,1
@@ -49722,6 +49801,7 @@ guicontrol,,FORCEROM,0
 guicontrol,disable,NETCONNECT
 guicontrol,disable,ARCNCT
 gosub, NewLobby
+guicontrol,enable,NETHOSTLIST
 SB_SetText("Netplay Lobby Populated")
 return
 

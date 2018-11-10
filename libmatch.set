@@ -13,6 +13,7 @@ mame_libretro.dll|Tiger - Game COM
 mame_libretro.dll|Acorn - Electron
 mame_libretro.dll|Entex - Adventure Vision
 mame_libretro.dll|Emerson - Arcadia
+mame_libretro.dll|RCA - CHIP 8
 mame_libretro.dll|RCA - Studio II
 mame_libretro.dll|Fujitsu - FM Towns
 mame_libretro.dll|NEC - PC88
@@ -471,8 +472,6 @@ vbam_libretro.dll|Nintendo - Game Boy Advance
 vecx_libretro.dll|GCE - Vectrex
 virtualjaguar_libretro.dll|Atari - Jaguar
 vice_x64_libretro.dll|Commodore - 64
-vice_x64_libretro.dll|Commodore - 64 (PP)
-vice_x64_libretro.dll|Commodore - 64 (Tapes)
 vice_xplus_libretro.dll|Commodore - Plus4
 vice_x64_libretro.dll|Commodore - VIC10
 vice_xvic_libretro.dll|Commodore - VIC-20
