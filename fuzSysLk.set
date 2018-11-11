@@ -2,12 +2,14 @@
 *APF*Imag*|*imagination*ma*>APFIMG
 *GCE*|*Vectrex*>GVEXTR
 *Taito*Type*|*TYPE*X*>TAITOTX
+*Apricot*>APRIC
+*Super Six*|*Super 6>SUPRSIX
 *Acorn*BBC*>ACBBC
 *archimedes*>ACARC
 *Electron*>ACELEC
 *Archimedes*>ACARC
 *SamCoupe*|Sam Coupe*>MSAMC
-*apple*2e*|*apple*II*e*>APL2E
+*apple*2e*|*apple*IIe*|*apple II e*>APL2E
 *apple*2*gs*|*apple*II*gs*>APL2GS
 *Atari*800*>AT8H
 *Macintosh*>APLMAC
@@ -41,8 +43,12 @@ neo*pocket*color*>SNEOPKTC
 *NEO*MVS*|*NEO*AES*|*neo*geo*>SNEOMVS
 *flash*|*adobe*>AFLASH
 *windows*|*win32*>WIN32
-*amiga*500|*amiga*1*>AMIG
-*amiga*cd*32*>AMIGCD32
+*amiga*500|*amiga>AMIG
+*amiga*1000|*amiga 1K>AMIG1K
+*amig*1200>AMIG12
+*amig*2000|*amig*2K*>AMIG2K
+*amig*3000|*amig*3K*>AMIG3K
+*amig*cd*32*>AMIGCD32
 *mattel*intellivision*|*intellivision*>MINTEL
 *coleco*vision>COLECO
 *2600*|*atari*26*|*a*26*>AT26
@@ -71,6 +77,7 @@ DOS|*microsoft*dos*|*ms*dos*|*d.o.s*|*dosbox*>MSDOS
 *super*grafx*>NSGX
 *Fujitsu*Micro*|FM*7*>FFM7
 *SG*1*>SSG1K
+*Apollo*>APOLLO
 *odyss*3>MODYS3
 *odyss*2>MODYS2
 *odyssey*>MODYS
@@ -95,9 +102,12 @@ DOS|*microsoft*dos*|*ms*dos*|*d.o.s*|*dosbox*>MSDOS
 *game*boy*>NNGB
 *famicom*>NNFAM
 *famicom*disk*>NNFDS
+*snes*pal*|Super*Nes*pal*|*Super Nintendo*pal*>NSNESPAL
+*NES*PAL*|*Nintendo Entertainment System*PAL*>NESPAL
 *snes*|Super*Nes*|*Super Nintendo*>NSNES
 *NES*|*Nintendo Entertainment System*>NNES
 *super*famicom*>NSFAM
+*nintendo*Switch*>NSWITCH
 *pc-fx*|*pcfx*>NPCFX
 *pc*98*>NPC98
 *mega*drive*|*genesis*>SMEGAD
@@ -128,6 +138,7 @@ mame|arcade*>MAMARC
 *model*3*>SMOD3
 *model*2*>SMOD2
 *PC*88*>NPC88
+*pippin>BPIPN
 *naomi*>SNAOMI
 *SHARP*X1*|*sharp*x-1>SHARPX1
 *zx*81*>SINZX81
