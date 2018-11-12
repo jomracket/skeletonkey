@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-10 4:54 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-11 9:30 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-11-10 4:54 PM
-VERSION= v0.99.65.77
+RELEASE= 2018-11-11 9:30 PM
+VERSION= v0.99.65.78
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -1494,6 +1494,7 @@ Menu, BDRCLMENU, Add, Delete Bios Cache, BIOSREMFESEL
 
 Menu, EMURCLMENU, Add, Clear Emulator, EMUREMFESEL
 Menu, EMURCLMENU, Add, Delete Emulator, EMUDELFESEL
+Menu, EMURCLMENU, Add, Update Emulator, EMUUPDTSEL
 
 Menu, FERCLMENU, Add, Toggle Selection, TOGFESEL
 
@@ -2075,8 +2076,9 @@ Gui, Add, ListBox, x258 y22 w198 h316 -LV0x20 Altsubmit HWNDnocrsl vCRNTCORS gNo
 Gui, Add, Radio, x123 y463 h14 vEXELIST gExeList hidden, Parts
 Gui, Add, Radio, x71 y463 h14 Checked vRALIST gRaList hidden, Cores
 Gui,Font,%fontXmed% Bold
-Gui, Add, DropDownList, x9 y485 w110 vSaList gSaList,Systems||Emulators|RetroArch|Utilities|Frontends
-Gui, Add, Text, x145 y485 w80 h15,Installers
+Gui, Add, DropDownList, x65 y485 w110 vSaList gSaList,Systems||Emulators|RetroArch|Utilities|Frontends
+Gui, Add, Text, x9 y490 h15,Installers
+Gui, Add, Text, x180 y490 h15,Installers
 Gui,Font,%fontXsm% Bold
 
 Gui, Add, GroupBox, x465 y6 w275 h358 vSKRAstch, Skeletonkey-System-Associations
@@ -35782,6 +35784,12 @@ SB_SetText("Deleteing BIOS cache")
 FileRemoveDir, %cacheloc%\bios,1
 FileRemoveDir, %cacheloc%\firmware,1
 SB_SetText("BIOS cache cleared")
+return
+
+
+EMUUPDTSEL:
+gosub, EMUDELFESEL
+gosub, EmuInst
 return
 
 EMUDELFESEL:
