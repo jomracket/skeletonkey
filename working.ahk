@@ -20920,6 +20920,10 @@ if (ARCSYS = "_firmware_")
 	{
 		gosub, MAMEBIOSFIRM
 	}
+if (ARCSYS = "Open - Beats of Rage")
+	{
+		guicontrol,,JACKETMODE,1
+	}
 if (ARCSYS = "Sony - Playstation")
 	{
 		guicontrol,,EXTRURL,1
@@ -21367,6 +21371,12 @@ if (JACKETMODE = 1)
 				stringtrimright,rjdwnfldr,rjinsfldr,%fldrdlmt%
 				rjinsfldr= %rjdwnfldr%
 			}
+				
+		if (ARCSYS = "Open - Beats of Rage")
+			{
+				rjinsfldr.= "Paks\"
+			}	
+			
 		IfNotExist,%ACSVDEST%\%rjinsfldr%
 			{
 				updtguirst= 	

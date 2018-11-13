@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-12 9:31 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-13 11:57 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-11-12 9:31 PM
-VERSION= v0.99.65.78
+RELEASE= 2018-11-13 11:57 AM
+VERSION= v0.99.65.79
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -20920,6 +20920,10 @@ if (ARCSYS = "_firmware_")
 	{
 		gosub, MAMEBIOSFIRM
 	}
+if (ARCSYS = "Open - Beats of Rage")
+	{
+		guicontrol,,JACKETMODE,1
+	}
 if (ARCSYS = "Sony - Playstation")
 	{
 		guicontrol,,EXTRURL,1
@@ -21367,6 +21371,12 @@ if (JACKETMODE = 1)
 				stringtrimright,rjdwnfldr,rjinsfldr,%fldrdlmt%
 				rjinsfldr= %rjdwnfldr%
 			}
+				
+		if (ARCSYS = "Open - Beats of Rage")
+			{
+				rjinsfldr.= "Paks\"
+			}	
+			
 		IfNotExist,%ACSVDEST%\%rjinsfldr%
 			{
 				updtguirst= 	
