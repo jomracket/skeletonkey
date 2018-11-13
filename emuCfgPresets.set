@@ -513,6 +513,10 @@ RJLNCHP=0
 [Apollo]
 RJLNCHP=0
 
+[OpenBOR]
+RJEMUOPTS=<
+RJLNCHP=0
+
 [SWFOpener]
 RJEMUOPTS=<-full -sa<
 RJLNCHP=0
@@ -1756,6 +1760,10 @@ RJEMUPRESET=MAME
 RJMAMENM=svision
 RJROMXT=.bin,.ws,.sv,.zip
 MAME?RJEMUOPTS=<svisionn -[RJRTYP]<|<svisionn -cart<|<svisionp -cart<|<svisions -cart<|<svision -cart<
+
+[Open - Beats of Rage]
+RJEMUPRESET=BSL
+RJROMXT=.lnk,.exe,.bat,.cmd,.jar,.bor,.pak
 
 [Windows - Games]
 RJEMUPRESET=BSL

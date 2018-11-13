@@ -71,6 +71,7 @@ No$GBA=No$GBA/No$GBA.7z=No$GBA.exe=No$GBA.ini|NoZoomer.ini
 Nostalgia=Nostalgia/Nostalgia.7z=Nostalgia.exe=ini
 NullDC=NullDC/NullDC.7z=nullDC_Win32_Release.exe=NullDC.cfg=*.bin
 Ootake=Ootake/Ootake.7z=Ootake.exe=Ootake.dat
+openbeatsofrage/openbeatsofrage.7z=OpenBOR.exe=
 PC6001VW=PC6001VW/PC6001VW.7z=p6snap.exe=
 PC6001VX=PC6001VX/PC6001VX.7z=PC6001VX.exe=
 PPSSPP=PPSSPP/PPSSPP-[ARCH].7z=PPSSPPWindows[ARCH].exe=memstick\PSP\SYSTEM\ppsspp.ini|memstick\PSP\SYSTEM\controls.ini=memstick\PSP\SAVEDATA\*=memstick\PSP\PPSSPP_STATE\*

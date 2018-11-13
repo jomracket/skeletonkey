@@ -14420,7 +14420,7 @@ ifnotexist, %cacheloc%\%updtmsg%
 		GuiControl, Disable, CNCLBTN
 		return
 	}
-	
+Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
 Guicontrol, ,DWNPRGRS, 0
 SB_SetText(" ")
 gosub, XTRACTRA

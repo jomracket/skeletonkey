@@ -4,11 +4,11 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-11 9:30 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-12 9:31 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-11-11 9:30 PM
+RELEASE= 2018-11-12 9:31 PM
 VERSION= v0.99.65.78
 RASTABLE= 1.7.5
 #Include tf.ahk
@@ -14420,7 +14420,7 @@ ifnotexist, %cacheloc%\%updtmsg%
 		GuiControl, Disable, CNCLBTN
 		return
 	}
-	
+Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
 Guicontrol, ,DWNPRGRS, 0
 SB_SetText(" ")
 gosub, XTRACTRA
