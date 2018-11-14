@@ -19,6 +19,7 @@ Amstrad - PC1512 SD|WinApe|arnold|caprice|MAME|:mame_libretro.dll
 Amstrad - PC1640 SD|WinApe|arnold|caprice|MAME|:mame_libretro.dll
 Amstrad - PcW16|WinApe|arnold|caprice|MAME|:mame_libretro.dll
 Amstrad - PcW|joyce|WinApe|arnold|caprice|MAME|:mame_libretro.dll
+Android - Android|Nox|Bluestacks|:mame_libretro.dll
 Apogee - BK-01|EMU|MAME|:mame_libretro.dll
 Apollo - Apollo|MAME|:mame_libretro.dll
 Apple - Bandai - Pippin|MAME|:mame_libretro.dll
@@ -56,7 +57,6 @@ Bandai - Super Note Club|MAME|:mame_libretro.dll
 Bandai - Super Vision 8000|MAME|:mame_libretro.dll
 Bandai - WonderSwan Color|oswan|Mednafen|Bizhawk|xe|bws|MAME|:mednafen_wswan_libretro.dll|mame_libretro.dll
 Bandai - WonderSwan|oswan|Mednafen|Bizhawk|bws|xe|MAME|:mednafen_wswan_libretro.dll|mame_libretro.dll
-Beats of Rage|BOR
 Belogic - Uzebox|MAME|:mame_libretro.dll
 Benesse Corporation - Pocket Challenge V2|MAME|:mame_libretro.dll
 Benesse Corporation - Pocket Challenge W|MAME|:mame_libretro.dll

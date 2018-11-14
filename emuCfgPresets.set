@@ -270,6 +270,9 @@ RJPRECFG=copy /y "*.ini" "%EMUL%"|copy /y ".Mem\*.*" "%EMUL%"|copy /y ".sstates\
 RJPOSTCFG=copy /y "%EMUL%\*.ini"|copy /y "%EMUL%\*.sav" "%GAMDIR%\.Mem"|copy /y "%EMUL%\*.ss" "%GAMDIR%\.sstates"
 RJLNCHP=0
 
+[Nox]
+RJLNCHP= 
+
 [Arculator]
 RJPRECFG=copy /y "arc.cfg" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\arc.cfg" "%GAMDIR%"
@@ -1437,6 +1440,10 @@ BlueMSX?RJEMUOPTS=</fullscreen /machine "SEGA -SG-1000" /rom1<|</machine "SEGA -
 RJROMXT=.bin,.sg,.zip,.wav,.bit,.sms
 MAME?RJEMUOPTS=<sg1000m2 -cart<|<sg1000m2 -cass<|<sg1000m3 -cart<|<sg1000m3 -card<|<sg1000 -cart<
 RJZIPPEEK=0
+
+[Android - Android]
+RJEMUPRESET=Nox
+RJROMXT=.apk
 
 [Sega - STV]
 RJEMUPRESET=SSF

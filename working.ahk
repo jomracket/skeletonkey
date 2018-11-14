@@ -1550,7 +1550,7 @@ Menu, PLEDTMENU, Add,Swap:=->, PLEDITCORE
 Menu, ARCART, Add, Download Assets , ARCGSNP
 Menu, ARCART, Add
 
-Menu, ARCART, Add, Download Assets, ARCGBOX
+Menu, ARCART, Add, Download BoxArt, ARCGBOX
 Menu, ARCART, Add
 Menu, ARCART, Add, Download Fan-Art, ARCGFAN
 Menu, ARCART, Add
@@ -20923,6 +20923,10 @@ if (ARCSYS = "_firmware_")
 if (ARCSYS = "Open - Beats of Rage")
 	{
 		guicontrol,,JACKETMODE,1
+		guicontrol,,EXTRURL,1
+		guicontrol,,RUNXTRACT,1
+		gosub, ExtractURL
+		guicontrol,,EXTEXPLD,1
 	}
 if (ARCSYS = "Sony - Playstation")
 	{
@@ -29722,23 +29726,14 @@ if (FERAD2B = 1)
 
 if (FERAD2C = 1)
 	{
-		
 		Loop, Parse, FEItems,`n`r
 			{
 				if (A_LoopField = "")
 					{
 						continue
 					}
-				SYSROMD= %A_LoopField%
-				Loop, Parse,cursysthl,|
-					{
-						stringsplit,curspl,A_LoopField,=
-						if (curspl1 = SYSROMD)
-							{
-								SYSLKLOC= %curspl2%
-								break
-							}
-					}
+				SYSROMD= %FEDDLA%
+				SYSLKLOC= %RJSYSTEMS%\%SYSROMD%
 				REALSYS= %SYSROMD%
 				SCRPDIR= %SYSLKLOC%
 				SYSLKUP= %SYSROMD%
@@ -30188,6 +30183,26 @@ if (FERAD2C = 1)
 				stringsplit,ccnt,nsjak,([
 				ifnotexist, rj\scrapeArt\%SYSLKUP%
 					{
+						ifnotexist,rj\scrapeArt\%SYSLKUP%.7z
+							{
+								filereadline,dlprfx,arcorg.set,2
+								URLFILE= %dlprfx%/DATFILES/%SYSLKUP%.7z
+								ifinstring,dlprfx,github
+									{
+										urloc1= DATFILES
+										urloc2= %SYSLKUP%.7z
+										URLFILE= %dlprfx%/%urloc1%/raw/master/%urloc2%
+									}
+								save= rj\scrapeArt\%SYSLKUP%.7z
+								SB_SetText("Downloading " SYSLKUP " Metadata")
+								DownloadFile(URLFILE,save, True, True)
+								SB_SetText("Download Complete")	
+						ifnotexist,rj\scrapeArt\%SYSLKUP%.7z
+							{
+								SB_SetText("Download Failed")
+								return
+							}
+					}
 						SB_SetText("Extracting " SYSLKUP " metadata")
 						RunWait, %comspec% cmd /c " "7za.exe" e -y "rj\scrapeArt\%SYSLKUP%.7z" -O"rj\scrapeArt\%SYSLKUP%" ",,hide
 						SB_SetText(" " SYSLKUP " metadata extracted")
@@ -31620,7 +31635,6 @@ if (fromcfg = 1)
 	{				
 		return
 	}
-
 Gui,ListView,FELVA
 if (FERAD2B = 1)
 	{
@@ -31652,8 +31666,17 @@ if (FERAD2A = 1)
 	}
 if (FERAD2C = 1)
 	{
-
-	}
+		LV_Delete()
+		Loop, %RJSYSTEMS%\%FEDDLA%\*.*
+			{
+				if A_LoopFileAttrib contains H
+					{
+						continue
+					}
+				LV_Add("",A_LoopFileName)				
+			}
+		LV_ModifyCol()
+	}	
 return
 
 MediaFEDDLE:
@@ -31903,10 +31926,11 @@ return
 
 MediaFERAD2C:
 fromcfg= 
-guicontrol,,FEDDLA,|Systems||
+guicontrol,,FEDDLA,|Systems||%systmfldrs%
 gui,ListView,FELVA
 LV_Delete()
-Loop, Parse, cslst,|
+/*
+Loop, Parse, systmfldrs,|
 	{
 		if (A_LoopField = "")
 			{
@@ -31915,6 +31939,7 @@ Loop, Parse, cslst,|
 		LV_Add("",A_LoopField)	
 	}
 LV_ModifyCol()	
+*/
 guicontrol,hide,FERAD5A
 guicontrol,hide,FERAD5B
 guicontrol,hide,FETXTB
