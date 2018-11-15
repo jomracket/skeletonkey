@@ -12350,11 +12350,11 @@ Loop, Parse,UrlIndex,`n`r
 									{
 										continue
 									}
-								if (A_LoopField = "")
+								aef= % urloc%A_Index%
+								if (aef = "")
 									{
 										continue
 									}
-								aef= % urloc%A_Index%
 								ifinstring,aef,http:
 									{
 										URLFILE.= aef . "/"
