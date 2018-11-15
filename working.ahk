@@ -20566,7 +20566,7 @@ Loop, Parse, tmpsr,|
 		if (srchpnum > 1)
 			{
 				multsrch= 1
-				break
+				return
 			}
 		srchpopcul= %A_LoopField%	
 	}
@@ -20579,6 +20579,7 @@ if (DownOnly = 0)
 		GuiControl, Choose, SRCHRSLT, 0 
 		GuiControl, ChooseString, SRCHRSLT, %srchpopcul%
 	}	
+
 ARCRCLK= 
 guicontrol,enable,ARCLNCH
 URLFILE= 
@@ -20609,6 +20610,58 @@ if (ARCSYS = "ScummVM")
 		cmdfun= 1
 	}
 romelg= 
+
+gosub, GamFND
+
+gosub, ArcPPND	
+
+if (ROMFLDR = "")
+	{
+		if (DOWNONLY = 0)
+			{
+				guicontrol,,OVDCHK,0
+				guicontrol,disable,SETOVD
+				guicontrol,disable,OVDLDS
+			}
+		
+	}
+rjinsfldr= 
+rjdwnfldr= 
+if (romsys = "")
+	{
+		romsys= %ARCSYS%
+	}
+
+gosub, RomSavePPND
+
+gosub, GetCoreFromSys
+
+if (SRCHRSLT <> "")
+	{
+		if (IPADR <> "")
+			{
+				TGCN= 
+				guicontrolget,TGCN,,ARCCORES
+				if (TGCN <> "")
+					{
+						if (DOWNONLY = 0)
+							{
+								guicontrol, enable, ARCNCT
+								guicontrol, enable, ARCHOST
+								guicontrol,enable,ARCNCT
+								SB_SetText("")
+							}
+					}
+				if (TGCN = "")
+					{
+						SB_SetText(" Seletct a core to use and then select a ROM. ")
+					}
+			}
+		return	
+	}
+return
+
+GamFND:
 Loop, Read, gam\%ARCSYS%.gam
 	{
 		stringsplit,getpth,A_LoopReadLine,|
@@ -20633,6 +20686,9 @@ Loop, Read, gam\%ARCSYS%.gam
 				break	
 			}
 	}
+return	
+
+ArcPPND:
 loop, Parse, ArcOrgSet,`n`r
 	{
 		if (A_LoopField = "")
@@ -20659,23 +20715,9 @@ loop, Parse, ArcOrgSet,`n`r
 					}
 			}
 	}
-if (ROMFLDR = "")
-	{
-		if (DOWNONLY = 0)
-			{
-				guicontrol,,OVDCHK,0
-				guicontrol,disable,SETOVD
-				guicontrol,disable,OVDLDS
-			}
-		
-	}
-rjinsfldr= 
-rjdwnfldr= 
-if (romsys = "")
-	{
-		romsys= %ARCSYS%
-	}
+return	
 
+RomSavePPND:
 if (JACKETMODE = 1)
 	{
 		guicontrolget,RNMJACK,,RNMJACK
@@ -20733,32 +20775,7 @@ ifinstring,rompth,://
 	{
 		URLFILE= %rompth%
 	}
-
-gosub, GetCoreFromSys
-if (SRCHRSLT <> "")
-	{
-		if (IPADR <> "")
-			{
-				TGCN= 
-				guicontrolget,TGCN,,ARCCORES
-				if (TGCN <> "")
-					{
-						if (DOWNONLY = 0)
-							{
-								guicontrol, enable, ARCNCT
-								guicontrol, enable, ARCHOST
-								guicontrol,enable,ARCNCT
-								SB_SetText("")
-							}
-					}
-				if (TGCN = "")
-					{
-						SB_SetText(" Seletct a core to use and then select a ROM. ")
-					}
-			}
-		return	
-	}
-return
+return	
 
 CLRNETP:
 ARCRCLK=
@@ -20778,6 +20795,8 @@ if (MAMESWCHK = 1)
 guicontrol,,ARCSYS,|Select a System||%syslist%
 guicontrol,,SRCHDDL,|All||%syslist%
 return
+
+
 
 ArchiveSystems:
 guicontrol,disable,ARCLNCH
@@ -20925,6 +20944,7 @@ if (ARCSYS = "Open - Beats of Rage")
 		guicontrol,,JACKETMODE,1
 		guicontrol,,EXTRURL,1
 		guicontrol,,RUNXTRACT,1
+		guicontrol,show,RNMJACK
 		gosub, ExtractURL
 		guicontrol,,EXTEXPLD,1
 	}
@@ -20933,6 +20953,7 @@ if (ARCSYS = "Sony - Playstation")
 		guicontrol,,EXTRURL,1
 		guicontrol,,RUNXTRACT,1
 		guicontrol,,JACKETMODE,1
+		guicontrol,show,RNMJACK
 		gosub, ExtractURL
 		guicontrol,,EXTEXPLD,0
 	}
@@ -20941,6 +20962,7 @@ if (ARCSYS = "Sony - Playstation 2")
 		guicontrol,,EXTRURL,1
 		guicontrol,,RUNXTRACT,1
 		guicontrol,,JACKETMODE,1
+		guicontrol,show,RNMJACK
 		gosub, ExtractURL
 		guicontrol,,EXTEXPLD,0
 	}
@@ -21176,8 +21198,25 @@ if (ARCSEL = 2)
 	}
 if (tmpsr <> "")
 	{
+		if (multsrch = "")
+			{
+				tmpsr= 
+				goto, RomDownload
+			}
+		Loop, Parse, tmpsr,|
+			{
+				stringsplit,srchspl,A_LoopField,=
+				romfp= %srchspl2%
+				ARCSYS= %srchspl1%
+				romsys= %ARCSYS%
+				guicontrol,,ARCSYS,|%ARCSYS%||Select a System|%syslist%
+				gosub, GamFND
+				gosub, ArcPPND
+				gosub, RomSavePPND
+				gosub, RomDownload
+			}
 		tmpsr= 
-		goto, RomDownload
+		return	
 	}
 romf= 
 guicontrol,disable,ARCSYS
@@ -22003,6 +22042,16 @@ return
 
 ARCGBOX:
 gui,submit,nohide
+guicontrolget,SYSLKUP,,ARCSYS
+guicontrolget, bltoh,,ARCPOP
+guicontrol,,feDDLJ,|Media||XMB|Mirrored_Links|EmulationStation
+gosub, feDDLJ
+guicontrol,,FERAD2B,1
+gosub, ferad2b
+fromcfg= 1
+GuiControl,Choose,TABMENU,6
+guicontrol,,feDDLA,|%SYSLKUP%||Systems|%dispsup%
+
 getboxart= 1
 getbackdrop= 
 getsnapshot= 
@@ -22176,6 +22225,16 @@ return
 
 ARCGFAN:
 gui,submit,nohide
+guicontrolget,SYSLKUP,,ARCSYS
+guicontrolget, bltoh,,ARCPOP
+guicontrol,,feDDLJ,|Media||XMB|Mirrored_Links|EmulationStation
+gosub, feDDLJ
+guicontrol,,FERAD2B,1
+gosub, ferad2b
+fromcfg= 1
+GuiControl,Choose,TABMENU,6
+guicontrol,,feDDLA,|%SYSLKUP%||Systems|%dispsup%
+
 getboxart= 
 getbackdrop= 1
 getsnapshot= 
@@ -22187,6 +22246,16 @@ return
 
 ARCGLOG:
 gui,submit,nohide
+guicontrolget,SYSLKUP,,ARCSYS
+guicontrolget, bltoh,,ARCPOP
+guicontrol,,feDDLJ,|Media||XMB|Mirrored_Links|EmulationStation
+gosub, feDDLJ
+guicontrol,,FERAD2B,1
+gosub, ferad2b
+fromcfg= 1
+GuiControl,Choose,TABMENU,6
+guicontrol,,feDDLA,|%SYSLKUP%||Systems|%dispsup%
+
 getboxart= 
 getbackdrop= 
 getsnapshot= 
@@ -22198,6 +22267,16 @@ return
 
 ARCGVID:
 gui,submit,nohide
+guicontrolget,SYSLKUP,,ARCSYS
+guicontrolget, bltoh,,ARCPOP
+guicontrol,,feDDLJ,|Media||XMB|Mirrored_Links|EmulationStation
+gosub, feDDLJ
+guicontrol,,FERAD2C,1
+gosub, ferad2c
+fromcfg= 1
+GuiControl,Choose,TABMENU,6
+guicontrol,,feDDLA,|%SYSLKUP%||Systems|%dispsup%
+
 getboxart= 
 getbackdrop= 
 getsnapshot= 
@@ -28919,13 +28998,7 @@ gosub, FEUNPOP
 fetog= show
 ifnotexist, mediafe.ini
 	{
-		FileAppend,[GLOBAL]`n,mediafe.ini
-		FileAppend,[CONFIG]`n,mediafe.ini
-		FileAppend,[ORDER]`n,mediafe.ini
-		iniwrite,theGamesDB|OpenVGDB|ScreenScraper|arcadeitalia|mamedb|IARL,mediafe.ini,ORDER,system_order
-		iniwrite,400,mediafe.ini,CONFIG,Global_image_height
-		iniwrite,400,mediafe.ini,CONFIG,Global_image_width
-		iniwrite,png,mediafe.ini,CONFIG,Global_image_format
+		filecopy,mediafe.set,mediafe.ini
 	}
 iniread,imagefrmt,mediafe.ini,CONFIG,Global_image_format
 iniread,imageheight,mediafe.ini,CONFIG,Global_image_height
@@ -31397,8 +31470,8 @@ if (FEDDLC = "Global")
 					{
 						metimg= %A_LoopField%
 						iniwrite,%mediaordert%,mediafe.ini,ORDER,%metimg%
-						iniwrite,400,mediafe.ini,CONFIG,%metimg%_image_height
-						iniwrite,400,mediafe.ini,CONFIG,%metimg%_image_width
+						iniwrite,600,mediafe.ini,CONFIG,%metimg%_image_height
+						iniwrite,800,mediafe.ini,CONFIG,%metimg%_image_width
 						iniwrite,png,mediafe.ini,CONFIG,%metimg%_image_format
 					}
 			}
@@ -31409,10 +31482,10 @@ if (FEDDLC = "Global")
 	}
 mediaorder= %mediaordert%
 iniwrite,png,mediafe.ini,CONFIG,%FEDDLC%_image_format
-iniwrite,400,mediafe.ini,CONFIG,%FEDDLC%_image_width
-iniwrite,400,mediafe.ini,CONFIG,%FEDDLC%_image_height
-guicontrol,,FEEDTD, 400
-guicontrol,,FEEDTC, 400
+iniwrite,800,mediafe.ini,CONFIG,%FEDDLC%_image_width
+iniwrite,600,mediafe.ini,CONFIG,%FEDDLC%_image_height
+guicontrol,,FEEDTD, 600
+guicontrol,,FEEDTC, 800
 guicontrol,,FELBXA,|theGamesDB|OpenVGDB|ScreenScraper|arcadeitalia|mamedb|IARL
 iniwrite,%mediaorder%,mediafe.ini,ORDER,%FEDDLC%
 return
