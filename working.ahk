@@ -516,7 +516,7 @@ if (repoloc = "ERROR")
 	{
 		FileReadLine,repoloc,arcorg.set,2
 	}
-FilereadLine,scrsup,rj\ScrapeArt\supported.set,1
+FilereadLine,scrsup,supported.set,1
 Loop, Parse, scrsup,/
 	{
 		ifinstring,SysEmuSet,%A_LoopField%|
@@ -12338,8 +12338,18 @@ Loop, Parse,UrlIndex,`n`r
 					{
 						URLFILE= %repoloc%/%urloc1%/raw/master/%urloc2%
 					}
+				ifinstring,urloc2,://
+					{
+						URLFILE= %urloc2%
+					}
 				sb_settext(" " URLFILE " ")	
 				save=%cacheloc%\%urloc2%
+				ifinstring,urloc2,://
+					{
+						URLFILE= %urloc2%
+						sb_settext(" " URLFILE " ")	
+						save=%cacheloc%\%urloc1%.7z
+					}
 				if (selfnd = "Daemon_Tools")
 					{
 						save= %cacheloc%
@@ -31785,7 +31795,10 @@ MediaFEDDLC:
 guicontrolget,FEDDLC,,FEDDLC
 stringreplace,FEDDLC,FEDDLC,%A_Space%,,All
 stringreplace,FEDDLC,FEDDLC,-,,All
-
+ifnotexist,mediafe.ini
+	{
+		filecopy,mediafe.set,mediafe.ini
+	}
 iniread,imageheight,mediafe.ini,CONFIG,%FEDDLC%_image_height
 if (imageheight = "ERROR")
 	{

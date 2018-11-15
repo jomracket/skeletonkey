@@ -32,6 +32,7 @@ DCAlice=DCAlice/DCAlice.7z=dcalice.exe=dcalice.ini=
 wataroo=wataroo/wataroo.7z=Wataroo.exe=Wataroo.ini=
 mtxemu=mtxemu/mtxemu.7z=mtxemu.exe=
 speccy=speccy/speccy.7z=speccy.exe=
+StreetsOfRageRemake=StreetsOfRageRemake/StreetsOfRageRemake.7z=SorR.exe=mod\games\*.cfg
 ultimo=ultimo/ultimo.7z=Ultimox[ARCH].exe=
 oswan=oswan/oswan.7z=oswan.exe=oswan.ini=sram\*.*=sav\*.*=
 ASCD=ASCD/ASCD.7z=Ascd.exe=ascd.ini

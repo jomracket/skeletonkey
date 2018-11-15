@@ -189,6 +189,10 @@ RJPOSTCFG=copy /y "%EMUL%\Altirra.ini" "%GAMDIR%"
 RJRUNDIR=1
 RJLNCHP=0
 
+[StreetsOfRageRemake]
+RJRUNDIR=1
+RJLNCHP=0
+
 [WinVice]
 RJPRECFG=copy /y "vice.ini" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\vice.ini" "%GAMDIR%"
@@ -1447,6 +1451,9 @@ RJROMXT=.apk
 
 [Sega - STV]
 RJEMUPRESET=SSF
+
+[Streets Of Rage - Remake]
+RJEMUPRESET=StreetsOfRageRemake
 
 [Sega - Saturn]
 RJEMUPRESET=SSF
