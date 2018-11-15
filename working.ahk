@@ -12330,6 +12330,7 @@ Loop, Parse,UrlIndex,`n`r
 		urloc= 
 		urloc1= 
 		urloc2= 
+		cplstr= %A_LoopField%
 		stringsplit,urloc,A_LoopField,/
 		if (urloc1 = selfnd)
 			{
@@ -12338,17 +12339,31 @@ Loop, Parse,UrlIndex,`n`r
 					{
 						URLFILE= %repoloc%/%urloc1%/raw/master/%urloc2%
 					}
-				ifinstring,urloc2,://
-					{
-						URLFILE= %urloc2%
-					}
 				sb_settext(" " URLFILE " ")	
 				save=%cacheloc%\%urloc2%
-				ifinstring,urloc2,://
-					{
-						URLFILE= %urloc2%
-						sb_settext(" " URLFILE " ")	
+				ifinstring,cplstr,://
+					{						
+						URLFILE= 
+						Loop, %urloc0%
+							{
+								if (A_index = 1)
+									{
+										continue
+									}
+								if (A_LoopField = "")
+									{
+										continue
+									}
+								aef= % urloc%A_Index%
+								ifinstring,aef,http:
+									{
+										URLFILE.= aef . "/"
+										continue
+									}
+								URLFILE.= "/" . aef	
+							}
 						save=%cacheloc%\%urloc1%.7z
+						sb_settext(" " URLFILE " save file is " save "")	
 					}
 				if (selfnd = "Daemon_Tools")
 					{

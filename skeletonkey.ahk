@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-15 12:19 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-15 12:38 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-11-15 12:19 PM
-VERSION= v0.99.65.89
+RELEASE= 2018-11-15 12:38 PM
+VERSION= v0.99.65.90
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -12330,6 +12330,7 @@ Loop, Parse,UrlIndex,`n`r
 		urloc= 
 		urloc1= 
 		urloc2= 
+		cplstr= %A_LoopField%
 		stringsplit,urloc,A_LoopField,/
 		if (urloc1 = selfnd)
 			{
@@ -12338,17 +12339,31 @@ Loop, Parse,UrlIndex,`n`r
 					{
 						URLFILE= %repoloc%/%urloc1%/raw/master/%urloc2%
 					}
-				ifinstring,urloc2,://
-					{
-						URLFILE= %urloc2%
-					}
 				sb_settext(" " URLFILE " ")	
 				save=%cacheloc%\%urloc2%
-				ifinstring,urloc2,://
-					{
-						URLFILE= %urloc2%
-						sb_settext(" " URLFILE " ")	
+				ifinstring,cplstr,://
+					{						
+						URLFILE= 
+						Loop, %urloc0%
+							{
+								if (A_index = 1)
+									{
+										continue
+									}
+								if (A_LoopField = "")
+									{
+										continue
+									}
+								aef= % urloc%A_Index%
+								ifinstring,aef,http:
+									{
+										URLFILE.= aef . "/"
+										continue
+									}
+								URLFILE.= "/" . aef	
+							}
 						save=%cacheloc%\%urloc1%.7z
+						sb_settext(" " URLFILE " save file is " save "")	
 					}
 				if (selfnd = "Daemon_Tools")
 					{
