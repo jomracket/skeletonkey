@@ -757,6 +757,7 @@ FileInstall,rcedit32.exe,rcedit32.exe,1
 FileInstall,rcedit64.exe,rcedit64.exe,1
 FileInstall,Scraper.exe,Scraper.exe,1
 FileInstall,Skey-Deploy.exe,Skey-Deploy.exe,1
+FileInstall,streetsofrageremake.exe,streetsofrageremake.exe,1
 FileInstall,UnRAR.exe,UnRAR.exe,1
 FileInstall,Vdrive.exe,Vdrive.exe,1
 FileInstall,youtube-dl.exe,youtube-dl.exe,1
@@ -1084,6 +1085,7 @@ FileInstall,gam\Sony - Playstation 2.gam,gam\Sony - Playstation 2.gam,1
 FileInstall,gam\Sony - Playstation Portable.gam,gam\Sony - Playstation Portable.gam,1
 FileInstall,gam\Sony - Playstation.gam,gam\Sony - Playstation.gam,1
 FileInstall,gam\Sony - Pocketstation.gam,gam\Sony - Pocketstation.gam,1
+FileInstall,gam\Streets of Rage - Remake.gam,gam\Streets of Rage - Remake.gam,1
 FileInstall,gam\Tangerine - Microtan 65.gam,gam\Tangerine - Microtan 65.gam,1
 FileInstall,gam\Tangerine - Oric Atmos.gam,gam\Tangerine - Oric Atmos.gam,1
 FileInstall,gam\The 3DO Company - 3DO.gam,gam\The 3DO Company - 3DO.gam,1

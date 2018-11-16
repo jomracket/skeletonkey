@@ -1454,6 +1454,7 @@ RJEMUPRESET=SSF
 
 [Streets Of Rage - Remake]
 RJEMUPRESET=StreetsOfRageRemake
+RJROMXT=.sor
 
 [Sega - Saturn]
 RJEMUPRESET=SSF

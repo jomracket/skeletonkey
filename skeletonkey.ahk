@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-15 12:42 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-15 8:23 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-11-15 12:42 PM
-VERSION= v0.99.65.90
+RELEASE= 2018-11-15 8:23 PM
+VERSION= v0.99.65.91
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -20964,6 +20964,14 @@ if (ARCSYS = "_firmware_")
 	{
 		gosub, MAMEBIOSFIRM
 	}
+if (ARCSYS = "Streets of Rage - Remake")
+	{
+		guicontrol,,JACKETMODE,1
+		guicontrol,,EXTRURL,1
+		guicontrol,,RUNXTRACT,1
+		guicontrol,show,RNMJACK
+		gosub, ExtractURL
+	}
 if (ARCSYS = "Open - Beats of Rage")
 	{
 		guicontrol,,JACKETMODE,1
@@ -21439,7 +21447,6 @@ if (JACKETMODE = 1)
 				stringtrimright,rjdwnfldr,rjinsfldr,%fldrdlmt%
 				rjinsfldr= %rjdwnfldr%
 			}
-				
 		if (ARCSYS = "Open - Beats of Rage")
 			{
 				rjinsfldr.= "Paks\"
