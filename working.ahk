@@ -2986,14 +2986,16 @@ Gui, Add, ListBox, x24 y344 w320 h158 +Multi +HScroll HWNDsrchpopu vSRCHRSLT gAr
 Gui, Add, Progress, x742 y20 w10 h459 Vertical -Smooth vARCDPRGRS, 0
 Gui, Add, ListBox, x350 y19 w388 h459 +Multi +HScroll HWNDarcpopu vARCPOP gArcPopulateList,
 
-Gui, Add, Button, x350 y480 w61 h17 vCLIPURL gClipURL, CLIP URL
-Gui, Add, CheckBox, x256 y100 h17 vEXTRURL gExtractURL, Extract File
-Gui Add, CheckBox, x266 y119 w58 h17 vEXTEXPLD gEXTEXPLD hidden, explode
-Gui, Add, CheckBox, x240 y138 w105 h17 vRUNXTRACT gRunXtract Checked Hidden, Run extracted file
+Gui, Add, Button, x350 y480 w61 h15 vCLIPURL gClipURL, CLIP URL
+Gui, Add, CheckBox, x26 y100 h15 vEXTRURL gExtractURL,Extract ROM
+Gui Add, CheckBox, x110 y100 h15 vEXTEXPLD gEXTEXPLD hidden, explode
+Gui, Add, CheckBox, x170 y100 h15 vRUNXTRACT gRunXtract Checked Hidden, Run ROM
+Gui, Add, Checkbox, x262 y100 h15 vArcMove hidden,cleanup
+
 
 Gui, Add, Button, x25 y157 w59 h17 vSETOVD gSetOvd disabled, BROWSE
-Gui, Add, CheckBox, x26 y100 h15 vJACKETMODE gDWNINJACK, Save into Jacket
-Gui, Add, Edit, x26 y116 h21 w218 vRNMJACK gRNMJACK hidden
+Gui, Add, CheckBox, x26 y119 h15 vJACKETMODE gDWNINJACK,Jacketize
+Gui, Add, Edit, x96 y116 h21 w218 vRNMJACK gRNMJACK hidden
 Gui, Add, CheckBox, x26 y138 h17 vOVDCHK gOvdChk, Override Save Directory
 Gui, Add, DDL, x87 y155 w254 vOVDLDS gOvDlds disabled,|Matching||%systmfldrs%
 Gui, Add, Edit, x23 y177 +Wrap w318 h35 vOVDTXT Disabled,
@@ -4018,7 +4020,8 @@ RUNROMCBX_TT :="ROM which will be launched"
 ROMPOP_TT :="Select ROMs to add from here"
 ROOMFILTER_TT :="Filter the Lobby using any search term"
 RSTPLYR_TT :="Resets the currently selected player controls to default"
-RUNXTRACT_TT :="skeletonkey will try to run the extracted file"
+RUNXTRACT_TT :="skeletonkey will try to run the extracted ROM`nthe archive will be executed otherwise"
+ARCMOVE_TT :="Will Move the archive to the temp directory after extraction"
 EXTEXPLD_TT :="archive will be extracted (exploded) ignoring any subdirectories.`n`nThis should be used in conjunction when saving into a jacket."
 SALIST_TT :="Install standalone emulators"
 SAVECOREOPT_TT := "Saves core-options config file for skeletonkey."
@@ -20285,6 +20288,7 @@ if (DOWNONLY = 1)
 		guicontrol,Disable,ARCNCT
 		guicontrol,Disable,ARCHOST
 		guicontrol,,RUNXTRACT,0
+		guicontrol,,ArcMove,0
 		norun= 1
 		ARCSEL= 1
 		return
@@ -20849,6 +20853,7 @@ guicontrol,,REDWN,0
 guicontrol,,OVDCHK,0
 guicontrol,,EXTRURL,0
 guicontrol,,RUNXTRACT,0
+guicontrol,,ArcMove,0
 guicontrol,,CUSTSWITCH,0
 guicontrol,,EXTEXPLD,0
 guicontrol,,JACKETMODE,0
@@ -20940,6 +20945,7 @@ guicontrol,,ARCPOP,|%pop_list%
 if (ARCSYS = "MAME - Arcade")
 	{
 		guicontrol,,EXTRURL,0
+		guicontrol,,ArcMove,0
 	}
 if (ARCSYS = "BIOS")
 	{
@@ -20969,6 +20975,7 @@ if (ARCSYS = "Streets of Rage - Remake")
 		guicontrol,,JACKETMODE,1
 		guicontrol,,EXTRURL,1
 		guicontrol,,RUNXTRACT,1
+		guicontrol,,ArcMove,0
 		guicontrol,show,RNMJACK
 		gosub, ExtractURL
 	}
@@ -20977,6 +20984,7 @@ if (ARCSYS = "Open - Beats of Rage")
 		guicontrol,,JACKETMODE,1
 		guicontrol,,EXTRURL,1
 		guicontrol,,RUNXTRACT,1
+		guicontrol,,ArcMove,0
 		guicontrol,show,RNMJACK
 		gosub, ExtractURL
 		guicontrol,,EXTEXPLD,1
@@ -20985,6 +20993,7 @@ if (ARCSYS = "Sony - Playstation")
 	{
 		guicontrol,,EXTRURL,1
 		guicontrol,,RUNXTRACT,1
+		guicontrol,,ArcMove,0
 		guicontrol,,JACKETMODE,1
 		guicontrol,show,RNMJACK
 		gosub, ExtractURL
@@ -20994,6 +21003,7 @@ if (ARCSYS = "Sony - Playstation 2")
 	{
 		guicontrol,,EXTRURL,1
 		guicontrol,,RUNXTRACT,1
+		guicontrol,,ArcMove,0
 		guicontrol,,JACKETMODE,1
 		guicontrol,show,RNMJACK
 		gosub, ExtractURL
@@ -21005,6 +21015,7 @@ if (ARCSYS = "MAME_C")
 		guicontrol,,OVDLDS,|MAME - Arcade|Matching|%systmfldrs%
 		guicontrol,,OVDTXT,%RJSYSTEMS%\MAME - Arcade
 		guicontrol,,EXTRURL,0
+		guicontrol,,ArcMove,0
 	}
 return
 
@@ -21181,12 +21192,15 @@ XtrZip=
 gui,submit,nohide
 guicontrolget,EXTRURL,,EXTRURL
 guicontrol,hide,EXTEXPLD
-guicontrol, hide, RUNXTRACT 
+guicontrol, hide, RUNXTRACT
+guicontrol,, ArcMove,0
+guicontrol, hide, ArcMove
 if (EXTRURL = 1)
 	{
 		XtrZip= 1
 		guicontrol,show,EXTEXPLD
 		guicontrol, show, RUNXTRACT
+		guicontrol, show, ArcMove
 	}
 return
 
@@ -21706,16 +21720,20 @@ return
 ChdXtr:
 if (JACKETMODE = 1)
 	{
-		
+		xtrdir= %rompth%\%romname%
 	}
-ifnotexist, %rompth%\%romname%
+if (RNMJACK <> "")
 	{
-		filecreatedir,%rompth%\%romname%
+		xtrdir= %rompth%\%RNMJACK%
+	}
+ifnotexist, %xtrdir%
+	{
+		filecreatedir,%xtrdir%
 	}
 SB_SetText(" extracting and converting chd ")
-RunWait, %comspec% cmd /c "chdman.exe extractcd -i "%save%" -o "%rompth%\%romname%\%romname%.cue" -ob "%rompth%\%romname%\%romname%.bin" ",,hide
+RunWait, %comspec% cmd /c "chdman.exe extractcd -i "%save%" -o "%xtrdir%\%romname%.cue" -ob "%xtrdir%\%romname%.bin" ",,hide
 SB_SetText(" extraction and conversion complete ")
-romf= %rompth%\%romname%\%romname%.cue
+romf= %xtrdir%\%romname%.cue
 return
 
 RarXtr:
@@ -21727,6 +21745,10 @@ if (EXTEXPLD = 1)
 		xtrvar= x
 		xtrdir= %rompth%
 	}
+if (RNMJACK <> "")
+	{
+		xtrdir= %rompth%\%RNMJACK%
+	}
 runwait, %comspec% cmd /c "UnRAR.exe %xtrvar% -y "%romf%" "*" +o "%rompth%" ",,hide
 sleep 2000
 FileMove, %romf%, %rompth%\%romname%.bak
@@ -21735,12 +21757,22 @@ Loop, files, %rompth%\*.rar
 	{
 		Runwait, %comspec% cmd /c "UnRAR.exe %xtrvar% -y "%A_LoopFileFullPath%" "*" +o "%xtrdir%" ",,hide
 		FileMove, %A_LoopFileFullPath%,%A_LoopFileFullPath%.bak
+		if (ArcMove = 1)
+			{
+				FileCreatedir,%cacheloc%\%romname%
+				fileMove,%A_LoopFileFullPath%.bak,%cacheloc%\%romname%,1
+			}
 	}
 Loop, Files, %rompth%\%romname%\*.*
 	{
 		gosub, GetXtr
 	}
 	FileMove,%rompth%\%romname%.bak, %rompth%\%romname%.rar, 1
+	if (ArcMove = 1)
+		{
+			FileCreatedir,%cacheloc%\%romname%
+			fileMove, %rompth%\%romname%.rar,%cacheloc%\%romname%,1
+		}
 return
 
 7zXtr:
@@ -21752,13 +21784,23 @@ if (EXTXPLD = 1)
 		xtrdir= %rompth%
 		xtrvar= x
 	}
+if (RNMJACK <> "")
+	{
+		xtrdir= %rompth%\%RNMJACK%
+	}
 runwait, %comspec% cmd /c "7za.exe %xtrvar% -y "%save%" -O"%xtrdir%" ", ,hide
 SB_SetText(" extraction complete ")
-Loop, Files, %rompth%\%romname%\*.*
+Loop, Files, %xtrdir%\*.*
 	{
 		if (A_LoopFileSize > 10)
 			{
 				romf= %A_LoopFileFullPath%
+				if (ArcMove = 1)
+					{
+						FileCreateDir,%cacheloc%\%romname%
+						FileMove,%save%,%cacheloc%\%romname%,1
+					}
+				break	
 			}
 	}
 return
@@ -21772,6 +21814,10 @@ if (EXTEXPLD = 1)
 		xtrvar= x
 		xtrdir= %rompth%
 	}
+if (RNMJACK <> "")
+	{
+		xtrdir= %rompth%\%RNMJACK%
+	}
 runwait, %comspec% cmd /c "7za.exe %xtrvar% -y "%save%" -O"%xtrdir%" ", ,hide
 SB_SetText(" extraction complete ")
 guicontrolget, RXTRM,,RUNXTRACT
@@ -21782,11 +21828,21 @@ if (RXTRM = 1)
 			{
 				xtrdir= %rompth%
 			}
+		if (RNMJACK <> "")
+			{
+				xtrdir= %rompth%\%RNMJACK%
+			}
 		Loop, %xtrdir%\*.*
 			{
 				if (A_LoopFileSize > 10)
 					{
 						romf= %A_LoopFileFullPath%
+						if (ArcMove = 1)
+							{
+								FileCreateDir,%cacheloc%\%romname%
+								FileMove,%save%,%cacheloc%\%romname%,1
+							}
+						break	
 					}
 			}
 	}
