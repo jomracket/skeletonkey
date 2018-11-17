@@ -750,7 +750,6 @@ FileInstall,crc.exe,crc.exe,1
 FileInstall,emuexe.exe,emuexe.exe,1
 FileInstall,fart.exe,fart.exe,1
 FileInstall,fciv.exe,fciv.exe,1
-FileInstall,openbor.exe,openbor.exe,1
 FileInstall,PSFTP.EXE,PSFTP.EXE,1
 FileInstall,rcedit.exe,rcedit.exe,1
 FileInstall,rcedit32.exe,rcedit32.exe,1
