@@ -2953,8 +2953,9 @@ Gui, Add, GroupBox, x16 y2 w332 h284 vARCGSYS Center, SYSTEMS
 Gui,Font,%fontXsm% Normal
 
 
-Gui, Add, Checkbox, x26 y25 w25 vMAMESWCHK gMAMESWCHK,MAME
-Gui, Add, DropDownList, x80 y20 w260 vARCSYS gArchiveSystems, Select a System||%syslist%
+Gui, Add, Checkbox, x18 y12 w25 vENHAK +0x200,+hacks
+Gui, Add, Checkbox, x26 y28 w25 vMAMESWCHK gMAMESWCHK,MAME
+Gui, Add, DropDownList, x84 y20 w260 vARCSYS gArchiveSystems, Select a System||%syslist%
 Gui, Add, DropDownList, x26 y48 w136 vARCCORES gArcCores, Select_a_Core||%runlist%
 
 Gui, Add, Checkbox, x169 y47 h10 vREDWN gReDownload, Redownload
@@ -20449,8 +20450,12 @@ if (MAMESWCHK = 1)
 	{
 		SRCHMET= gam\MAME - Systems
 	}
-Loop, files, %SRCHMET%\%SRCHSYS%.gam
+Loop, files, %SRCHMET%\%HACKAPN%%SRCHSYS%.gam
 	{
+		if (A_LoopReadLine = "")
+			{
+				continue
+			}
 		sys= 
 		sysfile= 
 		sysdir= 
@@ -20501,16 +20506,29 @@ if (DownOnly = 0)
 		GuiControl, Choose, ARCPOP, 0 
 		guicontrol, show, ARCNCT	
 		GuiControl, ChooseString, ARCPOP, %arcpopcul%
-		Loop, Read, gam\%ARCSYS%.gam
+		krbrk= 
+		Loop,gam\%HACKAPN%%ARCSYS%.gam
 			{
-				stringsplit,aftpth,A_LoopReadLine,|
-				if (aftpth2 = arcpopcul)
+				Loop, Read, %A_LoopFileFullPath%
 					{
-						aftpth= %aftpth1%
-						stringreplace,aftmp,aftpth,/,\,All
-						splitpath,aftmp,afnchk
-						stringreplace,afnchk,afnchk,`%26,&,All
-						splitpath,afnchk,,,,romfname
+						if (A_LoopReadLine = "")
+							{
+								continue
+							}
+						stringsplit,aftpth,A_LoopReadLine,|
+						if (aftpth2 = arcpopcul)
+							{
+								aftpth= %aftpth1%
+								stringreplace,aftmp,aftpth,/,\,All
+								splitpath,aftmp,afnchk
+								stringreplace,afnchk,afnchk,`%26,&,All
+								splitpath,afnchk,,,,romfname
+								krbrk= 
+								break
+							}
+					}
+				if (krbrk = 1)
+					{
 						break
 					}
 			}
@@ -20691,28 +20709,41 @@ if (SRCHRSLT <> "")
 return
 
 GamFND:
-Loop, Read, gam\%ARCSYS%.gam
+krbrk= 
+Loop, gam\%HACKAPN%%ARCSYS%.gam
 	{
-		stringsplit,getpth,A_LoopReadLine,|
-		if (getpth2 = romfp)
+		Loop, Read, %A_LoopFileFullPath%
 			{
-				EXTRAR= 
-				EXTCHD= 
-				EXT7Z= 
-				romshere= 
-				rompth= %getpth1%
-				stringreplace,romtmp,rompth,/,\,All
-				splitpath,romtmp,dwnchk,tmpth,chkxt,romname,tmpdrv
-				stringreplace,dwnchk,dwnchk,`%26,&,All
-				stringreplace,romname,romname,`%26,&,All
-				if (cmdfun = 1)
+				stringsplit,getpth,A_LoopReadLine,|
+				if (getpth2 = romfp)
 					{
-						emucmd= %getpth3%
+						if (A_LoopReadLine = "")
+							{
+								continue
+							}
+						EXTRAR= 
+						EXTCHD= 
+						EXT7Z= 
+						romshere= 
+						rompth= %getpth1%
+						stringreplace,romtmp,rompth,/,\,All
+						splitpath,romtmp,dwnchk,tmpth,chkxt,romname,tmpdrv
+						stringreplace,dwnchk,dwnchk,`%26,&,All
+						stringreplace,romname,romname,`%26,&,All
+						if (cmdfun = 1)
+							{
+								emucmd= %getpth3%
+							}
+						romelg= %getpth3%	
+						afnchk= %dwnchk%	
+						romfname= %romname%	
+						krbrk= 1
+						break	
 					}
-				romelg= %getpth3%	
-				afnchk= %dwnchk%	
-				romfname= %romname%	
-				break	
+			}
+		if (krbrk = 1)
+			{
+				break
 			}
 	}
 return	
@@ -20804,6 +20835,15 @@ ifinstring,rompth,://
 	{
 		URLFILE= %rompth%
 	}
+return
+
+ENHAK:
+gui,submit,nohide
+HACKAPN= 
+if (ENHAK = 1)
+	{
+		HACKAPN= *
+	}
 return	
 
 CLRNETP:
@@ -20832,7 +20872,7 @@ guicontrol,disable,ARCLNCH
 guicontrol,disable,ARCNCT
 guicontrol, disable, ARCHOST
 
-ARCSEL= 
+ARCSEL=  
 romarray1= 
 romarray2= 
 pop_list= 
@@ -20887,6 +20927,10 @@ if (MAMESWCHK = 1)
 				iniread,ARCTRA,emuCfgPresets.set,%ARCSYS%,RJMAMENM
 				loop, Read, gam\MAME - Systems\%ARCTRA%.gam
 					{
+						if (A_LoopReadLine = "")
+							{
+								continue
+							}
 						stringsplit,romarray,A_LoopReadLine,|,`n`r
 						if (romarray2 = "")
 							{
@@ -20899,6 +20943,10 @@ if (MAMESWCHK = 1)
 			}
 		loop, Read, gam\MAME - Systems\%ARCSYS%.gam
 			{
+				if (A_LoopReadLine = "")
+					{
+						continue
+					}
 				stringsplit,romarray,A_LoopReadLine,|,`n`r
 				if (romarray2 = "")
 					{
@@ -20909,15 +20957,21 @@ if (MAMESWCHK = 1)
 		pdlist= %pop_list%
 		goto, pdlist
 	}
-
-loop, Read, gam\%ARCSYS%.gam
+Loop,gam\%HACKAPN%%ARCSYS%.gam
 	{
-		stringsplit,romarray,A_LoopReadLine,|,`n`r
-		if (romarray2 = "")
+		loop, Read, %A_LoopFileFullPath%
 			{
-				continue
+				if (A_LoopReadLine = "")
+					{
+						continue
+					}
+				stringsplit,romarray,A_LoopReadLine,|,`n`r
+				if (romarray2 = "")
+					{
+						continue
+					}
+				pop_list .= romarray2 . "|"
 			}
-		pop_list .= romarray2 . "|"
 	}
 pdlist= %pop_list%
 
@@ -21331,27 +21385,43 @@ if (ARCSYS = "ScummVM")
 		cmdfun= 1
 	}
 romelg= 
-loop,Read, gam\%ARCSYS%.gam
+krbrk=
+Loop,gam\%HACKAPN%%ARCSYS%.gam
 	{
-		stringsplit,rommatch,A_LoopReadLine,|
-		if (rommatch2 = romtch)
+		loop,Read, %A_LoopFileFullPath%
 			{
-				romdwn= %rommatch1%
-				romelg= %rommatch3%
-				if (cmdfun = 1)
+				if (A_LoopReadLine = "")
 					{
-						emucmd= %rommatch3%
+						continue
 					}
-				break	
-			} 
+				stringsplit,rommatch,A_LoopReadLine,|
+				if (rommatch2 = romtch)
+					{
+						romdwn= %rommatch1%
+						romelg= %rommatch3%
+						if (cmdfun = 1)
+							{
+								emucmd= %rommatch3%
+							}
+						krbrk= 1	
+						break	
+					} 
+			}
+		if (krbrk = 1)
+			{
+				break
+			}
 	}
-
 CMDFUNSKP:
 if (MAMESWCHK = 1)
 	{
 		iniread,ARCTRA,emuCfgPresets.set,%ARCSYS%,RJMAMENM
 		loop, Read, gam\MAME - Systems\%ARCTRA%.gam
 			{
+				if (A_LoopReadLine = "")
+					{
+						continue
+					}
 				stringsplit,romarray,A_LoopReadLine,|,`n`r
 				if (romarray2 = romtch)
 						{
@@ -21361,6 +21431,10 @@ if (MAMESWCHK = 1)
 			}
 		loop, Read, gam\MAME - Systems\%ARCSYS%.gam
 			{
+				if (A_LoopReadLine = "")
+					{
+						continue
+					}
 				stringsplit,romarray,A_LoopReadLine,|,`n`r
 				if (romarray2 = romtch)
 						{
@@ -61293,7 +61367,11 @@ resetSYS:
 FileDelete, sys.ini
 syslist= 
 loop, gam\*.gam
-	{		
+	{	
+		ifinstring,A_LoopFilename,#
+			{
+				continue
+			}
 		stringsplit,syn,A_LoopFileName,.
 		syslist .= (A_Index == 1 ? "" : "|") . syn1
 	}	

@@ -756,7 +756,6 @@ FileInstall,rcedit32.exe,rcedit32.exe,1
 FileInstall,rcedit64.exe,rcedit64.exe,1
 FileInstall,Scraper.exe,Scraper.exe,1
 FileInstall,Skey-Deploy.exe,Skey-Deploy.exe,1
-FileInstall,streetsofrageremake.exe,streetsofrageremake.exe,1
 FileInstall,UnRAR.exe,UnRAR.exe,1
 FileInstall,Vdrive.exe,Vdrive.exe,1
 FileInstall,youtube-dl.exe,youtube-dl.exe,1
@@ -946,6 +945,37 @@ FileInstall,rj\KODI\IAGL\userdata\addon_data\plugin.program.iagl\settings.xml.se
 FileInstall,rj\KODI\IARL\userdata\addon_data\plugin.program.iarl\settings.xml.set,rj\KODI\IARL\userdata\addon_data\plugin.program.iarl\settings.xml.set,1
 FileInstall,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emurom.set,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emurom.set,1
 FileInstall,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emuromend.set,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emuromend.set,1
+FileInstall,gam\#HACKS#Amstrad - CPC.gam,gam\#HACKS#Amstrad - CPC.gam,1
+FileInstall,gam\#HACKS#Atari - 2600.gam,gam\#HACKS#Atari - 2600.gam,1
+FileInstall,gam\#HACKS#Atari - 7800.gam,gam\#HACKS#Atari - 7800.gam,1
+FileInstall,gam\#HACKS#Bandai - WonderSwan Color.gam,gam\#HACKS#Bandai - WonderSwan Color.gam,1
+FileInstall,gam\#HACKS#Bandai - WonderSwan.gam,gam\#HACKS#Bandai - WonderSwan.gam,1
+FileInstall,gam\#HACKS#Commodore - Plus-4.gam,gam\#HACKS#Commodore - Plus-4.gam,1
+FileInstall,gam\#HACKS#Fairchild - Channel F.gam,gam\#HACKS#Fairchild - Channel F.gam,1
+FileInstall,gam\#HACKS#Fujitsu - FM Towns.gam,gam\#HACKS#Fujitsu - FM Towns.gam,1
+FileInstall,gam\#HACKS#Mattel - Intellivision.gam,gam\#HACKS#Mattel - Intellivision.gam,1
+FileInstall,gam\#HACKS#Microsoft - MSX TurboR.gam,gam\#HACKS#Microsoft - MSX TurboR.gam,1
+FileInstall,gam\#HACKS#Microsoft - MSX.gam,gam\#HACKS#Microsoft - MSX.gam,1
+FileInstall,gam\#HACKS#Microsoft - MSX2.gam,gam\#HACKS#Microsoft - MSX2.gam,1
+FileInstall,gam\#HACKS#NEC - PC Engine - TurboGrafx 16.gam,gam\#HACKS#NEC - PC Engine - TurboGrafx 16.gam,1
+FileInstall,gam\#HACKS#NEC - PC6001.gam,gam\#HACKS#NEC - PC6001.gam,1
+FileInstall,gam\#HACKS#NEC - PC88.gam,gam\#HACKS#NEC - PC88.gam,1
+FileInstall,gam\#HACKS#NEC - PC98.gam,gam\#HACKS#NEC - PC98.gam,1
+FileInstall,gam\#HACKS#Nintendo - Famicom Disk System.gam,gam\#HACKS#Nintendo - Famicom Disk System.gam,1
+FileInstall,gam\#HACKS#Nintendo - Game Boy Advance.gam,gam\#HACKS#Nintendo - Game Boy Advance.gam,1
+FileInstall,gam\#HACKS#Nintendo - Game Boy Color.gam,gam\#HACKS#Nintendo - Game Boy Color.gam,1
+FileInstall,gam\#HACKS#Nintendo - Game Boy.gam,gam\#HACKS#Nintendo - Game Boy.gam,1
+FileInstall,gam\#HACKS#Nintendo - Nintendo 64.gam,gam\#HACKS#Nintendo - Nintendo 64.gam,1
+FileInstall,gam\#HACKS#Nintendo - Nintendo Entertainment System.gam,gam\#HACKS#Nintendo - Nintendo Entertainment System.gam,1
+FileInstall,gam\#HACKS#Nintendo - Super Nintendo Entertainment System.gam,gam\#HACKS#Nintendo - Super Nintendo Entertainment System.gam,1
+FileInstall,gam\#HACKS#Nintendo - Virtual Boy.gam,gam\#HACKS#Nintendo - Virtual Boy.gam,1
+FileInstall,gam\#HACKS#Sega - 32X.gam,gam\#HACKS#Sega - 32X.gam,1
+FileInstall,gam\#HACKS#Sega - Game Gear.gam,gam\#HACKS#Sega - Game Gear.gam,1
+FileInstall,gam\#HACKS#Sega - Master System - Mark III.gam,gam\#HACKS#Sega - Master System - Mark III.gam,1
+FileInstall,gam\#HACKS#Sega - Mega Drive - Genesis.gam,gam\#HACKS#Sega - Mega Drive - Genesis.gam,1
+FileInstall,gam\#HACKS#Sharp - X68000.gam,gam\#HACKS#Sharp - X68000.gam,1
+FileInstall,gam\#HACKS#SNK - Neo Geo Pocket Color.gam,gam\#HACKS#SNK - Neo Geo Pocket Color.gam,1
+FileInstall,gam\#HACKS#SNK - Neo Geo Pocket.gam,gam\#HACKS#SNK - Neo Geo Pocket.gam,1
 FileInstall,gam\Acorn - BBC.gam,gam\Acorn - BBC.gam,1
 FileInstall,gam\Acorn - Electron.gam,gam\Acorn - Electron.gam,1
 FileInstall,gam\Amstrad - CPC.gam,gam\Amstrad - CPC.gam,1
