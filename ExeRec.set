@@ -957,9 +957,9 @@ FileInstall,gam\#HACKS#Bally - Astrocade.gam,gam\#HACKS#Bally - Astrocade.gam,1
 FileInstall,gam\#HACKS#Bandai - WonderSwan Color.gam,gam\#HACKS#Bandai - WonderSwan Color.gam,1
 FileInstall,gam\#HACKS#Bandai - WonderSwan.gam,gam\#HACKS#Bandai - WonderSwan.gam,1
 FileInstall,gam\#HACKS#Camputers - Lynx.gam,gam\#HACKS#Camputers - Lynx.gam,1
-FileInstall,gam\#HACKS#Capcom Play System - CPS I.gam,gam\#HACKS#Capcom Play System - CPS I.gam,1
 FileInstall,gam\#HACKS#Capcom Play System - CPS II.gam,gam\#HACKS#Capcom Play System - CPS II.gam,1
 FileInstall,gam\#HACKS#Capcom Play System - CPS III.gam,gam\#HACKS#Capcom Play System - CPS III.gam,1
+FileInstall,gam\#HACKS#Capcom Play System - CPS.gam,gam\#HACKS#Capcom Play System - CPS.gam,1
 FileInstall,gam\#HACKS#Coleco - Adam.gam,gam\#HACKS#Coleco - Adam.gam,1
 FileInstall,gam\#HACKS#Commodore - C128.gam,gam\#HACKS#Commodore - C128.gam,1
 FileInstall,gam\#HACKS#Commodore - PET.gam,gam\#HACKS#Commodore - PET.gam,1
@@ -1063,13 +1063,6 @@ FileInstall,gam\Entex - Adventure Vision.gam,gam\Entex - Adventure Vision.gam,1
 FileInstall,gam\Epoch - Super Cassette Vision.gam,gam\Epoch - Super Cassette Vision.gam,1
 FileInstall,gam\Exidy - Sorcerer.gam,gam\Exidy - Sorcerer.gam,1
 FileInstall,gam\Fairchild - Channel F.gam,gam\Fairchild - Channel F.gam,1
-FileInstall,gam\fightcade.gam,gam\fightcade.gam,1
-FileInstall,gam\fightcadeCV.gam,gam\fightcadeCV.gam,1
-FileInstall,gam\fightcadeGG.gam,gam\fightcadeGG.gam,1
-FileInstall,gam\fightcadeMD.gam,gam\fightcadeMD.gam,1
-FileInstall,gam\fightcadePCE.gam,gam\fightcadePCE.gam,1
-FileInstall,gam\fightcadeSG1K.gam,gam\fightcadeSG1K.gam,1
-FileInstall,gam\fightcadeSMS.gam,gam\fightcadeSMS.gam,1
 FileInstall,gam\Fujitsu - FM Towns.gam,gam\Fujitsu - FM Towns.gam,1
 FileInstall,gam\Fujitsu - FM-7.gam,gam\Fujitsu - FM-7.gam,1
 FileInstall,gam\Funtech - Super Acan.gam,gam\Funtech - Super Acan.gam,1
@@ -1082,8 +1075,6 @@ FileInstall,gam\Konami - Konami.gam,gam\Konami - Konami.gam,1
 FileInstall,gam\Leapfrog - Leapster Learning Game System.gam,gam\Leapfrog - Leapster Learning Game System.gam,1
 FileInstall,gam\Magnavox - Odyssey2.gam,gam\Magnavox - Odyssey2.gam,1
 FileInstall,gam\MAME - Arcade.gam,gam\MAME - Arcade.gam,1
-FileInstall,gam\MAME - BIOS.gam,gam\MAME - BIOS.gam,1
-FileInstall,gam\MAME_C.gam,gam\MAME_C.gam,1
 FileInstall,gam\Mattel - Aqarious.gam,gam\Mattel - Aqarious.gam,1
 FileInstall,gam\Mattel - Intellivision.gam,gam\Mattel - Intellivision.gam,1
 FileInstall,gam\Memotech - MTX.gam,gam\Memotech - MTX.gam,1
@@ -1537,6 +1528,13 @@ FileInstall,gam\MAME - Systems\zorba.gam,gam\MAME - Systems\zorba.gam,1
 FileInstall,gam\MAME - Systems\zx80.gam,gam\MAME - Systems\zx80.gam,1
 FileInstall,gam\MAME - Systems\zx81.gam,gam\MAME - Systems\zx81.gam,1
 FileInstall,gam\MAME - Systems\_firmware_.gam,gam\MAME - Systems\_firmware_.gam,1
+FileInstall,gam\MAME - Systems\ren\fightcade.gam,gam\MAME - Systems\ren\fightcade.gam,1
+FileInstall,gam\MAME - Systems\ren\fightcadeCV.gam,gam\MAME - Systems\ren\fightcadeCV.gam,1
+FileInstall,gam\MAME - Systems\ren\fightcadeGG.gam,gam\MAME - Systems\ren\fightcadeGG.gam,1
+FileInstall,gam\MAME - Systems\ren\fightcadeMD.gam,gam\MAME - Systems\ren\fightcadeMD.gam,1
+FileInstall,gam\MAME - Systems\ren\fightcadePCE.gam,gam\MAME - Systems\ren\fightcadePCE.gam,1
+FileInstall,gam\MAME - Systems\ren\fightcadeSG1K.gam,gam\MAME - Systems\ren\fightcadeSG1K.gam,1
+FileInstall,gam\MAME - Systems\ren\fightcadeSMS.gam,gam\MAME - Systems\ren\fightcadeSMS.gam,1
 FileInstall,rj\emucfgs\rjcmd_header.set,rj\emucfgs\rjcmd_header.set,1
 FileInstall,rj\emucfgs\rjcmd_postjoy.set,rj\emucfgs\rjcmd_postjoy.set,1
 FileInstall,rj\emucfgs\rjcmd_prejoy.set,rj\emucfgs\rjcmd_prejoy.set,1

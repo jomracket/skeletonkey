@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-17 4:48 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-17 5:13 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-11-17 4:48 PM
-VERSION= v0.99.65.93
+RELEASE= 2018-11-17 5:13 PM
+VERSION= v0.99.65.99
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -4144,7 +4144,10 @@ if (locfnd = 1)
 	}
 
 gosub, IPDisplay
-gosub, GetIniVars
+if (RaExeFile <> "NOT-FOUND.exe")
+	{
+		gosub, GetIniVars
+	}
 SB_SetText("Building Menus")
 gosub, SCBUILDEMULST
 SB_SetText("")
@@ -4871,7 +4874,7 @@ Loop,Parse,emuj,`n
 					{
 						continue
 					}
-				addemu.= emup1 . "|"
+				addemu.= "|" . emup1
 			}
 }
 runlist:= corelist . "|" . addemu
@@ -4905,7 +4908,7 @@ Loop,Parse,emuj,`n
 					{
 						continue
 					}
-				addemu.= emup1 . "|"
+				addemu.= "|" . emup1
 			}
 	}
 runlist:= corelist . "|" . addemu
@@ -12166,7 +12169,7 @@ Loop, Parse, reasign,|
 			}
 	}
 LineNum= 
-guicontrol,,EMPRDDL,|Emulators||%addemu%
+guicontrol,,EMPRDDL,|Emulators|%addemu%
 Loop, Parse, SysEmuSet,`n`r
 	{
 		if (A_LoopField = "")
@@ -12524,7 +12527,7 @@ Loop, Parse,UrlIndex,`n`r
 												{
 													preEmuCfg.= selfnd . "|"
 												}
-											guicontrol,,EMPRDDL,|%selfnd%||%addemu%
+											guicontrol,,EMPRDDL,|%selfnd%|%addemu%
 											gosub, EMPRBUTASPLIT
 											iniwrite, "%xtractmu%\%emuxe%",Assignments.ini,ASSIGNMENTS,%OVRKND%
 											break
@@ -14979,10 +14982,10 @@ Loop, Parse, semu,|
 									}
 								addemu.= "|" . sysni
 							}
-						guicontrol,,EMPRDDL,|%sysni%||%addemu%
+						guicontrol,,EMPRDDL,|%sysni%|%addemu%
 						runlist:= corelist . "|" . addemu
 						guicontrol,,LCORE,|%runlist%
-						guicontrol,,EMPRDDL,|Emulators||%addemu%
+						guicontrol,,EMPRDDL,|Emulators|%addemu%
 						guicontrol,,PLCORE,|%runlist%
 						guicontrol,,ARCCORES,|Select_a_Core||%runlist%
 						guicontrol,,JOYCORE,|Global||%corelist%|Xpadder|Antimicro|%runlist%
@@ -20842,12 +20845,11 @@ return
 
 ENHAK:
 gui,submit,nohide
-HACKAPN= 
+guicontrolget,ENHAK,,ENHAK
 if (ENHAK = 1)
 	{
 		ifinstring,hacksyst,%ARCSYS%
 			{
-				HACKAPN= #HACKS#
 				SB_SetText(" Listing ROM-hacks ")
 				gosub, ArchiveSysRefresh
 				return
@@ -20858,8 +20860,9 @@ if (ENHAK = 1)
 	}
 if (ENHAK = 0)
 	{
-		gosub, archivesystems
+		HACKAPN= 
 		SB_SetText(" Listing ROMs ")
+		goto, archivesystems
 	}
 return	
 
@@ -20889,8 +20892,13 @@ return
 ArchiveSystems:
 gui, submit, nohide
 guicontrol,,ENHAK,0
+guicontrolget,ENHAK,,ENHAK
+HACKAPN= 
 ArchiveSysRefresh:
-gui, submit, nohide
+if (ENHAK = 1)
+	{
+		HACKAPN= #HACKS#
+	}
 guicontrol,disable,ARCLNCH
 guicontrol,disable,ARCNCT
 guicontrol, disable, ARCHOST
@@ -21021,7 +21029,10 @@ guicontrol,,ARCPOP,|%pop_list%
 if (ARCSYS = "MAME - Arcade")
 	{
 		guicontrol,,EXTRURL,0
-		guicontrol,,ArcMove,0
+		guicontrol,,ArcMove,0		
+		OVDCHK= MAME - Arcade
+		guicontrol,,OVDLDS,|MAME - Arcade|Matching|%systmfldrs%
+		guicontrol,,OVDTXT,%RJSYSTEMS%\MAME - Arcade
 	}
 if (ARCSYS = "BIOS")
 	{
@@ -21037,10 +21048,6 @@ if (ARCSYS = "BIOS")
 		guicontrol,,DOWNONLY,1
 		gosub, DOWNONLY
 		guicontrol,,EXTRURL,0
-	}
-if (ARCSYS = "MAME - BIOS")
-	{
-		gosub, MAMEBIOSFIRM
 	}
 if (ARCSYS = "_firmware_")
 	{
@@ -21084,14 +21091,6 @@ if (ARCSYS = "Sony - Playstation 2")
 		guicontrol,show,RNMJACK
 		gosub, ExtractURL
 		guicontrol,,EXTEXPLD,0
-	}
-if (ARCSYS = "MAME_C")
-	{
-		OVDCHK= MAME - Arcade
-		guicontrol,,OVDLDS,|MAME - Arcade|Matching|%systmfldrs%
-		guicontrol,,OVDTXT,%RJSYSTEMS%\MAME - Arcade
-		guicontrol,,EXTRURL,0
-		guicontrol,,ArcMove,0
 	}
 return
 
@@ -30076,7 +30075,7 @@ if (mameget = 1)
 	{
 		if (mamedbx = "")
 			{
-				FileRead, mamedbx, gam\MAME_C.gam
+				FileRead, mamedbx, gam\MAME - Arcade.gam
 			}
 	}
 
@@ -38935,7 +38934,7 @@ Loop, rj\*.jak
 		
 		if (NICEFLDR = 1)
 			{
-				SETGAM= MAME_C.gam
+				SETGAM= MAME - Arcade.gam
 				ifExist, gam\%curjf%.gam
 					{
 						SETGAM= %curjf%.gam
@@ -61347,14 +61346,14 @@ Loop,Parse,emuj,`n
 					{
 						continue
 					}
-				addemu.= emup1 . "|"
+				addemu.= "|" . emup1 
 			}
 }
 runlist:= corelist . "|" . addemu
 stringreplace,runlist,runlist,||,|,All
 stringreplace,runlist,runlist,||,|,All
 guicontrol,,LCORE,|%runlist%
-guicontrol,,EMPRDDL,|Emulators||%addemu%
+guicontrol,,EMPRDDL,|Emulators|%addemu%
 guicontrol,,ARCCORES,|Select_a_Core||%runlist%
 guicontrol,,PLCORE,|%runlist%
 guicontrol,,ASCORE,|%corelist%
