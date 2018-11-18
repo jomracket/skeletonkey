@@ -945,18 +945,41 @@ FileInstall,rj\KODI\IAGL\userdata\addon_data\plugin.program.iagl\settings.xml.se
 FileInstall,rj\KODI\IARL\userdata\addon_data\plugin.program.iarl\settings.xml.set,rj\KODI\IARL\userdata\addon_data\plugin.program.iarl\settings.xml.set,1
 FileInstall,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emurom.set,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emurom.set,1
 FileInstall,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emuromend.set,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emuromend.set,1
+FileInstall,gam\#HACKS#Acorn - BBC.gam,gam\#HACKS#Acorn - BBC.gam,1
+FileInstall,gam\#HACKS#Acorn - Electron.gam,gam\#HACKS#Acorn - Electron.gam,1
 FileInstall,gam\#HACKS#Amstrad - CPC.gam,gam\#HACKS#Amstrad - CPC.gam,1
+FileInstall,gam\#HACKS#Amstrad - GX4000.gam,gam\#HACKS#Amstrad - GX4000.gam,1
+FileInstall,gam\#HACKS#Apple - IIgs.gam,gam\#HACKS#Apple - IIgs.gam,1
 FileInstall,gam\#HACKS#Atari - 2600.gam,gam\#HACKS#Atari - 2600.gam,1
 FileInstall,gam\#HACKS#Atari - 7800.gam,gam\#HACKS#Atari - 7800.gam,1
+FileInstall,gam\#HACKS#Atari - Jaguar.gam,gam\#HACKS#Atari - Jaguar.gam,1
+FileInstall,gam\#HACKS#Bally - Astrocade.gam,gam\#HACKS#Bally - Astrocade.gam,1
 FileInstall,gam\#HACKS#Bandai - WonderSwan Color.gam,gam\#HACKS#Bandai - WonderSwan Color.gam,1
 FileInstall,gam\#HACKS#Bandai - WonderSwan.gam,gam\#HACKS#Bandai - WonderSwan.gam,1
+FileInstall,gam\#HACKS#Camputers - Lynx.gam,gam\#HACKS#Camputers - Lynx.gam,1
+FileInstall,gam\#HACKS#Capcom Play System - CPS I.gam,gam\#HACKS#Capcom Play System - CPS I.gam,1
+FileInstall,gam\#HACKS#Capcom Play System - CPS II.gam,gam\#HACKS#Capcom Play System - CPS II.gam,1
+FileInstall,gam\#HACKS#Capcom Play System - CPS III.gam,gam\#HACKS#Capcom Play System - CPS III.gam,1
+FileInstall,gam\#HACKS#Coleco - Adam.gam,gam\#HACKS#Coleco - Adam.gam,1
+FileInstall,gam\#HACKS#Commodore - C128.gam,gam\#HACKS#Commodore - C128.gam,1
+FileInstall,gam\#HACKS#Commodore - PET.gam,gam\#HACKS#Commodore - PET.gam,1
 FileInstall,gam\#HACKS#Commodore - Plus-4.gam,gam\#HACKS#Commodore - Plus-4.gam,1
+FileInstall,gam\#HACKS#Commodore - VIC-20.gam,gam\#HACKS#Commodore - VIC-20.gam,1
+FileInstall,gam\#HACKS#Enterprise - 128.gam,gam\#HACKS#Enterprise - 128.gam,1
 FileInstall,gam\#HACKS#Fairchild - Channel F.gam,gam\#HACKS#Fairchild - Channel F.gam,1
 FileInstall,gam\#HACKS#Fujitsu - FM Towns.gam,gam\#HACKS#Fujitsu - FM Towns.gam,1
+FileInstall,gam\#HACKS#Fujitsu - FM-7.gam,gam\#HACKS#Fujitsu - FM-7.gam,1
+FileInstall,gam\#HACKS#GCE - Vectrex.gam,gam\#HACKS#GCE - Vectrex.gam,1
+FileInstall,gam\#HACKS#Infocom - Z-Machine.gam,gam\#HACKS#Infocom - Z-Machine.gam,1
+FileInstall,gam\#HACKS#MAME - Arcade.gam,gam\#HACKS#MAME - Arcade.gam,1
+FileInstall,gam\#HACKS#Mattel - Aqarious.gam,gam\#HACKS#Mattel - Aqarious.gam,1
 FileInstall,gam\#HACKS#Mattel - Intellivision.gam,gam\#HACKS#Mattel - Intellivision.gam,1
+FileInstall,gam\#HACKS#Memotech - MTX.gam,gam\#HACKS#Memotech - MTX.gam,1
+FileInstall,gam\#HACKS#Microkey - Primo.gam,gam\#HACKS#Microkey - Primo.gam,1
 FileInstall,gam\#HACKS#Microsoft - MSX TurboR.gam,gam\#HACKS#Microsoft - MSX TurboR.gam,1
 FileInstall,gam\#HACKS#Microsoft - MSX.gam,gam\#HACKS#Microsoft - MSX.gam,1
 FileInstall,gam\#HACKS#Microsoft - MSX2.gam,gam\#HACKS#Microsoft - MSX2.gam,1
+FileInstall,gam\#HACKS#Nascom - I-II.gam,gam\#HACKS#Nascom - I-II.gam,1
 FileInstall,gam\#HACKS#NEC - PC Engine - TurboGrafx 16.gam,gam\#HACKS#NEC - PC Engine - TurboGrafx 16.gam,1
 FileInstall,gam\#HACKS#NEC - PC6001.gam,gam\#HACKS#NEC - PC6001.gam,1
 FileInstall,gam\#HACKS#NEC - PC88.gam,gam\#HACKS#NEC - PC88.gam,1
@@ -966,16 +989,36 @@ FileInstall,gam\#HACKS#Nintendo - Game Boy Advance.gam,gam\#HACKS#Nintendo - Gam
 FileInstall,gam\#HACKS#Nintendo - Game Boy Color.gam,gam\#HACKS#Nintendo - Game Boy Color.gam,1
 FileInstall,gam\#HACKS#Nintendo - Game Boy.gam,gam\#HACKS#Nintendo - Game Boy.gam,1
 FileInstall,gam\#HACKS#Nintendo - Nintendo 64.gam,gam\#HACKS#Nintendo - Nintendo 64.gam,1
+FileInstall,gam\#HACKS#Nintendo - Nintendo DS.gam,gam\#HACKS#Nintendo - Nintendo DS.gam,1
 FileInstall,gam\#HACKS#Nintendo - Nintendo Entertainment System.gam,gam\#HACKS#Nintendo - Nintendo Entertainment System.gam,1
+FileInstall,gam\#HACKS#Nintendo - Satellaview.gam,gam\#HACKS#Nintendo - Satellaview.gam,1
 FileInstall,gam\#HACKS#Nintendo - Super Nintendo Entertainment System.gam,gam\#HACKS#Nintendo - Super Nintendo Entertainment System.gam,1
 FileInstall,gam\#HACKS#Nintendo - Virtual Boy.gam,gam\#HACKS#Nintendo - Virtual Boy.gam,1
+FileInstall,gam\#HACKS#Philips - CDI.gam,gam\#HACKS#Philips - CDI.gam,1
+FileInstall,gam\#HACKS#Philips - P2000.gam,gam\#HACKS#Philips - P2000.gam,1
+FileInstall,gam\#HACKS#Philips - VG-500.gam,gam\#HACKS#Philips - VG-500.gam,1
+FileInstall,gam\#HACKS#RCA - CHIP 8.gam,gam\#HACKS#RCA - CHIP 8.gam,1
+FileInstall,gam\#HACKS#RCA - SuperChip.gam,gam\#HACKS#RCA - SuperChip.gam,1
 FileInstall,gam\#HACKS#Sega - 32X.gam,gam\#HACKS#Sega - 32X.gam,1
 FileInstall,gam\#HACKS#Sega - Game Gear.gam,gam\#HACKS#Sega - Game Gear.gam,1
 FileInstall,gam\#HACKS#Sega - Master System - Mark III.gam,gam\#HACKS#Sega - Master System - Mark III.gam,1
 FileInstall,gam\#HACKS#Sega - Mega Drive - Genesis.gam,gam\#HACKS#Sega - Mega Drive - Genesis.gam,1
+FileInstall,gam\#HACKS#Sega - SC-3000.gam,gam\#HACKS#Sega - SC-3000.gam,1
+FileInstall,gam\#HACKS#Sega - SF-7000.gam,gam\#HACKS#Sega - SF-7000.gam,1
+FileInstall,gam\#HACKS#Sega - Visual Memory Unit.gam,gam\#HACKS#Sega - Visual Memory Unit.gam,1
+FileInstall,gam\#HACKS#Sharp - X1.gam,gam\#HACKS#Sharp - X1.gam,1
 FileInstall,gam\#HACKS#Sharp - X68000.gam,gam\#HACKS#Sharp - X68000.gam,1
+FileInstall,gam\#HACKS#SNK - Neo Geo MVS.gam,gam\#HACKS#SNK - Neo Geo MVS.gam,1
 FileInstall,gam\#HACKS#SNK - Neo Geo Pocket Color.gam,gam\#HACKS#SNK - Neo Geo Pocket Color.gam,1
 FileInstall,gam\#HACKS#SNK - Neo Geo Pocket.gam,gam\#HACKS#SNK - Neo Geo Pocket.gam,1
+FileInstall,gam\#HACKS#Sony - Playstation Portable.gam,gam\#HACKS#Sony - Playstation Portable.gam,1
+FileInstall,gam\#HACKS#Sony - Pocketstation.gam,gam\#HACKS#Sony - Pocketstation.gam,1
+FileInstall,gam\#HACKS#Tangerine - Microtan 65.gam,gam\#HACKS#Tangerine - Microtan 65.gam,1
+FileInstall,gam\#HACKS#Tangerine - Oric Atmos.gam,gam\#HACKS#Tangerine - Oric Atmos.gam,1
+FileInstall,gam\#HACKS#Thomson - TO5.gam,gam\#HACKS#Thomson - TO5.gam,1
+FileInstall,gam\#HACKS#Thomson - TO7.gam,gam\#HACKS#Thomson - TO7.gam,1
+FileInstall,gam\#HACKS#Thomson - TO8.gam,gam\#HACKS#Thomson - TO8.gam,1
+FileInstall,gam\#HACKS#Watara - Supervision.gam,gam\#HACKS#Watara - Supervision.gam,1
 FileInstall,gam\Acorn - BBC.gam,gam\Acorn - BBC.gam,1
 FileInstall,gam\Acorn - Electron.gam,gam\Acorn - Electron.gam,1
 FileInstall,gam\Amstrad - CPC.gam,gam\Amstrad - CPC.gam,1

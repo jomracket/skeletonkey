@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-16 7:52 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-17 4:48 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-11-16 7:52 PM
-VERSION= v0.99.65.92
+RELEASE= 2018-11-17 4:48 PM
+VERSION= v0.99.65.93
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -578,6 +578,8 @@ Loop,Read,sl.ini
 sl_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
 Loop,Read,sys.ini
 syslist .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
+Loop,Read,hacksyst.ini
+hacksyst .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
 
 appcfg= AppParams.ini
 IfNotExist, AppParams.ini
@@ -2953,7 +2955,7 @@ Gui, Add, GroupBox, x16 y2 w332 h284 vARCGSYS Center, SYSTEMS
 Gui,Font,%fontXsm% Normal
 
 
-Gui, Add, Checkbox, x18 y12 w25 vENHAK +0x200,+hacks
+Gui, Add, Checkbox, x18 y12 w25 vENHAK gENHAK +0x200,+hacks
 Gui, Add, Checkbox, x26 y28 w25 vMAMESWCHK gMAMESWCHK,MAME
 Gui, Add, DropDownList, x84 y20 w260 vARCSYS gArchiveSystems, Select a System||%syslist%
 Gui, Add, DropDownList, x26 y48 w136 vARCCORES gArcCores, Select_a_Core||%runlist%
@@ -20755,7 +20757,8 @@ loop, Parse, ArcOrgSet,`n`r
 			{
 				continue
 			}
-		ARCSUBS= %ARCSYS%
+		stringreplace,ARCSYSK,ARCSYS,#HACKS#,,All	
+		ARCSUBS= %ARCSYSK%
 		if (MAMESWCHK = 1)
 			{
 				if (ARCSYS <> "_firmware_")
@@ -20842,7 +20845,21 @@ gui,submit,nohide
 HACKAPN= 
 if (ENHAK = 1)
 	{
-		HACKAPN= *
+		ifinstring,hacksyst,%ARCSYS%
+			{
+				HACKAPN= #HACKS#
+				SB_SetText(" Listing ROM-hacks ")
+				gosub, ArchiveSysRefresh
+				return
+			}
+		guicontrol,,ENHAK,0	
+		SB_SetText(" No ROM-hacks for this system ")
+		return
+	}
+if (ENHAK = 0)
+	{
+		gosub, archivesystems
+		SB_SetText(" Listing ROMs ")
 	}
 return	
 
@@ -20858,16 +20875,22 @@ if (MAMESWCHK = 1)
 	{
 		guicontrol,,ARCSYS,|Select a System||%mame_sys%
 		guicontrol,,SRCHDDL,|All||%mame_sys%
+		gosub, ArchiveSystems
 		return
 	}
 
 guicontrol,,ARCSYS,|Select a System||%syslist%
 guicontrol,,SRCHDDL,|All||%syslist%
+gosub, ArchiveSystems
 return
 
 
 
 ArchiveSystems:
+gui, submit, nohide
+guicontrol,,ENHAK,0
+ArchiveSysRefresh:
+gui, submit, nohide
 guicontrol,disable,ARCLNCH
 guicontrol,disable,ARCNCT
 guicontrol, disable, ARCHOST
@@ -20883,7 +20906,6 @@ symt2=
 topcore= 
 fnne= 
 
-gui, submit, nohide
 guicontrol,,DOWNONLY,0
 guicontrol,,CUSTMOPT,|%INJOPT%
 guicontrol,,CUSTMARG,|
@@ -61365,16 +61387,22 @@ return
 
 resetSYS:
 FileDelete, sys.ini
+FileDelete, hacksyst.ini
 syslist= 
+nsys=
 loop, gam\*.gam
 	{	
 		ifinstring,A_LoopFilename,#
 			{
+				hacksyst.= A_LoopFilename . "|"
 				continue
 			}
+		nsys+=1	
 		stringsplit,syn,A_LoopFileName,.
-		syslist .= (A_Index == 1 ? "" : "|") . syn1
+		syslist .= (nsys == 1 ? "" : "|") . syn1
 	}	
+stringreplace,hacksyst,hacksyst,#HACKS#,,All	
+fileappend,%hacksyst%,hacksyst.ini
 fileappend,%syslist%,sys.ini
 return
 
