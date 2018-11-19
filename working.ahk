@@ -527,6 +527,7 @@ Loop, Parse, scrsup,/
 					}
 			}
 	}
+/*	
 Loop, Parse, SysEmuSet,`n`r
 	{
 		if (A_LoopField = "")
@@ -535,6 +536,7 @@ Loop, Parse, SysEmuSet,`n`r
 			}
 		StringSplit,sysplit,A_LoopField,|
 	}
+*/	
 emuinstpop= 	
 Loop, Parse, EmuPartSet,`n`r
 	{
@@ -5099,7 +5101,7 @@ ifinstring,SEMURUN,_libretro.dll
 	}
 
 guicontrol,choose,TABMENU,3
-guicontrol,,SALIST,|Emulators||Systems|RetroArch|Utilities|Frontends
+guicontrol,,SALIST,|Systems|Emulators||RetroArch|Utilities|Frontends
 if (ksvel = "")
 	{
 		iniread,ksvel,Assignments.ini,ASSIGNMENTS,%SEMURUN%
@@ -8422,6 +8424,64 @@ if coreselz is not digit
 					}
 			}
 	}
+if (coreselv = "")
+	{
+		Loop, Parse, SysEmuSet,`n`r
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				StringSplit,sysplit,A_LoopField,|
+				if (OPTYP = sysplit1)
+					{
+						kr= 
+						ink= 
+						Loop, %sysplit0%
+							{
+								kr= % sysplit%A_index%
+								ink= %sysplit2%
+								Loop, parse, emulist,|
+									{
+										kva= 
+										if (A_Loopfield = kr)
+											{
+												coreselv= %kr%
+												guicontrol,,LCORE,|%coreselv%||%runlist%
+												kva= 1
+												break
+											}
+									}
+								if (kva <> "")
+									{
+										break
+									}
+							}	
+					}
+				if (kva <> "")
+					{
+						break
+					}
+			}
+		if (AUTOPGS = 1)
+			{
+				guicontrol,choose,TABMENU,3
+				guicontrol,,SALIST,|Systems|Emulators||RetroArch|Utilities|Frontends
+				gosub, SaList
+				knum=
+				Loop, Parse, emuinstpop,|
+					{
+						knum+=1
+						if (A_LoopField = ink)
+							{
+								guicontrol, choose, UAVAIL,%knum%
+								gosub, UAVAILSEL
+								SB_SetText(" " ink " emulator auto-suggested")
+								break
+							}
+					}
+			}
+	}
 gosub, EDTROM
 guicontrol,enable,RUNROMCBX
 guicontrol,enable,RUNSYSDDL
@@ -9921,7 +9981,7 @@ if (LNCHPRDDL = "retroarch")
 		if (RaExeFile = "NOT-FOUND.exe")
 			{
 				SB_SetText("Retroarch is not present")
-				guicontrol,,SALIST,|Retroarch||Systems|Emulators|Utilities|Frontends
+				guicontrol,,SALIST,|Systems|Emulators|RetroArch||Utilities|Frontends
 				gosub, SaList
 				guicontrol,enable,LNCHPT
 				guicontrol,enable,SaList
@@ -60983,7 +61043,7 @@ if (INITIAL = 1)
 
 guicontrol,,SKRADISP,%raexeloc%	
 GuiControl, Choose, TABMENU, 3
-guicontrol,,SaList,|RetroArch||Systems|Emulators|Utilities|Frontends
+guicontrol,,SaList,|Systems|Emulators|RetroArch||Utilities|Frontends
 gosub, SaList
 return
 
