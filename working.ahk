@@ -3939,6 +3939,7 @@ RJXTRARCDD_TT :="Store will move archives to skeletonKey's temp directory`nDelet
 
 MVPLOU_TT :="Moves an item up in the playlist."
 MVPLOD_TT :="Moves an item down in the playlist."
+DONATELNK_TT :="You can donate to me and I will thank you personally."
 
 RJRad11A_TT :="File is in the jacket`nLocal path: eg: run.cmd"
 RJRad11B_TT :="File is anywhere`nAbsolute path: eg: C:\run.cmd"
@@ -4123,6 +4124,8 @@ XAUD_TT :="Another sound driver"
 XMBALF_TT :="Menu opacity"
 XMBSCL_TT :="Scales the XMB display"
 XMBTHM_TT :="Icon theme number"
+UpdateSK_TT :="Checks for the latest version of skeletonkey and downloads it if needed."
+HelpLink_TT :="Opens the skeletonKey help html file in your default internet browser."
 XMENU_TT :="Playstation-style GUI.  The Default"
 ZIPSEEK_TT :="Searches within archives (.zip/.7z) for files.`nturn this off for Arcade/MAME-Style ROMs and archives." 
 ZIPSEEK_TT :="Gets and writes the CRC Hash number of ROMs to the playlist.`nThis can be expensive for CD/DVD systems.`nturn this off for Arcade/MAME-Style ROMs and archives." 
@@ -9915,6 +9918,20 @@ smuemu:= "|" . smuemu
 SB_SetText(" Prioritizing " LNCHPRDDL " ")
 if (LNCHPRDDL = "retroarch")
 	{
+		if (RaExeFile = "NOT-FOUND.exe")
+			{
+				SB_SetText("Retroarch is not present")
+				guicontrol,,SALIST,|Retroarch||Systems|Emulators|Utilities|Frontends
+				gosub, SaList
+				guicontrol,enable,LNCHPT
+				guicontrol,enable,SaList
+				guicontrol,enable,AVAIL
+				guicontrol,enable,EAVAIL
+				guicontrol,enable,UAVAIL
+				guicontrol,,ExeList,1
+				gosub, ExeList
+				return
+			}
 		iniwrite, 0,Settings.ini,GLOBAL,Launcher_Priority
 		LNCHPT= 0
 		Loop, Parse, origsys,`n`r
@@ -17889,6 +17906,7 @@ if (LNCHPT = 0)
 	{
 		goto, MatchSyst
 	}
+oil= 
 Loop,Parse,SysEmuSet,`n`r
 	{
 		if (A_LoopField = "")
@@ -17963,6 +17981,12 @@ Sort, recore, N R D|
 topcore:= recore . "|" . runlist
 if (prioco <> "")
 		{
+			splitpath,prioco,,,priocx
+			if (raexefile = "NOT-FOUND.exe")&&(priocx = "dll")
+				{
+					prioco= 
+					SB_SetText("RetroArch Not Found")
+				}
 			topcore:= prioco . "||" . recore . runlist
 		}
 guicontrol,,LCORE, |%topcore%
@@ -20287,12 +20311,21 @@ return
 
 DownOnly:
 gui,submit,nohide
+guicontrolget,ARCCORES,,ARCCORES
 guicontrolget,DOWNONLY,,DOWNONLY
 if (DOWNONLY = 1)
 	{
 		guicontrol,,ARCLNCH,Download
 		guicontrol,Disable,ARCNCT
 		guicontrol,Disable,ARCHOST
+		if (tmpsr <> "")
+			{
+				guicontrol,enable,ARCLNCH
+			}
+		if (tmprm <> "")
+			{
+				guicontrol,enable,ARCLNCH
+			}
 		guicontrol,,RUNXTRACT,0
 		guicontrol,,ArcMove,0
 		norun= 1
@@ -20303,13 +20336,16 @@ PostMessage, 0x185, 1, -1, SRCHSLT  ; Select all items. 0x185 is LB_SETSEL.
 PostMessage, 0x185, 0, -1, SRCHSLT  ; Deselect all items.
 GuiControl, Choose, SRCHSLT,0 
 GuiControl, ChooseString, SRCHSLT, %srchpopcul% 	
-
 PostMessage, 0x185, 1, -1, ARCPOP  ; Select all items. 0x185 is LB_SETSEL.
 PostMessage, 0x185, 0, -1, ARCPOP  ; Deselect all items.
 GuiControl, Choose, ARCPOP,0 
 GuiControl, ChooseString, ARCPOP, %arcpopcul% 	
 guicontrol,,ARCLNCH,Play
 guicontrol,enable,ARCHOST
+if (ARCCORES = "")
+	{
+		guicontrol,disable,ARCLNCH	
+	}
 norun= 
 return
 
@@ -20590,6 +20626,11 @@ if (tmprm <> "")
 									}
 							}
 					}
+			}
+		if (TGCN = "")
+			{
+				SB_SetText(" Seletct a core/emulator to use. ")
+				return
 			}
 		guicontrol,enable,ARCLNCH
 		return
@@ -20913,7 +20954,8 @@ symt1=
 symt2= 
 topcore= 
 fnne= 
-
+tmpsr=
+tmprm= 
 guicontrol,,DOWNONLY,0
 guicontrol,,CUSTMOPT,|%INJOPT%
 guicontrol,,CUSTMARG,|
@@ -21048,6 +21090,7 @@ if (ARCSYS = "BIOS")
 		guicontrol,,DOWNONLY,1
 		gosub, DOWNONLY
 		guicontrol,,EXTRURL,0
+		guicontrol,,ARCCORES,||%runlist%
 	}
 if (ARCSYS = "_firmware_")
 	{
@@ -21060,6 +21103,14 @@ if (ARCSYS = "Streets of Rage - Remake")
 		guicontrol,,RUNXTRACT,1
 		guicontrol,,ArcMove,0
 		guicontrol,show,RNMJACK
+		gosub, ExtractURL
+	}
+if (ARCSYS = "Nintendo - Nintendo 3DS")
+	{
+		guicontrol,,JACKETMODE,0
+		guicontrol,,EXTRURL,1
+		guicontrol,,RUNXTRACT,1
+		guicontrol,,ArcMove,0
 		gosub, ExtractURL
 	}
 if (ARCSYS = "Open - Beats of Rage")
@@ -21101,6 +21152,7 @@ dlx2=
 guicontrol,show,CUSTSWITCH
 guicontrol, enable, ARCHOST
 gui, submit, nohide
+guicontrolget, ARCCORES,,ARCCORES
 coreselv= %ARCCORES%
 stringsplit,dlx,coreselv,.
 if (dlx2 <> "dll")
@@ -21108,7 +21160,6 @@ if (dlx2 <> "dll")
 		guicontrol,disable,ARCHOST
 		APLA= 1
 	}	
-
 if (dlx2 = "dll")
 	{
 		guicontrol,,CUSTMOPT,
@@ -21117,6 +21168,24 @@ if (dlx2 = "dll")
 		guicontrol,hide,CUSTMOPT
 		guicontrol,hide,CUSTMARG
 		guicontrol,hide,CUSTSWITCH
+	}
+if (coreselv = "")
+	{
+		if (DOWNONLY = 1)
+			{
+				guicontrol,enable,ARCLNCH
+				return
+			}
+		guicontrol,disable,ARCLNCH
+		return		
+	}
+if (tmpsr <> "")
+	{
+		guicontrol,enable,ARCLNCH
+	}
+if (tmprm <> "")
+	{
+		guicontrol,enable,ARCLNCH
 	}
 return
 
@@ -21664,6 +21733,7 @@ if (dxt2 <> "dll")
 	}
 
 RomDownload:
+RETRYTHR= 10
 DWNFLD= 	
 ifnotexist, %save%
 	{
@@ -21685,6 +21755,8 @@ ifnotexist, %save%
 				gosub, LoginWall
 				goto, DWNLOADTST
 			}
+		RETRYTHR:
+		Sleep, %RETRYTHR%	
 		DownloadFile(URLFILE,save, True, True)
 		DWNLOADTST:
 		filereadline,doct,%save%,1
@@ -21699,22 +21771,29 @@ ifnotexist, %save%
 			}
 		if (DWNFLD = 1)
 			{
-				MsgBox,4421,Download Failed,"%romdwn% could not be retrieved`n%URLFILE%`nto`n%save%",8
-				ifmsgbox,Retry
+				if (RETRYTHR < 1499)
 					{
-						Filedelete, %save%
-						goto, RomDownload
+						MsgBox,4421,Download Failed,"%romdwn% could not be retrieved`n%URLFILE%`nto`n%save%",8
+						ifmsgbox,Retry
+							{
+								Filedelete, %save%
+								goto, RomDownload
+							}
+						DWNFLD= 
+						FileDelete, %save%
+						guicontrol,enable,ARCSYS
+						guicontrol,enable,ARCPOP
+						guicontrol,enable,ARCLNCH
+						guicontrol,enable,ARCHOST
+						guicontrol,hide,ARCNCT
+						guicontrol,show,ARCHOST				
+						guicontrol,enable,ARCCORES
+						return
 					}
-				DWNFLD= 
-				FileDelete, %save%
-				guicontrol,enable,ARCSYS
-				guicontrol,enable,ARCPOP
-				guicontrol,enable,ARCLNCH
-				guicontrol,enable,ARCHOST
-				guicontrol,hide,ARCNCT
-				guicontrol,show,ARCHOST				
-				guicontrol,enable,ARCCORES
-				return
+				RETRYTHR+=500
+				Filedelete, %save%
+				SB_SetText(" Retrying " URLFILE " to " save " ")
+				gosub, RETRYTHR
 			}
 	}
 

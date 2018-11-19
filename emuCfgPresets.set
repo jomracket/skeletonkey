@@ -274,6 +274,9 @@ RJPRECFG=copy /y "*.ini" "%EMUL%"|copy /y ".Mem\*.*" "%EMUL%"|copy /y ".sstates\
 RJPOSTCFG=copy /y "%EMUL%\*.ini"|copy /y "%EMUL%\*.sav" "%GAMDIR%\.Mem"|copy /y "%EMUL%\*.ss" "%GAMDIR%\.sstates"
 RJLNCHP=0
 
+[easyrpg]
+RJLNCHP= 
+
 [Nox]
 RJLNCHP= 
 
@@ -691,7 +694,7 @@ RJROMXT=.atr,.dsk,.xfd,.bin,.rom,.car,.zip
 MAME?RJEMUOPTS=<xegs -[RJRTYP]<|<a800xlp -flop1<|<a800xlp -cart<|<a800 -flop1<|<a800 -cart<|<a800pal -flop1<|<a800pal -cart<|<a800xe -flop1<|<a800xe -cart<|<a800xl -flop1<|<a800xl -cart<|<xegs -cass1<|<xegs -flop1<
 Altirra?RJEMUOPTS=</hardware:800xl</disk<|</hardware:800xl</tape<|</hardware:800xl</cart<
 
-[Bally - Bally Astrocade]
+[Bally - Astrocade]
 RJEMUPRESET=MAME
 RJMAMENM=astrocde
 RJROMXT=.bin,.zip
@@ -1340,7 +1343,7 @@ RJROMXT=.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr,.img
 MAME?RJEMUOPTS=<cd910 -cdrm<|<cd490a -cdrm<
 RJZIPPEEK=0
 
-[Philips - PC2000]
+[Philips - P2000]
 RJEMUPRESET=MAME
 RJMAMENM=pc2000
 RJMULTIDISC=1
@@ -1696,7 +1699,7 @@ RJROMXT=.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr,.img,.cdi
 MAME?RJEMUOPTS=<3do_m2 -cdrm<|<3do_pal -cdrm<|<3do -cdrm<
 RJZIPPEEK=0
 
-[Thomson - MO5]
+[Thomson - M05]
 RJEMUPRESET=MAME
 RJMAMENM=mo5
 RJMULTIDISC=1
@@ -1717,7 +1720,7 @@ RJMULTIDISC=1
 RJROMXT=.m7,.rom,.wav,.k7,.fd,.sap,.qd,.fdi,.td0,.imd,.cqm,.dsk,.d77,.d88,.1dd,.zip
 MAME?RJEMUOPTS=<to8 -[RJRTYP]<|<to8 -flop1<|<to8 -cass<|<to8d -flop1<|<to8d -cass<|<to8d -cart<|<to8 -cart<
 
-[Tiger - Game.com]
+[Tiger - Game-com]
 RJEMUPRESET=MAME
 RJMAMENM=gamecom
 MAME?RJEMUOPTS=<gamecom -cart<
@@ -1755,7 +1758,7 @@ RJMULTIDISC=1
 RJROMXT=.vz,.rom,.cas,.zip
 MAME?RJEMUOPTS=<laser310 -[RJRTYP]<|<laser310 -dump<|<laser310 -cass<
 
-[VTech - V.Smile]
+[VTech - V-Smile]
 RJEMUPRESET=MAME
 RJMAMENM=vsmile
 MAME?RJEMUOPTS=<vsmilepro -[RJRTYP]<|<vsmilepro -cdrm<|<vsmile -cart<|<vsmileb -cart<|<vsmilef -cart<|<vsmileg -cart<|<vsmilepro -cart<
@@ -2553,7 +2556,7 @@ RJMAMENM=mm1
 MAME?RJEMUOPTS=<mm1 -flop1<
 RJZIPPEEK=0
 
-[Thomson - MO5]
+[Thomson - M05]
 RJEMUPRESET=MAME
 RJMAMENM=mo5
 MAME?RJEMUOPTS=<mo5 -[RJRTYP]<|<mo5 -flop1<|<mo5 -cass<|<mo5 -cart<|<mo5 -qd<
@@ -3244,7 +3247,7 @@ RJMAMENM=vixen
 MAME?RJEMUOPTS=<vixen -flop1<
 RJZIPPEEK=0
 
-[VTech - V.Smile]
+[VTech - V-Smile]
 RJEMUPRESET=MAME
 RJMAMENM=vsmile
 MAME?RJEMUOPTS=<vsmile -cart<

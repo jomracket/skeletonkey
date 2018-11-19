@@ -7,9 +7,9 @@ mame_libretro.dll|Casio - PV-1000
 mame_libretro.dll|Casio - PV-2000
 mame_libretro.dll|Acorn - BBC
 mame_libretro.dll|GamePark - GP32
-mame_libretro.dll|Funtech - Super Acan
+mame_libretro.dll|Funtech - Super A'can
 mame_libretro.dll|Fairchild - Channel F
-mame_libretro.dll|Tiger - Game COM
+mame_libretro.dll|Tiger - Game-com
 mame_libretro.dll|Acorn - Electron
 mame_libretro.dll|Entex - Adventure Vision
 mame_libretro.dll|Emerson - Arcadia
@@ -17,12 +17,11 @@ mame_libretro.dll|RCA - CHIP 8
 mame_libretro.dll|RCA - Studio II
 mame_libretro.dll|Fujitsu - FM Towns
 mame_libretro.dll|NEC - PC88
-mame_libretro.dll|Philips - CDI
 mame_libretro.dll|VTech - Creativision
 mame_libretro.dll|VTech - V
 mame_libretro.dll|Watara - Supervision
 mame_libretro.dll|Hartung - Game Master
-mame_libretro.dll|Philips - CDI
+mame_libretro.dll|Philips - CD-I
 mame_libretro.dll|MAME - Arcade
 mame_libretro.dll|Acorn - Archimedes
 mame_libretro.dll|Apple - IIe
@@ -32,7 +31,7 @@ mame_libretro.dll|Apple - Macintosh
 mame_libretro.dll|Atari - 8Bit
 mame_libretro.dll|Atari - Jaguar CD
 mame_libretro.dll|Atari - XE
-mame_libretro.dll|Bally - Bally Astrocade
+mame_libretro.dll|Bally - Astrocade
 mame_libretro.dll|Camputers - Lynx
 mame_libretro.dll|Coleco - ADAM
 mame_libretro.dll|Commodore - Amiga 1000
@@ -66,7 +65,7 @@ mame_libretro.dll|Nintendo - Pokemon Mini
 mame_libretro.dll|Nintendo - Super Famicom
 mame_libretro.dll|Nintendo - Super Game Boy
 mame_libretro.dll|Philips - CD-I
-mame_libretro.dll|Philips - PC2000
+mame_libretro.dll|Philips - P2000
 mame_libretro.dll|Philips - VG-5000
 mame_libretro.dll|Philips - Videopac
 mame_libretro.dll|Sega - SC-3000
@@ -84,15 +83,15 @@ mame_libretro.dll|Sony - Pocketstation
 mame_libretro.dll|Sord - M5
 mame_libretro.dll|Tangerine - Microtan 65
 mame_libretro.dll|Tangerine - Oric Atmos
-mame_libretro.dll|Thomson - MO5
+mame_libretro.dll|Thomson - M05
 mame_libretro.dll|Thomson - To7
 mame_libretro.dll|Thomson - To8
-mame_libretro.dll|Tiger - Game.com
+mame_libretro.dll|Tiger - Game-com
 mame_libretro.dll|Tomy - Tutor
 mame_libretro.dll|NEC - PC98 - Touhou
 mame_libretro.dll|VTech - Laser 200
 mame_libretro.dll|VTech - Laser 310
-mame_libretro.dll|VTech - V.Smile
+mame_libretro.dll|VTech - V-Smile
 mame_libretro.dll|VideoBrain - Interact Family Computer
 mame_libretro.dll|Sega - 32X - PAL
 mame_libretro.dll|Sega - 32X - JAP
@@ -223,7 +222,7 @@ mame_libretro.dll|Mikro - Mikro-80
 mame_libretro.dll|Lianozovo Electromechanical Factory - Mikrosha
 mame_libretro.dll|VTech - PreComputer 1000
 mame_libretro.dll|MikroMikko - MikroMikko 1
-mame_libretro.dll|Thomson - MO5
+mame_libretro.dll|Thomson - M05
 mame_libretro.dll|Thomson - MO6
 mame_libretro.dll|Acetronic - MPU-1000
 mame_libretro.dll|Morrow Designs - Morrow MPZ80
@@ -289,6 +288,7 @@ mame_libretro.dll|Mephisto - Super Mondial II
 mame_libretro.dll|Sega - Mark III - JPN
 mame_libretro.dll|Sega - Master System - PAL
 mame_libretro.dll|Nintendo - Super Nintendo Entertainment System - PAL
+mame_libretro.dll|Nintendo - Sufami Turbo
 mame_libretro.dll|Bandai - Super Note Club
 mame_libretro.dll|Texas Instruments - Speak and Read
 mame_libretro.dll|Texas Instruments - Speak and Spell
@@ -340,7 +340,7 @@ mame_libretro.dll|JungleTac Sport - Vii
 mame_libretro.dll|RCA - VIP
 mame_libretro.dll|Toshiba - Visicom
 mame_libretro.dll|Osborne 4 - Vixen
-mame_libretro.dll|VTech - V.Smile
+mame_libretro.dll|VTech - V-Smile
 mame_libretro.dll|Dick Smith Electronics - VZ-200-300
 mame_libretro.dll|Wang Laboratories - Wang PC
 mame_libretro.dll|PPG - Waveterm A
@@ -353,6 +353,7 @@ mame_libretro.dll|Cambridge Computers - Z88
 mame_libretro.dll|Telcon - Zorba
 
 freeintv_libretro.dll|Mattel - Intellivision
+easyrpg_libretro.dll|EasyRPG - EasyRPG
 mgba_libretro.dll|Nintendo - Game Boy Advance (E-Cards)
 mgba_libretro.dll|Nintendo - Game Boy Advance
 snes9x_libretro.dll|Nintendo - Super Nintendo Entertainment System

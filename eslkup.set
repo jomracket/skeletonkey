@@ -10,7 +10,7 @@ aquarius=AQAR=Mattel - Aquarius=.bin,.zip=MAME - System="%ROM_RAW%"
 arcade=MAMARC=MAME - Arcade=.zip=MAME - Arcade=%BASENAME%
 arcadia=EMARC=Emerson - Arcadia 2001=.bin,.zip=WinArcadia="%ROM_RAW%"
 archimedes=AARC=Acorn - Archimedes=.bin,.zip=Arculator="%ROM_RAW%"
-astrocade=BASTC=Bally - Bally Astrocade=.bin,zip=MAME - System="%ROM_RAW%"
+astrocade=BASTC=Bally - Astrocade=.bin,zip=MAME - System="%ROM_RAW%"
 atari2600=AT26=Atari - 2600=.z26,.a26,.zip,.bin,.rom,.zip=Stella="%ROM_RAW%"
 atari5200=AT52=Atari - 5200=.bin,.rom,.car,.a52,.zip=Altirra="%ROM_RAW%"
 atari7800=AT78=Atari - 7800=.bin,.a78,.rom,.zip=prosystem="%ROM_RAW%"
@@ -22,8 +22,9 @@ atarist=ATST=Atari - ST=.stx,.st,.msa,.zip,.ipf=STeem="%ROM_RAW%"
 atarixe=ATXE=Atari - XE=.atr,.dsk,.xfd,.bin,.rom,.car,.zip=Altirra="%ROM_RAW%"
 atomiswave=ATOM=Sammy - Atomiswave=.zip=Demul=%BASENAME%
 bbcmicro=ABBC=Acorn - BBC=.bin,.zip=Electron="%ROM_RAW%"
+cave=CAVE=Cave Systems - Cave=.zip,.7z,.chd=MAME - Arcade=%BASENAME%
 c64=COM64=Commodore - 64=.x64,.t64,.d64,.g64,.fdi,.p00,.prg,.tap,.wav,.80,.a0,.e0,.crt,.g41,.d77,.d88,.1dd,.dfi,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.zip=WinVICE="%ROM_RAW%"
-cdi=CDI=Philips - CDI=.iso,.cue,.bin,ccd=MAME - System="%ROM_RAW%"
+cdi=CDI=Philips - CD-I=.iso,.cue,.bin,ccd=MAME - System="%ROM_RAW%"
 channelf=CHANF=Fairchild - Channel F=.bin,.zip=MAME - System="%ROM_RAW%"
 colecovision=COLECO=Coleco - ColecoVision=.col,.zip,.bin,.rom=BlueMSX="%ROM_RAW%"
 cps1=CPS=Capcom Play System - CPS=.zip,.chd=FinalBurnAlpha=%BASENAME%

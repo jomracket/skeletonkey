@@ -51,7 +51,7 @@ BBC - Master|MAME|:mame_libretro.dll
 BBC - Micro Model A|MAME|:mame_libretro.dll
 BBC - Micro Model B|MAME|:mame_libretro.dll
 BNPO - Bashkiria-2M|MAME|:mame_libretro.dll
-Bally - Bally Astrocade|MAME|:mame_libretro.dll
+Bally - Astrocade|MAME|:mame_libretro.dll
 Bandai - Gundam RX-78|MAME|:mame_libretro.dll
 Bandai - Super Note Club|MAME|:mame_libretro.dll
 Bandai - Super Vision 8000|MAME|:mame_libretro.dll
@@ -64,6 +64,7 @@ Bit Corp - Gamate|MAME|:mame_libretro.dll
 Bondwell - Bondwell 12|MAME|:mame_libretro.dll
 Bondwell - Bondwell 14|MAME|:mame_libretro.dll
 Bondwell - Bondwell 2|MAME|:mame_libretro.dll
+Cave Systems - Cave|MAME|:mame_libretro.dll
 COMX - 35|elf|emma02|MAME|:mame_libretro.dll
 Cambridge Computers - Z88|MAME|:mame_libretro.dll
 Camputers - Lynx|jynx|MAME|:mame_libretro.dll
@@ -121,6 +122,7 @@ Dragon - 32-64|MAME|:mame_libretro.dll
 Dragon - Alpha|MAME|:mame_libretro.dll
 Dragon - Beta|MAME|:mame_libretro.dll
 EACA - Colour Genie EG2000|genious|MAME|:mame_libretro.dll
+EasyRPG - EasyRPG|easyrpg|:easyrpg_libretro.dll
 EPSON - PX-4|MAME|:mame_libretro.dll
 EPSON - PX-8|MAME|:mame_libretro.dll
 ES PEVM - EC 1841|MAME|:mame_libretro.dll
@@ -167,6 +169,7 @@ Interact - Family Computer|dchector|virtualinteract|MAME|:mame_libretro.dll
 Interon - VC4000|tunix|MAME|:mame_libretro.dll
 Itautec - I-7000|MAME|:mame_libretro.dll
 Ithaca InterSystems - DPS-1|MAME|:mame_libretro.dll
+Infocom - Z-Machine|MAME|:mame_libretro.dll
 JPM - Give Us A Break|MAME|:mame_libretro.dll
 JungleTac Sport - Vii|MAME|:mame_libretro.dll
 Jupiter Cantab - Jupiter Ace|vace|zesarux|vace3d|ACE32|eightyone|mzxx|zesarux|MAME|:mame_libretro.dll
@@ -205,6 +208,7 @@ Microsoft - MSX2+|BlueMSX|msx2p|no$msx|MAME|fmsx|nlmsx|openMSX|:bluemsx_libretro
 Microsoft - MSX2|BlueMSX|msx2|no$msx|MAME|openMSX|fmsx|nlmsx|EMU|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
 Microsoft - MSX|BlueMSX|msx1|no$msx|MAME|fmsx|fbalpha|vdmgr|nlmsx|Xspeccy|openMSX|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
 Microsoft - XBOX 360|Xenia
+Microsoft - Windows 3x|bsl
 Microsoft - XBOX|Cxbx|cxbxreloaded|xqemu
 Mikro - Mikro-80|MAME|:mame_libretro.dll
 MikroMikko - MikroMikko 1|MAME|:mame_libretro.dll
@@ -213,6 +217,7 @@ Millennium Systems - Wicat|MAME|:mame_libretro.dll
 Milton Bradley - MicroVision|MAME|:mame_libretro.dll
 Morrow Designs - Micro Decision MD-2|MAME|:mame_libretro.dll
 Morrow Designs - Morrow MPZ80|MAME|:mame_libretro.dll
+Nascom - I-II|MAME|:mame_libretro.dll
 NCR - Decision Mate V|MAME|:mame_libretro.dll
 NEC - Advanced Personal Computer|MAME|:mame_libretro.dll
 NEC - PC Engine - JAP|Mednafen|Ootake|pcengine|hu6280|turboengine|pcejin|hu6280|xe|BizHawk|magicengine|hugo|MAME|:mednafen_pce_fast_libretro.dll
@@ -226,12 +231,14 @@ NEC - PC88-VA|Neko|vaeg|m88|xm8|mx88|W88|MAME|:mame_libretro.dll
 NEC - PC8801|Neko|vaeg|m88|xm8|mx88|W88|MAME|:mame_libretro.dll
 NEC - PC88|Neko|vaeg|m88|mx88|xm8|W88|MAME|:mame_libretro.dll
 NEC - PC98|Neko|vaeg|Anex86|SL9821|pc98do|pc98ha|pc98lt|pc9801|MAME|:np2kai_libretro.dll|nekop2_libretro.dll|mame_libretro.dll
+NEC - PC9821|Neko|vaeg|Anex86|SL9821|pc98do|pc98ha|pc98lt|pc9801|MAME|:np2kai_libretro.dll|nekop2_libretro.dll|mame_libretro.dll
 NPO - Elektronika MS 1502|MAME|:mame_libretro.dll
 Nascom Microcomputers - Nascom 1 - 2|MAME|:mame_libretro.dll
 NeXT - NeXTStation|MAME|:mame_libretro.dll
 Nichibutsu - My Vision|MAME|:mame_libretro.dll
 Nintendo - Famicom Disk System|nestopia|virtuanes|xe|virtuanesplus|Mesen|BizHawk|no$nes|dsp|fceux|vdmgr|Mednafen|MAME|:fceumm_libretro.dll|nestopia_libretro.dll|quicknes_libretro.dll|bnes_libretro.dll|mesen_libretro.dll|mame_libretro.dll
 Nintendo - Famicom|nestopia|Mednafen|Mesen|xe|fceux|dsp|vdmgr|BizHawk|kindred|MAME|:fceumm_libretro.dll|nestopia_libretro.dll|quicknes_libretro.dll|bnes_libretro.dll|mesen_libretro.dll|mame_libretro.dll
+Nintendo - Game Boy Advance (e-Cards)|VisualBoyAdvance-M|VisualBoyAdvance|xe|Mednafen|BizHawk|boycottadv|firegb|mgba|no$gba|gbeplus|vgba|rascalboyadv|MAME|:vbam_libretro.dll|mgba_libretro.dll|vba_next_libretro.dll|mame_libretro.dll
 Nintendo - Game Boy Advance|VisualBoyAdvance-M|VisualBoyAdvance|xe|Mednafen|BizHawk|boycottadv|firegb|mgba|no$gba|gbeplus|vgba|rascalboyadv|MAME|:vbam_libretro.dll|mgba_libretro.dll|vba_next_libretro.dll|mame_libretro.dll
 Nintendo - Game Boy Color|bgb|mgba|dinoboy|no$gmb|tgbdual|gbeplus|mednafen|xe|vgb|kigb|BizHawk|dsp|MAME|:gambatte_libretro.dll|sameboy_libretro.dll|mgba_libretro.dll|mame_libretro.dll
 Nintendo - Game Boy|bgb|Mednafen|zboy|mgba|dinoboy|dmgboy|no$gmb|kindred|BizHawk|xe|vgb|dsp|tgbdual|gbeplus|gest|kigb|MAME|:gambatte_libretro.dll|sameboy_libretro.dll|mgba_libretro.dll|mame_libretro.dll
@@ -249,6 +256,7 @@ Nintendo - Super Famicom|snes9x|Mednafen|xe|MAME|BizHawk|kindred|neusnem|zmz|zsn
 Nintendo - Super Game Boy|Visualboyadvance-M|Visualboyadvance|bgb|kigb|gest|mgba|tgbdual|BizHawk|MAME|:higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|bsnes_balanced_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_accuracy_libretro.dll|mame_libretro.dll
 Nintendo - Super Nintendo Entertainment System - PAL|snes9x|Mednafen|no$sns|MAME|zsnes|xe|BizHawk|zmz|snesgt|:snes9x_libretro.dll|snes9x2002_libretro.dll|snes9x2005_libretro.dll|snes9x2010_libretro.dll||bsnes_accuracy_libretro.dll|bsnes_balanced_libretro.dll|bsnes_cplusplus98_libretro.dll|bsnes_mercury_accuracy_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll
 Nintendo - Super Nintendo Entertainment System|snes9x|Mednafen|no$sns|MAME|zsnes|kindred|BizHawk|xe|zmz|snesgt|:snes9x_libretro.dll|snes9x2002_libretro.dll|snes9x2005_libretro.dll|snes9x2010_libretro.dll||bsnes_accuracy_libretro.dll|bsnes_balanced_libretro.dll|bsnes_cplusplus98_libretro.dll|bsnes_mercury_accuracy_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll|mame_libretro.dll
+Nintendo - Sufami Turbo|snes9x|Mednafen|no$sns|MAME|zsnes|kindred|BizHawk|xe|zmz|snesgt|:snes9x_libretro.dll|snes9x2002_libretro.dll|snes9x2005_libretro.dll|snes9x2010_libretro.dll||bsnes_accuracy_libretro.dll|bsnes_balanced_libretro.dll|bsnes_cplusplus98_libretro.dll|bsnes_mercury_accuracy_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll|mame_libretro.dll
 Nintendo - Switch|yuzu|ryujinx
 Nintendo - Virtual Boy|Mednafen|realityboy|vbjin|retrorach|MAME|:mednafen_vboy_libretro.dll
 Nintendo - WiiU|CEMU
@@ -277,7 +285,7 @@ Palson - CX 3000 Tele Computer|MAME|:mame_libretro.dll
 Patisonic - Aleste 520EX|MAME|:mame_libretro.dll
 Peripheral Technology - PT68K2|MAME|:mame_libretro.dll
 Philips - CD-I|wcdi|MAME|:mame_libretro.dll
-Philips - PC2000|MAME|:mame_libretro.dll
+Philips - P2000|MAME|:mame_libretro.dll
 Philips - VG-5000|dcvg5k|MAME|:mame_libretro.dll
 Philips - Videopac Plus G7400|o2em|MAME|:mame_libretro.dll
 Philips - Videopac|o2em|MAME|:mame_libretro.dll
@@ -395,13 +403,13 @@ Texas Instruments - TI-95|MAME|:mame_libretro.dll
 Texas Instruments - TI-99|win994a|classic99|ti994w|MAME|:mame_libretro.dll
 Texas Instruments - Touch and Tell|MAME|:mame_libretro.dll
 The 3DO Company - 3DO|4DO|3doPlay|freedo|phoenix|MAME|:4do_libretro.dll
-Thomson - MO5|dcmo5|dcmoto|MAME|:mame_libretro.dll
+Thomson - M05|dcmo5|dcmoto|MAME|:mame_libretro.dll
 Thomson - MO6|MAME|:mame_libretro.dll
 Thomson - TO7 - TO7-70A|MAME|:mame_libretro.dll
 Thomson - TO7 - TO7-70|MAME|:mame_libretro.dll
 Thomson - To7|MAME|:mame_libretro.dll
 Thomson - To8|MAME|:theodore_libretro.dll|mame_libretro.dll
-Tiger - Game.com|gamecomemu|MAME|:mame_libretro.dll
+Tiger - Game-com|gamecomemu|MAME|:mame_libretro.dll
 Tiger - K28 7-232|MAME|:mame_libretro.dll
 Tiki Data A-S - TIKI 100|MAME|:mame_libretro.dll
 TimeTop - GameKing 3|MAME|:mame_libretro.dll
@@ -429,7 +437,7 @@ VTech - Laser 200|Winvz300|jvz200|tunix|MAME|:mame_libretro.dll
 VTech - Laser 310|Winvz300|jvz200|tunix|MAME|:mame_libretro.dll
 VTech - PreComputer 1000|MAME|:mame_libretro.dll
 VTech - PreComputer 1000|MAME|:mame_libretro.dll
-VTech - V.Smile|MAME|:mame_libretro.dll
+VTech - V-Smile|MAME|:mame_libretro.dll
 Victor Business Products - Victor 9000 - ACT Sirius 1|MAME|:mame_libretro.dll
 Video Technology - Socrates|MAME|:mame_libretro.dll
 VideoBrain - Interact Family Computer|MAME|:mame_libretro.dll

@@ -48,6 +48,7 @@ Demul=Demul/Demul.7z=Demul.exe=gdrImage.ini|gpuDX11.ini|padDemul.ini|Demul.ini|g
 DesMume=DesMume/DesMume-[ARCH].7z=DesMume-x[ARCH].exe=desmume.ini=*.dsv=*.ds1
 Dolphin=Dolphin/Dolphin-[ARCH].7z=Dolphin.exe=User\Config\Dolphin.ini|User\Config\GFX.ini|User\Config\Hotkeys.ini|User\Config\GCPadNew.ini|User\Config\WiimoteNew.ini=User\GC\*.raw=|=User\SaveStates\*.s*
 DosPlus=DosPlus/DosPlus.7z=vDosPlus.exe=
+easyrpg=easyrpg/easyrpg-[ARCH].7z=Player[ARCH].exe=
 EMU7800=EMU7800/EMU7800.7z=EMU7800.Win.exe=EMU7800.Win.exe.config
 ElectrEm=ElectrEm/ElectrEm.7z=ElectrEm.exe=ElectrEM.ini=*.UEF
 FMBochs=FMBochs/FMBochs.7z=fmbochs.exe=

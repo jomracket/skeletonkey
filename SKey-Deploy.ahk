@@ -2560,17 +2560,9 @@ if (BLDERROR = 1)
 		MsgBox,,,HALT.,INSTALLER FAILED.,CHECK YO SCRIPT MAN!
 	}
 
-/*
-RunWait, %comspec% cmd /c " "%BUILDIR%\fciv.exe" -sha1 "%DEPL%\skeletonkey-full.exe" > "%BUILDIR%\fcivFULL.txt" ", %BUILDIR%,%rntp%
-FileReadLine, fchash, %BUILDIR%\fcivFULL.txt,4
-FileDelete,%BUILDIR%\fciv*.txt
-StringSplit,Tsha,nchash, %A_Space%
-ifexist, %SKELD%\version.txt
-	{
-		FileDelete, %SKELD%\version.txt
-	}
-FileAppend, %date% %timestring%=%Tsha1%=%verapnd%,%SKELD%\version.txt
-*/
+FileDelete, %SKELD%\version.txt
+FileAppend, %date% %timestring%=%nchash%=%verapnd%,%SKELD%\version.txt
+
 
 buildnum= 
 buildtnum= 1
