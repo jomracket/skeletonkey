@@ -55,8 +55,8 @@ Bally - Astrocade|MAME|:mame_libretro.dll
 Bandai - Gundam RX-78|MAME|:mame_libretro.dll
 Bandai - Super Note Club|MAME|:mame_libretro.dll
 Bandai - Super Vision 8000|MAME|:mame_libretro.dll
-Bandai - WonderSwan Color|oswan|Mednafen|Bizhawk|xe|bws|MAME|:mednafen_wswan_libretro.dll|mame_libretro.dll
-Bandai - WonderSwan|oswan|Mednafen|Bizhawk|bws|xe|MAME|:mednafen_wswan_libretro.dll|mame_libretro.dll
+Bandai - WonderSwan Color|Mednafen|oswan|Bizhawk|xe|bws|MAME|:mednafen_wswan_libretro.dll|mame_libretro.dll
+Bandai - WonderSwan|Mednafen|oswan|Bizhawk|bws|xe|MAME|:mednafen_wswan_libretro.dll|mame_libretro.dll
 Belogic - Uzebox|MAME|:mame_libretro.dll
 Benesse Corporation - Pocket Challenge V2|MAME|:mame_libretro.dll
 Benesse Corporation - Pocket Challenge W|MAME|:mame_libretro.dll

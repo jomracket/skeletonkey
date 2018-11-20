@@ -398,7 +398,7 @@ bsnes_mercury_performance_libretro.dll|Nintendo - Super Nintendo Entertainment S
 bsnes_performance_libretro.dll|Nintendo - Super Nintendo Entertainment System
 higan_sfc_libretro.dll|Nintendo - Super Nintendo Entertainment System
 higan_sfc_balanced_libretro.dll|Nintendo - Super Nintendo Entertainment System
-citra_libretro.dll|Nintendo - Nintendo 3DS
+citra_canary_libretro.dll|Nintendo - Nintendo 3DS
 crocods_libretro.dll|Amstrad - CPC
 melonds_libretro.dll|Nintendo - Nintendo DS
 desmume2015_libretro.dll|Nintendo - Nintendo DS

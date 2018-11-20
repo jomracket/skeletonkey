@@ -5386,7 +5386,10 @@ Loop, Parse, SysLLst,`n`r
 							}
 						ifnotinstring,emuta,|%A_LoopField%|
 							{
-								Menu, AQRUN, Add, %A_LoopField%, ArcRCL
+								if A_LoopField is not digit
+									{
+										Menu, AQRUN, Add, %A_LoopField%, ArcRCL
+									}
 							}
 					}
 				mousegetpos,Ngx,Ngy
@@ -8162,6 +8165,7 @@ indvcp=
 core_gui=
 qmen= 
 guicontrolget,coretmp,,LCORE
+guicontrol,,LCORE,||%runlist%
 guicontrolget,OPTDLT,,RUNPLRAD
 guicontrolget,OPTYP,,RUNSYSDDL
 guicontrolget,SRCHTMP,,SRCHLOCDDL
@@ -8353,13 +8357,8 @@ Loop, %omitxtn0%
 	}
 
 SB_SetText("... Indexing Directory ...")
-SWAPSUB= %RJSYSTEMS%\%OPTYP%
-if (OPTYP = ":=:System List:=:")
-	{		
-		SWAPSUB= %RJSYSTEMS%
-	}
-	
-Loop,%SWAPSUB%\*.*,0,1
+
+Loop,%RJSYSTEMS%\*.*,0,1
 	{
 		ext= %A_LoopFileExt%
 		noapl= 
@@ -8407,7 +8406,7 @@ if (SRCHCOMPL = 1)
 				}
 			}
 	}
-
+coreselv=
 iniread,coreselz,Assignments.ini,OVERRIDES,%OPTYP%
 if coreselz is not digit
 	{
@@ -10740,84 +10739,71 @@ return
 
 ;{;;;;;;;;;;;;;    URLGET PROC     ;;;;;;;;;;;;;;;;;;;;;;;;
 
-DownloadFile(UrlToFile, _SaveFileAs, Overwrite := True, UseProgressBar := True) {
+DownloadFile(UrlToFile, _SaveFileAs, Overwrite := True, UseProgressBar := True) 
+	{
 		FinalSize= 
-	
-      If (!Overwrite && FileExist(_SaveFileAs))
-      {
-        FileSelectFile, _SaveFileAs,S, %_SaveFileAs%
-        if !_SaveFileAs 
-          return
-      }
+		
+		If (!Overwrite && FileExist(_SaveFileAs))
+		  {
+			FileSelectFile, _SaveFileAs,S, %_SaveFileAs%
+			if !_SaveFileAs 
+			  return
+		  }
 
-    
-      If (UseProgressBar) {
-          
-            SaveFileAs := _SaveFileAs
-          
-            try WebRequest := ComObjCreate("WinHttp.WinHttpRequest.5.1")
-			catch {
-			}
-          
-            try WebRequest.Open("HEAD", UrlToFile)
-            catch {
-			}
-			try WebRequest.Send()
-			catch {
-			}
-          
-			try FinalSize := WebRequest.GetResponseHeader("Content-Length") 
-			catch {
-				FinalSize := 1
+		If (UseProgressBar) 
+			{
+				SaveFileAs := _SaveFileAs
+				try WebRequest := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+				catch {
+				}
+				try WebRequest.Open("HEAD", UrlToFile)
+				catch {
+				}
+				try WebRequest.Send()
+				catch {
+				}
+				try FinalSize := WebRequest.GetResponseHeader("Content-Length") 
+				catch {
+					FinalSize := 1
 			}
 			SetTimer, DownloadFileFunction_UpdateProgressBar, 100
+	}
+		UrlDownloadToFile, %UrlToFile%, %_SaveFileAs%
+		If (UseProgressBar) 
+			{
+				Progress, Off
+				SetTimer, DownloadFileFunction_UpdateProgressBar, Off
+			}
+		return
 		
- 
-      }
-    
-      
-      UrlDownloadToFile, %UrlToFile%, %_SaveFileAs%
-    
-      If (UseProgressBar) {
-          Progress, Off
-          SetTimer, DownloadFileFunction_UpdateProgressBar, Off
-      }
-      return
-
-      DownloadFileFunction_UpdateProgressBar:
-    
-      try CurrentSize := FileOpen(_SaveFileAs, "r").Length 
-	  catch {
+		DownloadFileFunction_UpdateProgressBar:
+		try CurrentSize := FileOpen(_SaveFileAs, "r").Length 
+		catch {
+			}				
+		try CurrentSizeTick := A_TickCount
+		catch {
 			}
-			
-      try CurrentSizeTick := A_TickCount
-    catch {
+		try Speed := Round((CurrentSize/1024-LastSize/1024)/((CurrentSizeTick-LastSizeTick)/1000)) . " Kb/s"
+		catch {
+			}		
+		LastSizeTick := CurrentSizeTick
+		try LastSize := FileOpen(_SaveFileAs, "r").Length
+		catch {
 			}
-			
-      try Speed := Round((CurrentSize/1024-LastSize/1024)/((CurrentSizeTick-LastSizeTick)/1000)) . " Kb/s"
-	  catch {
+		try PercentDone := Round(CurrentSize/FinalSize*100)
+		catch {
 			}
-    
-      LastSizeTick := CurrentSizeTick
-      try LastSize := FileOpen(_SaveFileAs, "r").Length
-    catch {
+		if (PercentDone > 100)
+			{
+				PercentDone= 
 			}
-	
-      try PercentDone := Round(CurrentSize/FinalSize*100)
-    catch {
-			}
-			
-	 if (PercentDone > 100)
-		{
-			PercentDone= 
-		}
-	 SB_SetText(" " Speed " " updtmsg " at " . PercentDone . `% " " CurrentSize " bytes completed")
-      Guicontrol, ,utlPRGA, %PercentDone%
-      Guicontrol, ,ARCDPRGRS, %PercentDone%
-      Guicontrol, ,DWNPRGRS, %PercentDone%
-      Guicontrol, ,FEPRGA, %PercentDone%
-      return
-  }
+		SB_SetText(" " Speed " " updtmsg " at " . PercentDone . `% " " CurrentSize " bytes completed")
+		Guicontrol, ,utlPRGA, %PercentDone%
+		Guicontrol, ,ARCDPRGRS, %PercentDone%
+		Guicontrol, ,DWNPRGRS, %PercentDone%
+		Guicontrol, ,FEPRGA, %PercentDone%
+		return
+	}
 Guicontrol, ,utlPRGA, 0
 Guicontrol, ,ARCDPRGRS, 0
 Guicontrol, ,DWNPRGRS, 0
@@ -10868,10 +10854,10 @@ EXELIST= 1
 gosub, STABLE
 EXELIST= 0
 RALIST= 1
-SLCTCORES= 4do_libretro.dll.zip|bluemsx_libretro.dll.zip|desmume_libretro.dll.zip|doxbox_libretro.dll.zip|fbalpha2012_libretro.dll.zip|freeintv_libretro.dll.zip|gambatte_libretro.dll.zip|genesis_plus_gx_libretro.dll.zip|pcsx_rearmed_libretro.dll.zip|handy_libretro.dll.zip|mame_libretro.dll.zip|mednafen_ngp_libretro.dll.zip|mednafen_pce_fast_libretro.dll.zip|mdednafen_pcfx_libretro.dll.zip|mednafen_psx_libretro.dll.zip|mednafen_supergrafx_libretro.dll.zip|mednafen_vb_libretro.dll.zip|mednafen_wswawn_libretro.dll.zip|mgba_libretro.dll.zip|nestopia_libretro.dll.zip|parallel_n64_libretro.dll.zip|picodrive_libretro.dll.zip|prosystem_libretro.dll.zip|snes9x_libretro.dll.zip|stella_libretro.dll.zip|virtualjaguar_libretro.dll.zip|crocods_libretro.dll.zip|px68k_libretro.dll.zip|openlara_libretro.dll.zip|atari800_libretro.dll.zip|np2kai_libretro.dll.zip|vice_x64_libretro.dll.zip|vice_xplus4_libretro.dll.zip|vice_xvic_libretro.dll.zip|pokemini_libretro.dll.zip|reicast_libretro.dll.zip|mednafen_saturn_libretro.dll.zip
+SLCTCORES= 4do_libretro.dll.zip|bluemsx_libretro.dll.zip|desmume_libretro.dll.zip|doxbox_libretro.dll.zip|fbalpha2012_libretro.dll.zip|freeintv_libretro.dll.zip|gambatte_libretro.dll.zip|genesis_plus_gx_libretro.dll.zip|pcsx_rearmed_libretro.dll.zip|handy_libretro.dll.zip|mame_libretro.dll.zip|mednafen_ngp_libretro.dll.zip|mednafen_pce_fast_libretro.dll.zip|mdednafen_pcfx_libretro.dll.zip|mednafen_psx_libretro.dll.zip|mednafen_supergrafx_libretro.dll.zip|mednafen_vb_libretro.dll.zip|mednafen_wswawn_libretro.dll.zip|mgba_libretro.dll.zip|nestopia_libretro.dll.zip|parallel_n64_libretro.dll.zip|picodrive_libretro.dll.zip|prosystem_libretro.dll.zip|snes9x_libretro.dll.zip|stella_libretro.dll.zip|virtualjaguar_libretro.dll.zip|crocods_libretro.dll.zip|px68k_libretro.dll.zip|openlara_libretro.dll.zip|atari800_libretro.dll.zip|np2kai_libretro.dll.zip|vice_x64_libretro.dll.zip|vice_xplus4_libretro.dll.zip|vice_xvic_libretro.dll.zip|pokemini_libretro.dll.zip|reicast_libretro.dll.zip|mednafen_saturn_libretro.dll.zip|mu_libretro.dll.zip|theodore_libretro.dll.zip
 if (ARCH = "64")
 	{
-		SLCTCORES .= "|" . "dolphin_libretro.dll.zip" . "|" . "citra_libretro.dll.zip"
+		SLCTCORES .= "|" . "dolphin_libretro.dll.zip" . "|" . "citra_canary_libretro.dll.zip" . "|" . "kronos_libretro.dll.zip"
 	}
 gosub, UpdateCores
 SB_SetText(" complete ")
@@ -11318,7 +11304,7 @@ guicontrol,disable,EMUINST
 guicontrol,disable,INSTEMUDDL
 guicontrol,disable,CHEMUINST
 
-guicontrol,,INSTEMUDDL,| ||%emuinstpop%
+guicontrol,,INSTEMUDDL,|%emuinstpop%
 guicontrol,,EINSTLOC,
 guicontrol,,ROMDEDT,
 guicontrol,,OVSETTXT,
@@ -21156,6 +21142,15 @@ if (ARCSYS = "_firmware_")
 	{
 		gosub, MAMEBIOSFIRM
 	}
+if (ARCSYS = "EasyRPG - EasyRPG")
+	{
+		guicontrol,,JACKETMODE,0
+		guicontrol,,EXTRURL,1
+		guicontrol,,RUNXTRACT,1
+		guicontrol,show,RNMJACK
+		gosub, ExtractURL
+		guicontrol,,ArcMove,1
+	}
 if (ARCSYS = "Streets of Rage - Remake")
 	{
 		guicontrol,,JACKETMODE,1
@@ -21355,7 +21350,9 @@ ReDownload:
 gui, submit, nohide
 REDWN= 0
 if REDWN= 1
-REDOWN= 1
+	{
+		REDOWN= 1
+	}
 return
 
 
@@ -21743,7 +21740,7 @@ guicontrolget,REDOWN,,REDWN
 
 if (REDOWN = 1)
 	{
-		FileMove, %save%, %save%.bak, 1
+		FileMove, %save%, %cacheloc%\%save%.bak, 1
 	}
 ifnotexist, %RJSYSTEMS%\%romsys%
 	{ 
@@ -21815,6 +21812,16 @@ ifnotexist, %save%
 				gosub, LoginWall
 				goto, DWNLOADTST
 			}
+		klp= 
+		fndpath= %RJSYSTEMS%\%romsys%\%rjinsfldr%%romname%
+		gosub, LkExtrExt
+		if (romshere = "X")
+			{				
+				if (REDOWN <> 1)
+					{
+						goto, romdowned
+					}
+			}
 		RETRYTHR:
 		Sleep, %RETRYTHR%	
 		DownloadFile(URLFILE,save, True, True)
@@ -21856,7 +21863,7 @@ ifnotexist, %save%
 				gosub, RETRYTHR
 			}
 	}
-
+RomDowned:
 if (chkxt = "chd")
 	{
 		gosub, ChdXtr
@@ -21880,11 +21887,13 @@ if (chkxt = "zip")
 				Gosub, ZipXtr
 			}
 	}
-		
-ifexist, %save%
-	{	
-		romshere= 1
-		goto, RunArc
+if (klp <> 1)
+	{
+		ifexist, %save%
+			{	
+				romshere= 1
+				goto, RunArc
+			}
 	}
 RunArc:
 if (romf = "")
@@ -21899,7 +21908,10 @@ guicontrol,,RUNSYSDDL,|History||%plistfiles%
 guicontrol,,LCORE, |%lastcore%||%runlist%
 ifnotexist, %save%
 	{
-		msgbox,0,,"could not download"
+		if (ARCMOVE = 0)
+			{
+				msgbox,0,,"could not locate %save%",3
+			}
 	}
 Guicontrol, ,ARCDPRGRS, 0
 SB_SetText(" ")
@@ -22009,6 +22021,44 @@ Loop, Files, %rompth%\%romname%\*.*
 		}
 return
 
+LkExtrExt:
+klp= 
+iniread,lookf,emucfgPresets.set,%romsys%,RJROMXT
+if (lookf = "ERROR")
+	{
+		klp= 1
+		return
+	}
+Loop, Parse, lookf,`,
+	{
+		matchdxt= %A_LoopField%
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		Loop, files,%fndpath%*.*,R
+			{
+				ext= .%A_LoopFileExt%
+				if ((ext = matchdxt)&&(ext <> "zip")&&(ext <> "rar")&&(ext <> "chd")&&(ext <> "7z"))
+					{
+						romf= %A_LoopFileFullPath%
+						ifnotexist,%save%
+							{
+								save= %romf%
+							}
+						romshere= X
+						klp= 1
+						break
+					}
+			}
+		if (klp = 1)
+			{
+				break
+			}
+	}	
+return	
+
+
 7zXtr:
 SB_SetText(" extracting 7zip ")
 xtrdir= %rompth%\%romname%
@@ -22040,12 +22090,14 @@ Loop, Files, %xtrdir%\*.*
 return
 
 ZipXtr:
+guicontrolget,EXTEXPLD,,EXTEXPLD
+guicontrolget,RNMJACK,,RNMJACK
 SB_SetText(" extracting Zip ")
 xtrdir= %rompth%\%romname%
-xtrvar= e
+xtrvar= x
 if (EXTEXPLD = 1)
 	{
-		xtrvar= x
+		xtrvar= e
 		xtrdir= %rompth%
 	}
 if (RNMJACK <> "")
@@ -22066,19 +22118,24 @@ if (RXTRM = 1)
 			{
 				xtrdir= %rompth%\%RNMJACK%
 			}
-		Loop, %xtrdir%\*.*
+		fndpath= %xtrdir%\
+		gosub, LkExtrExt
+		if (klp = "")
 			{
-				if (A_LoopFileSize > 10)
+				Loop, %xtrdir%\*.*
 					{
-						romf= %A_LoopFileFullPath%
-						if (ArcMove = 1)
+						if (A_LoopFileSize > 10)
 							{
-								FileCreateDir,%cacheloc%\%romname%
-								FileMove,%save%,%cacheloc%\%romname%,1
+								romf= %A_LoopFileFullPath%
+								break	
 							}
-						break	
 					}
 			}
+		if (ArcMove = 1)
+			{
+				FileCreateDir,%cacheloc%\%romname%
+				FileMove,%save%,%cacheloc%\%romname%,1
+			}	
 	}
 return
 
@@ -22129,7 +22186,9 @@ if (coreslc2 = "dll")
 			}
 			return
 	}
-iniread,lookf,emucfgPresets,%romsys%,RJROMXT
+
+LkXtrRom:
+iniread,lookf,emucfgPresets.set,%romsys%,RJROMXT
 if (lookf = "ERROR")
 	{
 		return
@@ -36222,6 +36281,18 @@ return
 
 EMUUPDTSEL:
 gosub, EMUDELFESEL
+knum=
+Loop, Parse, emuinstpop,|
+	{
+		knum+=1
+		if (A_LoopField = selfnd)
+			{
+				guicontrol, choose, UAVAIL,%knum%
+				gosub, UAVAILSEL
+				SB_SetText(" " selfnd " emulator auto-suggested")
+				break
+			}
+	}
 gosub, EmuInst
 return
 
