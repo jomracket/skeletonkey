@@ -728,6 +728,7 @@ FileInstall,Frontends.set,Frontends.set,1
 FileInstall,fuzSysLk.set,fuzSysLk.set,1
 FileInstall,jacketSys.set,jacketSys.set,1
 FileInstall,Keymappers.set,Keymappers.set,1
+FileInstall,launchparams.set,launchparams.set,1
 FileInstall,libmatch.set,libmatch.set,1
 FileInstall,LkUp.set,LkUp.set,1
 FileInstall,Programs.set,Programs.set,1
@@ -956,6 +957,7 @@ FileInstall,gam\#HACKS#Atari - Jaguar.gam,gam\#HACKS#Atari - Jaguar.gam,1
 FileInstall,gam\#HACKS#Bally - Astrocade.gam,gam\#HACKS#Bally - Astrocade.gam,1
 FileInstall,gam\#HACKS#Bandai - WonderSwan Color.gam,gam\#HACKS#Bandai - WonderSwan Color.gam,1
 FileInstall,gam\#HACKS#Bandai - WonderSwan.gam,gam\#HACKS#Bandai - WonderSwan.gam,1
+FileInstall,gam\#HACKS#BIOS.gam,gam\#HACKS#BIOS.gam,1
 FileInstall,gam\#HACKS#Camputers - Lynx.gam,gam\#HACKS#Camputers - Lynx.gam,1
 FileInstall,gam\#HACKS#Capcom Play System - CPS II.gam,gam\#HACKS#Capcom Play System - CPS II.gam,1
 FileInstall,gam\#HACKS#Capcom Play System - CPS III.gam,gam\#HACKS#Capcom Play System - CPS III.gam,1
@@ -1016,6 +1018,7 @@ FileInstall,gam\#HACKS#Sony - Playstation Portable.gam,gam\#HACKS#Sony - Playsta
 FileInstall,gam\#HACKS#Sony - Pocketstation.gam,gam\#HACKS#Sony - Pocketstation.gam,1
 FileInstall,gam\#HACKS#Tangerine - Microtan 65.gam,gam\#HACKS#Tangerine - Microtan 65.gam,1
 FileInstall,gam\#HACKS#Tangerine - Oric Atmos.gam,gam\#HACKS#Tangerine - Oric Atmos.gam,1
+FileInstall,gam\#HACKS#Thomson - M05.gam,gam\#HACKS#Thomson - M05.gam,1
 FileInstall,gam\#HACKS#Thomson - TO5.gam,gam\#HACKS#Thomson - TO5.gam,1
 FileInstall,gam\#HACKS#Thomson - TO7.gam,gam\#HACKS#Thomson - TO7.gam,1
 FileInstall,gam\#HACKS#Thomson - TO8.gam,gam\#HACKS#Thomson - TO8.gam,1

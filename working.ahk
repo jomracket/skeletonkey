@@ -209,6 +209,11 @@ IfNotExist, AppParams.ini
 		FileCopy,AppParams.set,AppParams.ini
 	}
 
+IfNotExist, launchparams.ini
+	{
+		FileCopy,launchparams.set,launchparams.ini
+	}
+
 Iniread, raexeloc, Settings.ini,GLOBAL,retroarch_location
 RJQNUM:= 0
 Loop, rj\*_q.tdb
@@ -1540,6 +1545,8 @@ Menu,ASOCRUN,Add,
 Menu, ARCGPCFG, Add, Configure Selected Game, ARCPCFG
 
 Menu, ARSOCCFG, Add, Configure Association, ARSCFG
+Menu, ARSOCCFG, Add,
+Menu, ARSOCCFG, Add, Reset Paramaters, ARSRST
 
 Menu, ASOCCFG, Add, Configure Association, ASCFG
 Menu,ASOCCFG,Add, 
@@ -2995,7 +3002,7 @@ Gui, Add, Button, x350 y480 w61 h15 vCLIPURL gClipURL, CLIP URL
 Gui, Add, CheckBox, x26 y100 h15 vEXTRURL gExtractURL,Extract ROM
 Gui Add, CheckBox, x110 y100 h15 vEXTEXPLD gEXTEXPLD hidden, explode
 Gui, Add, CheckBox, x170 y100 h15 vRUNXTRACT gRunXtract Checked Hidden, Run ROM
-Gui, Add, Checkbox, x262 y100 h15 vArcMove hidden,cleanup
+Gui, Add, Checkbox, x262 y100 h15 vArcMove gArcMove hidden,cleanup
 
 
 Gui, Add, Button, x25 y157 w59 h17 vSETOVD gSetOvd disabled, BROWSE
@@ -3192,7 +3199,7 @@ Gui, Add, Radio, x284 y397 h18  vRJRAD1B gRJRAD1B, Run from ROM Directory
 
 
 
-gui,add,checkbox, x278 y491 h14 vRJCHKJ gRJCHKJ Checked, Preview Jackets
+gui,add,checkbox, x278 y491 h14 vRJCHKJ gRJCHKJ, Preview Jackets
 Gui, Add, DropDownList, x273 y437 w199 vRJQLSTDD gRJQLSTDD, QUEUE||%SYSTMQ%
 Gui, Add, Button, x276 y465 w60 h23 vRJADDQ gRJADDQ Disabled, ADD
 Gui, Add, Button, x477 y436 w21 h23 vRJREMQSYS gRJREMQSYS, X
@@ -5054,7 +5061,15 @@ EDTRMFN= %romfname%
 aemcfg= 1
 gosub, OPNCORE
 return
-	
+
+ARSRST:
+gui,submit,nohide
+iniread,tofv,launchparams.set,LAUNCHPARAMS,%ARCSYS%
+iniwrite,%tofv%,launchparams.ini,LAUNCHPARAMS,%ARCSYS%
+SB_SetText(" " ARCSYS " sytem paramaters reset")
+gosub, ArchiveSystems
+return
+
 ARSCFG:
 gui,submit,nohide
 guicontrolget,RCLSYSTEM,,ARCSYS
@@ -6816,6 +6831,7 @@ IniWrite, "%RJSYSTEMS%",Settings.ini,GLOBAL,systems_directory
 gosub, RJSYSRESET
 if (INITIAL = 1)
 	{
+		filecopy,launchparams.set,launchparams.ini,1
 		return
 	}
 if (SKFILTSUP = 1)
@@ -8124,11 +8140,15 @@ if (uuniv = "X")
 				guicontrol,,FNDGUI,find
 				return
 			}
-		
-		gosub, initsearchbox	
-		try, gosub, %EMUSN%TOG
-			catch {
-				gosub, notog
+		gosub, initsearchbox
+		srchtog= show
+		Loop, Parse, supgui,|
+			{
+				if (EMUSN = A_Loopfield)
+					{
+						gosub, %EMUSN%TOG
+						srchtog= hide					
+					}
 			}
 		gosub, TOGGLESEARCHBOX
 		guicontrol,move,FNDGUI, x720 y516 w42 h19
@@ -8357,8 +8377,8 @@ Loop, %omitxtn0%
 	}
 
 SB_SetText("... Indexing Directory ...")
-
-Loop,%RJSYSTEMS%\*.*,0,1
+poptadd= 
+Loop,%RJSYSTEMS%\%OPTYP%\*.*,0,1
 	{
 		ext= %A_LoopFileExt%
 		noapl= 
@@ -8462,25 +8482,29 @@ if (coreselv = "")
 						break
 					}
 			}
-		if (AUTOPGS = 1)
+		if (kva = "")
 			{
-				guicontrol,choose,TABMENU,3
-				guicontrol,,SALIST,|Systems|Emulators||RetroArch|Utilities|Frontends
-				gosub, SaList
-				knum=
-				Loop, Parse, emuinstpop,|
+				if (AUTOPGS = 1)
 					{
-						knum+=1
-						if (A_LoopField = ink)
+						guicontrol,choose,TABMENU,3
+						guicontrol,,SALIST,|Systems|Emulators||RetroArch|Utilities|Frontends
+						gosub, SaList
+						knum=
+						Loop, Parse, emuinstpop,|
 							{
-								guicontrol, choose, UAVAIL,%knum%
-								gosub, UAVAILSEL
-								SB_SetText(" " ink " emulator auto-suggested")
-								break
+								knum+=1
+								if (A_LoopField = ink)
+									{
+										guicontrol, choose, UAVAIL,%knum%
+										gosub, UAVAILSEL
+										SB_SetText(" " ink " emulator auto-suggested")
+										break
+									}
 							}
-					}
+					}			
 			}
 	}
+
 gosub, EDTROM
 guicontrol,enable,RUNROMCBX
 guicontrol,enable,RUNSYSDDL
@@ -11629,9 +11653,9 @@ if (SALIST = "Emulators")
 		guicontrol, hide,ROMDLOC	
 		guicontrol, hide,ROMDTXT	
 		guicontrol, hide,ROMDEDT	
-		guicontrol,show,EMUASIGN
-		guicontrol, show,ROMDTXT
-		guicontrol, show,ROMDEDT		
+		guicontrol,hide,EMUASIGN
+		guicontrol, hide,ROMDTXT
+		guicontrol, hide,ROMDEDT		
 		guicontrol,hide,OPNSYS
 		guicontrol,hide,ADDCORE
 		guicontrol,show,DAPP
@@ -11653,7 +11677,7 @@ FileSelectFolder,xtractmul,,,Select Destination Directory for %selfnd%
 if (xtractmul = "")
 	{
 		return
-	}
+	}	
 guicontrolget,selfnd,,INSTEMUDDL
 xtractmu= %xtractmul%\%selfnd%
 
@@ -12553,6 +12577,10 @@ Loop, Parse,UrlIndex,`n`r
 						inisect= EMULATORS
 						iniwrite, "%xtractmfp%",apps.ini,%inisect%,%selfnd%
 						iniwrite, "%xtractmfp%",Assignments.ini,ASSIGNMENTS,%selfnd%
+						ifnotinstring,emulist,%selfnd%
+							{
+								emulist.= selfnd . "|"
+							}
 						ifnotinstring,addemu,|%selfnd%
 							{
 								addemu.= "|" . selfnd
@@ -20570,6 +20598,7 @@ ArcPopulateList:
 tmprm= 
 tmpsr= 
 gui,submit,nohide
+guicontrol,enable,RNMJACK
 guicontrolget,tmprm,,ARCPOP
 PostMessage, 0x186, -1, 0,,ahk_id %srchpopu%
 PostMessage, 0x185, 0, -1, SRCHRSLT  ; Select all items. 0x185 is LB_SETSEL.
@@ -20578,11 +20607,12 @@ arcpnum=
 Loop, parse, tmprm,|
 	{
 		arcpnum+=1
+		arcpopcul= %A_LoopField%
+		aftpth2= %arcpopcul%
 		if (arcpnum > 1)
 			{
 				break
 			}
-		arcpopcul= %A_LoopField%
 	}
 guicontrol,enable,MAMESWCHK
 guicontrol,enable,ARCSYS
@@ -20594,6 +20624,7 @@ if (DownOnly = 0)
 		guicontrol, show, ARCNCT	
 		GuiControl, ChooseString, ARCPOP, %arcpopcul%
 		krbrk= 
+		arcpnum= 
 		Loop,gam\%HACKAPN%%ARCSYS%.gam
 			{
 				Loop, Read, %A_LoopFileFullPath%
@@ -20613,12 +20644,17 @@ if (DownOnly = 0)
 								krbrk= 
 								break
 							}
-					}
+					}	
 				if (krbrk = 1)
 					{
 						break
 					}
 			}
+	}	
+guicontrol,,RNMJACK,%aftpth2%
+if (arcpnum > 1)
+	{
+		guicontrol,,RNMJACK,
 	}
 ARCRCLK= 1
 bltoh= 
@@ -20692,6 +20728,7 @@ gui, submit, nohide
 tmpsr= 
 ROMSYS= 
 guicontrolget,tmpsr,,SRCHRSLT
+guicontrol,enable,RNMJACK
 guicontrol,disable,ARCSYS
 guicontrol,disable,MAMESWCHK
 PostMessage, 0x186, -1, 0,,ahk_id %arcpopu%
@@ -20704,10 +20741,13 @@ Loop, Parse, tmpsr,|
 		srchpnum+=1
 		if (srchpnum > 1)
 			{
+				guicontrol,,RNMJACK,
+				guicontrol,disable,RNMJACK
 				multsrch= 1
 				return
 			}
 		srchpopcul= %A_LoopField%	
+		guicontrol,enable,RNMJACK
 	}
 
 if (DownOnly = 0)
@@ -21113,13 +21153,38 @@ if (ARCSEL = 2)
 	{
 		return
 	}
+jacktshw= hide	
 guicontrol,,ARCPOP,|%pop_list%
-if (ARCSYS = "MAME - Arcade")
+iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,
+OVDCHKB= $
+Loop, parse, lnchparam,`n`r
 	{
-		guicontrol,,EXTRURL,0
-		guicontrol,,ArcMove,0		
-		OVDCHK= MAME - Arcade
-		guicontrol,,OVDLDS,|MAME - Arcade|Matching|%systmfldrs%
+		stringsplit,apr,A_Loopfield,=
+		if (apr1 = ARCSYS)
+			{
+				stringsplit,aprm,apr2,|
+				if (aprm1 <> "$")
+					{
+						OVDCHKB= %aprm1%
+						guicontrol,,OVDCHK,1
+						guicontrol,,OVDLDS,|%aprm1%||Matching|%systmfldrs%
+					}
+				guicontrol,,JACKETMODE,%aprm2%
+				guicontrol,,EXTRURL,%aprm3%	
+				guicontrol,,EXTEXPLD,%aprm4%	
+				guicontrol,,RUNXTRACT,%aprm5%	
+				if (aprm3 = 1)
+					{
+						jacktshw= show
+					}
+				guicontrol,%jacktshw%,RNMJACK
+				gosub, ExtractURL
+				guicontrol,,ARCMOVE,%aprm6%
+				break
+			}
+	}
+if (ARCSYS = "MAME - Arcade")
+	{	
 		guicontrol,,OVDTXT,%RJSYSTEMS%\MAME - Arcade
 	}
 if (ARCSYS = "BIOS")
@@ -21141,62 +21206,6 @@ if (ARCSYS = "BIOS")
 if (ARCSYS = "_firmware_")
 	{
 		gosub, MAMEBIOSFIRM
-	}
-if (ARCSYS = "EasyRPG - EasyRPG")
-	{
-		guicontrol,,JACKETMODE,0
-		guicontrol,,EXTRURL,1
-		guicontrol,,RUNXTRACT,1
-		guicontrol,show,RNMJACK
-		gosub, ExtractURL
-		guicontrol,,ArcMove,1
-	}
-if (ARCSYS = "Streets of Rage - Remake")
-	{
-		guicontrol,,JACKETMODE,1
-		guicontrol,,EXTRURL,1
-		guicontrol,,RUNXTRACT,1
-		guicontrol,,ArcMove,0
-		guicontrol,show,RNMJACK
-		gosub, ExtractURL
-	}
-if (ARCSYS = "Nintendo - Nintendo 3DS")
-	{
-		guicontrol,,JACKETMODE,0
-		guicontrol,,EXTRURL,1
-		guicontrol,,RUNXTRACT,1
-		guicontrol,,ArcMove,0
-		gosub, ExtractURL
-	}
-if (ARCSYS = "Open - Beats of Rage")
-	{
-		guicontrol,,JACKETMODE,1
-		guicontrol,,EXTRURL,1
-		guicontrol,,RUNXTRACT,1
-		guicontrol,,ArcMove,0
-		guicontrol,show,RNMJACK
-		gosub, ExtractURL
-		guicontrol,,EXTEXPLD,1
-	}
-if (ARCSYS = "Sony - Playstation")
-	{
-		guicontrol,,EXTRURL,1
-		guicontrol,,RUNXTRACT,1
-		guicontrol,,ArcMove,0
-		guicontrol,,JACKETMODE,1
-		guicontrol,show,RNMJACK
-		gosub, ExtractURL
-		guicontrol,,EXTEXPLD,0
-	}
-if (ARCSYS = "Sony - Playstation 2")
-	{
-		guicontrol,,EXTRURL,1
-		guicontrol,,RUNXTRACT,1
-		guicontrol,,ArcMove,0
-		guicontrol,,JACKETMODE,1
-		guicontrol,show,RNMJACK
-		gosub, ExtractURL
-		guicontrol,,EXTEXPLD,0
 	}
 return
 
@@ -21267,6 +21276,7 @@ return
 
 DWNINJACK:
 gui,submit,nohide
+guicontrol,enable,RNMJACK
 guicontrolget,JACKETMODE,,JACKETMODE
 if (JACKETMODE = 0)
 	{
@@ -21286,6 +21296,9 @@ if (JACKETMODE = 1)
 		guicontrol,show,RNMJACK
 	}
 IniWrite, "%JACKETMODE%", Settings.ini,GLOBAL,jacket_mode
+iniread,tmpsw,launchparams.ini,LAUNCHPARAMS,%ARCSYS%
+stringsplit,tmpsx,tmpsw,|
+iniwrite,%tmpsx1%|%JACKETMODE%|%tmpsx3%|%tmpsx4%|%tmpsx5%|%tmpsx6%,launchparams.ini,LAUNCHPARAMS,%ARCSYS%
 return
 
 RNMJACK:
@@ -21392,33 +21405,59 @@ ExtractURL:
 XtrZip= 
 gui,submit,nohide
 guicontrolget,EXTRURL,,EXTRURL
-guicontrol,hide,EXTEXPLD
-guicontrol, hide, RUNXTRACT
-guicontrol,, ArcMove,0
-guicontrol, hide, ArcMove
+iniread,tmpsw,launchparams.ini,LAUNCHPARAMS,%ARCSYS%
+stringsplit,tmpsx,tmpsw,|
+if (EXTRURL = 0)
+	{
+		guicontrol,hide,EXTEXPLD
+		EXTEXPLD= 0
+		guicontrol, hide, RUNXTRACT
+		RUNXTRACT= 0
+		guicontrol,, ArcMove,0
+		ARCMOVE= 0
+		guicontrol, hide, ArcMove
+	}
 if (EXTRURL = 1)
 	{
 		XtrZip= 1
 		guicontrol,show,EXTEXPLD
 		guicontrol, show, RUNXTRACT
 		guicontrol, show, ArcMove
+		EXTEXPLD= %tmpsx4%
+		RUNXTRACT= %tmpsx5%
+		ARCMOVE= %tmpsx6%
 	}
+iniwrite,%tmpsx1%|%tmpsx2%|%EXTRURL%|%EXTEXPLD%|%RUNXTRACT%|%ARCMOVE%,launchparams.ini,LAUNCHPARAMS,%ARCSYS%
 return
 
 EXTEXPLD:
 gui,submit,nohide
+guicontrolget,EXTEXPLD,,EXTEXPLD
+iniread,tmpsw,launchparams.ini,LAUNCHPARAMS,%ARCSYS%
+stringsplit,tmpsx,tmpsw,|
+iniwrite,%tmpsx1%|%tmpsx2%|%tmpsx3%|%EXTEXPLD%|%tmpsx5%|%tmpsx6%,launchparams.ini,LAUNCHPARAMS,%ARCSYS%
 return
+
+ArcMove:
+gui,submit,nohide
+guicontrolget,ARCMOVE,,ARCMOVE
+iniread,tmpsw,launchparams.ini,LAUNCHPARAMS,%ARCSYS%
+stringsplit,tmpsx,tmpsw,|
+iniwrite,%tmpsx1%|%tmpsx2%|%tmpsx3%|%tmpsx4%|%tmpsx5%|%ARCMOVE%,launchparams.ini,LAUNCHPARAMS,%ARCSYS%
 
 RunXtract:
 gui, submit,nohide
 RXTRM= 
-guicontrolget, RUNXTRACT,,RUNXTRACT
+guicontrolget,RUNXTRACT,,RUNXTRACT
 if (RUNXTRACT = 1)
 	{
 		RXTRM= 1
 		guicontrol,,DOWNONLY,0
 		gosub, DownOnly
 	}
+iniread,tmpsw,launchparams.ini,LAUNCHPARAMS,%ARCSYS%
+stringsplit,tmpsx,tmpsw,|
+iniwrite,%tmpsx1%|%tmpsx2%|%tmpsx3%|%tmpsx4%|%RUNXTRACT%|%tmpsx6%,launchparams.ini,LAUNCHPARAMS,%ARCSYS%
 return
 
 ClipURL:
@@ -21838,7 +21877,7 @@ ifnotexist, %save%
 			}
 		if (DWNFLD = 1)
 			{
-				if (RETRYTHR < 1499)
+				if (RETRYTHR > 1499)
 					{
 						MsgBox,4421,Download Failed,"%romdwn% could not be retrieved`n%URLFILE%`nto`n%save%",8
 						ifmsgbox,Retry
@@ -21860,9 +21899,10 @@ ifnotexist, %save%
 				RETRYTHR+=500
 				Filedelete, %save%
 				SB_SetText(" Retrying " URLFILE " to " save " ")
-				gosub, RETRYTHR
+				goto, RETRYTHR
 			}
 	}
+
 RomDowned:
 if (chkxt = "chd")
 	{
@@ -21985,15 +22025,18 @@ return
 RarXtr:
 SB_SetText(" extracting rar ")
 xtrdir= %rompth%\%romname%
-xtrvar= e
+xtrvar= x
 if (EXTEXPLD = 1)
 	{
-		xtrvar= x
+		xtrvar= e
 		xtrdir= %rompth%
 	}
 if (RNMJACK <> "")
 	{
-		xtrdir= %rompth%\%RNMJACK%
+		if (romname <> RNMJACK)
+			{
+				xtrdir= %ACSVDEST%\%RNMJACK%
+			}
 	}
 runwait, %comspec% cmd /c "UnRAR.exe %xtrvar% -y "%romf%" "*" +o "%rompth%" ",,hide
 sleep 2000
@@ -22021,6 +22064,28 @@ Loop, Files, %rompth%\%romname%\*.*
 		}
 return
 
+
+ArcExtract:
+fndpath= %xtrdir%\
+gosub, LkExtrExt
+if (klp = "")
+	{
+		Loop, %xtrdir%\*.*
+			{
+				if (A_LoopFileSize > 10)
+					{
+						romf= %A_LoopFileFullPath%
+						break	
+					}
+			}
+	}
+if (ArcMove = 1)
+	{
+		FileCreateDir,%cacheloc%\%romname%
+		FileMove,%save%,%cacheloc%\%romname%,1
+	}	
+return
+
 LkExtrExt:
 klp= 
 iniread,lookf,emucfgPresets.set,%romsys%,RJROMXT
@@ -22039,7 +22104,7 @@ Loop, Parse, lookf,`,
 		Loop, files,%fndpath%*.*,R
 			{
 				ext= .%A_LoopFileExt%
-				if ((ext = matchdxt)&&(ext <> "zip")&&(ext <> "rar")&&(ext <> "chd")&&(ext <> "7z"))
+				if ((ext = matchdxt)&&(ext <> ".zip")&&(ext <> ".rar")&&(ext <> ".chd")&&(ext <> ".7z"))
 					{
 						romf= %A_LoopFileFullPath%
 						ifnotexist,%save%
@@ -22062,15 +22127,18 @@ return
 7zXtr:
 SB_SetText(" extracting 7zip ")
 xtrdir= %rompth%\%romname%
-xtrvar= e
-if (EXTXPLD = 1)
+xtrvar= x
+if (EXTEXPLD = 1)
 	{
+		xtrvar= e
 		xtrdir= %rompth%
-		xtrvar= x
 	}
 if (RNMJACK <> "")
 	{
-		xtrdir= %rompth%\%RNMJACK%
+		if (romname <> RNMJACK)
+			{
+				xtrdir= %ACSVDEST%\%RNMJACK%
+			}
 	}
 runwait, %comspec% cmd /c "7za.exe %xtrvar% -y "%save%" -O"%xtrdir%" ", ,hide
 SB_SetText(" extraction complete ")
@@ -22093,7 +22161,7 @@ ZipXtr:
 guicontrolget,EXTEXPLD,,EXTEXPLD
 guicontrolget,RNMJACK,,RNMJACK
 SB_SetText(" extracting Zip ")
-xtrdir= %rompth%\%romname%
+xtrdir= %rompth%\%romname%	
 xtrvar= x
 if (EXTEXPLD = 1)
 	{
@@ -22102,40 +22170,17 @@ if (EXTEXPLD = 1)
 	}
 if (RNMJACK <> "")
 	{
-		xtrdir= %rompth%\%RNMJACK%
+		if (romname <> RNMJACK)
+			{
+				xtrdir= %ACSVDEST%\%RNMJACK%
+			}
 	}
 runwait, %comspec% cmd /c "7za.exe %xtrvar% -y "%save%" -O"%xtrdir%" ", ,hide
 SB_SetText(" extraction complete ")
 guicontrolget, RXTRM,,RUNXTRACT
 if (RXTRM = 1)
 	{
-		xtrdir= %rompth%\%romname%
-		if (EXTEXPLD = 1)
-			{
-				xtrdir= %rompth%
-			}
-		if (RNMJACK <> "")
-			{
-				xtrdir= %rompth%\%RNMJACK%
-			}
-		fndpath= %xtrdir%\
-		gosub, LkExtrExt
-		if (klp = "")
-			{
-				Loop, %xtrdir%\*.*
-					{
-						if (A_LoopFileSize > 10)
-							{
-								romf= %A_LoopFileFullPath%
-								break	
-							}
-					}
-			}
-		if (ArcMove = 1)
-			{
-				FileCreateDir,%cacheloc%\%romname%
-				FileMove,%save%,%cacheloc%\%romname%,1
-			}	
+		gosub, ArcExtract
 	}
 return
 
@@ -22379,6 +22424,11 @@ return
 
 LoginWall:
 if (ARCLOGIN = "")
+	{
+		SB_SetText(" You must enter a valid email login for archive.org to use this repository ")
+		return
+	}
+if (ARCLOGIN = "Not Set")
 	{
 		SB_SetText(" You must enter a valid email login for archive.org to use this repository ")
 		return

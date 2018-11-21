@@ -706,7 +706,6 @@ Gui, Tab, 2
 Gui Tab, Deploy
 Gui, Add, Edit, x8 y24 w469 h50 vPushNotes gPushNotes,%date% :%A_Space%
 Gui, Add, Edit, x161 y151 w115 h21 vVernum gVerNum +0x2, %vernum%
-Gui, Add, CheckBox, x90 y95 w104 h13 vOvrStable gOvrStable %FIE%, Overwite Stable
 gui,font,bold
 Gui, Add, Button, x408 y123 w75 h23 vCOMPILE gCOMPILE, DEPLOY
 gui,font,normal
@@ -719,7 +718,8 @@ Gui, Add, Button, x408 y123 w75 h23 vCANCEL gCANCEL hidden, CANCEL
 gui,font,normal
 Gui, Add, Text, x280 y155, Version
 Gui, Add, CheckBox, x204 y76 w114 h13 vINITINCL gINITINCL, Initialize-Include
-Gui, Add, CheckBox, x90 y76 w104 h13 vPortVer gPortVer checked %FIE%, Portable Version
+Gui, Add, CheckBox, x90 y95 w104 h13 vPortVer gPortVer checked %FIE%, Portable/Update
+Gui, Add, CheckBox, x90 y76 w104 h13 vOvrStable gOvrStable %FIE%,Stable
 Gui, Add, CheckBox, x90 y95 w154 h13 vDevlVer gDevlVer hidden, Development Version
 Gui, Add, CheckBox, x90 y113 w154 h13 vDATBLD gDatBld, Database Recompile
 
@@ -2640,6 +2640,13 @@ guicontrol,disable,DatBld
 guicontrol,disable,PortVer
 guicontrol,disable,INITINCL
 guicontrol,disable,DevlVer
+guicontrolget,DATBLD,,DATBLD
+guicontrolget,GITPUSH,,GITPUSH
+guicontrolget,SERVERPUSH,,SERVERPUSH
+guicontrolget,SITEUPDATE,,SITEUPDATE
+guicontrolget,INITINCL,,INITINCL
+guicontrolget,PORTVER,,PORTVER
+
 
 readme= 
 FileMove,%SKELD%\ReadMe.md, %SKELD%\ReadMe.bak,1
@@ -2684,13 +2691,16 @@ if (BCANC = 1)
 	}
 	
 SB_SetText(" Compiling ")
-ifexist, %DEPL%\skeletonkey.exe
+if (OvrStable = 1)
 	{
-		FileMove, %DEPL%\skeletonkey.exe, %DEPL%\skeletonkey.exe.bak,1
-	}
-ifexist, %SKELD%\SKey-Deploy.exe
-	{
-		FileMove, %SKELD%\SKey-Deploy.exe, %SKELD%\SKey-Deploy.exe.bak,1
+		ifexist, %DEPL%\skeletonkey.exe
+			{
+				FileMove, %DEPL%\skeletonkey.exe, %DEPL%\skeletonkey.exe.bak,1
+			}
+		ifexist, %SKELD%\SKey-Deploy.exe
+			{
+				FileMove, %SKELD%\SKey-Deploy.exe, %SKELD%\SKey-Deploy.exe.bak,1
+			}
 	}
 	
 if (INITINCL = 1)
@@ -2818,9 +2828,17 @@ if (INITINCL = 1)
 			FileAppend, %exprt%,ExeRec.set
 	}
 
-runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\Skey-Deploy.ahk" /out "%SKELD%\Skey-Deploy.exe" /icon "%SKELD%\sysico\Sharp - X1.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" ", %SKELD%,%rntp%	
-runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\skeletonkey.ahk" /out "%DEPL%\skeletonkey.exe" /icon "%SKELD%\key.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" ", %SKELD%,%rntp%
-FileCopy, %DEPL%\skeletonkey.exe,%SKELD%,1
+if (OvrStable = 1)
+	{
+		Process, exist, Skey-Deploy.exe
+		if (ERRORLEVEL = 1)
+			{
+				SB_SetText("You should not compile this tool with the compiled skey-deploy.exe executable")
+			}
+		runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\Skey-Deploy.ahk" /out "%SKELD%\Skey-Deploy.exe" /icon "%SKELD%\sysico\Sharp - X1.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" ", %SKELD%,%rntp%	
+		runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\skeletonkey.ahk" /out "%DEPL%\skeletonkey.exe" /icon "%SKELD%\key.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" ", %SKELD%,%rntp%
+		FileCopy, %DEPL%\skeletonkey.exe,%SKELD%,1
+	}
 
 guicontrol,,progb,15
 FileDelete,%SKELD%\*.lpl
@@ -2903,9 +2921,9 @@ if (DATBLD = 1)
 	{		
 		SB_SetText(" Recompiling Database ")
 		FileDelete, %DEPL%\DATFILES.7z
-		Loop, rj\scrapeArt\*.7z
+		Loop, %GITD%\rj\scrapeArt\*.7z
 			{
-				runwait, %comspec% cmd /c " "%BUILDIR%\7za.exe" a -t7z "%DEPL%\DATFILES.7z" "%A_LoopFileFullPath%" ",%DEPL%,%rntp%
+				runwait, %comspec% cmd /c " "%BUILDIR%\7za.exe" a -t7z "DATFILES.7z" "%A_LoopFileFullPath%" ",%DEPL%,%rntp%
 			}
 	}
 
