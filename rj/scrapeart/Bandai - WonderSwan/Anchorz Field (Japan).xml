@@ -1,0 +1,20 @@
+<Game>
+	<Name>Anchorz Field (Japan)</Name>
+	<plot>Anchorz Field is a Strategy game, developed and published by Sammy Studios, which was released in Japan in 1999.</plot>
+	<releasedate>24/6/1999</releasedate>
+	<genre>Strategy</genre>
+	<nplayers>1-2 Alt</nplayers>
+	<rating>10</rating>
+	<thegamesdb_id>27587</thegamesdb_id>
+	<giantbomb_url>http://www.giantbomb.com/anchor-field-z/3030-31031/</giantbomb_url>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/27587-1.jpg</boxart1>
+	<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Bandai%20-%20WonderSwan/Named_Titles/Anchorz%20Field%20(Japan).png</snapshot1>
+	<Notes>Anchorz Field (also known as Anchor Field Z) is a Strategy game, developed and published by Sammy Studios, which was released in Japan in 1999.</Notes>
+	<boxart2>http://images.launchbox-app.com/0308b601-be5b-424a-af57-714e6630a2ef.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/c0565dc0-3950-40e1-9eed-e087b8795518.png</clearlogo1>
+	<clearlogo2>http://images.launchbox-app.com/a886b04d-c406-4895-8155-8707daf5fe47.png</clearlogo2>
+	<snapshot2>http://images.launchbox-app.com/c792c025-ef2c-458c-94a9-03b398a3ff8c.png</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/2ccf815f-2536-415e-9e30-443715227933.PNG</snapshot3>
+	<Developer>Sammy Studios</Developer>
+	<Publisher>Sammy Studios</Publisher>
+</game>

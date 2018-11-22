@@ -1,0 +1,19 @@
+<Game>
+	<Name>Neon Genesis Evangelion - Shito Ikusei (Japan)</Name>
+	<plot>Neon Genesis Evangelion is a Role-Playing game, developed by Soft Machine and published by Bandai, which was released in Japan in 1999.</plot>
+	<releasedate>22/7/1999</releasedate>
+	<genre>RPG</genre>
+	<nplayers>1-2 Alt</nplayers>
+	<thegamesdb_id>27646</thegamesdb_id>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/27646-1.jpg</boxart1>
+	<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Bandai%20-%20WonderSwan/Named_Titles/Neon%20Genesis%20Evangelion%20-%20Shito%20Ikusei%20(Japan).png</snapshot1>
+	<Notes>Neon Genesis Evangelion is a Role-Playing game, developed by Soft Machine and published by Bandai, which was released in Japan in 1999.</Notes>
+	<boxart2>http://images.launchbox-app.com/01db0482-7643-4341-be07-75cb5584c174.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/fc6af51f-5079-4ea6-976d-ff6096335c77.png</clearlogo1>
+	<clearlogo2>http://images.launchbox-app.com/0da6a534-03d4-4a76-9a5d-827bb3736944.png</clearlogo2>
+	<snapshot2>http://images.launchbox-app.com/01887277-c52c-418a-a0f4-7daeae6abdf2.png</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/c543c523-64d0-4872-8094-f029a17d7cc8.PNG</snapshot3>
+	<rating>3</rating>
+	<Developer>Soft Machine</Developer>
+	<Publisher>Bandai</Publisher>
+</game>

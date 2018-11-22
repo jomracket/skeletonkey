@@ -1,0 +1,19 @@
+<Game>
+	<Name>Turntablist - DJ Battle (Japan)</Name>
+	<plot>Turntablist: DJ Battle is an Action game, developed and published by Bandai, which was released in Japan in 1999.</plot>
+	<releasedate>25/11/1999</releasedate>
+	<genre>Action</genre>
+	<nplayers>1</nplayers>
+	<thegamesdb_id>27680</thegamesdb_id>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/27680-1.jpg</boxart1>
+	<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Bandai%20-%20WonderSwan/Named_Titles/Turntablist%20-%20DJ%20Battle%20(Japan).png</snapshot1>
+	<Notes>Turntablist: DJ Battle is an Action game, developed and published by Bandai, which was released in Japan in 1999.</Notes>
+	<boxart2>http://images.launchbox-app.com/a9d00c97-3b19-4e3d-b34d-54704198f1d6.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/73a367c8-c53a-439f-a9ed-c9b1664fd742.png</clearlogo1>
+	<clearlogo2>http://images.launchbox-app.com/ff58c317-b686-4fee-8428-0de2d2f01468.png</clearlogo2>
+	<clearlogo3>http://images.launchbox-app.com/a577068a-1a12-4c28-844a-ddbc98161e2a.png</clearlogo3>
+	<snapshot2>http://images.launchbox-app.com/309b6f92-5eb6-4be9-a446-aafda9627278.png</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/47ff799b-77dc-416e-a5a0-f9da61ad2e22.PNG</snapshot3>
+	<Developer>Bandai</Developer>
+	<Publisher>Bandai</Publisher>
+</game>

@@ -1,0 +1,30 @@
+<Game>
+	<Name>Dokodemo Hamster (Japan)</Name>
+	<plot>In this game, you are the owner of a hamster. Your hamster is inside a cage, and is living its life in real time, regardless of your actions, walking around, sleeping, etc. However, you can do many things to help your hamster feel better. There is a list of topics you can "discuss" with the hamster: for example, you can order it to run inside a wheel, or ask it whether it is hungry or not. You can feed it some typical hamster food, clean the cage from time to time, and even write e-mails to your hamster. Depending on your actions the disposition of the hamster will change.</plot>
+	<releasedate>16/1/2001</releasedate>
+	<genre>Simulation</genre>
+	<Developer>Bandai Co., Ltd.</Developer>
+	<nplayers>1</nplayers>
+	<thegamesdb_id>27603</thegamesdb_id>
+	<mobygames_url>http://www.mobygames.com/game/wonderswan/dokodemo-hamster</mobygames_url>
+	<giantbomb_url>http://www.giantbomb.com/dokodemo-hamster/3030-11359/</giantbomb_url>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/27603-1.jpg</boxart1>
+	<boxback1>http://www.mobygames.com/images/covers/l/293656-dokodemo-hamster-wonderswan-back-cover.jpg</boxback1>
+	<media1>http://www.mobygames.com/images/covers/l/293658-dokodemo-hamster-wonderswan-media.jpg</media1>
+	<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Bandai%20-%20WonderSwan/Named_Titles/Dokodemo%20Hamster%20(Japan).png</snapshot1>
+	<snapshot2>http://www.mobygames.com/images/shots/l/152180-dokodemo-hamster-wonderswan-screenshot-title-screen.jpg</snapshot2>
+	<snapshot3>http://www.mobygames.com/images/shots/l/152170-dokodemo-hamster-wonderswan-screenshot-hamster-is-writing.jpg</snapshot3>
+	<snapshot4>http://www.mobygames.com/images/shots/l/152171-dokodemo-hamster-wonderswan-screenshot-this-is-your-icon-menu.jpg</snapshot4>
+	<snapshot5>http://www.mobygames.com/images/shots/l/152172-dokodemo-hamster-wonderswan-screenshot-the-topics-you-can.jpg</snapshot5>
+	<snapshot6>http://www.mobygames.com/images/shots/l/152173-dokodemo-hamster-wonderswan-screenshot-your-inventory.jpg</snapshot6>
+	<snapshot7>http://www.mobygames.com/images/shots/l/152174-dokodemo-hamster-wonderswan-screenshot-let-s-write-some-e.jpg</snapshot7>
+	<snapshot8>http://www.mobygames.com/images/shots/l/152175-dokodemo-hamster-wonderswan-screenshot-time-for-some-cleaning.jpg</snapshot8>
+	<snapshot9>http://www.mobygames.com/images/shots/l/152176-dokodemo-hamster-wonderswan-screenshot-go-for-it-big-fellow.jpg</snapshot9>
+	<snapshot10>http://www.mobygames.com/images/shots/l/152177-dokodemo-hamster-wonderswan-screenshot-the-hamster-is-eating.jpg</snapshot10>
+	<Notes>Dokodemo Hamster is a Strategy game, developed and published by Bec, which was released in Japan in 2000.</Notes>
+	<boxart2>http://images.launchbox-app.com/ab345eda-0b36-4da2-8937-10fbccec0986.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/41d96a23-3f3d-4759-8ab5-c02b42995c77.png</clearlogo1>
+	<snapshot11>http://images.launchbox-app.com/12dfec6e-d4cd-4988-bedb-db0bcbb983dc.png</snapshot11>
+	<snapshot12>http://images.launchbox-app.com/61e6dc03-899e-4888-8581-df16e0b0f755.PNG</snapshot12>
+	<Publisher>BEC</Publisher>
+</game>

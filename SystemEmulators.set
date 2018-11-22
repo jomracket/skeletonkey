@@ -13,7 +13,7 @@ Adobe - Flash|SWFOpener|FlashPlayer
 Altos - Series 5|MAME|:mame_libretro.dll
 Ampro - Little Z80 Board|MAME|:mame_libretro.dll
 Amstrad - CPC|WinApe|arnold|Arnimedes|caprice|no$cpc|cpce|javacpc|sugarbox|wincpc|MAME|:crocods_libretro.dll|mame_libretro.dll
-Amstrad - GX4000|WinApe|MAME|:mame_libretro.dll
+Amstrad - GX4000|MAME|WinApe|:mame_libretro.dll
 Amstrad - Mega PC|WinApe|arnold|caprice|MAME|:mame_libretro.dll
 Amstrad - PC1512 SD|WinApe|arnold|caprice|MAME|:mame_libretro.dll
 Amstrad - PC1640 SD|WinApe|arnold|caprice|MAME|:mame_libretro.dll

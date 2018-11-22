@@ -1,0 +1,17 @@
+<Game>
+	<Name>Fight Night</Name>
+	<ReleaseDate>1988-01-01T00:00:00-08:00</ReleaseDate>
+	<Plot>Strap on your boxing gloves, and step into the ring.  Tonight you're going to test your prowess against the world's toughest fighters.  To prepare  for this event, you'll train in punching skills, footwork, timing, and sparring.  Then you'll enter your fighters in championship matches and tournaments. As the tension mounts in the smoke-filled arena, you eye your contender warily.  Be careful, and good luck.  This could be your big night!</Plot>
+	<nPlayers>2</nPlayers>
+	<boxback1>http://images.launchbox-app.com/48253fdf-1169-4c9d-a124-fe7796d07ac4.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/9dbc9ead-4271-4ec6-99fa-4dabc37428dc.jpg</boxart1>
+	<media1>http://images.launchbox-app.com/01818aa3-222d-423b-b4d9-45cf67811245.png</media1>
+	<clearlogo1>http://images.launchbox-app.com/15697c5d-89b5-4ccf-a56e-cdd58a400ba5.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/9ba46187-a076-4186-b240-ad065f3809c5.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/238325b4-19a1-45dc-bdd1-dafe22cb5968.png</snapshot2>
+	<Rating>1.875</Rating>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Sports</Genre>
+	<Developer>Accolade</Developer>
+	<Publisher>Atari</Publisher>
+</game>

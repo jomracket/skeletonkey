@@ -1,0 +1,17 @@
+<Game>
+	<Name>Lode Runner for WonderSwan (Japan)</Name>
+	<plot>Lode Runner for WonderSwan is a 2D Platformer game, developed and published by Banpresto, which was released in Japan in 2000.http://www.gamefaqs.com/portable/wswan/home/577323.html</plot>
+	<releasedate>4/7/2000</releasedate>
+	<genre>Platform</genre>
+	<Developer>Banpresto</Developer>
+	<nplayers>1</nplayers>
+	<thegamesdb_id>27634</thegamesdb_id>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/27634-1.jpg</boxart1>
+	<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Bandai%20-%20WonderSwan/Named_Titles/Lode%20Runner%20for%20WonderSwan%20(Japan).png</snapshot1>
+	<Notes>Lode Runner for WonderSwan is an Action game, developed by Aisystem Tokyo and published by Banpresto, which was released in Japan in 2000.</Notes>
+	<boxart2>http://images.launchbox-app.com/d2c09625-9e63-4bfa-b87a-b1fbdca3ac2b.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/f94d56a9-c42d-436b-ae10-655a32fa494c.png</clearlogo1>
+	<snapshot2>http://images.launchbox-app.com/ef5acec9-8096-4820-bd88-8ec2ede8497c.png</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/e8147e50-3611-4474-8983-f4f3947b3266.PNG</snapshot3>
+	<Publisher>Banpresto</Publisher>
+</game>

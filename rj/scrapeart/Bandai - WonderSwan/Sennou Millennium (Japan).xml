@@ -1,0 +1,30 @@
+<Game>
+	<Name>Sennou Millennium (Japan)</Name>
+	<plot>"Langrisser Millennium" is yet another installment of the long-running Japanese strategy RPG series. You control five main characters: Taji, a young boy whom was chosen as the ruler of the country Salem; Nei Lee Sun, the ruler of Chin, who helps Taji when he gets involved in a war; Masariva, a half-beast and a former slave who became a queen, but preferred the life of a wanderer; Rumaty Marf, the queen of the country Misla, on a quest for an angel who appeared in her dream; and Saryune, the ruler of Vidern, whose only desire is power. Those five rulers meet each other, when they get involved in a war with hostile countries. However, soon they learn a greater evil has appeared in the world - they must reach a faraway island to prevent the reincarnation of an evil god...The gameplay "Langrisser Millenium" is divided into "Map Mode" and "Battle Mode". In map mode, you move your characters over a map, trying to reach enemy fortresses and to prevent the enemy to reach yours. Everything happens in real time: if you do nothing, the enemy will come and conquer your country. Once in battle mode, you control several teams. You only assign actions to the team leaders, while others fight automatically in round-based strategy combat.</plot>
+	<releasedate>16/3/2000</releasedate>
+	<genre>Adventure, RPG, Strategy</genre>
+	<Developer>NCS Corporation</Developer>
+	<nplayers>1-2 Alt</nplayers>
+	<thegamesdb_id>27660</thegamesdb_id>
+	<mobygames_url>http://www.mobygames.com/game/wonderswan/langrisser-millennium</mobygames_url>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/27660-1.jpg</boxart1>
+	<boxback1>http://www.mobygames.com/images/covers/l/311581-langrisser-millennium-wonderswan-back-cover.jpg</boxback1>
+	<media1>http://www.mobygames.com/images/covers/l/311582-langrisser-millennium-wonderswan-media.jpg</media1>
+	<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Bandai%20-%20WonderSwan/Named_Titles/Sennou%20Millennium%20(Japan).png</snapshot1>
+	<snapshot2>http://www.mobygames.com/images/shots/l/105446-langrisser-millennium-wonderswan-screenshot-title-screen.jpg</snapshot2>
+	<snapshot3>http://www.mobygames.com/images/shots/l/154265-langrisser-millennium-wonderswan-screenshot-but-of-course.jpg</snapshot3>
+	<snapshot4>http://www.mobygames.com/images/shots/l/154262-langrisser-millennium-wonderswan-screenshot-some-story.jpg</snapshot4>
+	<snapshot5>http://www.mobygames.com/images/shots/l/154263-langrisser-millennium-wonderswan-screenshot-happy-birthday.jpg</snapshot5>
+	<snapshot6>http://www.mobygames.com/images/shots/l/154264-langrisser-millennium-wonderswan-screenshot-wow-what-a-nice.jpg</snapshot6>
+	<snapshot7>http://www.mobygames.com/images/shots/l/154261-langrisser-millennium-wonderswan-screenshot-so-many-enemies.jpg</snapshot7>
+	<snapshot8>http://www.mobygames.com/images/shots/l/154266-langrisser-millennium-wonderswan-screenshot-your-mother-teaches.jpg</snapshot8>
+	<snapshot9>http://www.mobygames.com/images/shots/l/154267-langrisser-millennium-wonderswan-screenshot-the-hero-is-ready.jpg</snapshot9>
+	<snapshot10>http://www.mobygames.com/images/shots/l/154268-langrisser-millennium-wonderswan-screenshot-the-map-moves.jpg</snapshot10>
+	<Notes>Sennou Millennium is a Puzzle game, developed by Kouyousha and published by Bandai, which was released in Japan in 2000.</Notes>
+	<boxart2>http://images.launchbox-app.com/37c99e3c-3641-462f-ab4e-1819a50ee659.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/35e4ec41-2f82-4da5-9948-602e7f82da9c.png</clearlogo1>
+	<clearlogo2>http://images.launchbox-app.com/7cc01bf8-f6a6-44e7-a488-60710871e361.png</clearlogo2>
+	<snapshot11>http://images.launchbox-app.com/0bed9daa-d881-4c61-8000-bff024430ede.png</snapshot11>
+	<snapshot12>http://images.launchbox-app.com/09c1ddc9-5448-420e-88b7-dbd6599f51fc.PNG</snapshot12>
+	<Publisher>Bandai</Publisher>
+</game>

@@ -1,0 +1,29 @@
+<Game>
+	<Name>Side Pocket for WonderSwan (Japan)</Name>
+	<plot>Overview:Created especially for the US market by Data East (though later released in Japan), Side Pocket is a pool simulator that saw several different ports for the various consoles of the era. The game is set around the tournament scene and gets progressively more difficult as the player goes from venue to venue, eventually entering a global competition.The WonderSwan version is the last game that Data East released before their bankruptcy.Gameplay:The game controls like many pool simulators (as well as several golf simulators of the time) by allowing the player to select which direction they wish to hit the cue ball in, with a handy dotted line to indicate its trajectory, and then they must tap a button to start the power gauge and tap it again to stop at the desired level of power. The balls then move around and if a ball is potted (provided it wasn't the cue ball) then the player is able to take an immediate additional turn. Play continues until the 8 ball has been sunk.Side Pocket is notable for how it tabulates a player's score: As well as scoring points for winning the game, sinking several balls consecutively and sinking them in numerical order, there are occasionally times where a pocket will light up and the player is able to score a bonus if they're able to sink a ball in that particular pocket. These points are racked up at the end of the match and dictate the overall score.Occasionally there is an opportunity for a bonus trick shot after the game is over to score additional points. These tend to involve potting specific balls in specific pockets, sometimes while avoiding obstacles on the table.</plot>
+	<releasedate>25/11/1999</releasedate>
+	<genre>Sports</genre>
+	<nplayers>1-2 Alt</nplayers>
+	<thegamesdb_id>27663</thegamesdb_id>
+	<giantbomb_url>http://www.giantbomb.com/side-pocket/3030-2042/</giantbomb_url>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/27663-1.jpg</boxart1>
+	<boxart2>http://static.giantbomb.com/uploads/scale_large/14/149200/2197335-side_pocket___back.jpg</boxart2>
+	<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Bandai%20-%20WonderSwan/Named_Titles/Side%20Pocket%20for%20WonderSwan%20(Japan).png</snapshot1>
+	<snapshot2>http://static.giantbomb.com/uploads/scale_large/2/23093/2677725-side+pocket+%28u%29_00000.jpg</snapshot2>
+	<snapshot3>http://static.giantbomb.com/uploads/scale_large/2/23093/2677724-side+pocket+%28u%29_00001.jpg</snapshot3>
+	<snapshot4>http://static.giantbomb.com/uploads/scale_large/2/23093/2677723-sidepocket001.jpg</snapshot4>
+	<snapshot5>http://static.giantbomb.com/uploads/scale_large/1/13084/965237-side_pocket.png</snapshot5>
+	<snapshot6>http://static.giantbomb.com/uploads/scale_large/1/13084/309542-26_07_2008_11_35_22.jpg</snapshot6>
+	<snapshot7>http://static.giantbomb.com/uploads/scale_large/1/13084/309510-side_pocket_snes_26_07_2008_11_35_59.png</snapshot7>
+	<snapshot8>http://static.giantbomb.com/uploads/scale_large/1/13084/309494-side_pocket_snes_26_07_2008_11_56_13.png</snapshot8>
+	<snapshot9>http://static.giantbomb.com/uploads/scale_large/1/13084/309493-side_pocket_snes_26_07_2008_11_39_38.png</snapshot9>
+	<snapshot10>http://static.giantbomb.com/uploads/scale_large/1/13084/309490-side_pocket_snes_26_07_2008_12_15_24.png</snapshot10>
+	<Notes>Side Pocket for WonderSwan is a Sports game, developed and published by Data East, which was released in Japan in 1999.</Notes>
+	<boxart3>http://images.launchbox-app.com/1b10b8af-94b3-4a8a-8cac-db11002d15f0.jpg</boxart3>
+	<clearlogo1>http://images.launchbox-app.com/df380c04-72ba-4529-9fb0-2924f86c5459.png</clearlogo1>
+	<clearlogo2>http://images.launchbox-app.com/446f4a2b-ccea-4108-ba03-72e416b698d2.png</clearlogo2>
+	<snapshot11>http://images.launchbox-app.com/c995f110-d8a7-48cc-81a3-8139a193bb31.png</snapshot11>
+	<snapshot12>http://images.launchbox-app.com/21832636-2d14-478b-9e54-febccb26a403.PNG</snapshot12>
+	<Developer>Data East</Developer>
+	<Publisher>Data East</Publisher>
+</game>

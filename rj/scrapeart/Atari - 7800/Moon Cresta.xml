@@ -1,0 +1,14 @@
+<Game>
+	<Name>Moon Cresta</Name>
+	<ReleaseDate>2011</ReleaseDate>
+	<Plot>The classic arcade game Moon Cresta has now made its way to the Atari 7800! Each round consists of ten waves of aliens, and two sets of docking sequences (provided you have a ship left to dock with). Every two waves of aliens have different entrance sequences, attack sequences, and point values. After you eliminate the first four waves of aliens, if you have any ships in reserve you will be given an opportunity to dock with your next ship. Successfully docking gives you increased firepower, but also gives the aliens a bigger target to aim for. You are given another chance to dock after the next four waves of aliens (again as long as you have another ship in reserve).</Plot>
+	<nPlayers>2</nPlayers>
+	<boxart1>http://images.launchbox-app.com/e62cbb15-59e7-4e11-bca0-3a0d6a8e6b66.JPG</boxart1>
+	<media1>http://images.launchbox-app.com/d3fc8c00-594e-40f2-89c4-cbcd1ae89238.png</media1>
+	<clearlogo1>http://images.launchbox-app.com/12090c25-9944-492f-8fe0-c448297f14be.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/31281579-b38f-4149-adf5-3f4db43bbde1.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/42002dc1-c4eb-4c27-998b-cff81fe1c07c.png</snapshot2>
+	<ESRB>Not Rated</ESRB>
+	<Developer>Robert DeCrescenzo</Developer>
+	<Publisher>AtariAge</Publisher>
+</game>

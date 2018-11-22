@@ -1,0 +1,19 @@
+<Game>
+	<Name>Donkey Kong Junior</Name>
+	<ReleaseDate>1988-01-01T00:00:00-08:00</ReleaseDate>
+	<Plot>Donkey Kong the ape is back. Only this time the vengeful Mario is holding the ape prisoner. Luckily the ape has a son, Donkey Kong Junior, who will try to rescue Papa. To free his dad, Junior must make his way through a dark and treacherous jungle. Racing against time, the little fellow climbs and swings across vines, while avoiding the terrible Snapjaws. If he reaches the keys to Papa's cage, Junior must push them to the top of chains while staying clear of Snapjaws and a new flock of nasty Nitpickers. But even then his mission isn't over. Once he reaches Mario's hideout, he must pass yet another test against time. The kid needs help. Don't just stand there! Help poor Junior save his father!</Plot>
+	<nPlayers>2</nPlayers>
+	<boxback1>http://images.launchbox-app.com/41c583e6-369a-445b-a280-d1d6ce799eb9.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/6002bcbc-d341-4455-bf6e-322cc6b09e06.jpg</boxart1>
+	<media1>http://images.launchbox-app.com/03dcabd9-0984-4251-8317-a85d160c6c05.png</media1>
+	<clearlogo1>http://images.launchbox-app.com/87a1bb40-2bbd-43c1-8bef-608540fc53a9.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/ccbc2e26-e85c-434b-b71e-b51595893d7f.jpg</fanart1>
+	<snapshot1>http://images.launchbox-app.com/c70a2673-17c6-4770-bbed-75d5907817b2.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/85049cd3-62d8-4c4e-aff4-e7a0168107a4.png</snapshot2>
+	<Rating>3.8333333333333335</Rating>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Donkey_Kong_Jr.</WikipediaURL>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Platform</Genre>
+	<Developer>Nintendo</Developer>
+	<Publisher>Atari</Publisher>
+</game>

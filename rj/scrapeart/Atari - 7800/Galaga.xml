@@ -1,0 +1,20 @@
+<Game>
+	<Name>Galaga</Name>
+	<ReleaseDate>1987</ReleaseDate>
+	<Plot>The gameplay of Galaga puts the player in control of a space ship which is situated on the bottom of the screen. At the beginning of each stage, the area is empty, but over time, enemy aliens fly in formation, and once all of the enemies arrive on screen, they will come down at the player's ship in formations of one or more and may either shoot it or collide with it. During the entire stage, the player may fire upon the enemies, and once all enemies are vanquished, the player moves onto the next stage.</Plot>
+	<nPlayers>2</nPlayers>
+	<VideoURL>R8v7UOOp0r0</VideoURL>
+	<boxback1>http://images.launchbox-app.com/6c60cf8e-fc6b-4bbf-b4f3-4aa7852683ec.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/26d3e448-34f8-4595-b3f6-835521267b65.jpg</boxart1>
+	<media1>http://images.launchbox-app.com/2af279f7-ff36-4870-8125-8aeda15122b0.png</media1>
+	<clearlogo1>http://images.launchbox-app.com/705df77e-dbe6-4863-a65a-965fb5682dcb.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/5655105e-962c-472f-a735-29567c9604b7.jpg</fanart1>
+	<snapshot1>http://images.launchbox-app.com/f2c2c6a7-155d-4561-ac36-5b6575bbe587.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/f63adb6a-6efc-4b37-b2b2-ae32f7abdf01.png</snapshot2>
+	<Rating>3.5</Rating>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Galaga</WikipediaURL>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Shooter</Genre>
+	<Developer>Namco</Developer>
+	<Publisher>Atari</Publisher>
+</game>

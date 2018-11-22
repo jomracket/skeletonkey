@@ -1,0 +1,21 @@
+<Game>
+	<Name>Ace of Aces</Name>
+	<ReleaseDate>1988-06-01T00:00:00-07:00</ReleaseDate>
+	<Plot>Ace of Aces puts you in the cockpit of the Mosquito, the maverick RAF fighter bomber of World War II. It's white-knuckle aerial combat simulation, combining the exhilaration of flight with the gut-wrenching pressure of enemy confrontation. During World War II, Mosquitos downed 659 enemy aircraft and 500 V-1 Buzz Bombs. Your only allies are your wits, your weapons, and your radar. Are you equal to the challenge? Down the Nazi bombers, sink the U-boats, outrun the V-1 Buzz Bombs and stop the enemy trains to release the POWs. Should you fly through a storm or around? Navigate carefully, consult your intelligence reports and maps to make a decision. Choose your weapons and fuel wisely--once you're on a mission there's no going back. Select one mission or any combination. If you complete all four successfully--and make it back alive--you'll become the most distinguished flight veteran of World War II--the Ace of Aces!</Plot>
+	<nPlayers>1</nPlayers>
+	<1>http://images.launchbox-app.com/21a25f37-2359-4a98-968f-c44458039ed9.png</1>
+	<boxback1>http://images.launchbox-app.com/e54e2116-28bf-4c86-96a4-3cdf19617299.jpg</boxback1>
+	<boxback2>http://images.launchbox-app.com/e7b43df8-5c7b-46b3-9a32-e4218c83dc24.jpg</boxback2>
+	<boxart1>http://images.launchbox-app.com/ec686c62-1845-4882-91c3-5c6c48ebe153.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/320f9816-909b-4e91-9886-091bda72a649.jpg</boxart2>
+	<media1>http://images.launchbox-app.com/de6030d3-2407-4682-9eb0-829fead47fec.png</media1>
+	<clearlogo1>http://images.launchbox-app.com/e6761d42-018a-45f1-8f6c-9c43098fc0d8.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/b5f45c41-10f0-4161-924d-5613db1a2bba.jpg</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/99208b0e-08d7-4b4e-86cf-b133954b45aa.jpg</snapshot2>
+	<Rating>2.875</Rating>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Ace_of_Aces_(video_game)</WikipediaURL>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Flight Simulator</Genre>
+	<Developer>Artech Studios</Developer>
+	<Publisher>Atari</Publisher>
+</game>

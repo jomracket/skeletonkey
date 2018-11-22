@@ -1,0 +1,28 @@
+<Game>
+	<Name>Puyo Puyo Tsuu (Japan)</Name>
+	<plot>Puyo Puyo Tsuu (2) is a Matching Puzzle game, developed and published by Bandai, which was released in Japan in 1999.http://www.gamefaqs.com/portable/wswan/home/576614.html</plot>
+	<releasedate>4/7/1999</releasedate>
+	<genre>Puzzle</genre>
+	<Developer>Bandai</Developer>
+	<nplayers>1-2 Alt</nplayers>
+	<thegamesdb_id>27650</thegamesdb_id>
+	<mobygames_url>http://www.mobygames.com/game/wonderswan/puyo-puyo-2</mobygames_url>
+	<giantbomb_url>http://www.giantbomb.com/puyo-puyo-2/3030-4929/</giantbomb_url>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/27650-1.jpg</boxart1>
+	<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Bandai%20-%20WonderSwan/Named_Titles/Puyo%20Puyo%20Tsuu%20(Japan).png</snapshot1>
+	<snapshot2>http://www.mobygames.com/images/shots/l/101471-puyo-puyo-2-wonderswan-screenshot-a-flash-of-lightening.jpg</snapshot2>
+	<snapshot3>http://www.mobygames.com/images/shots/l/101467-puyo-puyo-2-wonderswan-screenshot-a-mysterious-girl.jpg</snapshot3>
+	<snapshot4>http://www.mobygames.com/images/shots/l/101468-puyo-puyo-2-wonderswan-screenshot-it-s-puyo-puyo-2.jpg</snapshot4>
+	<snapshot5>http://www.mobygames.com/images/shots/l/101469-puyo-puyo-2-wonderswan-screenshot-select-you-game.jpg</snapshot5>
+	<snapshot6>http://www.mobygames.com/images/shots/l/101470-puyo-puyo-2-wonderswan-screenshot-not-doing-too-well-against.jpg</snapshot6>
+	<snapshot7>http://www.mobygames.com/images/shots/l/101472-puyo-puyo-2-wonderswan-screenshot-score-play.jpg</snapshot7>
+	<snapshot8>http://www.mobygames.com/images/shots/l/101473-puyo-puyo-2-wonderswan-screenshot-options.jpg</snapshot8>
+	<snapshot9>http://www.mobygames.com/images/shots/l/101474-puyo-puyo-2-wonderswan-screenshot-begin-the-story-mode.jpg</snapshot9>
+	<snapshot10>http://static.giantbomb.com/uploads/scale_large/0/112/372387-1083079616_00.png</snapshot10>
+	<Notes>Puyo Puyo Tsuu is a Puzzle game, developed by Compile and published by Bandai, which was released in Japan in 1999.</Notes>
+	<boxart2>http://images.launchbox-app.com/0df2d7f2-b8d6-449f-91db-45b173c66cc2.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/0eec7198-499a-456e-8b6d-fce8ddbef7a7.png</clearlogo1>
+	<snapshot11>http://images.launchbox-app.com/6b6c4071-a647-40ba-a25c-440d1e51b08f.png</snapshot11>
+	<snapshot12>http://images.launchbox-app.com/5aa24cb7-1e86-4b2c-a621-2181d0c35ef9.PNG</snapshot12>
+	<Publisher>Bandai</Publisher>
+</game>

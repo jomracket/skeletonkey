@@ -731,6 +731,7 @@ FileInstall,Keymappers.set,Keymappers.set,1
 FileInstall,launchparams.set,launchparams.set,1
 FileInstall,libmatch.set,libmatch.set,1
 FileInstall,LkUp.set,LkUp.set,1
+FileInstall,mediafe.set,mediafe.set,1
 FileInstall,Programs.set,Programs.set,1
 FileInstall,racoreopt.set,racoreopt.set,1
 FileInstall,ReadMe.set,ReadMe.set,1
@@ -1101,7 +1102,6 @@ FileInstall,gam\Nintendo - Game Boy Advance.gam,gam\Nintendo - Game Boy Advance.
 FileInstall,gam\Nintendo - Game Boy Color.gam,gam\Nintendo - Game Boy Color.gam,1
 FileInstall,gam\Nintendo - Game Boy.gam,gam\Nintendo - Game Boy.gam,1
 FileInstall,gam\Nintendo - GameCube.gam,gam\Nintendo - GameCube.gam,1
-FileInstall,gam\Nintendo - Nintendo 3DS.gam,gam\Nintendo - Nintendo 3DS.gam,1
 FileInstall,gam\Nintendo - Nintendo 64.gam,gam\Nintendo - Nintendo 64.gam,1
 FileInstall,gam\Nintendo - Nintendo 64DD.gam,gam\Nintendo - Nintendo 64DD.gam,1
 FileInstall,gam\Nintendo - Nintendo DS.gam,gam\Nintendo - Nintendo DS.gam,1

@@ -1,0 +1,20 @@
+<Game>
+	<Name>Chase H.Q.</Name>
+	<ReleaseDate>1992-01-01T00:00:00-08:00</ReleaseDate>
+	<Plot>The fastest, most thrilling, 3D driving game yet! Take the wheel of your turbo-charged Porsche as you and your partner go in pursuit of dangerous criminals all driving an evil array of souped-up roadsters. TURBO BOOST! Need to catch up in a hurry? Well, just one press of your Turbo Button will leave your eyes in the back of your head! Barrelling through the city streets, along the roughest of dirt tracks and through busy tunnels - if you can hold the line! The low-life can run, but they can't hide...</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/8221062a-261f-405d-8753-e7a8865e0d5b.jpg</boxback1>
+	<boxback2>http://images.launchbox-app.com/1e819531-623c-446a-ab49-c939ad4faa0e.jpg</boxback2>
+	<boxart1>http://images.launchbox-app.com/261f79fe-cd95-4287-9a01-084e984abe97.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/a57d3704-6dcb-487f-bde2-49f6c881887b.jpg</boxart2>
+	<media1>http://images.launchbox-app.com/f5a56784-0f5f-4299-ac5d-0dfd4755ed5b.JPG</media1>
+	<media2>http://images.launchbox-app.com/ed3bd6bf-1352-42c5-92f3-90923ebf48cc.jpg</media2>
+	<clearlogo1>http://images.launchbox-app.com/ed3a4c3d-7030-490a-96a4-000f5125f1fb.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/48efc8fc-4d1e-4219-88bf-02c421063cd8.png</fanart1>
+	<snapshot1>http://images.launchbox-app.com/0d1c5426-2b2c-46a6-9556-29e90b0482e8.PNG</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/9d1be922-079f-4aa4-bbf8-c6180125277d.PNG</snapshot2>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Chase_H.Q.</WikipediaURL>
+	<Genre>Racing</Genre>
+	<Developer>Daiei Seisakusho</Developer>
+	<Publisher>Taito Corporation</Publisher>
+</game>

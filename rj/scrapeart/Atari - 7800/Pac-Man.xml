@@ -1,0 +1,11 @@
+<Game>
+	<Name>Pac-Man</Name>
+	<nPlayers>1</nPlayers>
+	<media1>http://images.launchbox-app.com/b4a53208-a21c-4f54-9cca-918aef27b850.jpg</media1>
+	<fanart1>http://images.launchbox-app.com/6e76b35f-971c-4b86-a587-d7eb133c7b22.jpg</fanart1>
+	<Rating>5</Rating>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Action</Genre>
+	<Developer>PacManPlus</Developer>
+	<Publisher>PacManPlus</Publisher>
+</game>

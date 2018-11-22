@@ -1,0 +1,29 @@
+<Game>
+	<Name>Mingle Magnet (Japan)</Name>
+	<plot>Mingle Magnet is a simple puzzle game of the falling block variety. The player oversees a 10 x 10 square field where the first four rows (three on easy) have been filled by blocks. Each block shows one of three symbols, a dark gray circle, a light gray circle, and a white circle. When ever any of blocks with matching symbols touch they will form a link. By moving the cursor over a chain and clicking on it the player will be given points based on its size on the chain will be removed. The goal is to get a large score while making sure that new pieces can still enter the field. Once no more pieces can enter the game ends. Blocks fall at the same time one square apart, when the next set of blocks fall they will occupy the space given by the previous drop.The "magnet" aspect of Mingle Magnet come into play in how the player can control the placement of the blocks. All the blocks are attracted to a magnet which, although not seen, can be placed on any side of the field. All blocks will be drawn to the magnet. For example, if one has the magnet at the south of the field and then puts it to the north what was the top of the block pile will now be the bottom, and blocks will fall onto what was the bottom. The direction of the magnet is indicated by a magnetic field animation behind the action.This game is played vertically.</plot>
+	<releasedate>2/11/1999</releasedate>
+	<Developer>HAL Laboratory, Inc.</Developer>
+	<nplayers>1</nplayers>
+	<thegamesdb_id>27643</thegamesdb_id>
+	<mobygames_url>http://www.mobygames.com/game/wonderswan/mingle-magnet</mobygames_url>
+	<giantbomb_url>http://www.giantbomb.com/mingle-magnet/3030-34678/</giantbomb_url>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/27643-1.jpg</boxart1>
+	<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Bandai%20-%20WonderSwan/Named_Titles/Mingle%20Magnet%20(Japan).png</snapshot1>
+	<snapshot2>http://www.mobygames.com/images/shots/l/334309-mingle-magnet-wonderswan-screenshot-title-screen.jpg</snapshot2>
+	<snapshot3>http://www.mobygames.com/images/shots/l/334310-mingle-magnet-wonderswan-screenshot-difficulty-select.jpg</snapshot3>
+	<snapshot4>http://www.mobygames.com/images/shots/l/334311-mingle-magnet-wonderswan-screenshot-go.jpg</snapshot4>
+	<snapshot5>http://www.mobygames.com/images/shots/l/334312-mingle-magnet-wonderswan-screenshot-upside-down-game-over.jpg</snapshot5>
+	<snapshot6>http://www.mobygames.com/images/shots/l/334313-mingle-magnet-wonderswan-screenshot-clearing-connecting-pieces.jpg</snapshot6>
+	<snapshot7>http://www.mobygames.com/images/shots/l/334315-mingle-magnet-wonderswan-screenshot-1900-points.jpg</snapshot7>
+	<snapshot8>http://www.mobygames.com/images/shots/l/334316-mingle-magnet-wonderswan-screenshot-a-smaller-clearing.jpg</snapshot8>
+	<snapshot9>http://www.mobygames.com/images/shots/l/334318-mingle-magnet-wonderswan-screenshot-switching-the-direction.jpg</snapshot9>
+	<snapshot10>http://www.mobygames.com/images/shots/l/334319-mingle-magnet-wonderswan-screenshot-another-directional-switch.jpg</snapshot10>
+	<Notes>Mingle Magnet is a simple puzzle game of the falling block variety. The player oversees a 10 x 10 square field where the first four rows (three on easy) have been filled by blocks. Each block shows one of three symbols, a dark gray circle, a light gray circle, and a white circle. When ever any of blocks with matching symbols touch they will form a link. By moving the cursor over a chain and clicking on it the player will be given points based on its size on the chain will be removed. The goal is to get a large score while making sure that new pieces can still enter the field. Once no more pieces can enter the game ends. Blocks fall at the same time one square apart, when the next set of blocks fall they will occupy the space given by the previous drop. The "magnet" aspect of Mingle Magnet come into play in how the player can control the placement of the blocks. All the blocks are attracted to a magnet which, although not seen, can be placed on any side of the field. All blocks will be drawn to the magnet. For example, if one has the magnet at the south of the field and then puts it to the north what was the top of the block pile will now be the bottom, and blocks will fall onto what was the bottom. The direction of the magnet is indicated by a magnetic field animation behind the action. This game is played vertically.</Notes>
+	<boxart2>http://images.launchbox-app.com/06b176b2-00d9-4b65-b876-f06e0d06fa37.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/99e85d31-5f26-4a7a-9f01-9cc0db5533a3.png</clearlogo1>
+	<clearlogo2>http://images.launchbox-app.com/745fa1fe-7601-4de8-8996-a2df44ecdde5.png</clearlogo2>
+	<snapshot11>http://images.launchbox-app.com/42dbdf44-f3e5-46e7-946f-705e23fd33c6.png</snapshot11>
+	<snapshot12>http://images.launchbox-app.com/97f8f009-3923-47fa-af8b-3ed0ba527123.PNG</snapshot12>
+	<genre>Puzzle</genre>
+	<Publisher>HAL Labs</Publisher>
+</game>

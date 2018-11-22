@@ -1,0 +1,13 @@
+<Game>
+	<Name>Sangokushi for WonderSwan (Japan)</Name>
+	<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Bandai%20-%20WonderSwan/Named_Titles/SD%20Gundam%20-%20Emotional%20Jam%20(Japan).png</snapshot1>
+	<Plot>Sangokushi for WonderSwan is a Strategy game, developed by Koei/Inis and published by Koei, which was released in Japan in 1999.</Plot>
+	<nPlayers>2</nPlayers>
+	<boxart1>http://images.launchbox-app.com/9f157c0a-e2f8-48a9-b680-3da84fdf62ee.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/3997348f-78b1-471b-8bbc-7336cfab7493.png</clearlogo1>
+	<snapshot2>http://images.launchbox-app.com/1208ce95-d88e-48c7-84d9-080a3d449e3c.png</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/136aabe5-9200-4247-aa82-ff672fa6fd96.PNG</snapshot3>
+	<genre>Strategy</genre>
+	<Developer>Koei/Inis</Developer>
+	<Publisher>Koei</Publisher>
+</game>

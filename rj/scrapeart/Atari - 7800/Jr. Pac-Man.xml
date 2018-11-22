@@ -1,0 +1,15 @@
+<Game>
+	<Name>Jr. Pac-Man</Name>
+	<ReleaseDate>2009</ReleaseDate>
+	<Plot>I may be young, but I'm no baby! I'm a star just like my folks, Pac-Man and Ms. Pac-Man. And I've got twice their energy! Come play with me! We'll race around giant playgrounds. We'll chase down magic candy and run from ghostly bullies who'll tickle me to death if they catch me. My playgrounds are full of challenging mazes with corners and alleys to hide in. I run faster than a speeding roller skate, ducking behind barriers, dodging those mean bullies. I can even race from one side of a playground to the other. That's a lot of ground to cover! But I've got to play a lot harder than my folks to live up to the Pac-Man family name. That's why this is a whole new game! Jr. Pac-Man is another classic arcade game faithfully brought to life on the Atari 7800 by programming wizard Bob DeCrescenzo. Jr. Pac-Man follows the popular Pac-Man and Ms. Pac-Man arcade hits, bringing new features such as a large, side-scrolling maze and bonus items that not only move about the maze but also destroy power pills they come into contact with! Bob DeCrescenzo's 7800 rendition of the game is even complete with the intermissions from the arcade. This fast-paced, frenetic Pac-Man experience is not to be missed!</Plot>
+	<nPlayers>2</nPlayers>
+	<boxart1>http://images.launchbox-app.com/9ba6e9a7-8f4d-4107-9065-4012aac75116.jpg</boxart1>
+	<media1>http://images.launchbox-app.com/ee2f50ee-5811-4e84-8037-25b05c2d494b.png</media1>
+	<clearlogo1>http://images.launchbox-app.com/1cabfa51-91dd-4cf4-ae05-5f7ac6ff2b39.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/dc36fcfd-8797-47f4-b08d-4d1fdfe282ce.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/102e9834-d146-4654-ac0d-abfc352decc0.png</snapshot2>
+	<Rating>5</Rating>
+	<ESRB>Not Rated</ESRB>
+	<Developer>Robert DeCrescenzo</Developer>
+	<Publisher>AtariAge</Publisher>
+</game>

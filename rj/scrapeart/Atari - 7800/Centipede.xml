@@ -1,0 +1,18 @@
+<Game>
+	<Name>Centipede</Name>
+	<ReleaseDate>1987-06-01T00:00:00-07:00</ReleaseDate>
+	<Plot>A good port of the coin-op classic. The 7800 version also features competitive and cooperative 2-player modes.</Plot>
+	<nPlayers>2</nPlayers>
+	<boxback1>http://images.launchbox-app.com/dbc57eca-3103-4921-bd52-92b1d9515670.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/566c4138-f706-4b1c-92ca-f48ccec3f06a.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/ede7ade6-e4b5-46b0-9f68-71af9778754d.jpg</boxart2>
+	<media1>http://images.launchbox-app.com/3e4d0a64-7bf6-4d2b-81eb-abe72d6c5c4d.png</media1>
+	<clearlogo1>http://images.launchbox-app.com/cda37577-ef11-4b50-b2bc-722872065da7.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/58a24202-42bb-484d-8404-11fd1a64206b.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/2ab20e41-dbee-4629-93e1-8af631a38586.png</snapshot2>
+	<Rating>3.3333333333333335</Rating>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Shooter</Genre>
+	<Developer>Atari</Developer>
+	<Publisher>Atari</Publisher>
+</game>

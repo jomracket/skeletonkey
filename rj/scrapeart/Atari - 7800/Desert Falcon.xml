@@ -1,0 +1,18 @@
+<Game>
+	<Name>Desert Falcon</Name>
+	<ReleaseDate>1987</ReleaseDate>
+	<Plot>You are the royal Desert Falcon questing for precious gems and Egyptian heiroglyphs hidden in the endless desert. Invincibility, warp speed, and quick shots are only some of the many magical powers you'll gain on your search. Use them to capture a trove of treasures. But watch out for the evil ones! Mythical flying beasts, blazing firepots, and howling sphinxes guard the jewels you seek.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/eea48b1a-e551-4e92-8beb-392023f8a43c.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/63aa1431-19bb-4c78-88a7-e7c7b299b56f.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/4ba5e75b-a3c2-4bae-9bc9-8bef21748a20.jpg</boxart2>
+	<media1>http://images.launchbox-app.com/1013614a-f500-4e03-872b-ee1a5bd324b4.png</media1>
+	<clearlogo1>http://images.launchbox-app.com/559699b4-5219-4722-9326-a4f03f1c4ade.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/240567dc-05b6-469f-8ae2-01feef47efc6.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/420edad2-6416-41ed-b993-301f5291d9c3.png</snapshot2>
+	<Rating>2.8333333333333335</Rating>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Shooter</Genre>
+	<Developer>Atari</Developer>
+	<Publisher>Atari</Publisher>
+</game>

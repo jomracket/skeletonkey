@@ -1,0 +1,29 @@
+<Game>
+	<Name>Densha de Go! 2 (Japan)</Name>
+	<plot>The 1998 sequel of the popular Japanese train driving game by Taito has once again been ported to various home systems. For the first time on the PlayStation, it is possible to drive through the snow, and take a seat in the cockpit of a Shinkansen bullet train.The gameplay is more arcade than simulation. The focus is on stopping at the stations at the perfect moment and position, keeping up with the schedule, obeying signals and speed limits, and ensuring the safety and comfort of the passengers. Mistakes result in points being deducted from a counter. If it reaches 0, the game is over.The following routes are available:1. Hokuhoku Line from Naoetsu to Uragawara2. Tohoku Shinkansen from Morioka to Shin-Hanamaki3. Akita Shinkansen from Akita to Omagari4. Keihin-Tohoku Line from Shinagawa to Ueno5. Osaka Loop Line from Osaka to Tennoji (not in the Arcade original)6. Kagoshima Main Line from Hakata to Kokura (only in PlayStation and Windows versions)</plot>
+	<releasedate>4/7/1999</releasedate>
+	<genre>Simulation</genre>
+	<Developer>CyberFront Corporation</Developer>
+	<nplayers>1</nplayers>
+	<thegamesdb_id>27597</thegamesdb_id>
+	<mobygames_url>http://www.mobygames.com/game/wonderswan/densha-de-go-2</mobygames_url>
+	<giantbomb_url>http://www.giantbomb.com/densha-de-go-2/3030-18862/</giantbomb_url>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/27597-1.jpg</boxart1>
+	<boxback1>http://www.mobygames.com/images/covers/l/293591-densha-de-go-2-wonderswan-back-cover.jpg</boxback1>
+	<media1>http://www.mobygames.com/images/covers/l/293592-densha-de-go-2-wonderswan-media.jpg</media1>
+	<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Bandai%20-%20WonderSwan/Named_Titles/Densha%20de%20Go!%202%20(Japan).png</snapshot1>
+	<snapshot2>http://www.mobygames.com/images/shots/l/274549-densha-de-go-2-wonderswan-screenshot-title-screen.jpg</snapshot2>
+	<snapshot3>http://www.mobygames.com/images/shots/l/274550-densha-de-go-2-wonderswan-screenshot-options.jpg</snapshot3>
+	<snapshot4>http://www.mobygames.com/images/shots/l/274551-densha-de-go-2-wonderswan-screenshot-select-a-train.jpg</snapshot4>
+	<snapshot5>http://www.mobygames.com/images/shots/l/274552-densha-de-go-2-wonderswan-screenshot-a-picture-of-a-train.jpg</snapshot5>
+	<snapshot6>http://www.mobygames.com/images/shots/l/274553-densha-de-go-2-wonderswan-screenshot-timetable.jpg</snapshot6>
+	<snapshot7>http://www.mobygames.com/images/shots/l/274554-densha-de-go-2-wonderswan-screenshot-in-the-train.jpg</snapshot7>
+	<snapshot8>http://www.mobygames.com/images/shots/l/274555-densha-de-go-2-wonderswan-screenshot-continue.jpg</snapshot8>
+	<Notes>Densha de Go! 2 is a Simulation game, developed by Taito Corporation and published by CyberFront, which was released in Japan in 1999.</Notes>
+	<boxart2>http://images.launchbox-app.com/fc7ad839-b72c-415d-a143-be232ee3b9d0.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/100ab4d2-a20f-4414-a796-447c80f8ac62.png</clearlogo1>
+	<clearlogo2>http://images.launchbox-app.com/735c6ab5-ede0-4f6b-a025-86d96ae4c2b3.png</clearlogo2>
+	<snapshot9>http://images.launchbox-app.com/d84ca87d-c999-4308-9e81-90036a268908.png</snapshot9>
+	<snapshot10>http://images.launchbox-app.com/3ee90cb6-48e2-4fb2-9da1-fe108690fc69.PNG</snapshot10>
+	<Publisher>CyberFront</Publisher>
+</game>

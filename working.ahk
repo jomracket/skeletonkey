@@ -213,6 +213,10 @@ IfNotExist, launchparams.ini
 	{
 		FileCopy,launchparams.set,launchparams.ini
 	}
+IfNotExist,mediafe.ini
+	{
+		FileCopy,mediafe.set,mediafe.ini
+	}
 
 Iniread, raexeloc, Settings.ini,GLOBAL,retroarch_location
 RJQNUM:= 0
@@ -5894,13 +5898,13 @@ jaksdname=
 guicontrolget,FEDDLE,,FEDDLE
 splitpath,curtxt,curimgnm,curimgfd,curimgxt	
 splitpath,imgdat,,,curimgxt	
+ifnotexist,%RJSYSTEMS%\%FEDDLA%\%curtxt%\.snaps\
+	{
+		filecreatedir,%RJSYSTEMS%\%FEDDLA%\%curtxt%\.snaps
+	}
 if (FEDDLE = "Video")
 	{
-		return
-	}
-if (FEDDLE = "MetaData")
-	{
-		return
+		jaksdnmae= %jaksdname%
 	}
 if (FEDDLE = "3Mix")
 	{
@@ -5934,6 +5938,10 @@ if (FEDDLE = "Backdrops")
 	{
 		jaksdname= Backdrop
 	}
+if (FEDDLE = "MetaData")
+	{
+		jaksdname= %jaksdname%
+	}
 if (FEDDLE = "Logos")
 	{
 		jaksdname= Logo
@@ -5964,8 +5972,8 @@ if (sbrim = 1)
 				coverwimg= %rjexpd%\%rjexpn%.%curimgxt%		
 			}
 	}
-	filecopy,%ASSETS%\%FEDDLA%\%curtxt%\%FEDDLE%\%imgdat%,%coverwimg%,1
-	SB_SetText(" ..\scrapeArt\ ..." "\" imgdat " to " coverwimg "")
+filecopy,%ASSETS%\%FEDDLA%\%curtxt%\%FEDDLE%\%imgdat%,%coverwimg%,1
+SB_SetText(" ..\scrapeArt\ ..." "\" imgdat " to " coverwimg "")
 sbrim= 0
 return
 
@@ -6831,7 +6839,6 @@ IniWrite, "%RJSYSTEMS%",Settings.ini,GLOBAL,systems_directory
 gosub, RJSYSRESET
 if (INITIAL = 1)
 	{
-		filecopy,launchparams.set,launchparams.ini,1
 		return
 	}
 if (SKFILTSUP = 1)
@@ -10181,7 +10188,7 @@ shdvar= %SLSHDVAR%
 if (shdvar = "nul")
 	{
 		videoShader=
-	gosub, RACHKOPTLINE
+		gosub, RACHKOPTLINE
 		IniWrite, "%videoShader%", %curcfg%,OPTIONS,video_shader
 		return
 	}
@@ -10838,7 +10845,7 @@ return
 ;{;;;;;;;;;;;;;    RETROARCH FUNCTIONS     ;;;;;;;;;;;;;;;;
 
 QINSTALL:
-MsgBox,4356,Quick Install,Install RetroArch and popular emulator cores?
+MsgBox,8352,Quick Install,Install RetroArch and popular emulator cores?
 IfMsgBox, Yes
 	{
 		GuiClose(skelWin) {  ; Declaring this parameter is optional.
@@ -10898,6 +10905,12 @@ GuiControl, Enable, UPDBTN
 GuiControl, enable, EAVAIL
 GuiControl, enable, SaList
 GuiControl, Enable, EXELIST
+Msbgox,8352,Auto-Prefer,Would you like to assign all supported systems to retroarch cores?
+ifmsgbox,Yes
+	{
+		guicontrol,,LNCHPRDDL,|Emulators|retroarch||
+		gosub,LNCHPT
+	}
 return
 
 AVAILSEL:
@@ -15215,6 +15228,10 @@ if (nodel = "")
 		Loop, Parse,vin,|
 			{
 				if (A_LoopField = sysni)
+					{
+						continue
+					}
+				if A_LoopField is digit
 					{
 						continue
 					}
@@ -21310,6 +21327,13 @@ if (DWNINJACK = 0)
 		return
 	}
 guicontrolget,RNMJACK,,RNMJACK
+stringreplace,RNMJACK,RNMJACK,*,-,All
+stringreplace,RNMJACK,RNMJACK,?,-,All
+stringreplace,RNMJACK,RNMJACK,\,-,All
+stringreplace,RNMJACK,RNMJACK,/,-,All
+stringreplace,RNMJACK,RNMJACK,>,-,All
+stringreplace,RNMJACK,RNMJACK,<,-,All
+stringreplace,RNMJACK,RNMJACK,:,-,All
 return
 
 OvdChk:
@@ -21833,6 +21857,14 @@ RETRYTHR= 10
 DWNFLD= 	
 ifnotexist, %save%
 	{
+		if (REDOWN = 0)
+			{
+				ifexist,%cacheloc%\%romname%\%romtitle%
+					{
+						filemove,%cacheloc%\%romname%\%romtitle%,%save%
+					}
+				goto, RomDowned
+			}
 		ifnotexist,%RJSYSTEMS%\%romsys%\%rjinsfldr%
 			{
 				updtguirst= 	
@@ -22048,8 +22080,8 @@ Loop, files, %rompth%\*.rar
 		FileMove, %A_LoopFileFullPath%,%A_LoopFileFullPath%.bak
 		if (ArcMove = 1)
 			{
-				FileCreatedir,%cacheloc%\%romname%
-				fileMove,%A_LoopFileFullPath%.bak,%cacheloc%\%romname%,1
+				FileCreatedir,%cacheloc%\%romsys%\%romname%
+				fileMove,%A_LoopFileFullPath%.bak,%cacheloc%\%romsys%\%romname%,1
 			}
 	}
 Loop, Files, %rompth%\%romname%\*.*
@@ -22059,8 +22091,8 @@ Loop, Files, %rompth%\%romname%\*.*
 	FileMove,%rompth%\%romname%.bak, %rompth%\%romname%.rar, 1
 	if (ArcMove = 1)
 		{
-			FileCreatedir,%cacheloc%\%romname%
-			fileMove, %rompth%\%romname%.rar,%cacheloc%\%romname%,1
+			FileCreatedir,%cacheloc%\%romsys%\%romname%
+			fileMove, %rompth%\%romname%.rar,%cacheloc%\%romsys%\%romname%,1
 		}
 return
 
@@ -22081,8 +22113,8 @@ if (klp = "")
 	}
 if (ArcMove = 1)
 	{
-		FileCreateDir,%cacheloc%\%romname%
-		FileMove,%save%,%cacheloc%\%romname%,1
+		FileCreateDir,%cacheloc%\%romsys%\%romname%
+		FileMove,%romf%,%cacheloc%\%romsys%\%romname%,1
 	}	
 return
 
@@ -22149,8 +22181,8 @@ Loop, Files, %xtrdir%\*.*
 				romf= %A_LoopFileFullPath%
 				if (ArcMove = 1)
 					{
-						FileCreateDir,%cacheloc%\%romname%
-						FileMove,%save%,%cacheloc%\%romname%,1
+						FileCreateDir,%cacheloc%\%romsys%\%romname%
+						FileMove,%romf%,%cacheloc%\%romsys%\%romname%,1
 					}
 				break	
 			}
@@ -30326,8 +30358,6 @@ if (mameget = 1)
 				FileRead, mamedbx, gam\MAME - Arcade.gam
 			}
 	}
-
-
 if (mediaorder = "")
 	{
 		return
@@ -30390,7 +30420,6 @@ if (mameget = 1)
 
 stringtrimright,sscrpri,sscrpri,1
 scrapeorder= "%sscrpri%"
-
 oppri= Global
 Loop, Parse, metaimages,|
 	{
@@ -30484,6 +30513,10 @@ if (FERAD2B = 1)
 		supsysr=
 		supsysi=
 		supsys=
+		ifnotexist,%RJSYSTEMS%\%FEDDLA%\%curtxt%\.snaps\
+			{
+				filecreatedir,%RJSYSTEMS%\%FEDDLA%\%curtxt%\.snaps
+			}
 		Loop, Parse, scrsup,/
 			{
 				if (SYSLKUP = A_LoopField)
@@ -30515,6 +30548,10 @@ if (FERAD2B = 1)
 					}
 				jaktit= %A_LoopField%
 				realname= %jaktit%
+				ifnotexist,%RJSYSTEMS%\%REALSYS%\%realname%\.snaps\
+					{
+						filecreatedir,%RJSYSTEMS%\%REALSYS%\%realname%\.snaps
+					}	
 				if (getboxart = 1)
 					{
 						FileCreateDir, %ASSETS%\%REALSYS%\%realname%\Boxart
@@ -30563,7 +30600,11 @@ if (FERAD2B = 1)
 				stringReplace,nsjak,nsjak,-,,All
 				ccnt1=
 				ccnt2=
-				stringsplit,ccnt,nsjak,([	
+				stringsplit,ccnt,nsjak,([
+				ifnotexist, rj\scrapeArt\
+					{
+						filecreatedir,rj\scrapeArt
+					}
 				ifnotexist, rj\scrapeArt\%SYSLKUP%
 					{
 						ifnotexist,rj\scrapeArt\%SYSLKUP%.7z

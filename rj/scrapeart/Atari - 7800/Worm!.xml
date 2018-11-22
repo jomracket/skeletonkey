@@ -1,0 +1,14 @@
+<Game>
+	<Name>Worm!</Name>
+	<ReleaseDate>2010</ReleaseDate>
+	<Plot>Help Brian the worm avoid the mushrooms and eat the flowers to escape from the garden. If you eat the mushrooms, bump into a wall or bite yourself you'll lose a life. Every time you eat a flower you get a little longer until you've eaten your fill. Both the flowers and mushrooms are placed in the gardens randomly. As you progress through the game you start each level longer than the last with more flowers to eat and mushrooms to avoid. After a certain number of levels you'll begin to get faster too. Instead of the normal NOVICE, STANDARD and EXPERT level selection, Worm! offers the following selectable options: SLOW, NORMAL, FAST and TURBO speed. SHORT, NORMAL and LONG worm lengths. Eat SOME (50%), MOST (75%) or ALL (100%) of the flowers. For more adjustment you can also start with an extra two lives using the left difficulty switch or add an extra 10 mushrooms using the right switch.</Plot>
+	<nPlayers>1</nPlayers>
+	<media1>http://images.launchbox-app.com/1e72785d-f944-4c1f-ad7e-f48c64d13c6e.jpg</media1>
+	<fanart1>http://images.launchbox-app.com/0efa8003-c1db-4017-8ebc-8986617c7649.jpg</fanart1>
+	<snapshot1>http://images.launchbox-app.com/171a8cae-bc97-4d25-8196-d3f6b6fcffe5.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/fb6bcee3-1fc1-4307-8d4a-c37a0ac65fcd.jpg</snapshot2>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Action; Puzzle</Genre>
+	<Developer>Mark Ball</Developer>
+	<Publisher>AtariAge</Publisher>
+</game>

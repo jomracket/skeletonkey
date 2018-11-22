@@ -1,0 +1,14 @@
+<Game>
+	<Name>Wasp!</Name>
+	<ReleaseDate>2009</ReleaseDate>
+	<Plot>It's The Enchanted Land's annual Mushroom Soup Festival. While out in the woods collecting mushrooms you stumble across a nest of Giant Killer Wasps. With no giants to kill they make a wasp line for... YOU! Wasp! is Mark Ball's first foray into Atari 7800 programming, and is (as far as we're aware) the first 7800 game written in the C programming language. Wasp! was originally written as a demo, but quickly evolved into a playable game. Your goal in Wasp! is fairly simple--collect as many mushrooms as you can while avoiding the angry wasps! How long can you survive their flying wrath?</Plot>
+	<nPlayers>1</nPlayers>
+	<media1>http://images.launchbox-app.com/0ecc5b1e-683f-4343-b623-dc021bf57b1b.jpg</media1>
+	<media2>http://images.launchbox-app.com/e032bbb8-4701-4b84-b914-66095d6beaf9.jpg</media2>
+	<snapshot1>http://images.launchbox-app.com/57d03c3e-46c0-4b7c-be9d-d1f90d0c33f3.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/b65e3623-d7ca-4f57-ac20-c93b6299d4cb.jpg</snapshot2>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Action</Genre>
+	<Developer>Mark Ball</Developer>
+	<Publisher>AtariAge</Publisher>
+</game>

@@ -1,0 +1,12 @@
+<Game>
+	<Name>Scramble</Name>
+	<Plot>Scramble is another faithful arcade port brought to the Atari 7800 by Robert DeCrescenzo! Each round consists of five stages and a 'base', or final, stage. Destroy any targets on the ground, or in the air. You can (and should) destroy Rockets, UFOs, Fuel tanks (to give you more fuel), Bonus Items, and the Base itself at the very end. You cannot, however, destroy Meteors and should avoid them at all costs. Each stage within a round challenges the player with a new type of enemy or terrain to maneuver: STAGE 1: Launching rockets STAGE 2: Ufos and caves STAGE 3: Meteors STAGE 4: Lauching rockets from tall structures STAGE 5: Winding maze of buildings BASE: The base itself that you must destroy Skill Levels As you pass each round of five stages and destroy the base, the game play starts over, and the difficulty increases. Your ship burns fuel at a faster rate, and the rockets, UFOs and Meteors become more aggressive. Easy: No Rockets launch and your ship burns fuel at a very slow rate. Normal: Only two launching rockets can be on the screen at a time, and your ship burns fuel at a normal rate. This variation is equivalent to the "Konami" version of the arcade game. Hard: Four launching rockets can be on the screen at a time, and your ship burns fuel at a very fast rate. This variation is equivalent to the "Stern" version of the arcade game.</Plot>
+	<nPlayers>1</nPlayers>
+	<media1>http://images.launchbox-app.com/09af22fb-1d52-43d2-891a-b6bf7497dfc7.jpg</media1>
+	<snapshot1>http://images.launchbox-app.com/0d2bd8cc-892c-4516-a3cf-0b5ed97eca91.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/6f2724a3-ed3b-4c14-8597-5f74d1cff876.png</snapshot2>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Shooter</Genre>
+	<Developer>Bob DeCrescenzo</Developer>
+	<Publisher>AtariAge</Publisher>
+</game>

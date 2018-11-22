@@ -1,0 +1,18 @@
+<Game>
+	<Name>Commando</Name>
+	<ReleaseDate>1989</ReleaseDate>
+	<Plot>The player takes control of a soldier named Super Joe, who starts by being dropped off in a jungle by a helicopter, and has to fight his way out singlehandedly, fending off a massive assault of enemy soldiers. Super Joe is armed with a sub-machine gun (which has unlimited ammunition) as well as a limited supply of hand grenades. While Joe can fire his gun in any of the eight directions that he faces, his grenades can only be thrown vertically towards the top of the screen, irrespective of the direction Joe is facing. Unlike his SMG bullets, grenades can be thrown to clear obstacles, and explosions from well placed grenades can kill several enemies at once.</Plot>
+	<nPlayers>2</nPlayers>
+	<banner1>http://images.launchbox-app.com/f07be6f0-7329-4fa8-b5fa-0010efcf9305.jpg</banner1>
+	<boxback1>http://images.launchbox-app.com/770be4ef-3d57-44c8-974f-894c06e6a5a8.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/2cf13920-c3c4-4fe7-ba3e-0f4ef38e4c94.jpg</boxart1>
+	<media1>http://images.launchbox-app.com/ca775a04-1cea-4efb-82d1-42957578e7c5.png</media1>
+	<clearlogo1>http://images.launchbox-app.com/3cfe70b0-6dca-4ad5-8c74-2ddd8364f756.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/b4f38d14-2b73-4ef6-98db-d06700f77a72.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/c8e2185a-6422-4fc8-86cc-3b1fae9c1173.png</snapshot2>
+	<Rating>3.25</Rating>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Shooter</Genre>
+	<Developer>Data East</Developer>
+	<Publisher>Atari</Publisher>
+</game>

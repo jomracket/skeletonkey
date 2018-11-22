@@ -1,0 +1,21 @@
+<Game>
+	<Name>Mario Bros.</Name>
+	<ReleaseDate>1988</ReleaseDate>
+	<Plot>Mario the plumber and his brother Luigi are hopping mad!  The water pipes in  their house are blocked with pesky crawling creatures.  If the two brothers  can't get rid of them, they'll never take a bath again!</Plot>
+	<nPlayers>2</nPlayers>
+	<VideoURL>T9-l_jeYA44</VideoURL>
+	<boxback1>http://images.launchbox-app.com/d8bfde68-0c2b-4e7e-96b3-66da80ea202c.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/6cfe507e-a293-46b3-965f-ae38e9bca370.jpg</boxart1>
+	<media1>http://images.launchbox-app.com/817b5da9-eb53-49db-bddc-c4c83c882816.png</media1>
+	<clearlogo1>http://images.launchbox-app.com/824bc36a-3565-471f-85da-ed5b4f23205d.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/3f139a0d-1a69-410f-966f-16a5aa4f0652.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/be4b3602-fb39-4495-ad10-5e9ddc17bec4.png</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/f5ea6599-927e-4b06-a30d-9ca3bef286f5.png</snapshot3>
+	<snapshot4>http://images.launchbox-app.com/586785e6-1987-4e9d-a3c1-b9e4f2167055.png</snapshot4>
+	<Rating>3.25</Rating>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Mario_Bros.</WikipediaURL>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Platform</Genre>
+	<Developer>Nintendo</Developer>
+	<Publisher>Atari</Publisher>
+</game>

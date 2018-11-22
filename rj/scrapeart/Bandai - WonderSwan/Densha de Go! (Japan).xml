@@ -1,0 +1,30 @@
+<Game>
+	<Name>Densha de Go! (Japan)</Name>
+	<plot>Based on the 1996 arcade game, Densha de Go! was one of the first commercial train-driving simulation games, and went on to spawn numerous successors.The player can choose from a variety of tracks and trains and will then have to drive the train to the designated stations while sticking to the tight schedule, stopping exactly at the marked positions, obeying all signs and signals, and ensuring passenger safety and comfort.Whenever the player makes a mistake, points are deducted from a counter which at the start of each round is initialized to a value depending on the selected difficulty. If it reaches zero, the game is over.The following lines are featured:1. Sagano Main Line (Sanin Line) from Kameoka to Kyoto2. Keihin-Tohoku Line from Shinagawa to Yokohama3. Tokaido Main Line (JR Kyoto Line) from Kyoto to Osaka4. Yamanote Line (Inner Circle) from Shibuya to Tokyo Station5. Tokaido Main Line EX from Takatsuki to Osaka, part of the rapid Tokaido Main Line from the original version, but this time with stops at every station (Windows only)6. Sagano Line EX from Kameoka to Kyoto, without the shortcut from Saga-Arashiyama to Tambaguchi from the original version (Windows only)</plot>
+	<releasedate>4/3/1999</releasedate>
+	<genre>Simulation</genre>
+	<Developer>Taito Corporation</Developer>
+	<nplayers>1</nplayers>
+	<thegamesdb_id>27596</thegamesdb_id>
+	<mobygames_url>http://www.mobygames.com/game/wonderswan/densha-de-go</mobygames_url>
+	<giantbomb_url>http://www.giantbomb.com/densha-de-go/3030-7590/</giantbomb_url>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/27596-1.jpg</boxart1>
+	<boxback1>http://www.mobygames.com/images/covers/l/293593-densha-de-go-wonderswan-back-cover.jpg</boxback1>
+	<media1>http://www.mobygames.com/images/covers/l/293594-densha-de-go-wonderswan-media.jpg</media1>
+	<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Bandai%20-%20WonderSwan/Named_Titles/Densha%20de%20Go!%20(Japan).png</snapshot1>
+	<snapshot2>http://www.mobygames.com/images/shots/l/288576-densha-de-go-wonderswan-screenshot-title-screen.jpg</snapshot2>
+	<snapshot3>http://www.mobygames.com/images/shots/l/288577-densha-de-go-wonderswan-screenshot-options.jpg</snapshot3>
+	<snapshot4>http://www.mobygames.com/images/shots/l/288578-densha-de-go-wonderswan-screenshot-selecting-a-line.jpg</snapshot4>
+	<snapshot5>http://www.mobygames.com/images/shots/l/288579-densha-de-go-wonderswan-screenshot-your-train-what-a-lucky.jpg</snapshot5>
+	<snapshot6>http://www.mobygames.com/images/shots/l/288580-densha-de-go-wonderswan-screenshot-chugging-through-a-town.jpg</snapshot6>
+	<snapshot7>http://www.mobygames.com/images/shots/l/288581-densha-de-go-wonderswan-screenshot-out-on-the-field.jpg</snapshot7>
+	<snapshot8>http://www.mobygames.com/images/shots/l/288582-densha-de-go-wonderswan-screenshot-moving-along.jpg</snapshot8>
+	<snapshot9>http://www.mobygames.com/images/shots/l/288583-densha-de-go-wonderswan-screenshot-a-station-comes-into-sight.jpg</snapshot9>
+	<Notes>Densha de Go! is a Simulation game, developed and published by Taito Corporation, which was released in Japan in 1999.</Notes>
+	<boxart2>http://images.launchbox-app.com/20d803de-b003-4be0-bd30-38e4261980a2.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/4b609813-9588-4902-985a-91bdaef76025.png</clearlogo1>
+	<clearlogo2>http://images.launchbox-app.com/140b7b00-5ee9-4227-8d14-892bc1d33c19.png</clearlogo2>
+	<snapshot10>http://images.launchbox-app.com/a5d2d280-48d8-46fa-882a-52d81026b00d.png</snapshot10>
+	<snapshot11>http://images.launchbox-app.com/a4858077-389b-40c9-8947-35f188786ac9.PNG</snapshot11>
+	<Publisher>Taito Corporation</Publisher>
+</game>

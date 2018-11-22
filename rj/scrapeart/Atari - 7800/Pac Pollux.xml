@@ -1,0 +1,11 @@
+<Game>
+	<Name>Pac Pollux</Name>
+	<nPlayers>1</nPlayers>
+	<media1>http://images.launchbox-app.com/c20fb3a7-bd6d-4932-a9b1-33c4ead585d5.jpg</media1>
+	<fanart1>http://images.launchbox-app.com/45b1ebfb-0c2e-4864-9843-8fcc117dd276.jpg</fanart1>
+	<snapshot1>http://images.launchbox-app.com/c2613b9e-7a8b-4e48-adcd-2f8e59a098e6.jpg</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/17f3596d-a9ce-4947-af21-b038971f0667.jpg</snapshot2>
+	<ESRB>Not Rated</ESRB>
+	<Developer>PacManPlus</Developer>
+	<Publisher>Gambler172</Publisher>
+</game>

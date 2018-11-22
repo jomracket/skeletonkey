@@ -1,0 +1,14 @@
+<Game>
+	<Name>Space Duel</Name>
+	<ReleaseDate>2007</ReleaseDate>
+	<Plot>Space Duel is a port to the Atari 7800 of the third generation of Asteroids-style shooters from Atari, following on the heels of Asteroids and Asteroids Deluxe. Unlike Asteroids Deluxe, Space Duel is a more radical departure from its predecessor, featuring a wide variety of colorful geometric shapes you must destroy, and several new types of enemies each with unique behaviors you have to contend with in order to stay alive! In addition, there is a bonus round where players can earn extra points. Like many great games, Space Duel is easy to learn, but takes time and practice to master.  Space Duel features several two-player variations including Competition Space Duel where you compete against another player for points (and your shots destroy the other player!), and Team Space Duel where you and another player share reserve ships and don't need to worry about friendly fire. Space Duel comes to life on the Atari 7800 thanks to the efforts of Robert DeCrescenzo, who extensively modified the original version of Asteroids to add all the unique Space Duel gameplay elements, graphics and sounds!</Plot>
+	<nPlayers>2</nPlayers>
+	<boxart1>http://images.launchbox-app.com/aea82f46-2310-4958-a97f-bff900adf4c0.jpg</boxart1>
+	<media1>http://images.launchbox-app.com/0139bbc7-56bd-41ca-a5c2-bbfedd7a7c84.jpg</media1>
+	<snapshot1>http://images.launchbox-app.com/9c865d3b-2cf8-40aa-8d60-f9412d933336.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/13f510a2-5d4c-426a-a4ba-60e383a433b7.png</snapshot2>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Shooter</Genre>
+	<Developer>Bob DeCrescenzo</Developer>
+	<Publisher>AtariAge</Publisher>
+</game>

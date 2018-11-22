@@ -1,0 +1,13 @@
+<Game>
+	<Name>Beef Drop VE</Name>
+	<ReleaseDate>2006-07-04T00:00:00-07:00</ReleaseDate>
+	<Plot>Beef Drop is a port of the popular arcade game Burgertime, which Ken Siders first ported to the Atari 5200 and 8-bit computers. This version of Beef Drop beature POKEY sound support, for much better audio than the 7800 can produce without this chip. The 7800 version also features better graphics than the 5200/8-bit version, making the 7800 version the definitive release of Beef Drop.</Plot>
+	<nPlayers>2</nPlayers>
+	<boxart1>http://images.launchbox-app.com/b83d77de-0ad5-4736-b8eb-7e28087a6d0d.jpg</boxart1>
+	<media1>http://images.launchbox-app.com/efca84c4-34b4-43e5-9aec-51bc9b197b69.png</media1>
+	<snapshot1>http://images.launchbox-app.com/b6ca030f-4afa-45fb-897e-6065e59ab1eb.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/ef849590-6923-4f5f-8745-ac8ddc323bf1.png</snapshot2>
+	<Rating>3.1666666666666665</Rating>
+	<ESRB>Not Rated</ESRB>
+	<Developer>Ken Siders</Developer>
+</game>
