@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-21 4:54 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-23 12:02 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-11-21 4:54 PM
-VERSION= v0.99.66.56
+RELEASE= 2018-11-23 12:02 PM
+VERSION= v0.99.66.57
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -10845,16 +10845,9 @@ return
 ;{;;;;;;;;;;;;;    RETROARCH FUNCTIONS     ;;;;;;;;;;;;;;;;
 
 QINSTALL:
-MsgBox,8352,Quick Install,Install RetroArch and popular emulator cores?
+MsgBox,8452,Quick Install,Install RetroArch and popular emulator cores?,5
 IfMsgBox, Yes
 	{
-		GuiClose(skelWin) {  ; Declaring this parameter is optional.
-		MsgBox 4,, Are you sure you want to close the GUI?
-		ifMsgBox No
-			{
-				return true  ; true = 1
-			}
-	}
 		gosub, RASETUPCONT
 	}
 return
@@ -10905,7 +10898,7 @@ GuiControl, Enable, UPDBTN
 GuiControl, enable, EAVAIL
 GuiControl, enable, SaList
 GuiControl, Enable, EXELIST
-Msbgox,8352,Auto-Prefer,Would you like to assign all supported systems to retroarch cores?
+Msgbox,8452,Auto-Prefer,Would you like to assign all supported systems to retroarch cores?
 ifmsgbox,Yes
 	{
 		guicontrol,,LNCHPRDDL,|Emulators|retroarch||

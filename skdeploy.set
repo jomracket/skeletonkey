@@ -4,7 +4,7 @@ SetCompress on
 
 Name "skeletonKey"
 Caption "Universal ROM-Library Interface Kit"
-Icon "[SOURCE]\favicon.ico"
+Icon "[SOURCE]\Install.ico"
 OutFile "[DBP]\skeletonkey[INSTYP].exe"
 
 SetDateSave on

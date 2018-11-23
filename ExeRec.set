@@ -773,7 +773,6 @@ FileInstall,opt.png,opt.png,1
 FileInstall,paradigm.png,paradigm.png,1
 FileInstall,splash.png,splash.png,1
 FileInstall,tip.png,tip.png,1
-FileInstall,favicon.ico,favicon.ico,1
 FileInstall,Helper.ico,Helper.ico,1
 FileInstall,Install.ico,Install.ico,1
 FileInstall,key.ico,key.ico,1
@@ -880,10 +879,8 @@ FileInstall,sysico\Nintendo - Wii.ico,sysico\Nintendo - Wii.ico,1
 FileInstall,sysico\Nintendo - WiiWare.ico,sysico\Nintendo - WiiWare.ico,1
 FileInstall,sysico\Nokia - N-Gage.ico,sysico\Nokia - N-Gage.ico,1
 FileInstall,sysico\Nuon - Nuon.ico,sysico\Nuon - Nuon.ico,1
-FileInstall,sysico\Nuon.ico,sysico\Nuon.ico,1
 FileInstall,sysico\Philips - CD-I.ico,sysico\Philips - CD-I.ico,1
 FileInstall,sysico\Pinball - Pinball.ico,sysico\Pinball - Pinball.ico,1
-FileInstall,sysico\Pinball.ico,sysico\Pinball.ico,1
 FileInstall,sysico\RCA - Studio II.ico,sysico\RCA - Studio II.ico,1
 FileInstall,sysico\Sammy - Atomiswave.ico,sysico\Sammy - Atomiswave.ico,1
 FileInstall,sysico\Sega - 32X.ico,sysico\Sega - 32X.ico,1
@@ -925,10 +922,8 @@ FileInstall,sysico\VTech - CreatiVision.ico,sysico\VTech - CreatiVision.ico,1
 FileInstall,sysico\VTech - Socrates.ico,sysico\VTech - Socrates.ico,1
 FileInstall,sysico\Watara - SuperVision.ico,sysico\Watara - SuperVision.ico,1
 FileInstall,sysico\Windows - Games.ico,sysico\Windows - Games.ico,1
-FileInstall,sysico\Windows Games.ico,sysico\Windows Games.ico,1
 FileInstall,sysico\WoW - Action Max.ico,sysico\WoW - Action Max.ico,1
 FileInstall,sysico\XaviXPORT - XaviXPORT.ico,sysico\XaviXPORT - XaviXPORT.ico,1
-FileInstall,sysico\XaviXPORT.ico,sysico\XaviXPORT.ico,1
 FileInstall,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.set,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.set,1
 FileInstall,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.xml.Begin.set,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.xml.Begin.set,1
 FileInstall,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.xml.End.set,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.xml.End.set,1
@@ -1102,6 +1097,7 @@ FileInstall,gam\Nintendo - Game Boy Advance.gam,gam\Nintendo - Game Boy Advance.
 FileInstall,gam\Nintendo - Game Boy Color.gam,gam\Nintendo - Game Boy Color.gam,1
 FileInstall,gam\Nintendo - Game Boy.gam,gam\Nintendo - Game Boy.gam,1
 FileInstall,gam\Nintendo - GameCube.gam,gam\Nintendo - GameCube.gam,1
+FileInstall,gam\Nintendo - Nintendo 3DS.gam,gam\Nintendo - Nintendo 3DS.gam,1
 FileInstall,gam\Nintendo - Nintendo 64.gam,gam\Nintendo - Nintendo 64.gam,1
 FileInstall,gam\Nintendo - Nintendo 64DD.gam,gam\Nintendo - Nintendo 64DD.gam,1
 FileInstall,gam\Nintendo - Nintendo DS.gam,gam\Nintendo - Nintendo DS.gam,1
@@ -1260,6 +1256,13 @@ FileInstall,gam\MAME - Systems\epson.gam,gam\MAME - Systems\epson.gam,1
 FileInstall,gam\MAME - Systems\exl100.gam,gam\MAME - Systems\exl100.gam,1
 FileInstall,gam\MAME - Systems\famicom.gam,gam\MAME - Systems\famicom.gam,1
 FileInstall,gam\MAME - Systems\fidel.gam,gam\MAME - Systems\fidel.gam,1
+FileInstall,gam\MAME - Systems\fightcade.gam,gam\MAME - Systems\fightcade.gam,1
+FileInstall,gam\MAME - Systems\fightcadeCV.gam,gam\MAME - Systems\fightcadeCV.gam,1
+FileInstall,gam\MAME - Systems\fightcadeGG.gam,gam\MAME - Systems\fightcadeGG.gam,1
+FileInstall,gam\MAME - Systems\fightcadeMD.gam,gam\MAME - Systems\fightcadeMD.gam,1
+FileInstall,gam\MAME - Systems\fightcadePCE.gam,gam\MAME - Systems\fightcadePCE.gam,1
+FileInstall,gam\MAME - Systems\fightcadeSG1K.gam,gam\MAME - Systems\fightcadeSG1K.gam,1
+FileInstall,gam\MAME - Systems\fightcadeSMS.gam,gam\MAME - Systems\fightcadeSMS.gam,1
 FileInstall,gam\MAME - Systems\fm7.gam,gam\MAME - Systems\fm7.gam,1
 FileInstall,gam\MAME - Systems\fm77av.gam,gam\MAME - Systems\fm77av.gam,1
 FileInstall,gam\MAME - Systems\fmtowns.gam,gam\MAME - Systems\fmtowns.gam,1
@@ -1327,6 +1330,7 @@ FileInstall,gam\MAME - Systems\lynx.gam,gam\MAME - Systems\lynx.gam,1
 FileInstall,gam\MAME - Systems\m20.gam,gam\MAME - Systems\m20.gam,1
 FileInstall,gam\MAME - Systems\m5.gam,gam\MAME - Systems\m5.gam,1
 FileInstall,gam\MAME - Systems\mac.gam,gam\MAME - Systems\mac.gam,1
+FileInstall,gam\MAME - Systems\MAME - BIOS.gam,gam\MAME - Systems\MAME - BIOS.gam,1
 FileInstall,gam\MAME - Systems\mbc200.gam,gam\MAME - Systems\mbc200.gam,1
 FileInstall,gam\MAME - Systems\mbc55x.gam,gam\MAME - Systems\mbc55x.gam,1
 FileInstall,gam\MAME - Systems\mc10.gam,gam\MAME - Systems\mc10.gam,1
@@ -1532,11 +1536,6 @@ FileInstall,gam\MAME - Systems\zorba.gam,gam\MAME - Systems\zorba.gam,1
 FileInstall,gam\MAME - Systems\zx80.gam,gam\MAME - Systems\zx80.gam,1
 FileInstall,gam\MAME - Systems\zx81.gam,gam\MAME - Systems\zx81.gam,1
 FileInstall,gam\MAME - Systems\_firmware_.gam,gam\MAME - Systems\_firmware_.gam,1
-FileInstall,rj\emucfgs\rjcmd_header.set,rj\emucfgs\rjcmd_header.set,1
-FileInstall,rj\emucfgs\rjcmd_postjoy.set,rj\emucfgs\rjcmd_postjoy.set,1
-FileInstall,rj\emucfgs\rjcmd_prejoy.set,rj\emucfgs\rjcmd_prejoy.set,1
-FileInstall,rj\emucfgs\rjcmd_runloop.set,rj\emucfgs\rjcmd_runloop.set,1
-FileInstall,rj\emucfgs\rjcmd_runproc.set,rj\emucfgs\rjcmd_runproc.set,1
 FileInstall,rj\emucfgs\3doplay\config.xml.set,rj\emucfgs\3doplay\config.xml.set,1
 FileInstall,rj\emucfgs\4DO\Config.xml.set,rj\emucfgs\4DO\Config.xml.set,1
 FileInstall,rj\emucfgs\4DO\FourDO.settings.set,rj\emucfgs\4DO\FourDO.settings.set,1
@@ -2041,12 +2040,11 @@ FileInstall,joyImg\Capcom Play System - CPS.png,joyImg\Capcom Play System - CPS.
 FileInstall,joyImg\Commodore - Amiga.png,joyImg\Commodore - Amiga.png,1
 FileInstall,joyImg\GCE - Vectrex.png,joyImg\GCE - Vectrex.png,1
 FileInstall,joyImg\joy.png,joyImg\joy.png,1
-FileInstall,joyImg\MAME.png,joyImg\MAME.png,1
+FileInstall,joyImg\MAME - Arcade.png,joyImg\MAME - Arcade.png,1
 FileInstall,joyImg\Microsoft - MSX.png,joyImg\Microsoft - MSX.png,1
 FileInstall,joyImg\NEC - PC Engine - SuperGrafx.png,joyImg\NEC - PC Engine - SuperGrafx.png,1
 FileInstall,joyImg\NEC - PC Engine - TurboGrafx 16.png,joyImg\NEC - PC Engine - TurboGrafx 16.png,1
 FileInstall,joyImg\NEC - PC-FX.png,joyImg\NEC - PC-FX.png,1
-FileInstall,joyImg\ngc.png,joyImg\ngc.png,1
 FileInstall,joyImg\Nintendo - DS.png,joyImg\Nintendo - DS.png,1
 FileInstall,joyImg\Nintendo - Game Boy Advance.png,joyImg\Nintendo - Game Boy Advance.png,1
 FileInstall,joyImg\Nintendo - Game Boy Color.png,joyImg\Nintendo - Game Boy Color.png,1
