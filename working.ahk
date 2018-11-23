@@ -4930,6 +4930,8 @@ Loop,Parse,emuj,`n
 runlist:= corelist . "|" . addemu
 stringreplace,runlist,runlist,||,|,All
 stringreplace,runlist,runlist,||,|,All
+guicontrol,,LCORE,|%runlist%
+guicontrol,,ARCCORES,|%runlist%
 return
 
 SCBUILDEMULST:
@@ -8434,7 +8436,17 @@ if (SRCHCOMPL = 1)
 			}
 	}
 coreselv=
+librecore= 
 iniread,coreselz,Assignments.ini,OVERRIDES,%OPTYP%
+if coreselz is digit
+	{
+		iniread,librecore,Assignments.ini,ASSIGNMENTS,%OPTYP%
+		if ((librecore <> "") && if FileExist("%libretrodirectory%\%librecore%"))
+			{
+				coreselv= %librecore%
+				guicontrol,,LCORE,|%coreselv%||%runlist%
+			}
+	}
 if coreselz is not digit
 	{
 		if (coreselz <> "ERROR")
@@ -8511,7 +8523,6 @@ if (coreselv = "")
 					}			
 			}
 	}
-
 gosub, EDTROM
 guicontrol,enable,RUNROMCBX
 guicontrol,enable,RUNSYSDDL
@@ -12593,7 +12604,6 @@ Loop, Parse,UrlIndex,`n`r
 							}	
 						gosub, RBLDRUNLST	
 						guicontrol,,EMPRDDL,|%addemu%
-						guicontrol,,ARCCORES,|%runlist%
 						if (selfnd = "MAME")
 							{
 								splitpath,xtractmfp,,mamevpth
@@ -12662,6 +12672,7 @@ Loop, Parse,UrlIndex,`n`r
 						}
 			}
 		SB_SetText(" " selfnd " installed")
+		
 	}
 
 if (INSTLTYP = "Systems")
@@ -21855,8 +21866,8 @@ ifnotexist, %save%
 				ifexist,%cacheloc%\%romname%\%romtitle%
 					{
 						filemove,%cacheloc%\%romname%\%romtitle%,%save%
+						goto, RomDowned
 					}
-				goto, RomDowned
 			}
 		ifnotexist,%RJSYSTEMS%\%romsys%\%rjinsfldr%
 			{
@@ -21966,6 +21977,7 @@ if (romf = "")
 		romf= %save%
 		lastrom= %save%
 	}
+msgbox,,,romf=%romf%`nsave=%save%
 lastcore= %coreselv%
 guicontrol,,RUNROMCBX, |%romf%||%HISTORY%
 guicontrol,,RUNPLRAD,1

@@ -786,7 +786,6 @@ FileInstall,sysico\American - Laser Games.ico,sysico\American - Laser Games.ico,
 FileInstall,sysico\Amstrad - CPC.ico,sysico\Amstrad - CPC.ico,1
 FileInstall,sysico\Amstrad - GX4000.ico,sysico\Amstrad - GX4000.ico,1
 FileInstall,sysico\Android - Android.ico,sysico\Android - Android.ico,1
-FileInstall,sysico\Android.ico,sysico\Android.ico,1
 FileInstall,sysico\APF - Imagination Machine.ico,sysico\APF - Imagination Machine.ico,1
 FileInstall,sysico\Apogee - BK-01.ico,sysico\Apogee - BK-01.ico,1
 FileInstall,sysico\Apple - IIe.ico,sysico\Apple - IIe.ico,1
@@ -821,7 +820,6 @@ FileInstall,sysico\Commodore - Amiga.ico,sysico\Commodore - Amiga.ico,1
 FileInstall,sysico\Commodore - VIC-20.ico,sysico\Commodore - VIC-20.ico,1
 FileInstall,sysico\Commodore - VIC20.ico,sysico\Commodore - VIC20.ico,1
 FileInstall,sysico\Daphne - Daphne Laser Disc.ico,sysico\Daphne - Daphne Laser Disc.ico,1
-FileInstall,sysico\DOS.ico,sysico\DOS.ico,1
 FileInstall,sysico\Emerson - Arcadia 2001.ico,sysico\Emerson - Arcadia 2001.ico,1
 FileInstall,sysico\Entech - Adventure Vision.ico,sysico\Entech - Adventure Vision.ico,1
 FileInstall,sysico\Enterprise - 64.ico,sysico\Enterprise - 64.ico,1
@@ -829,7 +827,6 @@ FileInstall,sysico\Entex - Adventure Vision.ico,sysico\Entex - Adventure Vision.
 FileInstall,sysico\Epoch - Super Cassette Vision.ico,sysico\Epoch - Super Cassette Vision.ico,1
 FileInstall,sysico\Fairchild - Channel F.ico,sysico\Fairchild - Channel F.ico,1
 FileInstall,sysico\Fightcade - Fightcade.ico,sysico\Fightcade - Fightcade.ico,1
-FileInstall,sysico\Fightcade.ico,sysico\Fightcade.ico,1
 FileInstall,sysico\Fujitsu - FM Towns.ico,sysico\Fujitsu - FM Towns.ico,1
 FileInstall,sysico\Fujitsu - FM-7.ico,sysico\Fujitsu - FM-7.ico,1
 FileInstall,sysico\Funtech - Super A'can.ico,sysico\Funtech - Super A'can.ico,1
@@ -917,13 +914,13 @@ FileInstall,sysico\Tandy - TRS-80.ico,sysico\Tandy - TRS-80.ico,1
 FileInstall,sysico\Tangerine - Oric Amos.ico,sysico\Tangerine - Oric Amos.ico,1
 FileInstall,sysico\Texas Instruments - TI 99-4A.ico,sysico\Texas Instruments - TI 99-4A.ico,1
 FileInstall,sysico\The 3DO Company - 3DO.ico,sysico\The 3DO Company - 3DO.ico,1
-FileInstall,sysico\Touhou.ico,sysico\Touhou.ico,1
+FileInstall,sysico\Touhou - Touhou.ico,sysico\Touhou - Touhou.ico,1
 FileInstall,sysico\VTech - CreatiVision.ico,sysico\VTech - CreatiVision.ico,1
 FileInstall,sysico\VTech - Socrates.ico,sysico\VTech - Socrates.ico,1
 FileInstall,sysico\Watara - SuperVision.ico,sysico\Watara - SuperVision.ico,1
 FileInstall,sysico\Windows - Games.ico,sysico\Windows - Games.ico,1
 FileInstall,sysico\WoW - Action Max.ico,sysico\WoW - Action Max.ico,1
-FileInstall,sysico\XaviXPORT - XaviXPORT.ico,sysico\XaviXPORT - XaviXPORT.ico,1
+FileInstall,sysico\Xavi - XPORT.ico,sysico\Xavi - XPORT.ico,1
 FileInstall,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.set,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.set,1
 FileInstall,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.xml.Begin.set,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.xml.Begin.set,1
 FileInstall,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.xml.End.set,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher\launchers.xml.End.set,1
