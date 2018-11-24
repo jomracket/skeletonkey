@@ -8441,27 +8441,28 @@ iniread,coreselz,Assignments.ini,OVERRIDES,%OPTYP%
 if coreselz is digit
 	{
 		iniread,librecore,Assignments.ini,ASSIGNMENTS,%OPTYP%
-		if ((librecore <> "") && if FileExist("%libretrodirectory%\%librecore%"))
+		if ((librecore <> "") && if (FileExist(libretrodirectory "\" librecore)))
 			{
 				coreselv= %librecore%
 				guicontrol,,LCORE,|%coreselv%||%runlist%
 			}
 	}
-if coreselz is not digit
-	{
-		if (coreselz <> "ERROR")
-			{
-				stringsplit,coreselp,coreselz,|
-					{
-						coreselv= %coreselp1%
-						guicontrol,,LCORE,|%coreselv%||%runlist%
-						if (coretmp <> coreselv)
-							{
-								gosub, opncore
-							}
-					}
-			}
+else {
+	msgbox,,,wh=%libretrodirectory%\%librecore%`ncoreselz=%coreselz%`ncoreselv=%coreselv%
+	if (coreselz <> "ERROR")
+		{
+			stringsplit,coreselp,coreselz,|
+				{
+					coreselv= %coreselp1%
+					guicontrol,,LCORE,|%coreselv%||%runlist%
+					if (coretmp <> coreselv)
+						{
+							gosub, opncore
+						}
+				}
+		}
 	}
+msgbox,,,now=%libretrodirectory%\%librecore%`ncoreselz=%coreselz%`ncoreselv=%coreselv%
 if (coreselv = "")
 	{
 		Loop, Parse, SysEmuSet,`n`r
@@ -21915,7 +21916,7 @@ ifnotexist, %save%
 			{
 				if (RETRYTHR > 1499)
 					{
-						MsgBox,4421,Download Failed,"%romdwn% could not be retrieved`n%URLFILE%`nto`n%save%",8
+						MsgBox,4421,Download Failed,"%dwnchk% could not be retrieved`n%URLFILE%`nto`n%save%",8
 						ifmsgbox,Retry
 							{
 								Filedelete, %save%
@@ -21977,7 +21978,6 @@ if (romf = "")
 		romf= %save%
 		lastrom= %save%
 	}
-msgbox,,,romf=%romf%`nsave=%save%
 lastcore= %coreselv%
 guicontrol,,RUNROMCBX, |%romf%||%HISTORY%
 guicontrol,,RUNPLRAD,1
