@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-24 1:06 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-24 4:47 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-11-24 1:06 PM
-VERSION= v0.99.66.59
+RELEASE= 2018-11-24 4:47 PM
+VERSION= v0.99.66.61
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -8448,7 +8448,6 @@ if coreselz is digit
 			}
 	}
 else {
-	msgbox,,,wh=%libretrodirectory%\%librecore%`ncoreselz=%coreselz%`ncoreselv=%coreselv%
 	if (coreselz <> "ERROR")
 		{
 			stringsplit,coreselp,coreselz,|
@@ -8462,7 +8461,6 @@ else {
 				}
 		}
 	}
-msgbox,,,now=%libretrodirectory%\%librecore%`ncoreselz=%coreselz%`ncoreselv=%coreselv%
 if (coreselv = "")
 	{
 		Loop, Parse, SysEmuSet,`n`r
@@ -21693,8 +21691,41 @@ romdwnfull= %romdwn%
 stringreplace,revurl,romdwn,\,/,All
 stringreplace, romdwn,romdwn,/,\,All
 splitpath,romdwn,dwnchk,tmpth,chkxt,romname,tmpdrv
+StringCaseSense, On
+stringreplace,dwnchk,dwnchk,`%2B,+,All
 stringreplace,dwnchk,dwnchk,`%26,&,All
+stringreplace,dwnchk,dwnchk,`%20,%A_Space%,All
+
+stringreplace,dwnchk,dwnchk,`%23,#,All
+stringreplace,dwnchk,dwnchk,`%24,$,All
+stringreplace,dwnchk,dwnchk,`%21,!,All
+stringreplace,dwnchk,dwnchk,`%28,(,All
+stringreplace,dwnchk,dwnchk,`%29,),All
+stringreplace,dwnchk,dwnchk,`%5B,[,All
+stringreplace,dwnchk,dwnchk,`%5D,],All
+stringreplace,dwnchk,dwnchk,`%3D,=,All
+stringreplace,dwnchk,dwnchk,`%2C,`,,All
+stringreplace,dwnchk,dwnchk,`%40,@,All
+stringreplace,dwnchk,dwnchk,`%3B,`;,All
+stringreplace,dwnchk,dwnchk,`%27,',All
+
+stringreplace,romname,romname,`%2B,+,All
 stringreplace,romname,romname,`%26,&,All
+stringreplace,romname,romname,`%20,%A_Space%,All
+
+stringreplace,romname,romname,`%23,#,All
+stringreplace,romname,romname,`%24,$,All
+stringreplace,romname,romname,`%21,!,All
+stringreplace,romname,romname,`%28,(,All
+stringreplace,romname,romname,`%29,),All
+stringreplace,romname,romname,`%5B,[,All
+stringreplace,romname,romname,`%5D,],All
+stringreplace,romname,romname,`%3D,=,All
+stringreplace,romname,romname,`%2C,`,,All
+stringreplace,romname,romname,`%40,@,All
+stringreplace,romname,romname,`%3B,`;,All
+stringreplace,romname,romname,`%27,',All
+StringCaseSense, Off
 URLFILE= %ArcSite%/%sysurl%%revurl%
 stringleft,fputh,romdwn,8
 ifinstring,romdwnfull,://
