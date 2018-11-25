@@ -1491,6 +1491,8 @@ Menu, RunWithDD, Add, Delete Emulator Settings, DelCfg_Add
 Menu, RunWithDD, Add
 Menu, RunWithDD, Add, Open In Explorer !, Open_Add
 
+Menu,EMURCLASGN,Add,Assign to Unassigned Systems,Emu_popasgn
+
 Menu, ESRCLMENU, Add, Toggle Selection, TOGFESEL
 
 Menu, ESRCLMENU, Add, Add Selection, ADDFESEL
@@ -4809,6 +4811,14 @@ If A_GuiControlEvent RightClick
 					return
 				}
 		
+		}
+	if A_GuiControl = UAVAIL
+		{
+			if (SALIST = "Emulators")
+				{
+					Menu, EMURCLASGN,Show, %A_GuiX% %A_GuiY%
+					return
+				}
 		}
 	if A_GuiControl = FELVA
 		{
@@ -10000,6 +10010,55 @@ gui,submit,nohide
 guicontrolget,LNCHPRDDL,,LNCHPRDDL
 return
 
+Emu_popasgn:
+gui,submit,nohide
+guicontrol,disable,LNCHPT
+guicontrol,disable,SaList
+guicontrol,disable,AVAIL
+guicontrol,disable,EAVAIL
+guicontrol,disable,UAVAIL
+guicontrolget,emupsgn,,UAVAIL
+bko=
+Loop, Parse, SysEmuSet,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,apf,A_Loopfield,|
+		Loop, %apf0%
+			{
+				kri= % apf%A_index%				
+				if (kri = emupsgn)
+					{
+						iniread,aix,Assignments.ini,ASSIGNMENTS,%kri%
+						if (aix = "")
+							{
+								bko= 1
+								SB_SetText(" it appears " kri " is not yet installed")
+								break
+							}
+						iniread,aii,Assignments.ini,OVERRIDES,%apf1%
+						if (aii = 0)
+							{
+								iniwrite,"%kri%",Assignments.ini,OVERRIDES,%apf1%
+								SB_SetText("Assigned " kri " to " apf1 " ")
+							}
+					}
+			}
+		if (bko = 1)
+			{
+				break
+			}
+	}
+
+guicontrol,enable,LNCHPT
+guicontrol,enable,SaList
+guicontrol,enable,AVAIL
+guicontrol,enable,EAVAIL
+guicontrol,enable,UAVAIL	
+return
+
 LNCHPT:
 gui,submit,nohide
 guicontrol,disable,LNCHPT
@@ -10665,6 +10724,20 @@ stringLeft,httpchk,netchk1,4
 StringReplace,revsl,URlFILE,/,\,All
 SplitPath,revsl,dwnlchk,,,romnmspl
 stringreplace,dwnlchk,dwnlchk,`%26,&,All
+stringreplace,dwnlchk,dwnlchk,`%2B,+,All
+stringreplace,dwnlchk,dwnlchk,`%20,%A_Space%,All
+stringreplace,dwnlchk,dwnlchk,`%23,#,All
+stringreplace,dwnlchk,dwnlchk,`%24,$,All
+stringreplace,dwnlchk,dwnlchk,`%21,!,All
+stringreplace,dwnlchk,dwnlchk,`%28,(,All
+stringreplace,dwnlchk,dwnlchk,`%29,),All
+stringreplace,dwnlchk,dwnlchk,`%5B,[,All
+stringreplace,dwnlchk,dwnlchk,`%5D,],All
+stringreplace,dwnlchk,dwnlchk,`%3D,=,All
+stringreplace,dwnlchk,dwnlchk,`%2C,`,,All
+stringreplace,dwnlchk,dwnlchk,`%40,@,All
+stringreplace,dwnlchk,dwnlchk,`%3B,`;,All
+stringreplace,dwnlchk,dwnlchk,`%27,',All
 
 rjinsfldr= 
 rjdwnfldr= 
@@ -20659,7 +20732,22 @@ if (DownOnly = 0)
 								aftpth= %aftpth1%
 								stringreplace,aftmp,aftpth,/,\,All
 								splitpath,aftmp,afnchk
+								stringreplace,afnchk,afnchk,`%25,`%,All
 								stringreplace,afnchk,afnchk,`%26,&,All
+								stringreplace,afnchk,afnchk,`%2B,+,All
+								stringreplace,afnchk,afnchk,`%20,%A_Space%,All
+								stringreplace,afnchk,afnchk,`%23,#,All
+								stringreplace,afnchk,afnchk,`%24,$,All
+								stringreplace,afnchk,afnchk,`%21,!,All
+								stringreplace,afnchk,afnchk,`%28,(,All
+								stringreplace,afnchk,afnchk,`%29,),All
+								stringreplace,afnchk,afnchk,`%5B,[,All
+								stringreplace,afnchk,afnchk,`%5D,],All
+								stringreplace,afnchk,afnchk,`%3D,=,All
+								stringreplace,afnchk,afnchk,`%2C,`,,All
+								stringreplace,afnchk,afnchk,`%40,@,All
+								stringreplace,afnchk,afnchk,`%3B,`;,All
+								stringreplace,afnchk,afnchk,`%27,',All
 								splitpath,afnchk,,,,romfname
 								krbrk= 
 								break
@@ -20880,8 +20968,41 @@ Loop, gam\%HACKAPN%%ARCSYS%.gam
 						rompth= %getpth1%
 						stringreplace,romtmp,rompth,/,\,All
 						splitpath,romtmp,dwnchk,tmpth,chkxt,romname,tmpdrv
+						StringCaseSense, On
+						stringreplace,dwnchk,dwnchk,`%25,`%,All
 						stringreplace,dwnchk,dwnchk,`%26,&,All
+						stringreplace,dwnchk,dwnchk,`%2B,+,All
+						stringreplace,dwnchk,dwnchk,`%20,%A_Space%,All
+						stringreplace,dwnchk,dwnchk,`%23,#,All
+						stringreplace,dwnchk,dwnchk,`%24,$,All
+						stringreplace,dwnchk,dwnchk,`%21,!,All
+						stringreplace,dwnchk,dwnchk,`%28,(,All
+						stringreplace,dwnchk,dwnchk,`%29,),All
+						stringreplace,dwnchk,dwnchk,`%5B,[,All
+						stringreplace,dwnchk,dwnchk,`%5D,],All
+						stringreplace,dwnchk,dwnchk,`%3D,=,All
+						stringreplace,dwnchk,dwnchk,`%2C,`,,All
+						stringreplace,dwnchk,dwnchk,`%40,@,All
+						stringreplace,dwnchk,dwnchk,`%3B,`;,All
+						stringreplace,dwnchk,dwnchk,`%27,',All
+						
+						stringreplace,romname,romname,`%25,`%,All
 						stringreplace,romname,romname,`%26,&,All
+						stringreplace,romname,romname,`%2B,+,All
+						stringreplace,romname,romname,`%20,%A_Space%,All
+						stringreplace,romname,romname,`%23,#,All
+						stringreplace,romname,romname,`%24,$,All
+						stringreplace,romname,romname,`%21,!,All
+						stringreplace,romname,romname,`%28,(,All
+						stringreplace,romname,romname,`%29,),All
+						stringreplace,romname,romname,`%5B,[,All
+						stringreplace,romname,romname,`%5D,],All
+						stringreplace,romname,romname,`%3D,=,All
+						stringreplace,romname,romname,`%2C,`,,All
+						stringreplace,romname,romname,`%40,@,All
+						stringreplace,romname,romname,`%3B,`;,All
+						stringreplace,romname,romname,`%27,',All
+						StringCaseSense, Off
 						if (cmdfun = 1)
 							{
 								emucmd= %getpth3%
@@ -21692,10 +21813,10 @@ stringreplace,revurl,romdwn,\,/,All
 stringreplace, romdwn,romdwn,/,\,All
 splitpath,romdwn,dwnchk,tmpth,chkxt,romname,tmpdrv
 StringCaseSense, On
+stringreplace,dwnchk,dwnchk,`%25,`%,All
 stringreplace,dwnchk,dwnchk,`%2B,+,All
 stringreplace,dwnchk,dwnchk,`%26,&,All
 stringreplace,dwnchk,dwnchk,`%20,%A_Space%,All
-
 stringreplace,dwnchk,dwnchk,`%23,#,All
 stringreplace,dwnchk,dwnchk,`%24,$,All
 stringreplace,dwnchk,dwnchk,`%21,!,All
@@ -21709,10 +21830,10 @@ stringreplace,dwnchk,dwnchk,`%40,@,All
 stringreplace,dwnchk,dwnchk,`%3B,`;,All
 stringreplace,dwnchk,dwnchk,`%27,',All
 
+stringreplace,romname,romname,`%25,`%,All
 stringreplace,romname,romname,`%2B,+,All
 stringreplace,romname,romname,`%26,&,All
 stringreplace,romname,romname,`%20,%A_Space%,All
-
 stringreplace,romname,romname,`%23,#,All
 stringreplace,romname,romname,`%24,$,All
 stringreplace,romname,romname,`%21,!,All
@@ -21934,6 +22055,10 @@ ifnotexist, %save%
 		DownloadFile(URLFILE,save, True, True)
 		DWNLOADTST:
 		filereadline,doct,%save%,1
+		if (doct = "<html>")
+			{
+				DWNFLD= 1 
+			}
 		if (doct = "<!DOCTYPE html>")
 			{
 				DWNFLD= 1 
