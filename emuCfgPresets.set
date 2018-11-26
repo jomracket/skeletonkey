@@ -1454,7 +1454,7 @@ RJROMXT=.apk
 
 [EasyRPG - EasyRPG]
 RJEMUPRESET=easyrpg
-RJROMXT=.lmt
+RJROMXT=.lmt,.ini
 
 [Sega - STV]
 RJEMUPRESET=SSF

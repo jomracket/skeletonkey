@@ -32,6 +32,8 @@ Arcade%20Sports.wad|Arcade Sports
 Arkanoid%20Plus%20DLC.wad|Arkanoid Plus DLC
 Arkanoid%20Plus%20Region%20Free.wad|Arkanoid Plus Region Free
 Around%20the%20World.wad|Around the World
+Art%20of%20Balance.wad|Art of Balance
+Art%20of%20Fighting%202%20.wad|Art of Fighting 2 
 Art%20Of%20Fighting.wad|Art Of Fighting
 Art%20Style%20-%20CUBELLO.wad|Art Style - CUBELLO
 Art%20Style%20-%20LIGHT%20TRAX.wad|Art Style - LIGHT TRAX
@@ -39,8 +41,6 @@ Art%20Style%20-%20ORBIENT.wad|Art Style - ORBIENT
 Art%20Style%20-%20ROTOHEX.wad|Art Style - ROTOHEX
 Art%20Style%20-%20ROTOZOANA.wad|Art Style - ROTOZOANA
 Art%20Style%20Penta%20Tentacles.wad|Art Style Penta Tentacles
-Art%20of%20Balance.wad|Art of Balance
-Art%20of%20Fighting%202%20.wad|Art of Fighting 2 
 AstroBugz%20-%20Revenge.wad|AstroBugz - Revenge
 Axelay.wad|Axelay
 Aya%20and%20the%20Cubes%20of%20Light.wad|Aya and the Cubes of Light
@@ -120,6 +120,7 @@ Castlevania.wad|Castlevania
 Cave%20Story.wad|Cave Story
 Chase%20H.Q..wad|Chase H.Q.
 Chew-Man-Fu.wad|Chew-Man-Fu
+chick%20chick%20BOOM.wad|chick chick BOOM
 China%20Warrior.wad|China Warrior
 Cho%20Aniki.wad|Cho Aniki
 Christmas%20Clix%21.wad|Christmas Clix!
@@ -148,8 +149,6 @@ Cruise%20Party.wad|Cruise Party
 Crystal%20Defenders.wad|Crystal Defenders
 Cybernator.wad|Cybernator
 Cybernoid%20-%20The%20Fighting%20Machine.wad|Cybernoid - The Fighting Machine
-DK%20Original%20Edition%20NES.wad|DK Original Edition NES
-DRiiFT%20Mania.wad|DRiiFT Mania
 Dart%20Rage.wad|Dart Rage
 Dead%20Moon.wad|Dead Moon
 Deer%20Captor.wad|Deer Captor
@@ -161,7 +160,7 @@ Dig%20Dug.wad|Dig Dug
 Digital%20Champ%20Battle%20Boxing.wad|Digital Champ Battle Boxing
 Diner%20Dash.wad|Diner Dash
 Dive%20The%20Medes%20Islands%20Secret.wad|Dive The Medes Islands Secret
-DoReMi%20Fantasy%20-%20Milon's%20DokiDoki%20Adventure.wad|DoReMi Fantasy - Milon's DokiDoki Adventure
+DK%20Original%20Edition%20NES.wad|DK Original Edition NES
 Doc%20Clock%20-%20The%20Toasted%20Sandwich%20of%20Time.wad|Doc Clock - The Toasted Sandwich of Time
 Doc%20Louiss%20Punch%20Out.wad|Doc Louiss Punch Out
 Donkey%20Kong%203.wad|Donkey Kong 3
@@ -171,6 +170,7 @@ Donkey%20Kong%20Country.wad|Donkey Kong Country
 Donkey%20Kong%20Jr.%20Math.wad|Donkey Kong Jr. Math
 Donkey%20Kong%20Jr.wad|Donkey Kong Jr
 Donkey%20Kong.wad|Donkey Kong
+DoReMi%20Fantasy%20-%20Milon's%20DokiDoki%20Adventure.wad|DoReMi Fantasy - Milon's DokiDoki Adventure
 Double%20Dragon%20II.wad|Double Dragon II
 Double%20Dragon.wad|Double Dragon
 Double%20Dribble.wad|Double Dribble
@@ -182,6 +182,7 @@ Dracula%20-%20Undead%20Awakening.wad|Dracula - Undead Awakening
 Dragon%20Master%20Spell%20Caster.wad|Dragon Master Spell Caster
 Dragon%20Spirit.wad|Dragon Spirit
 Dragons%20Curse.wad|Dragons Curse
+DRiiFT%20Mania.wad|DRiiFT Mania
 Drill%20Sergeant%20Mindstrong.wad|Drill Sergeant Mindstrong
 Drop%20Off.wad|Drop Off
 Drop%20Zone%20-%20Under%20Fire.wad|Drop Zone - Under Fire
@@ -191,8 +192,8 @@ Earthworm%20Jim%202.wad|Earthworm Jim 2
 Earthworm%20Jim.wad|Earthworm Jim
 Eat%21%20Fat%21%20Fight%21.wad|Eat! Fat! Fight!
 Ecco%20Jr.wad|Ecco Jr
-Ecco%20The%20Tides%20of%20Time.wad|Ecco The Tides of Time
 Ecco%20the%20Dolphin.wad|Ecco the Dolphin
+Ecco%20The%20Tides%20of%20Time.wad|Ecco The Tides of Time
 Eco%20Shooter%20-%20Plant%20530.wad|Eco Shooter - Plant 530
 Eduardo%20the%20Samurai%20Toaster.wad|Eduardo the Samurai Toaster
 Elevator%20Action.wad|Elevator Action
@@ -205,9 +206,6 @@ Evasive%20Space.wad|Evasive Space
 Excitebike%20-%20World%20Rally.wad|Excitebike - World Rally
 Excitebike.wad|Excitebike
 F-Zero.wad|F-Zero
-FAST%20-%20Racing%20League.wad|FAST - Racing League
-FFCC%20My%20Life%20as%20a%20Dark%20Lord%20DLC%20Complete.wad|FFCC My Life as a Dark Lord DLC Complete
-FFCC%20My%20Life%20as%20a%20King%20DLC%20Complete%20REPACK.wad|FFCC My Life as a King DLC Complete REPACK
 Family%20%2526%20Friends%20Party.wad|Family & Friends Party
 Family%20Card%20Games%20%28DLC%29.wad|Family Card Games (DLC)
 Family%20Card%20Games.wad|Family Card Games
@@ -224,16 +222,19 @@ Family%20Tennis.wad|Family Tennis
 Fantasy%20Slots%20-%20Adventure%20Slots%20and%20Games.wad|Fantasy Slots - Adventure Slots and Games
 Fantasy%20Zone%20II.wad|Fantasy Zone II
 Fantasy%20Zone.wad|Fantasy Zone
+FAST%20-%20Racing%20League.wad|FAST - Racing League
 Fast%20Draw%20Showdown.wad|Fast Draw Showdown
 Fatal%20Fury%202.wad|Fatal Fury 2
 Fatal%20Fury.wad|Fatal Fury
 Faxanadu.NTSC-U.wad|Faxanadu.NTSC-U
+FFCC%20My%20Life%20as%20a%20Dark%20Lord%20DLC%20Complete.wad|FFCC My Life as a Dark Lord DLC Complete
+FFCC%20My%20Life%20as%20a%20King%20DLC%20Complete%20REPACK.wad|FFCC My Life as a King DLC Complete REPACK
 Fighting%20Street.wad|Fighting Street
 Final%20Fantasy%203.wad|Final Fantasy 3
-Final%20Fantasy%20Crystal%20Chronicles%20-%20My%20Life%20As%20A%20King.wad|Final Fantasy Crystal Chronicles - My Life As A King
 Final%20Fantasy%20Crystal%20Chronicles%20-%20My%20Life%20as%20a%20Darklord%20%28DLC%29.wad|Final Fantasy Crystal Chronicles - My Life as a Darklord (DLC)
 Final%20Fantasy%20Crystal%20Chronicles%20-%20My%20Life%20as%20a%20Darklord.wad|Final Fantasy Crystal Chronicles - My Life as a Darklord
 Final%20Fantasy%20Crystal%20Chronicles%20-%20My%20Life%20as%20a%20King%20%28DLC%29.wad|Final Fantasy Crystal Chronicles - My Life as a King (DLC)
+Final%20Fantasy%20Crystal%20Chronicles%20-%20My%20Life%20As%20A%20King.wad|Final Fantasy Crystal Chronicles - My Life As A King
 Final%20Fantasy%20IV%20-%20The%20After%20Years%20%28DLC%29.wad|Final Fantasy IV - The After Years (DLC)
 Final%20Fantasy%20IV%20-%20The%20After%20Years.wad|Final Fantasy IV - The After Years
 Final%20Fantasy%20IV%20DLC%20Complete.wad|Final Fantasy IV DLC Complete
@@ -264,11 +265,9 @@ Gaplus.wad|Gaplus
 Gate%20of%20Thunder.wad|Gate of Thunder
 Genghis%20Khan%20II%20-%20Clan%20of%20the%20Gray%20Wolf.wad|Genghis Khan II - Clan of the Gray Wolf
 Ghost%20Mansion%20Party.wad|Ghost Mansion Party
-GhostSlayer.mp3|Ghost Mansion Party
-GhostSlayer.ogg|Ghost Mansion Party
-GhostSlayer.wad|GhostSlayer
 Ghostbusters%20NES.iNJECT%20NTSC.wad|Ghostbusters NES.iNJECT NTSC
 Ghosts%20n%20Goblins.wad|Ghosts n Goblins
+GhostSlayer.wad|GhostSlayer
 Ghouls%20N%20Ghosts.wad|Ghouls N Ghosts
 Gley%20Lancer.wad|Gley Lancer
 Gnomz.wad|Gnomz
@@ -282,13 +281,13 @@ Gravitronix.wad|Gravitronix
 Groovin'%20Blocks.wad|Groovin' Blocks
 Gunstar%20Heroes.wad|Gunstar Heroes
 Gyrostarr.wad|Gyrostarr
-HB%20Arcade%20Cards.wad|HB Arcade Cards
 Happy%20Hammerin'.wad|Happy Hammerin'
 Happy%20Holidays%20-%20Christmas.wad|Happy Holidays - Christmas
 Happy%20Holidays%20-%20Halloween.wad|Happy Holidays - Halloween
 Harvest%20Moon%20-%20My%20Little%20Shop%20%28DLC%29.wad|Harvest Moon - My Little Shop (DLC)
 Harvest%20Moon%20-%20My%20Little%20Shop.wad|Harvest Moon - My Little Shop
 Harvest%20Moon.wad|Harvest Moon
+HB%20Arcade%20Cards.wad|HB Arcade Cards
 Heavy%20Fire%20Black%20Arms.wad|Heavy Fire Black Arms
 Heavy%20Fire%20Special%20Operation.wad|Heavy Fire Special Operation
 Helix.wad|Helix
@@ -324,8 +323,6 @@ King%20of%20Fighters%2097.wad|King of Fighters 97
 King%20of%20the%20Fighters%2094.wad|King of the Fighters 94
 King%20of%20the%20Monsters.wad|King of the Monsters
 King's%20Knight.wad|King's Knight
-Kirby%2064.mp3|King's Knight
-Kirby%2064.ogg|King's Knight
 Kirby%2064.wad|Kirby 64
 Kirby's%20Adventure.wad|Kirby's Adventure
 Kirby's%20Dream%20Course.wad|Kirby's Dream Course
@@ -333,8 +330,6 @@ Kirby's%20Dream%20Land%203.wad|Kirby's Dream Land 3
 Kirbys%20Avalanche.wad|Kirbys Avalanche
 Kung%20Fu%20Fighting%20Everybody%20Is%20Kung%20Fu%20Fighting.wad|Kung Fu Fighting Everybody Is Kung Fu Fighting
 Kyotokei.wad|Kyotokei
-LIT.wad|LIT
-LONPOS%20%28DLC%29.wad|LONPOS (DLC)
 La-Mulana.wad|La-Mulana
 Landstalker%20-%20The%20Treasures%20of%20King%20Nole.wad|Landstalker - The Treasures of King Nole
 Last%20Ninja%202%20-%20Back%20with%20a%20Vengeance.wad|Last Ninja 2 - Back with a Vengeance
@@ -348,8 +343,11 @@ Lets%20Create%20Pottery.wad|Lets Create Pottery
 Life%20Force.wad|Life Force
 Light%20Crusader.wad|Light Crusader
 Liight.wad|Liight
+lilt%20line.wad|lilt line
+LIT.wad|LIT
 Little%20Tournament%20Over%20Yonder.wad|Little Tournament Over Yonder
 Lode%20Runner.wad|Lode Runner
+LONPOS%20%28DLC%29.wad|LONPOS (DLC)
 Lonpos.wad|Lonpos
 Lords%20of%20Thunder.wad|Lords of Thunder
 LostWinds%20-%20Winter%20of%20the%20Melodias.wad|LostWinds - Winter of the Melodias
@@ -357,7 +355,6 @@ LostWinds.wad|LostWinds
 Lunar%20Pool.wad|Lunar Pool
 Lylat%20Wars%20Star%20Fox%2064%20v1.wad|Lylat Wars Star Fox 64 v1
 M.U.S.H.A..wad|M.U.S.H.A.
-MDK2.wad|MDK2
 Maboshi's%20Arcade.wad|Maboshi's Arcade
 Mach%20Rider.wad|Mach Rider
 MadStone.wad|MadStone
@@ -372,12 +369,11 @@ Mappy.wad|Mappy
 Mario%20Bros.wad|Mario Bros
 Mario%20Golf%20N64.wad|Mario Golf N64
 Mario%20Kart%2064.wad|Mario Kart 64
-Mario%20Party%202.mp3|Mario Kart 64
-Mario%20Party%202.ogg|Mario Kart 64
 Mario%20Party%202.wad|Mario Party 2
 Mario%20Tennis.wad|Mario Tennis
 Mart%20Racer.wad|Mart Racer
 Max%20%2526%20The%20Magic%20Marker.wad|Max & The Magic Marker
+MDK2.wad|MDK2
 Mega%20Man%2010%20%28DLC%29.wad|Mega Man 10 (DLC)
 Mega%20Man%2010.wad|Mega Man 10
 Mega%20Man%202.wad|Mega Man 2
@@ -420,11 +416,10 @@ My%20Planetarium.wad|My Planetarium
 My%20Pokemon%20Ranch%20-%20RegionFree.wad|My Pokemon Ranch - RegionFree
 My%20Zoo%20%28DLC%29.wad|My Zoo (DLC)
 My%20Zoo.wad|My Zoo
-NES%20Play%20Action%20Football.wad|NES Play Action Football
-NINJA%20MASTERS.wad|NINJA MASTERS
 Natsume%20Championship%20Wrestling.wad|Natsume Championship Wrestling
 Neo%20Turf%20Masters.wad|Neo Turf Masters
 Nes%20Open%20Tour%20Golf.wad|Nes Open Tour Golf
+NES%20Play%20Action%20Football.wad|NES Play Action Football
 Neutopia%20II.wad|Neutopia II
 Neutopia.wad|Neutopia
 Neves%20Plus.wad|Neves Plus
@@ -437,6 +432,7 @@ Ninja%20Gaiden%202%20-%20Dark%20Sword%20of%20Chaos.wad|Ninja Gaiden 2 - Dark Swo
 Ninja%20Gaiden%203%20-%20Ancient%20Ship%20of%20Doom.wad|Ninja Gaiden 3 - Ancient Ship of Doom
 Ninja%20Gaiden.wad|Ninja Gaiden
 Ninja%20JaJaMaru-kun.wad|Ninja JaJaMaru-kun
+NINJA%20MASTERS.wad|NINJA MASTERS
 Ninja%20Spirit.wad|Ninja Spirit
 Nobunagas%20Ambition.wad|Nobunagas Ambition
 NyxQuest%20Kindred%20Spirits.wad|NyxQuest Kindred Spirits
@@ -500,11 +496,11 @@ Punchout%20-%20Featuring%20Mr.%20Dream.wad|Punchout - Featuring Mr. Dream
 Puyo%20Puyo%202.wad|Puyo Puyo 2
 R-Type%20III%20-%20The%20Third%20Lightning.wad|R-Type III - The Third Lightning
 R-Type.wad|R-Type
-REAL%20BOUT%20FATAL%20FURY.wad|REAL BOUT FATAL FURY
 Rabbids%20Lab.wad|Rabbids Lab
 Racers%20Islands%20-%20Crazy%20Racers.wad|Racers Islands - Crazy Racers
 Rage%20of%20The%20Gladiator.wad|Rage of The Gladiator
 Rainbow%20Islands%20-%20Towering%20Adventure.wad|Rainbow Islands - Towering Adventure
+REAL%20BOUT%20FATAL%20FURY.wad|REAL BOUT FATAL FURY
 Reel%20Fishing%20Challenge%20II.wad|Reel Fishing Challenge II
 Reel%20Fishing%20Challenge.wad|Reel Fishing Challenge
 Renegade.wad|Renegade
@@ -522,8 +518,6 @@ Rubik's%20Puzzle%20Galaxy.wad|Rubik's Puzzle Galaxy
 Rush%20Rush%20Rally%20Racing.wad|Rush Rush Rally Racing
 Rygar.wad|Rygar
 S.C.A.T..wad|S.C.A.T.
-SENGOKU%202.wad|SENGOKU 2
-SPOGS%20Racing.wad|SPOGS Racing
 Samba%20de%20Amigo.wad|Samba de Amigo
 Samurai%20Ghost.wad|Samurai Ghost
 Samurai%20Shodown%20IV%20-%20Amakusas%20Revenge.wad|Samurai Shodown IV - Amakusas Revenge
@@ -532,6 +526,7 @@ Sandy%20Beach.wad|Sandy Beach
 Save%20the%20Furries.wad|Save the Furries
 Secret%20Command.wad|Secret Command
 Secret%20of%20Mana.wad|Secret of Mana
+SENGOKU%202.wad|SENGOKU 2
 Sexy%20Poker.wad|Sexy Poker
 Shadow%20Dancer%20-%20The%20Secret%20of%20Shinobi.wad|Shadow Dancer - The Secret of Shinobi
 Shadow%20Play.wad|Shadow Play
@@ -540,8 +535,6 @@ Shining%20Force.wad|Shining Force
 Shining%20in%20the%20Darkness.wad|Shining in the Darkness
 Shinobi%20III.wad|Shinobi III
 Shinobi.wad|Shinobi
-Shockman.mp3|Shinobi
-Shockman.ogg|Shinobi
 Shockman.wad|Shockman
 Shootanto%20-%20Evolutionary%20Mayhem.wad|Shootanto - Evolutionary Mayhem
 Silent%20Debuggers.wad|Silent Debuggers
@@ -560,6 +553,7 @@ Solitaire.wad|Solitaire
 Solomon's%20Key%20B.wad|Solomon's Key B
 Solomon's%20Key.wad|Solomon's Key
 Sonic%203D%20Blast.wad|Sonic 3D Blast
+Sonic%20and%20Knuckles.wad|Sonic and Knuckles
 Sonic%20Chaos.wad|Sonic Chaos
 Sonic%20Spinball.wad|Sonic Spinball
 Sonic%20The%20Hedgehog%202%20Sega%20Master%20System.wad|Sonic The Hedgehog 2 Sega Master System
@@ -568,7 +562,6 @@ Sonic%20The%20Hedgehog%203.wad|Sonic The Hedgehog 3
 Sonic%20The%20Hedgehog%204%20-%20Episode%201.wad|Sonic The Hedgehog 4 - Episode 1
 Sonic%20The%20Hedgehog%20Sega%20Master%20System.wad|Sonic The Hedgehog Sega Master System
 Sonic%20The%20Hedgehog.wad|Sonic The Hedgehog
-Sonic%20and%20Knuckles.wad|Sonic and Knuckles
 Space%20Harrier%20Arcade.wad|Space Harrier Arcade
 Space%20Harrier%20II.wad|Space Harrier II
 Space%20Invaders%20Get%20Even%20%28DLC%29.wad|Space Invaders Get Even (DLC)
@@ -578,12 +571,14 @@ Spaceball%20-%20Revolution.wad|Spaceball - Revolution
 Spelunker.wad|Spelunker
 Splatterhouse%202.wad|Splatterhouse 2
 Splatterhouse.wad|Splatterhouse
+SPOGS%20Racing.wad|SPOGS Racing
 Spot%20The%20Differences.wad|Spot The Differences
 Star%20Force.wad|Star Force
 Star%20Fox%2064.wad|Star Fox 64
 Star%20Parodier.wad|Star Parodier
 Star%20Soldier%20R.wad|Star Soldier R
 Star%20Tropics.wad|Star Tropics
+starforce.wad|starforce
 Step%20Up.wad|Step Up
 Stonekeep%20Bones%20of%20the%20Ancestors.wad|Stonekeep Bones of the Ancestors
 Stop%20Stress%20-%20A%20Day%20of%20Fury.wad|Stop Stress - A Day of Fury
@@ -643,9 +638,7 @@ Super%20Turrican%202.wad|Super Turrican 2
 Super%20Turrican.wad|Super Turrican
 Sword%20of%20Vermilion.wad|Sword of Vermilion
 Swords%20%2526%20Soldiers.wad|Swords & Soldiers
-TNT%20Racers.wad|TNT Racers
-TV%20Show%20King%202.wad|TV Show King 2
-TV%20Show%20King.wad|TV Show King
+sZFE%20-%20Rock%20Band%203%20DLC%20Gen%205A%20%5BNTSC%5D.wad|sZFE - Rock Band 3 DLC Gen 5A [NTSC]
 Tales%20of%20Bearsworth%20Manor%2C%20The%20-%20Chaotic%20Conflicts%20%28DLC%29.wad|Tales of Bearsworth Manor, The - Chaotic Conflicts (DLC)
 Tales%20of%20Bearsworth%20Manor%2C%20The%20-%20Puzzling%20Pages%20%28DLC%29.wad|Tales of Bearsworth Manor, The - Puzzling Pages (DLC)
 Tales%20of%20Elastic%20Boy%20Mission%201.wad|Tales of Elastic Boy Mission 1
@@ -671,11 +664,11 @@ The%20Incredible%20Maze.wad|The Incredible Maze
 The%20Last%20Blade.wad|The Last Blade
 The%20Last%20Ninja.wad|The Last Ninja
 The%20Legend%20of%20Kage.wad|The Legend of Kage
+The%20Legend%20of%20the%20Mystical%20Ninja.wad|The Legend of the Mystical Ninja
 The%20Legend%20of%20Zelda%20-%20A%20Link%20to%20the%20Past.wad|The Legend of Zelda - A Link to the Past
 The%20Legend%20of%20Zelda%20-%20Ocarina%20of%20Time.wad|The Legend of Zelda - Ocarina of Time
 The%20Legend%20of%20Zelda%20Majora's%20Mask.wad|The Legend of Zelda Majora's Mask
 The%20Legend%20of%20Zelda.wad|The Legend of Zelda
-The%20Legend%20of%20the%20Mystical%20Ninja.wad|The Legend of the Mystical Ninja
 The%20Magic%20Obelisk.wad|The Magic Obelisk
 The%20Mystery%20of%20Whiterock%20Castle.wad|The Mystery of Whiterock Castle
 The%20Tales%20of%20Bearsworth%20Manor%20-%20Chaotic%20Conflicts.wad|The Tales of Bearsworth Manor - Chaotic Conflicts
@@ -686,38 +679,41 @@ The%20Very%20Hungry%20Caterpillars%20ABC%20DLC.wad|The Very Hungry Caterpillars 
 The%20Very%20Hungry%20Caterpillers.wad|The Very Hungry Caterpillers
 Thru%20Space.wad|Thru Space
 Tiki%20Towers.wad|Tiki Towers
+TNT%20Racers.wad|TNT Racers
 ToeJam%20and%20Earl%20in%20Panic%20on%20Funkotron.wad|ToeJam and Earl in Panic on Funkotron
 Toejam%20and%20Earl.wad|Toejam and Earl
 Toki%20Tori.wad|Toki Tori
 Tomena%20Sanner.wad|Tomena Sanner
 Top%20Hunter%20-%20Roddy%20%2526%20Cathy.wad|Top Hunter - Roddy & Cathy
 Toribash%20Violence%20Perfected.wad|Toribash Violence Perfected
-Tower%20Toppler.wad|Tower Toppler
 Tower%20of%20Druaga%2C%20The.wad|Tower of Druaga, The
+Tower%20Toppler.wad|Tower Toppler
 Treanches%20Generals.wad|Treanches Generals
 Triple%20Shot%20Sports.wad|Triple Shot Sports
 Triple%20Throwing%20Sports.wad|Triple Throwing Sports
 Tumblebugs%202.wad|Tumblebugs 2
+TV%20Show%20King%202.wad|TV Show King 2
+TV%20Show%20King.wad|TV Show King
 Two%20Thousand%20Twenty%202020%20Super%20Baseball.wad|Two Thousand Twenty 2020 Super Baseball
-UNO.wad|UNO
 Ubongo.wad|Ubongo
 Uncharted%20Waters%20-%20New%20Horizons.wad|Uncharted Waters - New Horizons
+UNO.wad|UNO
 Urban%20Champion.wad|Urban Champion
 Urbanix.wad|Urbanix
-VIP%20Casino%20-%20Blackjack.wad|VIP Casino - Blackjack
 Vampire%20Crystals.wad|Vampire Crystals
 Vectorman.wad|Vectorman
 Vegas%20Stakes.wad|Vegas Stakes
 Victory%20Run.wad|Victory Run
 Vigilante.wad|Vigilante
+VIP%20Casino%20-%20Blackjack.wad|VIP Casino - Blackjack
 Viral%20Survival.wad|Viral Survival
 Virtua%20Fighter%202.wad|Virtua Fighter 2
 Volleyball.wad|Volleyball
 Voodoo%20Dice.wad|Voodoo Dice
-WarMen%20Tactics.wad|WarMen Tactics
 Wario%20Land%203%20%5BG004%5D.wad|Wario Land 3 [G004]
 Wario%20Ware%20-%20D.I.Y.%20Showcase.wad|Wario Ware - D.I.Y. Showcase
 Wario%20Woods.wad|Wario Woods
+WarMen%20Tactics.wad|WarMen Tactics
 Water%20Warfare.wad|Water Warfare
 Wave%20Race%2064.wad|Wave Race 64
 Where's%20Wally%20Fantastic%20Journey%203.wad|Where's Wally Fantastic Journey 3
@@ -741,14 +737,14 @@ World%20Heroes.wad|World Heroes
 World%20Of%20Goo.wad|World Of Goo
 World%20Sports%20Competition.wad|World Sports Competition
 Wrecking%20Crew.wad|Wrecking Crew
-XMas%20Puzzle.wad|XMas Puzzle
 Xevious.wad|Xevious
-YS%20Book%20I%20and%20II.wad|YS Book I and II
+XMas%20Puzzle.wad|XMas Puzzle
 Yard%20Sale%20Hidden%20Treasures%20Sunnyville.wad|Yard Sale Hidden Treasures Sunnyville
 Yoshi's%20Cookie.wad|Yoshi's Cookie
 Yoshi.wad|Yoshi
 Yoshis%20Story.wad|Yoshis Story
 You%2C%20Me%20%2526%20the%20Cubes.wad|You, Me & the Cubes
+YS%20Book%20I%20and%20II.wad|YS Book I and II
 Yummy%20Yummy%20Cooking%20Jam.wad|Yummy Yummy Cooking Jam
 Zanac.wad|Zanac
 Zelda%20II%20-%20The%20Adventure%20of%20Link.wad|Zelda II - The Adventure of Link
@@ -758,7 +754,3 @@ Zoda's%20Revenge%20-%20StarTropics%20II.wad|Zoda's Revenge - StarTropics II
 Zoda's%20Revenge%20StarTropics%20II.wad|Zoda's Revenge StarTropics II
 Zombie%20Panic%20in%20Wonderland.wad|Zombie Panic in Wonderland
 Zombies%20Ate%20My%20Neighbors.wad|Zombies Ate My Neighbors
-chick%20chick%20BOOM.wad|chick chick BOOM
-lilt%20line.wad|lilt line
-sZFE%20-%20Rock%20Band%203%20DLC%20Gen%205A%20%5BNTSC%5D.wad|sZFE - Rock Band 3 DLC Gen 5A [NTSC]
-starforce.wad|starforce

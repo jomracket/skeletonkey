@@ -4140,7 +4140,7 @@ XMBALF_TT :="Menu opacity"
 XMBSCL_TT :="Scales the XMB display"
 XMBTHM_TT :="Icon theme number"
 UpdateSK_TT :="Checks for the latest version of skeletonkey and downloads it if needed."
-HelpLink_TT :="Opens the skeletonKey help html file in your default internet browser."
+HelpLink_TT :="Opens the skeletonKey html-help file in your default internet browser."
 XMENU_TT :="Playstation-style GUI.  The Default"
 ZIPSEEK_TT :="Searches within archives (.zip/.7z) for files.`nturn this off for Arcade/MAME-Style ROMs and archives." 
 ZIPSEEK_TT :="Gets and writes the CRC Hash number of ROMs to the playlist.`nThis can be expensive for CD/DVD systems.`nturn this off for Arcade/MAME-Style ROMs and archives." 
@@ -4938,8 +4938,13 @@ Loop,Parse,emuj,`n
 			}
 	}
 runlist:= corelist . "|" . addemu
+stringreplace,runlist,runlist,||,|,All	
 stringreplace,runlist,runlist,||,|,All
-stringreplace,runlist,runlist,||,|,All
+stringleft,runltmp,runlist,1
+if (runltmp = "|")
+	{
+		stringtrimleft,runlist,runlist,1
+	}
 guicontrol,,LCORE,|%runlist%
 guicontrol,,ARCCORES,|%runlist%
 return
@@ -5054,10 +5059,6 @@ return
 ARCPCFG:
 gui,submit,nohide
 guicontrolget,ARCCORES,,ARCCORES
-if (multsrch = 1)
-	{
-		return
-	}
 if (arcpnum <> 1)
 	{
 		return
@@ -5151,13 +5152,20 @@ gosub,SYSNICK
 LBEX_SELECTSTRING(trxvail,SEMURUN)
 guicontrol, Focus, UAVAIL
 gosub, UAvailSel
+
 ASRUN:
 guicontrolget,CHKRUNS,,RUNSYSDDL
+stringreplace,CHKRUNS,CHKRUNS,.lpl,,All
 guicontrolget,CHKRUNE,,LCORE
 iniread,CHRFFMP,Assignments.ini,OVERRIDES,%CHKRUNS%
+if (CHRFFMP = "ERROR")
+	{
+		SB_SetText(" " CHKRUNS " is not a verified system")
+		return
+	}
+CHKRMP=
 ifinstring,CHRFFMP,%CHKRUNE%
 	{
-		CHKRMP=
 		ckins= 
 		Loop, Parse, CHRFFMP,|
 			{
@@ -5182,11 +5190,15 @@ ifinstring,CHRFFMP,%CHKRUNE%
 		CHKRUNE= %CHKRMP%
 		CHRFFMP= 
 	}
+
+if CHRFFMP is digit
+	{
+		CHKRMP= 1
+	}
 if (CHKRMP = "")
 		{
 			CHKRUNE.= "|" CHRFFMP	
 		}
-stringreplace,CHKRUNS,CHKRUNS,.lpl,,All
 ifinstring,CHKRUNE,_libretro.dll
 	{
 		iniwrite,"%CHKRUNE%",Assignments.ini,ASSIGNMENTS,%CHKRUNS%
@@ -8473,6 +8485,7 @@ else {
 	}
 if (coreselv = "")
 	{
+		kva=
 		Loop, Parse, SysEmuSet,`n`r
 			{
 				if (A_LoopField = "")
@@ -8484,6 +8497,7 @@ if (coreselv = "")
 					{
 						kr= 
 						ink= 
+						kva=
 						Loop, %sysplit0%
 							{
 								kr= % sysplit%A_index%
@@ -10723,6 +10737,7 @@ stringsplit,netchk,URLFILE,:
 stringLeft,httpchk,netchk1,4
 StringReplace,revsl,URlFILE,/,\,All
 SplitPath,revsl,dwnlchk,,,romnmspl
+StringCaseSense, On
 stringreplace,dwnlchk,dwnlchk,`%26,&,All
 stringreplace,dwnlchk,dwnlchk,`%2B,+,All
 stringreplace,dwnlchk,dwnlchk,`%20,%A_Space%,All
@@ -10738,6 +10753,7 @@ stringreplace,dwnlchk,dwnlchk,`%2C,`,,All
 stringreplace,dwnlchk,dwnlchk,`%40,@,All
 stringreplace,dwnlchk,dwnlchk,`%3B,`;,All
 stringreplace,dwnlchk,dwnlchk,`%27,',All
+StringCaseSense, Off
 
 rjinsfldr= 
 rjdwnfldr= 
@@ -14044,6 +14060,13 @@ Loop, Parse, UAVAIL,|
 				iniwrite, "%EMUINSTLOCT%",apps.ini,HTPC_FRONTENDS,%semu%
 			}
 	}
+stringreplace,runlist,runlist,||,|,All	
+stringreplace,runlist,runlist,||,|,All
+stringleft,runltmp,runlist,1
+if (runltmp = "|")
+	{
+		stringtrimleft,runlist,runlist,1
+	}
 return
 
 SYSTRPV:	
@@ -15163,12 +15186,19 @@ Loop, Parse, semu,|
 								addemu.= "|" . sysni
 							}
 						guicontrol,,EMPRDDL,|%sysni%|%addemu%
-						runlist:= corelist . "|" . addemu
+						runlist:= corelist . "|" . addemu						
+						stringreplace,runlist,runlist,||,|,All	
+						stringreplace,runlist,runlist,||,|,All
+						stringleft,runltmp,runlist,1
+						if (runltmp = "|")
+							{
+								stringtrimleft,runlist,runlist,1
+							}
 						guicontrol,,LCORE,|%runlist%
 						guicontrol,,EMPRDDL,|Emulators|%addemu%
 						guicontrol,,PLCORE,|%runlist%
 						guicontrol,,ARCCORES,|Select_a_Core||%runlist%
-						guicontrol,,JOYCORE,|Global||%corelist%|Xpadder|Antimicro|%runlist%
+						guicontrol,,JOYCORE,|Global||Xpadder|Antimicro|%runlist%
 					}	
 			}
 			/*
@@ -15228,7 +15258,7 @@ gosub, ResetRunList
 guicontrol,,JCORE,|%runlist%
 guicontrol,,LCORE,|%runlist%
 guicontrol,,PLCORE,|%lastcore%||%runlist%
-guicontrol,,JOYCORE,|Global||%runlist%|Xpadder|Antimicro
+guicontrol,,JOYCORE,|Global||Xpadder|Antimicro|%runlist%
 stringright,ttr,sysni,1
 if (ttr = "|")
 	{
@@ -15277,6 +15307,13 @@ Loop, Parse, addemu,|
 		ahri.= A_LoopField . "|"	
 	}
 runlist:= corelist . "|" . ahri
+stringreplace,runlist,runlist,||,|,All	
+stringreplace,runlist,runlist,||,|,All
+stringleft,runltmp,runlist,1
+if (runltmp = "|")
+	{
+		stringtrimleft,runlist,runlist,1
+	}
 nodel= 
 Loop, Parse, origasi,`n
 	{
@@ -16360,6 +16397,13 @@ stringreplace,tdk,tdk,|",",All
 filedelete,Assignments.ini
 fileappend,%tdk%,Assignments.ini
 runlist:= corelist . "|" . addemu
+stringreplace,runlist,runlist,||,|,All	
+stringreplace,runlist,runlist,||,|,All
+stringleft,runltmp,runlist,1
+if (runltmp = "|")
+	{
+		stringtrimleft,runlist,runlist,1
+	}
 guicontrol,,JCORE,|%runlist%
 guicontrol,,LCORE,|%runlist%
 guicontrol,,AddCore,|Select_A_System||%reasign%
@@ -18149,15 +18193,64 @@ topcore:= recore . "|" . runlist
 if (prioco <> "")
 		{
 			splitpath,prioco,,,priocx
+			topcore:= prioco . "||" . recore . runlist
 			if (raexefile = "NOT-FOUND.exe")&&(priocx = "dll")
 				{
-					prioco= 
 					SB_SetText("RetroArch Not Found")
+					prioco= 
+					kva=
+					Loop, Parse, SysEmuSet,`n`r
+						{
+							if (A_LoopField = "")
+								{
+									continue
+								}
+							sysplit1=
+							sysplit2=
+							sysplit3=
+							sysplit4=
+							sysplit5=
+							sysplit6=
+							sysplit7=
+							sysplit8=
+							sysplit9=
+							StringSplit,sysplit,A_LoopField,|
+							if (ARCSYS = sysplit1)
+								{
+									kr= 
+									ink= 
+									kva=
+									Loop, %sysplit0%
+										{
+											kr= % sysplit%A_index%
+											ink= %sysplit2%
+											Loop, parse, emulist,|
+												{
+													kva= 
+													if (A_Loopfield = kr)
+														{
+															prioco= %kr%
+															topcore:= prioco . "||" . recore . runlist
+															kva= 1
+															break
+														}
+												}
+											if (kva <> "")
+												{
+													break
+												}
+										}	
+								}
+							if (kva <> "")
+								{
+									break
+								}
+							topcore:= recore . runlist
+						}
 				}
-			topcore:= prioco . "||" . recore . runlist
 		}
-guicontrol,,LCORE, |%topcore%
-guicontrol,,ARCCORES, |%topcore%
+guicontrol,,LCORE,|%topcore%
+guicontrol,,ARCCORES,|%topcore%
 if (CLActive = 1)
 	{
 		guicontrol,,NETCORE,|%topcore%
@@ -20649,33 +20742,34 @@ guicontrolget,SRCHSYS,,SRCHDDL
 sanm:= SRCHEDT
 gosub, SanitizeN
 SRCHEDT:= sanm
+SRCHREC= 
 if (SRCHSYS = "All")
 	{
 		SRCHSYS= *
+		SRCHREC= R
 	}
+else {
+SRCHSYS= *%SRCHSYS%
+	}	
 SRCHMET= gam
 if (MAMESWCHK = 1)
 	{
 		SRCHMET= gam\MAME - Systems
 	}
-Loop, files, %SRCHMET%\%HACKAPN%%SRCHSYS%.gam
+Loop, files,%SRCHMET%\%SRCHSYS%.gam, %SRCHREC%
 	{
-		if (A_LoopReadLine = "")
-			{
-				continue
-			}
 		sys= 
 		sysfile= 
 		sysdir= 
 		sysxt= 
 		sysdrv= 
-		fndgam1= 
-		fndgam2= 
 		SplitPath,A_LoopFileFullPath,sysfile,sysdir,sysxt,sys,sysdrv
 		Loop, read,%A_LoopFileFullPath%
 			{
 				IfInString, A_LoopReadLine, %SRCHEDT%
-					{	
+					{
+						fndgam1= 
+						fndgam2= 
 						stringsplit,fndgam,A_loopReadLine,|
 							srchpop .= sys . "=" . fndgam2 . "|"
 					}
@@ -20732,6 +20826,7 @@ if (DownOnly = 0)
 								aftpth= %aftpth1%
 								stringreplace,aftmp,aftpth,/,\,All
 								splitpath,aftmp,afnchk
+								StringCaseSense, On
 								stringreplace,afnchk,afnchk,`%25,`%,All
 								stringreplace,afnchk,afnchk,`%26,&,All
 								stringreplace,afnchk,afnchk,`%2B,+,All
@@ -20748,6 +20843,7 @@ if (DownOnly = 0)
 								stringreplace,afnchk,afnchk,`%40,@,All
 								stringreplace,afnchk,afnchk,`%3B,`;,All
 								stringreplace,afnchk,afnchk,`%27,',All
+								StringCaseSense, Off
 								splitpath,afnchk,,,,romfname
 								krbrk= 
 								break
@@ -20842,12 +20938,12 @@ guicontrol,disable,MAMESWCHK
 PostMessage, 0x186, -1, 0,,ahk_id %arcpopu%
 PostMessage, 0x185, 0, -1, ARCPOP  ; Select all items. 0x185 is LB_SETSEL.
 GuiControl, Choose, ARCPOP, 0 
-srchpnum= 
+arcpnum= 
 multsrch= 
 Loop, Parse, tmpsr,|
 	{
-		srchpnum+=1
-		if (srchpnum > 1)
+		arcpnum+=1
+		if (arcpnum > 1)
 			{
 				guicontrol,,RNMJACK,
 				guicontrol,disable,RNMJACK
@@ -21204,12 +21300,14 @@ guicontrol,,SRCHRSLT,|
 guicontrol,,ARCPOP,|
 gui, submit, nohide
 guicontrolget,ARCSYS,,ARCSYS
-if (ARCYS = "Select a System")
+if (ARCSYS = "Select a System")
 	{
 		guicontrol,,ARCCORES,|Select_a_Core||%runlist%
+		guicontrol,,SRCHDDL,|All||%syslist%
 		guicontrol,,ARCPOP,|
 		return
 	}
+guicontrol,,SRCHDDL,|%ARCSYS%||%syslist%
 if (ARCSYS = "Microsoft - DOS")
 	{
 		cmdfun= 1
@@ -21651,7 +21749,7 @@ if (tmpsr <> "")
 				gosub, RomDownload
 			}
 		tmpsr= 
-		return	
+		return
 	}
 romf= 
 guicontrol,disable,ARCSYS
@@ -21918,6 +22016,11 @@ if (JACKETMODE = 1)
 				if (updtguirst = 1)
 					{
 						gosub, RJSYSRESET
+						ACSVDEST= %RJSYSTEMS%\%romsys%
+						if (OVDCHK = 1)
+							{
+								ACSVDEST= %OVDFLDR%
+							}
 					}
 			}
 	}	
@@ -21934,6 +22037,11 @@ ifnotexist,%ACSVDEST%
 		if (updtguirst = 1)
 			{
 				gosub, RJSYSRESET
+				ACSVDEST= %RJSYSTEMS%\%romsys%
+				if (OVDCHK = 1)
+					{
+						ACSVDEST= %OVDFLDR%
+					}
 			}
 	}
 
@@ -21951,6 +22059,7 @@ if (OVDCHK = 1)
 				if (updtguirst = 1)
 					{
 						gosub, RJSYSRESET
+						ACSVDEST= %OVDFLDR%
 					}
 			}
 	}
@@ -21974,6 +22083,11 @@ ifnotexist, %RJSYSTEMS%\%romsys%
 		if (updtguirst = 1)
 			{
 				gosub, RJSYSRESET
+				ACSVDEST= %RJSYSTEMS%\%romsys%
+				if (OVDCHK = 1)
+					{
+						ACSVDEST= %OVDFLDR%
+					}
 			}
 	}
 if (chkxt = "rar")
@@ -22033,6 +22147,11 @@ ifnotexist, %save%
 				if (updtguirst = 1)
 					{
 						gosub, RJSYSRESET
+						ACSVDEST= %RJSYSTEMS%\%romsys%
+						if (OVDCHK = 1)
+							{
+								ACSVDEST= %OVDFLDR%
+							}
 					}
 			}
 		if (romelg = "$")
@@ -36999,7 +37118,7 @@ guicontrol,,LCORE,|%utlDDLC%||%runlist%
 EMUSN= %utlDDLC%
 gosub, EMUOPTPOP
 svgbrnv=
-guicontrol,,JOYCORE,|%utlDDLC%||Global|%corelist%|Xpadder|Antimicro%addemu%
+guicontrol,,JOYCORE,|%utlDDLC%||Global|Xpadder|Antimicro|%runlist%
 gosub, JOYEMUCORE
 guicontrol,,CFGSWITCH,|||EXE|||
 SB_SetText(" Editing emulator executable configurations ")
@@ -38744,7 +38863,7 @@ guicontrol,,LCORE,|%RJEMUTG%||%runlist%
 EMUSN= %RJEMUTG%
 gosub, EMUOPTPOP
 svgbrnv=
-guicontrol,,JOYCORE,|%EMUSN%||Global|Xpadder|Antimicro|%corelist%%addemu%
+guicontrol,,JOYCORE,|%EMUSN%||Global|Xpadder|Antimicro|%runlist%
 gosub, JOYEMUCORE
 return
 
@@ -44477,7 +44596,7 @@ ifinstring,LCORE,_libretro
 		gosub, RAGuiVisTog
 		if (AUTOPGS = 1)
 			{
-				guicontrol,,JOYCORE,|%lcore%||Global|%corelist%|Xpadder|Antimicro%addemu%
+				guicontrol,,JOYCORE,|%lcore%||Global|Xpadder|Antimicro|%runlist%
 				gosub, JOYCORE
 			}
 		runningcore= core
@@ -44723,7 +44842,9 @@ vice_x64DDLA:
 x64DDLA:
 xrickDDLA:
 citraDDLA:
-citra_CanaryDDL:
+citra_CanaryDDLA:
+muDDLA:
+easyrpgDDLA:
 mednafen_snesDDLA:
 gosub, HideCoreUI
 return
@@ -53517,7 +53638,7 @@ if (REMPB = 0)
 		guicontrol,disable,JOYCORE
 		guicontrol,disable,JCFGADD
 		guicontrol,disable,SAVEJOY
-		guicontrol,,JOYCORE,|Global||%corelist%
+		guicontrol,,JOYCORE,|Global||Xpadder|Antimicro|%runlist%
 		gosub, JoyCore
 	}	
 	IniWrite, "%inputRemapBindsEnable%", %joycfg%,OPTIONS,input_remap_binds_enable
@@ -54295,7 +54416,7 @@ guicontrol,,emjHGRP,Inputs
 guicontrol,,emjRAD3A,Keyboard
 guicontrol,move,emjRAD3A,x312 y32 w65 h13
 guicontrol,,emjRAD3B,Joystick
-guicontrol,move,emjRAD3B,x383 y32 w55 h13
+guicontrol,move,emjRAD3B,x383 y32 w65 h13
 guicontrol,,emjPTXT,Player
 guicontrol,move,emjPTXT,x368 y50 w34 h23
 guicontrol,,emjGGRP,Hotkeys
@@ -54405,7 +54526,7 @@ Loop, Parse, fiiw,`n,`r
 								empt4=
 								stringsplit,empt,A_LoopField,=
 								ifinstring,empt3,saixe
-								guicontrol,,JOYCORE,|%empt1%||Global|%runlist%	
+								guicontrol,,JOYCORE,|%empt1%||Global|Xpadder|Antimicro|%runlist%	
 								qisf= 1
 								break
 							}
@@ -54523,8 +54644,8 @@ medswapHome=
 
 MedSwapATXT= a
 MedSwapBTXT= 
-MedSwapCTXT= b
-MedSwapDTXT=
+MedSwapCTXT= 
+MedSwapDTXT= b
 MedSwapETXT=
 MedSwapFTXT=
 MedSwapGTXT=
@@ -54762,8 +54883,8 @@ guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4|5|6|7|8
 
 supinp= gamepad
 medswapB= a
-medswapA= b
-medswapX= 
+medswapA= 
+medswapX= b
 medswapY= 
 medswapStart= start
 medswapSelect= select
@@ -54787,10 +54908,10 @@ medswapRYPlus=
 medswapRYMinus= 
 medswapHome= 
 
-MedSwapATXT= a
-MedSwapBTXT=
+MedSwapBTXT= 
+MedSwapATXT= 
 MedSwapCTXT= b
-MedSwapDTXT=
+MedSwapDTXT= a
 MedSwapETXT=
 MedSwapFTXT=
 MedSwapGTXT=
@@ -58137,8 +58258,13 @@ Loop, Parse, apov,`n
 	}
 runlist=
 runlist:= corelist . runadd
+stringreplace,runlist,runlist,||,|,All	
 stringreplace,runlist,runlist,||,|,All
-stringreplace,runlist,runlist,||,|,All
+stringleft,runltmp,runlist,1
+if (runltmp = "|")
+	{
+		stringtrimleft,runlist,runlist,1
+	}
 iniread,pxtn,Assignments.ini,EXTENSIONS,
 Loop, Parse, pxtn,`n
 	{
@@ -61636,10 +61762,13 @@ Loop,Parse,emuj,`n
 			}
 	}
 runlist:= corelist . "|" . addemu
-
-
+stringreplace,runlist,runlist,||,|,All	
 stringreplace,runlist,runlist,||,|,All
-stringreplace,runlist,runlist,||,|,All
+stringleft,runltmp,runlist,1
+if (runltmp = "|")
+	{
+		stringtrimleft,runlist,runlist,1
+	}
 guicontrol,enable,GCUPDT
 guicontrol,, CRNTCORS, |%coreNamz%
 guicontrol,, ARCCORES, |%lastcore%||%runlist%
@@ -61812,14 +61941,19 @@ Loop,Parse,emuj,`n
 			}
 }
 runlist:= corelist . "|" . addemu
+stringreplace,runlist,runlist,||,|,All	
 stringreplace,runlist,runlist,||,|,All
-stringreplace,runlist,runlist,||,|,All
+stringleft,runltmp,runlist,1
+if (runltmp = "|")
+	{
+		stringtrimleft,runlist,runlist,1
+	}
 guicontrol,,LCORE,|%runlist%
 guicontrol,,EMPRDDL,|Emulators|%addemu%
 guicontrol,,ARCCORES,|Select_a_Core||%runlist%
 guicontrol,,PLCORE,|%runlist%
 guicontrol,,ASCORE,|%corelist%
-guicontrol,,JOYCORE,|Global||%corelist%|Xpadder|Antimicro%addemu%
+guicontrol,,JOYCORE,|Global||Xpadder|Antimicro|%runlist%
 return
 
 resetOVR:
