@@ -54,7 +54,7 @@ ElectrEm=ElectrEm/ElectrEm.7z=ElectrEm.exe=ElectrEM.ini=*.UEF
 FMBochs=FMBochs/FMBochs.7z=fmbochs.exe=
 FMBocks=FMBocks/FMBocks.7z=bochs.exe=
 FS-UAE=FS-UAE/FS-UAE-[ARCH].7z=FS-UAE.exe=Config.fs-uae=|=SaveStates\Default\*.uss
-FinalBurnAlpha=FinalBurnAlpha/FinalBurnAlpha-[ARCH].7z=fba[ARCH].exe=config\*.ini|config\games\[ROMNAME]*.fs=|cfg\[ROMNAME]*.cfg|=savestates\[ROMNAME]*.fs=config\games\[ROMNAME]*.nv
+FinalBurnAlpha=FinalBurnAlpha/FinalBurnAlpha-[ARCH].7z=fbalpha.exe=config\*.ini|config\games\[ROMNAME]*.fs=|cfg\[ROMNAME]*.cfg|=savestates\[ROMNAME]*.fs=config\games\[ROMNAME]*.nv
 FishNChips=FishNChips/FishNChips.7z=Fish 'N' Chips.exe=
 FlashPlayer=FlashPlayer/FlashPlayer.7z=FlashPlayer.exe=
 Fusion=Fusion/Fusion.7z=Fusion.exe=Fusion.ini=*.srm=*.SGX

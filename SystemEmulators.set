@@ -64,14 +64,14 @@ Bit Corp - Gamate|MAME|:mame_libretro.dll
 Bondwell - Bondwell 12|MAME|:mame_libretro.dll
 Bondwell - Bondwell 14|MAME|:mame_libretro.dll
 Bondwell - Bondwell 2|MAME|:mame_libretro.dll
-Cave Systems - Cave|MAME|:mame_libretro.dll
+Cave Systems - Cave|mame_arcade|MAME|:mame_libretro.dll
 COMX - 35|elf|emma02|MAME|:mame_libretro.dll
 Cambridge Computers - Z88|MAME|:mame_libretro.dll
 Camputers - Lynx|jynx|MAME|:mame_libretro.dll
 Canon - X-07|MAME|:mame_libretro.dll
-Capcom Play System - CPS III|cps3emulator|FinalBurnAlpha|MAME|:fbalpha2012_libretro.dll|fbalpha_libretro.dll|mame_libretro.dll
-Capcom Play System - CPS II|FinalBurnalpha|ace|nebula|WinKawaks|MAME|:fbalpha2012_cps2_libretro.dll|fbalpha_libretro.dll|mame_libretro.dll
-Capcom Play System - CPS|FinalBurnalpha|callus|WinKawaks|ace|nebula|MAME|:fbalpha2012_cps1_libretro.dll|fbalpha_libretro.dll|mame_libretro.dll
+Capcom Play System - CPS III|FinalBurnAlpha|cps3emulator|mame_arcade|MAME|:fbalpha2012_libretro.dll|fbalpha_libretro.dll|mame_libretro.dll
+Capcom Play System - CPS II|FinalBurnalpha|ace|nebula|WinKawaks|mame_arcade|MAME|:fbalpha2012_cps2_libretro.dll|fbalpha_libretro.dll|mame_libretro.dll
+Capcom Play System - CPS|FinalBurnalpha|callus|WinKawaks|ace|nebula|mame_arcade|MAME|:fbalpha2012_cps1_libretro.dll|fbalpha_libretro.dll|mame_libretro.dll
 Casio - Loopy|MAME|:mame_libretro.dll
 Casio - PB-2000C|MAME|:mame_libretro.dll
 Casio - PV-1000|pv1000|MAME|:mame_libretro.dll
@@ -149,7 +149,7 @@ Fujitsu - FM-8|fm8|:mame_libretro.dll
 Funtech - Super A'can|MAME|:mame_libretro.dll
 GCE - Vectrex|ParaJVE|vecxgl|infovectrex|:mame_libretro.dll
 Galaksija - Galaksija Plus|galaxywin|MAME|:mame_libretro.dll
-Galeco - Galeco|Demul|:mame_libretro.dll
+Galeco - Galeco|Demul|mame_arcade|MAME|:mame_libretro.dll
 GamePark - GP32|geepee32|MAME|:mame_libretro.dll
 Gimix - 6809 System|MAME|:mame_libretro.dll
 HP - HP 9835A-B Option|MAME|:mame_libretro.dll
@@ -185,7 +185,7 @@ Lianozovo Electromechanical Factory - Mikrosha|MAME|:mame_libretro.dll
 Luxor - ABC 1600|MAME|:mame_libretro.dll
 Luxor - ABC 80|MAME|:mame_libretro.dll
 Luxor - Video Entertainment System|MAME|:mame_libretro.dll
-MAME - Arcade|MAME|FinalBurnalpha|calice|ace|zinc|:mame_libretro.dll|mame2016_libretro.dll|mame2010_libretro.dll
+MAME - Arcade|mame_arcade|MAME|FinalBurnalpha|calice|ace|zinc|:mame_libretro.dll|mame2016_libretro.dll|mame2010_libretro.dll
 MGT - Sam Coupe|simcoupe|speccy|zesaurux|Ascd|MAME|:mame_libretro.dll
 MITS - Altair8800|MAME|:mame_libretro.dll
 MOS Technology - KIM-1|MAME|:mame_libretro.dll
@@ -305,12 +305,12 @@ Robotron - Z9001|MAME|:mame_libretro.dll
 Rockwell - AIM 65|MAME|:mame_libretro.dll
 Rowtron - Television Computer System|MAME|:mame_libretro.dll
 SAM SKB VM - Partner-01.01|MAME|:mame_libretro.dll
-SNK - Neo Geo CD|NeoRaine|neosdl|ncdz|xe|MAME|:mame_libretro.dll
-SNK - Neo Geo MVS|FinalBurnAlpha|xe|WinKawaks|aes4all|nebula|ngae|MAME|:fbalpha2012_neogeo_libretro.dll|fbalpha_libretro.dll
+SNK - Neo Geo CD|NeoRaine|neosdl|ncdz|xe|mame_arcade|MAME|:mame_libretro.dll
+SNK - Neo Geo MVS|FinalBurnAlpha|xe|WinKawaks|aes4all|nebula|ngae|mame_arcade|MAME|:fbalpha2012_neogeo_libretro.dll|fbalpha_libretro.dll
 SNK - Neo Geo Pocket Color|Mednafen|koyote|race|neopopcott|neopop|MAME|:mednafen_ngp_libretro.dll
 SNK - Neo Geo Pocket|Mednafen|neopop|koyote|neopopcott|xe|vdmgr|MAME|:mednafen_ngp_libretro.dll
 Sage Technology - Sage II|MAME|:mame_libretro.dll
-Sammy - Atomiswave|Demul
+Sammy - Atomiswave|Demul|mame_arcade|MAME:reicast_libretro.dll|mame_libretro.dll
 Samsung - SPC-1000|MAME|:mame_libretro.dll
 Samsung - SPC-1500|MAME|:mame_libretro.dll
 San Bergmans - Izabella Malcolm - SITCOM|MAME|:mame_libretro.dll
@@ -324,7 +324,7 @@ Sega - 32X|Fusion|gensplus|gens|MAME|:picodrive_libretro.dll
 Sega - Dreamcast|Demul|NullDC|chankast|reicast|redream|Makaron|:reicast_libretro.dll
 Sega - Game Gear - JAP|Fusion|mednafen|dega|emukon|twombit|gamegear|mesadx|xe|gensplus|osmose|gearsystem|cogwheel|meka|osmose|regen|emukon|MAME|:genesis_plus_gx_libretro.dll|gearboy_libretro.dll|mame_libretro.dll
 Sega - Game Gear|Fusion|mednafen|dega|emukon|twombit|gamegear|mesadx|gensplus|xe|osmose|gearsystem|meka|osmose|cogwheel|regen|emukon|MAME|:genesis_plus_gx_libretro.dll|gearboy_libretro.dll
-Sega - Hikaru|Demul|:mame_libretro.dll
+Sega - Hikaru|Demul|mame_arcade|MAME|:mame_libretro.dll
 Sega - Mark III - JPN|Fusion|mednafen|twombit|dega|emukon|gensplus|dsp|gearsystem|mesadx|kindred|xe|mastersystem|cogwheel|regen|meka|osmose|emukon|MAME|:genesis_plus_gx_libretro.dll|mame_libretro.dll
 Sega - Master System - Mark III|Fusion|mednafen|twombit|dega|dsp|emukon|gensplus|kindred|gearsystem|osmose|xe|mesadx|cogwheel|mastersystem|regen|meka|emukon|osmose|MAME|:genesis_plus_gx_libretro.dll
 Sega - Master System - PAL|Fusion|mednafen|twombit|dega|emukon|dsp|gensplus|gearsystem|kindred|mesadx|xe|osmose|mastersystem|cogwheel|regen|meka|osmose|emukon|MAME|:genesis_plus_gx_libretro.dll|mame_libretro.dll
@@ -335,7 +335,7 @@ Sega - MegaTech|Fusion|blastem|mednafen|gens|gensgs|dgen|gensplus|regen|genesisp
 Sega - Model 1|modeller|MAME|:mame_libretro.dll
 Sega - Model 2|m2emulator|MAME|:mame_libretro.dlls
 Sega - Model 3|supermodel
-Sega - NAOMI|Demul|reicast|NullDC|MAME|Makaron|:reicast_libretro.dll|mame_libretro.dll
+Sega - NAOMI|Demul|reicast|NullDC|mame_arcade|MAME|Makaron|:reicast_libretro.dll|mame_libretro.dll
 Sega - PICO|Fusion|picodrive|MAME|:picodrive_libretro.dll
 Sega - SC-3000|meka|sc3000|regen|vdmgr|MAME|:mame_libretro.dll
 Sega - SF-7000|meka|MAME|:mame_libretro.dll

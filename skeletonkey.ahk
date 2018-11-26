@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-25 9:49 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-26 2:33 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-11-25 9:49 PM
-VERSION= v0.99.66.67
+RELEASE= 2018-11-26 2:33 PM
+VERSION= v0.99.66.68
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -10131,7 +10131,7 @@ if (LNCHPRDDL = "retroarch")
 				;"
 				ifinstring,fif1,%A_Space%-%A_Space%
 					{
-						iniwrite, "0",Assignments.ini,OVERRIDES,%fif1%
+						iniwrite, "1",Assignments.ini,OVERRIDES,%fif1%
 					}
 			}
 		Loop, Parse, origasi,`n`r
@@ -12708,10 +12708,11 @@ Loop, Parse,UrlIndex,`n`r
 							{
 								addemu.= "|" . selfnd
 							}	
-						gosub, RBLDRUNLST	
 						guicontrol,,EMPRDDL,|%addemu%
 						if (selfnd = "MAME")
 							{
+								addemu.= "|" . "mame_system"
+								addemu.= "|" . "mame_arcade"
 								splitpath,xtractmfp,,mamevpth
 								filecreateDir,%mamevpth%\roms
 								ifnotexist,lm.ini
@@ -12719,6 +12720,7 @@ Loop, Parse,UrlIndex,`n`r
 										gosub, MAMETOG
 									}
 							}
+						gosub, RBLDRUNLST
 		}
 				if (EMUASIGN = 1)
 						{
@@ -16060,12 +16062,16 @@ ifexist, Assignments.ini
 					}
 			}
 	}
-	
+ptadv= 
 Loop, Parse, EmuPartSet,`n`r
 	{
 		if (A_LoopField = "")
 			{
 				continue
+			}
+		if (A_LoopField = "#")
+			{
+				ptadv= 1
 			}
 		emunmz= 
 		emupx1= 
@@ -16078,71 +16084,75 @@ Loop, Parse, EmuPartSet,`n`r
 		emuxelst.= emupx1 . ">" . emunmz . "|"
 		ifexist, %RJEMUD%\%emupx1%\%emunmz%
 			{
+				if (ptadv = 1)
+					{
+						prgom= 
+						Loop, Parse, FELst,`n`r
+							{
+								prga1= 
+								stringsplit,prga,A_LoopField,|
+								if (prga1 = emupx1)
+									{
+										prgom= 1
+									}
+							}
+					if (prgom = 1)
+						{
+							fecnt+=1
+							iniread,fetmp,apps.ini,HTPC_FRONTENDS,%emupx1%
+							if (fetmp = "ERROR")
+								{
+									IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",apps.ini,HTPC_FRONTENDS,%emupx1%
+								}
+							stringreplace,emuxelst,emuxelst,%emupx1%>%emunmz%,,All
+							continue
+						}
+					prgom= 
+					Loop, Parse, KMPLst,`n`r
+						{
+							prga1= 
+							stringsplit,prga,A_LoopField,|
+							if (prga1 = emupx1)
+								{
+									prgom= 1
+								}		
+						}
+					if (prgom = 1)
+						{
+							fecnt+=1
+							iniread,fetmp,apps.ini,KEYBOARD_MAPPERS,%emupx1%
+							if (fetmp = "ERROR")
+								{
+									IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",apps.ini,KEYBOARD_MAPPERS,%emupx1%
+								}
+							stringreplace,emuxelst,emuxelst,%emupx1%>%emunmz%,,All
+							SB_SetText(" " emupx1 " found ")
+							continue
+						}
+					prgom= 
+					Loop, Parse, UTILst,`n`r
+						{
+							prga1= 
+							stringsplit,prga,A_LoopField,|
+							if (prga1 = emupx1)
+								{
+									prgom= 1
+								}		
+						}
+					if (prgom = 1)
+						{
+							fecnt+=1
+							iniread,fetmp,apps.ini,UTILITIES,%emupx1%
+							if (fetmp = "ERROR")
+								{
+									IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",apps.ini,UTILITIES,%emupx1%
+								}
+							stringreplace,emuxelst,emuxelst,%emupx1%>%emunmz%,,All
+							SB_SetText(" " emupx1 " found ")
+							continue
+						}
+					}
 				prgom= 
-				Loop, Parse, FELst,`n`r
-					{
-						prga1= 
-						stringsplit,prga,A_LoopField,|
-						if (prga1 = emupx1)
-							{
-								prgom= 1
-							}
-					}
-				if (prgom = 1)
-					{
-						fecnt+=1
-						iniread,fetmp,apps.ini,HTPC_FRONTENDS,%emupx1%
-						if (fetmp = "ERROR")
-							{
-								IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",apps.ini,HTPC_FRONTENDS,%emupx1%
-							}
-						stringreplace,emuxelst,emuxelst,%emupx1%>%emunmz%,,All
-						continue
-					}
-				prgom= 
-				Loop, Parse, KMPLst,`n`r
-					{
-						prga1= 
-						stringsplit,prga,A_LoopField,|
-						if (prga1 = emupx1)
-							{
-								prgom= 1
-							}		
-					}
-				if (prgom = 1)
-					{
-						fecnt+=1
-						iniread,fetmp,apps.ini,KEYBOARD_MAPPERS,%emupx1%
-						if (fetmp = "ERROR")
-							{
-								IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",apps.ini,KEYBOARD_MAPPERS,%emupx1%
-							}
-						stringreplace,emuxelst,emuxelst,%emupx1%>%emunmz%,,All
-						SB_SetText(" " emupx1 " found ")
-						continue
-					}
-				prgom= 
-				Loop, Parse, UTILst,`n`r
-					{
-						prga1= 
-						stringsplit,prga,A_LoopField,|
-						if (prga1 = emupx1)
-							{
-								prgom= 1
-							}		
-					}
-				if (prgom = 1)
-					{
-						fecnt+=1
-						iniread,fetmp,apps.ini,UTILITIES,%emupx1%
-						if (fetmp = "ERROR")
-							{
-								IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",apps.ini,UTILITIES,%emupx1%
-							}
-						stringreplace,emuxelst,emuxelst,%emupx1%>%emunmz%,,All
-						SB_SetText(" " emupx1 " found ")
-						continue
-					}
 				emucnt+=1
 				fetmp=
 				iniread,fetmp,apps.ini,EMULATORS,%emupx1%
@@ -16150,47 +16160,27 @@ Loop, Parse, EmuPartSet,`n`r
 					{
 						IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",apps.ini,EMULATORS,%emupx1%
 					}
-				fetmp=
-				efna= 
-				iniread,fetmp,Assignments.ini,OVERRIDES,%emupx1%
-				if (fetmp = "ERROR")
-					{
-						IniWrite, "%emupx1%",Assignments.ini,OVERRIDES,%emupx1%
-						efna= 1
-						/*
-						IniWrite, "0",AppParams.ini,%emupx1%,per_game_configurations
-						IniWrite, "[CUSTMOPT]",AppParams.ini,%emupx1%,options
-						IniWrite, "",AppParams.ini,%emupx1%,arguments
-						IniWrite, "0",AppParams.ini,%emupx1%,extension
-						IniWrite, "0",AppParams.ini,%emupx1%,run_location
-						IniWrite, "0",AppParams.ini,%emupx1%,no_path
-						IniWrite, "0",AppParams.ini,%emupx1%,no_quotes
-						iniwrite, "%EMPOSTOPT%",AppParams.ini,%emupx1%,EMPOSTOPT
-						iniwrite, "%EMPREOPT%",AppParams.ini,%emupx1%,EMPREOPT
-						iniwrite, "%EMPOSTRUN%",AppParams.ini,%emupx1%,EMPOSTRUN
-						iniwrite, "%EMPRERUN%",AppParams.ini,%emupx1%,EMPRERUN
-						iniwrite, "%EMPOSTW%",AppParams.ini,%emupx1%,EMPOSTW
-						iniwrite, "%EMPREW%",AppParams.ini,%emupx1%,EMPREW
-						*/
-						SB_SetText(" " emupx1 " found ")
-					}
-				if (efna = "")
-					{
-						fetmploc= 
-						iniread,fetmploc,Assignments.ini,ASSIGNMENTS,%emupx1%
-						ifnotinstring,fetmp,\
+					else {
+						ifnotexist,%fetmp%
 							{
-								IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",Assignments.ini,ASSIGNMENTS,%emupx1%
+								IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",apps.ini,EMULATORS,%emupx1%							
 							}
-					}
+						}
 				fetmp=
-				iniread,fetmp,Assignments.ini,ASSIGNMENTS,%emupx1%
-				if (fetmp = "ERROR")
+				SB_SetText(" " emupx1 " found ")
+				fetmploc= 
+				iniread,fetmploc,Assignments.ini,ASSIGNMENTS,%emupx1%
+				if (fetmploc = "")
 					{
 						IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",Assignments.ini,ASSIGNMENTS,%emupx1%
 					}
+					else {
+						ifnotexist,%fetmploc%
+							{
+								IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",Assignments.ini,ASSIGNMENTS,%emupx1%
+							}
+						}
 				stringreplace,emuxelst,emuxelst,%emupx1%>%emunmz%|,,All
-				SB_SetText(" " emupx1 " found ")
 			}
 	}
 
@@ -16199,14 +16189,14 @@ emucnt=
 farvr= 
 Loop, %RJEMUD%\*.exe,,1
 	{
-		ifinstring,emuxelst,%A_LoopFileName%
+		ifinstring,emuxelst,%A_LoopFileName%|
 			{
 				continue
 			}
 		farvr.= A_LoopFileDir "|" A_LoopFileName "|" A_LoopFileFullPath "`n"
 	}
 
-SB_SetText("...Parsing indexed executables....")
+SB_SetText("...Parsing indexed executables...")
 Loop, parse, farvr,`n
 	{
 		if (A_LoopField = "")
@@ -16230,7 +16220,6 @@ Loop, parse, farvr,`n
 				stringsplit,splemu,A_LoopField,>
 				if (emuxenm = splemu2)
 					{
-						
 						emucnt+=1
 						emuncnt+=1
 						alri=
@@ -16241,96 +16230,16 @@ Loop, parse, farvr,`n
 							{
 								IniWrite, "%emuxefp%",apps.ini,EMULATORS,%splemu1%								
 							}
-						if (alri = "")
-							{
-								IniWrite, "%emuxefp%",apps.ini,EMULATORS,%splemu1%								
+							else {
+								ifnotexist,%alri%
+									{
+										IniWrite, "%emuxefp%",apps.ini,EMULATORS,%splemu1%								
+									}
 							}
-						iniread, alrj,Assignments.ini,OVERRIDES,%splemu1%
-						if (alrj = "ERROR")
-							{
-								IniWrite, "%splemu1%",Assignments.ini,OVERRIDES,%splemu1%
-							}
-						if (alrj = "")
-							{
-								IniWrite, "%splemu1%",Assignments.ini,OVERRIDES,%splemu1%
-							}	
-						stringsplit,aij,alrj,|
-						alrj= %aij1%
 						iniread, alrk,Assignments.ini,ASSIGNMENTS,%splemu1%
-						if (alrk = "ERROR")
-							{
-								IniWrite, "%emuxefp%",Assignments.ini,ASSIGNMENTS,%splemu1%
-							}	
 						if (alrk = "")
 							{
 								IniWrite, "%emuxefp%",Assignments.ini,ASSIGNMENTS,%splemu1%
-							}
-						iniread, siiv,emuCfgPresets.set,%splemu1%
-						IniWrite, "0",AppParams.ini,%splemu1%,per_game_configurations
-						IniWrite, "[CUSTMOPT]",AppParams.ini,%splemu1%,options
-						IniWrite, "",AppParams.ini,%splemu1%,arguments
-						IniWrite, "0",AppParams.ini,%splemu1%,extension
-						IniWrite, "0",AppParams.ini,%splemu1%,run_location
-						IniWrite, "0",AppParams.ini,%splemu1%,no_path
-						IniWrite, "0",AppParams.ini,%splemu1%,no_quotes
-						iniwrite, "%EMPOSTOPT%",AppParams.ini,%splemu1%,EMPOSTOPT
-						iniwrite, "%EMPREOPT%",AppParams.ini,%splemu1%,EMPREOPT
-						iniwrite, "%EMPOSTRUN%",AppParams.ini,%splemu1%,EMPOSTRUN
-						iniwrite, "%EMPRERUN%",AppParams.ini,%splemu1%,EMPRERUN
-						iniwrite, "%EMPOSTW%",AppParams.ini,%splemu1%,EMPOSTW
-						iniwrite, "%EMPREW%",AppParams.ini,%splemu1%,EMPREW
-						Loop, parse, siiv,`n, `r
-							{
-								fie1=
-								fie2=
-								stringsplit,fie,A_LoopField,=
-								if (fie1 = "RJEMUOPTS")
-									{
-										stringreplace,fie2,fie2,<,%A_Space%,All
-										IniWrite, "%fie2%",AppParams.ini,%splemu1%,options
-									}
-								if (fie1 = "RJEMUARGS")
-									{
-										stringreplace,fie2,fie2,<,%A_Space%,All
-										IniWrite, "%fie2%",AppParams.ini,%splemu1%,arguments
-									}
-								if (fie1 = "RJRUNDIR")
-									{
-										IniWrite, "%fie2%",AppParams.ini,%splemu1%,runlocation
-									}
-								if (fie1 = "RJEXT")
-									{
-										if (fie2 = 0)
-											{
-												IniWrite, "0",AppParams.ini,%splemu1%,extension
-											}
-										if (fie2 = 1)
-											{
-												IniWrite, "1",AppParams.ini,%splemu1%,extension
-											}
-									}
-								if (fie1 = "RJQUOTES")
-									{
-										if (fie2 = 0)
-												{
-													IniWrite, "1",AppParams.ini,%splemu1%,no_quotes
-												}
-											if (fie2 = 1)
-												{
-													IniWrite, "0",AppParams.ini,%splemu1%,no_quotes
-												}
-									}
-								if (fie1 = "RJPATH")
-									{
-										if (fie2 = 0)
-											{
-												IniWrite, "1",AppParams.ini,%splemu1%,no_path
-											}
-										if (fie2 = 1)
-											{
-												IniWrite, "0",AppParams.ini,%splemu1%,no_path
-											}
-									}
 							}
 					}
 			}		
@@ -16343,12 +16252,12 @@ Loop, Parse, amultmp,`n, `r
 		emunumtot+=1
 	}
 ratstchk= 
-IniRead, ratstchk,Settings.ini,GLOBAL,retroarch
-if (ratstchk = "ERROR")
+IniRead, ratstchk,Settings.ini,GLOBAL,retroarch_executable
+if (ratstchk <> "NOT-FOUND.exe")
 	{
 		if (INITIAL <> 1)
 			{
-				if (raexefile <> "NOT-FOUND.exe")
+				if (ratstchk <> "NOT-FOUND.exe")
 					{
 						emunumtot+=1
 						IniWrite, "%raexeloc%\%raexefile%",Apps.ini,EMULATORS,retroarch
@@ -16357,14 +16266,54 @@ if (ratstchk = "ERROR")
 					}
 			}
 	}
+IniRead, ratstchk,Settings.ini,GLOBAL,retroarch_executable
+if (ratstchk = "NOT-FOUND.exe")
+	{
+		iniread,raexetmp,Apps.ini,EMULATORS,retroarch
+		if (raexetmp <> "ERROR")
+			{
+				ifexist,%raexetmp%
+					{
+						splitpath,raexetmp,raexefile,raexeloc
+						iniwrite,"%raexeloc%",Settings.ini,GLOBAL,retroarch_location
+						iniwrite,"%raexefile%",Settings.ini,GLOBAL,retroarch_executable
+					}
+			}
+	}
+IniRead,mametmp,Apps.ini,EMULATORS,MAME
+if (mametmp <> "ERROR")
+	{
+		iniread,mamearctmp,Apps.ini,EMULATORS,mame_arcade
+		if (mamearctmp = "ERROR")
+			{
+				iniwrite,%mametmp%,Apps.ini,EMULATORS,mame_arcade
+			}
+			else {
+				ifnotexist,%mamearctmp%
+					{
+						iniwrite,%mametmp%,Apps.ini,EMULATORS,mame_arcade						
+					}
+			}
+		iniread,mamesystmp,Apps.ini,EMULATORS,mame_system
+		if (mamesystmp = "ERROR")
+			{
+				iniwrite,%mamesystmp%,Apps.ini,EMULATORS,mame_system
+			}
+			else {
+				ifnotexist,%mamesystmp%
+					{
+						iniwrite,%mamesystmp%,Apps.ini,EMULATORS,mame_system				
+					}
+			}
+	}
 SB_SetText(" " emucnt " emulators found and appended.   TOTAL is:" emunumtot " ")
 reasign= 
 IniRead,asig,Assignments.ini,ASSIGNMENTS,
-Loop,Parse,asig,`n,`r
+Loop,Parse,asig,`n`r
 	{
 		StringSplit,rasig,A_LoopField,=,"
 		;"
-		if rasig1 is not digit
+		if (rasig1 <> "")
 			{
 				reasign.= rasig1 . "|"
 			}
@@ -18136,6 +18085,21 @@ if (LNCHPT = 0)
 		goto, MatchSyst
 	}
 oil= 
+iniread,oil,Assignments.ini,OVERRIDES,%ARCSYS%
+stringsplit,aix,oil,|
+oil= %aix1%
+if (oil = 1)
+	{
+		iniread,coreselv,Assignments.ini,ASSIGNMENTS,%ARCSYS%
+		topcore:= coreselv . "||" runlist
+		goto,INSCOR
+	}
+if oil is not digit 
+	{
+		coreselv= %oil%
+		topcore:= oil . "||" runlist
+		goto,INSCOR
+	}
 Loop,Parse,SysEmuSet,`n`r
 	{
 		if (A_LoopField = "")
@@ -18157,9 +18121,6 @@ Loop,Parse,SysEmuSet,`n`r
 		stringsplit,symt,sdspl1,|
 		if (symt1 = ARCSYS)
 			{				
-				iniread,oil,Assignments.ini,OVERRIDES,%ARCSYS%
-				stringsplit,aix,oil,|
-				oil= %aix1%
 				recore=
 				prioco=	
 				Loop, Parse, sdspl1,|
@@ -18172,42 +18133,26 @@ Loop,Parse,SysEmuSet,`n`r
 							{
 								continue
 							}
-						iniread,fia,Assignments.ini,OVERRIDES,%A_LoopField%
-						if (fia <> "ERROR")
+						iniread,faf,Assignments.ini,ASSIGNMENTS,%A_LoopField%
+						if (faf <> "ERROR")
 							{
-								if (recore = "")
-										{
-											selctdcore= %fia%
-										}
-									iniread,faf,Assignments.ini,ASSIGNMENTS,%A_LoopField%
-									if (faf = "ERROR")
-										{
-											continue
-										}
-									if (faf = "")
-										{
-											continue
-										}
-									recore .= fia . "|"
-								if (fia = oil)
+								if (faf = "")
 									{
-										prioco= %fia%
+										continue
 									}
+								if (recore = "")
+									{
+										recore= %A_LoopField%||
+										coreselv= %A_LoopField%
+									}
+								recore .= A_LoopField . "|"
 							}
 					}
 				break	
 			}
 	}
-if oil is digit
-	{
-		iniread,prioco,Assignments.ini,ASSIGNMENTS,%ARCSYS%
-	}
-if (selctdcore <> "")
-	{
-		coreselv= %fia%
-	}
-Sort, recore, N R D|
 topcore:= recore . "|" . runlist
+/*
 if (prioco <> "")
 		{
 			splitpath,prioco,,,priocx
@@ -18267,6 +18212,8 @@ if (prioco <> "")
 						}
 				}
 		}
+*/
+INSCOR:
 guicontrol,,LCORE,|%topcore%
 guicontrol,,ARCCORES,|%topcore%
 if (CLActive = 1)
