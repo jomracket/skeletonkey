@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-25 7:59 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-25 9:49 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-11-25 7:59 PM
-VERSION= v0.99.66.65
+RELEASE= 2018-11-25 9:49 PM
+VERSION= v0.99.66.67
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -8119,8 +8119,10 @@ return
 
 RUNFLRAD:
 gui,submit,nohide
+rflr= 1
 guicontrolget,lcrtst,,LCORE
 guicontrolget,EDTROM,,RUNROMCBX
+splitpath,EDTROM,edtrmf
 
 guicontrol,disable,RUNROMCBX
 guicontrol,disable,RUNSYSDDL
@@ -8133,7 +8135,7 @@ Loop,Parse,EDTROM,\
 					{
 						if (A_LoopField = kmat)
 							{
-								guicontrol,,RUNSYSDDL,|%A_LoopField%||:=:System List:=:|%systmfldrs%
+								guicontrol,,RUNSYSDDL,|:=:System List:=:|%A_LoopField%||%systmfldrs%
 								gosub, RUNSYSDDL
 								return
 							}
@@ -8236,6 +8238,7 @@ if (OPTDLT = 1)
 				guicontrol,enable,RUNROMCBX
 				guicontrol,enable,RUNSYSDDL
 				RUNSYSCHNG= 
+				rflr= 
 				return
 			}
 		SB_SetText(" ... Indexing Playlist ...")
@@ -8343,6 +8346,7 @@ if (OPTDLT = 1)
 		guicontrol,enable,RUNROMCBX
 		guicontrol,enable,RUNSYSDDL
 		RUNSYSCHNG=
+		rflr= 
 		return
 	}
 
@@ -8375,6 +8379,7 @@ if (OPTYP = ":=:System List:=:")
 		guicontrol,enable,RUNSYSDDL
 		RUNSYSCHNG= 
 		gosub, hideconfig
+		rflr= 
 		return
 	}
 
@@ -8430,7 +8435,6 @@ Loop,%RJSYSTEMS%\%OPTYP%\*.*,0,1
 				poptadd .= A_LoopFileLongPath . "|"
 			}
 	}
-
 if (romf <> "")
 	{
 		stringmid,romhnck,romf,2,1
@@ -8442,6 +8446,19 @@ if (romf <> "")
 					}
 			}
 	}
+
+if (rflr = 1)
+	{
+		Loop,Parse,poptadd,|
+			{
+				splitpath,A_Loopfield,fej
+				if (fej = edtrmf)
+					{
+						romf= %A_LoopField%
+						break
+					}
+			}
+	}	
 guicontrol,,RUNROMCBX,|%romf%||%poptadd%
 if (SRCHCOMPL = 1)
 	{
@@ -8550,6 +8567,7 @@ gosub, EDTROM
 guicontrol,enable,RUNROMCBX
 guicontrol,enable,RUNSYSDDL
 RUNSYSCHNG= 
+rflr= 
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
