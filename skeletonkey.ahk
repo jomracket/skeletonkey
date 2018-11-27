@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-26 2:33 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-26 8:54 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-11-26 2:33 PM
-VERSION= v0.99.66.68
+RELEASE= 2018-11-26 8:54 PM
+VERSION= v0.99.66.69
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -393,6 +393,10 @@ ifNotExist, sys.ini
 	{
 		gosub, resetSYS
 	}
+ifNotExist, msys.ini
+	{
+		gosub, resetSYS
+	}
 if (raexefile <> "NOT-FOUND.exe")
 	{
 		ifNotExist, cores.ini
@@ -587,6 +591,8 @@ Loop,Read,cg.ini
 cg_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
 Loop,Read,sl.ini
 sl_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
+Loop,Read,msys.ini
+msyslist .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
 Loop,Read,sys.ini
 syslist .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
 Loop,Read,hacksyst.ini
@@ -615,11 +621,11 @@ Loop,Parse,asig,`n
 			}
 	}
 mame_sys=
-Loop, gam\MAME - Systems\*.gam
+Loop, Parse, msyslist,|
 	{
 		einv= 
 		mamad=
-		splitpath,A_LoopFileName,,,,einv
+		splitpath,A_LoopField,,,,einv
 		Loop, Read, emucfgPresets.set
 			{
 				stringleft,wev,A_LoopReadLine,1
@@ -635,6 +641,7 @@ Loop, gam\MAME - Systems\*.gam
 							{
 								MAME_%aeif2%= %einv%
 								mame_syst.= ecfsysn . "|"
+								rev_%einv%= %ecfsysn%
 								mamad= 1
 								break
 							}
@@ -1400,28 +1407,28 @@ Loop, Parse, SysLLst,`n`r
 		allsupport.= syscfgfld1 . "|"
 	}
 if (INITIAL = 1)
-{
-	RACORETAB= |Netplay|Cores
-	if (raexefile = "NOT-FOUND.exe")
-		{
-			RACORETAB= 
-			LNCHPT= 1
-		}
-	if (raexefile = "")
-		{
-			LNCHPT= 1
-		}
-	Loop, Parse, allsupport,|
-		{	
-			FileCreateDir, rj\sysCfgs\%syscfgfld1%
-		}
-	gosub, EmuDetect
-	ifnotexist, rj\sysCfgs
-		{
-			fileCreateDir, rj\sysCfgs
-		}
+	{
+		RACORETAB= |Netplay|Cores
+		if (raexefile = "NOT-FOUND.exe")
+			{
+				RACORETAB= 
+				LNCHPT= 1
+			}
+		if (raexefile = "")
+			{
+				LNCHPT= 1
+			}
+		Loop, Parse, allsupport,|
+			{	
+				FileCreateDir, rj\sysCfgs\%syscfgfld1%
+			}
+		gosub, EmuDetect
+		ifnotexist, rj\sysCfgs
+			{
+				fileCreateDir, rj\sysCfgs
+			}
 
-}	
+	}	
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -4208,9 +4215,9 @@ CLJXT= _btn
 gosub, JoyNT
 gui, submit, nohide
 if (locfnd = 1)
-{
-	gosub, QINSTALL
-}
+	{
+		gosub, QINSTALL
+	}
 if (INITIAL = 1)
 	{
 		iniWrite, "%VERSION%",Settings.ini,GLOBAL,version
@@ -5059,7 +5066,7 @@ return
 ARCPCFG:
 gui,submit,nohide
 guicontrolget,ARCCORES,,ARCCORES
-if (arcpnum <> 1)
+if (arcpnum > 1)
 	{
 		return
 	}
@@ -10962,7 +10969,7 @@ return
 ;{;;;;;;;;;;;;;    RETROARCH FUNCTIONS     ;;;;;;;;;;;;;;;;
 
 QINSTALL:
-MsgBox,8452,Quick Install,Install RetroArch and popular emulator cores?,5
+MsgBox,262404,Quick Install,Install RetroArch and popular emulator cores?,5
 IfMsgBox, Yes
 	{
 		gosub, RASETUPCONT
@@ -11015,7 +11022,7 @@ GuiControl, Enable, UPDBTN
 GuiControl, enable, EAVAIL
 GuiControl, enable, SaList
 GuiControl, Enable, EXELIST
-Msgbox,8452,Auto-Prefer,Would you like to assign all supported systems to retroarch cores?
+Msgbox,262404,Auto-Prefer,Would you like to assign all supported systems to retroarch cores?,5
 ifmsgbox,Yes
 	{
 		guicontrol,,LNCHPRDDL,|Emulators|retroarch||
@@ -16027,7 +16034,12 @@ Loop, %RJSYSTEMS%\*,2
 	}
 gosub, SYSDETECT
 guicontrol,,DWNLPOS,|:=:System List:=:||%systmfldrs%
-guicontrol,,OVDLDS,|Matching||%systmfldrs%
+overplmn= 
+if (OVDFLDR <> "")
+	{
+		overplmn= |%OVDFLDR%
+	}
+guicontrol,,OVDLDS,|Matching%overplmn%||%systmfldrs%
 guicontrol,,SKDETSTXT,Detected Systems: %totsys%
 guicontrol,,RJSYSDD,|Systems||%systmfldrs%
 return
@@ -16286,23 +16298,27 @@ if (mametmp <> "ERROR")
 		iniread,mamearctmp,Apps.ini,EMULATORS,mame_arcade
 		if (mamearctmp = "ERROR")
 			{
-				iniwrite,%mametmp%,Apps.ini,EMULATORS,mame_arcade
+				iniwrite,"%mametmp%",Assignments.ini,ASSIGNMENTS,mame_arcade
+				iniwrite,"%mametmp%",Apps.ini,EMULATORS,mame_arcade
 			}
 			else {
 				ifnotexist,%mamearctmp%
 					{
-						iniwrite,%mametmp%,Apps.ini,EMULATORS,mame_arcade						
+						iniwrite,"%mametmp%",Assignments.ini,ASSIGNMENTS,mame_arcade
+						iniwrite,"%mametmp%",Apps.ini,EMULATORS,mame_arcade						
 					}
 			}
 		iniread,mamesystmp,Apps.ini,EMULATORS,mame_system
 		if (mamesystmp = "ERROR")
 			{
-				iniwrite,%mamesystmp%,Apps.ini,EMULATORS,mame_system
+				iniwrite,"%mametmp%",Assignments.ini,ASSIGNMENTS,mame_system
+				iniwrite,"%mametmp%",Apps.ini,EMULATORS,mame_system
 			}
 			else {
 				ifnotexist,%mamesystmp%
 					{
-						iniwrite,%mamesystmp%,Apps.ini,EMULATORS,mame_system				
+						iniwrite,"%mametmp%",Assignments.ini,ASSIGNMENTS,mame_system
+						iniwrite,"%mametmp%",Apps.ini,EMULATORS,mame_system
 					}
 			}
 	}
@@ -20704,6 +20720,7 @@ srchpop=
 fndgam1= 
 fndgam2= 
 guicontrolget,SRCHSYS,,SRCHDDL
+iniread,ARCTRA,emuCfgPresets.set,%SRCHSYS%,RJMAMENM
 sanm:= SRCHEDT
 gosub, SanitizeN
 SRCHEDT:= sanm
@@ -20714,14 +20731,14 @@ if (SRCHSYS = "All")
 		SRCHREC= R
 	}
 else {
-SRCHSYS= *%SRCHSYS%
+	SRCHSYS= *%ARCTRA%
 	}	
 SRCHMET= gam
 if (MAMESWCHK = 1)
 	{
 		SRCHMET= gam\MAME - Systems
 	}
-Loop, files,%SRCHMET%\%SRCHSYS%.gam, %SRCHREC%
+Loop, files,%SRCHMET%\%ARCTRA%.gam, %SRCHREC%
 	{
 		sys= 
 		sysfile= 
@@ -20768,6 +20785,15 @@ Loop, parse, tmprm,|
 	}
 guicontrol,enable,MAMESWCHK
 guicontrol,enable,ARCSYS
+if (DownOnly = 1)
+	{
+		guicontrol,enable,ARCLNCH
+	}
+SRCHMET= gam
+if (MAMESWCHK = 1)
+	{
+		SRCHMET= gam\MAME - Systems
+	}	
 if (DownOnly = 0)
 	{
 		PostMessage, 0x185, 1, -1, ARCPOP  ; Select all items. 0x185 is LB_SETSEL.
@@ -20777,7 +20803,7 @@ if (DownOnly = 0)
 		GuiControl, ChooseString, ARCPOP, %arcpopcul%
 		krbrk= 
 		arcpnum= 
-		Loop,gam\%HACKAPN%%ARCSYS%.gam
+		Loop,%SRCHMET%\%HACKAPN%%ARCSYS%.gam
 			{
 				Loop, Read, %A_LoopFileFullPath%
 					{
@@ -20942,10 +20968,16 @@ srchspl2=
 StringSplit,srchspl,SRCHRSLT,=
 ARCSYS= %srchspl1%
 romsys= %ARCSYS%
+revinc= % rev_%srchspl1%
+if (revinc = "")
+	{
+		revinc= %srchspl1%
+	}
 guicontrol,,ARCSYS,|%ARCSYS%||Select a System|%syslist%
 if (MAMESWCHK = 1)
 	{
-		guicontrol,,ARCSYS,|%ARCSYS%||Select a System|%mame_sys%
+		guicontrol,,ARCSYS,|%revinc%||Select a System|%mame_sys%
+		guicontrolget,ARCSYS,,ARCSYS
 	}
 romfp= %srchspl2%
 
@@ -21201,16 +21233,17 @@ gui,submit,nohide
 guicontrol,,ARCDET,
 guicontrol,enable,ARCSYS
 guicontrol,enable,MAMESWCHK
+
 MAMESWCHK:
+gui,submit,nohide
 guicontrolget,MAMESWCHK,,MAMESWCHK
 if (MAMESWCHK = 1)
 	{
 		guicontrol,,ARCSYS,|Select a System||%mame_sys%
-		guicontrol,,SRCHDDL,|All||%mame_sys%
 		gosub, ArchiveSystems
+		guicontrol,,SRCHDDL,|All||%mame_sys%
 		return
 	}
-
 guicontrol,,ARCSYS,|Select a System||%syslist%
 guicontrol,,SRCHDDL,|All||%syslist%
 gosub, ArchiveSystems
@@ -21228,6 +21261,7 @@ if (ENHAK = 1)
 	{
 		HACKAPN= #HACKS#
 	}
+guicontrol,,ARCLNCH,PLAY
 guicontrol,disable,ARCLNCH
 guicontrol,disable,ARCNCT
 guicontrol, disable, ARCHOST
@@ -21396,9 +21430,18 @@ if (ARCSYS = "BIOS")
 		OVDCHK= MAME - Arcade
 		iniread,mame_verx,Apps.ini,EMULATORS,MAME
 		splitpath,mame_verx,,mamepth
+		mambpri= 
+		if (mamepth <> "")
+			{
+				ifnotexist,%mamepth%\roms\
+					{
+						filecreatedir,%mamepth%\roms
+					}
+				mambpri= %mamepth%\roms|
+			}
 		OVDFLDR= %cacheDirectory%
 		guicontrol,,OVDTXT,%OVDFLDR%
-		guicontrol,,OVDLDS,|%OVDFLDR%||Matching|%systmfldrs%
+		guicontrol,,OVDLDS,|%mambpri%%OVDFLDR%||Matching|%systmfldrs%
 		guicontrol,,OVDCHK,1
 		guicontrol,enable,OVDLDS
 		guicontrol,enable,SETOVD
@@ -21406,6 +21449,13 @@ if (ARCSYS = "BIOS")
 		gosub, DOWNONLY
 		guicontrol,,EXTRURL,0
 		guicontrol,,ARCCORES,||%runlist%
+	}
+if (MAMESWCHK = 1)
+	{
+		guicontrol,,ARCMOVE,0
+		guicontrol,,EXTRURL,0
+		guicontrol,,EXTEXPLD,0
+		guicontrol,,RUNXTRACT,0
 	}
 if (ARCSYS = "_firmware_")
 	{
@@ -21534,7 +21584,13 @@ if (OVDCHK = 1)
 		if (OVDFLDR = "")
 			{
 				guicontrolget,ovdnm,,OVDLDS
-				OVDFLDR= %RJSYSTEMS%\%ovdnm%
+				ifinstring,ovdnm,:
+					{
+						OVDFLDR=%ovdnm%
+					}
+					else {
+						OVDFLDR= %RJSYSTEMS%\%ovdnm%
+					}
 			}
 		if (JACKETMODE = 1)
 			{
@@ -21559,7 +21615,13 @@ guicontrol,,OVDCHK,1
 guicontrol,enable,OVDLDS
 guicontrol,enable,SETOVD
 guicontrolget,ovdnm,,OVDLDS
-OVDFLDR= %RJSYSTEMS%\%ovdnm%
+ifinstring,ovdnm,:
+	{
+		OVDFLDR=%ovdnm%
+	}
+	else {
+		OVDFLDR= %RJSYSTEMS%\%ovdnm%
+		}
 guicontrol,,OVDTXT,%OVDFLDR%
 if (OVDLDS = "Matching")
 	{
@@ -21938,7 +22000,7 @@ rjdwnfldr=
 
 if (romsys = "")
 	{
-		guicontrolget,romsys,,OVDLDS
+		guicontrolget,romsys,,OVDLDS					
 	}
 if (OVDLDS = "Matching")
 	{
@@ -40162,7 +40224,7 @@ goto, cachereset
 ;{;;;;  REMOVE SYSTEM FROM QUEUE  ;;;;;
 DELRJQ:
 guicontrolget,RJSYSDD,,RJSYSDD
-Msgbox,8452,Clear the Queue,Delete All Systems in the queue?
+Msgbox,262404,Clear the Queue,Delete All Systems in the queue?,10
 		IfMsgBox, Yes
 			{
 				FileDelete,rj\*.tdb
@@ -61950,6 +62012,14 @@ FileDelete, sys.ini
 FileDelete, hacksyst.ini
 syslist= 
 nsys=
+msys=
+loop, gam\MAME - Systems\*.gam
+	{	
+		msys+=1	
+		stringsplit,syn,A_LoopFileName,.
+		msyslist .= (msys == 1 ? "" : "|") . syn1
+	}	
+
 loop, gam\*.gam
 	{	
 		ifinstring,A_LoopFilename,#
@@ -61964,6 +62034,7 @@ loop, gam\*.gam
 stringreplace,hacksyst,hacksyst,#HACKS#,,All	
 fileappend,%hacksyst%,hacksyst.ini
 fileappend,%syslist%,sys.ini
+fileappend,%msyslist%,msys.ini
 return
 
 resetCoreAssets:
@@ -61982,7 +62053,7 @@ guicontrol,,RJSYDD,|Systems||%systmfldrs%
 guicontrol,,RUNSYSDDL,|:=:System List:=:||%systmfldrs%
 guicontrol,,SRCHLOCDDL,|:=:System List:=:||%systmfldrs%	
 guicontrol,,ESDWNLPOS,|%systmfldrs%
-guicontrol,,OVDLDS,|Matching||%systmfldrs%
+guicontrol,,OVDLDS,|a||Matching|%systmfldrs%
 guicontrol,,DWNLPOS,|%systmfldrs%
 guicontrol,,ESPLXMP,|%systmfldrs%|%escommon%
 if (NETDWNL = 1)
