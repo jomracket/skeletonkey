@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-26 8:54 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-27 6:11 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-11-26 8:54 PM
-VERSION= v0.99.66.69
+RELEASE= 2018-11-27 6:11 PM
+VERSION= v0.99.67.00
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -393,10 +393,11 @@ ifNotExist, sys.ini
 	{
 		gosub, resetSYS
 	}
+
 ifNotExist, msys.ini
 	{
 		gosub, resetSYS
-	}
+	}					
 if (raexefile <> "NOT-FOUND.exe")
 	{
 		ifNotExist, cores.ini
@@ -591,8 +592,9 @@ Loop,Read,cg.ini
 cg_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
 Loop,Read,sl.ini
 sl_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
+sl_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
 Loop,Read,msys.ini
-msyslist .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
+msyslist .= (A_Index == 1 ? "" : "|") . A_LoopReadLine				  
 Loop,Read,sys.ini
 syslist .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
 Loop,Read,hacksyst.ini
@@ -4215,9 +4217,9 @@ CLJXT= _btn
 gosub, JoyNT
 gui, submit, nohide
 if (locfnd = 1)
-	{
-		gosub, QINSTALL
-	}
+{
+	gosub, QINSTALL
+}
 if (INITIAL = 1)
 	{
 		iniWrite, "%VERSION%",Settings.ini,GLOBAL,version
@@ -4244,18 +4246,18 @@ return
 
 ;{;;;;;;;;;;;;;;;;;;  LOADING IMAGE PROC   ;;;;;;;;;;;;;;;;;;;;;
 SplashImageGUI(Picture, X, Y, Transparent = false)
-{
-Gui, XPT99:Margin , 0, 0
-Gui, XPT99:Add, Picture,, %Picture%
-Gui, XPT99:Color, 00000
-Gui, XPT99:+LastFound -Caption +AlwaysOnTop +ToolWindow -Border
-If Transparent
-{
-Winset, TransColor, 00000
-}
-Gui, XPT99:Show, x%X% y%Y% NoActivate
-return
-}
+	{
+		Gui, XPT99:Margin , 0, 0
+		Gui, XPT99:Add, Picture,, %Picture%
+		Gui, XPT99:Color, 00000
+		Gui, XPT99:+LastFound -Caption +AlwaysOnTop +ToolWindow -Border
+		If Transparent
+			{
+				Winset, TransColor, 00000
+			}
+		Gui, XPT99:Show, x%X% y%Y% NoActivate
+		return
+	}
 
 DestroySplashGUI:
 Gui, XPT99:Destroy
@@ -4274,9 +4276,9 @@ While Pos
 Loop % mCnt {
 	SendMessage, 0x102c, A_Index-1, 0x2000, % cN, % wN
 	ChkItems.=(ErrorLevel ? Item[A_Index-1] "`n" : "")
-}
-Return ChkItems
-}
+	}
+		Return ChkItems
+	}
 return
 
 
@@ -5332,6 +5334,7 @@ ifinstring,coreselv,_libretro
 	}
 coremsvc= 
 
+RCLSUP:
 iniread,RJMAMENM,emuCfgPresets.set,%RUNSYSDDL%,RJMAMENM
 iniread,CUSTMOPT,AppParams.ini,%coreselv%,options
 stringreplace,CUSTMOPT,CUSTMOPT,",,All
@@ -8393,7 +8396,6 @@ if (OPTYP = ":=:System List:=:")
 DDLUX= %OPTYP%
 omitxtn= 
 REVSPL= 1
-
 iniread,omitxtz,emuCfgPresets.set,%OPTYP%,RJROMXT
 if (omitxtz <> "ERROR")
 	{
@@ -20720,7 +20722,7 @@ srchpop=
 fndgam1= 
 fndgam2= 
 guicontrolget,SRCHSYS,,SRCHDDL
-iniread,ARCTRA,emuCfgPresets.set,%SRCHSYS%,RJMAMENM
+iniread,ARCTRA,emuCfgPresets.set,%SRCHSYS%,RJMAMENM										   
 sanm:= SRCHEDT
 gosub, SanitizeN
 SRCHEDT:= sanm
@@ -21235,7 +21237,7 @@ guicontrol,enable,ARCSYS
 guicontrol,enable,MAMESWCHK
 
 MAMESWCHK:
-gui,submit,nohide
+gui,submit,nohide						  
 guicontrolget,MAMESWCHK,,MAMESWCHK
 if (MAMESWCHK = 1)
 	{
@@ -21244,6 +21246,7 @@ if (MAMESWCHK = 1)
 		guicontrol,,SRCHDDL,|All||%mame_sys%
 		return
 	}
+guicontrol,,ARCLNCH,PLAY
 guicontrol,,ARCSYS,|Select a System||%syslist%
 guicontrol,,SRCHDDL,|All||%syslist%
 gosub, ArchiveSystems
@@ -21260,8 +21263,8 @@ ArchiveSysRefresh:
 if (ENHAK = 1)
 	{
 		HACKAPN= #HACKS#
-	}
-guicontrol,,ARCLNCH,PLAY
+	}		  
+guicontrol,,ARCLNCH,PLAY			
 guicontrol,disable,ARCLNCH
 guicontrol,disable,ARCNCT
 guicontrol, disable, ARCHOST
@@ -21456,7 +21459,7 @@ if (MAMESWCHK = 1)
 		guicontrol,,EXTRURL,0
 		guicontrol,,EXTEXPLD,0
 		guicontrol,,RUNXTRACT,0
-	}
+	}		 
 if (ARCSYS = "_firmware_")
 	{
 		gosub, MAMEBIOSFIRM
@@ -22000,7 +22003,7 @@ rjdwnfldr=
 
 if (romsys = "")
 	{
-		guicontrolget,romsys,,OVDLDS					
+		guicontrolget,romsys,,OVDLDS
 	}
 if (OVDLDS = "Matching")
 	{
@@ -39148,11 +39151,11 @@ Loop, rj\*.jak
 		
 		SplitPath,emuloc,emuxe,emulocd
 
-		FileRead, toapa, rj\emuCfgs\rjcmd_header.set
-		FileRead, toapb, rj\emuCfgs\rjcmd_prejoy.set
-		FileRead, toapc, rj\emuCfgs\rjcmd_runloop.set
-		FileRead, toapd, rj\emuCfgs\rjcmd_runproc.set
-		FileRead, toape, rj\emuCfgs\rjcmd_postjoy.set
+		FileRead, toapa, rjcmd_header.set
+		FileRead, toapb, rjcmd_prejoy.set
+		FileRead, toapc, rjcmd_runloop.set
+		FileRead, toapd, rjcmd_runproc.set
+		FileRead, toape, rjcmd_postjoy.set
 		StringReplace, toapa,toapa,[EMUL],%emulocd%,All
 		StringReplace, toapa,toapa,[EMUZ],%emuxe%,All
 		StringReplace, toapa,toapa,[AMC],%AMCK%,All
@@ -58209,8 +58212,9 @@ if (DDLU = 1)
 									}
 								continue	
 							}
-						iniread, coreselv, Assignments.ini,OVERRIDES,%appn1%
+						iniread,coreselv,Assignments.ini,OVERRIDES,%appn1%
 						dlx= 
+						aij1=
 						stringsplit,aij,coreselv,|
 						coreselv= %aij1%
 						splitpath,coreselv, , ,dlx
@@ -59890,7 +59894,6 @@ if (romhnck <> ":")
 					}
 			}
 	}
-
 SplitPath,romf,romtitle,rompth,romxt,romname
 guicontrolget,coreselv,,LCORE
 iniread,coreselx,AppParams.ini,%runsysddl%,%romxt%
@@ -59907,13 +59910,11 @@ if (coreselx <> "ERROR")
 					}				
 			}
 	}
-	
 if (indexCONSOLE = "")
 	{	
 		gosub, RecentRead
 		guicontrolget,coreselv,,LCORE
 	}
-	
 if (coreselv = "")
 	{
 		guicontrol,,LCORE,||%runlist%
@@ -60310,12 +60311,14 @@ iniread,RunFrom,AppParams.ini,%coreselv%,run_location
 iniread,OMITQ,AppParams.ini,%coreselv%,no_quotes
 iniread,OMITPTH,AppParams.ini,%coreselv%,no_path
 
+
 if (coremsvc = "")
 	{
 		if (CUSTSWITCHS = 0)
 			{
 				ifinstring,coreselv,mame
 					{
+						iniread,RJMAMENM,emuCfgPresets.set,%RUNSYSDDL%,RJMAMENM
 						iniread,CUSTMOPTLST,emuCfgPresets.set,%RUNSYSDDL%,MAME?RJEMUOPTS
 						if (CUSTMOPTLST <> "ERROR")
 							{
@@ -60325,6 +60328,7 @@ if (coremsvc = "")
 											{
 												continue
 											}
+										coremsvc= 1
 										stringreplace,CSTINJOPT,A_LoopField,<,%A_Space%,All
 										stringreplace,CSTINJOPT,CSTINJOPT,[RJMAMESYS],%RJMAMENM%,All
 										break
@@ -60428,6 +60432,8 @@ if (CSTINJOPT <> "")
 		stringreplace,RunOptions,RunOptions,[CUSTMOPT],%A_Space%%CUSTMOPT%%A_Space%,All
 		CSTINJOPT= 
 	}
+	
+;msgbox,,,custswitchs=%CUSTSWITCHS%`ncoremsvc=%coremsvc%`nCSTINJOPT=%CSTINJOPT%`nCUSTMOPT=%CUSTMOPT%
 
 stringreplace,RunOptions,RunOptions,[CUSTMOPT],%A_SPACE%%CUSTMOPT%,All
 stringreplace,RunArgs,RunArgs,[CUSTMARG],%A_SPACE%%CUSTMARG%,All
@@ -60920,6 +60926,7 @@ if (romhnck <> ":")
 	}	
 if (APLN = 1)
 	{
+		guicontrolget,ROMSYS,,RUNSYSDDL
 		goto, SKLNCH
 	}
 
@@ -62019,7 +62026,6 @@ loop, gam\MAME - Systems\*.gam
 		stringsplit,syn,A_LoopFileName,.
 		msyslist .= (msys == 1 ? "" : "|") . syn1
 	}	
-
 loop, gam\*.gam
 	{	
 		ifinstring,A_LoopFilename,#
@@ -62035,6 +62041,7 @@ stringreplace,hacksyst,hacksyst,#HACKS#,,All
 fileappend,%hacksyst%,hacksyst.ini
 fileappend,%syslist%,sys.ini
 fileappend,%msyslist%,msys.ini
+
 return
 
 resetCoreAssets:

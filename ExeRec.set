@@ -735,6 +735,11 @@ FileInstall,mediafe.set,mediafe.set,1
 FileInstall,Programs.set,Programs.set,1
 FileInstall,racoreopt.set,racoreopt.set,1
 FileInstall,ReadMe.set,ReadMe.set,1
+FileInstall,rjcmd_header.set,rjcmd_header.set,1
+FileInstall,rjcmd_postjoy.set,rjcmd_postjoy.set,1
+FileInstall,rjcmd_prejoy.set,rjcmd_prejoy.set,1
+FileInstall,rjcmd_runloop.set,rjcmd_runloop.set,1
+FileInstall,rjcmd_runproc.set,rjcmd_runproc.set,1
 FileInstall,skdeploy.set,skdeploy.set,1
 FileInstall,supported.set,supported.set,1
 FileInstall,SystemEmulators.set,SystemEmulators.set,1

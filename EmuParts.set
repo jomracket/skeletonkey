@@ -354,6 +354,7 @@ ryujinx=ryujinx/ryujinx.7z=ryujinx.exe=Ryujinx.runtimeconfig.json|ryujinx.conf=
 virtualapf=virtualapf/virtualapf.7z=virtualapf.exe=
 virtualjaguar=virtualjaguar/virtualjaguar-[ARCH].7z=virtualjaguar.exe=vjag.cmd
 virtuanesplus=virtuanesplus/virtuanesplus.7z=VirtuaNES.exe=
+WinBox=winbox/WinBox.7z=WinBox.exe=dosbox.conf=SAVE\*.*
 wincpc=wincpc/wincpc.7z=WinCPC.exe=
 winvz300=winvz300/winvz300.7z=WinVZ300.exe=
 x1=x1/x1.7z=x1.exe=x1.ini=

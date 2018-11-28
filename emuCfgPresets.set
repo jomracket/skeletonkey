@@ -504,6 +504,11 @@ RJEXTRARC=0
 RJRUNDIR=0
 RJLNCHP=0
 
+[WinBox]
+RJPRECFG=copy /y ".sstates\*.*" "%EMUL%\STATES"|copy /y "dosbox.conf" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\dosbox.conf" "%GAMDIR%"|move /y "%EMUL%\STATES\*.*" "%GAMDIR%\.sstates"
+RJLNCHP=0
+
 [DosBox]
 RJPRECFG=copy /y ".sstates\*.*" "%EMUL%\STATES"|copy /y "dosbox.conf" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\dosbox.conf" "%GAMDIR%"|move /y "%EMUL%\STATES\*.*" "%GAMDIR%\.sstates"
@@ -1783,6 +1788,10 @@ MAME?RJEMUOPTS=<svisionn -[RJRTYP]<|<svisionn -cart<|<svisionp -cart<|<svisions 
 [Open - Beats of Rage]
 RJEMUPRESET=openbeatsofrage
 RJROMXT=.bor,.pak
+
+[Microsoft - Windows 3x]
+RJEMUPRESET=WinBox
+RJROMXT=.conf,.lnk,.exe,.bat,.cmd
 
 [Windows - Games]
 RJEMUPRESET=BSL
