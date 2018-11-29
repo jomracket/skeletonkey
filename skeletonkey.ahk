@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-27 6:11 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-11-28 8:46 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-11-27 6:11 PM
-VERSION= v0.99.67.00
+RELEASE= 2018-11-28 8:46 PM
+VERSION= 0.99.67.12
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -1593,6 +1593,7 @@ Gui,Font,Bold
 Gui, Add, Tab2, x0 y0 w765 h535 vTABMENU Bottom, Settings||:=: MAIN :=:|Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;{;;;;;;;   ~~~~~GLOBAL SKELEOTNKEY~~~~~   ;;;;;;;;;;;
 Gui, Tab, 1
 Gui Tab, Settings
@@ -2039,7 +2040,7 @@ Gui Tab, Emu:=:Sys
 ;;Gui, Add, Picture, x526 y405 w189 h90, ins.png
 Gui,Font,, %fontName%
 Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x3 y5 w273 h478 vCACGRP, Systems
+Gui, Add, GroupBox, x2 y5 w276 h478 vCACGRP, Systems
 Gui,Font,%fontXsm% Norm
 
 Gui,Font,%fontXsm% Bold
@@ -2048,9 +2049,9 @@ Gui,Font,%fontXsm% Norm
 
 Gui, Add, Button, x480 y40 w42 h19 vAUTOBIOS gAUTOBIOS hidden,auto
 
-Gui, Add, ListBox,x4 y29 w269 h446 HWNDtrxvail vUAVAIL gUAvailSel hidden, %allsupport%
+Gui, Add, ListBox,x5 y21 w271 h463 HWNDtrxvail vUAVAIL gUAvailSel hidden, %allsupport%
 
-Gui, Add, ListBox, Multi x4 y29 w269 h446 HWNDeavlbx vEAVAIL gEAvailSel, %allsupport%
+Gui, Add, ListBox, Multi x5 y21 w271 h463 HWNDeavlbx vEAVAIL gEAvailSel, %allsupport%
 Gui, Add, ListBox, Multi x15 y23 w227 h433 hwndAVWIND vAVAIL gAvailSel Hidden, %corezips%
 
 Gui, Add, Button, x258 y341 w48 h20 vUPDCL gGetCoreList hidden, Refresh
@@ -2064,7 +2065,7 @@ Gui, Add, Button, x458 y433 w16 h17 vEMPRBUTU gEMPRBUTU, P
 Gui, Add, Button, x458 y459 w16 h17 vEMPRBUTX gEMPRBUTX, X
 Gui, Add, Button, x458 y481 w36 h17 vDELCFGPGC gDELCFGPGC, Clean
 
-Gui, Font,Boldg
+Gui, Font,Bold
 Gui, Add, GroupBox, x552 y409 w194 h97 vEMGRPF Right, Pre Cmd/ Post Cmd
 Gui Add, GroupBox, x472 y362 w262 h43 vDSKMNTGRP, Disc-Mounting
 Gui, Font, Normal
@@ -2978,7 +2979,6 @@ Gui,Font,%fontXsm% Bold
 Gui, Add, GroupBox, x16 y2 w332 h284 vARCGSYS Center, SYSTEMS
 Gui,Font,%fontXsm% Normal
 
-
 Gui, Add, Checkbox, x18 y12 w25 vENHAK gENHAK +0x200,+hacks
 Gui, Add, Checkbox, x26 y28 w25 vMAMESWCHK gMAMESWCHK,MAME
 Gui, Add, DropDownList, x84 y20 w260 vARCSYS gArchiveSystems, Select a System||%syslist%
@@ -2991,8 +2991,6 @@ Gui, Add, Button,  x267 y47 w75 h23 vARCLNCH gArcLaunch disabled, PLAY
 Gui, Add, ComboBox, x88 y78 w126 vCUSTMOPT gCustmOpt hidden,|%INJOPT%
 Gui, Add, ComboBox, x218 y78 w123 vCUSTMARG gCustmArg hidden,|
 Gui, Add, CheckBox, x26 y75 w61 h17 vCUSTSWITCH gCustSwitch, switches
-
-
 
 Gui, Add, Checkbox, x22 y263 vALTURL gEnableAltUrl, Override
 Gui, Add, Edit, x88 y258 w225 h21 vUrlTxt gREPOUrlEdt Readonly, %ArcSite%
@@ -11249,7 +11247,7 @@ guicontrol,show, AVAIL
 guicontrol,show,OPNSYS
 guicontrol,show,CRNTCORS
 guicontrol,show,BCKCORE
-guicontrol,move, CACGRP, x7 y5 w242 h478
+guicontrol,move, CACGRP, x2 y5 w276 h478
 guicontrol, move, CCGRP, x251 y5 w212 h366
 guicontrol,,CRNTCORS,|%CoreNamz%
 guicontrol,,CCGRP,Current Cores
@@ -11308,7 +11306,7 @@ guicontrol, hide,EMUINST
 guicontrol,hide,MULTLNK
 guicontrol,hide,UNIQLNK
 guicontrol,hide,EMUASIGN
-guicontrol,move, CACGRP, x7 y5 w242 h478
+guicontrol,move, CACGRP, x2 y5 w276 h478
 guicontrol,hide, EAVAIL
 guicontrol,show, PAVAIL
 guicontrol,show, AVAIL
@@ -11474,7 +11472,7 @@ guicontrol, hide, RALIST
 guicontrol, hide, EXELIST
 guicontrol,hide,UPDCL
 guicontrol,hide,GCUPDT
-guicontrol,move,CACGRP, x7 y5 w268 h478 
+guicontrol,move,CACGRP, x2 y5 w276 h478
 guicontrol,move,CCGRP,x278 y5 w185 h359
 guicontrol, hide, AVAIL
 guicontrol, hide, BCKCORE
@@ -11532,7 +11530,7 @@ if (SALIST = "Systems")
 		guicontrol,show,EMPRBUTX
 		guicontrol,show,DELCFGPGC
 		guicontrol,hide,GCUPDT
-		guicontrol,move,CACGRP, x7 y5 w268 h478 
+		guicontrol,move,CACGRP, x2 y5 w276 h478
 		guicontrol,move,CCGRP,x278 y5 w185 h366
 		guicontrol, hide, AVAIL
 		guicontrol, hide, BCKCORE
@@ -11577,7 +11575,7 @@ if (SALIST = "Frontends")
 		guicontrol,show,REPOSET
 		guicontrol,show,SITEDTXT
 		guicontrol,show,ADDREPO
-		guicontrol,move,CACGRP, x7 y5 w268 h478 
+		guicontrol,move,CACGRP, x2 y5 w276 h478
 		guicontrol,move,CCGRP,x278 y5 w185 h366
 		guicontrol, hide, EAVAIL
 		guicontrol, hide, AVAIL
@@ -11658,7 +11656,7 @@ if (SALIST = "Utilities")
 		guicontrol,show,REPOSET
 		guicontrol,show,SITEDTXT
 		guicontrol,show,ADDREPO
-		guicontrol,move,CACGRP, x7 y5 w268 h478 
+		guicontrol,move,CACGRP, x2 y5 w276 h478
 		guicontrol,move,CCGRP,x278 y5 w185 h366
 		guicontrol, hide, EAVAIL
 		guicontrol, hide, AVAIL
@@ -11723,7 +11721,7 @@ if (SALIST = "Emulators")
 		guicontrol,show,REPOSET
 		guicontrol,show,SITEDTXT
 		guicontrol,show,ADDREPO
-		guicontrol,move,CACGRP, x7 y5 w268 h478 
+		guicontrol,move,CACGRP, x2 y5 w276 h478
 		guicontrol,move,CCGRP,x278 y5 w185 h366
 		guicontrol, hide, EAVAIL
 		guicontrol, hide, AVAIL
@@ -18104,6 +18102,11 @@ if (LNCHPT = 0)
 	}
 oil= 
 iniread,oil,Assignments.ini,OVERRIDES,%ARCSYS%
+if (oil = "ERROR")
+	{
+		topcore= ||%runlist%
+		goto, INSCOR
+	}
 stringsplit,aix,oil,|
 oil= %aix1%
 if (oil = 1)
@@ -18118,6 +18121,8 @@ if oil is not digit
 		topcore:= oil . "||" runlist
 		goto,INSCOR
 	}
+recore=
+prioco=	
 Loop,Parse,SysEmuSet,`n`r
 	{
 		if (A_LoopField = "")
@@ -18139,8 +18144,6 @@ Loop,Parse,SysEmuSet,`n`r
 		stringsplit,symt,sdspl1,|
 		if (symt1 = ARCSYS)
 			{				
-				recore=
-				prioco=	
 				Loop, Parse, sdspl1,|
 					{
 						if (A_Index = 1)
@@ -18160,7 +18163,7 @@ Loop,Parse,SysEmuSet,`n`r
 									}
 								if (recore = "")
 									{
-										recore= %A_LoopField%||
+										prioco= %A_LoopField%||
 										coreselv= %A_LoopField%
 									}
 								recore .= A_LoopField . "|"
@@ -18169,7 +18172,7 @@ Loop,Parse,SysEmuSet,`n`r
 				break	
 			}
 	}
-topcore:= recore . "|" . runlist
+topcore:= prioco . recore . runlist
 /*
 if (prioco <> "")
 		{
@@ -20722,7 +20725,6 @@ srchpop=
 fndgam1= 
 fndgam2= 
 guicontrolget,SRCHSYS,,SRCHDDL
-iniread,ARCTRA,emuCfgPresets.set,%SRCHSYS%,RJMAMENM										   
 sanm:= SRCHEDT
 gosub, SanitizeN
 SRCHEDT:= sanm
@@ -20732,15 +20734,18 @@ if (SRCHSYS = "All")
 		SRCHSYS= *
 		SRCHREC= R
 	}
-else {
-	SRCHSYS= *%ARCTRA%
-	}	
 SRCHMET= gam
 if (MAMESWCHK = 1)
 	{
 		SRCHMET= gam\MAME - Systems
+		
+		iniread,ARCTRA,emuCfgPresets.set,%SRCHSYS%,RJMAMENM
+		if (ARCTRA <> "ERROR")
+			{
+				SRCHSYS= %ARCTRA%
+			}
 	}
-Loop, files,%SRCHMET%\%ARCTRA%.gam, %SRCHREC%
+Loop, files,%SRCHMET%\%SRCHSYS%.gam, %SRCHREC%
 	{
 		sys= 
 		sysfile= 
@@ -20927,6 +20932,7 @@ ROMSYS=
 guicontrolget,tmpsr,,SRCHRSLT
 guicontrol,enable,RNMJACK
 guicontrol,disable,ARCSYS
+guicontrol,enable,ARCLNCH
 guicontrol,disable,MAMESWCHK
 PostMessage, 0x186, -1, 0,,ahk_id %arcpopu%
 PostMessage, 0x185, 0, -1, ARCPOP  ; Select all items. 0x185 is LB_SETSEL.
@@ -20935,18 +20941,34 @@ arcpnum=
 multsrch= 
 Loop, Parse, tmpsr,|
 	{
+		srchspl1= 
+		srchspl2= 
+		StringSplit,srchspl,SRCHRSLT,=
+		ARCSYS= %srchspl1%
 		arcpnum+=1
 		if (arcpnum > 1)
 			{
 				guicontrol,,RNMJACK,
 				guicontrol,disable,RNMJACK
+				guicontrol,disable,ARCLNCH
 				multsrch= 1
+				guicontrol,,ARCSYS,|Select a System||%sysddllist%				
 				return
 			}
+		ifnotinstring,srchspl1,%A_Space%-%A_Space%
+				{
+					ARCSYS= % rev_%srchspl1%
+					if (ARCSYS = "")
+						{
+							ARCSYS= %srchspl1%
+						}
+				}		
+		guicontrol,,ARCSYS,|%ARCSYS%||Select a System|%mame_sys%
+		guicontrolget,ARCSYS,,ARCSYS	
 		srchpopcul= %A_LoopField%	
 		guicontrol,enable,RNMJACK
 	}
-
+	
 if (DownOnly = 0)
 	{
 		ARCSEL= 2
@@ -20956,6 +20978,12 @@ if (DownOnly = 0)
 		GuiControl, ChooseString, SRCHRSLT, %srchpopcul%
 	}	
 
+	
+return
+
+
+/*
+
 ARCRCLK= 
 guicontrol,enable,ARCLNCH
 URLFILE= 
@@ -20964,20 +20992,17 @@ sysurl=
 rompth= 
 romtitle= 
 guicontrolget,SRCHRSLT,,SRCHRSLT
+stringreplace,SRCHRSLT,SRCHRSLT,#HACKS#,,
 ROMTRUN= %SRCHRSLT%
-srchspl1= 
-srchspl2= 
-StringSplit,srchspl,SRCHRSLT,=
-ARCSYS= %srchspl1%
 romsys= %ARCSYS%
-revinc= % rev_%srchspl1%
-if (revinc = "")
-	{
-		revinc= %srchspl1%
-	}
 guicontrol,,ARCSYS,|%ARCSYS%||Select a System|%syslist%
-if (MAMESWCHK = 1)
+ifnotinstring,SRCHRSLT,%A_Space%-%A_Space%
 	{
+		revinc= % rev_%srchspl1%
+		if (revinc = "")
+			{
+				revinc= %srchspl1%
+			}
 		guicontrol,,ARCSYS,|%revinc%||Select a System|%mame_sys%
 		guicontrolget,ARCSYS,,ARCSYS
 	}
@@ -20995,7 +21020,7 @@ romelg=
 
 gosub, GamFND
 
-gosub, ArcPPND	
+gosub, ArcPPND
 
 if (ROMFLDR = "")
 	{
@@ -21036,16 +21061,36 @@ if (SRCHRSLT <> "")
 					}
 				if (TGCN = "")
 					{
-						SB_SetText(" Seletct a core to use and then select a ROM. ")
+						SB_SetText(" Select a core to use and then select a ROM. ")
 					}
 			}
 		return	
 	}
 return
+*/
+
 
 GamFND:
+SRCHMET= gam
+SRCHGAM= %ARCSYS%
+stringreplace,romsys,ARCSYS,#HACKS#,,All
+ifnotinstring,srchspl1,%A_Space%-%A_Space%
+	{
+		SRCHMET= gam\MAME - Systems
+		if (tmpsr <> "")
+			{				
+				revinc= % rev_%srchspl1%
+				if (revinc = "")
+					{
+						revinc= %ARCSYS%
+					}
+				SRCHGAM= %srchspl1%
+				romsys= %ARCSYS%
+				ARCSYS= %revinc%
+			}
+	}	
 krbrk= 
-Loop, gam\%HACKAPN%%ARCSYS%.gam
+Loop, %SRCHMET%\%SRCHGAM%.gam
 	{
 		Loop, Read, %A_LoopFileFullPath%
 			{
@@ -21114,6 +21159,7 @@ Loop, gam\%HACKAPN%%ARCSYS%.gam
 				break
 			}
 	}
+SB_SetText(" " save " ")	
 return	
 
 ArcPPND:
@@ -21125,12 +21171,9 @@ loop, Parse, ArcOrgSet,`n`r
 			}
 		stringreplace,ARCSYSK,ARCSYS,#HACKS#,,All	
 		ARCSUBS= %ARCSYSK%
-		if (MAMESWCHK = 1)
+		ifnotinstring,srchspl1,%A_Space%-%A_Space%
 			{
-				if (ARCSYS <> "_firmware_")
-					{
-						ARCSUBS= MAME - Systems
-					}
+				ARCSUBS= MAME - Systems
 			}
 		gamurl1= 
 		gamurl2= 
@@ -21144,13 +21187,19 @@ loop, Parse, ArcOrgSet,`n`r
 					}
 			}
 	}
+SB_SetText(" " sysurl " ")	
 return	
 
 RomSavePPND:
+rjinsfldr= %srchspl2%
 if (JACKETMODE = 1)
 	{
 		guicontrolget,RNMJACK,,RNMJACK
 		rjinsfldr= %romname%\		
+		ifnotinstring,srchspl1,%A_Space%-%A_Space%
+			{
+				rjinsfldr= %srchspl2%\
+			}
 		if (RNMJACK <> "")
 			{
 				rjinsfldr= %RNMJACK%\
@@ -21204,6 +21253,7 @@ ifinstring,rompth,://
 	{
 		URLFILE= %rompth%
 	}
+SB_SetText(" " urlfile " ")	
 return
 
 ENHAK:
@@ -21281,6 +21331,11 @@ topcore=
 fnne= 
 tmpsr=
 tmprm= 
+sysddllist= %syslist%
+if (MAMESWCHK = 1)
+	{
+		sysddllist= %mame_sys%
+	}
 guicontrol,,DOWNONLY,0
 guicontrol,,CUSTMOPT,|%INJOPT%
 guicontrol,,CUSTMARG,|
@@ -21305,11 +21360,11 @@ guicontrolget,ARCSYS,,ARCSYS
 if (ARCSYS = "Select a System")
 	{
 		guicontrol,,ARCCORES,|Select_a_Core||%runlist%
-		guicontrol,,SRCHDDL,|All||%syslist%
+		guicontrol,,SRCHDDL,|All||%sysddllist%
 		guicontrol,,ARCPOP,|
 		return
 	}
-guicontrol,,SRCHDDL,|%ARCSYS%||%syslist%
+guicontrol,,SRCHDDL,|%ARCSYS%||%sysddllist%
 if (ARCSYS = "Microsoft - DOS")
 	{
 		cmdfun= 1
@@ -21394,6 +21449,7 @@ if (ARCSEL = 2)
 	{
 		return
 	}
+	
 jacktshw= hide	
 guicontrol,,ARCPOP,|%pop_list%
 iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,
@@ -21428,7 +21484,7 @@ if (ARCSYS = "MAME - Arcade")
 	{	
 		guicontrol,,OVDTXT,%RJSYSTEMS%\MAME - Arcade
 	}
-if (ARCSYS = "BIOS")
+if (ARCSYS = "BIOS - BIOS")
 	{
 		OVDCHK= MAME - Arcade
 		iniread,mame_verx,Apps.ini,EMULATORS,MAME
@@ -21460,7 +21516,7 @@ if (MAMESWCHK = 1)
 		guicontrol,,EXTEXPLD,0
 		guicontrol,,RUNXTRACT,0
 	}		 
-if (ARCSYS = "_firmware_")
+if (ARCSYS = "- firmware -")
 	{
 		gosub, MAMEBIOSFIRM
 	}
@@ -21543,13 +21599,13 @@ if (JACKETMODE = 0)
 		guicontrolget,tmparcc,,ARCCORES
 		ifinstring, tmparcc,_libretro
 			{
-				OVDFLDR= %OVDFLDR%\$ROMJACKET$
+				OVDFLDR= %OVDFLDR%
 			}
 	}
 if (JACKETMODE = 1)
 	{		
 		guicontrol,,EXTEXPLD,1
-		OVDFLDR= %OVDFLDR%\$ROMJACKET$
+		OVDFLDR= %OVDFLDR%
 		guicontrol,show,RNMJACK
 	}
 IniWrite, "%JACKETMODE%", Settings.ini,GLOBAL,jacket_mode
@@ -21597,7 +21653,7 @@ if (OVDCHK = 1)
 			}
 		if (JACKETMODE = 1)
 			{
-				OVDFLDR= %OVDFLDR%\$ROMJACKET$
+				OVDFLDR= %OVDFLDR%
 			}
 		guicontrol,,OVDTXT,%OVDFLDR%
 	}
@@ -21761,21 +21817,35 @@ if (ARCSEL = 2)
 	}
 if (tmpsr <> "")
 	{
+		/*
 		if (multsrch = "")
 			{
 				tmpsr= 
 				goto, RomDownload
 			}
+		*/	
 		Loop, Parse, tmpsr,|
 			{
+				sysddlist= %mame_sys%
 				stringsplit,srchspl,A_LoopField,=
 				romfp= %srchspl2%
 				ARCSYS= %srchspl1%
-				romsys= %ARCSYS%
-				guicontrol,,ARCSYS,|%ARCSYS%||Select a System|%syslist%
+				ifnotinstring,srchspl1,%A_Space%-%A_Space%
+					{
+						sysddlist= %mame_syst%
+						ARCSYS= % rev_%srchspl1%
+						if (ARCSYS = "")
+							{
+								ARCSYS= %srchspl1%
+							}
+					}		
+				stringreplace,ARCSYSNH,ARCSYS,#HACKS#,,All
+				romsys= %ARCSYSNH%
+				guicontrol,,ARCSYS,|%ARCSYSNH%||Select a System|%sysddllist%
 				gosub, GamFND
 				gosub, ArcPPND
 				gosub, RomSavePPND
+				gosub, GetCoreFromSys
 				gosub, RomDownload
 			}
 		tmpsr= 
@@ -21799,11 +21869,11 @@ srcharcs=
 if (norun = 1)
 	{
 		romdwnlst= 
-		guicontrolget,romdwnlst,, ARCPOP
+		guicontrolget,romdwnlst,,ARCPOP
 		if (romdwnlst = "")
 			{
 				srcharcs= 1
-				guicontrolget,romdwnlst,, SRCHRSLT				
+				guicontrolget,romdwnlst,,SRCHRSLT
 			}
 		Loop, parse, romdwnlst,|
 			{
@@ -21813,6 +21883,10 @@ if (norun = 1)
 						stringsplit,romain,A_LoopField,=
 						ARCSYS= %romain1%
 						romtch= %romain2%
+					}
+				ifnotinstring,ARCSYS,%A_Space%-%A_SPace%
+					{
+					
 					}
 				gosub, SORBNT
 				stringreplace,romdwnlst,romdwnlst,%A_LoopField%|,,All
@@ -21835,6 +21909,10 @@ if (romtch = "")
 
 SORBNT:
 if (MAMESWCHK = 1)
+	{
+		goto, CMDFUNSKP
+	}	
+ifnotinstring,ARCSYS,%A_Space%-%A_Space%
 	{
 		goto, CMDFUNSKP
 	}	
@@ -21875,7 +21953,7 @@ Loop,gam\%HACKAPN%%ARCSYS%.gam
 			}
 	}
 CMDFUNSKP:
-if (MAMESWCHK = 1)
+ifnotinstring,ARCSYS,%A_Space%-%A_Space%
 	{
 		iniread,ARCTRA,emuCfgPresets.set,%ARCSYS%,RJMAMENM
 		loop, Read, gam\MAME - Systems\%ARCTRA%.gam
@@ -21914,12 +21992,9 @@ loop, Parse, ArcOrgSet,`n`r
 				continue
 			}
 		ARCSUBS= %ARCSYS%
-		if (MAMESWCHK = 1)
+		ifnotinstring,ARCSYS,%A_Space%-%A_Space%
 			{
-				if (ARCSYS <> "_firmware_")
-					{
-						ARCSUBS= MAME - Systems
-					}
+				ARCSUBS= MAME - Systems
 			}
 		gamurl1= 
 		gamurl2= 
@@ -24975,27 +25050,28 @@ if (ASVRM = 1)
 			{
 				MEDNFSYS= 
 				SB_SetText("Select a System")
-				
 				return
 			}
 		ifinstring,MEDNFSYS,:=:
 			{
 				MEDNFSYS= 
 				SB_SetText("Select a System")
-				
 				return
 			}
 		if (RUNPLRAD = 1)
 			{
-				;;indvcp= cfg\%MEDNFSYS%\%nicktst%\%EDTRMFN%
-				stringtrimright,MEDNFSYS,MEDNFSYS,4
-				if (MEDNFSYS = "His")
+				stringtrimright,MEDNFSYST,MEDNFSYS,4
+				if (MEDNFSYST = "His")
 					{
 						splitpath,EDTRMP,MEDNFSYS
 						ifinstring,EDTRMFN,%MEDNFSYS%
 							{
 								splitpath,EDTRMP,,EDTRMZ
 								splitpath,EDTRMZ,MEDNFSYS
+							}
+						if (ARCSEL = 2)
+							{
+								MEDNFSYS= %ARCSYS%
 							}
 					}
 			}
@@ -26435,6 +26511,7 @@ if (medao = "")
 guicontrolget,uuniv,,FNDGUI
 if (core_gui = "mednafen")
 	{
+		gosub, MednafenInitELM
 		goto, medguicreated
 	}
 moptog= hide
@@ -26786,6 +26863,7 @@ ifexist, %MEDCFGLOC%
 ifnotexist, %MEDCFGLOC%
 	{
 		gosub, EMUCFGCOPY
+		medinit=
 		goto, MednafenRESETPOP
 	}
 
@@ -26811,12 +26889,12 @@ IniRead, micfg,rj\emuCfgs\mednafen\defaults.ini.set,INPUT
 IniRead, mtrfg,rj\emuCfgs\mednafen\defaults.ini.set,COMMON
 stringreplace,mtrfg,mtrfg,<system>,%RJMEDNM%,All
 ;;;global export;;;;
-Loop, parse, mtcfg,`n,`r
+Loop, parse, mtcfg,`n`r
 	{
 		aii1=
 		aii2=
 		inmk= 
-		stringsplit,aii,A_LoopField,=,`n`r
+		stringsplit,aii,A_LoopField,=
 		ifinstring,aii2,[
 			{
 				Loop, parse, mkbl,`n`r
@@ -26843,18 +26921,26 @@ Loop, parse, mtcfg,`n,`r
 	}
 ;;;;system unique export;;;;
 Loop, parse, mtafg,`n`r
-	{		
+	{	
+		if (A_LoopField = "")
+			{
+				continue
+			}
 		aii1=
 		aii2=
-		stringsplit,aii,A_LoopField,=,`n`r
+		stringsplit,aii,A_LoopField,=
 		FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
 	}
 ;;;;common system export;;;;
-Loop, parse, mtrfg,`n, `r
+Loop, parse, mtrfg,`n`r
 	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
 		aii1=
 		aii2=
-		stringsplit,aii,A_LoopField,=,`n`r
+		stringsplit,aii,A_LoopField,=
 		FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
 	}
 ;;;;input export;;;;
@@ -26882,9 +26968,13 @@ Loop, 16
 	}	
 Loop, parse, micfg,`n`r
 	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
 		aii1=
 		aii2=
-		stringsplit,aii,A_LoopField,=,`n`r
+		stringsplit,aii,A_LoopField,=
 		api1=
 		api2=
 		stringsplit,api,aii1,.
@@ -26897,13 +26987,24 @@ Loop, parse, micfg,`n`r
 				FileAppend,%aii1%%A_Space%%aii2%`n,%MEDCFGLOC%
 			}
 	}
+if (medinit = 1)
+	{
+		FileRead,mednafenopts,%MEDCFGLOC%
+	}
 
 LOADMEDNAFENOPTS:
+if (RJMEDNM = "")
+	{}
 FileRead,mednafenopts,%MEDCFGLOC%
 guicontrol,,emuDDLJ,|%RJMEDNM%||%mednfsc%
 Loop, Parse, mednafenopts,`n`r
 	{
 		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringleft,tmk,A_LoopField,1
+		if (tmk = ";")
 			{
 				continue
 			}
@@ -26919,217 +27020,245 @@ Loop, Parse, mednafenopts,`n`r
 		stringsplit,msplk,A_LoopField,%A_Space%
 		stringreplace,msplkv,msplk1,%RJMEDNM%.,,All
 		msplke= %msplk2% %msplk3% %msplk4% %msplk5% %msplk6% %msplk7% %msplk8%
-		if (mspln1 = RJMEDNM)
-			{
-				if (msplkv = "scanlines")
-					{
-						guicontrol,,emuSLDA,%msplke%
-						guicontrol,,emuEDTD,%msplke%
-						MEDemuEDTD= %msplke%
-					}
-				if (msplkv = "shader")
-					{
-						guicontrol,,emuDDLA,|%msplke%||none|autoip|autoipsharper|scale2x|sabr|ipsharper|ipxnoty|ipynotx|ipxnotysharper|ipynotxsharper|goat
-						MEDemuDDLA= %msplke%
-					}
-				if (msplkv = "shader.goat.vdiv")
-					{
-						if (msplk2 <> 0)
-							{
-								guicontrol,,emuRAD11B,1
-								slmhdv:= msplk2 * 10
-								guicontrol,,emuSLDE,%slmhdv%
-								guicontrol,,emuEDTC,%msplke%
-								MEDemuvdiv= %msplke%
-							}
-					}
-				if (msplkv = "shader.goat.hdiv")
-					{
-						if (msplk2 <> 0)
-							{
-								guicontrol,,emuRAD11A,1
-								slmhdv:= msplk2 * 10
-								guicontrol,,emuSLDE,%slmhdv%
-								guicontrol,,emuEDTC,%msplke%
-								MEDemuhdiv= %msplke%
-							}
-					}
-				if (msplkv = "shader.goat.pat")
-					{
-						if (msplk2 = "goatron")
-							{
-								guicontrol,,emuRAD9B,%msplke%
-							}
-						if (msplk2 = "borg")
-							{
-								guicontrol,,emuRAD9A,%msplke%
-							}
-						if (msplk2 = "slenderman")
-							{
-								guicontrol,,emuRAD9C,%msplke%
-								if (emuCHKB = 1)
-									{
-										
-									}
-							}
-						MEDemuRAD9= %msplke%
-					}
-				if (msplkv = "shader.goat.tp")
-					{
-						mstrp:= msplk2 * 100
-						guicontrol,,emuEDTE,%msplke%
-						guicontrol,,emuSLDC,%mstrp%
-						MEDemuEDTE= %mstrp%
-					}
-				if (msplkv = "special")
-					{
-						guicontrol,,emuDDLB,|%msplke%||none|hq2x|hq3x|hq4x|scale2x|scale3x|scale4x|2xsai|super2xsai|supereagle|nn2x|nn3x|nn4x|nny2x|nny3x|nny4x
-						MEDemuDDLB= %msplke%
-					}
-				if (msplkv = "videoip")
-					{
-						if (msplk2 = 0)
-							{
-								MEDemuDDLC= none
-							}
-						if (msplk2 = 1)
-							{
-								MEDemuDDLC= bilinear
-							}
-						if (msplk2 = "x")
-							{
-								MEDemuDDLC= x-axis
-							}
-						if (msplk2 = "y")
-							{
-								MEDemuDDLC= y-axis
-							}
-						guicontrol,,emuDDLC,|%MEDemuDDLC%||none|bilinear|x-axis|y-axis
-						MEDemuVIDIP= %msplke%
-					}
-				if (msplkv = "stretch")
-					{
-						guicontrol,,emuCHKH,0
-						if (msplk2 = "0")
-							{
-								guicontrol,,emuCHKH,1								
-							}
-						if (msplk2 = "full")
-							{
-								guicontrol,,emuRAD3A,1
-							}
-						if (msplk2 = "aspect")
-							{
-								guicontrol,,emuRAD3B,1
-							}
-						if (msplk2 = "aspect_int")
-							{
-								guicontrol,,emuRAD3C,1
-							}
-						if (msplk2 = "aspect_mult2")
-							{
-								guicontrol,,emuRAD3D,1
-							}
-						MEDemuRAD3= %msplke%						
-					}
-				if (msplkv = "xres")
-					{
-						guicontrol,,emuEDTG,%msplke%
-						MEDemuEDTG= %msplke%
-					}
-				if (msplkv = "xscalefs")
-					{
-						guicontrol,,emuEDTA,%msplke%
-						MEDemuEDTA= %msplke%
-					}
-				if (msplkv = "yres")
-					{
-						guicontrol,,emuEDTH,%msplke%
-						MEDemuEDTH= %msplke%
-					}
-				if (msplkv = "cd_sanity")
-					{
-						guicontrol,,emuCHKC,%msplke%
-						MEDemuCHKC= %msplke%
-					}
-				if (msplkv = "yscalefs")
-					{
-						guicontrol,,emuEDTB,%msplke%
-						MEDemuEDTB= %msplke%
-					}
-				if (msplkv = "tblur")
-					{
-						gmblr= %msplkv%
-						guicontrol,,emuRAD5B,%msplke%
-						MEDemuRAD5B= %msplke%
-					}
-				if (msplkv = "tblur.accum")
-					{
-						guicontrol,,emuRAD5C,%msplke%
-						MEDemuRAD5C= %msplke%
-					}
-				if (msplkv = "tblur.accum.amount")
-					{
-						guicontrol,,emuEDTF,%msplke%
-						guicontrol,,emuSLDB,%msplke%
-						MEDemuEDTF= %msplke%
-					}
-			}
-		if (msplkv = "cd.image_memcache")
+		if (msplk1 = "cd.image_memcache")
 			{
 				guicontrol,,emuCHKD,%msplke%
 				MEDemuCHKD= %msplke%
+				continue	
 			}
-		if (msplkv = "netplay.host")
+		if (msplk1 = "netplay.host")
 			{
 				guicontrol,,emuCBXB,|%msplke%||netplay.fobby.net|node.asnitech.co.uk|mednafen-nl.emuparadise.org|mednafen-us.emuparadise.org|Speedvicio.dtdns.net|s1.mednafen-it.org|gs.emu-land.net|emu-russia.net
 				MEDemuCBXB= %msplke%
+				continue	
 			}
-		if (msplkv = "netplay.nick")
+		if (msplk1 = "netplay.nick")
 			{
 				guicontrol,,emuCBXA,|%msplke%||%A_UserName%|Mednafen|skeletonKey
 				MEDemuCBXA= %msplke%
+				continue	
 			}
-		if (msplkv = "netplay.port")
+		if (msplk1 = "netplay.port")
 			{
 				guicontrol,,emuEDTI,%msplke%
 				MEDemuEDTI= %msplke%
+				continue	
 			}
-		if (msplkv = "sound.driver")
+		if (msplk1 = "sound.driver")
 			{
 				guicontrol,,emuDDLF,|%msplke%||default|alsa|openbsd|oss|wasapish|dsound|wasapi|sdl|jack
 				MEDemuDDLF= %msplke%
+				continue	
 			}
-		if (msplkv = "video.blit_timesync")
+		if (msplk1 = "video.blit_timesync")
 			{
 				guicontrol,,emuCHKG,%msplke%
 				MEDemuCHKG= %msplke%
+				continue	
 			}
-		if (msplkv = "video.deinterlacer")
+		if (msplk1 = "video.deinterlacer")
 			{
 				guicontrol,,emuDDLD,|%msplke%||weave|bob|bob_offset
 				MEDemuDDLD= %msplke%
+				continue	
 			}
-		if (msplkv = "video.driver")
+		if (msplk1 = "video.driver")
 			{
 				guicontrol,,emuDDLE,|%msplke%||opengl|sdl|overlay
 				MEDemuDDLE= %msplke%
+				continue	
 			}
-		if (msplkv = "video.frameskip")
+		if (msplk1 = "video.frameskip")
 			{
 				guicontrol,,emuCHKF,%msplke%
 				MEDemuCHKF= %msplke%
+				continue	
 			}
-		if (msplkv = "video.fs")
+		if (msplk1 = "video.fs")
 			{
 				guicontrol,,emuRAD8B,1
 				guicontrol,,emuRAD8A,%msplke%
 				MEDemuRAD8= %msplke%
+				continue	
 			}
-		if (msplkv = "video.glvsync")
+		if (msplk1 = "video.glvsync")
 			{
 				guicontrol,,emuCHKE,%msplke%
 				MEDemuCHKE= %msplke%
+				continue	
+			}
+		if (mspln1 <> RJMEDNM)
+			{
+				continue
+			}
+		if (msplkv = "scanlines")
+			{
+				guicontrol,,emuSLDA,%msplke%
+				guicontrol,,emuEDTD,%msplke%
+				MEDemuEDTD= %msplke%
+				continue	
+			}
+		if (msplkv = "shader")
+			{
+				guicontrol,,emuDDLA,|%msplke%||none|autoip|autoipsharper|scale2x|sabr|ipsharper|ipxnoty|ipynotx|ipxnotysharper|ipynotxsharper|goat
+				MEDemuDDLA= %msplke%
+				continue	
+			}
+		if (msplkv = "shader.goat.vdiv")
+			{
+				if (msplk2 <> 0)
+					{
+						guicontrol,,emuRAD11B,1
+						slmhdv:= msplk2 * 10
+						guicontrol,,emuSLDE,%slmhdv%
+						guicontrol,,emuEDTC,%msplke%
+					}
+				MEDemuvdiv= %msplke%
+				continue	
+			}
+		if (msplkv = "shader.goat.hdiv")
+			{
+				if (msplk2 <> 0)
+					{
+						guicontrol,,emuRAD11A,1
+						slmhdv:= msplk2 * 10
+						guicontrol,,emuSLDE,%slmhdv%
+						guicontrol,,emuEDTC,%msplke%
+					}
+				MEDemuhdiv= %msplke%
+				continue	
+			}
+		if (msplkv = "shader.goat.pat")
+			{
+				if (msplk2 = "goatron")
+					{
+						guicontrol,,emuRAD9B,%msplke%
+					}
+				if (msplk2 = "borg")
+					{
+						guicontrol,,emuRAD9A,%msplke%
+					}
+				if (msplk2 = "slenderman")
+					{
+						guicontrol,,emuRAD9C,%msplke%
+						if (emuCHKB = 1)
+							{
+								
+							}
+					}
+				MEDemuRAD9= %msplke%
+				continue	
+			}
+		if (msplkv = "shader.goat.tp")
+			{
+				mstrp:= msplk2 * 100
+				guicontrol,,emuEDTE,%msplke%
+				guicontrol,,emuSLDC,%mstrp%
+				MEDemuEDTE= %mstrp%
+				continue	
+			}
+		if (msplkv = "special")
+			{
+				guicontrol,,emuDDLB,|%msplke%||none|hq2x|hq3x|hq4x|scale2x|scale3x|scale4x|2xsai|super2xsai|supereagle|nn2x|nn3x|nn4x|nny2x|nny3x|nny4x
+				MEDemuDDLB= %msplke%
+				continue	
+			}
+		if (msplkv = "videoip")
+			{
+				if (msplk2 = 0)
+					{
+						MEDemuDDLC= none
+					}
+				if (msplk2 = 1)
+					{
+						MEDemuDDLC= bilinear
+					}
+				if (msplk2 = "x")
+					{
+						MEDemuDDLC= x-axis
+					}
+				if (msplk2 = "y")
+					{
+						MEDemuDDLC= y-axis
+					}
+				guicontrol,,emuDDLC,|%MEDemuDDLC%||none|bilinear|x-axis|y-axis
+				MEDemuVIDIP= %msplke%
+				continue	
+			}
+		if (msplkv = "stretch")
+			{
+				guicontrol,,emuCHKH,0
+				if (msplk2 = "0")
+					{
+						guicontrol,,emuCHKH,1								
+					}
+				if (msplk2 = "full")
+					{
+						guicontrol,,emuRAD3A,1
+					}
+				if (msplk2 = "aspect")
+					{
+						guicontrol,,emuRAD3B,1
+					}
+				if (msplk2 = "aspect_int")
+					{
+						guicontrol,,emuRAD3C,1
+					}
+				if (msplk2 = "aspect_mult2")
+					{
+						guicontrol,,emuRAD3D,1
+					}
+				MEDemuRAD3= %msplke%	
+				continue						
+			}
+		if (msplkv = "xres")
+			{
+				guicontrol,,emuEDTG,%msplke%
+				MEDemuEDTG= %msplke%
+				continue
+			}
+		if (msplkv = "xscalefs")
+			{
+				guicontrol,,emuEDTA,%msplke%
+				MEDemuEDTA= %msplke%
+				continue
+			}
+		if (msplkv = "yres")
+			{
+				guicontrol,,emuEDTH,%msplke%
+				MEDemuEDTH= %msplke%
+				continue
+			}
+		if (msplkv = "cd_sanity")
+			{
+				guicontrol,,emuCHKC,%msplke%
+				MEDemuCHKC= %msplke%
+				continue
+			}
+		if (msplkv = "yscalefs")
+			{
+				guicontrol,,emuEDTB,%msplke%
+				MEDemuEDTB= %msplke%
+				continue
+			}
+		if (msplkv = "tblur")
+			{
+				gmblr= %msplkv%
+				guicontrol,,emuRAD5B,%msplke%
+				MEDemuRAD5B= %msplke%
+				continue
+			}
+		if (msplkv = "tblur.accum")
+			{
+				guicontrol,,emuRAD5C,%msplke%
+				MEDemuRAD5C= %msplke%
+				continue
+			}
+		if (msplkv = "tblur.accum.amount")
+			{
+				guicontrol,,emuEDTF,%msplke%
+				guicontrol,,emuSLDB,%msplke%
+				MEDemuEDTF= %msplke%
 			}
 	}	
 return
@@ -27137,7 +27266,26 @@ return
 ;{;;;;;;;;;;;;    RESET MEDNAFEN   ;;;;;;;;;;;;;;;;;;;;;
 mednafenBUTC:
 gui,submit,nohide
-goto, MednafenRESETPOP
+medninit= 1
+;filedelete,%MEDCFGLOC%
+gosub, MednafenRESETPOP
+medinit=
+
+MednafenInitELM:
+MEDemuRAD11A= 0
+MEDemuRAD11B= 0
+MEDemuRAD8A= 0
+MEDemuRAD8B= 1
+MEDemuRAD5A= 1
+MEDemuRAD5B= 0
+MEDemuRAD5C= 0
+MEDemuRAD9A= 0
+MEDemuRAD9B= 1
+MEDemuRAD9C= 0
+MEDemuRAD3A= 0
+MEDemuRAD3B= 0
+MEDemuRAD3C= 0
+MEDemuRAD3D= 1
 MEDemuvdiv= 0.5
 MEDemuhdiv= 0.5
 MEDemuCHKD= 0
@@ -44610,9 +44758,20 @@ return
 OPNCORE:
 gui,submit,nohide
 guicontrolget,LCORE,,LCORE
+guicontrolget,romf,,RUNROMCBX
 if (LCORE = "")
 	{
+		moptog= hide
+		raoptgl= hide
+		emutog= hide
+		gosub, RAGuiVisTog
+		gosub, EmuGuiVisTog
 		return
+	}
+if ((romf <> "") && (coreselv <> ""))
+	{
+		guicontrol,enable,LNCHBUT
+		guicontrol,enable,RCLLNCH
 	}
 ifinstring,LCORE,_libretro
 	{
@@ -44634,15 +44793,9 @@ ifinstring,LCORE,_libretro
 		SB_SetText("Core-Options loaded in the Cores Tab")
 		return
 	}
-
 ASVRM= 1
 RJEMUTG= %LCORE%
 /*
-moptog= hide
-raoptgl= hide
-emutog= hide
-gosub, RAGuiVisTog
-gosub, EmuGuiVisTog
 */
 gosub, EMUNAMEPOP
 if (ASVRM = 1)
@@ -60433,7 +60586,6 @@ if (CSTINJOPT <> "")
 		CSTINJOPT= 
 	}
 	
-;msgbox,,,custswitchs=%CUSTSWITCHS%`ncoremsvc=%coremsvc%`nCSTINJOPT=%CSTINJOPT%`nCUSTMOPT=%CUSTMOPT%
 
 stringreplace,RunOptions,RunOptions,[CUSTMOPT],%A_SPACE%%CUSTMOPT%,All
 stringreplace,RunArgs,RunArgs,[CUSTMARG],%A_SPACE%%CUSTMARG%,All
@@ -62060,7 +62212,7 @@ guicontrol,,RJSYDD,|Systems||%systmfldrs%
 guicontrol,,RUNSYSDDL,|:=:System List:=:||%systmfldrs%
 guicontrol,,SRCHLOCDDL,|:=:System List:=:||%systmfldrs%	
 guicontrol,,ESDWNLPOS,|%systmfldrs%
-guicontrol,,OVDLDS,|a||Matching|%systmfldrs%
+guicontrol,,OVDLDS,|Matching||%systmfldrs%
 guicontrol,,DWNLPOS,|%systmfldrs%
 guicontrol,,ESPLXMP,|%systmfldrs%|%escommon%
 if (NETDWNL = 1)

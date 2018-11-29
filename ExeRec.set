@@ -1020,6 +1020,7 @@ FileInstall,gam\#HACKS#Thomson - TO5.gam,gam\#HACKS#Thomson - TO5.gam,1
 FileInstall,gam\#HACKS#Thomson - TO7.gam,gam\#HACKS#Thomson - TO7.gam,1
 FileInstall,gam\#HACKS#Thomson - TO8.gam,gam\#HACKS#Thomson - TO8.gam,1
 FileInstall,gam\#HACKS#Watara - Supervision.gam,gam\#HACKS#Watara - Supervision.gam,1
+FileInstall,gam\- firmware -.gam,gam\- firmware -.gam,1
 FileInstall,gam\Acorn - BBC.gam,gam\Acorn - BBC.gam,1
 FileInstall,gam\Acorn - Electron.gam,gam\Acorn - Electron.gam,1
 FileInstall,gam\Amstrad - CPC.gam,gam\Amstrad - CPC.gam,1
@@ -1035,7 +1036,7 @@ FileInstall,gam\Atari - ST.gam,gam\Atari - ST.gam,1
 FileInstall,gam\Bally - Astrocade.gam,gam\Bally - Astrocade.gam,1
 FileInstall,gam\Bandai - WonderSwan Color.gam,gam\Bandai - WonderSwan Color.gam,1
 FileInstall,gam\Bandai - WonderSwan.gam,gam\Bandai - WonderSwan.gam,1
-FileInstall,gam\BIOS.gam,gam\BIOS.gam,1
+FileInstall,gam\BIOS - BIOS.gam,gam\BIOS - BIOS.gam,1
 FileInstall,gam\Camputers - Lynx.gam,gam\Camputers - Lynx.gam,1
 FileInstall,gam\Capcom Play System - CPS II.gam,gam\Capcom Play System - CPS II.gam,1
 FileInstall,gam\Capcom Play System - CPS III.gam,gam\Capcom Play System - CPS III.gam,1
@@ -1160,6 +1161,7 @@ FileInstall,gam\Tomy - Tutor.gam,gam\Tomy - Tutor.gam,1
 FileInstall,gam\VTech - CreatiVision.gam,gam\VTech - CreatiVision.gam,1
 FileInstall,gam\VTech - V-Smile.gam,gam\VTech - V-Smile.gam,1
 FileInstall,gam\Watara - Supervision.gam,gam\Watara - Supervision.gam,1
+FileInstall,gam\MAME - Systems\- firmware -.gam,gam\MAME - Systems\- firmware -.gam,1
 FileInstall,gam\MAME - Systems\32x.gam,gam\MAME - Systems\32x.gam,1
 FileInstall,gam\MAME - Systems\32xe.gam,gam\MAME - Systems\32xe.gam,1
 FileInstall,gam\MAME - Systems\32xj.gam,gam\MAME - Systems\32xj.gam,1
@@ -1536,7 +1538,6 @@ FileInstall,gam\MAME - Systems\z88.gam,gam\MAME - Systems\z88.gam,1
 FileInstall,gam\MAME - Systems\zorba.gam,gam\MAME - Systems\zorba.gam,1
 FileInstall,gam\MAME - Systems\zx80.gam,gam\MAME - Systems\zx80.gam,1
 FileInstall,gam\MAME - Systems\zx81.gam,gam\MAME - Systems\zx81.gam,1
-FileInstall,gam\MAME - Systems\_firmware_.gam,gam\MAME - Systems\_firmware_.gam,1
 FileInstall,rj\emucfgs\3doplay\config.xml.set,rj\emucfgs\3doplay\config.xml.set,1
 FileInstall,rj\emucfgs\4DO\Config.xml.set,rj\emucfgs\4DO\Config.xml.set,1
 FileInstall,rj\emucfgs\4DO\FourDO.settings.set,rj\emucfgs\4DO\FourDO.settings.set,1
