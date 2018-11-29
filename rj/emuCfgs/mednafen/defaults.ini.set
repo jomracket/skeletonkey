@@ -150,6 +150,7 @@ video.glvsync=1
 [-------------------------------------]
 [COMMON]
 <system>.enable=1
+<system>.scanlines=0
 <system>.shader.goat.hdiv=0.50
 <system>.shader.goat.pat=goatron
 <system>.shader.goat.slen=1
