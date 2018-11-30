@@ -154,7 +154,7 @@ video.glvsync=1
 <system>.shader.goat.hdiv=0.50
 <system>.shader.goat.pat=goatron
 <system>.shader.goat.slen=1
-<system>.shader.goat.tp=0.50
+<system>.shader.goat.tp=0.0
 <system>.shader.goat.vdiv=0.50
 <system>.shader=none
 <system>.special=none
@@ -168,7 +168,7 @@ video.glvsync=1
 <system>.yscalefs=1.000000
 <system>.tblur=0
 <system>.tblur.accum=0
-<system>.tblur.accum.amount=50
+<system>.tblur.accum.amount=0
 <system>.correct_aspect=1
 [-------------------------------------]
 [GB]
