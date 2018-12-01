@@ -2125,7 +2125,7 @@ Gui, Add, Radio, x501 y144 h16 vARDCORE gARDCore disabled, Core
 Gui, Add, Radio, x501 y170 h16 vDAPP gDApp disabled, Application
 
 Gui, Add, DropDownList, x550 y144 w184 vASCORE gASCore hidden, %corelist%
-Gui, Add, Button, x577 y168 w56 h17 vSELAPP gSelApp hidden, BROWSE
+Gui, Add, Button, x575 y167 w58 h19 vSELAPP gSelApp hidden, BROWSE
 
 Gui ,Add, Text, x643 y147 h17 vSYSIDENT hidden, System Identifier
 Gui, Add, ComboBox, x635 y166 w103 vSYSNICK gSysNick Limit32 Hidden,%preEmuCfg%
@@ -2215,161 +2215,161 @@ Progress, 24,Loading Joystick Interface ...
 Gui, Tab, 4 
 Gui, Tab, Joysticks
 Gui,Font,, %fontName%
-Gui, Add, Picture, x335 y263 w117 h111 vJOYPIC, key.png
+Gui, Add, Picture, x335 y263 w117 h111 vJOYPIC hidden, key.png
 Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x16 y13 w94 h116 vJOYDRVGRP, Joystick Driver
+Gui, Add, GroupBox, x16 y13 w94 h116 vJOYDRVGRP hidden, Joystick Driver
 Gui,Font,%fontXsm% Norm 
-Gui, Add, Radio, x24 y29 h23 vJHIDDRV gJoyDriver, HID
-Gui, Add, Radio, x24 y53 h23 vJDINDRV gJoyDriver, DInput
-Gui, Add, Radio, x24 y77 h23 vJXINDRV gJoyDriver Checked, XInput
-Gui, Add, Radio, x24 y101 h23 vJSDLDRV gJoyDriver, SDL
+Gui, Add, Radio, x24 y29 h23 vJHIDDRV gJoyDriver hidden, HID
+Gui, Add, Radio, x24 y53 h23 vJDINDRV gJoyDriver hidden, DInput
+Gui, Add, Radio, x24 y77 h23 vJXINDRV gJoyDriver Checked hidden, XInput
+Gui, Add, Radio, x24 y101 h23 vJSDLDRV gJoyDriver hidden, SDL
 
 Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x115 y13 w80 h70 vINPDRVGRP, Input Driver
+Gui, Add, GroupBox, x115 y13 w80 h70 vINPDRVGRP hidden, Input Driver
 Gui,Font, Normal
-Gui, Add, Radio, x123 y30 h13 vIDDINP gInputDrv Checked, dinput
-Gui, Add, Radio, x123 y48 h13 vIDSDLINP gInputDrv, SDL2
-Gui, Add, Radio, x123 y64 h13 vIDRAW gInputDrv, raw
+Gui, Add, Radio, x123 y30 h13 vIDDINP gInputDrv Checked hidden, dinput
+Gui, Add, Radio, x123 y48 h13 vIDSDLINP gInputDrv hidden, SDL2
+Gui, Add, Radio, x123 y64 h13 vIDRAW gInputDrv hidden, raw
 
 Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x46 y259 w216 h120 vLASTKGRP, Left Analog Stick
-Gui, Add, GroupBox, x512 y259 w216 h120 vRASTKGRP, Right Analog Stick
-Gui, Add, GroupBox, x46 y386 w215 h90 vDPADGRP, Directional Pad
-Gui, Add, GroupBox, x523 y101 w232 h91 vCIREMAPGRP, Input-remapping
+Gui, Add, GroupBox, x46 y259 w216 h120 vLASTKGRP hidden, Left Analog Stick
+Gui, Add, GroupBox, x512 y259 w216 h120 vRASTKGRP hidden, Right Analog Stick
+Gui, Add, GroupBox, x46 y386 w215 h90 vDPADGRP hidden, Directional Pad
+Gui, Add, GroupBox, x523 y101 w232 h91 vCIREMAPGRP hidden, Input-remapping
 Gui,Font,%fontXsm% Norm 
 JOYCFGMODE= core
 Gui,Font,%fontXmed% Bold
 Gui, Add, DropDownList, x532 y128 w205 vJOYCORE gJOYCORE, Global||%corelist%|Xpadder|Antimicro%addemu%
 Gui,Font,%fontXsm% Norm 
 Gui, Add, Button, x738 y127 w13 h23 vJCFGADD gJCfgAdd, +
-Gui, Add, ComboBox, x527 y155 w184 vJCFGEDT gJCfgEdt +0x2 +E0x5000 Right hidden,|%joycfg%||%curcfg%
-Gui, Add, Button, x715 y155 w36 h20 vSAVEJOY gSaveJOY hidden, save
+Gui, Add, ComboBox, x527 y155 w184 vJCFGEDT gJCfgEdt +0x2 +E0x5000 Right,|%joycfg%||%curcfg%
+Gui, Add, Button, x715 y155 w36 h20 vSAVEJOY gSaveJOY, save
 
-Gui, Add, Text, x721 y427 h23 +0x200 vBbutTXT, (1)
-Gui, Add, Text, x614 y381 h17 +0x200 vYbutTXT, (3)
-Gui, Add, Text, x501 y426 h23 +0x200 vXbutTXT, (2)
-Gui, Add, Text, x616 y478 h13 +0x200 vAbutTXT, (0)
-Gui, Add, Text, x158 y360 h13 +0x200 vL3butTXT,(8)[L3] 
-Gui, Add, Text, x525 y359 h13 +0x200 vR3butTXT,[R3](9) 
-Gui, Add, Text, x66 y197 h23 +0x200 vLTrigTXT, Left Trigger
-Gui, Add, Text, x628 y199 h23 +0x200 vRTrigTXT, Right Trigger
-Gui, Add, Text, x175 y221 h23 vLbutTXT, (4)Left Bumper
-Gui, Add, Text, x678 y221 h23 vRbutTXT, Right Bumper(5)
-Gui, Add, Text, x325 y405 h16 vSELECTbutTXT, (6)Select
-Gui, Add, Text, x427 y405 h16 vSTARTbutTXT, (7)Start
+Gui, Add, Text, x721 y427 h23 +0x200 vBbutTXT hidden, (1)
+Gui, Add, Text, x614 y381 h17 +0x200 vYbutTXT hidden, (3)
+Gui, Add, Text, x501 y426 h23 +0x200 vXbutTXT hidden, (2)
+Gui, Add, Text, x616 y478 h13 +0x200 vAbutTXT hidden, (0)
+Gui, Add, Text, x158 y360 h13 +0x200 vL3butTXT hidden,(8)[L3] 
+Gui, Add, Text, x525 y359 h13 +0x200 vR3butTXT hidden,[R3](9) 
+Gui, Add, Text, x66 y197 h23 +0x200 vLTrigTXT hidden, Left Trigger
+Gui, Add, Text, x628 y199 h23 +0x200 vRTrigTXT hidden, Right Trigger
+Gui, Add, Text, x175 y221 h23 vLbutTXT hidden, (4)Left Bumper
+Gui, Add, Text, x678 y221 h23 vRbutTXT hidden, Right Bumper(5)
+Gui, Add, Text, x325 y405 h16 vSELECTbutTXT hidden, (6)Select
+Gui, Add, Text, x427 y405 h16 vSTARTbutTXT hidden, (7)Start
 Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x307 y6 w150 h110 Center vCFGPLGRP, Configure Player
+Gui, Add, GroupBox, x307 y6 w150 h110 Center vCFGPLGRP hidden, Configure Player
 Gui,Font,%fontXsm% Norm 
-Gui, Add, Text, x463 y6 w170 h90 vINDWRN Disabled, Confg Hints
-Gui, Add, Button, x220 y17 w60 h18 vCLRPLYR gClrPlyr, CLEAR
-Gui, Add, Button, x220 y40 w60 h18 vRSTPLYR gResetPlayerJoy, RESET
-Gui, Add, Text, x197 y63 vDEFPLCTRLGRP,Default Player Controls
+Gui, Add, Text, x463 y6 w170 h90 vINDWRN Disabled hidden, Confg Hints
+Gui, Add, Button, x220 y17 w60 h18 vCLRPLYR gClrPlyr hidden, CLEAR
+Gui, Add, Button, x220 y40 w60 h18 vRSTPLYR gResetPlayerJoy hidden, RESET
+Gui, Add, Text, x197 y63 vDEFPLCTRLGRP hidden,Default Player Controls
 Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x248 y118 w273 h59 vHOTKGRP, Hotkeys
+Gui, Add, GroupBox, x248 y118 w273 h59 vHOTKGRP hidden, Hotkeys
 Gui,Font,%fontXsm% Norm
-Gui, Add, Radio, x317 y24 h13 vJSW gPlayerType Checked, Joystick
-Gui, Add, Radio, x383 y24 h13 vKSW gPlayerType, Keyboard
+Gui, Add, Radio, x317 y24 h13 vJSW gPlayerType Checked hidden, Joystick
+Gui, Add, Radio, x383 y24 h13 vKSW gPlayerType hidden, Keyboard
 
-Gui, Add, ComboBox, x409 y136 w75 vHKEYCB gHotkeyWrite, nul||%JOYSET%
-Gui, Add, DDL, x254 y137 w139 vHKEYDD ghkDrpDwn, inputEnableHotkey||%hkDDL%
-Gui, Add, Text, x373 y42 h23 +0x200 vJYPLTXt, Player
-Gui, Add, DDL, x409 y42 w40  vPLAYERN gPlyrDrpDwn, 1||1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16
-Gui, Add, Text, x146 y135 h23 +0x200 vMENBUTCMBTXT, Menu-Button-Combo
-Gui, Add, Text, x103 y160 w121 +0x200 vDSPLGC disabled, None 
-Gui, Add, DropDownList,x102 y136 w40 vMGPC gGamepadCombo, 0||0|1|2|3
-Gui, Add, Text, x31 y132 h23 +0x200 vMXUSRTXT, Max Users
-Gui, Add, DropDownList, x34 y158 w40 vMXUSR gMaxUsers, 5||1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16
-Gui, Add, CheckBox, x605 y5 h18 +0x20 vSWAPOKC gSwapOKC, Swap OK/Cancel Buttons
-Gui, Add, CheckBox, x624 y24 h18 +0x20 vADJS gAutoDetectJoy Checked, Auto-Detect Joysticks
-Gui, Add, CheckBox, x664 y44 h18 +0x20 vREMPB gRemapBinds Checked, Remap Binds
-Gui, Add, CheckBox, x633 y64 h18 +0x20 vKBGP gKeyboardGamepad Checked, Keyboard Gamepad
-Gui, Add, CheckBox, x656 y84 h18 +0x20 vAUM gAllMenu, All-Users Menu
-Gui, Add, Text, x334 y65 h23 +0x200 vJPINDX, Joystick Index
-Gui, Add, DropDownList, x409 y65 w40 vJOYIND gJoypadIndex, 0||0|1|2|3|4|5|6|7|8
-Gui, Add, Text, x339 y91 vMINXTXT, Mouse Index
-Gui, Add, DropDownList, x409 y88 w40 vMOUSEIND gMouseIndex, 0||0|1|2|3|4|5|6|7|8
+Gui, Add, ComboBox, x409 y136 w75 vHKEYCB gHotkeyWrite hidden, nul||%JOYSET%
+Gui, Add, DDL, x254 y137 w139 vHKEYDD ghkDrpDwn hidden, inputEnableHotkey||%hkDDL%
+Gui, Add, Text, x373 y42 h23 +0x200 vJYPLTXt hidden, Player
+Gui, Add, DDL, x409 y42 w40  vPLAYERN gPlyrDrpDwn hidden, 1||1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16
+Gui, Add, Text, x146 y135 h23 +0x200 vMENBUTCMBTXT hidden, Menu-Button-Combo
+Gui, Add, Text, x103 y160 w121 +0x200 vDSPLGC disabled hidden, None 
+Gui, Add, DropDownList,x102 y136 w40 vMGPC gGamepadCombo hidden, 0||0|1|2|3
+Gui, Add, Text, x31 y132 h23 +0x200 vMXUSRTXT hidden, Max Users
+Gui, Add, DropDownList, x34 y158 w40 vMXUSR gMaxUsers hidden, 5||1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16
+Gui, Add, CheckBox, x605 y5 h18 +0x20 vSWAPOKC gSwapOKC hidden, Swap OK/Cancel Buttons
+Gui, Add, CheckBox, x624 y24 h18 +0x20 vADJS gAutoDetectJoy Checked hidden, Auto-Detect Joysticks
+Gui, Add, CheckBox, x664 y44 h18 +0x20 vREMPB gRemapBinds Checked hidden, Remap Binds
+Gui, Add, CheckBox, x633 y64 h18 +0x20 vKBGP gKeyboardGamepad Checked hidden, Keyboard Gamepad
+Gui, Add, CheckBox, x656 y84 h18 +0x20 vAUM gAllMenu hidden, All-Users Menu
+Gui, Add, Text, x334 y65 h23 +0x200 vJPINDX hidden, Joystick Index
+Gui, Add, DropDownList, x409 y65 w40 vJOYIND gJoypadIndex hidden, 0||0|1|2|3|4|5|6|7|8
+Gui, Add, Text, x339 y91 vMINXTXT hidden, Mouse Index
+Gui, Add, DropDownList, x409 y88 w40 vMOUSEIND gMouseIndex hidden, 0||0|1|2|3|4|5|6|7|8
 Gui,Font,Bold
-Gui, Add, GroupBox, x314 y419 w160 h80 Center vANLDZGRP,Analog DeadZone
+Gui, Add, GroupBox, x314 y419 w160 h80 Center vANLDZGRP hidden,Analog DeadZone
 Gui, Font, Normal
-Gui, Add, Text, x320 y448 w130 h18 vDEDZTXT Center, 0.%dedz%
-Gui, Add, Slider, x320 y472 w152 h24 Range0-100000 vDEDZ gDedZ, %dedzmult%
+Gui, Add, Text, x320 y448 w130 h18 vDEDZTXT Center hidden, 0.%dedz%
+Gui, Add, Slider, x320 y472 w152 h24 Range0-100000 vDEDZ gDedZ hidden, %dedzmult%
 
-Gui, Add, CheckBox, x118 y112 w83 h16 vUNIFMENU gUnifMenu, Unified Menu
-Gui, Add, DropDownList, x158 y88 w100 vPOLLING gPolling, Early|Normal|Late||
-Gui, Add, Text, x268 y91 w34 h15 vPOLTXT, Polling
+Gui, Add, CheckBox, x118 y112 w83 h16 vUNIFMENU gUnifMenu hidden, Unified Menu
+Gui, Add, DropDownList, x158 y88 w100 vPOLLING gPolling hidden, Early|Normal|Late||
+Gui, Add, Text, x268 y91 w34 h15 vPOLTXT hidden, Polling
 
-Gui, Add, GroupBox, x272 y173 w225 h70 vJBLNKGRP,
-Gui, Add, Text, x437 y187 h18 vTRBPRD, Period
-Gui, Add, Edit, x388 y184 w45 h21 vTURBOP gTURBOP Number, %inputTurboPeriod%
-Gui, Add, UpDown, x412 y185 w17 h21 vTURBUD, 
-
-
-Gui, Add, Text, x437 y209 h18 vDUTCTXT, Duty-Cycle
-Gui, Add, Edit, x388 y209 w45 h21 vDUTYCYCLE gDutyCycle Number, %inputDutyCycle%
-Gui, Add, UpDown, x405 y209 w17 h21 vDUTYUD, 
+Gui, Add, GroupBox, x272 y173 w225 h70 vJBLNKGRP hidden,
+Gui, Add, Text, x437 y187 h18 vTRBPRD hidden, Period
+Gui, Add, Edit, x388 y184 w45 h21 vTURBOP gTURBOP Number hidden, %inputTurboPeriod%
+Gui, Add, UpDown, x412 y185 w17 h21 vTURBUD hidden, 
 
 
-Gui, Add, CheckBox, x665 y110 h15 vRMPLOAD gRmpLoad checked, Auto-Load
+Gui, Add, Text, x437 y209 h18 vDUTCTXT hidden, Duty-Cycle
+Gui, Add, Edit, x388 y209 w45 h21 vDUTYCYCLE gDutyCycle Number hidden, %inputDutyCycle%
+Gui, Add, UpDown, x405 y209 w17 h21 vDUTYUD hidden, 
 
-Gui, Add, CheckBox, x49 y363 vANLDP gDpadMode, DPad Mode
 
-Gui, Add, Text, x280 y213 h17 vTRBTXT, Terbo-hotkey
+Gui, Add, CheckBox, x665 y110 h15 vRMPLOAD gRmpLoad checked hidden, Auto-Load
+
+Gui, Add, CheckBox, x49 y363 vANLDP gDpadMode hidden, DPad Mode
+
+Gui, Add, Text, x280 y213 h17 vTRBTXT hidden, Terbo-hotkey
 
 ;{;;;;;;;;;;;;;;;    == Buttons ==    ;;;;;;;;;;;;;;;;;;;;;;
-Gui, Add, Button, x355 y192 w20 h20 vTURBOIN gTURBOIN, +
-Gui, Add, Button, x206 y202 w20 h20 vLTRIGIN gLTRGIN, +
-Gui, Add, Button, x151 y222 w20 h20 vLBUMPIN gLBMPIN, +
-Gui, Add, Button, x598 y202 w20 h20 vRTRIGIN gRTRGIN, +
-Gui, Add, Button, x649 y225 w20 h20 vRBUMPIN gRBMPIN, +
-Gui, Add, Button, x180 y277 w20 h20 vLSTICKUPIN gLSTUIN, +
-Gui, Add, Button, x132 y298 w20 h20 vLSTICKLFTIN gLSTLIN, +
-Gui, Add, Button, x233 y299 w20 h20 vLSTICKRTIN gLSTRIN, +
-Gui, Add, Button, x180 y319 w20 h20 vLSTICKDWNIN gLSTDIN, +
-Gui, Add, Button, x230 y339 w20 h20 vLSTICKBUTIN gLSTBIN, +
-Gui, Add, Button, x645 y280 w20 h20 vRSTICKUPIN gRSTUIN, +
-Gui, Add, Button, x596 y300 w20 h20 vRSTICKLFTIN gRSTLIN, +
-Gui, Add, Button, x697 y300 w20 h20 vRSTICKRTIN gRSTRIN, +
-Gui, Add, Button, x645 y321 w20 h20 vRSTICKDWNIN gRSTDIN, +
-Gui, Add, Button, x596 y341 w20 h20 vRSTICKBUTIN gRSTBIN, +
-Gui, Add, Button,x179 y444 w20 h20 vDPADDWNIN gDPDDIN, +
-Gui, Add, Button, x179 y401 w20 h20 vDPADUPIN gDPDUIN, +
-Gui, Add, Button,x128 y423 w20 h20 vDPADLFTIN gDPDLIN, +
-Gui, Add, Button,x229 y423 w20 h20 vDPADRTIN gDPDRIN, +
-Gui, Add, Button, x375 y386 w20 h20 vSLCTBUTIN gSLCTBIN, +
-Gui, Add, Button, x476 y386 w20 h20 vSTRTBUTIN gSTRTBIN, +
-Gui, Add, Button, x642 y405 w20 h20 vYBUTIN gYBIN, +
-Gui, Add, Button, x590 y428 w20 h20 vXBUTIN gXBIN, +
-Gui, Add, Button,x641 y450 w20 h20 vBBUTIN gBBIN, +
-Gui, Add, Button, x691 y428 w20 h20 vABUTIN gABIN, +
-Gui, Add, Button, x484 y137 w20 h20 vINPBUTIN gINPBIN, +
+Gui, Add, Button, x355 y192 w20 h20 vTURBOIN gTURBOIN hidden, +
+Gui, Add, Button, x206 y202 w20 h20 vLTRIGIN gLTRGIN hidden, +
+Gui, Add, Button, x151 y222 w20 h20 vLBUMPIN gLBMPIN hidden, +
+Gui, Add, Button, x598 y202 w20 h20 vRTRIGIN gRTRGIN hidden, +
+Gui, Add, Button, x649 y225 w20 h20 vRBUMPIN gRBMPIN hidden, +
+Gui, Add, Button, x180 y277 w20 h20 vLSTICKUPIN gLSTUIN hidden, +
+Gui, Add, Button, x132 y298 w20 h20 vLSTICKLFTIN gLSTLIN hidden, +
+Gui, Add, Button, x233 y299 w20 h20 vLSTICKRTIN gLSTRIN hidden, +
+Gui, Add, Button, x180 y319 w20 h20 vLSTICKDWNIN gLSTDIN hidden, +
+Gui, Add, Button, x230 y339 w20 h20 vLSTICKBUTIN gLSTBIN hidden, +
+Gui, Add, Button, x645 y280 w20 h20 vRSTICKUPIN gRSTUIN hidden, +
+Gui, Add, Button, x596 y300 w20 h20 vRSTICKLFTIN gRSTLIN hidden, +
+Gui, Add, Button, x697 y300 w20 h20 vRSTICKRTIN gRSTRIN hidden, +
+Gui, Add, Button, x645 y321 w20 h20 vRSTICKDWNIN gRSTDIN hidden, +
+Gui, Add, Button, x596 y341 w20 h20 vRSTICKBUTIN gRSTBIN hidden, +
+Gui, Add, Button,x179 y444 w20 h20 vDPADDWNIN gDPDDIN hidden, +
+Gui, Add, Button, x179 y401 w20 h20 vDPADUPIN gDPDUIN hidden, +
+Gui, Add, Button,x128 y423 w20 h20 vDPADLFTIN gDPDLIN hidden, +
+Gui, Add, Button,x229 y423 w20 h20 vDPADRTIN gDPDRIN hidden, +
+Gui, Add, Button, x375 y386 w20 h20 vSLCTBUTIN gSLCTBIN hidden, +
+Gui, Add, Button, x476 y386 w20 h20 vSTRTBUTIN gSTRTBIN hidden, +
+Gui, Add, Button, x642 y405 w20 h20 vYBUTIN gYBIN hidden, +
+Gui, Add, Button, x590 y428 w20 h20 vXBUTIN gXBIN hidden, +
+Gui, Add, Button,x641 y450 w20 h20 vBBUTIN gBBIN hidden, +
+Gui, Add, Button, x691 y428 w20 h20 vABUTIN gABIN hidden, +
+Gui, Add, Button, x484 y137 w20 h20 vINPBUTIN gINPBIN hidden, +
 ;};;;;;;
 
 ;{;;;;;;;;;;;;;;     == ComboBoxes ==    ;;;;;;;;;;;
-Gui, Add, ComboBox, x280 y191 w75 vTRBCMB gTrbCmb, nul||%JOYSET%
-Gui, Add, ComboBox, x521 y300 w75  vRXMinus gRXMinus, \-2||%JOYSET%
-Gui, Add, ComboBox, x570 y279 w75  vRYPlus gRYPlus, \-3||%JOYSET%
-Gui, Add, ComboBox, x574 y224 w75  vR gr, 5||%JOYSET%
-Gui, Add, ComboBox, x76 y221 w75  vL gl, 4||%JOYSET%
-Gui, Add, ComboBox, x622 y300 w75  vRXPlus gRXPlus, +2||%JOYSET%
-Gui, Add, ComboBox, x570 y320 w75  vRYMinus gRYMinus, +3||%JOYSET%
-Gui, Add, ComboBox, x521 y340 w75  vR3 gR3, 9||%JOYSET%
-Gui, Add, ComboBox, x155 y340 w75  vL3 gL3, 8||%JOYSET%
-Gui, Add, ComboBox, x57 y298 w75  vLXMinus gLXMinus, \-0||%JOYSET%
-Gui, Add, ComboBox, x105 y277 w75  vLYPlus gLYPlus, \-1||%JOYSET%
-Gui, Add, ComboBox, x105 y318 w75  vLYMinus gLYMinus, +1||%JOYSET%
-Gui, Add, ComboBox, x158 y298 w75  vLXPlus gLXPlus, +0||%JOYSET%
-Gui, Add, ComboBox, x300 y385 w75  vselect gselect, 6||%JOYSET%
-Gui, Add, ComboBox, x401 y385 w75  vstart gstart, 7||%JOYSET%
-Gui, Add, ComboBox, x104 y401 w75  vup gup, h0up||%JOYSET%
-Gui, Add, ComboBox, x53 y422 w75  vleft gleft, h0left||%JOYSET%
-Gui, Add, ComboBox, x154 y422 w75  vright gright, h0right||%JOYSET%
-Gui, Add, ComboBox, x104 y443 w75  vdown gdown, h0down||%JOYSET%
-Gui, Add, ComboBox, x567 y404 w75  vY gy, 3||%JOYSET%
-Gui, Add, ComboBox, x515 y427 w75  vX gx, 2||%JOYSET%
-Gui, Add, ComboBox, x566 y449 w75  vB gb, 0||%JOYSET%
-Gui, Add, ComboBox, x616 y427 w75  vA ga, 1||%JOYSET%
-Gui, Add, ComboBox, x131 y201 w75  vl2 gl2, +5||%JOYSET%
-Gui, Add, ComboBox, x523 y202 w75  vr2 gr2, +4||%JOYSET%
+Gui, Add, ComboBox, x280 y191 w75 vTRBCMB gTrbCmb hidden, nul||%JOYSET%
+Gui, Add, ComboBox, x521 y300 w75 vRXMinus gRXMinus hidden, \-2||%JOYSET%
+Gui, Add, ComboBox, x570 y279 w75 vRYPlus gRYPlus hidden, \-3||%JOYSET%
+Gui, Add, ComboBox, x574 y224 w75 vR gr hidden, 5||%JOYSET%
+Gui, Add, ComboBox, x76 y221 w75 vL gl hidden, 4||%JOYSET%
+Gui, Add, ComboBox, x622 y300 w75 vRXPlus gRXPlus hidden, +2||%JOYSET%
+Gui, Add, ComboBox, x570 y320 w75 vRYMinus gRYMinus hidden, +3||%JOYSET%
+Gui, Add, ComboBox, x521 y340 w75 vR3 gR3 hidden, 9||%JOYSET%
+Gui, Add, ComboBox, x155 y340 w75 vL3 gL3 hidden, 8||%JOYSET%
+Gui, Add, ComboBox, x57 y298 w75 vLXMinus gLXMinus hidden, \-0||%JOYSET%
+Gui, Add, ComboBox, x105 y277 w75 vLYPlus gLYPlus hidden, \-1||%JOYSET%
+Gui, Add, ComboBox, x105 y318 w75 vLYMinus gLYMinus hidden, +1||%JOYSET%
+Gui, Add, ComboBox, x158 y298 w75 vLXPlus gLXPlus hidden, +0||%JOYSET%
+Gui, Add, ComboBox, x300 y385 w75 vselect gselect hidden, 6||%JOYSET%
+Gui, Add, ComboBox, x401 y385 w75 vstart gstart hidden, 7||%JOYSET%
+Gui, Add, ComboBox, x104 y401 w75 vup gup hidden, h0up||%JOYSET%
+Gui, Add, ComboBox, x53 y422 w75 vleft gleft hidden, h0left||%JOYSET%
+Gui, Add, ComboBox, x154 y422 w75 vright gright hidden, h0right||%JOYSET%
+Gui, Add, ComboBox, x104 y443 w75 vdown gdown hidden, h0down||%JOYSET%
+Gui, Add, ComboBox, x567 y404 w75 vY gy hidden, 3||%JOYSET%
+Gui, Add, ComboBox, x515 y427 w75 vX gx hidden, 2||%JOYSET%
+Gui, Add, ComboBox, x566 y449 w75 vB gb hidden, 0||%JOYSET%
+Gui, Add, ComboBox, x616 y427 w75 vA ga hidden, 1||%JOYSET%
+Gui, Add, ComboBox, x131 y201 w75 vl2 gl2 hidden, +5||%JOYSET%
+Gui, Add, ComboBox, x523 y202 w75 vr2 gr2 hidden, +4||%JOYSET%
 ;;gui, Add, ComboBox, x327 y274 w75  vHome gHome Disabled, nul||%JOYSET%
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -2583,15 +2583,14 @@ Gui, Add, Button, x457 y78 w54 h19 vSVAPLST gAltTempl, Template
 
 
 Gui Add, Text, x361 y79 w35 h15 vPLSELTXT, Select
-Gui Add, Button, x360 y94 w32 h15 +0x100 vPLLISTALL gPLLISTALL, All
-Gui Add, Button, x361 y108 w32 h15 +0x100 vPLLISTN gPLLISTN, None
+Gui Add, Button, x360 y94 w35 h15 +0x100 vPLLISTALL gPLLISTALL, All
+Gui Add, Button, x361 y108 w35 h15 +0x100 vPLLISTN gPLLISTN, None
 Gui Add, Button, x416 y100 w32 h15 +0x200 vPLLISTSORT gPLLISTSORT, Sort
 
 Gui, Add, Button, x358 y150 w50 h18 vCPYPL gCopyToPl, +------>
 Gui, Add, Text, x360 y170 vPLADPTXT, Add
 Gui, Add, Button, x358 y191 w40 h19 vCLRPP gClearROMPop, 0=-->x
 Gui, Add, Text, x365 y211 vPLCLRPTXT, Clear
-
 
 Gui, Add, Button,x428 y230 w17 h16 vMVPLOU gMVPLOU,^
 Gui, Add, Button,x428 y250 w17 h16 vMVPLOD gMVPLOD,v
@@ -5218,6 +5217,11 @@ PLEDITCORE:
 gui,submit,nohide
 guicontrolget,PLISTTYP,,PLISTTYP
 guicontrolget,CSPLITM,,CURPLST
+if (CSPLITM = "")
+	{
+		SB_SetText("Playlist item must be selected")
+		return
+	}
 ControlGet,curpllst, List,,,ahk_id %insel%
 existlst= 
 Loop, Parse,curpllst,`n
@@ -13911,6 +13915,7 @@ if (emprcur = "")
 		return
 	}
 EMPRLT= 
+newsemu= 
 Loop, parse, ksiv,|
 	{
 		if (A_LoopField = "")
@@ -13936,6 +13941,10 @@ Loop, Parse, EMPRLT,|
 			}
 	}
 guicontrol,,EMPRLST,|%EMPRLT%
+if (newsemu = "")
+	{
+		EMPRLT= 0
+	}
 iniwrite,"%EMPRLT%",Assignments.ini,OVERRIDES,%semu%
 iniwrite,"%newsemu%",Assignments.ini,ASSIGNMENTS,%semu%
 return
@@ -18130,6 +18139,7 @@ Loop,Parse,SysEmuSet,`n`r
 				continue
 			}
 		LineNum+=1
+		librk= 
 		selfnd= 
 		stemu= 
 		stemu1= 
@@ -18144,6 +18154,22 @@ Loop,Parse,SysEmuSet,`n`r
 		stringsplit,symt,sdspl1,|
 		if (symt1 = ARCSYS)
 			{				
+				if (raexefile <> "NOT-FOUND.exe")
+					{
+						Loop, Parse, sdspl2,|
+							{
+								ifexist,%libretrodirectory%\%A_Loopfield%
+									{
+										prioco:= A_LoopField . "||"
+										librk= 1
+										break
+									}
+							}
+						if (librk =	1)
+							{
+								break
+							}
+					}
 				Loop, Parse, sdspl1,|
 					{
 						if (A_Index = 1)
@@ -25095,8 +25121,11 @@ if (ASVRM = 1)
 			{
 				RVLKUP= %MEDNFSYS%
 			}
-		MEDCFGLOC= cfg\%MEDNFSYS%\%nicktst%\%EDTRMFN%\%medcfg%
-		indvcp= %A_ScriptDir%\cfg\%MEDNFSYS%\%nicktst%\%EDTRMFN%
+		if (mednafxf = 1)
+			{
+				MEDCFGLOC= cfg\%MEDNFSYS%\%nicktst%\%EDTRMFN%\%medcfg%
+				indvcp= %A_ScriptDir%\cfg\%MEDNFSYS%\%nicktst%\%EDTRMFN%
+			}
 	}
 gosub, SHRTNMLkUp
 %SHRTNM%CFGF= 
@@ -25349,1094 +25378,1098 @@ return
 
 ;{;;;;;;;;;;;;;;;  UNUSED  ;;;;;;;;;;;;;;;;;;;
 retroArch_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 gosub, RAOPTPOP
 return
 
 1964_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 3doplay_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 archie_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 3DNes_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 aprnes_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 arcem_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 alice32_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 apple1_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 apfemu_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Arnimedes_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 ex68_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 zmz_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 AdviEmulator_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 4DO_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 ActiveGS_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Altirra_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 AdriPSX_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Anex86_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 AppleWin_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Arculator_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Atari800_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Atari800win_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 BeebEm_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Bizhawk_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pcae_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 rainbow_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 sainT_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 bws_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 dcmicrocolor_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 DCAlice_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 wataroo_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 mtxemu_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 speccy_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 ultimo_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 oswan_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 ASCD_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Bliss_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 BlueMSX_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 CD-I_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 CEMU_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Citra_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Colem_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Cxbx_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 DOSBox_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Demul_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 DesMume_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Dolphin_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 DosPlus_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 EMU7800_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 ElectrEm_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 FMBochs_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 FMBocks_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 FS-UAE_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 FinalBurnAlpha_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 FishNChips_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Fusion_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 funnymu_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Ishiiruka_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Kegs32_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 medusa_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Mesen_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Mess_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 minimon_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Neko_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 NeoRaine_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 No$GBA_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Nostalgia_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 NullDC_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Ootake_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Oricutron_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 PC6001VW_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 PC6001VX_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 PPSSPP_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 ParaJVE_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Pcsx2_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 PicoDrive_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 ProSystem_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Project64_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 ProjectTempest_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 SL9821_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 SNESGT_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 SSF_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 SimCoupe_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Stella_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Supermodel_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Unz_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 SWFOpener_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 VirtuaNes_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 VisualBoyAdvance_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 VisualBoyAdvance-M_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 vita3k_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 WinAPE_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 WinArcadia_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 WinKawaks_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 aes4all_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 WinUAE_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 WinVICE_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 WinX68k_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 X1turbo_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 XM6_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 XM7_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 dcexel_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Xroar_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 ep32_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 enter_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 ep128emu_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 tunix_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Yabause_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 ZXSpin_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Zsnes_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 ace_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 virtu_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 apemuw_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 aqemu_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 aipc_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 bem_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 modelb_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 joyce_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 faux1_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 arnold_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 atari++_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 atari800winplus_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 atom_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 atomulator_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 bgb_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 blastem_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 boycottadv_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 bsnes_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 calice_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 callus_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 ccs31_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 kcemu_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 dcvg5k_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 chankast_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 colecovision_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 comeback64_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 cpce_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 cps3emulator_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 creativisionemulator_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 dega_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 lisa_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 o2em_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 realityboy_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 vbjin_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 kindred_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 neusnem_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pokemini_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 vpanajr_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 lisaem_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 dgen_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 minivmac_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pcemacplus_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 gemulator_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 dinoboy_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 directvms_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 dmgboy_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 dream64_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 ePSXe_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 eightyone_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 elkulator_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 em7_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 elf_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 winfellow_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 c4pc_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 SIMH_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 emma02_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 nanowasp_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 ubee512_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 sheepshaver_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 emu64_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 dreamvmu_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 emukon_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 euphoric_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 fceux_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 firegb_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 fm77_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 fm77av40_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 fm77av40ex_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 fm77av_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 fm7_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 fm8_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 fmsx_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 freedo_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 frodo_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 gSport_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 gamecomemu_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 gamegear_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 gbeplus_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 gearsystem_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 genesisplus_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 gens_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 gensgs_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 gensplus_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 gest_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 hatari_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 horizon_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 hoxs64_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 hugo_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 calcem_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pkemu_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pk201_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 cpspemu_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Play_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 modeller_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 exodus_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 hpsx_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 Makaron_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 cogwheel_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 vdmgr_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 psxjin_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pcsp_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 dcmo5_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pmd85_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 zinc_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 daphne_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 classic99_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 ti994w_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 win994a_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 tilem_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 dcmoto_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 coolcv_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 winTVC_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 emu_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 hyper64_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 ideas_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 intv_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 jagulator_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 javacpc_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 jpcsp_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 nucleus_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 jr100_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 jum52_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 jvz200_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 jynx_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 jzintv_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 dsp_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 kat5200_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 kegs_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 kigb_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 koleko_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 m2emulator_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 m5_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 m88_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 macmini_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 mastersystem_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 meka_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 melonDS_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 mesadx_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 mgba_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 micro64_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 msx1_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 msx2_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 msx2p_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 mupen64plus_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 mupen64plusplus_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 mx88_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 mzxx_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 mz700_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 mz700win_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 mz800_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 nebula_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 neocd_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 neopop_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 nestopia_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 next_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 no$2k6_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 no$c64_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 no$cpc_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 no$gmb_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 no$msx_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 no$nes_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 no$psx_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 no$sns_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 no$zx_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 nova_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 openmsx_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 osmose_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pc6001_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pc6001mk2_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pc6001mk2sr_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pc6601_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pc6601sr_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pc8001mk2sr_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pc8201_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pc8201a_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pc8801ma_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pc9801_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pc9801e_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pc9801u_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pc9801vf_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pc9801vm_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pc98do_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pc98ha_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pc98lt_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pcengine_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pcsxr_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 phoenix_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 potator_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 project64k_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 psxfin_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pv1000_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 pv2000_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 ql2k_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 dchector_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 virtualinteract_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 vecxgl_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 infovectrex_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 raine_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 rascalboyadv_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 redream_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 redsquirrel_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 regen_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 rpcemu_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 rpcs3_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 sc3000_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 scummvm_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 scv_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 sharpchip8_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 snes9x_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 softvms_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 galaxywin_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 sorcerer_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 steem_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 stem_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 geepee32_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 sugarbox_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 supergcube_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 tgbdual_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 tronds_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 TypeXtra_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 twombit_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 vace3d_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 vace_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 vaeg_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 vaquarius_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 vb64_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 vgb_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 vgba_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 cxbxreloaded_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 ryujinx_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 virtualapf_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 virtualjaguar_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 virtuanesplus_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 wincpc_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 winvz300_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 x1_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 ncdz_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 ngae_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 race!_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 neopopcott_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 koyote_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 x1twin_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 x86Box_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 x88_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 xe_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 xebra_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 yape_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 yuzu_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 z26_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 zboy_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 zesarux_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 M71_GUI:
+gosub, initEmuOpts
+return
+
+InitEmuOpts:
 gosub, EMUCFGCOPY
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -26493,7 +26526,7 @@ if (ASVRM = "")
 				MEDCFGLOC= rj\sysCfgs\%RJSYSDD%\%medcfg%
 			}
 	}
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 gosub, %EMUSN%POP
 guicontrolget,EMUDDLJ,,EMUDDLJ
 return
@@ -26505,11 +26538,15 @@ return
 
 ;{;;  create mednafen gui ;;
 Mednafen_GUI:
-
+guicontrolget,uuniv,,FNDGUI
+if (core_gui = "mednafen")
+	{
+		goto, medguicreated
+	}
 if (medxi = "")
 	{	
-		fileread,medxi,rj\emucfgs\mednafen\xinput.default.set
-		fileread,medao,rj\emucfgs\mednafen\defaults.ini.set
+		fileread,medxi,rj\emucfgs\mednafen\xinput.default.get
+		fileread,medao,rj\emucfgs\mednafen\defaults.ini.get
 		Loop,Parse,medao,=
 			{
 				ifinstring,A_LoopField,=
@@ -26518,17 +26555,22 @@ if (medxi = "")
 						allmedo.= amedo1 . "|"
 					}
 			}		
-		IniRead, mtcfg,rj\emuCfgs\mednafen\defaults.ini.set,GLOBAL
-		IniRead, micfg,rj\emuCfgs\mednafen\defaults.ini.set,INPUT
-		IniRead, mtrfg,rj\emuCfgs\mednafen\defaults.ini.set,COMMON	
-	}
+		IniRead, mtcfg,rj\emuCfgs\mednafen\defaults.ini.get,GLOBAL
+		IniRead, micfg,rj\emuCfgs\mednafen\defaults.ini.get,INPUT
+		IniRead, mtrfg,rj\emuCfgs\mednafen\defaults.ini.get,COMMON	
+	}	
+iniread,mednafxf,AppParams.ini,%LCORE%,per_game_configurations
 
-	
-guicontrolget,uuniv,,FNDGUI
-if (core_gui = "mednafen")
+medcfg= mednafen.cfg
+MEDCFGLOC= cfg\%MEDNFSYS%\%nicktst%\%EDTRMFN%\%medcfg%
+if (mednafxf = 0)
 	{
-		goto, medguicreated
+		iniread,mednafpth,Assignments.ini,ASSIGNMENTS,%LCORE%
+		splitpath,mednafpth,,mednafloc
+		MEDCFGLOC= %mednafloc%\%medcfg%
+		indvcp= %MEDCFGLOC%
 	}
+	
 moptog= hide
 raoptgl= hide
 srchtog= hide
@@ -26803,8 +26845,6 @@ guicontrol,move,emuSLDC,x215 y270 w120 h24
 
 ;;//change this to a listed variable
 core_gui= mednafen
-medcfg= mednafen.cfg
-
 if (medjgrab = "")
 	{
 		SetTitleMatchMode,1
@@ -26854,13 +26894,12 @@ if (medjgrab = "")
 ;};;
 medguicreated:
 EMUCFGOVRTGL= 0
-MEDCFGLOC= cfg\%MEDNFSYS%\%nicktst%\%EDTRMFN%\%medcfg%
 if (ASVRM = "")
 	{
 		guicontrol, %emutog%, emuBUTJ
 		guicontrol, move, emuBUTJ,x694 y486 w66 h23
 		guicontrol,,emuBUTJ,SAVE
-		ifexist, rj\sysCfgs\%RJSYSDD%\mednafen.cfg.ret
+		ifexist, rj\sysCfgs\%RJSYSDD%\mednafen.cfg.get
 			{
 				medcfg= mednafen.cfg.ret
 				MEDNFSYS= %RJSYSDD%
@@ -26868,6 +26907,52 @@ if (ASVRM = "")
 			}
 	}
 	
+if (ROMSYS = "")
+	{
+		guicontrolget,rmst,,RUNSYSDDL
+		ifinstring,rmst,.lpl
+			{
+				stringsplit,afj,rmst,.
+				rmst= %afj1%
+			}
+		if (rmst = "History")
+			{
+				guicontrolget,emst,,RUNROMCBX
+				Loop, parse, emst,\
+					{
+						ifinstring,A_Loopfield,%A_Space%-%A_Space%
+						rmst= %A_LoopField%
+						break
+					}
+				rmst= 	
+			}
+		Loop, parse,allsupport,|
+			{
+				if (A_Loopfield = "")
+					{
+						continue
+					}
+				if (A_Loopfield = rmst)
+					{
+						ROMSYS= %A_LoopField%
+						break
+					}
+			}
+		if (rmst = "")
+			{
+				guicontrolget,rmst,,ARCSYS
+				if (rmst = "Select a System")
+					{
+						ROMSYS= Sony - Playstation
+					}
+			}
+		
+	}
+IniRead, RJMEDNM, emuCfgPresets.set,%ROMSYS%,RJMEDNM
+if (RJMEDNM <> "ERROR")
+	{
+		guicontrol,,EMUDDLJ,|%RJMEDNM%||%mednfsc%
+	}
 guicontrolget,EMUDDLJ,,EMUDDLJ
 ifexist, %MEDCFGLOC%
 	{
@@ -26883,7 +26968,7 @@ MednafenPOP:
 	
 MednafenRESETPOP:
 curmedINPT= 
-FileRead,mkbl,rj\emuCfgs\mednafen\mednafenjoy.set.ret
+FileRead,mkbl,rj\emuCfgs\mednafen\mednafenjoy.get
 IniRead, RJMEDNM, emuCfgPresets.set,%MEDNFSYS%,RJMEDNM
 if (RJMEDNM = "ERROR")
 	{
@@ -26893,7 +26978,7 @@ ifexist, %MEDCFGLOC%
 	{
 		goto, LOADMEDNAFENOPTS
 	}
-IniRead, mtafg,rj\emuCfgs\mednafen\defaults.ini.set,%RJMEDNM%
+IniRead, mtafg,rj\emuCfgs\mednafen\defaults.ini.get,%RJMEDNM%
 stringreplace,mtrfg,mtrfg,<system>,%RJMEDNM%,All
 ;;;global export;;;;
 Loop, parse, mtcfg,`n`r
@@ -27585,8 +27670,9 @@ if (emuRAD11A = 1)
 	}	
 gosub, numchkedc
 emuSLDE:= emuEDTC * 10
+MEDemuv%gextn%= %emuEDTC%
 guicontrol,,emuSLDE,%emuSLDE%
-mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader.goat." gextn " \E.*", "" RJMEDNM ".shader.goat." gextn " " emuEDTD "`n")
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader.goat." gextn " \E.*", "" RJMEDNM ".shader.goat." gextn " " emuEDTC "`n")
 gosub, RewMedn
 return
 
@@ -27673,9 +27759,7 @@ return
 mednafenRad5B:
 gui,submit,nohide
 emuRAD5B= 1
-
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".tblur .*", "" RJMEDNM ".tblur 1")
-
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".tblur.accum .*", "" RJMEDNM ".tblur.accum 0")
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".tblur.accum.amount \E.*", "" RJMEDNM ".tblur.accum.amount " emuEDTF "`n")
 gosub, RewMedn
@@ -27693,7 +27777,6 @@ return
 mednafenRad9A:
 gui,submit,nohide
 emuRAD9= borg
-
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader.goat.pat \E.*", "" RJMEDNM ".shader.goat.pat " emuRAD9 "`n")
 gosub, RewMedn
 return
@@ -27714,13 +27797,13 @@ return
 
 mednafenRad8A:
 gui,submit,nohide
-mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "video.fs.*", "video.fs 1")
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "video.fs \E.*", "video.fs 1")
 gosub, RewMedn
 return
 
 mednafenRad8B:
 gui,submit,nohide
-mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "video.fs.*", "video.fs 0")
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "video.fs \E.*", "video.fs 0")
 gosub, RewMedn
 return
 
@@ -27731,7 +27814,6 @@ slmhdv:= MEDemuhdiv * 10
 guicontrol,,emuSLDE,%slmhdv%
 guicontrolget,emuEDTC,,emuEDTC
 guicontrolget,emuSLDE,,emuSLDE
-
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader.goat.hdiv \E.*", "" RJMEDNM ".shader.goat.hdiv " emuEDTC "`n")
 gosub, RewMedn
 return
@@ -27793,17 +27875,16 @@ return
 
 mednafenSLDE:
 gui,submit,nohide
+guicontrolget,emuSLDE,,emuSLDE
 gextn= vdiv
 if (emuRAD11A = 1)
 	{
 		gextn= hdiv
 	}
-curedt= % MEDemu%gextn%		
-guicontrolget,emuSLDE,,emuSLDE
 emuEDTC:= (emuSLDE / 10)
-guicontrol,,emuEDTC,%emuSLDE%
-mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader.goat." gextn " \E.*", "" RJMEDNM ".shader.goat." gextn " " emuEDTC "`n")
+MEDemuv%gextn%= %emuEDTC%
 guicontrol,,emuEDTC,%emuEDTC%
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader.goat." gextn " \E.*", "" RJMEDNM ".shader.goat." gextn " " emuEDTC "`n")
 gosub, RewMedn
 return
 
@@ -27942,7 +28023,7 @@ if (uuniv = "X")
 ;guicontrol, %emutog%, emuPRGA
 ;guicontrol,,emuPRGA,0
 
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 
 MAMETOG:
@@ -27988,11 +28069,11 @@ return
 
 ;;;;;;;;;;;;;;;;;;  NOGUI YET ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 NOGUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 return
 
 BSL_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 moptog= show
 raoptgl= hide
 emutog= hide
@@ -28003,7 +28084,7 @@ gosub, TOGSKELGUI
 return
 
 FlashPlayer_GUI:
-gosub, EMUCFGCOPY
+gosub, initEmuOpts
 guicontrol, %emutog%, emuBUTA
 guicontrol, %emutog%, emuBUTB
 guicontrol, %emutog%, emuBUTC
@@ -52533,14 +52614,15 @@ if (JOYCORE = "")
 RetroArchGLOBALJOY:
 if (JOYCORE = "Global")
 	{
+		/*
 		loadedjoy= Global
-		rajoytog= Show
-		emjtog= Hide
+		rajoytog= Hide
 		gosub, RAJOYTOG
+		emjtog= Hide
 		gosub, EMJTOG
-		joyimg=key.png
 		guicontrol, hide, SaveJOY
 		guicontrol, show, JCFGADD
+		joyimg=key.png
 		joycfg= %curcfg%
 		guicontrol,move,JOYPIC,x335 y263 w117 h111
 		gosub, Joyvalz
@@ -52549,6 +52631,14 @@ if (JOYCORE = "Global")
 		SB_SetText("Joystick GLOBAL config is " joycfg " ")	
 		guicontrol,enable,JOYCORE
 		return
+		*/
+		JOYCFGMODE= emulator
+		guicontrol, hide, JCFGADD
+		guicontrol, show, SaveJOY
+		guicontrol, show, JCFGEDT
+		gosub, EmuJoy
+		emjtog= Hide
+		gosub, EMJTOG
 	}
 
 emujchk= 
@@ -52603,6 +52693,7 @@ if (emujchk2 <> "dll")
 		return
 	}
 
+
 loadedjoy:= JOYCORE
 SB_SetText("RetroPad config is " JOYCORE " ")
 ccav= %JOYCORE%
@@ -52626,7 +52717,6 @@ ifexist, %joycfg%
 		gosub, Joyvalz
 	}
 joyimg=joyimg\joy.png
-
 ifexist,joyimg\%ASPOP%.png
 	{
 		iremp= 
@@ -52636,6 +52726,7 @@ guicontrol,move,JOYPIC,x260 y253 w252 h126
 guicontrol,,JOYPIC,%joyimg%
 rajoytog= Show
 emjtog= Hide
+gosub, RAJOYTOG
 SB_SetText("Joystick config is " joycfg " ")	
 if (JOYCFGMODE = "emulator")
 	{
@@ -52666,9 +52757,9 @@ return
 SaveJOY:
 gui,submit,nohide
 ifnotexist,%inputRemappingDirectory%\%corcfgnam%
-{
-	filecreatedir,%inputRemappingDirectory%\%corcfgnam%
-}
+	{
+		filecreatedir,%inputRemappingDirectory%\%corcfgnam%
+	}
 
 guicontrolget,JCFGPT,,JCFGPT
 guicontrolget,JOYCORE,,JOYCORE
@@ -54558,7 +54649,7 @@ if (RJMEDNM = "")
 medjoycreated:
 loadedjoy= mednafen
 mednjbuts= 
-FileRead, mednjbuts, rj\emuCfgs\mednafen\xinput.default.set
+FileRead, mednjbuts, rj\emuCfgs\mednafen\xinput.default.get
 stringreplace,mednjbuts,mednjbuts,[PLAYERNUM],1,All
 stringreplace,mednjbuts,mednjbuts,[JOYINDEX],1,All
 if (medjbid = "")
@@ -54579,7 +54670,7 @@ if (medjbid = "")
 	}
 
 mednkbctrls= 
-FileRead, mednkbctrls, rj\emuCfgs\mednafen\mednafenkb.set.ret
+FileRead, mednkbctrls, rj\emuCfgs\mednafen\mednafenkb.get
 if (medjname = "")
 	{
 		Loop, parse, mednkbctrls,`n
@@ -57014,7 +57105,7 @@ Loop, Parse, MEDCFGLOC,`n`r
 								stringsplit,rjmnm,A_LoopField,=
 								if (rjmnm1 = aej1)
 									{
-										nwmedcfgloc.= A_LoopField . "`n"
+										nwmedcfg.= A_LoopField . "`n"
 										kvf= 1
 										break
 									}
@@ -57025,9 +57116,9 @@ Loop, Parse, MEDCFGLOC,`n`r
 						continue
 					}
 			}
-		nwmedcfgloc.= A_LoopField . "`n"
+		nwmedcfg.= A_LoopField . "`n"
 	}
-MEDCFGLOC= %nwmedcfgloc%
+mednafenopts= %nwmedcfg%
 gosub, mednafenCTRLS
 return
 
