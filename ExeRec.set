@@ -708,7 +708,6 @@ FileCreateDir,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browse
 
 }
 FileCreateDir, rj\ES
-FileCreateDir, rj\netArt
 FileInstall,AppParams.set,AppParams.set,1
 FileInstall,arcorg.set,arcorg.set,1
 FileInstall,Assignments.set,Assignments.set,1
@@ -1725,6 +1724,7 @@ FileInstall,rj\emucfgs\gearsystem\gearsystem.ini.set,rj\emucfgs\gearsystem\gears
 FileInstall,rj\emucfgs\geepee32\control.ini.set,rj\emucfgs\geepee32\control.ini.set,1
 FileInstall,rj\emucfgs\geepee32\geepee32.ini.set,rj\emucfgs\geepee32\geepee32.ini.set,1
 FileInstall,rj\emucfgs\Genious\genious.reg.set,rj\emucfgs\Genious\genious.reg.set,1
+FileInstall,rj\emucfgs\Genious\genious.reg.set.reg.set,rj\emucfgs\Genious\genious.reg.set.reg.set,1
 FileInstall,rj\emucfgs\gens\gens.cfg.set,rj\emucfgs\gens\gens.cfg.set,1
 FileInstall,rj\emucfgs\gens32\Gens32.cfg.set,rj\emucfgs\gens32\Gens32.cfg.set,1
 FileInstall,rj\emucfgs\gensplus\gens.ini.set,rj\emucfgs\gensplus\gens.ini.set,1
@@ -1763,6 +1763,8 @@ FileInstall,rj\emucfgs\m2emulator\P1kbP2Joy.input.set,rj\emucfgs\m2emulator\P1kb
 FileInstall,rj\emucfgs\m2emulator\P1kbP2kb.input.set,rj\emucfgs\m2emulator\P1kbP2kb.input.set,1
 FileInstall,rj\emucfgs\m5\m5.ini.set,rj\emucfgs\m5\m5.ini.set,1
 FileInstall,rj\emucfgs\m88x\M88x.ini.set,rj\emucfgs\m88x\M88x.ini.set,1
+FileInstall,rj\emucfgs\Makaron\JVS.ini.set,rj\emucfgs\Makaron\JVS.ini.set,1
+FileInstall,rj\emucfgs\Makaron\NAOMI.ini.set,rj\emucfgs\Makaron\NAOMI.ini.set,1
 FileInstall,rj\emucfgs\MAME\default.cfg.set,rj\emucfgs\MAME\default.cfg.set,1
 FileInstall,rj\emucfgs\MAME\input.cfg.set,rj\emucfgs\MAME\input.cfg.set,1
 FileInstall,rj\emucfgs\MAME\mame.ini.ret,rj\emucfgs\MAME\mame.ini.ret,1

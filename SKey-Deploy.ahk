@@ -2731,7 +2731,6 @@ if (INITINCL = 1)
 				}	
 			exprt.= fcdxp . "`n" . "}" . "`n"
 			exprt.= "FileCreateDir, rj\ES" . "`n"
-			exprt.= "FileCreateDir, rj\netArt" . "`n"
 			Loop, files, %SKELD%\*.ttf
 				{
 					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
@@ -2946,12 +2945,9 @@ if (PortVer = 1)
 		;"
 		if (PBOV <> 1)
 			{
-				;;FileDelete, %DEPL%\skeletonKey-full.zip
 				FileDelete, %DEPL%\skeletonKey-portable.zip
-				;;runwait, "%BUILDIR%\7za.exe" a "%DEPL%\skeletonKey-portable.zip" "*.set" "*.ico" "*.ttf" "BSL.ahk" "skeletonkey.ahk" "SKey-Deploy.ahk" "index.html" "*.exe" "tf.ahk" "AHKsock.ahk" "LVA.ahk" "Portable.bat" "*.exe" "rj\*.set" "rj\joyCfgs\*" "rj\KODI\*" "rj\ES\*" "rj\emuCfgs\*" "rj\scrapeart\*.set" "joyimg\*" "gam\*.gam", %SKELD%,%rntp%
 				runwait, %comspec% cmd /c " "%BUILDIR%\7za.exe" a "%DEPL%\skeletonKey-portable.zip" "%DEPL%\skeletonkey.exe" ", %SKELD%,%rntp%
 				sleep, 1000
-				;;runwait, "%BUILDIR%\7za.exe" a "%DEPL%\skeletonKey-portable.zip" "*.png", %SKELD%,%rntp%
 			}
 	}
 
@@ -3029,7 +3025,6 @@ if (GitPush = 1)
 			}			
 		FileDelete, %SKELD%\!gitupdate.cmd
 		FileAppend, mkdir "%GITD%\rj\scrapeArt"`n,%SKELD%\!gitupdate.cmd
-		FileAppend, mkdir "%GITD%\rj\netArt"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, mkdir "%GITD%\rj\ES"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, mkdir "%GITD%\rj\emuCfgs"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, mkdir "%GITD%\rj\KODI\ADVL"`n,%SKELD%\!gitupdate.cmd
@@ -3038,13 +3033,13 @@ if (GitPush = 1)
 		FileAppend, mkdir "%GITD%\rj\KODI\RCB"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, mkdir "%GITD%\joyimg"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, mkdir "%GITD%\sysico"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, del /s /q "%GITD%\rj\netArt\*"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, rd /s/q "%GITD%\rj\netArt"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, rd /s/q "%GITD%\rj\sysCfgs"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, robocopy gam "%GITD%\gam" /s /e /w:1 /r:1`n,%SKELD%\!gitupdate.cmd
 		FileAppend, del /q "%GITD%\rj\*.tdb"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, del /q "%GITD%\rj\*.tmp"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, del /q "%GITD%\rj\*.ini"`n,%SKELD%\!gitupdate.cmd
-		FileAppend, del /s /q "%GITD%\rj\netArt\*"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, robocopy rj "%GITD%\rj" /s /e /w:1 /r:1 /xf syscfgs`n,%SKELD%\!gitupdate.cmd
 		FileAppend, robocopy joyimg "%GITD%\joyimg" /s /e /w:1 /r:1`n,%SKELD%\!gitupdate.cmd
 		FileAppend, robocopy joyimg "%GITD%\rj\emuCfgs" /s /e /w:1 /r:1`n,%SKELD%\!gitupdate.cmd
