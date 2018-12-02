@@ -31,7 +31,7 @@ LastGGROM=
 SMSUSABIOS=
 SMSJAPBIOS=
 SMSEURBIOS=
-GGBIOS=
+GGBIOS=.\BIOS\bios.gg
 SF7000IPL=
 SxMFiles=[ROMPATH]\.Mem
 SMSStateFiles=[ROMPATH]\.sstates
@@ -61,10 +61,10 @@ GenBorderDisable=1
 ;---------------------------------
 
 LastSegaCDImage=
-SCDUSABIOS=[EMUPATH]\[SCDUB]
-SCDJAPBIOS=[EMUPATH]\[SCDJB]
-SCDEURBIOS=[EMUPATH]\[SCDEB]
-SCDStateFiles=[EMUPATH]
+SCDUSABIOS=.\BIOS\us_scd1_9210.bin
+SCDJAPBIOS=.\BIOS\jp_mcd1_9112.bin
+SCDEURBIOS=.\BIOS\eu_mcd2_9306.bin
+SCDStateFiles=[ROMPATH]\.sstates
 DefaultDrive=X:X:X None
 CDReadAhead=4
 CD+GMode=0
@@ -78,9 +78,9 @@ PerfectSync=1
 ; 32X Specific
 ;---------------------------------
 
-32XM68KBIOS=[EMUPATH]\[32XG]
-32XMSH2BIOS=[EMUPATH]\[32XM]
-32XSSH2BIOS=[EMUPATH]\[32XS]
+32XM68KBIOS=.\BIOS\32X_G_BIOS.BIN
+32XMSH2BIOS=.\BIOS\32X_M_BIOS.BIN
+32XSSH2BIOS=.\BIOS\32X_S_BIOS.BIN
 Disable32X=0
 Fast32XTiming=0
 

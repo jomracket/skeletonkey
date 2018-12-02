@@ -64,7 +64,7 @@ Plugin=.\Plugins\
 [Files]
 Genesis Bios=.\Genesis_OS_ROM.bin
 USA CD Bios=.\us_scd1_9210.bin
-EUROPE CD Bios=.\eu_mcd1_9210.bin
+EUROPE CD Bios=.\eu_mcd2_9306.bin
 JAPAN CD Bios=.\jp_mcd1_9112.bin
 32X 68000 Bios=.\32X_G_bios.bin
 32X Master SH2 Bios=.\32X_M_bios.bin

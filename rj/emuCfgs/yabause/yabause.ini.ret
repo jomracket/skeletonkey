@@ -1,6 +1,6 @@
 [0.9.11]
 Input\Port\1\Id\1\Type=2
-General\Bios=[EMUPATH]/SS - BIOS V1.01.bin
+General\Bios=[EMUPATH]/sega_101.bin
 General\EnableEmulatedBios=false
 General\CdRom=2
 General\CdRomISO=F:/

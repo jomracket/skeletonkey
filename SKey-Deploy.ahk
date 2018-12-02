@@ -2737,6 +2737,11 @@ if (INITINCL = 1)
 					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
 					exprt.= "FileInstall," . ain . "," . ain . ",1" . "`n"
 				}
+			Loop, files, %SKELD%\*.get
+				{
+					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
+					exprt.= "FileInstall," . ain . "," . ain . ",1" . "`n"
+				}
 			Loop, files, %SKELD%\*.set
 				{
 					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
@@ -2787,6 +2792,10 @@ if (INITINCL = 1)
 							exprt.= "FileInstall," . ain . "," . ain . ",1" . "`n"
 						}
 					if (A_LoopFileExt = "set")
+						{
+							exprt.= "FileInstall," . ain . "," . ain . ",1" . "`n"
+						}
+					if (A_LoopFileExt = "get")
 						{
 							exprt.= "FileInstall," . ain . "," . ain . ",1" . "`n"
 						}
@@ -2889,7 +2898,6 @@ FileAppend,:%SKELD%\joyImg`n,ltc.txt
 FileAppend,:%SKELD%\rj\joycfgs`n,ltc.txt
 FileAppend,:%SKELD%\rj\KODI\*.set`n,ltc.txt
 FileAppend,:%SKELD%\rj\KODI\AEL\*.set`n,ltc.txt
-FileAppend,:%SKELD%\rj\emucfgs`n,ltc.txt											, 
 FileAppend,:%SKELD%\rj\emucfgs`n,ltc.txt
 FileAppend,:%SKELD%\rj\scrapeart`n,ltc.txt
 
@@ -3040,7 +3048,6 @@ if (GitPush = 1)
 		FileAppend, robocopy rj "%GITD%\rj" /s /e /w:1 /r:1 /xf syscfgs`n,%SKELD%\!gitupdate.cmd
 		FileAppend, robocopy joyimg "%GITD%\joyimg" /s /e /w:1 /r:1`n,%SKELD%\!gitupdate.cmd
 		FileAppend, robocopy joyimg "%GITD%\rj\emuCfgs" /s /e /w:1 /r:1`n,%SKELD%\!gitupdate.cmd
-		FileAppend, copy /y "rj\scrapeArt\*.set" "%GITD%\rj\scrapeArt"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "rj\scrapeArt\*.7z" "%GITD%\rj\scrapeArt"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "*.exe" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "*.set" "%GITD%"`n,%SKELD%\!gitupdate.cmd

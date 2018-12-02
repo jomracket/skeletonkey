@@ -7678,24 +7678,34 @@ Loop, Files, %cacheloc%\bios\*,
 		gosub, CRC32GET
 		Loop, Parse,BiosFSet,`n`r
 			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
 				CRCM1= 
 				CRCM2= 
 				CRCM3= 
 				CRCM4= 
 				CRCM5= 
 				CRCM6= 
-				stringsplit, CRCM, A_LoopField,:,>
-				prib= 
-				kfn= 
-				stringright,prib,A_LoopField,1
-				if (prib = ">")
+				stringsplit,CRCM,A_LoopField,:
+				vpri2= 
+				stringsplit,vpri,CRCM2,?
+				CRCMX= %vpri1%
+				if (vpri2 <> "")
 					{
-						kfn= >
+						CRCMX= %vpri1%?%vpri2%
+					}
+				prib= 
+				stringright,prib,A_LoopField,1
+				if (prib <> ">")
+					{
+						prib= 
 					}
 				if (CRCM3 = ApndCRC)
 					{
 						biosnum++
-						fileappend,%A_LoopFileFullPath%|%CRCM1%|%CRCM2%%kfn%`n,crcs.ini
+						fileappend,%A_LoopFileFullPath%|%CRCM1%|%CRCMX%%prib%`n,crcs.ini
 					}						
 			}
 	}
@@ -7705,13 +7715,29 @@ ifnotexist,crcs.ini
 		return
 	}
 Fileread,curbios,crcs.ini
-Loop, Parse, curbios,`n
+Loop, Parse, curbios,`n`r
 	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		biostring= %A_LoopField%	
 		juf1= 
 		juf2= 
 		juf3= 
-		stringsplit,juf,A_LoopField,|,>`n`r
+		stringsplit,juf,A_LoopField,|
+		splitpath,juf1,actnam
 		stringreplace,juf3,juf3,>,,All
+		orign= %juf3%
+		destnm= %juf3%
+		ifinstring,juf3,?
+			{
+				destn1= 
+				destn2= 
+				stringsplit,destn,juf3,?
+				orign= %destn1%
+				destnm= %destn2%
+			}
 		Loop, Parse, kbemu,`n
 			{
 				if (A_LoopField = "")
@@ -7729,9 +7755,13 @@ Loop, Parse, curbios,`n
 				stringsplit,emif,juf2,=
 				ifinstring,juf2,%sysex%
 					{
-						fong1=
 						Loop, 6
 							{
+								fong1=
+								fong2=
+								fong3=
+								fong4=
+								fong5=
 								stringsplit,fong,emif%A_Index%,\
 								if (fong1 = sysex)
 									{
@@ -7740,8 +7770,17 @@ Loop, Parse, curbios,`n
 										ifinstring,juf2,.zip
 											{
 												splitpath,juf2,fnm
-												RunWait, %comspec% /c " 7za.exe a -y "%fiad%%apndpth%" "%juf3%" ",,hide
-												ifinstring,A_LoopField,>
+												destndz= %fiad%%apndpth%
+												splitpath,destndz,,destnd
+												ifnotexist,%destnd%
+													{
+														fileCreateDir,%destnd%
+													}
+												stringreplace,newfd,juf1,%actnam%,%destnm%
+												filemove,%juf1%,%newfd%,R
+												RunWait, %comspec% /c " 7za.exe a -y "%fiad%%apndpth%" "%newfd%" ",,hide
+;												RunWait, %comspec% /c " 7za.exe a -y "%fiad%%apndpth%" "%juf3%" ",,hide
+												ifinstring,biostring,>
 													{
 														FileSetAttrib,+R,%fiad%%apndpth%\%juf3%
 													}
@@ -7751,10 +7790,16 @@ Loop, Parse, curbios,`n
 											{
 												FilecreateDir,%fiad%%apndpth%
 											}
-										FileCopy, %juf1%, %fiad%%apndpth%\%juf3%,1
-										ifinstring,A_LoopField,>
+										coolnm= %destn%
+										FileCopy, %juf1%, %fiad%%apndpth%\%destnm%,1
+										if (errorlevel = 1)
 											{
-												FileSetAttrib,+R,%fiad%%apndpth%\%juf3%
+												coolnm= %orign%
+												FileCopy, %juf1%, %fiad%%apndpth%\%coolnm%,1
+											}
+										ifinstring,biostring,>
+											{
+												FileSetAttrib,+R,%fiad%%apndpth%\%coolnm%
 											}
 										break	
 									}

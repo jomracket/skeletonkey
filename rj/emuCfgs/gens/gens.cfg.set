@@ -19,13 +19,13 @@ SRAM Path=.\
 ~MDP:Patch Codes=.\
 
 [Firmware]
-32X 68000 BIOS=
-32X Master SH2 BIOS=
-32X Slave SH2 BIOS=
-Europe CD BIOS=
-Genesis BIOS=
-Japan CD BIOS=
-USA CD BIOS=
+32X 68000 BIOS=.\32X_G_BIOS.BIN
+32X Master SH2 BIOS=.\32X_M_BIOS.BIN
+32X Slave SH2 BIOS=.\32X_S_BIOS.BIN
+Europe CD BIOS=.\eu_mcd2_9306.bin
+Genesis BIOS=.\bios_MD.bin
+Japan CD BIOS==.\jp_mcd1_9112.bin
+USA CD BIOS=.\us_scd1_9210.bin
 
 [General]
 CD Speed=0
