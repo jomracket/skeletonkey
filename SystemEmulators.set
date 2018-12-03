@@ -247,7 +247,7 @@ Nintendo - Nintendo 3DS|Citra|tronds|:citra_libretro.dll|citra_canary_libretro.d
 Nintendo - Nintendo 64DD|Project64|Project64k|Mupen64Plus|Mupen64PlusPlus|MAME|:parallel_n64_libretro.dll|mupen64_libretro.dll
 Nintendo - Nintendo 64|Project64|Project64k|Apollo|1964|Mupen64Plus|Mupen64PlusPlus|BizHawk|MAME|:parallel_n64_libretro.dll|mupen64_libretro.dll|mame_libretro.dll
 Nintendo - Nintendo DS Decrypted|Desmume|medusa|melonds|gbeplus|No$GBA|:desmume_libretro.dll|desmume2012_libtro.dll|melonds_libretro.dll
-Nintendo - Nintendo DS|Desmume|ideas|No$GBA|medusa|melonds|:desmume_libretro.dll|desmume2012_libtro.dll|melonds_libretro.dll
+Nintendo - Nintendo DS|Desmume|ideas|No$GBA|medusa|melonDS|:desmume_libretro.dll|desmume2012_libtro.dll|melonds_libretro.dll
 Nintendo - Nintendo Entertainment System - PAL|nestopia|virtuanes|virtuanesplus|dsp|xe|aprnes|BizHawk|kindred|Mesen|no$nes|vdmgr|fceux|Mednafen|MAME|:nestopia_libretro.dll|fceumm_libretro.dll|mesen_libretro.dll|bnes_libretro.dll|quicknes_libretro.dll
 Nintendo - Nintendo Entertainment System|nestopia|virtuanes|virtuanesplus|Mesen|dsp|xe|aprnes|BizHawk|kindred|no$nes|fceux|vdmgr|Mednafen|MAME|:nestopia_libretro.dll|fceumm_libretro.dll|mesen_libretro.dll|bnes_libretro.dll|quicknes_libretro.dll||mame_libretro.dll
 Nintendo - Pokemon Mini|minimon|pokemini|MAME|:pokemini_libretro.dll

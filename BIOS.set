@@ -124,17 +124,16 @@ neko=retroarch\system\np2=:BIOS.ROM:34A19A59>
 neko=retroarch\system\np2=:font.bmp:D271798B>
 
 mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebra=retroarch\system=:scph5500.bin:EC541CD0
-mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=:scph5500.bin:3B601FC8
-mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=:scph5500.bin:FF3EEB8C>
-mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=:scph5501.bin:502224B6
-mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=:scph5501.bin:37157331
-mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=:scph5501.bin:8D8CB7E4>
-mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=:scph5502.bin:4D9E7C86
-mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=:scph5502.bin:318178BF
-mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=:scph5502.bin:D786F0B9>
+mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebra=retroarch\system=:scph5500.bin:3B601FC8
+mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebra=retroarch\system=:scph5500.bin:FF3EEB8C>
+mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebra=retroarch\system=:scph5501.bin:502224B6
+mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebra=retroarch\system=:scph5501.bin:37157331
+mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebra=retroarch\system=:scph5501.bin:8D8CB7E4>
+mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebra=retroarch\system=:scph5502.bin:4D9E7C86
+mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebra=retroarch\system=:scph5502.bin:318178BF
+mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebra=retroarch\system=:scph5502.bin:D786F0B9>
 mednafen=SSF\Setting\Saturn=yabause=retroarch\system=:mpr-18811-mx.ic1:B9644B52>
 mednafen=SSF\Setting\Saturn=yabause=retroarch\system=:mpr-19367-mx.ic1:90412E10>
-retroarch\system=:mpr-17933.bin:4AFCF0FA>
 mednafen=SSF\Setting\Saturn=yabause=retroarch\system=:saturn_bios.bin?mpr-17933.bin:224B752C
 mednafen=SSF\Setting\Saturn=yabause=retroarch\system=:sega1003.bin?sega_101.bin:B3C63C25
 mednafen=SSF\Setting\Saturn=yabause=retroarch\system=:sega_100.bin?sega_101.bin:2ABA43C2>
@@ -142,16 +141,6 @@ mednafen=SSF\Setting\Saturn=yabause=retroarch\system=:sega_100a.bin?mpr-17933.bi
 mednafen=SSF\Setting\Saturn=yabause=retroarch\system=:sega_101.bin:4AFCF0FA
 mednafen=SSF\Setting\Saturn=yabause=retroarch\system=:sega_101.bin:224B752C>
 SSF\Setting\STV:stv110.bin:3DFEDA92>
-retroarch\system=:sgb.boot.rom:EC8A83B9>
-retroarch\system=:st010.data.rom:216081B2>
-retroarch\system=:st010.program.rom:691CBB4F>
-retroarch\system=:st010.rom:8FC29D4C>
-retroarch\system=:st011.data.rom:803256A7>
-retroarch\system=:st011.program.rom:A741E9FB>
-retroarch\system=:st011.rom:84AAB2AE>
-retroarch\system=:st018.data.rom:B5255459>
-retroarch\system=:st018.program.rom:F73D5E10>
-retroarch\system=:st018.rom:5C403CC5>
 mednafen=Ootake=retroarch\system=:syscard3.pce:FF2A5EC3
 mednafen=Ootake=retroarch\system=:syscard3.pce:2B5B75FE
 mednafen=Ootake=retroarch\system=:syscard3.pce:6D9A73EF
@@ -159,34 +148,6 @@ mednafen=Ootake=retroarch\system=:syscard3.pce:3F9F95A4
 mednafen=Ootake=retroarch\system=:syscard3.pce:52520BC6
 mednafen=Ootake=retroarch\system=:syscard3.pce:283B74E0
 mednafen=Ootake=retroarch\system=:syscard3.pce:64F78E3C>
-
-retroarch\system=:us_scd1_9210.bin?bios_CD_U.bin:290F8E33
-retroarch\system=:us_scd1_9210.bin?bios_CD_U.bin:2E49D72C
-retroarch\system=:us_scd1_9210.bin?bios_CD_U.bin:9F6F6276
-retroarch\system=:us_scd1_9210.bin?bios_CD_U.bin:8AF65F58
-retroarch\system=:us_scd1_9210.bin?bios_CD_U.bin:E7E3AFE2
-retroarch\system=:us_scd1_9210.bin?bios_CD_U.bin:50CD3D23
-retroarch\system=:us_scd1_9210.bin?bios_CD_U.bin:3B10CF41
-retroarch\system=:us_scd1_9210.bin?bios_CD_U.bin:9F6F6276
-retroarch\system=:us_scd1_9210.bin?bios_CD_U.bin:C6D10268>
-retroarch\system=:Sega Mega-CD Model 2 BIOS v2.00 (1993)(Sega)(Eu).bin?bios_CD_E.bin:0507B590
-retroarch\system=:Sega Mega-CD Model 2 BIOS v2.00 (1993)(Sega)(Eu)[b].bin?bios_CD_E.bin:9B1FFC6F
-retroarch\system=:Sega Mega-CD Model 2 BIOS v2.00w (1993)(Sega)(Eu).bin?bios_CD_E.bin:4D5CB8DA
-retroarch\system=:Mega-CD (E) - Model 1 v1.00 (1992).bin?bios_CD_E.bin:529AC15A
-retroarch\system=:eu_mcd2_9306.bin?bios_CD_E.bin:D344F125
-retroarch\system=:Mega-CD (J) - Model 1 v1.00p (1991).bin?bios_CD_J.bin:9D2DA8F2
-retroarch\system=:jp_mcd1_9112.bin?bios_CD_J.bin:550F30BB
-retroarch\system=:[BIOS] Mega-CD 2 (Japan) (v2.00C).md?bios_CD_J.bin:DD6CC972
-retroarch\system=:japan-j3(jp).bin?bios_CD_J.bin:DFF6D41F
-retroarch\system=:Sega CD (U) - Model 1 v1.10 (1992).bin?bios_CD_U.bin:C6D10268
-retroarch\system=:Sega CD (U) - Model 2 v2.00 (1993) [b].bin?bios_CD_U.bin:340B4BE4
-retroarch\system=:Sega CD (U) - Model 2 v2.11x (1993) [b].bin?bios_CD_U.bin:B0519ED3
-retroarch\system=:Sega CD (U) - Model 2 v2.11x (2.00) (1993).bin?bios_CD_U.bin:2E49D72C
-retroarch\system=:Sega CDX (U) - v2.21x (1993) [b].bin?bios_CD_U.bin:4A940D4A
-retroarch\system=:Sega CDX (U) - v2.21x (1993).bin?bios_CD_U.bin:D48C44B5
-retroarch\system=:us_mcd_9208 [h].rom?bios_CD_U.bin:CE60984E
-retroarch\system=:us_mcd_9306 [h].rom?bios_CD_U.bin:7F7677CC
-retroarch\system=:us_scd2_9306.bin?bios_CD_U.bin:9F6F6276
 
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:us_scd1_9210.bin:290F8E33
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:us_scd1_9210.bin:2E49D72C
@@ -417,8 +378,63 @@ demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip=:epr-23608.bin:929CC3A6
 demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip=:epr-23608b.bin:A554B1E3
 demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip=:epr-23608c.bin:6EF1DD8E
 
-retroarch\system=:ProSystem.dat:9402D164>
+fsuae=WinUAE=:Amiga 1000 Bootstrap - 252180-01 (USA, Europe).rom:8E5B9A37
+fsuae=WinUAE=:Amiga 1000 Bootstrap - 252179-01 (USA, Europe).rom:76BD46EC
+fsuae=WinUAE=:Amiga 1000 Bootstrap - 252180-01 (USA, Europe).rom:DD516B6D
+fsuae=WinUAE=:Kickstart - EVEN (USA, Europe) (v3.0 Rev 39.065) (Beta) (A3000).rom:1B64EA21
+fsuae=WinUAE=:Kickstart - ODD (USA, Europe) (v3.0 Rev 39.065) (Beta) (A3000).rom:F2742238
+fsuae=WinUAE=:Kickstart - 391304-02 (USA, Europe) (v2.05 Rev 37.350) (A600HD).rom:43B0DF7B
+fsuae=WinUAE=:Kickstart - 391304-01 (USA, Europe) (v2.05 Rev 37.300) (A600HD).rom:64466C2A
+fsuae=WinUAE=:Kickstart - 315093-02 (USA, Europe) (v1.3 Rev 34.005) (A500, A2000).rom:C4F0F55F
+fsuae=WinUAE=:Kickstart - 391388-01 (USA, Europe) (v2.05 Rev 37.299) (A600).rom:83028FB5
+fsuae=WinUAE=:Kickstart (USA, Europe) (v2.05 Rev 37.210) (Proto) (A600).rom:4C0C1603
+fsuae=WinUAE=:Kickstart - 390629-03 (USA, Europe) (v2.04 Rev 37.175) (A3000).rom:7DB1332B
+fsuae=WinUAE=:Kickstart - 390630-03 (USA, Europe) (v2.04 Rev 37.175) (A3000).rom:A245DBDF
+fsuae=WinUAE=:Kickstart - 390979-01 (USA, Europe) (v2.04 Rev 37.175) (A500 Plus, A2000).rom:C3BDB240
+fsuae=WinUAE=:Kickstart - 363968-01 (USA, Europe) (v2.04 Rev 37.175) (Proto) (A500 Plus, A2000).rom:8DA9BD72
+fsuae=WinUAE=:Kickstart - 390629-02 (USA, Europe) (v1.4 Rev 36.016) (A3000).rom:58327536
+fsuae=WinUAE=:Kickstart - 390630-02 (USA, Europe) (v1.4 Rev 36.016) (A3000).rom:FE2F7FB9
+fsuae=WinUAE=:Kickstart - 315093-02 (USA, Europe) (v1.4 Rev 36.015) (Beta) (A500, A2000).rom:A3BA6116
+fsuae=WinUAE=:Kickstart - 315093-01 (USA, Europe) (v1.2 Rev 33.180) (A500, A2000).rom:A6CE1636
+fsuae=WinUAE=:Kickstart - 391657-01 (USA, Europe) (v3.1 Rev 40.070) (A4000T).rom:0CA94F70
+fsuae=WinUAE=:Kickstart - 391658-01 (USA, Europe) (v3.1 Rev 40.070) (A4000T).rom:DFE03120
+fsuae=WinUAE=:Kickstart - ROM0 (USA, Europe) (v3.1 Rev 40.068) (A3000).rom:286B9A0D
+fsuae=WinUAE=:Kickstart - ROM1 (USA, Europe) (v3.1 Rev 40.068) (A3000).rom:0B8CDE6A
+fsuae=WinUAE=:Kickstart - 391523-01 (USA, Europe) (v3.0 Rev 39.106) (A1200).rom:C742A412
+fsuae=WinUAE=:Kickstart - 391524-01 (USA, Europe) (v3.0 Rev 39.106) (A1200).rom:D55C6EC6
+fsuae=WinUAE=:Kickstart (USA, Europe) (v3.1 Rev 40.068) (Proto) (A600).rom:8ECED804
+fsuae=WinUAE=:Kickstart - 391773-01 (USA, Europe) (v3.1 Rev 40.068) (A1200).rom:08DBF275
+fsuae=WinUAE=:Kickstart - 391774-01 (USA, Europe) (v3.1 Rev 40.068) (A1200).rom:16C07BF8
+fsuae=WinUAE=:Kickstart - EVEN (USA, Europe) (v3.1 Rev 40.055) (Beta) (A3000).rom:6DCBB6DA
+fsuae=WinUAE=:Kickstart - ODD (USA, Europe) (v3.1 Rev 40.055) (Beta) (A3000).rom:E1E0AD9F
+fsuae=WinUAE=:Kickstart (USA, Europe) (v3.1 Rev 40.063) (A500, A600, A2000).rom:FC24AE0D
+fsuae=WinUAE=:Kickstart - ROM0 (USA, Europe) (v3.1 Rev 40.068) (A4000).rom:B2AF34F8
+fsuae=WinUAE=:Kickstart - ROM1 (USA, Europe) (v3.1 Rev 40.068) (A4000).rom:E65636A3
+fsuae=WinUAE=:Kickstart - 391513-02 (USA, Europe) (v3.0 Rev 39.106) (A4000).rom:36F64DD0
+fsuae=WinUAE=:Kickstart - 391514-02 (USA, Europe) (v3.0 Rev 39.106) (A4000).rom:17266A55
+fsuae=WinUAE=:Kickstart - ROM0 (USA, Europe) (v3.1 Rev 40.070) (A4000).rom:F9CBECC9
+fsuae=WinUAE=:Kickstart - ROM1 (USA, Europe) (v3.1 Rev 40.070) (A4000).rom:F8248355
+fsuae=WinUAE=:391640-03.u6a:D3837AE4
+fsuae=WinUAE=:CD32 Extended-ROM rev 40.60 (1993)(Commodore)(CD32).rom:87746BE2
+fsuae=WinUAE=:Kickstart v3.1 rev 40.63 (1993)(Commodore)(A500-A600-A2000).rom:88136CA9
+fsuae=WinUAE=:Kickstart v3.1 rev 40.63 (1993)(Commodore)(A500-A600-A2000)[h ShapeShifter].rom:B506177B
+fsuae=WinUAE=:V1.3_34.5 A500-A2000 1987.rom:C4F0F55F
+fsuae=WinUAE=:V3.1_40.60 CD32 1993.rom:1E62D4A5
+fsuae=WinUAE=:Kickstart 1.3.rom:F6290043
+fsuae=WinUAE=:Kickstart 3.1.rom:FC24AE0D
 
+
+retroarch\system=:ProSystem.dat:9402D164>retroarch\system=:mpr-17933.bin:4AFCF0FA>
+retroarch\system=:sgb.boot.rom:EC8A83B9>
+retroarch\system=:st010.data.rom:216081B2>
+retroarch\system=:st010.program.rom:691CBB4F>
+retroarch\system=:st010.rom:8FC29D4C>
+retroarch\system=:st011.data.rom:803256A7>
+retroarch\system=:st011.program.rom:A741E9FB>
+retroarch\system=:st011.rom:84AAB2AE>
+retroarch\system=:st018.data.rom:B5255459>
+retroarch\system=:st018.program.rom:F73D5E10>
+retroarch\system=:st018.rom:5C403CC5>
 retroarch\system\Databases=:colecodb.xml:5C42B5D1>
 retroarch\system\Databases=:msxcaswavdb.xml:4AE56BF2>
 retroarch\system\Databases=:msxromdb.xml:ED4C6720>
@@ -721,7 +737,6 @@ retroarch\system\Machines\SVI - Spectravideo SVI-328 80 Swedish=:svi806se.rom:DA
 retroarch\system\Machines\SVI - Spectravideo SVI-328 MK2=:config.ini:4F3F32BE>
 retroarch\system\Machines\SVI - Spectravideo SVI-328 MK2=:svi328a.rom:BC433DF6>
 retroarch\system\Machines\SVI - Spectravideo SVI-328 MK2=:svi806.rom:850BC232>
-
 retroarch\system\PPSSPP=:ppge_atlas.zim:1E8709C1>
 retroarch\system\PPSSPP\flash0\font=:arib.pgf:16493569>
 retroarch\system\PPSSPP\flash0\font=:jpn0.pgf:428A1A18>
@@ -743,55 +758,47 @@ retroarch\system\PPSSPP\flash0\font=:ltn7.pgf:8305B511>
 retroarch\system\PPSSPP\flash0\font=:ltn8.pgf:48437F2D>
 retroarch\system\PPSSPP\flash0\font=:ltn9.pgf:ACA2ABCE>
 retroarch\system\PPSSPP\flash0\font=:zh_gb.pgf:8E873D4C>
-
 retroarch\system\_Extras\SNES SPC1170 (Far East of Eden - Tengai Makyou Zero)=:data.rom:D3D26F16>
 retroarch\system\_Extras\SNES SPC1170 (Far East of Eden - Tengai Makyou Zero)=:Tengai Makyou Zero (Japan).srm:54E74103>
 retroarch\system\_Extras\SNES SPC1170 (Momotarou Dentetsu Happy)=:data.rom:ED1E5493>
 retroarch\system\_Extras\SNES SPC1170 (Momotarou Dentetsu Happy)=:Momotarou Dentetsu Happy (Japan).srm:9F978CFB>
 retroarch\system\_Extras\SNES SPC1170 (Super Power League 4)=:data.rom:E8A36E80>
 retroarch\system\_Extras\SNES SPC1170 (Super Power League 4)=:Super Power League 4 (Japan).srm:7F4243FD>
-
-fsuae=WinUAE=:Amiga 1000 Bootstrap - 252180-01 (USA, Europe).rom:8E5B9A37
-fsuae=WinUAE=:Amiga 1000 Bootstrap - 252179-01 (USA, Europe).rom:76BD46EC
-fsuae=WinUAE=:Amiga 1000 Bootstrap - 252180-01 (USA, Europe).rom:DD516B6D
-fsuae=WinUAE=:Kickstart - EVEN (USA, Europe) (v3.0 Rev 39.065) (Beta) (A3000).rom:1B64EA21
-fsuae=WinUAE=:Kickstart - ODD (USA, Europe) (v3.0 Rev 39.065) (Beta) (A3000).rom:F2742238
-fsuae=WinUAE=:Kickstart - 391304-02 (USA, Europe) (v2.05 Rev 37.350) (A600HD).rom:43B0DF7B
-fsuae=WinUAE=:Kickstart - 391304-01 (USA, Europe) (v2.05 Rev 37.300) (A600HD).rom:64466C2A
-fsuae=WinUAE=:Kickstart - 315093-02 (USA, Europe) (v1.3 Rev 34.005) (A500, A2000).rom:C4F0F55F
-fsuae=WinUAE=:Kickstart - 391388-01 (USA, Europe) (v2.05 Rev 37.299) (A600).rom:83028FB5
-fsuae=WinUAE=:Kickstart (USA, Europe) (v2.05 Rev 37.210) (Proto) (A600).rom:4C0C1603
-fsuae=WinUAE=:Kickstart - 390629-03 (USA, Europe) (v2.04 Rev 37.175) (A3000).rom:7DB1332B
-fsuae=WinUAE=:Kickstart - 390630-03 (USA, Europe) (v2.04 Rev 37.175) (A3000).rom:A245DBDF
-fsuae=WinUAE=:Kickstart - 390979-01 (USA, Europe) (v2.04 Rev 37.175) (A500 Plus, A2000).rom:C3BDB240
-fsuae=WinUAE=:Kickstart - 363968-01 (USA, Europe) (v2.04 Rev 37.175) (Proto) (A500 Plus, A2000).rom:8DA9BD72
-fsuae=WinUAE=:Kickstart - 390629-02 (USA, Europe) (v1.4 Rev 36.016) (A3000).rom:58327536
-fsuae=WinUAE=:Kickstart - 390630-02 (USA, Europe) (v1.4 Rev 36.016) (A3000).rom:FE2F7FB9
-fsuae=WinUAE=:Kickstart - 315093-02 (USA, Europe) (v1.4 Rev 36.015) (Beta) (A500, A2000).rom:A3BA6116
-fsuae=WinUAE=:Kickstart - 315093-01 (USA, Europe) (v1.2 Rev 33.180) (A500, A2000).rom:A6CE1636
-fsuae=WinUAE=:Kickstart - 391657-01 (USA, Europe) (v3.1 Rev 40.070) (A4000T).rom:0CA94F70
-fsuae=WinUAE=:Kickstart - 391658-01 (USA, Europe) (v3.1 Rev 40.070) (A4000T).rom:DFE03120
-fsuae=WinUAE=:Kickstart - ROM0 (USA, Europe) (v3.1 Rev 40.068) (A3000).rom:286B9A0D
-fsuae=WinUAE=:Kickstart - ROM1 (USA, Europe) (v3.1 Rev 40.068) (A3000).rom:0B8CDE6A
-fsuae=WinUAE=:Kickstart - 391523-01 (USA, Europe) (v3.0 Rev 39.106) (A1200).rom:C742A412
-fsuae=WinUAE=:Kickstart - 391524-01 (USA, Europe) (v3.0 Rev 39.106) (A1200).rom:D55C6EC6
-fsuae=WinUAE=:Kickstart (USA, Europe) (v3.1 Rev 40.068) (Proto) (A600).rom:8ECED804
-fsuae=WinUAE=:Kickstart - 391773-01 (USA, Europe) (v3.1 Rev 40.068) (A1200).rom:08DBF275
-fsuae=WinUAE=:Kickstart - 391774-01 (USA, Europe) (v3.1 Rev 40.068) (A1200).rom:16C07BF8
-fsuae=WinUAE=:Kickstart - EVEN (USA, Europe) (v3.1 Rev 40.055) (Beta) (A3000).rom:6DCBB6DA
-fsuae=WinUAE=:Kickstart - ODD (USA, Europe) (v3.1 Rev 40.055) (Beta) (A3000).rom:E1E0AD9F
-fsuae=WinUAE=:Kickstart (USA, Europe) (v3.1 Rev 40.063) (A500, A600, A2000).rom:FC24AE0D
-fsuae=WinUAE=:Kickstart - ROM0 (USA, Europe) (v3.1 Rev 40.068) (A4000).rom:B2AF34F8
-fsuae=WinUAE=:Kickstart - ROM1 (USA, Europe) (v3.1 Rev 40.068) (A4000).rom:E65636A3
-fsuae=WinUAE=:Kickstart - 391513-02 (USA, Europe) (v3.0 Rev 39.106) (A4000).rom:36F64DD0
-fsuae=WinUAE=:Kickstart - 391514-02 (USA, Europe) (v3.0 Rev 39.106) (A4000).rom:17266A55
-fsuae=WinUAE=:Kickstart - ROM0 (USA, Europe) (v3.1 Rev 40.070) (A4000).rom:F9CBECC9
-fsuae=WinUAE=:Kickstart - ROM1 (USA, Europe) (v3.1 Rev 40.070) (A4000).rom:F8248355
-fsuae=WinUAE=:391640-03.u6a:D3837AE4
-fsuae=WinUAE=:CD32 Extended-ROM rev 40.60 (1993)(Commodore)(CD32).rom:87746BE2
-fsuae=WinUAE=:Kickstart v3.1 rev 40.63 (1993)(Commodore)(A500-A600-A2000).rom:88136CA9
-fsuae=WinUAE=:Kickstart v3.1 rev 40.63 (1993)(Commodore)(A500-A600-A2000)[h ShapeShifter].rom:B506177B
-fsuae=WinUAE=:V1.3_34.5 A500-A2000 1987.rom:C4F0F55F
-fsuae=WinUAE=:V3.1_40.60 CD32 1993.rom:1E62D4A5
-fsuae=WinUAE=:Kickstart 1.3.rom:F6290043
-fsuae=WinUAE=:Kickstart 3.1.rom:FC24AE0D
+retroarch\system=:us_scd1_9210.bin?bios_CD_U.bin:290F8E33
+retroarch\system=:us_scd1_9210.bin?bios_CD_U.bin:2E49D72C
+retroarch\system=:us_scd1_9210.bin?bios_CD_U.bin:9F6F6276
+retroarch\system=:us_scd1_9210.bin?bios_CD_U.bin:8AF65F58
+retroarch\system=:us_scd1_9210.bin?bios_CD_U.bin:E7E3AFE2
+retroarch\system=:us_scd1_9210.bin?bios_CD_U.bin:50CD3D23
+retroarch\system=:us_scd1_9210.bin?bios_CD_U.bin:3B10CF41
+retroarch\system=:us_scd1_9210.bin?bios_CD_U.bin:9F6F6276
+retroarch\system=:us_scd1_9210.bin?bios_CD_U.bin:C6D10268>
+retroarch\system=:Sega Mega-CD Model 2 BIOS v2.00 (1993)(Sega)(Eu).bin?bios_CD_E.bin:0507B590
+retroarch\system=:Sega Mega-CD Model 2 BIOS v2.00 (1993)(Sega)(Eu)[b].bin?bios_CD_E.bin:9B1FFC6F
+retroarch\system=:Sega Mega-CD Model 2 BIOS v2.00w (1993)(Sega)(Eu).bin?bios_CD_E.bin:4D5CB8DA
+retroarch\system=:Mega-CD (E) - Model 1 v1.00 (1992).bin?bios_CD_E.bin:529AC15A
+retroarch\system=:eu_mcd2_9306.bin?bios_CD_E.bin:D344F125
+retroarch\system=:Mega-CD (J) - Model 1 v1.00p (1991).bin?bios_CD_J.bin:9D2DA8F2
+retroarch\system=:jp_mcd1_9112.bin?bios_CD_J.bin:550F30BB
+retroarch\system=:[BIOS] Mega-CD 2 (Japan) (v2.00C).md?bios_CD_J.bin:DD6CC972
+retroarch\system=:japan-j3(jp).bin?bios_CD_J.bin:DFF6D41F
+retroarch\system=:Sega CD (U) - Model 1 v1.10 (1992).bin?bios_CD_U.bin:C6D10268
+retroarch\system=:Sega CD (U) - Model 2 v2.00 (1993) [b].bin?bios_CD_U.bin:340B4BE4
+retroarch\system=:Sega CD (U) - Model 2 v2.11x (1993) [b].bin?bios_CD_U.bin:B0519ED3
+retroarch\system=:Sega CD (U) - Model 2 v2.11x (2.00) (1993).bin?bios_CD_U.bin:2E49D72C
+retroarch\system=:Sega CDX (U) - v2.21x (1993) [b].bin?bios_CD_U.bin:4A940D4A
+retroarch\system=:Sega CDX (U) - v2.21x (1993).bin?bios_CD_U.bin:D48C44B5
+retroarch\system=:us_mcd_9208 [h].rom?bios_CD_U.bin:CE60984E
+retroarch\system=:us_mcd_9306 [h].rom?bios_CD_U.bin:7F7677CC
+retroarch\system=:us_scd2_9306.bin?bios_CD_U.bin:9F6F6276
+retroarch\system=:mpr-17933.bin:4AFCF0FA>
+retroarch\system=:sgb.boot.rom:EC8A83B9>
+retroarch\system=:st010.data.rom:216081B2>
+retroarch\system=:st010.program.rom:691CBB4F>
+retroarch\system=:st010.rom:8FC29D4C>
+retroarch\system=:st011.data.rom:803256A7>
+retroarch\system=:st011.program.rom:A741E9FB>
+retroarch\system=:st011.rom:84AAB2AE>
+retroarch\system=:st018.data.rom:B5255459>
+retroarch\system=:st018.program.rom:F73D5E10>
+retroarch\system=:st018.rom:5C403CC5>
