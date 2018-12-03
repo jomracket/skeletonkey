@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-12-02 9:42 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-12-03 1:28 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-12-02 9:42 PM
-VERSION= 0.99.67.30
+RELEASE= 2018-12-03 1:28 PM
+VERSION= 0.99.67.31
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -5080,6 +5080,7 @@ guicontrol,,RUNSYSDDL,|%ARCSYS%||%SYSTMFLDRS%
 guicontrol,,RUNROMCBX,|%afnchk%||%HISTORY%
 guicontrol,,LCORE,|%ARCCORES%||%runlist%
 MEDNFSYS= %ARCSYS%
+ROMSYS= %ARCSYS%
 EDTRMFN= %romfname%
 aemcfg= 1
 gosub, OPNCORE
@@ -8268,7 +8269,6 @@ gui,submit,nohide
 Sleep, 1000
 RUNSYSCHNG= 1
 indexCONSOLE= 
-MEDCFGLOC= 
 ARCSYS= 
 RJMEDNM= 
 indvcp= 
@@ -8551,7 +8551,7 @@ else {
 					guicontrol,,LCORE,|%coreselv%||%runlist%
 					if (coretmp <> coreselv)
 						{
-							gosub, opncore
+							core_gui= 
 						}
 				}
 		}
@@ -15279,7 +15279,7 @@ Loop, Parse, semu,|
 						guicontrol,,EMPRDDL,|Emulators|%addemu%
 						guicontrol,,PLCORE,|%runlist%
 						guicontrol,,ARCCORES,|Select_a_Core||%runlist%
-						guicontrol,,JOYCORE,|Global||Xpadder|Antimicro|%corelist%|%supgui%
+						guicontrol,,JOYCORE,|Global||Xpadder|Antimicro|%supgui%|%corelist%
 					}	
 			}
 			/*
@@ -15339,7 +15339,7 @@ gosub, ResetRunList
 guicontrol,,JCORE,|%runlist%
 guicontrol,,LCORE,|%runlist%
 guicontrol,,PLCORE,|%lastcore%||%runlist%
-guicontrol,,JOYCORE,|Global||Xpadder|Antimicro|%corelist%|%supgui%
+guicontrol,,JOYCORE,|Global||Xpadder|Antimicro|%supgui%|%corelist%
 stringright,ttr,sysni,1
 if (ttr = "|")
 	{
@@ -24259,7 +24259,7 @@ emjDDLB=
 cfginif= apps.ini
 cfginik= EMULATORS
 cfgemc= %RJEMUPRECFG%
-if (ASVRM = 1)
+if (SK_MODE = 1)
 	{
 		cfginif= Assignments.ini
 		cfginik= ASSIGNMENTS
@@ -24268,15 +24268,17 @@ if (ASVRM = 1)
 ;{;;;;;;;; get emulator from nickname ;;;;;;;
 guicontrolget,nicktst,,LCORE
 IniRead,nicktstj,%cfginif%,%cfginik%,%cfgemc%
+stringsplit,splcr,nicktstj,_
+nicktstj= %splcr1%
 Loop,parse,supgui,|
 	{
 		if (A_Loopfield = nicktstj)
 			{
-				nicktstk= %nicktstj%
-				goto, subemuname
+				EMUSN= %nicktstj%
+				goto, %EMUSN%_GUI
 			}
 	}
-if (ASVRM = 1)
+if (SK_MODE = 1)
 	{
 		SplitPath,nicktstj,tmpmund
 		Loop, Parse, EmuPartSet,`n`r
@@ -24291,6 +24293,7 @@ if (ASVRM = 1)
 					}
 			}
 	}
+	
 ;};;;;;;;;	
 subemuname:
 if (nicktstk <> "")
@@ -25135,12 +25138,12 @@ EMUCFGCOPY:
 EMUDFL= 
 guicontrolget,RUNROMCBX,,RUNROMCBX
 splitpath,RUNROMCBX,EDTRMF,EDTRMP,EDTRMX,EDTRMFN
-if (ASVRM = "")
+if (SK_MODE = "")
 	{
 		RVLKUP= %RJSYSDD%
 		indvcp= rj\sysCfgs\%curjf%
 	}
-if (ASVRM = 1)
+if (SK_MODE = 1)
 	{
 		guicontrolget,nicktst,,LCORE
 		guicontrolget,MEDNFSYS,,RUNSYSDDL
@@ -26570,7 +26573,7 @@ gosub, TOGGLESEARCHBOX
 EMUCFGOVRTGL= 0
 medcfg= Altirra.ini
 
-if (ASVRM = "")
+if (SK_MODE = "")
 	{
 		guicontrol, %emutog%, emuBUTJ
 		guicontrol, move, emuBUTJ,x694 y486 w66 h23
@@ -26595,12 +26598,25 @@ return
 ;{;;  create mednafen gui ;;
 Mednafen_GUI:
 guicontrolget,uuniv,,FNDGUI
+iniread,mednafxf,AppParams.ini,%LCORE%,per_game_configurations
+
+medcfg= mednafen.cfg
+MEDCFGLOC= cfg\%MEDNFSYS%\%nicktst%\%EDTRMFN%\%medcfg%
+if (mednafxf = 0)
+	{
+		iniread,mednafpth,Assignments.ini,ASSIGNMENTS,%LCORE%
+		splitpath,mednafpth,,mednafloc
+		MEDCFGLOC= %mednafloc%\%medcfg%
+		indvcp= %MEDCFGLOC%
+	}
+	
 if (core_gui = "mednafen")
 	{
 		goto, medguicreated
 	}
 if (medxi = "")
 	{	
+		FileRead,mkbl,rj\emuCfgs\mednafen\mednafenjoy.get
 		fileread,medxi,rj\emucfgs\mednafen\xinput.default.get
 		fileread,medao,rj\emucfgs\mednafen\defaults.ini.get
 		Loop,Parse,medao,=
@@ -26614,19 +26630,9 @@ if (medxi = "")
 		IniRead, mtcfg,rj\emuCfgs\mednafen\defaults.ini.get,GLOBAL
 		IniRead, micfg,rj\emuCfgs\mednafen\defaults.ini.get,INPUT
 		IniRead, mtrfg,rj\emuCfgs\mednafen\defaults.ini.get,COMMON	
-	}	
-iniread,mednafxf,AppParams.ini,%LCORE%,per_game_configurations
-
-medcfg= mednafen.cfg
-MEDCFGLOC= cfg\%MEDNFSYS%\%nicktst%\%EDTRMFN%\%medcfg%
-if (mednafxf = 0)
-	{
-		iniread,mednafpth,Assignments.ini,ASSIGNMENTS,%LCORE%
-		splitpath,mednafpth,,mednafloc
-		MEDCFGLOC= %mednafloc%\%medcfg%
-		indvcp= %MEDCFGLOC%
 	}
 	
+;{;;;;;;;;;;;;;;;;;;;;  mednafen gui populate ;;;;;;;;;;;;;;;;;;;;;;	
 moptog= hide
 raoptgl= hide
 srchtog= hide
@@ -26634,7 +26640,6 @@ emutog= show
 gosub, RAGuiVisTog
 gosub, TOGSKELGUI
 gosub, TOGGLESEARCHBOX
-;;gosub, MEDCCLRE
 if (uuniv = "X")
 	{
 		srchtog= hide
@@ -26899,8 +26904,8 @@ guicontrol,move,emuSLDE,,x215 y221 w120 h24
 guicontrol, %emutog%, emuSLDC
 guicontrol,+Range0-10,emuSLDC
 guicontrol,move,emuSLDC,x215 y270 w120 h24
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;//change this to a listed variable
 core_gui= mednafen
 if (medjgrab = "")
 	{
@@ -26951,7 +26956,7 @@ if (medjgrab = "")
 ;};;
 medguicreated:
 EMUCFGOVRTGL= 0
-if (ASVRM = "")
+if (SK_MODE = "")
 	{
 		guicontrol, %emutog%, emuBUTJ
 		guicontrol, move, emuBUTJ,x694 y486 w66 h23
@@ -27021,123 +27026,16 @@ ifnotexist, %MEDCFGLOC%
 	}
 
 MednafenPOP:
-	
 MednafenRESETPOP:
 curmedINPT= 
-FileRead,mkbl,rj\emuCfgs\mednafen\mednafenjoy.get
 IniRead, RJMEDNM, emuCfgPresets.set,%MEDNFSYS%,RJMEDNM
 if (RJMEDNM = "ERROR")
 	{
 		RJMEDNM= %emuDDLJ%
 	}
-ifexist, %MEDCFGLOC%
+ifnotexist,%MEDCFGLOC%
 	{
-		goto, LOADMEDNAFENOPTS
-	}
-IniRead, mtafg,rj\emuCfgs\mednafen\defaults.ini.get,%RJMEDNM%
-stringreplace,mtrfg,mtrfg,<system>,%RJMEDNM%,All
-;;;global export;;;;
-Loop, parse, mtcfg,`n`r
-	{
-		if (A_LoopField = "")
-			{
-				continue
-			}
-		aii1=
-		aii2=
-		inmk= 
-		stringsplit,aii,A_LoopField,=
-		ifinstring,aii2,[
-			{
-				Loop, parse, mkbl,`n`r
-					{
-						ifinstring,A_LoopField,%aii2%
-							{
-								FileAppend,%aii1% %A_LoopField%`n,%MEDCFGLOC%
-								inmk= 1
-								continue
-							}
-					}
-				if (inmk = 1)
-					{
-						continue
-					}
-				ifinstring,aii2,[ROMPATH]
-					{
-						stringreplace,aii2,aii2,[ROMPATH],%indvcp%,All
-						FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
-						continue
-					}
-			}
-		FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
-	}
-;;;;system unique export;;;;
-Loop, parse, mtafg,`n`r
-	{	
-		if (A_LoopField = "")
-			{
-				continue
-			}
-		aii1=
-		aii2=
-		stringsplit,aii,A_LoopField,=
-		FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
-	}
-;;;;common system export;;;;
-Loop, parse, mtrfg,`n`r
-	{
-		if (A_LoopField = "")
-			{
-				continue
-			}
-		aii1=
-		aii2=
-		stringsplit,aii,A_LoopField,=
-		FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
-	}
-;;;;input export;;;;
-Loop, 16
-	{
-		jnum+= 1
-		jvar= 
-		Loop, Parse, medjgrab,|
-			{
-				jman+= 1
-				if (A_Index = jnum)
-					{
-						stringreplace,micfg,micfg,[0x0%jman%],%A_LoopField%,All
-						jvar= %A_LoopField%
-						medjid%jnum%= %A_LoopField%
-						break
-					}
-			}
-		if (jvar = "")
-			{
-				stringreplace,micfg,micfg,[0x0%A_Index%],0x0,All
-				medjid%A_Index%= 0x0
-			}
-		medjindex= % medjid%A_index%	
-	}	
-Loop, parse, micfg,`n`r
-	{
-		if (A_LoopField = "")
-			{
-				continue
-			}
-		aii1=
-		aii2=
-		stringsplit,aii,A_LoopField,=
-		api1=
-		api2=
-		stringsplit,api,aii1,.
-		if (api1 = RJMEDNM)
-			{
-				FileAppend,%aii1%%A_Space%%aii2%`n,%MEDCFGLOC%
-			}
-		if (RJMEDNM	= "")
-			{
-				FileAppend,%aii1%%A_Space%%aii2%`n,%MEDCFGLOC%
-			}
+		goto, MednafenInit
 	}
 
 LOADMEDNAFENOPTS:
@@ -27145,6 +27043,8 @@ mednafenopts=
 FileRead,mednafenopts,%MEDCFGLOC%
 guicontrol,,emuDDLJ,|%RJMEDNM%||%mednfsc%
 abarb= |
+msgbox,,,loading %medcfgloc%
+SB_SetText("Loading mednafen options")
 Loop, Parse, mednafenopts,`n`r
 	{
 		if (A_LoopField = "")
@@ -27163,7 +27063,6 @@ Loop, Parse, mednafenopts,`n`r
 				break
 			}
 		abarb.= A_LoopField . "|"
-		SB_SetText(" " A_index " ")
 		msplk2=
 		msplk3=
 		msplk4=
@@ -27428,16 +27327,13 @@ Loop, Parse, mednafenopts,`n`r
 				MEDemuEDTF= %msplke%
 			}
 	}
+SB_SetText("Mednafen options loaded")	
 gosub, MednafenCTRLS
 return
 
 ;{;;;;;;;;;;;;    RESET MEDNAFEN   ;;;;;;;;;;;;;;;;;;;;;
 mednafenBUTC:
 gui,submit,nohide
-medninit= 1
-;filedelete,%MEDCFGLOC%
-gosub, MednafenRESETPOP
-medinit=
 MEDemuRAD11A= 0
 MEDemuRAD11B= 0
 MEDemuRAD8A= 0
@@ -27523,7 +27419,121 @@ guicontrol,,emuSLDA,0
 guicontrol,,emuSLDB,0
 guicontrol,,emuSLDE,50
 guicontrol,,emuSLDC,0
+
+fileDelete,%MEDCFGLOC%
+gosub, MednafenInit
+gosub, MednafenRESETPOP
 return
+
+MednafenInit:
+msgbox,,,medinit`n%medcfgloc%
+IniRead, mtafg,rj\emuCfgs\mednafen\defaults.ini.get,%RJMEDNM%
+stringreplace,mtrfg,mtrfg,<system>,%RJMEDNM%,All
+;;;global export;;;;
+Loop, parse, mtcfg,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		aii1=
+		aii2=
+		inmk= 
+		stringsplit,aii,A_LoopField,=
+		ifinstring,aii2,[
+			{
+				Loop, parse, mkbl,`n`r
+					{
+						ifinstring,A_LoopField,%aii2%
+							{
+								FileAppend,%aii1% %A_LoopField%`n,%MEDCFGLOC%
+								inmk= 1
+								continue
+							}
+					}
+				if (inmk = 1)
+					{
+						continue
+					}
+				ifinstring,aii2,[ROMPATH]
+					{
+						stringreplace,aii2,aii2,[ROMPATH],%indvcp%,All
+						FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
+						continue
+					}
+			}
+		FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
+	}
+;;;;system unique export;;;;
+Loop, parse, mtafg,`n`r
+	{	
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		aii1=
+		aii2=
+		stringsplit,aii,A_LoopField,=
+		FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
+	}
+;;;;common system export;;;;
+Loop, parse, mtrfg,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		aii1=
+		aii2=
+		stringsplit,aii,A_LoopField,=
+		FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
+	}
+;;;;input export;;;;
+Loop, 16
+	{
+		jnum+= 1
+		jvar= 
+		Loop, Parse, medjgrab,|
+			{
+				jman+= 1
+				if (A_Index = jnum)
+					{
+						stringreplace,micfg,micfg,[0x0%jman%],%A_LoopField%,All
+						jvar= %A_LoopField%
+						medjid%jnum%= %A_LoopField%
+						break
+					}
+			}
+		if (jvar = "")
+			{
+				stringreplace,micfg,micfg,[0x0%A_Index%],0x0,All
+				medjid%A_Index%= 0x0
+			}
+		medjindex= % medjid%A_index%	
+	}	
+Loop, parse, micfg,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		aii1=
+		aii2=
+		stringsplit,aii,A_LoopField,=
+		api1=
+		api2=
+		stringsplit,api,aii1,.
+		if (api1 = RJMEDNM)
+			{
+				FileAppend,%aii1%%A_Space%%aii2%`n,%MEDCFGLOC%
+			}
+		if (RJMEDNM	= "")
+			{
+				FileAppend,%aii1%%A_Space%%aii2%`n,%MEDCFGLOC%
+			}
+	}
+return
+
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -28421,7 +28431,7 @@ return
 
 if (raoptgl = "show")
 	{
-		if (ASVRM = "1")
+		if (SK_MODE = "1")
 			{
 				guicontrol,%raoptgl%,RUNSYSDDL
 				guicontrol,%raoptgl%,RUNPLRAD
@@ -28438,7 +28448,7 @@ if (raoptgl = "show")
 	}
 if (raoptgl = "hide")
 	{
-		if (ASVRM = "")
+		if (SK_MODE = "")
 			{
 				guicontrol,%raoptgl%,RUNSYSDDL
 				guicontrol,%raoptgl%,RUNPLRAD
@@ -28461,7 +28471,7 @@ if (LCORE = "retroArch")
 		guicontrol,hide, CSTRAARGF
 		guicontrol,hide, CSTCRE
 		guicontrol,hide, CSTCMD
-		if (ASVRM = "")
+		if (SK_MODE = "")
 			{
 				guicontrol,hide,SRCHGRP
 				guicontrol,hide,SRCHROMLBX
@@ -37343,7 +37353,7 @@ guicontrol,,LCORE,|%utlDDLC%||%runlist%
 EMUSN= %utlDDLC%
 gosub, EMUOPTPOP
 svgbrnv=
-guicontrol,,JOYCORE,|%utlDDLC%||Global|Xpadder|Antimicro|%corelist%|%supgui%
+guicontrol,,JOYCORE,|%utlDDLC%||Global|Xpadder|Antimicro|%supgui%|%corelist%
 gosub, JOYEMUCORE
 guicontrol,,CFGSWITCH,|||EXE|||
 SB_SetText(" Editing emulator executable configurations ")
@@ -39078,7 +39088,7 @@ RJEMUPRM:
 gui,submit,nohide
 guicontrol,,CFGSWITCH,|||RJ|||
 guicontrolget, RJEMUTG,,RJEMUPRECFG
-ASVRM= 
+SK_MODE= 
 guicontrol,,JCORE,|%runlist%
 svgbrnv= 1
 
@@ -39088,8 +39098,7 @@ guicontrol,,LCORE,|%RJEMUTG%||%runlist%
 EMUSN= %RJEMUTG%
 gosub, EMUOPTPOP
 svgbrnv=
-guicontrol,,JOYCORE,|%krilln%||Global|Xpadder|Antimicro|%corelist%|%supgui%
-;;gosub, JOYEMUCORE
+guicontrol,,JOYCORE,|%decore%||Global|Xpadder|Antimicro|%supgui%|%corelist%
 return
 
 ;};;;;;;;;;;;;;;;;;
@@ -44829,7 +44838,7 @@ if ((romf <> "") && (coreselv <> ""))
 	}
 ifinstring,LCORE,_libretro
 	{
-		ASVRM= 
+		SK_MODE= 
 		guicontrol,,CoreDDLA, |%LCORE%||Select_A_Core|%corelist%
 		Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util%RACORETAB%
 		moptog= hide
@@ -44839,7 +44848,7 @@ ifinstring,LCORE,_libretro
 		gosub, RAGuiVisTog
 		if (AUTOPGS = 1)
 			{
-				guicontrol,,JOYCORE,|%lcore%||Global|Xpadder|Antimicro|%corelist%|%supgui%
+				guicontrol,,JOYCORE,|%lcore%||Global|Xpadder|Antimicro|%supgui%|%corelist%
 				gosub, JOYCORE
 			}
 		runningcore= core
@@ -44847,71 +44856,28 @@ ifinstring,LCORE,_libretro
 		SB_SetText("Core-Options loaded in the Cores Tab")
 		return
 	}
-ASVRM= 1
+SK_MODE= 1
 RJEMUTG= %LCORE%
+stringsplit,crspl,LCORE,_
+IMCORE= %crspl1%
 fig= 
 Loop, parse,supgui,|
 	{
-		if (A_Loopfield = RJEMUTG)
+		if (A_Loopfield = IMCORE)
 			{
 				fig= 1
-				krilln= %RJEMUTG%
+				decore= %RJEMUTG%
 				break
 			}
 	}	
 if (fig = "")
 	{
-		qisf= 
-		krilln= Global
-		iniread,fiiw,Assignments.ini,ASSIGNMENTS
-		Loop, Parse, fiiw,`n`r
-			{
-				saik1=
-				saik2=
-				stringsplit,saik,A_LoopField,=,"
-				;"
-				saixe=
-				if (saik1 = RJEMUTG)
-					{
-						ifinstring,saik2,.exe
-							{
-								splitpath,saik2,saixe,saixd,saixt,saixn
-								Loop, Parse, EmuPartSet,`n`r
-									{
-										if (A_LoopField = "")
-											{
-												continue
-											}
-										empt1=
-										empt2=
-										empt3=
-										empt4=
-										stringsplit,empt,A_LoopField,=
-										if (empt3 = saixe)
-											{
-												Loop,parse,supgui,|
-													{
-														if (A_Loopfield = empt1)
-															{
-																krilln= %A_LoopField%
-																qisf= 1
-																break
-															}
-													}
-											}
-									}
-							}
-						if (qisf = 1)
-							{
-								break
-							}
-					}
-			}
+		gosub, CoreDerive
 	}
 
-guicontrol,,JOYCORE,|%krilln%||Global|Xpadder|Antimicro|%corelist%|%supgui%
+guicontrol,,JOYCORE,|%decore%||Global|Xpadder|Antimicro|%supgui%|%corelist%
 gosub, EMUNAMEPOP
-if (ASVRM = 1)
+if (SK_MODE = 1)
 	{
 		guicontrol,show,RUNSYSDDL
 		guicontrol,show,RUNPLRAD
@@ -44927,6 +44893,57 @@ if (ASVRM = 1)
 		guicontrol,show,CLRCUROM
 	}
 return
+
+CoreDerive:
+qisf= 
+decore= Global
+iniread,fiiw,Assignments.ini,ASSIGNMENTS
+Loop, Parse, fiiw,`n`r
+	{
+		saik1=
+		saik2=
+		stringsplit,saik,A_LoopField,=,"
+		;"
+		saixe=
+		if (saik1 = RJEMUTG)
+			{
+				ifinstring,saik2,.exe
+					{
+						splitpath,saik2,saixe,saixd,saixt,saixn
+						Loop, Parse, EmuPartSet,`n`r
+							{
+								if (A_LoopField = "")
+									{
+										continue
+									}
+								empt1=
+								empt2=
+								empt3=
+								empt4=
+								stringsplit,empt,A_LoopField,=
+								if (empt3 = saixe)
+									{
+										Loop,parse,supgui,|
+											{
+												if (A_Loopfield = empt1)
+													{
+														decore= %A_LoopField%
+														qisf= 1
+														break
+													}
+											}
+									}
+							}
+					}
+				if (qisf = 1)
+					{
+						break
+					}
+			}
+	}
+return
+			
+
 
 HideConfig:
 raoptgl= hide
@@ -52698,7 +52715,7 @@ return
 
 ;{;;;;;;;;;;   RA remapping DDL    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 JoyCore:
-ASVRM= 1
+SK_MODE= 1
 JOYEMUCORE:
 iremp= 1
 gui,submit,nohide
@@ -52759,7 +52776,7 @@ if (emujchk2 <> "dll")
 		if (JOYCORE = "retroArch")
 			{
 				JOYCORE:= ".dll"
-				if (ASVRM = "")
+				if (SK_MODE = "")
 					{
 						curcfg= rj\sysCfgs\%RJSYSDD%\retroarch.cfg
 					}
@@ -52772,7 +52789,9 @@ if (emujchk2 <> "dll")
 		ejcex= 
 		autcfglst=
 		guicontrol,,JCFGEDT,|
-		Loop, supinp,|
+		stringsplit,JOYCORD,JOYCORE,_
+		JOYCORE= %JOYCORD1%
+		Loop,parse, supgui,|
 			{
 				if (JOYCORE = A_LoopField)
 					{
@@ -52781,16 +52800,6 @@ if (emujchk2 <> "dll")
 								ejcex= 1
 								break
 							}
-						/*
-						iniread,tmpctc,Assignments.ini,ASSIGNMENTS,%JOYCORE%
-						splitpath,tmpctc,,,,tmpcc
-						if (tmpctc = "ERROR")
-							{
-								tmpcc= HIDEJOY
-							}
-						gosub, MEDCCLRE
-						gosub %JOYCORE%CTRLS
-						*/	
 					}
 			}
 		if (ejcex = "")
@@ -53953,7 +53962,7 @@ if (REMPB = 0)
 		guicontrol,disable,JOYCORE
 		guicontrol,disable,JCFGADD
 		guicontrol,disable,SAVEJOY
-		guicontrol,,JOYCORE,|Global||Xpadder|Antimicro|%corelist%|%supgui%
+		guicontrol,,JOYCORE,|Global||Xpadder|Antimicro|%supgui%|%corelist%
 		gosub, JoyCore
 	}	
 	IniWrite, "%inputRemapBindsEnable%", %joycfg%,OPTIONS,input_remap_binds_enable
@@ -54824,46 +54833,6 @@ if (emjddlb = "")
 	}
 gosub, MED%RJMEDNM%JOY
 SB_SetText(" Mednafen " RJMEDNM " joystick loading complete ")
-return
-
-MEDCCLRE:
-fiiw= 		
-iniread,fiiw,Assignments.ini,ASSIGNMENTS
-Loop, Parse, fiiw,`n`r
-	{
-		saik1=
-		saik2=
-		stringsplit,saik,A_LoopField,=,"
-		;"
-		saixe= 
-		if (saik1 = tmpcc)
-			{
-				ifinstring,saik2,.exe
-					{
-						splitpath,saik2,saixe,saixd,saixt,saixn
-						Loop, Parse, EmuPartSet,`n`r
-							{
-								empt1=
-								empt2=
-								empt3=
-								empt4=
-								stringsplit,empt,A_LoopField,=
-								ifinstring,empt3,saixe
-								guicontrol,,JOYCORE,|%empt1%||Global|Xpadder|Antimicro|%corelist%|%supgui%
-								qisf= 1
-								break
-							}
-					}
-				if (saikxe = "")
-					{
-						saixn= %LCORE%
-					}
-				if (qisf = 1)
-					{
-						break
-					}
-			}
-	}	
 return
 
 
@@ -59979,7 +59948,6 @@ splitpath,RUNROMCBX,EDTRMF,EDTRMP,EDTRMX,EDTRMFN
 guicontrol,-Altsubmit,RUNROMCBX
 gui,submit,nohide
 indvcp= 
-MEDCFGLOC=
 EDTRMFN=
 if (romf = "")
 	{
@@ -60216,7 +60184,7 @@ if (coreselv = "")
 	
 iniwrite, "%romf%",Settings.ini,GLOBAL,last_rom
 gosub, LNCHCHK
-ASVRM= 1
+SK_MODE= 1
 RUNSYSCHNG= 
 if ((romf <> "") && (coreselv <> ""))
 	{
@@ -60377,110 +60345,6 @@ if (LCORE = "")
 		gosub, hideconfig
 		return
 	}
-/*
-ifinstring,allsupsys,tmpcc|
-	{
-		ifinstring,tmpcc,.dll
-			{
-				ifinstring,LCORE,.dll
-					{
-						return
-					}
-			}
-		guicontrolget,tmpsys,,RUNSYSDDL
-		MEDNFSYS= 
-		moptog= hide
-		ASVRM= 1
-		dlx2= 
-		guicontrolget,LCORE,,LCORE
-		splitpath, LCORE , , , dlx, , 
-		coreselv= %LCORE%
-		SB_SetText(" " LCORE " ")
-		guicontrol,hide,JCORE
-		guicontrol,enable,CNCTBUT
-		guicontrol,enable,HostButton
-		guicontrol,enable,OPNCORE
-		guicontrolget,RUNFLRAD,,RUNFLRAD
-		if (uuniv = "X")
-			{
-				srchtog= hide
-				gosub, TOGGLESEARCHBOX
-				guicontrol,move,FNDGUI, x720 y516 w42 h19
-				guicontrol,,FNDGUI,find
-			}
-		LnchListAll:
-		if (dlx <> "dll")
-			{
-					runningcore= emulator
-					gosub, OPNCORE
-					JOYCORE= %LCORE%
-					guicontrolget,RUNFLRAD,,RUNFLRAD
-					APLN= 1
-					if (SRCHFLRAD = 1)
-						{
-							guicontrol,,SRCHLOCDDL,|:=:System List:=:||%systmfldrs%
-						}
-				rdfiw=
-				gosub, MEDCCLRE
-				guicontrol,,JOYCORE,|%saixn%||%runlist%
-				gosub, JOYEMUCORE				
-			}
-		if (dlx = "dll")
-				{
-					runningcore= core
-					guicontrol,show,SWHOST
-					guicontrol,show,LCORE
-					guicontrolget,RUNFLRAD,,RUNFLRAD
-					JOYCORE= Global
-					if (PGM = 1)
-						{
-							JOYCORE= %LCORE%
-						}
-					guicontrol,,JOYCORE,|%JOYCORE%||%runlist%
-					gosub, JoyCore
-					APLN= 
-				}
-		if (RUNFLRAD = 1)
-			{
-				if (USRCORE = 1)
-					{
-						guicontrol,,RUNSYSDDL,|:=:System List:=:||%systmfldrs%
-						ifexist, %RJSYSTEMS%\%tmpsys%
-							{
-								guicontrol,,RUNSYSDDL,|:=:System List:=:|%tmpsys%||%systmfldrs%
-							}
-					}
-			}
-		USRCORE= 		
-		iniwrite, "%LCORE%", Settings.ini,GLOBAL,last_core
-		gosub, LNCHCHK
-	}
-restru= 
-if (tmpcc <> bltm) 
-	{
-		guicontrol,enable,LCORE	
-		return
-	}
-ifinstring,allsupsys,tmpcc
-	{
-		guicontrol,disable,LCORE
-		guicontrol,,LCORE,|searching
-		invr= 
-		inva= 
-		Loop,Parse,allsupsys,`n
-			{
-				avr= 
-				ifinstring,A_LoopField,tmpcc
-					{
-						avr= %A_LoopField%
-						break
-					}
-			}
-		guicontrol,,LCORE,|%avr%||%runlist%
-		guicontrol,enable,LCORE
-	}
-bltm= %tmpcc%	
-*/
 
 if (tmpcc <> LCORE)
 	{
@@ -62276,7 +62140,7 @@ guicontrol,,EMPRDDL,|Emulators|%addemu%
 guicontrol,,ARCCORES,|Select_a_Core||%runlist%
 guicontrol,,PLCORE,|%runlist%
 guicontrol,,ASCORE,|%corelist%
-guicontrol,,JOYCORE,|Global||Xpadder|Antimicro|%corelist%|%supgui%
+guicontrol,,JOYCORE,|Global||Xpadder|Antimicro|%supgui%|%corelist%
 return
 
 resetOVR:
