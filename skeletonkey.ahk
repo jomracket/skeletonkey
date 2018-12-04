@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-12-03 1:28 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-12-03 8:21 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-12-03 1:28 PM
-VERSION= 0.99.67.31
+RELEASE= 2018-12-03 8:21 PM
+VERSION= 0.99.67.45
 RASTABLE= 1.7.5
 #Include tf.ahk
 #Include lbex.ahk
@@ -397,14 +397,7 @@ ifNotExist, sys.ini
 ifNotExist, msys.ini
 	{
 		gosub, resetSYS
-	}					
-if (raexefile <> "NOT-FOUND.exe")
-	{
-		ifNotExist, cores.ini
-			{
-				gosub resetCORES
-			}
-	}
+	}		
 if (INITIAL = 1)
 	{
 		gosub, DestroySplashGUI
@@ -413,9 +406,25 @@ if (INITIAL = 1)
 	}
 if (raexefile <> "NOT-FOUND.exe")
 	{
+		ifNotExist, sl.ini
+			{
+				gosub resetSL
+			}
 		ifNotExist, gl.ini
 			{
 				gosub, resetGL
+			}
+		ifNotExist, cg.ini
+			{
+				gosub, resetCG
+			}
+		ifNotExist, cores.ini
+			{
+				gosub resetCORES
+			}
+		ifNotExist, fltlist.ini
+			{
+				gosub, resetFILT
 			}
 	}
 if (INITIAL = 1)
@@ -423,39 +432,6 @@ if (INITIAL = 1)
 		gosub, DestroySplashGUI
 		SplashImage = emu.png
 		SplashImageGUI(SplashImage, "Center", "Center", true)
-	}
-if (raexefile <> "NOT-FOUND.exe")
-	{
-		ifNotExist, cg.ini
-			{
-				gosub, resetCG
-			}
-	}
-if (INITIAL = 1)
-	{	
-		gosub, DestroySplashGUI
-		SplashImage = Ins.png
-		SplashImageGUI(SplashImage, "Center", "Center", true)
-	}
-if (raexefile <> "NOT-FOUND.exe")
-	{
-		ifNotExist, sl.ini
-			{
-				gosub resetSL
-			}
-	}
-if (INITIAL = 1)
-	{
-		gosub, DestroySplashGUI
-		SplashImage = cor.png
-		SplashImageGUI(SplashImage, "Center", "Center", true)
-	}
-if (raexefile <> "NOT-FOUND.exe")
-	{
-		ifNotExist, fltlist.ini
-			{
-				gosub, resetFILT
-			}
 	}
 ARC_USER= Not Set
 IniRead,ARC_USERt,Settings.ini,GLOBAL,archive_login
@@ -495,6 +471,13 @@ Loop,Read,cores.ini
 		coreNamz .= (A_Index == 1 ? "" : "|") . jnm
 	}
 SKCCTXT= %CORENUM% cores
+
+if (INITIAL = 1)
+	{
+		gosub, DestroySplashGUI
+		SplashImage = cor.png
+		SplashImageGUI(SplashImage, "Center", "Center", true)
+	}
 
 RACORETAB= |Netplay|Cores
 if (raexefile = "NOT-FOUND.exe")
@@ -541,16 +524,6 @@ Loop, Parse, scrsup,/
 					}
 			}
 	}
-/*	
-Loop, Parse, SysEmuSet,`n`r
-	{
-		if (A_LoopField = "")
-			{
-				continue
-			}
-		StringSplit,sysplit,A_LoopField,|
-	}
-*/	
 emuinstpop= 	
 Loop, Parse, EmuPartSet,`n`r
 	{
@@ -663,6 +636,12 @@ Loop, parse, afip,`n
 {
 	afep.= A_LoopField . "|"
 }
+if (INITIAL = 1)
+	{	
+		gosub, DestroySplashGUI
+		SplashImage = Ins.png
+		SplashImageGUI(SplashImage, "Center", "Center", true)
+	}
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;;;;;;;;;;;;      ITERATE VALUES           ;;;;;;;;;;;;;;;;;;;;;;;
@@ -717,7 +696,7 @@ pathlocations= content_database_path|cheat_database_path|content_favorites_path|
 
 joyiterate= _L_X_Plus|_L_X_Minus|_R_X_Plus|_R_X_Minus|_L_Y_Plus|_L_Y_Minus|_R_Y_Plus|_R_Y_Minus|_R|_L|_B|_A|_X|_Y|_L2|_R2|_L3|_R3|_Start|_Select|_Up|_Down|_Left|_Right|_Turbo
 
-hkiterate= input_Audio_Mute|input_Cheat_Index_Minus|input_Cheat_Index_Plus|input_Cheat_Toggle|input_Disk_Eject_Toggle|input_Disk_Next|input_Disk_Prev|input_Enable_Hotkey|input_Exit_Emulator|input_Frame_Advance|input_Toggle_Fullscreen|input_Game_Focus_Toggle|input_Grab_Mouse_Toggle|input_Hold_Fast_Forward|input_Load_State|input_Menu_Toggle|input_Movie_Record_Toggle|input_netplay_game_watch|input_Osk_Toggle|input_Overlay_Next|input_Pause_Toggle|input_Reset|input_Rewind|input_Save_State|input_Screenshot|input_Shader_Next|input_Shader_Prev|input_Slowmotion|input_State_Slot_Decrease|input_State_Slot_Increase|input_Toggle_Fast_Forward|input_Toggle_Fullscreen|input_Volume_Down|input_Volume_Up|input_Turbo_Period|input_Duty_cycle
+hkiterate= input_Audio_Mute|input_Cheat_Index_Minus|input_Cheat_Index_Plus|input_Cheat_Toggle|input_Disk_Eject_Toggle|input_Disk_Next|input_Disk_Prev|input_Enable_Hotkey|input_Exit_Emulator|input_Frame_Advance|input_Toggle_Fullscreen|input_Game_Focus_Toggle|input_Grab_Mouse_Toggle|input_Hold_Fast_Forward|input_hold_slowmotion|input_Load_State|input_Menu_Toggle|input_Movie_Record_Toggle|input_netplay_game_watch|input_Osk_Toggle|input_Overlay_Next|input_Pause_Toggle|input_Reset|input_Rewind|input_Save_State|input_Screenshot|input_Shader_Next|input_Shader_Prev|input_Slowmotion|input_State_Slot_Decrease|input_State_Slot_Increase|input_Toggle_Fast_Forward|input_Toggle_Fullscreen|input_Volume_Down|input_Volume_Up|input_Turbo_Period|input_Duty_cycle
 
 KBSET=a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|1|2|3|4|5|6|7|8|9|0|minus|add|f1|f2|f3|f4|f5|f6|f7|f8|f9|f10|f11|f12|up|down|left|right|pageup|pagedown|home|end|tilde|semicolon|quote|comma|period|slash|backslash|leftbracket|rightbracket|rshift|lshift|numlock|kp_period|keypad1|keypad2|keypad3|keypad4|keypad5|keypad6|keypad7|keypad8|keypad9|keypad0|subtract|equals|multiply|alt|ctrl|tab|capslock|escape|nul
 
@@ -734,7 +713,7 @@ qres= 320x240|640x480|720x480|720x576|800x480|848x480|1024x600|800x600|1024x768|
 
 sysposb= |Atari - 2600|Atari - 7800|Atari - 800|Atari - Jaguar|Atari - Lynx|Atari - ST|Bandai - WonderSwan|Bandai - WonderSwan Color|Casio - Loopy|Casio - PV-1000|Coleco - ColecoVision|Commodore - 64|Commodore - 64 (PP)|Commodore - 64 (Tapes)|Commodore - Amiga|Commodore - Amiga|Commodore - Plus-4|Commodore - VIC-20|Emerson - Arcadia|Entex - Adventure Vision|FB Alpha - Arcade Games|Fairchild - Channel F|Funtech - Super Acan|GCE - Vectrex|GCE - Vectrex|GamePark - GP32|Hartung - Game Master|Leapfrog - Leapster Learning Game System|MAME - Arcade|MAME2003|MAME2010|Magnavox - Odyssey2|Magnavox - Odyssey2|Magnavox - Odyssey2|Microsoft - DOS|Microsoft - MSX|Microsoft - MSX2|NEC - PC Engine - TurboGrafx 16|NEC - PC Engine CD - TurboGrafx CD|NEC - PC Engine SuperGrafx|NEC - PC-FX|NEC - PC98|Nintendo - Famicom Disk System|Nintendo - Famicom System|Nintendo - Game Boy|Nintendo - Game Boy Advance|Nintendo - Game Boy Advance(e-Cards)|Nintendo - Game Boy Color|Nintendo - Nintendo 3DS|Nintendo - Nintendo 64|Nintendo - Nintendo 64DD|Nintendo - Nintendo DS|Nintendo - Nintendo DS Decrypted|Nintendo - Nintendo Entertainment System|Nintendo - Pokemon Mini|Nintendo - Satellaview|Nintendo - Satellaview|Nintendo - Sufami Turbo|Nintendo - Super Nintendo Entertainment System|Nintendo - Virtual Boy|Nokia - N-Gage|RCA - Studio II|RCA - Studio II|SNK - Neo Geo|SNK - Neo Geo MVS|SNK - Neo Geo Pocket|ScummVM|Sega - 32X|Sega - Dreamcast|Sega - Game Gear|Sega - Master System - Mark III|Sega - Mega Drive - Genesis|Sega - Mega-CD - Sega CD|Sega - PICO|Sega - SG-1000|Sega - Saturn|Sharp - X68000|Sinclair - ZX 81|Sinclair - ZX Spectrum|Sony - Playstation|Sony - Playstation 2|Sony - Playstation Portable|The 3DO Company - 3DO|Tiger - Game com|VTech - CreatiVision|VTech - V.SmileTurboGrafx 16
 
-hkDDL= inputAudioMute|inputCheatIndexMinus|inputCheatIndexPlus|inputCheatToggle|inputDiskEjectToggle|inputDiskNext|inputDiskPrev|inputEnableHotkey|inputExitEmulator|inputFrameAdvance|inputToggleFullscreen|inputGrabMouseToggle|inputHoldFastForward|inputLoadState|inputMenuToggle|inputMovieRecordToggle|inputNetplayFlipPlayers|inputOskToggle|inputOverlayNext|inputPauseToggle|inputReset|inputRewind|inputSaveState|inputScreenshot|inputShaderNext|inputShaderPrev|inputSlowmotion|inputStateSlotDecrease|inputStateSlotIncrease|inputToggleFastForward|inputToggleFullscreen|inputVolumeDown|inputVolumeUp
+hkDDL= inputAudioMute|inputCheatIndexMinus|inputCheatIndexPlus|inputCheatToggle|inputDiskEjectToggle|inputDiskNext|inputDiskPrev|inputEnableHotkey|inputExitEmulator|inputFrameAdvance|inputToggleFullscreen|inputGrabMouseToggle|inputHoldFastForward|inputHoldSlowmotion|inputLoadState|inputMenuToggle|inputMovieRecordToggle|inputNetplayFlipPlayers|inputOskToggle|inputOverlayNext|inputPauseToggle|inputReset|inputRewind|inputSaveState|inputScreenshot|inputShaderNext|inputShaderPrev|inputSlowmotion|inputStateSlotDecrease|inputStateSlotIncrease|inputToggleFastForward|inputToggleFullscreen|inputVolumeDown|inputVolumeUp
 
 CoreMI= DDLB|DDLC|DDLD|DDLE|DDLF|DDLG|DDLH|DDLI|DDLJ|DDLK|DDLL|RadA|RadB|CMBA|RadC|RadD|RadE|RadF|CHKA|CHKB|CHKC|RadG|RadH|CHKD|CHKE|CMBB|SLDA|RadI|RadJ|RadK|RadL|CHKF|CHKG|CHKH|CHKI|RadM|RadN|RadO|RadP|RadQ|RadR|RadS|RadT|RadU|RadV
 
@@ -867,6 +846,7 @@ SWPV= 1
 THRDV= 0
 TRIPB= 0
 VIDASPECT= 24
+AVIDSYNC= 0
 VIDSCL= 3
 VIDSYNC= 0
 XAUD= 0
@@ -938,6 +918,7 @@ savestatesincontentdir= false
 screenshotsincontentdir= false
 tripleBufferingEnable= false
 threadedDataRunloopEnable= true
+videoAdaptiveVsync= false
 videoAspectRatio= -1.00000
 videoAspectRatioAuto= false
 videoBlackFrameInsertion= false
@@ -999,6 +980,7 @@ inputLibretroDeviceP1= 1
 inputLibretroDeviceP2= 1
 backAsMenuToggleEnable= true
 menuScrollDownBtn= 11
+menuLeftThumbnails= 0
 menuScrollUpBtn= 10
 menuSearchBtn= 9
 menuCancelBtn=  0
@@ -1064,7 +1046,7 @@ cheevosUsername= %A_UserName%
 contentHistorySize= 100
 coreSetSupportsNoGameEnable= true
 coreUpdaterAutoExtractArchive= true
-fastforwardRatio= 0.000000
+fastforwardRatio= 1.000000
 historyListEnable= true
 libretroLogLevel= 0
 loadDummyOnCoreShutdown= true
@@ -1143,6 +1125,7 @@ xmbShowHidden= true
 xmbShowImages= true
 xmbShowMusic= true
 xmbShowSettings= true
+xmbVerticalThumbnails= 0
 xmbShowVideo= true
 xmbTheme= 0
 buildBotCore=http://buildbot.libretro.com
@@ -1859,7 +1842,8 @@ Gui, Add, ComboBox, x108 y407 w35 vFLICKF gFlckFrms hidden, 0||0|1|2
 Gui, Add, Text, x37  y435 vFRMDLTXT hidden, Frame Delay
 Gui, Add, ComboBox,  x108 y430 w35 +E0x0 vFRMDL gVidFrmDelay hidden, 0||0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15
 Gui, Add, Text, x145 y435 vDLFRMTXT hidden, Frames
-Gui, Add, CheckBox, x36 y457 vVIDSYNC gSyncVideo hidden, V-Sync
+Gui, Add, CheckBox, x27 y452 vAVIDSYNC gASyncVideo hidden,^
+Gui, Add, CheckBox, x51 y461 vVIDSYNC gSyncVideo hidden, VSync
 Gui, Add, ComboBox,  x108 y454 w35 vSWPV gSwapFrames Disabled hidden, 1||1|2|3|4|5
 Gui, Add, Text,  x145 y457 vSWPFRMTXT hidden, Swap
 Gui, Add, Checkbox, x36 y480 vHSYNC gSyncGPU hidden, GPU-Sync
@@ -1871,7 +1855,7 @@ Gui, Add, CheckBox, x205 y460 hidden, Triple Buffering
 Gui, Add, DropDownList, x205 y465 w38 vMSWCHI gMswChI hidden, |3||1|2|3|4
 Gui, Add, Text, x246 y471 h17 vMAXSWPTXT hidden, Max Swapchain
 Gui, Add, CheckBox, x206 y489 h17 vTHRDV gVIDTHR hidden, Threaded Driver
-Gui, Add, CheckBox, x171 y393 w67 h18 vRUNAHEAD gRUNAHEAD hidden, run-ahead
+Gui, Add, CheckBox, x168 y393 w71 h18 vRUNAHEAD gRUNAHEAD hidden, run-ahead
 Gui, Add, CheckBox, x240 y401 w38 h16 vRUN2ND gRUN2ND hidden, 2nd
 Gui, Add, DropDownList, x281 y396 w35 vRUNAFRMS gRUNAFRMS hidden, 1||2|3|4|5
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -2239,11 +2223,11 @@ Gui, Add, GroupBox, x523 y101 w232 h91 vCIREMAPGRP hidden, Input-remapping
 Gui,Font,%fontXsm% Norm 
 JOYCFGMODE= core
 Gui,Font,%fontXmed% Bold
-Gui, Add, DropDownList, x532 y128 w205 vJOYCORE gJOYCORE, Global||%corelist%|Xpadder|Antimicro%addemu%
+Gui, Add, DropDownList, x532 y128 w205 vJOYCORE gJOYCORE, Antimicro||Xpadder|%supgui%|%corelist%
 Gui,Font,%fontXsm% Norm 
-Gui, Add, Button, x738 y127 w13 h23 vJCFGADD gJCfgAdd, +
-Gui, Add, ComboBox, x527 y155 w184 vJCFGEDT gJCfgEdt +0x2 +E0x5000 Right,|%joycfg%||%curcfg%
-Gui, Add, Button, x715 y155 w36 h20 vSAVEJOY gSaveJOY, save
+Gui, Add, Button, x738 y127 w13 h23 vJCFGADD gJCfgAdd hidden, +
+Gui, Add, ComboBox, x527 y155 w184 vJCFGEDT gJCfgEdt +0x2 +E0x5000 Right hidden,|%joycfg%||%curcfg%
+Gui, Add, Button, x715 y155 w36 h20 vSAVEJOY gSaveJOY hidden, save
 
 Gui, Add, Text, x721 y427 h23 +0x200 vBbutTXT hidden, (1)
 Gui, Add, Text, x614 y381 h17 +0x200 vYbutTXT hidden, (3)
@@ -2309,7 +2293,7 @@ Gui, Add, Edit, x388 y209 w45 h21 vDUTYCYCLE gDutyCycle Number hidden, %inputDut
 Gui, Add, UpDown, x405 y209 w17 h21 vDUTYUD hidden, 
 
 
-Gui, Add, CheckBox, x665 y110 h15 vRMPLOAD gRmpLoad checked hidden, Auto-Load
+Gui, Add, CheckBox, x665 y110 h15 vRMPLOAD gRmpLoad hidden, Auto-Load
 
 Gui, Add, CheckBox, x49 y363 vANLDP gDpadMode hidden, DPad Mode
 
@@ -2788,7 +2772,9 @@ Gui, Add, DropDownList, x355 y30 w212 vMNUSYS gMenuSystem, Playlists||%plistNamz
 Gui, Add, Radio, x491 y55 h20 vBOXCVR gBoxThumb +0x20 Checked, Box-Cover
 Gui, Add, Radio, x484 y73 h20 vTITLCVR gTitleThumb +0x20, Title Screen
 Gui, Add, Radio, x487 y89 h20 vSSHTCVR gScreenShotThumb +0x20, Screenshot
-Gui, Add, CheckBox, x507 y109 h20 vTHUMBON gThumbEnable +0x20 Checked, Enable
+Gui, Add, CheckBox, x380 y109 h20 vVRTTHMB gVertThumb +0x20 Checked, Vertical
+Gui, Add, CheckBox, x445 y109 h20 vLFTTHMB gLeftThumb +0x20 Checked, Left Side
+Gui, Add, CheckBox, x507 y109 h20 vTHUMBON gThumbEnable +0x20 Checked, Thumbs
 Gui, Add, CheckBox, x449 y129 h20 vSTHUMBON gSThumbEnable +0x20, SaveState Thumbs
 Gui, Add, Radio, x356 y57 h15 vXMBPL gXMBPL Checked, Playlists
 Gui, Add, Radio, x415 y57 h15 vXMBFL gXMBFL, Folder
@@ -4137,6 +4123,7 @@ UPDCL_TT :="Refresh cores in your installation"
 VFNTEN_TT :="Enables custom font display"
 VIDASPECT_TT :="Aspect Ratio Mode"
 VIDSCL_TT :="Multiplier for the window size"
+AVIDSYNC_TT :="Adaptive Video V-Sync"
 VIDSYNC_TT :="Video V-Sync"
 VLKDRV_TT :="requires a newer videocard capable of opengl 4x"
 VidXLoc_TT :="horizontal position (in pixels) of the video on your monitor (only available in custom mode)"
@@ -8273,10 +8260,11 @@ ARCSYS=
 RJMEDNM= 
 indvcp= 
 core_gui=
+loadedjoy= 
 qmen= 
 guicontrolget,coretmp,,LCORE
 guicontrol,,LCORE,||%runlist%
-guicontrolget,OPTDLT,,RUNPLRAD
+guicontrolget,RUNPLRAD,,RUNPLRAD
 guicontrolget,OPTYP,,RUNSYSDDL
 guicontrolget,SRCHTMP,,SRCHLOCDDL
 guicontrol,,RUNROMCBX,|.........indexing............||
@@ -8284,7 +8272,7 @@ guicontrol,disable,RUNROMCBX
 guicontrol,disable,RUNSYSDDL
 poptadd= 
 romf= 
-if (OPTDLT = 1)
+if (RUNPLRAD = 1)
 	{
 		coreselv= 
 		guicontrol,,LCORE,|%runlist%
@@ -8516,6 +8504,7 @@ if (rflr = 1)
 			}
 	}	
 guicontrol,,RUNROMCBX,|%romf%||%poptadd%
+
 if (SRCHCOMPL = 1)
 	{
 		if (GRPOVRD < 1)
@@ -8552,6 +8541,7 @@ else {
 					if (coretmp <> coreselv)
 						{
 							core_gui= 
+							loadedjoy= 
 						}
 				}
 		}
@@ -9945,6 +9935,17 @@ gosub, RACHKOPTLINE
 IniWrite, "%videoSwapInterval%", %curcfg%,OPTIONS,video_swap_interval
 return
 
+AsyncVideo:
+Gui, Submit, NoHide
+videoAdaptiveVsync= false
+If (AVIDSYNC= 1)
+	{
+		videoAdaptiveVsync= true
+	}
+gosub, RACHKOPTLINE
+IniWrite, "%videoAdaptiveVsync%", %curcfg%,OPTIONS,video_adaptive_vsync
+return
+
 SyncVideo:
 Gui, Submit, NoHide
 videoVsync= false
@@ -9952,10 +9953,12 @@ If (VIDSYNC= 1)
 	{
 		videoVsync= true
 		guicontrol,Enable, SWPV
+		guicontrol,Enable, AVIDSYNC
 	}
 else if (VIDSYNC = 0)
 	{
 		guicontrol,Disable, SWPV
+		guicontrol,Disable, AVIDSYNC
 	}
 gosub, RACHKOPTLINE
 IniWrite, "%videoVsync%", %curcfg%,OPTIONS,video_vsync
@@ -11078,6 +11081,7 @@ ifmsgbox,Yes
 		guicontrol,,LNCHPRDDL,|Emulators|retroarch||
 		gosub,LNCHPT
 	}
+gosub, RAInit	
 return
 
 AVAILSEL:
@@ -11355,7 +11359,7 @@ guicontrol, hide,EMUINST
 guicontrol,hide,MULTLNK
 guicontrol,hide,UNIQLNK
 guicontrol,hide,EMUASIGN
-guicontrol,move, CACGRP, x2 y5 w276 h478
+guicontrol,move, CACGRP, x2 y5 w244 h478
 guicontrol,hide, EAVAIL
 guicontrol,show, PAVAIL
 guicontrol,show, AVAIL
@@ -15279,7 +15283,7 @@ Loop, Parse, semu,|
 						guicontrol,,EMPRDDL,|Emulators|%addemu%
 						guicontrol,,PLCORE,|%runlist%
 						guicontrol,,ARCCORES,|Select_a_Core||%runlist%
-						guicontrol,,JOYCORE,|Global||Xpadder|Antimicro|%supgui%|%corelist%
+						guicontrol,,JOYCORE,|Antimicro||Xpadder|%supgui%|%corelist%
 					}	
 			}
 			/*
@@ -15339,7 +15343,7 @@ gosub, ResetRunList
 guicontrol,,JCORE,|%runlist%
 guicontrol,,LCORE,|%runlist%
 guicontrol,,PLCORE,|%lastcore%||%runlist%
-guicontrol,,JOYCORE,|Global||Xpadder|Antimicro|%supgui%|%corelist%
+guicontrol,,JOYCORE,|Antimicro||Xpadder|%supgui%|%corelist%
 stringright,ttr,sysni,1
 if (ttr = "|")
 	{
@@ -21598,6 +21602,7 @@ return
 
 ArcCores:
 core_gui= 
+loadedjoy= 
 APLA= 
 dlx2= 
 guicontrol,show,CUSTSWITCH
@@ -24113,23 +24118,64 @@ gosub, MenuSystem
 guicontrol,ChooseString,IMGFLS,%remmenu%
 gosub, GetImageName
 return
+
+VertThumb:
+gui, submit, nohide
+if (VRTTHMB = 0)
+	{
+		xmbverticalthumbnails= 0
+	}
+if (VRTTHMB = 1)
+	{
+		xmbverticalthumbnails= 1
+	}
+iniwrite, "%xmbverticalthumbnails%",%curcfg%,OPTIONS,xmb_vertical_thumbnails
+return
+
+LeftThumb:
+gui, submit, nohide
+if (LFTTHMB = 0)
+	{
+		menuleftthumbnails= 0
+	}
+if (LFTTHMB = 1)
+	{
+		menuleftthumbnails= 1
+	}
+iniwrite, "%menuleftthumbnails%",%curcfg%,OPTIONS,menu_left_thumbnails
+return
+
 ThumbEnable:
 gui, submit, nohide
 if (THUMBON = 0)
-{
-menuThumnails= 0
-guicontrol,disable,BOXCVR
-guicontrol,disable,TITLCVR
-guicontrol,disable,SSHTCVR
-}	
+	{
+		menuThumnails= 0
+		guicontrol,disable,BOXCVR
+		guicontrol,disable,TITLCVR
+		guicontrol,disable,SSHTCVR
+		guicontrol,disable,LFTTHMB
+		guicontrol,disable,VRTTHMB
+	}	
 if (THUMBON = 1)
-{
-menuThumnails= 0
-guicontrol,enable,BOXCVR
-guicontrol,enable,TITLCVR
-guicontrol,enable,SSHTCVR
-}
+	{
+		menuThumnails= 3
+		if (SSHTCVR = 1)
+			{
+				menuThumnails= 2
+			}
+		if (TITLCVR = 1)
+			{
+				menuThumnails= 1
+			}
+		guicontrol,enable,BOXCVR
+		guicontrol,enable,TITLCVR
+		guicontrol,enable,SSHTCVR
+		guicontrol,enable,LFTTHMB
+		guicontrol,enable,VRTTHMB
+	}
+iniwrite, "%menuThumnails%",%curcfg%,OPTIONS,menu_thumbnails
 return
+
 SThumbEnable:
 gui, submit, nohide
 if (STHUMBON = 0)
@@ -24265,7 +24311,6 @@ if (SK_MODE = 1)
 		cfginik= ASSIGNMENTS
 		cfgemc= %LCORE%
 	}
-;{;;;;;;;; get emulator from nickname ;;;;;;;
 guicontrolget,nicktst,,LCORE
 IniRead,nicktstj,%cfginif%,%cfginik%,%cfgemc%
 stringsplit,splcr,nicktstj,_
@@ -24278,6 +24323,7 @@ Loop,parse,supgui,|
 				goto, %EMUSN%_GUI
 			}
 	}
+;{;;;;;;;; get emulator from nickname ;;;;;;;
 if (SK_MODE = 1)
 	{
 		SplitPath,nicktstj,tmpmund
@@ -24294,7 +24340,6 @@ if (SK_MODE = 1)
 			}
 	}
 	
-;};;;;;;;;	
 subemuname:
 if (nicktstk <> "")
 	{
@@ -24329,6 +24374,7 @@ if (subemuname <> "")
 					}
 			}
 	}
+;};;;;;;;;	
 guicontrol,enable,OPNCORE
 return
 
@@ -25227,6 +25273,10 @@ Loop, rj\emuCfgs\%EMUSN%\*.*
 		appndum= 
 		CFGFPATH= %A_LoopFileFullPath%
 		SplitPath,CFGFPATH,cfgtc,cfgpth,cfgext,thecfg						   
+		if (cfgext = "get")
+			{
+				continue
+			}			   
 		if (cfgext = "dfl")
 			{
 				EMUDFL= 1
@@ -25262,7 +25312,6 @@ Loop, rj\emuCfgs\%EMUSN%\*.*
 			{
 				continue
 			}
-
 		FileCopy,%CFGFPATH%,%indvcp%\%cfgtc%
 	}
 guicontrol,enable,RUNROMCBX
@@ -26597,10 +26646,20 @@ return
 
 ;{;;  create mednafen gui ;;
 Mednafen_GUI:
+medcfg= mednafen.cfg
 guicontrolget,uuniv,,FNDGUI
+if (medxset = "")
+	{	
+		FileRead,medkeyb,rj\emuCfgs\mednafen\mednafenjoy.get
+		fileread,medxset,rj\emucfgs\mednafen\xinput.default.get
+		fileread,medallv,rj\emucfgs\mednafen\defaults.ini.get
+		IniRead, medglobal,rj\emuCfgs\mednafen\defaults.ini.get,GLOBAL
+		IniRead, medinput,rj\emuCfgs\mednafen\defaults.ini.get,INPUT
+		IniRead, medcomn,rj\emuCfgs\mednafen\defaults.ini.get,COMMON	
+	}
+
 iniread,mednafxf,AppParams.ini,%LCORE%,per_game_configurations
 
-medcfg= mednafen.cfg
 MEDCFGLOC= cfg\%MEDNFSYS%\%nicktst%\%EDTRMFN%\%medcfg%
 if (mednafxf = 0)
 	{
@@ -26609,29 +26668,112 @@ if (mednafxf = 0)
 		MEDCFGLOC= %mednafloc%\%medcfg%
 		indvcp= %MEDCFGLOC%
 	}
-	
+
+if (ROMSYS = "")
+	{
+		guicontrolget,rmst,,RUNSYSDDL
+		ifinstring,rmst,.lpl
+			{
+				stringsplit,afj,rmst,.
+				rmst= %afj1%
+			}
+		if (rmst = "History")
+			{
+				guicontrolget,emst,,RUNROMCBX
+				Loop, parse, emst,\
+					{
+						ifinstring,A_Loopfield,%A_Space%-%A_Space%
+						rmst= %A_LoopField%
+						break
+					}
+				rmst= 	
+			}
+		Loop, parse,allsupport,|
+			{
+				if (A_Loopfield = "")
+					{
+						continue
+					}
+				if (A_Loopfield = rmst)
+					{
+						ROMSYS= %A_LoopField%
+						break
+					}
+			}
+		if (rmst = "")
+			{
+				guicontrolget,rmst,,ARCSYS
+				if (rmst = "Select a System")
+					{
+						ROMSYS= Sony - Playstation
+					}
+			}
+		
+	}
+IniRead,RJMEDNM,emuCfgPresets.set,%ROMSYS%,RJMEDNM
+if (RJMEDNM <> "ERROR")
+	{
+		guicontrol,,EMUDDLJ,|%RJMEDNM%||%mednfsc%
+	}
+guicontrolget,EMUDDLJ,,EMUDDLJ
+ifnotexist, %medcfgloc%
+	{
+		gosub, EMUCFGCOPY
+		gosub, MednafenInit		
+	}
+FileRead,mednafenopts,%medcfgloc%
 if (core_gui = "mednafen")
 	{
 		goto, medguicreated
 	}
-if (medxi = "")
-	{	
-		FileRead,mkbl,rj\emuCfgs\mednafen\mednafenjoy.get
-		fileread,medxi,rj\emucfgs\mednafen\xinput.default.get
-		fileread,medao,rj\emucfgs\mednafen\defaults.ini.get
-		Loop,Parse,medao,=
+if (medjgrab = "")
+	{
+		SetTitleMatchMode,1
+		iniread,medapx,Assignments.ini,ASSIGNMENTS,mednafen
+		RunWait, %comspec% /c " set MEDNAFEN_NOPOPUPS=1&&"%medapx%" nofile >"tmp.tmp"",,hide
+		kbr= 
+		Loop, Read, tmp.tmp
 			{
-				ifinstring,A_LoopField,=
+				ifinstring,A_LoopReadLine,ID:
 					{
-						stringsplit,amedo,A_LoopField
-						allmedo.= amedo1 . "|"
+						stringsplit,fvir,A_LoopReadLine,:-,%A_Space%
+						medjgrab.= (kbr < 1 ? "" : "|") . fvir2
+						medjid%A_Index%= fvir2
+						kbr+= 1
 					}
-			}		
-		IniRead, mtcfg,rj\emuCfgs\mednafen\defaults.ini.get,GLOBAL
-		IniRead, micfg,rj\emuCfgs\mednafen\defaults.ini.get,INPUT
-		IniRead, mtrfg,rj\emuCfgs\mednafen\defaults.ini.get,COMMON	
+			}
+		if (medjgrab = "")
+			{
+				medjgrab= 0x0
+			}
+		jnum= 
+		jvar= 
+		jman= 
+		Loop, 16
+			{
+				jnum+= 1
+				jvar= 
+				Loop, Parse, medjgrab,|
+					{
+						jman+= 1
+						if (A_Index = jnum)
+							{
+								stringreplace,mednafenopts,mednafenopts,[0x0%jman%],%A_LoopField%,All
+								jvar= %A_LoopField%
+								medjid%jnum%= %A_LoopField%
+								break
+							}
+					}
+				if (jvar = "")
+					{
+						stringreplace,mednafenopts,mednafenopts,[0x0%A_Index%],0x0,All
+						medjid%A_Index%= 0x0
+					}
+				medjindex= % medjid%A_index%	
+			}	
 	}
-	
+		
+
 ;{;;;;;;;;;;;;;;;;;;;;  mednafen gui populate ;;;;;;;;;;;;;;;;;;;;;;	
 moptog= hide
 raoptgl= hide
@@ -26750,86 +26892,86 @@ guicontrol,,emuchkH,None
 
 guicontrol, %emutog%, emuDDLA
 guicontrol,move,emuDDLA,x103 y117 w122
-guicontrol,,emuDDLA,|none||autoip|autoipsharper|scale2x|sabr|ipsharper|ipxnoty|ipynotx|ipxnotysharper|ipynotxsharper|goat
+;;guicontrol,,emuDDLA,|none||autoip|autoipsharper|scale2x|sabr|ipsharper|ipxnoty|ipynotx|ipxnotysharper|ipynotxsharper|goat
 
 guicontrol, %emutog%, emuDDLB
 guicontrol,move,emuDDLB,x103 y144 w122
-guicontrol,,emuDDLB,|none||hq2x|hq3x|hq4x|scale2x|scale3x|scale4x|2xsai|super2xsai|supereagle|nn2x|nn3x|nn4x|nny2x|nny3x|nny4x
+;;guicontrol,,emuDDLB,|none||hq2x|hq3x|hq4x|scale2x|scale3x|scale4x|2xsai|super2xsai|supereagle|nn2x|nn3x|nn4x|nny2x|nny3x|nny4x
 
 guicontrol, %emutog%, emuDDLC
 guicontrol,,emuDDLC,|none||bilinear|x-axis|y-axis
 guicontrol, move,emuDDLC,x217 y323 w100
 
 guicontrol, %emutog%, emuDDLD
-guicontrol,,emuDDLD,|weave||bob|bob_offset
+;;guicontrol,,emuDDLD,|weave||bob|bob_offset
 guicontrol, move,emuDDLD,x404 y369 w77
 
 guicontrol, %emutog%, emuDDLE
-guicontrol,,emuDDLE,|opengl||sdl|overlay
+;;guicontrol,,emuDDLE,|opengl||sdl|overlay
 guicontrol, move,emuDDLE,x468 y118 w76
 
 guicontrol, %emutog%, emuDDLF
-guicontrol,,emuDDLF,|default||alsa|openbsd|oss|wasapish|dsound|wasapi|sdl|jack
+;;guicontrol,,emuDDLF,|default||alsa|openbsd|oss|wasapish|dsound|wasapi|sdl|jack
 guicontrol, move,emuDDLF,x468 y147 w78
 
 guicontrol, %emutog%, emuDDLJ
-guicontrol,,emuDDLJ,|gb||%mednfsc%
+;;guicontrol,,emuDDLJ,|gb||%mednfsc%
 guicontrol, move,emuDDLJ,x645 y84 w82
 
 guicontrol, %emutog%, emuEDTA
 guicontrol, move, emuEDTA, x103 y64 w50 h21
 guicontrol,+number, emuEDTA
-guicontrol,,emuEDTA,1
+;;guicontrol,,emuEDTA,1
 
 guicontrol, %emutog%, emuEDTB
 guicontrol,move,emuEDTB,x201 y64 w43 h21
 guicontrol, +number, emuEDTB
-guicontrol,,emuEDTB,1
+;;guicontrol,,emuEDTB,1
 
 guicontrol, %emutog%, emuEDTC
 guicontrol,move,emuEDTC,x342 y222 w48 h21
-guicontrol,,emuEDTC, 0.5
+;;guicontrol,,emuEDTC, 0.5
 
 guicontrol, %emutog%, emuEDTD
 guicontrol,move,emuEDTD, x390 y182 w48 h21
 guicontrol,+number, emuEDTD
-guicontrol,, emuEDTD,0
+;;guicontrol,, emuEDTD,0
 
 guicontrol, %emutog%, emuEDTE
 guicontrol,move,emuEDTE,x342 y271 w48 h21
-guicontrol,,emuEDTE, 0.0
+;;guicontrol,,emuEDTE, 0.0
 
 guicontrol, %emutog%, emuEDTF
 guicontrol,move,emuEDTF, x237 y395 w48 h21
-guicontrol,, emuEDTF,0
+;;guicontrol,, emuEDTF,0
 
 guicontrol, %emutog%, emuEDTG
 guicontrol,move,emuEDTG,x103 y87 w81 h21
 guicontrol,+number,emuEDTG
-guicontrol,,emuEDTG,640
+;;guicontrol,,emuEDTG,640
 
 guicontrol, %emutog%, emuEDTH
 guicontrol,move,emuEDTH,x201 y87 w74 h21
 guicontrol,+number,emuEDTH
-guicontrol,,emuEDTH,480
+;;guicontrol,,emuEDTH,480
 
 guicontrol, %emutog%, emuEDTI
-guicontrol,,emuEDTI,4046
+;;guicontrol,,emuEDTI,4046
 guicontrol,move,emuEDTI,x540 y273 w60 h21
 guicontrol,+number,emuEDTI
 
 guicontrol, %emutog%, emuCBXA
 guicontrol,move,emuCBXA,x442 y226 w158
-guicontrol,,emuCBXA,|%A_UserName%||Mednafen|skeletonKey
+;;guicontrol,,emuCBXA,|%A_UserName%||Mednafen|skeletonKey
 
 guicontrol, %emutog%, emuCBXB
 guicontrol,move,emuCBXB,x406 y249 w194
 guicontrol,+0x2 +E0x5000 +Right,emuCBXB
-guicontrol,,emuCBXB,|netplay.fobby.net||node.asnitech.co.uk|mednafen-nl.emuparadise.org|mednafen-us.emuparadise.org|Speedvicio.dtdns.net|s1.mednafen-it.org|gs.emu-land.net|emu-russia.net
+;;guicontrol,,emuCBXB,|netplay.fobby.net||node.asnitech.co.uk|mednafen-nl.emuparadise.org|mednafen-us.emuparadise.org|Speedvicio.dtdns.net|s1.mednafen-it.org|gs.emu-land.net|emu-russia.net
 
 guicontrol, %emutog%, emuRAD11A
 guicontrol,,emuRAD11A,Horz
-guicontrol,,emuRAD11A, 1
+;;guicontrol,,emuRAD11A, 1
 guicontrol, move,emuRAD11A,x167 y224 w40 h14
 
 guicontrol, %emutog%, emuRAD11B
@@ -26842,7 +26984,7 @@ guicontrol, move,emuRAD8A,x461 y88 w71 h13
 
 guicontrol, %emutog%, emuRAD8B
 guicontrol,,emuRAD8B,Windowed
-guicontrol,,emuRAD8B, 1
+;;guicontrol,,emuRAD8B, 1
 guicontrol, move,emuRAD8B,x461 y68 w70 h13
 
 guicontrol, %emutog%, emuRad5B
@@ -26856,7 +26998,7 @@ guicontrol,,emuRAD5C,Blur Color
 guicontrol, %emutog%, emuRad5A
 guicontrol,move,emuRAD5A,x117 y324 w75 h13
 guicontrol,,emuRAD5A,Blur OFF
-guicontrol,,emuRAD5A,1
+;;guicontrol,,emuRAD5A,1
 
 guicontrol, %emutog%, emuRad9A
 guicontrol,move,emuRAD9A,x84 y226 w75 h13
@@ -26865,7 +27007,7 @@ guicontrol,,emuRAD9A, borg
 guicontrol, %emutog%, emuRad9B
 guicontrol,move,emuRAD9B,x84 y246 w75 h13
 guicontrol,,emuRAD9B, goatron
-guicontrol,,emuRAD9B, 1
+;;guicontrol,,emuRAD9B, 1
 
 guicontrol, %emutog%, emuRad9C
 guicontrol,move,emuRAD9C,x84 y266 w77 h13
@@ -26904,55 +27046,11 @@ guicontrol,move,emuSLDE,,x215 y221 w120 h24
 guicontrol, %emutog%, emuSLDC
 guicontrol,+Range0-10,emuSLDC
 guicontrol,move,emuSLDC,x215 y270 w120 h24
+
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 core_gui= mednafen
-if (medjgrab = "")
-	{
-		SetTitleMatchMode,1
-		iniread,medapx,Assignments.ini,ASSIGNMENTS,mednafen
-		RunWait, %comspec% /c " set MEDNAFEN_NOPOPUPS=1&&"%medapx%" nofile >"tmp.tmp"",,hide
-		kbr= 
-		Loop, Read, tmp.tmp
-			{
-				ifinstring,A_LoopReadLine,ID:
-					{
-						stringsplit,fvir,A_LoopReadLine,:-,%A_Space%
-						medjgrab.= (kbr < 1 ? "" : "|") . fvir2
-						medjid%A_Index%= fvir2
-						kbr+= 1
-					}
-			}
-		if (medjgrab = "")
-			{
-				medjgrab= 0x0
-			}
-		jnum= 
-		jvar= 
-		jman= 
-		Loop, 16
-			{
-				jnum+= 1
-				jvar= 
-				Loop, Parse, medjgrab,|
-					{
-						jman+= 1
-						if (A_Index = jnum)
-							{
-								stringreplace,mednafenopts,mednafenopts,[0x0%jman%],%A_LoopField%,All
-								jvar= %A_LoopField%
-								medjid%jnum%= %A_LoopField%
-								break
-							}
-					}
-				if (jvar = "")
-					{
-						stringreplace,mednafenopts,mednafenopts,[0x0%A_Index%],0x0,All
-						medjid%A_Index%= 0x0
-					}
-				medjindex= % medjid%A_index%	
-			}	
-	}
+
 ;};;
 medguicreated:
 EMUCFGOVRTGL= 0
@@ -26969,53 +27067,7 @@ if (SK_MODE = "")
 			}
 	}
 	
-if (ROMSYS = "")
-	{
-		guicontrolget,rmst,,RUNSYSDDL
-		ifinstring,rmst,.lpl
-			{
-				stringsplit,afj,rmst,.
-				rmst= %afj1%
-			}
-		if (rmst = "History")
-			{
-				guicontrolget,emst,,RUNROMCBX
-				Loop, parse, emst,\
-					{
-						ifinstring,A_Loopfield,%A_Space%-%A_Space%
-						rmst= %A_LoopField%
-						break
-					}
-				rmst= 	
-			}
-		Loop, parse,allsupport,|
-			{
-				if (A_Loopfield = "")
-					{
-						continue
-					}
-				if (A_Loopfield = rmst)
-					{
-						ROMSYS= %A_LoopField%
-						break
-					}
-			}
-		if (rmst = "")
-			{
-				guicontrolget,rmst,,ARCSYS
-				if (rmst = "Select a System")
-					{
-						ROMSYS= Sony - Playstation
-					}
-			}
-		
-	}
-IniRead,RJMEDNM,emuCfgPresets.set,%ROMSYS%,RJMEDNM
-if (RJMEDNM <> "ERROR")
-	{
-		guicontrol,,EMUDDLJ,|%RJMEDNM%||%mednfsc%
-	}
-guicontrolget,EMUDDLJ,,EMUDDLJ
+
 ifexist, %MEDCFGLOC%
 	{
 		goto, LOADMEDNAFENOPTS
@@ -27043,7 +27095,6 @@ mednafenopts=
 FileRead,mednafenopts,%MEDCFGLOC%
 guicontrol,,emuDDLJ,|%RJMEDNM%||%mednfsc%
 abarb= |
-msgbox,,,loading %medcfgloc%
 SB_SetText("Loading mednafen options")
 Loop, Parse, mednafenopts,`n`r
 	{
@@ -27373,7 +27424,7 @@ MEDemuEDTD= 0
 MEDemuEDTE= 0.0
 MEDemuEDTF= 0
 MEDemuSLDB= 0
-MEDemuSLDE= 50
+MEDemuSLDE= 0
 MEDemuSLDC= 0
 MEDemuEDTG= 640
 MEDemuEDTH= 480
@@ -27417,7 +27468,7 @@ guicontrol,,emuRAD9B,1
 guicontrol,,emuRAD11A,1
 guicontrol,,emuSLDA,0
 guicontrol,,emuSLDB,0
-guicontrol,,emuSLDE,50
+guicontrol,,emuSLDE,0
 guicontrol,,emuSLDC,0
 
 fileDelete,%MEDCFGLOC%
@@ -27426,11 +27477,10 @@ gosub, MednafenRESETPOP
 return
 
 MednafenInit:
-msgbox,,,medinit`n%medcfgloc%
-IniRead, mtafg,rj\emuCfgs\mednafen\defaults.ini.get,%RJMEDNM%
-stringreplace,mtrfg,mtrfg,<system>,%RJMEDNM%,All
+IniRead, medsysdef,rj\emuCfgs\mednafen\defaults.ini.get,%RJMEDNM%
+stringreplace,medcomn,medcomn,<system>,%RJMEDNM%,All
 ;;;global export;;;;
-Loop, parse, mtcfg,`n`r
+Loop, parse, medglobal,`n`r
 	{
 		if (A_LoopField = "")
 			{
@@ -27442,7 +27492,7 @@ Loop, parse, mtcfg,`n`r
 		stringsplit,aii,A_LoopField,=
 		ifinstring,aii2,[
 			{
-				Loop, parse, mkbl,`n`r
+				Loop, parse, medkeyb,`n`r
 					{
 						ifinstring,A_LoopField,%aii2%
 							{
@@ -27465,7 +27515,7 @@ Loop, parse, mtcfg,`n`r
 		FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
 	}
 ;;;;system unique export;;;;
-Loop, parse, mtafg,`n`r
+Loop, parse, medsysdef,`n`r
 	{	
 		if (A_LoopField = "")
 			{
@@ -27477,7 +27527,7 @@ Loop, parse, mtafg,`n`r
 		FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
 	}
 ;;;;common system export;;;;
-Loop, parse, mtrfg,`n`r
+Loop, parse, medcomn,`n`r
 	{
 		if (A_LoopField = "")
 			{
@@ -27498,7 +27548,7 @@ Loop, 16
 				jman+= 1
 				if (A_Index = jnum)
 					{
-						stringreplace,micfg,micfg,[0x0%jman%],%A_LoopField%,All
+						stringreplace,medinput,medinput,[0x0%jman%],%A_LoopField%,All
 						jvar= %A_LoopField%
 						medjid%jnum%= %A_LoopField%
 						break
@@ -27506,12 +27556,12 @@ Loop, 16
 			}
 		if (jvar = "")
 			{
-				stringreplace,micfg,micfg,[0x0%A_Index%],0x0,All
+				stringreplace,medinput,medinput,[0x0%A_Index%],0x0,All
 				medjid%A_Index%= 0x0
 			}
 		medjindex= % medjid%A_index%	
 	}	
-Loop, parse, micfg,`n`r
+Loop, parse, medinput,`n`r
 	{
 		if (A_LoopField = "")
 			{
@@ -28395,6 +28445,7 @@ guicontrol,%raoptgl%,VIDGTXT
 guicontrol,%raoptgl%,VIDRESTXT
 guicontrol,%raoptgl%,VIDRESTXT
 guicontrol,%raoptgl%,VIDSCL
+guicontrol,%raoptgl%,AVIDSYNC
 guicontrol,%raoptgl%,VIDSYNC
 guicontrol,%raoptgl%,VIDXTXT
 guicontrol,%raoptgl%,VLKDRV
@@ -29942,6 +29993,8 @@ guicontrol,%xmbtog%,BOXCVR
 guicontrol,%xmbtog%,TITLCVR
 guicontrol,%xmbtog%,SSHTCVR
 guicontrol,%xmbtog%,THUMBON
+guicontrol,%xmbtog%,LFTTHMB
+guicontrol,%xmbtog%,VRTTHMB
 guicontrol,%xmbtog%,STHUMBON
 guicontrol,%xmbtog%,XMBPL
 guicontrol,%xmbtog%,XMBFL
@@ -37353,7 +37406,7 @@ guicontrol,,LCORE,|%utlDDLC%||%runlist%
 EMUSN= %utlDDLC%
 gosub, EMUOPTPOP
 svgbrnv=
-guicontrol,,JOYCORE,|%utlDDLC%||Global|Xpadder|Antimicro|%supgui%|%corelist%
+guicontrol,,JOYCORE,|%utlDDLC%||Antimicro|Xpadder|%supgui%|%corelist%
 gosub, JOYEMUCORE
 guicontrol,,CFGSWITCH,|||EXE|||
 SB_SetText(" Editing emulator executable configurations ")
@@ -39098,7 +39151,7 @@ guicontrol,,LCORE,|%RJEMUTG%||%runlist%
 EMUSN= %RJEMUTG%
 gosub, EMUOPTPOP
 svgbrnv=
-guicontrol,,JOYCORE,|%decore%||Global|Xpadder|Antimicro|%supgui%|%corelist%
+guicontrol,,JOYCORE,|%decore%||Antimicro|Xpadder|%supgui%|%corelist%
 return
 
 ;};;;;;;;;;;;;;;;;;
@@ -44848,7 +44901,7 @@ ifinstring,LCORE,_libretro
 		gosub, RAGuiVisTog
 		if (AUTOPGS = 1)
 			{
-				guicontrol,,JOYCORE,|%lcore%||Global|Xpadder|Antimicro|%supgui%|%corelist%
+				guicontrol,,JOYCORE,|%lcore%||Antimicro|Xpadder|%supgui%|%corelist%
 				gosub, JOYCORE
 			}
 		runningcore= core
@@ -44875,7 +44928,7 @@ if (fig = "")
 		gosub, CoreDerive
 	}
 
-guicontrol,,JOYCORE,|%decore%||Global|Xpadder|Antimicro|%supgui%|%corelist%
+guicontrol,,JOYCORE,|%decore%||Antimicro|Xpadder|%supgui%|%corelist%
 gosub, EMUNAMEPOP
 if (SK_MODE = 1)
 	{
@@ -44896,7 +44949,7 @@ return
 
 CoreDerive:
 qisf= 
-decore= Global
+decore= 
 iniread,fiiw,Assignments.ini,ASSIGNMENTS
 Loop, Parse, fiiw,`n`r
 	{
@@ -49450,7 +49503,7 @@ if (CORECHKE = 1)
 	{
 		nestopiaoverscanh= enabled
 	}
-iniwrite, "%nestopiaoverscanh%",%hcorecfg%,OPTIONS,nestopia_overscan_h
+iniwrite, "%nestopiaoverscanh%",%corecfg%,OPTIONS,nestopia_overscan_h
 
 return
 
@@ -49460,7 +49513,7 @@ if (CORECHKF = 1)
 	{
 		nestopiageniedistortion= enabled
 	}
-iniwrite, "%nestopiageniedistortion%",%hcorecfg%,OPTIONS,nestopia_genie_distortion
+iniwrite, "%nestopiageniedistortion%",%corecfg%,OPTIONS,nestopia_genie_distortion
 return
 
 
@@ -52737,21 +52790,6 @@ RetroArchGLOBALJOY:
 if (JOYCORE = ".dll")
 	{
 		/*
-		loadedjoy= Global
-		rajoytog= Hide
-		gosub, RAJOYTOG
-		emjtog= Hide
-		gosub, EMJTOG
-		guicontrol, hide, SaveJOY
-		guicontrol, show, JCFGADD
-		joyimg=key.png
-		joycfg= %curcfg%
-		guicontrol,move,JOYPIC,x335 y263 w117 h111
-		gosub, Joyvalz
-		guicontrol,,JOYPIC,%joyimg%
-		gosub, PlayerType
-		SB_SetText("Joystick GLOBAL config is " joycfg " ")	
-		guicontrol,enable,JOYCORE
 		return
 		*/
 		JOYCFGMODE= emulator
@@ -52823,11 +52861,34 @@ coreconc2=
 coreconc3= 
 coreconc4= 
 stringsplit, coreconc,ccv,_
-corecfg= %ccv%.cfg
+
+loadedjoy= 
+emjtog= Hide
+gosub, EMJTOG
+rajoytog= show
+gosub, RAJOYTOG
+guicontrol, hide, SaveJOY
+guicontrol, show, JCFGADD
+joyimg=key.png
+joycfg= %curcfg%
+guicontrol,move,JOYPIC,x335 y263 w117 h111
+guicontrol,,JOYPIC,%joyimg%
+SB_SetText("Joystick config is " joycfg " ")	
+guicontrol,enable,JOYCORE
+
 gosub, getCREN
-joycfg= %inputRemappingDirectory%\%corcfgnam%\%corcfgnam%.rmp
+if (RMPLOAD = 1)
+	{
+		corecfg= %ccv%.cfg
+		ifexist,%inputRemappingDirectory%\%corcfgnam%\%corcfgnam%.rmp
+			{
+				joycfg= %inputRemappingDirectory%\%corcfgnam%\%corcfgnam%.rmp
+			}
+	}
+
 syslk= %corcfgnam%
 gosub, revCREN
+
 IfNotExist,%inputRemappingDirectory%\%corcfgnam%
 	{
 		FileCreateDir, %inputRemappingDirectory%\%corcfgnam%
@@ -52848,8 +52909,6 @@ SB_SetText("Joystick config is " joycfg " ")
 if (JOYCFGMODE = "emulator")
 	{
 		SB_SetText("Emulator Joy-config is " joycfg " ")
-		rajoytog= Show
-		gosub, RAJOYTOG	
 		emjtog= Hide
 		gosub, EMJTOG
 	}
@@ -52875,7 +52934,7 @@ return
 
 SaveJOY:
 gui,submit,nohide
-ifnotexist,%inputRemappingDirectory%\%corcfgnam%
+ifnotexist,%inputRemappingDirectory%\%corcfgnam%\
 	{
 		filecreatedir,%inputRemappingDirectory%\%corcfgnam%
 	}
@@ -52885,7 +52944,7 @@ guicontrolget,JOYCORE,,JOYCORE
 guicontrol,disable,SAVEJOY
 guicontrol,disable,JOYCORE
 joycfgout= 
-if (JOYCORE <> "Global")
+if (joycfg <> curcfg)
 		{
 			goto, jcdd
 		}
@@ -52895,14 +52954,14 @@ ifexist,%JCFLPD%\
 	{
 		joycfg:= JCFGPT
 	}
-if (JOYCORE = "Global")
+if (joycfg = curcfg)
 	{
 		lkdir= %raexeloc%\config\remaps
 		IfExist, %inputRemappingDirectory%\%corcfgnam%\
 			{
 				lkdir= %inputRemappingDirectory%\%corcfgnam%
 			}	
-			else IfNotExist,%raexeloc%\config\remaps\%corcfgnam%\
+			else 
 				{
 					FileCreateDir, %raexeloc%\config\remaps\%corcfgnam%
 					guicontrol,,JCFGEDT,|%raexeloc%\config\remaps\%corcfgnam%.rmp||%joycfg%|%curcfg%
@@ -52932,11 +52991,11 @@ if (emujchk2 <> "dll")
 		return
 	}
 lkdir= %raexeloc%\config\remaps
-IfExist, %inputRemappingDirectory%\%corcfgnam%
+IfExist, %inputRemappingDirectory%\%corcfgnam%\
 	{
 		lkdir= %inputRemappingDirectory%\%corcfgnam%
 	}
-	else IfNotExist,%raexeloc%\config\remaps
+	else 
 		{
 			FileCreateDir, %raexeloc%\config\remaps
 			guicontrol,,JCFGEDT,|%raexeloc%\config\remaps\%corcfgnam%.rmp||%joycfg%|%curcfg%
@@ -53962,7 +54021,7 @@ if (REMPB = 0)
 		guicontrol,disable,JOYCORE
 		guicontrol,disable,JCFGADD
 		guicontrol,disable,SAVEJOY
-		guicontrol,,JOYCORE,|Global||Xpadder|Antimicro|%supgui%|%corelist%
+		guicontrol,,JOYCORE,|Antimicro||Xpadder|%supgui%|%corelist%
 		gosub, JoyCore
 	}	
 	IniWrite, "%inputRemapBindsEnable%", %joycfg%,OPTIONS,input_remap_binds_enable
@@ -54809,7 +54868,7 @@ guicontrol,,emjDDLD,|%RJMEDNM%||%mednfsc%
 gosub, JMednafenRAD3A
 guicontrol,,emjCBA,|%medjname%%medjbid%
 
-Loop, parse, mtcfg,`n`r
+Loop, parse, medglobal,`n`r
 	{
 		stringsplit,fii,A_LoopField,=
 		stringsplit,gii,fii2,+
@@ -54827,7 +54886,7 @@ Loop, parse, mtcfg,`n`r
 	}
 
 MEDNAFENJPRELOAD:
-if (emjddlb = "")
+if (emjddlb = "n")
 	{
 		emjddlb= 1
 	}
@@ -56055,7 +56114,7 @@ Loop, Parse, medjimp,`n`r
 												stringreplace,avi,A_LoopField,%A_Space%,#
 												stringsplit,uig,avi,%A_Space%
 												medjcd= %uig3%
-												Loop, Parse, medxi,`n`r
+												Loop, Parse, medxset,`n`r
 													{
 														if (A_LoopField = "")
 															{
@@ -56247,7 +56306,7 @@ Loop, Parse, orj,#
 						continue
 					}
 				orzf.= A_LoopField
-				Loop, Parse, medxi,`n`r
+				Loop, Parse, medxset,`n`r
 					{
 						if (A_LoopField = "")
 							{
@@ -56850,6 +56909,11 @@ goto, KBJInitd
 
 ResetPlayerJoy:
 gui, submit, nohide
+if (RMPLOAD = 1)
+	{
+		corecfg= %ccv%.cfg
+		joycfg= %inputRemappingDirectory%\%corcfgnam%\%corcfgnam%.rmp
+	}
 guicontrolget, JSW, , JSW
 gosub, PlyrDrpDwn
 PLYRTYP= KB
@@ -56859,6 +56923,68 @@ if (JSW= 1)
 	}
 
 PLYRT:
+gosub, RAInitJoyVals
+
+KBJInitd:
+if (PLYRTYP = "J")
+	{
+		CLJXT= btn
+		JXT= _btn
+		PLAYERT= 
+		guicontrol, ,JOYIND, 0
+		guicontrol, ,MOUSEIND, 0
+		IniWrite "0",%joycfg%,OPTIONS,input_player%PLAYERNUM%_mouse_index
+		IniWrite "0",%joycfg%,OPTIONS,input_player%PLAYERNUM%_joypad_index
+		gosub, GamepadResets
+		return
+	}
+if (PLYRTYP = "KB")
+	{
+		CLJXT= 
+		JXT=
+	}
+if (PLYRTYP = "AXIS")
+	{
+		CLJXT= axis
+		JXT= _axis
+	}
+if (PLAYERNUM = 1)
+	{
+		PLAYERT = X
+	}
+if (PLAYERNUM = 2)
+	{	
+		PLAYERT = Y
+	}	
+if (PLAYERNUM > 2)
+	{
+		PLAYERT = Z
+	}
+guicontrol, ,MOUSEIND, 0
+guicontrol, ,JOYIND, 3
+IniWrite "3",%joycfg%,OPTIONS,input_player%PLAYERNUM%_joypad_index
+gosub, GamepadResets
+return
+
+GamepadResets:
+Loop, parse,joyiterate,|
+	{
+		slcc1= 
+		slcc2= 
+		slcc3= 
+		slcc4= 
+		slcc5= 
+		stringsplit, slcc, A_LoopField,_
+			JOYVL= % %PLYRTYP%%PLAYERT%%slcc1%%slcc2%%slcc3%%slcc4%%slcc5%
+		if (JOYVL = "")
+			{
+				JOYVL= nul
+			}
+			 GuiControl, ,%slcc1%%slcc2%%slcc3%%slcc4%%slcc5%, |%JOYVL%||%JSTSET%
+			 IniWrite, "%JOYVL%",%joycfg%,OPTIONS,input_player%PLAYERNUM%%A_LoopField%%JXT%
+	}
+return
+RAInitJoyVals:
 ;{;;;;;;;;;;;;;;;;;;;;;;      Joystick Init Values    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Jup= h0up
 Jleft= h0left
@@ -56967,65 +57093,6 @@ KBZR2= null
 KBZR3= null
 KBZL3= null
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-KBJInitd:
-if (PLYRTYP = "J")
-	{
-		CLJXT= btn
-		JXT= _btn
-		PLAYERT= 
-		guicontrol, ,JOYIND, 0
-		guicontrol, ,MOUSEIND, 0
-		IniWrite "0",%joycfg%,OPTIONS,input_player%PLAYERNUM%_mouse_index
-		IniWrite "0",%joycfg%,OPTIONS,input_player%PLAYERNUM%_joypad_index
-		gosub, GamepadResets
-		return
-	}
-if (PLYRTYP = "KB")
-	{
-		CLJXT= 
-		JXT=
-	}
-if (PLYRTYP = "AXIS")
-	{
-		CLJXT= axis
-		JXT= _axis
-	}
-if (PLAYERNUM = 1)
-	{
-		PLAYERT = X
-	}
-if (PLAYERNUM = 2)
-	{	
-		PLAYERT = Y
-	}	
-if (PLAYERNUM > 2)
-	{
-		PLAYERT = Z
-	}
-guicontrol, ,MOUSEIND, 0
-guicontrol, ,JOYIND, 3
-IniWrite "3",%joycfg%,OPTIONS,input_player%PLAYERNUM%_joypad_index
-gosub, GamepadResets
-return
-
-GamepadResets:
-Loop, parse,joyiterate,|
-	{
-		slcc1= 
-		slcc2= 
-		slcc3= 
-		slcc4= 
-		slcc5= 
-		stringsplit, slcc, A_LoopField,_
-			JOYVL= % %PLYRTYP%%PLAYERT%%slcc1%%slcc2%%slcc3%%slcc4%%slcc5%
-		if (JOYVL = "")
-			{
-				JOYVL= nul
-			}
-			 GuiControl, ,%slcc1%%slcc2%%slcc3%%slcc4%%slcc5%, |%JOYVL%||%JSTSET%
-			 IniWrite, "%JOYVL%",%joycfg%,OPTIONS,input_player%PLAYERNUM%%A_LoopField%%JXT%
-	}
 return
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -57151,7 +57218,7 @@ return
 JMednafenBUTB:
 gui, submit, nohide
 asbn= 
-Loop, Parse, micfg,`n`r
+Loop, Parse, medinput,`n`r
 	{
 		if (A_LoopField = "")
 			{
@@ -57178,9 +57245,9 @@ Loop, Parse, MEDCFGLOC,`n`r
 		if (aiv1 = RJMEDNM)
 			{
 				kfv= 	
-				ifinstring,micfg,%aej1%=
+				ifinstring,medinput,%aej1%=
 					{
-						Loop, Parse,micfg,`n`r
+						Loop, Parse,medinput,`n`r
 							{
 								stringsplit,rjmnm,A_LoopField,=
 								if (rjmnm1 = aej1)
@@ -60158,24 +60225,14 @@ if (romhnck <> ":")
 	}
 SplitPath,romf,romtitle,rompth,romxt,romname
 guicontrolget,coreselv,,LCORE
-iniread,coreselx,AppParams.ini,%runsysddl%,%romxt%
-if (coreselx <> "ERROR")
-	{
-		if (coreselx <> "")	
-			{
-				coreselv= %coreselx%
-				guicontrol,,LCORE,|%coreselv%||%runlist%
-				if (coretmp <> coreselv)
-					{
-						gosub, opncore
-						alrcfg= 1
-					}				
-			}
-	}
 if (indexCONSOLE = "")
 	{	
 		gosub, RecentRead
 		guicontrolget,coreselv,,LCORE
+		if (tmpcc <> LCORE)
+			{
+				gosub, opncore
+			}
 	}
 if (coreselv = "")
 	{
@@ -60331,6 +60388,7 @@ return
 LnchCore:
 guicontrol,enable,LCORE
 core_gui= 
+loadedjoy= 
 indexCONSOLE= 
 BCSTO= 
 BCSTA= 
@@ -62140,7 +62198,7 @@ guicontrol,,EMPRDDL,|Emulators|%addemu%
 guicontrol,,ARCCORES,|Select_a_Core||%runlist%
 guicontrol,,PLCORE,|%runlist%
 guicontrol,,ASCORE,|%corelist%
-guicontrol,,JOYCORE,|Global||Xpadder|Antimicro|%supgui%|%corelist%
+guicontrol,,JOYCORE,|Antimicro||Xpadder|%supgui%|%corelist%
 return
 
 resetOVR:
@@ -65229,6 +65287,17 @@ if (inival2 = "true")
 GuiControl,, THRDV, %VIDTHR%
 return
 
+videoAdaptiveVsync:
+gui, submit, nohide
+AVIDSYNC= 0
+videoAdaptiveVsync= %inival2%
+if (inival2 = "true")
+	{
+		AVIDSYNC= 1
+	}
+guicontrol,, AVIDSYNC, %AVIDSYNC%
+return
+
 videoVsync:
 gui, submit, nohide
 VIDSYNC= 0
@@ -66256,20 +66325,31 @@ THRTL= 0
 }
 GuiControl,,THRTL, %THRTL%
 return
+
+menuleftthumbnails:
+menuleftthumbnails= %inival2%
+
+return
+
 menuThumbnails:
 THUMBON= 1
 guicontrol,enable,TITLCVR
 guicontrol,enable,BOXCVR
 guicontrol,enable,SSHTCVR
+guicontrol,enable,LFTTHMB
+guicontrol,enable,VRTTHMB
 menuThumbnails= %inival2%
 if (inival2 = "false")
-{
-THUMBON= 0
-guicontrol,disable,TITLCVR
-guicontrol,disable,BOXCVR
-guicontrol,disable,SSHTCVR
-}
+	{
+		THUMBON= 0
+		guicontrol,disable,TITLCVR
+		guicontrol,disable,BOXCVR
+		guicontrol,disable,SSHTCVR
+		guicontrol,disable,LFTTHMB
+		guicontrol,disable,VRTTHMB
+	}
 return
+
 savestateThumbnailEnable:
 STHUMBON= 0
 savestateThumbnailEnable= %inival2%
@@ -66913,6 +66993,9 @@ inputToggleFastForward= %inival2%
 return
 inputToggleFastForwardBtn:
 inputToggleFastForwardBtn= %inival2%
+return
+inputHoldSlowmotion:
+inputHoldSlowmotion= %inival2%
 return
 inputHoldFastForward:
 inputHoldFastForward= %inival2%
