@@ -11,6 +11,7 @@
 RELEASE= [VERSION]
 VERSION= [CURV]
 RASTABLE= 1.7.5
+
 #Include tf.ahk
 #Include lbex.ahk
 #Include LVA.ahk
@@ -23,6 +24,11 @@ stringreplace,iniversion,iniversion,",,All
 if (iniversion <> VERSION)
 	{
 		#Include ExeRec.set
+		TrayTip,Skeletonkey,Initializing
+		ifexist,Settings.ini
+			{
+				iniwrite,"%version%",Settings.ini,GLOBAL,version
+			}
 	}
 ;};;;;;;
 
@@ -163,9 +169,11 @@ ifnotexist, Settings.ini
 	}
 romf= %1%
 ;{;;;;;;;;;;;;;;;;;;;;        ===   INITIALIZE   ====         ;;;;;;;;;;;;;;;;;;;;;;;;;
-
+if (INITIAL = "")
+	{
+		TrayTip, skeletonKey,skeletonKey is loading
+	}
 ;{;;;;;;;;;;;;;;;;;;;      GENERATE SETTINGS    ;;;;;;;;;;;;;;;;;;;;;;;;
-
 for obj in ComObjGet("winmgmts:\\.\root\cimv2").ExecQuery("SELECT OSArchitecture FROM Win32_OperatingSystem")
 artmp :=(obj.OSArchitecture)
 stringsplit, arpt, artmp, -
@@ -208,7 +216,6 @@ IfNotExist, AppParams.ini
 	{
 		FileCopy,AppParams.set,AppParams.ini
 	}
-
 IfNotExist, launchparams.ini
 	{
 		FileCopy,launchparams.set,launchparams.ini
@@ -217,6 +224,7 @@ IfNotExist,mediafe.ini
 	{
 		FileCopy,mediafe.set,mediafe.ini
 	}
+
 
 Iniread, raexeloc, Settings.ini,GLOBAL,retroarch_location
 RJQNUM:= 0
@@ -285,7 +293,6 @@ If (historyloctmp = "ERROR")
 		gosub, NoHistoryFile
 	}
 IniRead, RaExeFile, Settings.ini,GLOBAL,retroarch_executable
-
 
 IniRead, RAVERS, Settings.ini,GLOBAL,retroarch_Version
 if (RAVERS = "ERROR")
@@ -393,7 +400,6 @@ ifNotExist, sys.ini
 	{
 		gosub, resetSYS
 	}
-
 ifNotExist, msys.ini
 	{
 		gosub, resetSYS
@@ -545,7 +551,6 @@ if (INITIAL = 1)
 		SplashImage = key.png
 		SplashImageGUI(SplashImage, "Center", "Center", true)
 	}
-
 Loop, Parse, EmuPartSet,`n`r
 	{
 		if (A_LoopField = "#")
@@ -572,20 +577,18 @@ Loop,Read,sys.ini
 syslist .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
 Loop,Read,hacksyst.ini
 hacksyst .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
-
 appcfg= AppParams.ini
 IfNotExist, AppParams.ini
-{
-	appcfg= AppParams.set
-}
-
+	{
+		appcfg= AppParams.set
+	}
 iniread,sysemucfg,%appCfg%,
 preEmuCfg= 
+
 Loop,Parse,sysemucfg,| `n
 {
 	preEmuCfg .= A_LoopField . "|"
 }
-
 IniRead,asig,Assignments.ini,ASSIGNMENTS,
 Loop,Parse,asig,`n
 	{
@@ -596,46 +599,61 @@ Loop,Parse,asig,`n
 			}
 	}
 mame_sys=
-Loop, Parse, msyslist,|
+
+
+fileread,emucfgpr,emucfgPresets.set
+Loop, Parse, emucfgpr,`n`r
 	{
-		einv= 
-		mamad=
-		splitpath,A_LoopField,,,,einv
-		Loop, Read, emucfgPresets.set
-			{
-				stringleft,wev,A_LoopReadLine,1
-				if (wev = "[")
-					{
-						stringreplace,ecfsysn,A_LoopReadLine,[,,All
-						stringreplace,ecfsysn,ecfsysn,],,All
-					}
-				stringsplit,aeif,A_LoopReadLine,=
-				if (aeif1 = "RJMAMENM")
-					{
-						if (aeif2 = einv)
-							{
-								MAME_%aeif2%= %einv%
-								mame_syst.= ecfsysn . "|"
-								rev_%einv%= %ecfsysn%
-								mamad= 1
-								break
-							}
-					}
-			}
-		if (mamad = 1)
+		if (A_LoopField = "")
 			{
 				continue
 			}
-		mame_sysk.= einv . "|"	
+		stringleft,wev,A_LoopField,1
+		if (wev = "[")
+			{
+				ifinstring,A_LoopField,%A_Space%-%A_Space%
+					{
+						stringreplace,ecfsysn,A_LoopField,[,,All
+						stringreplace,ecfsysn,ecfsysn,],,All
+						sysfnd= 1
+						continue
+					}
+			}
+		if (sysfnd = 1)
+			{
+				stringsplit,aeif,A_LoopField,=
+				if (aeif1 = "RJMAMENM")
+					{
+						mamad=
+						sysfnd= 
+						Loop, Parse, msyslist,|
+							{
+								einv= %A_LoopField%
+								if (aeif2 = einv)
+									{
+										MAME_%aeif2%= %einv%
+										mame_syst.= ecfsysn . "|"
+										rev_%einv%= %ecfsysn%
+										mamad= 1
+										break
+									}
+							}
+						ifnotinstring,mame_sysk,%einv%|	
+							{
+								mame_sysk.= einv . "|"
+							}
+					}
+			}
 	}
+
 mame_sys.= mame_syst . mame_sysk
 sort,mame_sys, Alphabetically D|
 iniread,afip,emucfgpresets.set
 afep= |
 Loop, parse, afip,`n
-{
-	afep.= A_LoopField . "|"
-}
+	{
+		afep.= A_LoopField . "|"
+	}
 if (INITIAL = 1)
 	{	
 		gosub, DestroySplashGUI
@@ -661,7 +679,7 @@ omitxj:= omitxtv
 
 metaimages= 3DBoxart|Marquee|4Mix|3Mix|Label|Cart|Backdrop|BoxArt|Logo|Video|Metadata|Snapshot
 
-viditerate= video_driver|video_black_frame_insertion|video_disable_composition|video_swap_interval|video_threaded|video_allow_rotate|video_aspect_ratio_auto|video_aspect_ratio|video_force_aspect|video_frame_delay|video_crop_overscan|video_fullscreen_x|video_fullscreen_y|video_fullscreen|current_resolution_id|custom_viewport_height|custom_viewport_width|custom_viewport_x|custom_viewport_y|video_monitor_index|video_rotation|video_scale_integer|video_scale|video_windowed_fullscreen|video_vsync|video_hard_sync_frames|video_hard_sync|video_max_swapchain_images|video_shader_enable|video_shared_context|video_smooth|video_max_swapchain_images|video_refresh_rate
+viditerate= video_driver|video_black_frame_insertion|video_disable_composition|video_swap_interval|video_threaded|video_allow_rotate|video_aspect_ratio_auto|video_aspect_ratio|video_force_aspect|video_frame_delay|video_crop_overscan|video_fullscreen_x|video_fullscreen_y|video_fullscreen|current_resolution_id|custom_viewport_height|custom_viewport_width|custom_viewport_x|custom_viewport_y|video_monitor_index|video_rotation|video_scale_integer|video_scale|video_windowed_fullscreen|video_vsync|video_hard_sync_frames|video_hard_sync|video_max_swapchain_images|video_shader_enable|video_shared_context|video_smooth|video_max_swapchain_images|video_refresh_rate|fastforward_ratio
 
 optiterate= all_users_control_menu|aspect_ratio_index|audio_driver|audio_enable|audio_latency|audio_mute_enable|audio_rate_control_delta|audio_rate_control|audio_sync|auto_shaders_enable|flicker_filter_enable|flicker_filter_index|auto_overrides_enable|autosave_interval|block_sram_overwrite|config_save_on_exit|input_driver|input_joypad_driver|input_remap_binds_enable|keyboard_gamepad_enable|input_autodetect_enable|input_menu_toggle_gamepad_combo|menu_driver|pause_nonactive|rewind_enable|rewind_granularity|savestate_auto_index|savestate_auto_load|savestate_auto_save|sort_savefiles_enable|sort_savestates_enable|savefiles_in_content_dir|savestates_in_content_dir|video_gpu_record|video_gpu_screenshot|auto_remaps_enable|screenshots_in_content_dir|run_ahead_enabled|run_ahead_frames|run_ahead_secondary_instance
 
@@ -798,7 +816,6 @@ CONFEXIT= 0
 COV= 0
 CROP= 0
 FRAMEDELAY= 16
-DSND= 1
 DTCOMP= 1
 FILTOG= 0
 FLICK= 0
@@ -807,7 +824,6 @@ FORCEAR= 1
 FORCEAR= 1
 FRMDL= 0
 GCOR= 0
-GMENU= 0
 GPUSS= 1
 GPUV= 1
 GPUVREC= 0
@@ -832,7 +848,6 @@ RATESLD=50
 RDELTADISP= 0.005
 REWEN= 0
 REWGRAN= 1
-RMENU= 0
 SAVEXIT= 1
 SDL2= 0
 SHAREDV= 0
@@ -849,9 +864,6 @@ VIDASPECT= 24
 AVIDSYNC= 0
 VIDSCL= 3
 VIDSYNC= 0
-XAUD= 0
-XMENU= 1
-ZMENU= 1
 NOROT= 1
 ROT90= 0
 ROT180= 0
@@ -1134,19 +1146,15 @@ imgrepo= http://raw.githubusercontent.com/libretro/libretro-thumbnails/master
 ASSETS= Assets
 
 
-;;DllCall( "AddFontResource", Str,"DroidSans.ttf" ) 
-;;SendMessage,  0x1D,,,, ahk_id 0xFFFF ; Broadcast the change
 fontName= system
 fontXmed= s9
 fontXsm= s7
 fontName= 
-
 ;;;;;;;;;;;;;;;;;;;    LOCATIONS    ;;;;;;;;;;;;;;;;;
 gosub, DefLocs
 ;;;;;;;;;;;;;;;;;;;       DEFAULT PATHS       ;;;;;;;;;;;;;;;;;
 gosub, DefPaths
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 netplayRomLocation= 2
 netplayPlaylistDirectory= %playlistLoc%
 netplayCoreAssetsDirectory= %RJSYSTEMS%
@@ -1156,6 +1164,7 @@ SUPRSRCH= 1
 AUTOFUZ= 1
 FUZENB= Checked
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 ;{;;;;;;;;;;;;;;;;;;;      GENERATE CONFIG    ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ifnotexist, %curcfg%
@@ -1578,6 +1587,7 @@ Gui, Add, Tab2, x0 y0 w765 h535 vTABMENU Bottom, Settings||:=: MAIN :=:|Emu:=:Sy
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;   ~~~~~GLOBAL SKELEOTNKEY~~~~~   ;;;;;;;;;;;
+
 Gui, Tab, 1
 Gui Tab, Settings
 Gui, Add, GroupBox, x566 y14 w195 h321 vSKSUMGB, Summary
@@ -1636,6 +1646,7 @@ Gui, Add, GroupBox, x4 y-5 w560 h207 vBLNKGRP
 
 
 ;};;;;;;;;;;;;
+
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[ MAIN TAB ]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 Progress, 16,Loading Options ..
@@ -1660,69 +1671,58 @@ Gui, Add, ComboBox, x459 y22 w100 vCUSTMOPTS gCustmOpts hidden, |%INJOPT%
 Gui, Add, ComboBox, x560 y22 w100 vCUSTMARGS gCustmArgs hidden, |%INJARG%
 
 Gui, Add, Button, x418 y0 w41 h21 vGROM gGetROM, ROM
-;;Gui, Add, ComboBox, x525 y0 w135 vLCORE gLnchCore,
 Gui, Add, DropdownList, x525 y0 w135 hwndRUNCORE vLCORE gLnchCore,
 Gui, Add, DropDownList, x540 y0 w135 vJCORE gRJCORE hidden,
 ;;Gui, Add, DropDownList, x540 y24 w135 vJCORE gRJCORE hidden,
 Gui, Font, Bold
-Gui, Add, Button, x661 y3 w16 h17 vOPNCORE gOpnCore, C
+Gui, Add, Button, x661 y3 w16 h17 vOPNCORE gOpnCore,C
 Gui, Add, Button, x661 y0 w78 h29 vHLNCHBUT gRUNTABHOSTING hidden, HOST
 Gui, Add, Button, x677 y0 w60 h29 vLNCHBUT gLNCH, LAUNCH
 Gui, Add, Button, x737 y0 w25 h29 vRCLLNCH gRCLLNCH,::>
-Gui, Add, Button, x740 y30 w16 h17 vCLRCUROM gCLREDT, X
+Gui, Add, Button, x740 y30 w16 h17 vCLRCUROM gCLREDT,X
 gui, font, bold
-Gui, Add, Button, x740 y30 w16 h17 vRETAL gRETAL hidden, >
+Gui, Add, Button, x740 y30 w16 h17 vRETAL gRETAL hidden,>
 gui,font,normal
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;{;;;;;;;  Speed ;;;;;
+Gui, Add, Edit, x362 y247 w92 h21 vRaSpdEdt gRaSpdEdt hidden,
+Gui, Add, Text, x393 y226 w36 h17 vRASpdTxt hidden, Speed
+Gui, Add, Slider, x351 y273 w116 h18 vRaSpdSld gRaSpdSld Range-10-10 hidden,0
+;};;;;;;;
 
 ;{;;;;;;;;~~~DISPLAY DRIVER MENU GROUP~~~;;;;;;;;;;;;;
 Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x28 y43 w94 h130 vDDRVGRP hidden, Display Driver
+Gui, Add, GroupBox, x24 y43 w174 h117 vDDRVGRP hidden, Video-Drivers
+Gui, Add, Text, x45 y60 h16 +0x200 vDISPDRVTXT hidden, Display Driver
+Gui, Add, Text, x43 y105 h16 +0x200 vGUIDRVTXT hidden, GUI Driver
 Gui,Font,%fontXsm% Norm 
-Gui, Add, Radio, x40 y58 h16 vOGLDRV gGLDISP Checked hidden, OpenGL
-Gui, Add, Radio, x40 y75 h16 vSDL2DRV gSDLDISP hidden, SDL2
-Gui, Add, Radio, x40 y92 h16 vGDIDRV gGDIDISP hidden, GDI
-Gui, Add, Radio, x40 y108 h16 vD3DDRV gD3DDISP hidden, Direct3D
-Gui, Add, Radio, x40 y124 h16 vD3D11 gDX11DISP hidden, DirectX 11
-Gui, Add, Radio, x40 y140 h16 vD3D12 gDX12DISP hidden, DirectX 12
-Gui, Add, Radio, x40 y155 h16 vVLKDRV gVLKDISP hidden, Vulkan
+Gui, Add, DropDownList, x43 y81 w120 vDISPLDRV gDISPLDRV hidden, openGL||SDL2|GDI|Direct3D|DirectX 11|DirectX 12|Vulkan
+Gui Add, DropDownList, x42 y126 w120 vGUIDRV gGUIDRV hidden, XMB||RGUI|OZONE|GLUI
+;;Gui, Add, Radio, x40 y58 h16 vOGLDRV gGLDISP Checked hidden, OpenGL
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;{;;;;;;;;~~~GUI  DRIVER MENU GROUP~~~;;;;;;;;;;;;;;;;;;;;
-Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x132 y43 w75 h115 vGUIDRVGRP hidden, GUI Driver
-Gui,Font,%fontXsm% Norm 
-Gui, Add, Radio, x140 y62 w50 h16 vRMENU gRGUI hidden, RGUI
-Gui, Add, Radio, x140 y84 w45 h16 vXMENU gXMB Checked hidden, XMB
-Gui, Add, Radio, x140 y106 w45 h16 vGMENU gGLUI hidden, GLUI
-Gui, Add, Radio, x140 y128 w60 h16 vZMENU gOZONE hidden, OZONE
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;~~~OUTPUT MENU GROUP~~~;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x219 y43 w90 h136 vOUTMGRP hidden, Output Mode
+Gui, Add, GroupBox, x215 y43 w97 h133 vOUTMGRP hidden, Output Mode
 Gui,Font,%fontXsm% Norm 
 Gui, Add, Radio, x227 y62 h16 vOUTFS gFSCRN hidden, FullScreen
-Gui, Add, Radio, x227 y84 h16 vOUTW gWIND Checked hidden, Window
-Gui, Add, Checkbox, x228 y104 h16 vOUTFW gFWIND hidden, FullWindow
+Gui, Add, Radio, x227 y81 h16 vOUTW gWIND Checked hidden, Window
+Gui, Add, Checkbox, x228 y101 h16 vOUTFW gFWIND hidden, FullWindow
 
-Gui, Add, Text, x245 y123 Disabled vREFTXT hidden, Refresh
-Gui, Add, Edit, x222 y137 w86 h17 vREFRESH gRefresh Number hidden, %REFRESH%
+Gui, Add, Text, x245 y120 Disabled vREFTXT hidden, Refresh
+Gui, Add, Edit, x222 y134 w86 h17 vREFRESH gRefresh Number hidden, %REFRESH%
 Gui, Add, UpDown, Range0-240 vREFUD gRefUD hidden, 
-Gui, Add, Slider, x221 y159 w86 h16 Range0-240 vREFSLD gRefSld hidden,
+Gui, Add, Slider, x221 y156 w86 h16 Range0-240 vREFSLD gRefSld hidden,
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;~~~AUDIO  MENU GROUP~~~;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x319 y43 w160 h117 vSNDGRP hidden, Audio
+Gui, Add, GroupBox, x317 y43 w164 h117 vSNDGRP hidden, Audio
+Gui, add, Text, x330 y70 vAUDDRVTXT hidden, Driver
 Gui,Font,%fontXsm% Norm 
-Gui, Add, Radio, x327 y62 h16 vDSND gdSound Checked hidden, dSound
-Gui, Add, Radio, x327 y80 h16 vSDL2 gsdlSound hidden, SDL2
-Gui, Add, Radio, x327 y100 h16 vXAUD gxaudioSound hidden, xAudio
-Gui, Add, Radio, x327 y120 h16 vWASAPI gWasapi hidden, WASAPI
-Gui, Add, Radio, x327 y140 h16 vOPENAL gOpenAL hidden, openal
+Gui, Add, DropDownList, x323 y90 w70 vAUDDRV gAUDDRV hidden, xAudio||dSound|SDL2|WASAPI|openal
 Gui, Add, CheckBox, x396 y76 h15 vASYNC gAudSync Checked hidden, Sync
 Gui, Add, CheckBox, x396 y60 h16 vART gRate Checked hidden, Rate-Control
 Gui, Add, CheckBox, x396 y92 h15 vMUTE gAudMute hidden, Mute
@@ -1774,7 +1774,7 @@ Gui, Add, CheckBox, x496 y104 vCROP gCropOS hidden, Crop-Overscan
 
 ;{;;;;;;;;~~~LOCATIONS MENU GROUP~~~;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x24 y175 w314 h147 Center vSHDPTHTXT hidden, Shaders\Paths
+Gui, Add, GroupBox, x24 y173 w314 h149 vSHDPTHTXT hidden, Shaders\Paths
 Gui,Font,%fontXsm% Norm 
 Gui, Add, Radio,x124 y188 h18 vCGSLCT gCGPoP hidden, CG
 Gui, Add, Radio, x86 y188 h18 vGLSLCT gGLPoP Checked hidden, GL
@@ -1786,17 +1786,17 @@ Gui, Add, CheckBox, x31 y188 h18 vSHDEN gSHATOG hidden, Enable
 Gui, Add, Button, x316 y208 w18 h22 vSHDSEL gSelectShader hidden, O
 Gui, Add, CheckBox, x232 y189 h17 vAUTSHD gAutoShd Checked hidden, Auto
 Gui, Add, CheckBox,x277 y188 h17 vSMTHV gSmoothVid hidden, Smooth
-Gui, Add, Text, x32 y253 h17 vFILTXT hidden, Filter
-Gui, Add, DropDownList, x69 y251 w243 vFLTFILE gFltShdGet hidden, nul||%fltlist%
-Gui, Add, Button, x316 y251 w18 h22 vFILTSEL gSelectFilter hidden, O
+Gui, Add, Text, x32 y243 h17 vFILTXT hidden, Filter
+Gui, Add, DropDownList, x69 y241 w243 vFLTFILE gFltShdGet hidden, nul||%fltlist%
+Gui, Add, Button, x316 y240 w18 h22 vFILTSEL gSelectFilter hidden, O
 
 
-Gui, Add, DropDownList, x96 y274 w160 vLOCDIR gLocFolder hidden, assets_directory||%dirlocations%
-Gui, Add, Button, x257 y273 w71 h23 vDirBut gLocationFolder hidden, Directory
+Gui, Add, DropDownList, x96 y270 w160 vLOCDIR gLocFolder hidden, assets_directory||%dirlocations%
+Gui, Add, Button, x257 y269 w71 h23 vDirBut gLocationFolder hidden, Directory
 Gui, Add, DropDownList, x96 y296 w160 vLOCPTH gLocPath hidden, assets_path||%pathlocations%
 Gui, Add, Button, x257 y295 w71 h23 vPthBut gLocationPath hidden, Path
 Gui, Add, Text, x48 y295 h23 +0x200 vPTHSTXT hidden, Paths
-Gui, Add, Text, x37 y274 h23 +0x200 vDIRSTXT hidden, Directories
+Gui, Add, Text, x37 y272 h23 +0x200 vDIRSTXT hidden, Directories
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -1805,7 +1805,7 @@ Gui,Font,%fontXsm% Bold
 Gui, Add, GroupBox, x24 y322 w342 h59 vOPERGRP hidden, Operational
 Gui,Font,%fontXsm% Norm 
 Gui, Add, CheckBox, x121 y342 h13 vPAUSEBG gBGPause hidden, Pause in BG
-Gui, Add, CheckBox, x284 y342 h13 vGPUVREC gGPURecord hidden, GPU Record
+Gui, Add, CheckBox, x284 y342 h13 vGPUVREC gGPURecord hidden, GPU Rec.
 Gui, Add, CheckBox, x205 y342 h13 vGPUSS gGPUScreenShot Checked hidden, GPU Snaps
 Gui, Add, CheckBox, x36 y342 h13 vSAVEXIT gSaveOnExit Checked hidden, Save on Exit
 Gui, Add, CheckBox, x36 y360 vCSTCMD gEnableCC hidden, Custom Cmd
@@ -2050,7 +2050,7 @@ Gui, Add, Button, x458 y459 w16 h17 vEMPRBUTX gEMPRBUTX, X
 Gui, Add, Button, x458 y481 w36 h17 vDELCFGPGC gDELCFGPGC, Clean
 
 Gui, Font,Bold
-Gui, Add, GroupBox, x552 y409 w194 h97 vEMGRPF Right, Pre Cmd/ Post Cmd
+Gui, Add, GroupBox, x518 y409 w228 h97 vEMGRPF Right, Pre Cmd/ Post Cmd
 Gui Add, GroupBox, x472 y362 w262 h43 vDSKMNTGRP, Disc-Mounting
 Gui, Font, Normal
 
@@ -2059,13 +2059,13 @@ Gui Add, DropDownList, x533 y378 w91 vDSKMNTDDL gDSKMNTDDL disabled, DaemonTools
 Gui Add, Button, x625 y378 w44 h19 vDSKSELBUT gDSKSELBUT disabled, Disc...
 Gui Add, CheckBox, x671 y370 h16 vDSKMNTOVR gDSKMNTOVR disabled, override
 Gui, Add, Radio, x682 y416 w63 h13 vEMRad11B gEMRad11B Checked disabled hidden, Absolute
-Gui, Add, CheckBox, x556 y432 w45 h18 vEMCHKW gEMCHKW +0x20 disabled, Wait
-Gui, Add, DropDownList, x603 y430 w118 vEMDDLF gEMDDLF disabled, Pre-Command||Post-Command
+Gui, Add, CheckBox, x522 y431 w45 h18 vEMCHKW gEMCHKW +0x20 disabled, Wait
+Gui, Add, DropDownList, x570 y430 w151 vEMDDLF gEMDDLF disabled, Pre-Command||Post-Command
 Gui, Add, Button, x723 y429 w21 h23 vEMBUTG gEMBUTG disabled, +
-Gui, Add, Combobox, x578 y452 w143 vEMCBXH gEMCBXH +0x2 +E0x5000 Right hidden disabled,
+Gui, Add, Combobox, x538 y452 w183 vEMCBXH gEMCBXH +0x2 +E0x5000 Right hidden disabled,
 Gui, Add, DropDownList, x578 y452 w143 vEMDDLP gEMDDLP +0x2 +E0x5000 disabled, 
-Gui, Add, Button, x723 y477 w33 h23 vEMBUTO gEMBUTO hidden disabled, Add
-Gui, Add, Edit, x558 y477 w163 h21 vEMEDTO gEMEDTO disabled
+Gui, Add, Button, x711 y476 w33 h23 vEMBUTO gEMBUTO hidden disabled, Add
+Gui, Add, Edit, x537 y477 w169 h21 vEMEDTO gEMEDTO disabled
 Gui, Add, Button, x723 y451 w21 h23 vEMBUTH gEMBUTH disabled, X ;PrePostDelete
 
 
@@ -3703,7 +3703,6 @@ TMPDISPL_TT :="The temp directory location"
 SETTMPD_TT :="Set the location for temp files."
 
 
-DSND_TT :="The default sound driver"
 DTCOMP_TT :="Toggles desktop compositing.`n Works in windows 7 and older only"
 DUTYCYCLE_TT :="How long the period of a turbo-enabled button should be.`nNumbers are in frames"
 DWNLPOS_TT := "Folders populating your core-assets directory (Downloads)"
@@ -4022,7 +4021,6 @@ RJSUBDCBX__TT :="The subdirectory to be created."
 RJPRECFGCBX_TT :="Batch-script command to perform prior to emulator launch.`neg: copy /y ''*.cfg'' ''`%EMUL`%''"
 RJPOSTCFGCBX_TT :="Batch-script command to perform after emulator exit.`neg: copy /y ''`%EMUL`%\*.cfg'' ''`%GAMDIR`%''"
 RMPLOAD_TT :="Automatically load the core-input-remap file"
-RMENU_TT :="bare-bones gui."
 MROMDLOC_TT :="Select the location where ROMs exist.`nA junction-link will be made to this directory for each selected`nsystem into your retroarch downloads directory"
 ROMDLOC_TT :="Select the location where ROMs exist.`nA junction-link will be made into your retroarch downloads directory"
 ROMDEDT_TT :="Location of the ROM directory`nYou can also Drag and drop a folder to assign"
@@ -4065,6 +4063,7 @@ MENSHOWONLUP_TT :="shows online-updater menu"
 MENSHOWQUIT_TT :="shows quit menu item"
 MENSHOWREB_TT :="shows reboot-menu item"
 RCLLNCH_TT :="Quick-Launch Presets"
+RaSpdEdt_TT :="Speed multiplier of the emulation.`n   1.0 is normal`n     `0.0 is unlocked."
 SETEMUD_TT :="Sets the emulators directory"
 SETJKD_TT :="Sets the systems directory"
 SKRAEXE_TT :="Sets the retroarch directory"
@@ -4134,10 +4133,8 @@ XMBSCL_TT :="Scales the XMB display"
 XMBTHM_TT :="Icon theme number"
 UpdateSK_TT :="Checks for the latest version of skeletonkey and downloads it if needed."
 HelpLink_TT :="Opens the skeletonKey html-help file in your default internet browser."
-XMENU_TT :="Playstation-style GUI.  The Default"
 ZIPSEEK_TT :="Searches within archives (.zip/.7z) for files.`nturn this off for Arcade/MAME-Style ROMs and archives." 
 ZIPSEEK_TT :="Gets and writes the CRC Hash number of ROMs to the playlist.`nThis can be expensive for CD/DVD systems.`nturn this off for Arcade/MAME-Style ROMs and archives." 
-ZMENU_TT :="Nintendo Switch menu style."
 SHDEN_TT :="Toggles shader"
 SKFILTSUP_TT :="Any dropdown listing the contents of your ''systems'' directory`n will filter out any directories which have not been detected or assigned"
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -6506,7 +6503,7 @@ if ( (A_GuiX >= eRegionX) && (A_GuiX <= eRegionX+eRegionW) && (A_GuiY >= eRegion
 				guicontrolget,systatus,,SALIST
 				if (systatus = "Emulators")
 					{
-						sggt= EMUTRP
+						sggt= EMUTRPDRP
 					}
 				EMUINSTLOCT= %A_GuiEvent%	
 				goto, %sggt%
@@ -8109,7 +8106,6 @@ if (optline <> "[OPTIONS]")
 	{
 		gosub WriteCORETop
 	}
-
 Loop, parse,COREVARS,|
 	{
 		inivar= 
@@ -8522,6 +8518,10 @@ if (SRCHCOMPL = 1)
 coreselv=
 librecore= 
 iniread,coreselz,Assignments.ini,OVERRIDES,%OPTYP%
+if (raexefile = "NOT-FOUND.exe")
+	{
+		goto, emucoredd
+	}
 if coreselz is digit
 	{
 		iniread,librecore,Assignments.ini,ASSIGNMENTS,%OPTYP%
@@ -8530,22 +8530,56 @@ if coreselz is digit
 				coreselv= %librecore%
 				guicontrol,,LCORE,|%coreselv%||%runlist%
 			}
+		else 
+			{
+				Loop, Parse, SysEmuSet,`n`r
+					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						StringSplit,corsplt,A_LoopField,:
+						StringSplit,sysplit,A_LoopField,|
+						if (OPTYP = sysplit1)
+							{
+								kr= 
+								ink= 
+								kva=
+								Loop,parse,corsplt2,|
+									{
+										ifexist,%libretrodirectory%\%A_LoopField%
+											{
+												coreselv= %A_LoopField%
+												guicontrol,,LCORE,|%coreselv%||%runlist%
+												kva= 1
+												break
+											}
+									}	
+							}
+						if (kva <> "")
+							{
+								break
+							}
+					}
+			}
 	}
-else {
-	if (coreselz <> "ERROR")
-		{
-			stringsplit,coreselp,coreselz,|
-				{
-					coreselv= %coreselp1%
-					guicontrol,,LCORE,|%coreselv%||%runlist%
-					if (coretmp <> coreselv)
-						{
-							core_gui= 
-							loadedjoy= 
-						}
-				}
-		}
+else 
+	{
+		if (coreselz <> "ERROR")
+			{
+				stringsplit,coreselp,coreselz,|
+					{
+						coreselv= %coreselp1%
+						guicontrol,,LCORE,|%coreselv%||%runlist%
+						if (coretmp <> coreselv)
+							{
+								core_gui= 
+								loadedjoy= 
+							}
+					}
+			}
 	}
+emucoredd:	
 if (coreselv = "")
 	{
 		kva=
@@ -9213,64 +9247,48 @@ gui, submit, nohide
 if (GLBLAUDIO = 0)
 	{
 		audioEnable = false
-		guicontrol, disable, DSND
-		guicontrol, disable, SDL2
-		guicontrol, disable, XAUD
+		guicontrol, disable, AUDDRV
 		guicontrol, disable, ASYNC
 		guicontrol, disable, ART
 		guicontrol, disable, MUTE
 		guicontrol, disable, LATENCY
-		guicontrol, disable, WASAPI
-		guicontrol, disable, OPENAL
 	}
 if (GLBLAUDIO = 1)
 	{
 		audioEnable = true
-		guicontrol, enable, DSND
-		guicontrol, enable, SDL2
-		guicontrol, enable, XAUD
+		guicontrol, enable, AUDDRV
 		guicontrol, enable, ASYNC
 		guicontrol, enable, ART
 		guicontrol, enable, MUTE
 		guicontrol, enable, LATENCY
-		guicontrol, enable, WASAPI
-		guicontrol, enable, OPENAL
 	}
 gosub, RACHKOPTLINE
 IniWrite, "%audioEnable%", %curcfg%,OPTIONS,audio_enable
 return
 
-dSound:
+AUDDRV:
 gui, submit, nohide
-audioDriver= dsound
-gosub, RACHKOPTLINE
-IniWrite, "%audioDriver%", %curcfg%,OPTIONS,audio_driver
-return
-
-xaudioSound:
-gui, submit, nohide
-audioDriver= xaudio
-gosub, RACHKOPTLINE
-IniWrite, "%audioDriver%", %curcfg%,OPTIONS,audio_driver
-return
-
-sdlSound:
-gui, submit, nohide
-audioDriver= sdl2
-gosub, RACHKOPTLINE
-IniWrite, "%audioDriver%", %curcfg%,OPTIONS,audio_driver
-return
-
-Wasapi:
-gui, submit, nohide
-audioDriver= wasapi
-gosub, RACHKOPTLINE
-IniWrite, "%audioDriver%", %curcfg%,OPTIONS,audio_driver
-return
-
-OpenAL:
-gui, submit, nohide
-audioDriver= openal
+guicontrolget,AUDDRV,,AUDDRV
+if (AUDDRV = "xAudio")
+	{
+		audioDriver= xaudio
+	}
+if (AUDDRV = "SDL2")
+	{
+		audioDriver= sdl2
+	}
+if (AUDDRV = "WASAPI")
+	{
+		audioDriver= wasapi
+	}
+if (AUDDRV = "openal")
+	{
+		audioDriver= openal
+	}
+if (AUDDRV = "dSound")
+	{
+		audioDriver= dsound
+	}
 gosub, RACHKOPTLINE
 IniWrite, "%audioDriver%", %curcfg%,OPTIONS,audio_driver
 return
@@ -9498,6 +9516,32 @@ gosub, RACHKOPTLINE
 iniwrite, "%netplayInputLatencyFramesRange%",%curcfg%,OPTIONS,netplay_Input_Latency_Frames_Range
 return
 
+RaSpdEdt:
+gui, submit, nohide
+gosub, raspdchk
+guicontrolget,fastforwardratio,,RaSpdEdt
+iniwrite, "%fastforwardratio%",%curcfg%,OPTIONS,fastforward_ratio
+return
+raspdchk:
+If RaSpdEdt Is Not Number
+   {
+	   Send, {BS}
+   }
+return
+
+RaSpdSld:
+gui, submit, nohide
+guicontrolget,RaSpdEdt,,RaSpdEdt
+guicontrolget,raspdv,,RaSpdSld
+if (raspdv = 0)
+	{
+		return
+	}
+fastforwardratio:= (raspdv * 0.01) + RaSpdEdt
+guicontrol,,RaSpdEdt,%fastforwardratio%
+iniwrite, "%fastforwardratio%",%curcfg%,OPTIONS,fastforward_ratio
+guicontrol,,RaSpdSld,0
+return
 
 GLPoP:
 gui, submit, nohide
@@ -9584,58 +9628,37 @@ gosub, RACHKOPTLINE
 IniWrite, "%videoFrameDelay%", %curcfg%,OPTIONS,video_frame_delay
 return
 
-GLDISP:
-gui, submit, nohide
-videoDriver= gl
-gosub, RACHKOPTLINE
-IniWrite, "%videoDriver%", %curcfg%,OPTIONS,video_driver
-return
-
-DX12DISP:
-gui, submit, nohide
-videoDriver= d3d12
-guicontrol,,RMENU,1
-gosub, RGUI
-gosub, RACHKOPTLINE
-IniWrite, "%videoDriver%", %curcfg%,OPTIONS,video_driver
-return
-
-DX11DISP:
-gui, submit, nohide
-videoDriver= d3d11
-guicontrol,,RMENU,1
-gosub, RGUI
-gosub, RACHKOPTLINE
-IniWrite, "%videoDriver%", %curcfg%,OPTIONS,video_driver
-return
-
-D3DDISP:
-gui, submit, nohide
-videoDriver= d3d9
-guicontrol,,RMENU,1
-gosub, RGUI
-gosub, RACHKOPTLINE
-IniWrite, "%videoDriver%", %curcfg%,OPTIONS,video_driver
-return
-
-SDLDISP:
-gui, submit, nohide
-videoDriver= sdl2
-gosub, RACHKOPTLINE
-IniWrite, "%videoDriver%", %curcfg%,OPTIONS,video_driver
-return
-
-GDIDISP:
-gui, submit, nohide
-videoDriver= gdi
-gosub, RACHKOPTLINE
-IniWrite, "%videoDriver%", %curcfg%,OPTIONS,video_driver
-return
-
-VLKDISP:
-gui, submit, nohide
-videoDriver= Vulkan
-guicontrol,,SLCT,1
+DISPLDRV:
+gui,submit,nohide
+guicontrolget,DISPLDRV,,DISPLDRV
+if (DISPLDRV = "openGL")
+	{
+		videoDriver= gl
+	}
+if (DISPLDRV = "DirectX 12")
+	{
+		videoDriver= d3d12
+	}
+if (DISPLDRV = "DirectX 11")
+	{
+		videoDriver= d3d11
+	}
+if (DISPLDRV = "Direct3D")
+	{
+		videoDriver= d3d9
+	}
+if (DISPLDRV = "SDL2")
+	{
+		videoDriver= sdl2
+	}
+if (DISPLDRV = "GDI")
+	{
+		videoDriver= gdi
+	}
+if (DISPLDRV = "Vulkan")
+	{
+		videoDriver= Vulkan
+	}
 gosub, RACHKOPTLINE
 IniWrite, "%videoDriver%", %curcfg%,OPTIONS,video_driver
 return
@@ -10915,27 +10938,25 @@ gosub, RACHKOPTLINE
 IniWrite, "%pauseNonactive%", %curcfg%,OPTIONS,pause_nonactive
 return
 
-RGUI:
-gui, submit, nohide
-menuDriver= rgui
-gosub, RACHKOPTLINE
-IniWrite, "%menuDriver%", %curcfg%,OPTIONS,menu_driver
-return
-XMB:
-gui, submit, nohide
-menuDriver= xmb
-gosub, RACHKOPTLINE
-IniWrite, "%menuDriver%", %curcfg%,OPTIONS,menu_driver
-return
-GLUI:
-gui, submit, nohide
-menuDriver= glui
-gosub, RACHKOPTLINE
-IniWrite, "%menuDriver%", %curcfg%,OPTIONS,menu_driver
-return
-OZONE:
-gui, submit, nohide
-menuDriver= ozone
+GUIDRV:
+gui,submit,nohide
+guicontrolget,GUIDRV,,GUIDRV
+if (GUIDRV = "rgui")
+	{
+		menuDriver= rgui
+	}
+if (GUIDRV = "xmb")
+	{
+		menuDriver= xmb
+	}
+if (GUIDRV = "ozone")
+	{
+		menuDriver= ozone
+	}
+if (GUIDRV = "glui")
+	{
+		menuDriver= glui
+	}
 gosub, RACHKOPTLINE
 IniWrite, "%menuDriver%", %curcfg%,OPTIONS,menu_driver
 return
@@ -12106,7 +12127,7 @@ Stringsplit,noselb,noBrws,|
 
 if (SALIST = "Emulators")
 	{
-		guicontrol,,INSTEMUDDL,|%semu%||%emuinstpop%
+		guicontrol,,INSTEMUDDL,|%semu%||
 		IniRead, ksvel,apps.ini,EMULATORS,%semu%
 		if (ksvel = "")
 			{
@@ -12842,7 +12863,19 @@ Loop, Parse,UrlIndex,`n`r
 		SB_SetText(" " selfnd " installed")
 		
 	}
-
+if (selfnd = "retroArch")
+	{
+		if (raexefile = "NOT-FOUND.exe")
+			{
+				iniwrite, "%emuxetmp3%",Settings.ini,GLOBAL,retroarch_executable
+				raexefile= %emuxetmp3%
+				iniwrite, "%xtractmu%",Settings.ini,GLOBAL,retroarch_location
+				raexeloc= %xtractmu%
+				gosub, GRAVER
+				Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
+				gosub, RAInit
+			}
+	}
 if (INSTLTYP = "Systems")
 	{
 		iniwrite, "%xtractmfp%",apps.ini,EMULATORS,%selfnd%	
@@ -14077,6 +14110,7 @@ if (EMUINSTLOCT= "")
 	{
 		return
 	}	
+EMUTRPDRP:	
 SplitPath,EMUINSTLOCT,emuxe,EINSTPTH,,emunm
 guicontrol,,EINSTLOC,%EMUINSTLOCT%
 
@@ -14114,6 +14148,7 @@ Loop, Parse, UAVAIL,|
 							}
 						runlist:= corelist . "|" . addemu
 						guicontrol,,EMPRDDL,|%addemu%
+						iniwrite, "%EMUINSTLOCT%",Assignments.ini,ASSIGNMENTS,%semu%
 					}
 			}
 		if (systatus = "Utilities")
@@ -14145,6 +14180,19 @@ Loop, Parse, UAVAIL,|
 				iniwrite, "%EMUINSTLOCT%",apps.ini,HTPC_FRONTENDS,%semu%
 			}
 	}
+if (UAVAIL = "retroArch")
+	{
+		if (raexefile = "NOT-FOUND.exe")
+			{
+				iniwrite, "%emuxe%",Settings.ini,GLOBAL,retroarch_executable
+				raexefile= %emuxe%
+				iniwrite, "%EINSTPTH%",Settings.ini,GLOBAL,retroarch_location
+				raexeloc= %EINSTPTH%
+				gosub, GRAVER
+				Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
+				gosub, RAInit
+			}
+	}	
 stringreplace,runlist,runlist,||,|,All	
 stringreplace,runlist,runlist,||,|,All
 stringleft,runltmp,runlist,1
@@ -14297,6 +14345,19 @@ iniwrite, "%EMPREW%",AppParams.ini,%selfnd%,EMPREW
 reasign .= semu . "|"
 guicontrol,,EMPRLST,|%EMPRLT%
 guicontrol,,SYSNICK,|%selfnd%||%preEmucfg%
+if (UAVAIL = "retroArch")
+	{
+		if (raexefile = "NOT-FOUND.exe")
+			{
+				iniwrite, "%EINSTFNM%",Settings.ini,GLOBAL,retroarch_executable
+				raexefile= %EINSTFNM%
+				iniwrite, "%EINSTDIR%",Settings.ini,GLOBAL,retroarch_location
+				raexeloc= %EINSTDIR%
+				gosub, GRAVER
+				Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
+				gosub, RAInit
+			}
+	}	
 return
 
 MRomDLoc:
@@ -14960,7 +15021,7 @@ if (sysni = 0)
 	guicontrol,,ARDCORE,0
 	gosub,DApp
 
-ifinstring,libMatSet,%ADDCORE%
+ifinstring,libMatSet,|%ADDCORE%
 	{		
 		guicontrol,enable,ARDCORE
 		guicontrol,enable,DAPP
@@ -15286,30 +15347,24 @@ Loop, Parse, semu,|
 						guicontrol,,JOYCORE,|Antimicro||Xpadder|%supgui%|%corelist%
 					}	
 			}
-			/*
-		ifnotinstring,ksiv,%sysni%|
-			{
-				sysninj.= ksiv
-				ksiv:= sysninj
-			}
-		*/		
-				EMPRLT:= sysni . "|"
-				Loop, parse, sysnitmp,|
-					{
-						if (A_LoopField = "")
-							{
-								continue
-							}
-						if A_LoopField is digit
-							{
-								continue
-							}
-						if (A_LoopField = srin)
-							{
-								continue
-							}
-						EMPRLT.= A_LoopField . "|"
-					}
+
+			EMPRLT:= sysni . "|"
+			Loop, parse, sysnitmp,|
+				{
+					if (A_LoopField = "")
+						{
+							continue
+						}
+					if A_LoopField is digit
+						{
+							continue
+						}
+					if (A_LoopField = srin)
+						{
+							continue
+						}
+					EMPRLT.= A_LoopField . "|"
+				}
 		iniwrite, "%aparg%",AppParams.ini,%sysni%,arguments
 		iniwrite, "%NOEXTN%",AppParams.ini,%sysni%,extension
 		iniwrite, "%EMUPGC%",AppParams.ini,%sysni%,per_game_configurations
@@ -15339,11 +15394,6 @@ if (SALIST = "Systems")
 			}
 	}
 gosub, ResetRunList
-
-guicontrol,,JCORE,|%runlist%
-guicontrol,,LCORE,|%runlist%
-guicontrol,,PLCORE,|%lastcore%||%runlist%
-guicontrol,,JOYCORE,|Antimicro||Xpadder|%supgui%|%corelist%
 stringright,ttr,sysni,1
 if (ttr = "|")
 	{
@@ -16005,6 +16055,10 @@ if (SALIST = "Systems")
 		aparg= %apparg%
 		IniWrite, "%appasi%",Assignments.ini,ASSIGNMENTS,%sysni%
 		IniRead,avr,Assignments.ini,OVERRIDES,%ADDCORE%
+		if avr is digit
+			{
+				avr= 
+			}
 		sysniad= %sysni%
 		ifnotinstring,A_LoopField,%sysni%
 			{
@@ -18248,67 +18302,6 @@ Loop,Parse,SysEmuSet,`n`r
 			}
 	}
 topcore:= prioco . recore . runlist
-/*
-if (prioco <> "")
-		{
-			splitpath,prioco,,,priocx
-			topcore:= prioco . "||" . recore . runlist
-			if (raexefile = "NOT-FOUND.exe")&&(priocx = "dll")
-				{
-					SB_SetText("RetroArch Not Found")
-					prioco= 
-					kva=
-					Loop, Parse, SysEmuSet,`n`r
-						{
-							if (A_LoopField = "")
-								{
-									continue
-								}
-							sysplit1=
-							sysplit2=
-							sysplit3=
-							sysplit4=
-							sysplit5=
-							sysplit6=
-							sysplit7=
-							sysplit8=
-							sysplit9=
-							StringSplit,sysplit,A_LoopField,|
-							if (ARCSYS = sysplit1)
-								{
-									kr= 
-									ink= 
-									kva=
-									Loop, %sysplit0%
-										{
-											kr= % sysplit%A_index%
-											ink= %sysplit2%
-											Loop, parse, emulist,|
-												{
-													kva= 
-													if (A_Loopfield = kr)
-														{
-															prioco= %kr%
-															topcore:= prioco . "||" . recore . runlist
-															kva= 1
-															break
-														}
-												}
-											if (kva <> "")
-												{
-													break
-												}
-										}	
-								}
-							if (kva <> "")
-								{
-									break
-								}
-							topcore:= recore . runlist
-						}
-				}
-		}
-*/
 INSCOR:
 guicontrol,,LCORE,|%topcore%
 guicontrol,,ARCCORES,|%topcore%
@@ -21881,6 +21874,7 @@ return
 ArcGet:
 HOSTING= 1
 
+;{;;;;;;;;;;;;;;;;;;;;;  Archive Launch Button ;;;;;;;;;;;;;;;;;;;;
 ArcLaunch:
 gui,submit,nohide
 guicontrolget,tmpcc,,LCORE
@@ -21896,13 +21890,6 @@ if (ARCSEL = 2)
 	}
 if (tmpsr <> "")
 	{
-		/*
-		if (multsrch = "")
-			{
-				tmpsr= 
-				goto, RomDownload
-			}
-		*/	
 		Loop, Parse, tmpsr,|
 			{
 				sysddlist= %mame_sys%
@@ -22512,6 +22499,7 @@ iniwrite, "%lastcore%",Settings.ini,GLOBAL,last_core
 iniwrite, "%romf%",Settings.ini,GLOBAL,last_rom
 return
 
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ChdXtr:
 if (JACKETMODE = 1)
 	{
@@ -22631,7 +22619,6 @@ Loop, Parse, lookf,`,
 			}
 	}	
 return	
-
 
 7zXtr:
 SB_SetText(" extracting 7zip ")
@@ -26782,6 +26769,9 @@ emutog= show
 gosub, RAGuiVisTog
 gosub, TOGSKELGUI
 gosub, TOGGLESEARCHBOX
+emutog= disable
+gosub, EmuGuiVisTog
+emutog= show
 if (uuniv = "X")
 	{
 		srchtog= hide
@@ -27380,11 +27370,16 @@ Loop, Parse, mednafenopts,`n`r
 	}
 SB_SetText("Mednafen options loaded")	
 gosub, MednafenCTRLS
+emutog= enable
+gosub, EmuGuiVisTog
 return
 
 ;{;;;;;;;;;;;;    RESET MEDNAFEN   ;;;;;;;;;;;;;;;;;;;;;
 mednafenBUTC:
 gui,submit,nohide
+emutog= disable
+gosub, EmuGuiVisTog
+
 MEDemuRAD11A= 0
 MEDemuRAD11B= 0
 MEDemuRAD8A= 0
@@ -27474,6 +27469,9 @@ guicontrol,,emuSLDC,0
 fileDelete,%MEDCFGLOC%
 gosub, MednafenInit
 gosub, MednafenRESETPOP
+emutog= enable
+gosub, EmuGuiVisTog
+
 return
 
 MednafenInit:
@@ -27766,13 +27764,13 @@ return
 
 mednafenEDTC:
 gui,submit,nohide
+gosub, numchkedc
 guicontrolget,emuEDTC,,emuEDTC
 gextn= vdiv
 if (emuRAD11A = 1)
 	{
 		gextn= hdiv
 	}	
-gosub, numchkedc
 emuSLDE:= emuEDTC * 10
 MEDemuv%gextn%= %emuEDTC%
 guicontrol,,emuSLDE,%emuSLDE%
@@ -27787,10 +27785,10 @@ Return
 
 mednafenEDTE:
 gui,submit,nohide
+gosub, numchkede
 guicontrolget,emuEDTE,,emuEDTE
 emuSLDC:= emuEDTE * 10
 guicontrol,,emuSLDC,%emuSLDC%
-gosub, numchkede
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader.goat.tp \E.*", "" RJMEDNM ".shader.goat.tp " emuEDTE "`n")
 gosub, RewMedn
 return
@@ -28366,12 +28364,19 @@ guicontrol,%raoptgl%,GDIDRV
 guicontrol,%raoptgl%,GLBLAUDIO
 guicontrol,%raoptgl%,GLSHDVAR
 guicontrol,%raoptgl%,GLSLCT
-guicontrol,%raoptgl%,GMENU
 guicontrol,%raoptgl%,GPUFRMTXT
 guicontrol,%raoptgl%,GPUSS
 guicontrol,%raoptgl%,GPUV
 guicontrol,%raoptgl%,GPUVREC
-guicontrol,%raoptgl%,GUIDRVGRP
+guicontrol,%raoptgl%,DISPLDRV
+guicontrol,%raoptgl%,RaSpdEdt
+guicontrol,%raoptgl%,RaSpdSld
+guicontrol,%raoptgl%,RASpdTxt
+guicontrol,%raoptgl%,DISPDRVTXT
+guicontrol,%raoptgl%,AUDDRVTXT
+guicontrol,%raoptgl%,GUIDRV
+guicontrol,%raoptgl%,AUDDRV
+guicontrol,%raoptgl%,GUIDRVTXT
 
 guicontrol,%raoptgl%,HSYNC
 guicontrol,%raoptgl%,INTG
@@ -28409,7 +28414,6 @@ guicontrol,%raoptgl%,REFUD
 guicontrol,%raoptgl%,REWEN
 guicontrol,%raoptgl%,REWGRAN
 guicontrol,%raoptgl%,REZV
-guicontrol,%raoptgl%,RMENU
 guicontrol,%raoptgl%,ROTATE
 guicontrol,%raoptgl%,SAVDIVTXT
 guicontrol,%raoptgl%,SAVEXIT
@@ -28448,19 +28452,14 @@ guicontrol,%raoptgl%,VIDSCL
 guicontrol,%raoptgl%,AVIDSYNC
 guicontrol,%raoptgl%,VIDSYNC
 guicontrol,%raoptgl%,VIDXTXT
-guicontrol,%raoptgl%,VLKDRV
 guicontrol,%raoptgl%,VPOSTXT
 guicontrol,%raoptgl%,VPOSXTXT
 guicontrol,%raoptgl%,VROTXT
 guicontrol,%raoptgl%,VidXLoc
 guicontrol,%raoptgl%,VidYLoc
-guicontrol,%raoptgl%,WASAPI
 guicontrol,%raoptgl%,RUN2ND
 guicontrol,%raoptgl%,RUNAHEAD
 guicontrol,%raoptgl%,RUNAFRMS
-guicontrol,%raoptgl%,XAUD
-guicontrol,%raoptgl%,XMENU
-guicontrol,%raoptgl%,ZMENU
 
 RDXgrid= %RegionX%
 RDYgrid= %RegionY%
@@ -54719,6 +54718,8 @@ rajoytog= Hide
 gosub, RAJOYTOG
 emjtog= show
 gosub, EMJTOG
+emjtog= disable
+gosub, EMJTOG
 medswaps= medswapB|medswapA|medswapX|medswapY|medswapStart|medswapSelect|medswapDown|medswapUp|medswapLeft|medswapRight|medswapL|medswapR|medswapL2|medswapR2|medswapR3|medswapL3|medswapLXMinus|medswapRXMinus|medswapRXPlus|medswapLXPlus|medswapLYPlus|medswapLYMinus|medswapRYPlus|medswapRYMinus|medswapHome|medSwapATXT|medSwapBTXT|medSwapCTXT|medSwapDTXT|medSwapETXT|medSwapFTXT|medSwapGTXT|medSwapHTXT|medSwapITXT|medSwapJTXT|medSwapLTXT|medSwapMTXT|medSwapCGRP|medSwapDGRP|medSwapEGRP
 guicontrol,show,INDWRN
 guicontrol,move,INDWRN,x262 y180 w200 h200
@@ -54892,6 +54893,8 @@ if (emjddlb = "n")
 	}
 gosub, MED%RJMEDNM%JOY
 SB_SetText(" Mednafen " RJMEDNM " joystick loading complete ")
+emjtog= enable
+gosub, EMJTOG
 return
 
 
@@ -60359,7 +60362,7 @@ FileAppend, AutoPopulate_Search = "1"`n, Settings.ini
 FileAppend, AutoLoad_PerGameSettings = "1"`n, Settings.ini
 FileAppend, Launcher_Priority = "1"`n, Settings.ini
 FileAppend, AutoPopulate_Search = "1"`n, Settings.ini
-FileAppend, "version" = "%VERSION%"`n, Settings.ini
+FileAppend, version = "%VERSION%"`n, Settings.ini
 
 filedelete, apps.ini
 FileAppend, [EMULATORS]`n, apps.ini
@@ -60410,6 +60413,7 @@ if (tmpcc <> LCORE)
 			{
 				ifinstring,tmpcc,_libretro.dll
 					{
+						gosub,LNCHCHK
 						return
 					}
 			}
@@ -61778,7 +61782,7 @@ ifmsgbox, no
 	}
 return
 DefLocs:
-Loop, %A_temp%,1
+Loop, %A_temp%\
 	{
 			lpful = %A_LoopFileLongPath%
 	}
@@ -62123,10 +62127,12 @@ if (libretroDirectory = "")
 filedelete, cores.ini
 CoreFiles=
 CORENUM:= 0
+corelist= 
 Loop, Files, %libretroDirectory%\*_libretro.dll
 	{
 		CORENUM+=1
 		CoreFiles = %CoreFiles%%A_LoopFileName%`n
+		corelist.= A_LoopFileName . "|"
 	}
 Loop, Parse, CoreFiles, `n
 	if (A_LoopField <> "")
@@ -62193,10 +62199,11 @@ if (runltmp = "|")
 	{
 		stringtrimleft,runlist,runlist,1
 	}
+guicontrol,,JCORE,|%runlist%
 guicontrol,,LCORE,|%runlist%
 guicontrol,,EMPRDDL,|Emulators|%addemu%
 guicontrol,,ARCCORES,|Select_a_Core||%runlist%
-guicontrol,,PLCORE,|%runlist%
+guicontrol,,PLCORE,|%lastcore%||%runlist%
 guicontrol,,ASCORE,|%corelist%
 guicontrol,,JOYCORE,|Antimicro||Xpadder|%supgui%|%corelist%
 return
@@ -62252,7 +62259,6 @@ stringreplace,hacksyst,hacksyst,#HACKS#,,All
 fileappend,%hacksyst%,hacksyst.ini
 fileappend,%syslist%,sys.ini
 fileappend,%msyslist%,msys.ini
-
 return
 
 resetCoreAssets:
@@ -62353,6 +62359,10 @@ gosub resetSL
 gosub resetSYS
 gosub resetCG
 gosub resetFILT
+guicontrol,,GLSHDVAR,|nul||%gl_list%
+guicontrol,,CGSHDVAR,|nul||%cg_list%
+guicontrol,,SLSHDVAR,|nul||%sl_list%
+guicontrol,,FLTFILE,|nul||%flt_list%
 return
 
 AsocInit:
@@ -64427,27 +64437,27 @@ gui, submit, nohide
 audioDriver= %inival2%
 if (inival2 = "dsound")
 	{
-		GuiControl,, DSND, 1
+		GuiControl,,AUDDRV,|dSound||xAudio|SDL2|WASAPI|openal
 		return
 	}
 if (inival2 = "xaudio")
 	{
-		GuiControl,, XAUD, 1
+		GuiControl,,AUDDRV,|xAudio||dSound|SDL2|WASAPI|openal
 		return
 	}
 if (inival2 = "sdl2")
 	{
-		GuiControl,, SDL2, 1
+		GuiControl,,AUDDRV,|SDL2||dSound|xAudio|WASAPI|openal
 		return
 	}
 if (inival2 = "wasapi")
 	{
-		GuiControl,, WASAPI, 1
+		GuiControl,,AUDDRV,|WASAPI||dSound|SDL2|xAudio|openal
 		return
 	}
 if (inival2 = "openal")
 	{
-		GuiControl,, OPENAL, 1
+		GuiControl,,AUDDRV,|openal||dSound|SDL2|WASAPI|xAudio
 		return
 	}
 return
@@ -64721,22 +64731,22 @@ gui, submit, nohide
 menuDriver= %inival2%
 if (inival2 = "xmb")
 	{
-		GuiControl,, XMENU, 1
+		GuiControl,,GUIDRV,|XMB||RGUI|OZONE|GLUI
 		return
 	}
 if (inival2 = "rgui")
 	{
-		GuiControl,, RMENU, 1
+		GuiControl,,GUIDRV,|RGUI||XMB|OZONE|GLUI
 		return
 	}
 if (inival2 = "ozone")
 	{
-		GuiControl,, ZMENU, 1
+		GuiControl,,GUIDRV,|OZONE||RGUI|XMB|GLUI
 		return
 	}
 if (inival2 = "glui")
 	{
-		GuiControl,, GMENU, 1
+		GuiControl,,GUIDRV,|GLUI||RGUI|OZONE|XMB
 		return
 	}
 return
@@ -65018,42 +65028,39 @@ videoDriver:
 videoDriver= %inival2%
 if (inival2 = "gl")
 	{
-		GuiControl,, OGLDRV, 1
+		GuiControl,,DISPLDRV,|openGL||SDL2|GDI|Direct3D|DirectX 11|DirectX 12|Vulkan
 		return
 	}
 else if (inival2 = "d3d9")
 	{
-		GuiControl,, D3DDRV, 1
+		GuiControl,,DISPLDRV,|Direct3D||SDL2|GDI|openGL|DirectX 11|DirectX 12|Vulkan
 		return
 	}
-
 else if (inival2 = "d3d11")
 	{
-		GuiControl,, D3D11, 1
+		GuiControl,,DISPLDRV,|DirectX 11||SDL2|GDI|Direct3D|openGL|DirectX 12|Vulkan
 		return
 	}
-
 else if (inival2 = "d3d12")
 	{
-		GuiControl,, D3D12, 1
+		GuiControl,,DISPLDRV,|DirectX 12||SDL2|GDI|Direct3D|DirectX 11|openGL|Vulkan
 		return
 	}
 else if (inival2 = "vulkan")
 	{
-		GuiControl,, VLKDRV, 1
+		GuiControl,,DISPLDRV,|Vulkan||SDL2|GDI|Direct3D|DirectX 11|DirectX 12|openGL
 		return
 	}
 if (inival2 = "sdl2")
 	{
-		GuiControl,, SDL2DRV, 1
+		GuiControl,,DISPLDRV,|SDL2||openGL|GDI|Direct3D|DirectX 11|DirectX 12|Vulkan
 		return
 	}
 	if (inival2 = "gdi")
 	{
-		GuiControl,, GDIDRV, 1
+		GuiControl,,DISPLDRV,|GDI||SDL2|openGL|Direct3D|DirectX 11|DirectX 12|Vulkan
 		return
 	}
-guicontrol,,OGLDRV,1	
 return
 videoForceAspect:
 FORCEAR= 1
@@ -66699,6 +66706,8 @@ coreUpdaterAutoExtractArchive= %inival2%
 return
 fastforwardRatio:
 fastforwardRatio= %inival2%
+guicontrol,,RaSpdEdt,%inival2%
+guicontrol,,RaSpdSld,%inival2%
 return
 filterbycurrentcore:
 filterbycurrentcore= %inival2%

@@ -50,6 +50,9 @@ mame_libretro.dll|Funtech - Super A'can
 mame_libretro.dll|IBM - PC Jr
 mame_libretro.dll|Interon - VC4000
 mame_libretro.dll|Cave Systems - Cave
+mame_libretro.dll|Capcom Play System - CPS
+mame_libretro.dll|Capcom Play System - CPS II
+mame_libretro.dll|Capcom Play System - CPS III
 mame_libretro.dll|MGT - Sam Coupe
 mame_libretro.dll|Magnavox - Odyssey 2
 mame_libretro.dll|Magnavox - Odyssey 3
@@ -306,7 +309,7 @@ mame_libretro.dll|ADC - Super Six
 mame_libretro.dll|Dick Smith Electronics - Super-80
 mame_libretro.dll|Bandai - Super Vision 8000
 mame_libretro.dll|Spectravision - SVI-318
-vemulator_libretro.dll|Sega - Visual Memory Unit
+mame_libretro.dll|Sega - Visual Memory Unit
 mame_libretro.dll|Tandy - 1000
 mame_libretro.dll|Tandy - 200 Option
 mame_libretro.dll|Tandy - 2000
@@ -322,7 +325,7 @@ mame_libretro.dll|Texas Instruments - Touch and Tell
 mame_libretro.dll|Thomson - TO7
 mame_libretro.dll|Thomson - TO7 - TO7-70
 mame_libretro.dll|Thomson - TO7 - TO7-70A
-theodore_libretro.dll|Thomson - TO8
+mame_libretro.dll|Thomson - TO8
 mame_libretro.dll|Tandy - TRS-80 Model II
 mame_libretro.dll|Tandy - TRS-80 Model 100 Option
 mame_libretro.dll|Tomy - Tutor - Pyuuta
@@ -353,6 +356,7 @@ mame_libretro.dll|Cambridge Computers - Z88
 mame_libretro.dll|Telcon - Zorba
 
 freeintv_libretro.dll|Mattel - Intellivision
+theodore_libretro.dll|Thomson - TO8
 easyrpg_libretro.dll|EasyRPG - EasyRPG
 mgba_libretro.dll|Nintendo - Game Boy Advance (E-Cards)
 mgba_libretro.dll|Nintendo - Game Boy Advance
@@ -365,9 +369,17 @@ parallel_n64_libretro.dll|Nintendo - Nintendo 64
 bluemsx_libretro.dll|Microsoft - MSX
 bluemsx_libretro.dll|Microsoft - MSX2
 bluemsx_libretro.dll|Microsoft - MSX TurboR
+fbalpha2012_libretro.dll|Capcom Play System - CPS
+fbalpha_libretro.dll|Capcom Play System - CPS
 fbalpha2012_cps1_libretro.dll|Capcom Play System - CPS
+fbalpha2012_libretro.dll|Capcom Play System - CPS II
 fbalpha2012_cps2_libretro.dll|Capcom Play System - CPS II
+fbalpha_libretro.dll|Capcom Play System - CPS II
+fbalpha_libretro.dll|Capcom Play System - CPS III
+fbalpha2012_libretro.dll|Capcom Play System - CPS III
 fbalpha2012_neogeo_libretro.dll|SNK - Neo Geo AES
+fbalpha2012_libretro.dll|SNK - Neo Geo AES
+fbalpha2012_libretro.dll|SNK - Neo Geo MVS
 fbalpha2012_neogeo_libretro.dll|SNK - Neo Geo MVS
 mame2016_libretro.dll|MAME - Arcade
 mame2016_libretro.dll|MAME - System
@@ -410,7 +422,6 @@ fbalpha_libretro.dll|SNK - Neo Geo MVS
 fbalpha_libretro.dll|SNK - Neo Geo AES
 fbalpha2012_libretro.dll|SNK - Neo Geo MVS
 fbalpha2012_libretro.dll|SNK - Neo Geo AES
-fbalpha2012_libretro.dll|Capcom Play System - CPS III
 fbalpha2012_neogeo_libretro.dll|SNK - Neo Geo MVS
 fbalpha2012_neogeo_libretro.dll|SNK - Neo Geo AES
 fbalpha_libretro.dll|SNK - Neo Geo MVS
@@ -451,6 +462,8 @@ nekop2_libretro.dll|NEC - PC98
 o2em_libretro.dll|Magnavox - Odyssey2
 picodrive_libretro.dll|Sega - 32X
 picodrive_libretro.dll|Sega - Game Gear
+gearsystem_libretro.dll|Sega - Game Gear
+gearsystem_libretro.dll|Sega - Master System - Mark III
 picodrive_libretro.dll|Sega - Master System - Mark III
 picodrive_libretro.dll|Sega - Mega Drive - Genesis
 picodrive_libretro.dll|Sega - Mega-CD - Sega CD
@@ -480,3 +493,4 @@ vice_xplus_libretro.dll|Commodore - Plus4
 vice_x64_libretro.dll|Commodore - VIC10
 vice_xvic_libretro.dll|Commodore - VIC-20
 yabause_libretro.dll|Sega - Saturn
+vemulator_libretro.dll|Sega - Visual Memory Unit

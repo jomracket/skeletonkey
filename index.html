@@ -30,7 +30,7 @@
 				<tbody>
 					<tr>
 						<td align="center" height="234" valign="bottom" width="38%">
-							<h1 class='elegantshadow'>˚     skeletonKeY    ˚כ</h1>
+							<h1 class='elegantshadow'><strong>«</strong> skeletonKeY <strong>»</strong></h1>
 							<a id="DOWNLOAD"></a>
 							<p>A unified interface for ROMs, emulators and frontends.</p>
 						</td>
@@ -86,12 +86,7 @@
 					<p><em>&quot;Give up&quot;
 				</em>
 				<blockquote>-Life-Coach </blockquote>
-		  <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
- <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
-
-<!-- end www.htmlcommentbox.com -->
-			</div>
-		</div>
+		 </div>
 			<strong>Released :</strong> <h66>[RDATE]</h66><br></p>
 
 	</div>
@@ -818,7 +813,8 @@
 					</div>
 				</div>
 			</div>
-			<h3>Emulators Presets</h3>Each supported system has one or more emulators preconfigured for them. The default emulator will automatically be assigned with compatible settings, however any program can be assigned to any system.<br>
+			<h3>Emulators Presets</h3>
+			<p>Each supported system has one or more emulators preconfigured for them. The default emulator will automatically be assigned with compatible settings, however any program can be assigned to any system.</p><br>
 			The Paradigm:<br>
 			Launchers are simply batch files that call the emulator against the ROM using the command-line interface using presets.<br>
 			A supported fronend will use RoM-Jacket's BatchScriptLauncher program to control the frontend and execute the launcher.
@@ -912,10 +908,12 @@
 				<div class="tab">
 					<input id="tab-utl" name="tabs" type="checkbox"> <label for="tab-utl">In Development }&gt;</label>
 					<div class="tab-content">
-						<h3>Copy Cfg</h3>Similar to the portable utility, this allows you to propagate settings from one file throughout an entire console's library.<br>
+						<h3>Copy Cfg</h3>
+						Similar to the portable utility, this allows you to propagate settings from one file throughout an entire console's library.<br>
 						If a launcher is selected (.bat) Skeletonkey can propagate the file throughout a console's library and update or replace all other launchers.<br>
 						Any file can be propagated (eg: an xpadder profile) and subdirectories are supported.
-						<h3>Cloud</h3>This menu allows you to backup your save files and save-states into a cloud. Google Drive, Microsoft OneDrive and Dropbox will be automatically detected.<br>
+						<h3>Cloud</h3>
+						This menu allows you to backup your save files and save-states into a cloud. Google Drive, Microsoft OneDrive and Dropbox will be automatically detected.<br>
 						This is ideal for users who want to share saves or play from multiple computers.
 					</div>
 				</div>
@@ -930,11 +928,12 @@
 	<div id="outer" align="left">
 		<div id="inner">
 			<p><strong>Question:</strong> I'm having trouble with a feature. Can you Help?</p>
-			<p><strong>Answer:</strong> Use the form at the <a href="#COMMENT">top of the page</a> or <a href="https://github.com/romjacket/skeletonKey/issues" target="_self">create an issue on github</a></p>
+			<p><strong>Answer:</strong> <a href="https://github.com/romjacket/skeletonKey/issues" target="_self"> Create an issue on Github.com</a> and I'll respond.</p>
 			<p><strong>Question:</strong> Does this work in linux?</p>
-			<p><strong>Answer:</strong> All functions expected to work seemed to fine in a WINEbox I tested this in, even netplay. I'm very interested in programmable bash-script launchers.</p>
+			<p><strong>Answer:</strong> Everything seemed to be fine in a WINEbox I tested this in, even netplay. I'm very interested in extending functionality through programmable
+			shell-script launchers, and at some point I may rebase/refactor to allow for unix-paths, but I have no intention of porting skeletonKey to other platforms.</p>
 			<p><strong>Question:</strong> I want to see a feature implemented or do something with skeletonKey it cannot currently do.</p>
-			<p><strong>Answer:</strong> <a href="https://www.paypal.me/romjacket">Donate</a></p>
+			<p><strong>Answer:</strong> <a href="https://www.paypal.me/romjacket">Donate</a> and I WILL feel compelled to realize your needs.</p>
 		</div>
 	</div><br>
 	<a id="RESOURCES"></a>
@@ -942,8 +941,14 @@
 		<div id="grad1" align="left">
 			<h2 align="center" class='button button4'>RESOURCES</h2>
 			<footer>
-				Pay attention to the status bar.
+				<h5><div align="center">Pay attention to the status bar.<br></div></h5>
 			</footer>
+			<div align="center">
+			<h3>This application is developed on computers intended to be a deterrent for public usage.
+			<br>
+			Each year this library recycles machines newer than these potatoes.<br>
+			FFS They have Windows XP stickers on them.</h3>
+			</div>
 		</div>
 	</div>
 	</div>
@@ -952,69 +957,45 @@
 
 
 <script>
-// load Youtube API code asynchronously
 var tag = document.createElement('script')
-
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0]
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
-
-var isiOS = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)/i) != null //boolean check for iOS devices
-
+var isiOS = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)/i) != null
 var youtubelightbox = document.getElementById('youtubelightbox')
-var player // variable to hold new YT.Player() instance
-
-// Hide lightbox when clicked on
+var player 
 youtubelightbox.addEventListener('click', function(){
 	this.style.display = 'none'
 	player.stopVideo()
 }, false)
-
-// Exclude youtube iframe from above action
 youtubelightbox.querySelector('.centeredchild').addEventListener('click', function(e){
 	e.stopPropagation()
 }, false)
-
-
-// define onYouTubeIframeAPIReady() function and initialize lightbox when API is ready
 function onYouTubeIframeAPIReady() {
 	createlightbox()
 }
-
-// Extracts the Youtube video ID from a well formed Youtube URL
 function getyoutubeid(link){
-	// Assumed Youtube URL formats
-	// https://www.youtube.com/watch?v=Pe0jFDPHkzo
-	// https://youtu.be/Pe0jFDPHkzo
-	// https://www.youtube.com/v/Pe0jFDPHkzo
-	// and more
-	
-	//See http://stackoverflow.com/a/6904504/4360074
 	var youtubeidreg = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i;
-	return youtubeidreg.exec(link)[1] // return Youtube video ID portion of link
+	return youtubeidreg.exec(link)[1] 
 }
-
-// Creates a new YT.Player() instance
 function createyoutubeplayer(videourl){
 	player = new YT.Player('playerdiv', {
 		videoId: videourl,
 		playerVars: {autoplay:1}
 	})
 }
-
-// Main Youtube lightbox function
 function createlightbox(){
 	var targetlinks = document.querySelectorAll('.lightbox')
 	for (var i=0; i<targetlinks.length; i++){
 		var link = targetlinks[i]
-		link._videoid = getyoutubeid(link) // store youtube video ID portion of link inside _videoid property
+		link._videoid = getyoutubeid(link) 
 		targetlinks[i].addEventListener('click', function(e){
 			youtubelightbox.style.display = 'block'
-			if (typeof player == 'undefined'){ // if video player hasn't been created yet
+			if (typeof player == 'undefined'){ 
 				createyoutubeplayer(this._videoid)
 			}
 			else{
-				if (isiOS){ // iOS devices can only use the "cue" related methods
+				if (isiOS){ 
 					player.cueVideoById(this._videoid)
 				}
 				else{
@@ -1025,18 +1006,11 @@ function createlightbox(){
 		}, false)
 	}
 }
-
 </script>
-
 <script>
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
 function ddFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(e) {
   if (!e.target.matches('.dropbtn')) {
     var myDropdown = document.getElementById("myDropdown");
       if (myDropdown.classList.contains('show')) {
@@ -1045,8 +1019,6 @@ window.onclick = function(e) {
   }
 }
 </script>
-
-
 <script>
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
@@ -1064,8 +1036,8 @@ function myFunction() {
     document.getElementsByClassName("topnav")[0].classList.toggle("responsive");
 }
 </script>
- <script type="text/javascript" id="hcb">
-  /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16862&num=10&ts=1531326156096");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ 
+<script type="text/javascript" id="hcb">
+if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16862&num=10&ts=1531326156096");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); 
   </script>
 <style>
 /* Parent element can be any width and height */
@@ -1173,6 +1145,11 @@ h4 {
 	font-family: "Muli";
 	font-weight: bold;
 	font-size: 15px;
+	font-size: 18px;
+}
+h5 {
+	font-color: #B3B3B3;
+	text-shadow: -1px 1px 1px white;
 }
 main {
 	margin-top: 55px;
@@ -1522,6 +1499,5 @@ ul.topnav li.icon {display: none;}
 .show {
 	display: block;
 }	
-</style>
-<link rel="stylesheet" type="text/css" href="http://www.htmlcom0mentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+</style>																													
 </html>
