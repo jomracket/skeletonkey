@@ -9650,10 +9650,12 @@ if (DISPLDRV = "Direct3D")
 if (DISPLDRV = "SDL2")
 	{
 		videoDriver= sdl2
+		guicontrol,,GUIDRV,RGUI||XMB|OZONE|GLUI
 	}
 if (DISPLDRV = "GDI")
 	{
 		videoDriver= gdi
+		guicontrol,,GUIDRV,RGUI||XMB|OZONE|GLUI
 	}
 if (DISPLDRV = "Vulkan")
 	{
@@ -21396,6 +21398,7 @@ romarray2=
 pop_list= 
 cmdfun= 
 recore= 
+norun= 
 symt1= 
 symt2= 
 topcore= 
@@ -52769,6 +52772,7 @@ return
 JoyCore:
 SK_MODE= 1
 JOYEMUCORE:
+rajoycore= 
 iremp= 1
 gui,submit,nohide
 guicontrol, show, JCFGADD
@@ -52784,26 +52788,35 @@ if (JOYCORE = "")
 	{
 		JOYCORE= %LCORE%
 	}
-
+	
 RetroArchGLOBALJOY:
-if (JOYCORE = ".dll")
+emujchk= 
+emujchk1= 
+emujchk2= 
+emujchk3= 
+StringSplit,emujchk,JOYCORE,.
+ifinstring,JOYCORE,_libretro.dll
 	{
-		/*
+		rajoycore= retroArch
+	}
+
+if (JOYCORE = "retroArch")
+	{
+		guicontrol,,RMPLOAD,0
+		guicontrol,,JOYCORE,|retroArch||Antimicro|Xpadder|%supgui%|%corelist%
 		return
-		*/
+	}
+if (rajoycore = "retroArch")
+	{
 		JOYCFGMODE= emulator
 		loadedjoy= retroarch
 		guicontrol, hide, JCFGADD
 		gosub, EmuJoy
 		emjtog= Hide
 		gosub, EMJTOG
+		goto, RAJOYCORE
 	}
 
-emujchk= 
-emujchk1= 
-emujchk2= 
-emujchk3= 
-StringSplit,emujchk,JOYCORE,.
 if (emujchk2 <> "dll")
 	{
 		if (emujchk1 = "")
@@ -52812,7 +52825,7 @@ if (emujchk2 <> "dll")
 			}
 		if (JOYCORE = "retroArch")
 			{
-				JOYCORE:= ".dll"
+				rajoycore:= "retroarch"
 				if (SK_MODE = "")
 					{
 						curcfg= rj\sysCfgs\%RJSYSDD%\retroarch.cfg
@@ -52850,8 +52863,9 @@ if (emujchk2 <> "dll")
 		guicontrol,enable,JOYCORE	
 		return
 	}
+
+RAJOYCORE:
 core_gui= 
-loadedjoy:= JOYCORE
 SB_SetText("RetroPad config is " JOYCORE " ")
 ccav= %JOYCORE%
 stringreplace, ccv, ccav,_libretro.dll,,All
@@ -52861,56 +52875,62 @@ coreconc3=
 coreconc4= 
 stringsplit, coreconc,ccv,_
 
-loadedjoy= 
 emjtog= Hide
 gosub, EMJTOG
 rajoytog= show
 gosub, RAJOYTOG
 guicontrol, hide, SaveJOY
 guicontrol, show, JCFGADD
+
 joyimg=key.png
 joycfg= %curcfg%
 guicontrol,move,JOYPIC,x335 y263 w117 h111
 guicontrol,,JOYPIC,%joyimg%
-SB_SetText("Joystick config is " joycfg " ")	
 guicontrol,enable,JOYCORE
 
 gosub, getCREN
+syslk= %corcfgnam%
+gosub, revCREN
+
+
+
 if (RMPLOAD = 1)
 	{
+		IfNotExist,%inputRemappingDirectory%\%corcfgnam%
+			{
+				FileCreateDir, %inputRemappingDirectory%\%corcfgnam%
+			}
 		corecfg= %ccv%.cfg
 		ifexist,%inputRemappingDirectory%\%corcfgnam%\%corcfgnam%.rmp
 			{
 				joycfg= %inputRemappingDirectory%\%corcfgnam%\%corcfgnam%.rmp
+				gosub, Joyvalz
+				rajoycore= 
 			}
+		joyimg=joyimg\joy.png
+		ifexist,joyimg\%ASPOP%.png
+			{
+				iremp= 
+				joyimg= joyimg\%ASPOP%.png
+			}
+		guicontrol,move,JOYPIC,x260 y253 w252 h126	
 	}
 
-syslk= %corcfgnam%
-gosub, revCREN
-
-IfNotExist,%inputRemappingDirectory%\%corcfgnam%
-	{
-		FileCreateDir, %inputRemappingDirectory%\%corcfgnam%
-	}
-ifexist, %joycfg%
-	{
-		gosub, Joyvalz
-	}
-joyimg=joyimg\joy.png
-ifexist,joyimg\%ASPOP%.png
-	{
-		iremp= 
-		joyimg= joyimg\%ASPOP%.png
-	}
-guicontrol,move,JOYPIC,x260 y253 w252 h126	
 guicontrol,,JOYPIC,%joyimg%
-SB_SetText("Joystick config is " joycfg " ")	
+SB_SetText("Joystick config is " joycfg " ")
+if (rajoycore = "retroarch")
+	{
+		JOYCORE= retroArch
+		rajoycore= 
+		goto, RetroArchGLOBALJOY
+	}
 if (JOYCFGMODE = "emulator")
 	{
 		SB_SetText("Emulator Joy-config is " joycfg " ")
 		emjtog= Hide
 		gosub, EMJTOG
 	}
+
 JOYCFGMODE= core
 gosub, PlayerType
 GuiControl,,JCFGEDT,|%inputRemappingDirectory%\%corcfgnam%\%corcfgnam%.rmp||%joycfg%|%curcfg%
@@ -62402,11 +62422,17 @@ if (videoShaderDir= "")
 filedelete, gl.ini
 glFiles =
 Loop, Files, %videoShaderDir%\shaders_glsl\*.glslp, R
-   glFiles = %glFiles%%A_LoopFileName%`n
+   {
+	   glFiles = %glFiles%%A_LoopFileName%`n
+   }
 Loop, Parse, glFiles, `n
-   FileAppend, %A_LoopField%`n, gl.ini
+   {
+	   FileAppend, %A_LoopField%`n, gl.ini
+   }
 Loop,Read,gl.ini
-	gl_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
+	{
+		gl_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
+	}
    return
 
 resetSL:
@@ -62414,11 +62440,17 @@ Menu,Tray,Tip, Generating Slang Shader cache
 filedelete, sl.ini
 slangFiles =
 Loop, Files, %videoShaderDir%\shaders_slang\*.slangp, R
-   slangFiles = %slangFiles%%A_LoopFileName%`n
+   {
+	   slangFiles = %slangFiles%%A_LoopFileName%`n
+   }
 Loop, Parse, slangFiles, `n
-   FileAppend, %A_LoopField%`n, sl.ini
+   {
+	   FileAppend, %A_LoopField%`n, sl.ini
+   }
 Loop,Read,sl.ini
-	sl_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
+	{
+		sl_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
+	}
 return
 
 resetCG:
@@ -62426,11 +62458,17 @@ Menu,Tray,Tip, Generating CG Shader cache
 filedelete, cg.ini
 cgFiles =
 Loop, Files, %videoShaderDir%\shaders_cg\*.cgp, R
-   cgFiles = %cgFiles%%A_LoopFileName%`n
+   {
+	   cgFiles = %cgFiles%%A_LoopFileName%`n
+   }
 Loop, Parse, cgFiles, `n
-   FileAppend, %A_LoopField%`n, cg.ini
+   {
+	   FileAppend, %A_LoopField%`n, cg.ini
+   }
 Loop,Read,cg.ini
-	cg_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
+	{
+		cg_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
+	}
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
