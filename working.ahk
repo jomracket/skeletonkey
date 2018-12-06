@@ -1485,6 +1485,9 @@ Menu, ScrapeMenu, Add
 Menu, RunWithDD, Add, Emulator Run-List >>, Emulator_Add
 Menu, RunWithDD, Add
 
+Menu, RunWithDD, Add, Download Assets >>, ARCGSNP
+Menu, RunWithDD, Add
+
 Menu, RunWithDD, Add, Add to Playlist +, Playlist_Add
 Menu, RunWithDD, Add
 
@@ -1564,18 +1567,15 @@ Menu,RUNMENU,Add,Open Folder..., SQOWTH
 
 Menu, PLEDTMENU, Add,Swap:=->, PLEDITCORE
 
-
-Menu, ARCART, Add, Download Assets , ARCGSNP
+Menu, ARCART, Add, Download Assets >>, ARCGSNP
+/*
 Menu, ARCART, Add
-
 Menu, ARCART, Add, Download BoxArt, ARCGBOX
 Menu, ARCART, Add
 Menu, ARCART, Add, Download Fan-Art, ARCGFAN
 Menu, ARCART, Add
-
 Menu, ARCART, Add, Download Logo, ARCGLOG
 Menu, ARCART, Add
-
 Menu, ARCART, Add, Download Video, ARCGVID
 Menu, ARCART, Add
 */
@@ -4692,6 +4692,10 @@ If A_GuiControlEvent RightClick
 
 	if A_GuiControl = SRCHROMLBX
 			{
+				guicontrolget,SRCHLOCDDL,,SRCHLOCDDL
+				guicontrolget,bltoh,,SRCHROMLBX
+				SYSLKUP= %SRCHLOCDDL%
+				FEDDLA= %SRCHLOCDDL%
 				if (SelectedRow <> 0)
 					{
 						Menu, RunWithDD, Show, %A_GuiX% %A_GuiY%
@@ -4837,11 +4841,29 @@ If A_GuiControlEvent RightClick
 		}
 	if A_GuiControl = ARCPOP	
 		{
+			guicontrolget,ARCSYS,,ARCSYS
+			guicontrolget,bltoh,,ARCPOP
+			SYSLKUP= %ARCSYS%
+			FEDDLA= %ARCSYS%
 			Menu, ARCART, show, %a_guix% %a_guiy%
 			return	
 		}
 	if A_GuiControl = SRCHRSLT
 		{
+			guicontrolget,SRCHDDL,,SRCHDDL
+			if (SRCHDDL = "All")
+				{
+					return
+				}
+			SYSLKUP= %SRCGDDL%
+			FEDDLA= %SRCGDDL%
+			guicontrolget,bltox,,SRCHRSLT
+			bltoh=
+			Loop, Parse,bltox,|
+				{
+					stringsplit,ari,A_LoopField,=
+					bltoh.= ari2 . "|"
+				}			
 			Menu, ARCART, show, %a_guix% %a_guiy%
 			return
 		}
@@ -6266,12 +6288,33 @@ guicontrol,disable,EAVAIL
 guicontrol,disable,UAVAIL
 guicontrol,disable,AVAIL
 iniread,pcsx2_verx,Apps.ini,EMULATORS,PCSX2
-splitpath,pcsx2_verx,,pcsx2_path
+if ((pcsx2_verx <> "ERROR")&&(pcsx2_verx <> ""))
+	{
+		splitpath,pcsx2_verx,,pcsx2_path
+		filecreateDir,%demul_path%\bios
+	}
+	
 iniread,mame_verx,Apps.ini,EMULATORS,MAME
-splitpath,mame_verx,,mame_path
-iniread,demul_file,apps.ini,EMULATORS,retroarch
+if ((mame_verx <> "ERROR")&&(mame_verx <> ""))
+	{
+		splitpath,mame_verx,,mame_path
+		filecreateDir,%mame_path%\roms
+	}
+	
+iniread,retroarch_file,apps.ini,EMULATORS,retroarch
+if ((retroarch_file <> "ERROR")&&(retroarch_file <> ""))
+	{
+		splitpath,retroarch_file,,retroarch_path
+		filecreateDir,%retroarch_path%\system
+	}
+	
 iniread,demul_file,apps.ini,EMULATORS,Demul
-splitpath,demul_file,,demul_path
+if ((demul_file <> "ERROR")&&(demul_file <> ""))
+	{
+		splitpath,demul_file,,demul_path
+		filecreateDir,%demul_path%\roms
+	}
+	
 Loop, Read, AutoBios.set
 	{
 		if (A_LoopReadLine = "")
@@ -6282,6 +6325,15 @@ Loop, Read, AutoBios.set
 		splitpath,aiv1,biosname
 		save= %cacheloc%\bios\%biosname%
 		biosout= %cacheloc%\bios
+		if (aiv2 = "PS2")
+			{
+				if (pcsx2_verx = "ERROR")
+					{
+						continue
+					}
+				biosout= %pcsx2_path%\bios
+				save= %cacheloc%\bios\%biosname%
+			}
 		if (aiv2 = "DEMUL")
 			{
 				if (demul_file = "ERROR")
@@ -7642,7 +7694,7 @@ if (sysdir = "")
 	{
 		sysdir= %raexeloc%\system
 	}
-ifnotexist, %sysdir%
+ifnotexist, %sysdir%\
 	{
 		filecreatedir,%sysdir%
 	}
@@ -12794,8 +12846,16 @@ Loop, Parse,UrlIndex,`n`r
 						guicontrol,,EMPRDDL,|%addemu%
 						if (selfnd = "MAME")
 							{
-								addemu.= "|" . "mame_system"
-								addemu.= "|" . "mame_arcade"
+								ifnotinstring,addemu,mame_system
+									{
+										addemu.= "|" . "mame_arcade"
+										iniwrite,"%mametmp%",Assignments.ini,ASSIGNMENTS,mame_arcade
+									}
+								ifnotinstring,addemu,mame_system
+									{
+										addemu.= "|" . "mame_system"
+										iniwrite,"%mametmp%",Assignments.ini,ASSIGNMENTS,mame_system
+									}
 								splitpath,xtractmfp,,mamevpth
 								filecreateDir,%mamevpth%\roms
 								ifnotexist,lm.ini
@@ -12852,6 +12912,16 @@ Loop, Parse,UrlIndex,`n`r
 							guicontrol,,EMPRLST,|%EMPRLT%
 							if (selfnd = "MAME")
 								{
+									ifnotinstring,addemu,mame_system
+										{
+											addemu.= "|" . "mame_arcade"
+											iniwrite,"%mametmp%",Assignments.ini,ASSIGNMENTS,mame_arcade
+										}
+									ifnotinstring,addemu,mame_system
+										{
+											addemu.= "|" . "mame_system"
+											iniwrite,"%mametmp%",Assignments.ini,ASSIGNMENTS,mame_system
+										}
 									splitpath,xtractmfp,,mamevpth
 									filecreateDir,%mamevpth%\roms
 									ifnotexist,lm.ini
@@ -12880,7 +12950,28 @@ if (selfnd = "retroArch")
 	}
 if (INSTLTYP = "Systems")
 	{
-		iniwrite, "%xtractmfp%",apps.ini,EMULATORS,%selfnd%	
+		iniwrite, "%xtractmfp%",apps.ini,EMULATORS,%selfnd%
+		iniwrite, "%xtractmfp%",Assignments.ini,ASSIGNMENTS,%selfnd%
+		if (selfnd = "MAME")
+			{
+				ifnotinstring,addemu,mame_system
+					{
+						addemu.= "|" . "mame_arcade"
+						iniwrite,"%mametmp%",Assignments.ini,ASSIGNMENTS,mame_arcade
+					}
+				ifnotinstring,addemu,mame_system
+					{
+						addemu.= "|" . "mame_system"
+						iniwrite,"%mametmp%",Assignments.ini,ASSIGNMENTS,mame_system
+					}
+				splitpath,xtractmfp,,mamevpth
+				filecreateDir,%mamevpth%\roms
+				ifnotexist,lm.ini
+					{
+						gosub, MAMETOG
+					}
+			}
+		gosub, RBLDRUNLST	
 	}
 gosub, ResetEmuList
 reasign .= semu . "|"
@@ -22972,8 +23063,6 @@ return
 
 ARCGBOX:
 gui,submit,nohide
-guicontrolget,SYSLKUP,,ARCSYS
-guicontrolget, bltoh,,ARCPOP
 guicontrol,,feDDLJ,|Media||XMB|Mirrored_Links|EmulationStation
 gosub, feDDLJ
 guicontrol,,FERAD2B,1
@@ -22995,7 +23084,6 @@ if (ROMTRUN = "")
 		SB_SetText("You must select a ROM to download assets")
 		return
 	}
-guicontrolget,FEDDLA,,ARCSYS
 if (ARCRCLK = "")
 	{
 		stringsplit,romsplit,ROMTRUN,=
@@ -23110,8 +23198,44 @@ return
 
 ARCGSNP:
 gui,submit,nohide
-guicontrolget,SYSLKUP,,ARCSYS
-guicontrolget, bltoh,,ARCPOP
+ifinstring,SYSLKUP,:=:
+	{
+		return
+	}
+ifinstring,SYSLKUP,.lpl
+	{
+		splitpath,SYSLKUP,,,,SYSLKUPN
+		Loop,Parse,allsupsys,|
+			{
+				if (A_LoopField = SYSLKUPN)
+					{
+						SYSLKUP= %A_LoopField%
+						goto, ContAddAssets
+					}
+			}
+		return	
+	}
+	
+ContAddAssets:	
+gosub, AddAssetType
+mousegetpos,Ngx,Ngy
+Menu,ARCGSNP, Show, %Ngx% %Ngy%
+Menu,ARCGSNP,DeleteAll
+return
+
+AddAssetType:
+Menu, ARCGSNP, Add, Download All, ARCGALL
+Menu, ARCGSNP, Add
+Menu, ARCGSNP, Add, Download BoxArt, ARCGBOX
+Menu, ARCGSNP, Add
+Menu, ARCGSNP, Add, Download Fan-Art, ARCGFAN
+Menu, ARCGSNP, Add
+Menu, ARCGSNP, Add, Download Logo, ARCGLOG
+Menu, ARCGSNP, Add
+Menu, ARCGSNP, Add, Download Video, ARCGVID
+return
+
+ARCGALL:
 guicontrol,,feDDLJ,|Media||XMB|Mirrored_Links|EmulationStation
 gosub, feDDLJ
 guicontrol,,FERAD2B,1
@@ -23155,8 +23279,6 @@ return
 
 ARCGFAN:
 gui,submit,nohide
-guicontrolget,SYSLKUP,,ARCSYS
-guicontrolget, bltoh,,ARCPOP
 guicontrol,,feDDLJ,|Media||XMB|Mirrored_Links|EmulationStation
 gosub, feDDLJ
 guicontrol,,FERAD2B,1
@@ -23176,8 +23298,6 @@ return
 
 ARCGLOG:
 gui,submit,nohide
-guicontrolget,SYSLKUP,,ARCSYS
-guicontrolget, bltoh,,ARCPOP
 guicontrol,,feDDLJ,|Media||XMB|Mirrored_Links|EmulationStation
 gosub, feDDLJ
 guicontrol,,FERAD2B,1
@@ -23197,8 +23317,6 @@ return
 
 ARCGVID:
 gui,submit,nohide
-guicontrolget,SYSLKUP,,ARCSYS
-guicontrolget, bltoh,,ARCPOP
 guicontrol,,feDDLJ,|Media||XMB|Mirrored_Links|EmulationStation
 gosub, feDDLJ
 guicontrol,,FERAD2C,1
@@ -36964,12 +37082,16 @@ guicontrolget,SaList,,SaList
 SB_SetText("Deleteing Emulator")
 Guicontrolget,emutd,,EINSTLOC
 splitpath,emutd,emuxtd,emuptd
-FileRemoveDir,%emuptd%,1
-inidelete,Apps.ini,%SaList%,%selfnd%
-iniwrite,"",Assignments.ini,ASSIGNMENTS,%selfnd%
-gosub, RBLDRUNLST
-gosub, SALIST
-SB_SetText("Emulator Deleted")
+MsgBox,8707,Confirm Delete,Are you sure you want to delete %selfnd%?
+ifMsgBox,Yes
+	{
+		FileRemoveDir,%emuptd%,1
+		inidelete,Apps.ini,%SaList%,%selfnd%
+		iniwrite,"",Assignments.ini,ASSIGNMENTS,%selfnd%
+		gosub, RBLDRUNLST
+		gosub, SALIST
+		SB_SetText("Emulator Deleted")
+	}
 return
 
 EMUREMFESEL:
@@ -52779,6 +52901,7 @@ guicontrol, show, JCFGADD
 guicontrol, hide, SaveJOY
 guicontrol, hide, JCFGEDT
 guicontrol,disable,JOYCORE
+guicontrol,show,RMPLOAD
 guicontrolget,JOYCORE,,JOYCORE
 
 EMUFN= %JOYCORE%
@@ -52803,6 +52926,7 @@ ifinstring,JOYCORE,_libretro.dll
 if (JOYCORE = "retroArch")
 	{
 		guicontrol,,RMPLOAD,0
+		guicontrol,hide,RMPLOAD
 		guicontrol,,JOYCORE,|retroArch||Antimicro|Xpadder|%supgui%|%corelist%
 		return
 	}
