@@ -21238,16 +21238,16 @@ Loop, %SRCHMET%\%SRCHGAM%.gam
 	{
 		Loop, Read, %A_LoopFileFullPath%
 			{
+				if (A_LoopReadLine = "")
+					{
+						continue
+					}
 				getpth1=
 				getpth2=
 				getpth3=
 				stringsplit,getpth,A_LoopReadLine,|
 				if (getpth2 = romfp)
 					{
-						if (A_LoopReadLine = "")
-							{
-								continue
-							}
 						EXTRAR= 
 						EXTCHD= 
 						EXT7Z= 
@@ -22101,7 +22101,7 @@ if (tmpsr <> "")
 				IfNotExist,%ACSVDEST%\%rjinsfldr%
 					{
 						updtguirst= 	
-						ifnotexist,%OVDCHK%
+						ifnotexist,%ACSVDEST%
 							{
 								updtguirst= 1
 							}
@@ -22272,7 +22272,7 @@ Loop, parse, romdwnlst,|
 		IfNotExist,%ACSVDEST%\%rjinsfldr%
 				{
 					updtguirst= 	
-					ifnotexist,%OVDCHK%
+					ifnotexist,%ACSVDEST%
 						{
 							updtguirst= 1
 						}
@@ -45824,7 +45824,6 @@ return
 
 ;};;;;;;;;;;;
 ;{;;;;; dosbox CORE  ;;;;;
-dosboxDDLA:
 dosbox_svnDDLA:
 dosbox_svn_glideDDLA:
 dosboxDDLA:
