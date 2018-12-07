@@ -1568,17 +1568,6 @@ Menu,RUNMENU,Add,Open Folder..., SQOWTH
 Menu, PLEDTMENU, Add,Swap:=->, PLEDITCORE
 
 Menu, ARCART, Add, Download Assets >>, ARCGSNP
-/*
-Menu, ARCART, Add
-Menu, ARCART, Add, Download BoxArt, ARCGBOX
-Menu, ARCART, Add
-Menu, ARCART, Add, Download Fan-Art, ARCGFAN
-Menu, ARCART, Add
-Menu, ARCART, Add, Download Logo, ARCGLOG
-Menu, ARCART, Add
-Menu, ARCART, Add, Download Video, ARCGVID
-Menu, ARCART, Add
-*/
 	
 Gui, Add, StatusBar, vSTATUS, Helpy Helperton
 Gui,Font,Bold
@@ -2990,7 +2979,7 @@ Gui, Add, Edit, x25 y286 w310 h21 vSRCHEDT gSearchInp,
 Gui,Font,%fontXmed% Bold
 Gui, Add, Button, x32 y312 w75 h23 vSearchArc gSearchArc , SEARCH
 gui,Font,%fontXsm% Normal
-Gui, Add, DropDownList, x125 y314 w199 vSRCHDDL, All||%syslist%
+Gui, Add, DropDownList, x125 y314 w199 vSRCHDDL gSRCHDDL, All||%syslist%
 Gui, Add, Button, x326 y316 w18 h18 vExpndASrch gExpndASrch hidden,+
 Gui, Add, ListBox, x24 y344 w320 h158 +Multi +HScroll HWNDsrchpopu vSRCHRSLT gArcSrchRes hidden,
 Gui, Add, Progress, x742 y20 w10 h459 Vertical -Smooth vARCDPRGRS, 0
@@ -3001,6 +2990,8 @@ Gui, Add, CheckBox, x26 y100 h15 vEXTRURL gExtractURL,Extract ROM
 Gui Add, CheckBox, x110 y100 h15 vEXTEXPLD gEXTEXPLD hidden, explode
 Gui, Add, CheckBox, x170 y100 h15 vRUNXTRACT gRunXtract Checked Hidden, Run ROM
 Gui, Add, Checkbox, x262 y100 h15 vArcMove gArcMove hidden,cleanup
+Gui, Add, Checkbox, cred x242 y138 h15 vSortOverride gSortOverride +0x200 hidden, Global Override
+
 
 
 Gui, Add, Button, x25 y157 w59 h17 vSETOVD gSetOvd disabled, BROWSE
@@ -3880,6 +3871,7 @@ REZV_TT :="Video resolution"
 RIBN_TT :="Background ribbon display"
 RETALFE_TT :="Launches Retroarch using current settings."
 
+SortOverride_TT :="Overrides each system's settings for download location/extraction"
 RJSYSDD_TT :="System to Process"
 RJButA_TT :="Create or copy  a system."
 RJINCEXCL_TT :="ROM-List to display"
@@ -11130,7 +11122,7 @@ EXELIST= 1
 gosub, STABLE
 EXELIST= 0
 RALIST= 1
-SLCTCORES= 4do_libretro.dll.zip|bluemsx_libretro.dll.zip|desmume_libretro.dll.zip|doxbox_libretro.dll.zip|fbalpha2012_libretro.dll.zip|freeintv_libretro.dll.zip|gambatte_libretro.dll.zip|genesis_plus_gx_libretro.dll.zip|pcsx_rearmed_libretro.dll.zip|handy_libretro.dll.zip|mame_libretro.dll.zip|mednafen_ngp_libretro.dll.zip|mednafen_pce_fast_libretro.dll.zip|mdednafen_pcfx_libretro.dll.zip|mednafen_psx_libretro.dll.zip|mednafen_supergrafx_libretro.dll.zip|mednafen_vb_libretro.dll.zip|mednafen_wswawn_libretro.dll.zip|mgba_libretro.dll.zip|nestopia_libretro.dll.zip|parallel_n64_libretro.dll.zip|picodrive_libretro.dll.zip|prosystem_libretro.dll.zip|snes9x_libretro.dll.zip|stella_libretro.dll.zip|virtualjaguar_libretro.dll.zip|crocods_libretro.dll.zip|px68k_libretro.dll.zip|openlara_libretro.dll.zip|atari800_libretro.dll.zip|np2kai_libretro.dll.zip|vice_x64_libretro.dll.zip|vice_xplus4_libretro.dll.zip|vice_xvic_libretro.dll.zip|pokemini_libretro.dll.zip|reicast_libretro.dll.zip|mednafen_saturn_libretro.dll.zip|mu_libretro.dll.zip|theodore_libretro.dll.zip
+SLCTCORES= 4do_libretro.dll.zip|bluemsx_libretro.dll.zip|desmume_libretro.dll.zip|dosbox_libretro.dll.zip|fbalpha2012_libretro.dll.zip|freeintv_libretro.dll.zip|gambatte_libretro.dll.zip|genesis_plus_gx_libretro.dll.zip|pcsx_rearmed_libretro.dll.zip|handy_libretro.dll.zip|mame_libretro.dll.zip|mednafen_ngp_libretro.dll.zip|mednafen_pce_fast_libretro.dll.zip|mdednafen_pcfx_libretro.dll.zip|mednafen_psx_libretro.dll.zip|mednafen_supergrafx_libretro.dll.zip|mednafen_vb_libretro.dll.zip|mednafen_wswan_libretro.dll.zip|mgba_libretro.dll.zip|nestopia_libretro.dll.zip|parallel_n64_libretro.dll.zip|picodrive_libretro.dll.zip|prosystem_libretro.dll.zip|snes9x_libretro.dll.zip|stella_libretro.dll.zip|virtualjaguar_libretro.dll.zip|crocods_libretro.dll.zip|px68k_libretro.dll.zip|openlara_libretro.dll.zip|atari800_libretro.dll.zip|np2kai_libretro.dll.zip|vice_x64_libretro.dll.zip|vice_xplus4_libretro.dll.zip|vice_xvic_libretro.dll.zip|pokemini_libretro.dll.zip|reicast_libretro.dll.zip|mednafen_saturn_libretro.dll.zip|mu_libretro.dll.zip|theodore_libretro.dll.zip
 if (ARCH = "64")
 	{
 		SLCTCORES .= "|" . "dolphin_libretro.dll.zip" . "|" . "citra_canary_libretro.dll.zip" . "|" . "kronos_libretro.dll.zip"
@@ -14206,7 +14198,6 @@ if (EMUINSTLOCT= "")
 EMUTRPDRP:	
 SplitPath,EMUINSTLOCT,emuxe,EINSTPTH,,emunm
 guicontrol,,EINSTLOC,%EMUINSTLOCT%
-
 splitpath,EINSTPTH,EINSTFNM,EINSTDIR,EINSTX,EINSTNAM
 if (EINSTX = "exe")
 	{
@@ -14293,6 +14284,27 @@ if (runltmp = "|")
 	{
 		stringtrimleft,runlist,runlist,1
 	}
+
+if (selfnd = "MAME")
+	{
+		ifnotinstring,addemu,mame_system
+			{
+				addemu.= "|" . "mame_arcade"
+				iniwrite,"%EMUINSTLOCT%",Assignments.ini,ASSIGNMENTS,mame_arcade
+			}
+		ifnotinstring,addemu,mame_system
+			{
+				addemu.= "|" . "mame_system"
+				iniwrite,"%EMUINSTLOCT%",Assignments.ini,ASSIGNMENTS,mame_system
+			}
+		splitpath,xtractmfp,,mamevpth
+		filecreateDir,%mamevpth%\roms
+		ifnotexist,lm.ini
+			{
+				gosub, MAMETOG
+			}
+	}
+gosub, RBLDRUNLST	
 return
 
 SYSTRPV:	
@@ -18306,7 +18318,7 @@ if (LNCHPT = 0)
 		goto, MatchSyst
 	}
 oil= 
-iniread,oil,Assignments.ini,OVERRIDES,%ARCSYS%
+iniread,oil,Assignments.ini,OVERRIDES,%EXTRSYS%
 if (oil = "ERROR")
 	{
 		topcore= ||%runlist%
@@ -18316,7 +18328,7 @@ stringsplit,aix,oil,|
 oil= %aix1%
 if (oil = 1)
 	{
-		iniread,coreselv,Assignments.ini,ASSIGNMENTS,%ARCSYS%
+		iniread,coreselv,Assignments.ini,ASSIGNMENTS,%EXTRSYS%
 		topcore:= coreselv . "||" runlist
 		goto,INSCOR
 	}
@@ -18348,7 +18360,7 @@ Loop,Parse,SysEmuSet,`n`r
 		sdspl2= 
 		stringsplit,sdspl,A_LoopField,:
 		stringsplit,symt,sdspl1,|
-		if (symt1 = ARCSYS)
+		if (symt1 = EXTRSYS)
 			{				
 				if (raexefile <> "NOT-FOUND.exe")
 					{
@@ -18408,7 +18420,7 @@ MatchSyst:
 Loop, Parse, libMatSet,`n`r
 	{
 		stringsplit,symt,A_LoopField,|
-		if (symt2 = ARCSYS)
+		if (symt2 = EXTRSYS)
 			{
 				ifexist, %libretroDirectory%\%symt1%
 					{
@@ -20885,6 +20897,7 @@ SearchArc:
 srchpop= 
 fndgam1= 
 fndgam2= 
+guicontrol,,sortoverride,0
 guicontrolget,SRCHSYS,,SRCHDDL
 sanm:= SRCHEDT
 gosub, SanitizeN
@@ -20931,16 +20944,37 @@ guicontrol,,SRCHRSLT, |%srchpop%
 guicontrol,show,ExpndASrch
 return
 
+
+SortOverride:
+gui,submit,nohide
+guicontrolget,OVDCHK,,OVDCHK
+if (OVDCHK = 1)
+	{
+		guicontrolget,OVDFLDR,,OVDTXT
+	}
+guicontrolget,JACKETMODE,,JACKETMODE
+guicontrolget,EXTRURL,,EXTRURL
+guicontrolget,EXTEXPLD,,EXTEXPLD
+guicontrolget,RUNXTRACT,,RUNXTRACT
+guicontrolget,ARCMOVE,,ARCMOVE
+guicontrol,enable,RNMJACK
+return
+
 ArcPopulateList:
+;{;;;;;;;;;;;;;;;;;;;   MAIN ARCHIVE LIST   ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 tmprm= 
 tmpsr= 
+srchpopcul= 
 gui,submit,nohide
 guicontrol,enable,RNMJACK
 guicontrolget,tmprm,,ARCPOP
+guicontrol,hide,sortoverride
+guicontrol,,sortoverride,0
 PostMessage, 0x186, -1, 0,,ahk_id %srchpopu%
 PostMessage, 0x185, 0, -1, SRCHRSLT  ; Select all items. 0x185 is LB_SETSEL.
 GuiControl, Choose, SRCHRSLT, 0 
 arcpnum=
+norun= 
 Loop, parse, tmprm,|
 	{
 		arcpnum+=1
@@ -20948,6 +20982,7 @@ Loop, parse, tmprm,|
 		aftpth2= %arcpopcul%
 		if (arcpnum > 1)
 			{
+				norun= 1
 				break
 			}
 	}
@@ -20983,28 +21018,33 @@ if (DownOnly = 0)
 						if (aftpth2 = arcpopcul)
 							{
 								aftpth= %aftpth1%
-								stringreplace,aftmp,aftpth,/,\,All
-								splitpath,aftmp,afnchk
 								StringCaseSense, On
-								stringreplace,afnchk,afnchk,`%25,`%,All
-								stringreplace,afnchk,afnchk,`%26,&,All
-								stringreplace,afnchk,afnchk,`%2B,+,All
-								stringreplace,afnchk,afnchk,`%20,%A_Space%,All
-								stringreplace,afnchk,afnchk,`%23,#,All
-								stringreplace,afnchk,afnchk,`%24,$,All
-								stringreplace,afnchk,afnchk,`%21,!,All
-								stringreplace,afnchk,afnchk,`%28,(,All
-								stringreplace,afnchk,afnchk,`%29,),All
-								stringreplace,afnchk,afnchk,`%5B,[,All
-								stringreplace,afnchk,afnchk,`%5D,],All
-								stringreplace,afnchk,afnchk,`%3D,=,All
-								stringreplace,afnchk,afnchk,`%2C,`,,All
-								stringreplace,afnchk,afnchk,`%40,@,All
-								stringreplace,afnchk,afnchk,`%3B,`;,All
-								stringreplace,afnchk,afnchk,`%27,',All
-								stringreplace,afnchk,afnchk,`%7E,~,All
+								stringreplace,aftpth,aftpth,`%2F,/,All
+								stringreplace,aftmp,aftpth,/,\,All
+								stringreplace,aftmp,aftmp,`%25,`%,All
+								stringreplace,aftmp,aftmp,`%26,&,All
+								stringreplace,aftmp,aftmp,`%2B,+,All
+								stringreplace,aftmp,aftmp,`%20,%A_Space%,All
+								stringreplace,aftmp,aftmp,`%23,#,All
+								stringreplace,aftmp,aftmp,`%24,$,All
+								stringreplace,aftmp,aftmp,`%21,!,All
+								stringreplace,aftmp,aftmp,`%28,(,All
+								stringreplace,aftmp,aftmp,`%29,),All
+								stringreplace,aftmp,aftmp,`%5B,[,All
+								stringreplace,aftmp,aftmp,`%5D,],All
+								stringreplace,aftmp,aftmp,`%3D,=,All
+								stringreplace,aftmp,aftmp,`%2C,`,,All
+								stringreplace,aftmp,aftmp,`%40,@,All
+								stringreplace,aftmp,aftmp,`%3B,`;,All
+								stringreplace,aftmp,aftmp,`%27,',All
+								stringreplace,aftmp,aftmp,`%7E,~,All
 								StringCaseSense, Off
-								splitpath,afnchk,,,,romfname
+								Loop, Parse, aftmp,\
+									{
+										savefile= %A_LoopField%
+									}
+								afnchk= %savefile%	
+								splitpath,savefile,,,,romfname
 								krbrk= 
 								break
 							}
@@ -21015,6 +21055,7 @@ if (DownOnly = 0)
 					}
 			}
 	}	
+
 guicontrol,,RNMJACK,%aftpth2%
 if (arcpnum > 1)
 	{
@@ -21028,6 +21069,7 @@ if (bltoh = "")
 	{
 		guicontrol, disable, ARCHOST
 	}
+
 TGCN= 
 EXACTARCFOUND:
 guicontrolget,TGCN,,ARCCORES
@@ -21086,15 +21128,23 @@ if (TGCN = "")
 		guicontrol, disable, ARCHOST
 	}
 return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 ArcSrchRes:
+;{;;;;;;;;;;;;;;;;;    ARCHIVE SEARCH WINDOW   ;;;;;;;;;;;;;;;;;;;;;;;;;;
 gui, submit, nohide
+guicontrol,,sortoverride,0
 tmpsr= 
 ROMSYS= 
+norun= 
+arcpopcul= 
+guicontrolget,arccct,,ARCCORES
 guicontrolget,tmpsr,,SRCHRSLT
 guicontrol,enable,RNMJACK
+guicontrol,disable,ARCLNCH
 guicontrol,disable,ARCSYS
-guicontrol,enable,ARCLNCH
+guicontrol,,ARCLNCH,PLAY
 guicontrol,disable,MAMESWCHK
 PostMessage, 0x186, -1, 0,,ahk_id %arcpopu%
 PostMessage, 0x185, 0, -1, ARCPOP  ; Select all items. 0x185 is LB_SETSEL.
@@ -21106,31 +21156,51 @@ Loop, Parse, tmpsr,|
 		srchspl1= 
 		srchspl2= 
 		StringSplit,srchspl,SRCHRSLT,=
-		ARCSYS= %srchspl1%
+		EXTRSYS= %srchspl1%
+		ifnotinstring,srchspl1,%A_Space%-%A_Space%
+			{
+				EXTRSYS= % rev_%srchspl1%
+				guicontrol,,MAMESWCHK,1
+				if (EXTRSYS = "")
+					{
+						EXTRSYS= %srchspl1%
+						guicontrol,,MAMESWCHK,0
+					}
+			}
 		arcpnum+=1
+		tmpsrg= %srchspl2%
 		if (arcpnum > 1)
 			{
 				guicontrol,,RNMJACK,
 				guicontrol,disable,RNMJACK
-				guicontrol,disable,ARCLNCH
+				guicontrol,enable,ARCLNCH
+				guicontrol,,ARCLNCH,Download
+				guicontrol,,downOnly,1
+				norun= 1
 				multsrch= 1
-				guicontrol,,ARCSYS,|Select a System||%sysddllist%				
+				guicontrol,,ARCSYS,|Select a System||%sysddllist%
+				if (SRCHDDL = "All")
+					{
+						guicontrol,show,SortOverride
+					}
 				return
 			}
-		ifnotinstring,srchspl1,%A_Space%-%A_Space%
-				{
-					ARCSYS= % rev_%srchspl1%
-					if (ARCSYS = "")
-						{
-							ARCSYS= %srchspl1%
-						}
-				}		
-		guicontrol,,ARCSYS,|%ARCSYS%||Select a System|%mame_sys%
-		guicontrolget,ARCSYS,,ARCSYS	
+		guicontrol,hide,SortOverride
+		stringreplace,romsys,EXTRSYS,#HACKS#,,UseErrorLevel
+		if (errorlevel = 1)
+			{
+				guicontrol,,ENHAK,1
+			}
+		guicontrol,,ARCSYS,|%romsys%||Select a System|%sysddllist%
+		guicontrolget,EXTRSYS,,ARCSYS	
 		srchpopcul= %A_LoopField%	
 		guicontrol,enable,RNMJACK
+		if (arccct <> "")
+			{
+				guicontrol,enable,ARCLNCH
+			}
 	}
-	
+guicontrol,,RNMJACK,%srchspl2%
 if (DownOnly = 0)
 	{
 		ARCSEL= 2
@@ -21138,105 +21208,17 @@ if (DownOnly = 0)
 		PostMessage, 0x185, 0, -1, SRCHRSLT  ; Deselect all items.
 		GuiControl, Choose, SRCHRSLT, 0 
 		GuiControl, ChooseString, SRCHRSLT, %srchpopcul%
+		return
 	}	
-
-	
 return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
-/*
-
-ARCRCLK= 
-guicontrol,enable,ARCLNCH
-URLFILE= 
-ARCSYS= 
-sysurl= 
-rompth= 
-romtitle= 
-guicontrolget,SRCHRSLT,,SRCHRSLT
-stringreplace,SRCHRSLT,SRCHRSLT,#HACKS#,,
-ROMTRUN= %SRCHRSLT%
-romsys= %ARCSYS%
-guicontrol,,ARCSYS,|%ARCSYS%||Select a System|%syslist%
-ifnotinstring,SRCHRSLT,%A_Space%-%A_Space%
-	{
-		revinc= % rev_%srchspl1%
-		if (revinc = "")
-			{
-				revinc= %srchspl1%
-			}
-		guicontrol,,ARCSYS,|%revinc%||Select a System|%mame_sys%
-		guicontrolget,ARCSYS,,ARCSYS
-	}
-romfp= %srchspl2%
-
-if (ARCSYS = "Microsoft - DOS")
-	{
-		cmdfun= 1
-	}
-if (ARCSYS = "ScummVM")
-	{
-		cmdfun= 1
-	}
-romelg= 
-
-gosub, GamFND
-
-gosub, ArcPPND
-
-if (ROMFLDR = "")
-	{
-		if (DOWNONLY = 0)
-			{
-				guicontrol,,OVDCHK,0
-				guicontrol,disable,SETOVD
-				guicontrol,disable,OVDLDS
-			}
-		
-	}
-rjinsfldr= 
-rjdwnfldr= 
-if (romsys = "")
-	{
-		romsys= %ARCSYS%
-	}
-
-gosub, RomSavePPND
-
-gosub, GetCoreFromSys
-
-if (SRCHRSLT <> "")
-	{
-		if (IPADR <> "")
-			{
-				TGCN= 
-				guicontrolget,TGCN,,ARCCORES
-				if (TGCN <> "")
-					{
-						if (DOWNONLY = 0)
-							{
-								guicontrol, enable, ARCNCT
-								guicontrol, enable, ARCHOST
-								guicontrol,enable,ARCNCT
-								SB_SetText("")
-							}
-					}
-				if (TGCN = "")
-					{
-						SB_SetText(" Select a core to use and then select a ROM. ")
-					}
-			}
-		return	
-	}
-return
-*/
-
-
-GamFND:
+GamFIND:
+cmdfun= 
 SRCHMET= gam
-SRCHGAM= %ARCSYS%
-stringreplace,romsys,ARCSYS,#HACKS#,,All
-ifnotinstring,srchspl1,%A_Space%-%A_Space%
+SRCHGAM= %EXTRSYS%
+stringreplace,romsys,EXTRSYS,#HACKS#,,All
+ifnotinstring,romsys,%A_Space%-%A_Space%
 	{
 		SRCHMET= gam\MAME - Systems
 		if (tmpsr <> "")
@@ -21244,11 +21226,11 @@ ifnotinstring,srchspl1,%A_Space%-%A_Space%
 				revinc= % rev_%srchspl1%
 				if (revinc = "")
 					{
-						revinc= %ARCSYS%
+						revinc= %EXTRSYS%
 					}
 				SRCHGAM= %srchspl1%
-				romsys= %ARCSYS%
-				ARCSYS= %revinc%
+				romsys= %EXTRSYS%
+				EXTRSYS= %revinc%
 			}
 	}	
 krbrk= 
@@ -21256,6 +21238,9 @@ Loop, %SRCHMET%\%SRCHGAM%.gam
 	{
 		Loop, Read, %A_LoopFileFullPath%
 			{
+				getpth1=
+				getpth2=
+				getpth3=
 				stringsplit,getpth,A_LoopReadLine,|
 				if (getpth2 = romfp)
 					{
@@ -21267,10 +21252,10 @@ Loop, %SRCHMET%\%SRCHGAM%.gam
 						EXTCHD= 
 						EXT7Z= 
 						romshere= 
-						rompth= %getpth1%
-						stringreplace,romtmp,rompth,/,\,All
-						splitpath,romtmp,dwnchk,tmpth,chkxt,romname,tmpdrv
+						urlpth= %getpth1%
 						StringCaseSense, On
+						stringreplace,dwnchk,urlpth,`%2F,/,All
+						stringreplace,dwnchk,dwnchk,/,\,All
 						stringreplace,dwnchk,dwnchk,`%25,`%,All
 						stringreplace,dwnchk,dwnchk,`%26,&,All
 						stringreplace,dwnchk,dwnchk,`%2B,+,All
@@ -21288,31 +21273,23 @@ Loop, %SRCHMET%\%SRCHGAM%.gam
 						stringreplace,dwnchk,dwnchk,`%3B,`;,All
 						stringreplace,dwnchk,dwnchk,`%27,',All
 						stringreplace,dwnchk,dwnchk,`%7E,~,All
-						
-						stringreplace,romname,romname,`%25,`%,All
-						stringreplace,romname,romname,`%26,&,All
-						stringreplace,romname,romname,`%2B,+,All
-						stringreplace,romname,romname,`%20,%A_Space%,All
-						stringreplace,romname,romname,`%23,#,All
-						stringreplace,romname,romname,`%24,$,All
-						stringreplace,romname,romname,`%21,!,All
-						stringreplace,romname,romname,`%28,(,All
-						stringreplace,romname,romname,`%29,),All
-						stringreplace,romname,romname,`%5B,[,All
-						stringreplace,romname,romname,`%5D,],All
-						stringreplace,romname,romname,`%3D,=,All
-						stringreplace,romname,romname,`%2C,`,,All
-						stringreplace,romname,romname,`%40,@,All
-						stringreplace,romname,romname,`%3B,`;,All
-						stringreplace,romname,romname,`%27,',All
-						stringreplace,romname,romname,`%7E,~,All
+						Loop,Parse,dwnchk,\
+							{
+								savefile= %A_LoopField%
+							}
+						splitpath,savefile,,,chkxt,romname
 						StringCaseSense, Off
 						if (cmdfun = 1)
 							{
 								emucmd= %getpth3%
 							}
 						romelg= %getpth3%	
-						afnchk= %dwnchk%	
+						if (romelg <> "$")
+							{
+								emucmd= %romelg%
+								cmdfun= 1
+							}
+						afnchk= %savefile%	
 						romfname= %romname%	
 						krbrk= 1
 						break	
@@ -21323,7 +21300,6 @@ Loop, %SRCHMET%\%SRCHGAM%.gam
 				break
 			}
 	}
-SB_SetText(" " save " ")	
 return	
 
 ArcPPND:
@@ -21333,9 +21309,9 @@ loop, Parse, ArcOrgSet,`n`r
 			{
 				continue
 			}
-		stringreplace,ARCSYSK,ARCSYS,#HACKS#,,All	
-		ARCSUBS= %ARCSYSK%
-		ifnotinstring,srchspl1,%A_Space%-%A_Space%
+		stringreplace,EXTRSYSK,EXTRSYS,#HACKS#,,All	
+		ARCSUBS= %EXTRSYSK%
+		ifnotinstring,EXTRSYSK,%A_Space%-%A_Space%
 			{
 				ARCSUBS= MAME - Systems
 			}
@@ -21355,67 +21331,11 @@ SB_SetText(" " sysurl " ")
 return	
 
 RomSavePPND:
-rjinsfldr= %srchspl2%
-if (JACKETMODE = 1)
-	{
-		guicontrolget,RNMJACK,,RNMJACK
-		rjinsfldr= %romname%\		
-		ifnotinstring,srchspl1,%A_Space%-%A_Space%
-			{
-				rjinsfldr= %srchspl2%\
-			}
-		if (RNMJACK <> "")
-			{
-				rjinsfldr= %RNMJACK%\
-			}
-		if (RJCHKJ = 1)
-			{
-				StringGetPos, fldrdlmt, rjinsfldr,%RJCNSLDD%
-				stringtrimright,rjdwnfldr,rjinsfldr,%fldrdlmt%
-				rjinsfldr= %rjdwnfldr%
-			}
-		IfNotExist,%RJSYSTEMS%\%romsys%\%rjinsfldr%
-			{
-				updtguirst= 	
-				ifnotexist,%RJSYSTEMS%\%romsys%
-					{
-						updtguirst= 1
-					}
-				FileCreateDir,%RJSYSTEMS%\%romsys%\%rjinsfldr%
-				if (updtguirst = 1)
-					{
-						gosub, RJSYSRESET
-					}
-			}
-
-	}
-
-save= %RJSYSTEMS%\%romsys%\%rjinsfldr%%dwnchk%
-
-if (OVDCHK = 1)
-	{
-		save= %OVDFLDR%\%rjinsfldr%%dwnchk%
-		IfNotExist,%OVDFLDR%\%rjinsfldr%
-				{
-					updtguirst= 	
-					ifnotexist,%OVDFLDR%
-						{
-							updtguirst= 1
-						}
-					FileCreateDir,%OVDFLDR%\%rjinsfldr%
-					if (updtguirst = 1)
-						{
-							gosub, RJSYSRESET
-						}
-				}
-
-	}
-
 romf:= save
-URLFILE= %ArcSite%/%sysurl%%rompth%
-ifinstring,rompth,://
+URLFILE= %ArcSite%/%sysurl%%urlpth%
+ifinstring,urlpth,://
 	{
-		URLFILE= %rompth%
+		URLFILE= %urlpth%
 	}
 SB_SetText(" " urlfile " ")	
 return
@@ -21466,11 +21386,19 @@ guicontrol,,SRCHDDL,|All||%syslist%
 gosub, ArchiveSystems
 return
 
-
+SRCHDDL:
+gui,submit,nohide
+guicontrolget,SRCHDDL,,SRCHDDL
+guicontrol,enable,ARCSYS
+guicontrol,hide,sortoverride
+guicontrol,,sortoverride,0
+return
 
 ArchiveSystems:
 gui, submit, nohide
 guicontrol,,ENHAK,0
+guicontrol,hide,sortoverride
+guicontrol,,sortoverride,0
 guicontrolget,ENHAK,,ENHAK
 HACKAPN= 
 ArchiveSysRefresh:
@@ -21516,12 +21444,12 @@ guicontrol,,EXTEXPLD,0
 guicontrol,,JACKETMODE,0
 guicontrol,,RNMJACK,
 guicontrol,hide,RNMJACK
-gosub, OvdChk
 BRKO= 1
 guicontrol,,SRCHRSLT,|
 guicontrol,,ARCPOP,|
 gui, submit, nohide
 guicontrolget,ARCSYS,,ARCSYS
+EXTRSYS= %ARCSYS%
 if (ARCSYS = "Select a System")
 	{
 		guicontrol,,ARCCORES,|Select_a_Core||%runlist%
@@ -21530,14 +21458,6 @@ if (ARCSYS = "Select a System")
 		return
 	}
 guicontrol,,SRCHDDL,|%ARCSYS%||%sysddllist%
-if (ARCSYS = "Microsoft - DOS")
-	{
-		cmdfun= 1
-	}
-if (ARCSYS = "ScummVM")
-	{
-		cmdfun= 1
-	}
 pop_list= 
 if (MAMESWCHK = 1)
 	{	
@@ -21597,6 +21517,8 @@ pdlist= %pop_list%
 pdlist:	
 Sort,pop_list,D|
 
+EXTRSYS= %ARCSYS%
+
 GetCoreFromSys:
 if (GLBLRUN = "")
 	{
@@ -21610,6 +21532,7 @@ if (NPLC = "")
 				gosub, MatchSyst
 			}
 	}
+
 if (ARCSEL = 2)
 	{
 		return
@@ -21622,34 +21545,41 @@ OVDCHKB= $
 Loop, parse, lnchparam,`n`r
 	{
 		stringsplit,apr,A_Loopfield,=
-		if (apr1 = ARCSYS)
+		guicontrol,,OVDTXT,
+		if (apr1 = EXTRSYS)
 			{
 				stringsplit,aprm,apr2,|
 				if (aprm1 <> "$")
 					{
 						OVDCHKB= %aprm1%
 						guicontrol,,OVDCHK,1
-						guicontrol,,OVDLDS,|%aprm1%||Matching|%systmfldrs%
+						guicontrol,,OVDLDS,|Other||Matching|Netplay|%systmfldrs%
+						guicontrol,,OVDTXT,%aprm1%
 					}
 				guicontrol,,JACKETMODE,%aprm2%
 				guicontrol,,EXTRURL,%aprm3%	
 				guicontrol,,EXTEXPLD,%aprm4%	
-				guicontrol,,RUNXTRACT,%aprm5%	
+				guicontrol,,RUNXTRACT,%aprm5%
+				RXTRM= %aprm5%
 				if (aprm3 = 1)
 					{
 						jacktshw= show
 					}
 				guicontrol,%jacktshw%,RNMJACK
-				gosub, ExtractURL
+				if (sortoverride = "")
+					{
+						gosub, ExtractURL
+					}	
 				guicontrol,,ARCMOVE,%aprm6%
 				break
 			}
 	}
-if (ARCSYS = "MAME - Arcade")
+	
+if (EXTRSYS = "MAME - Arcade")
 	{	
 		guicontrol,,OVDTXT,%RJSYSTEMS%\MAME - Arcade
 	}
-if (ARCSYS = "BIOS - BIOS")
+if (EXTRSYS = "BIOS - BIOS")
 	{
 		OVDCHK= MAME - Arcade
 		iniread,mame_verx,Apps.ini,EMULATORS,MAME
@@ -21681,7 +21611,7 @@ if (MAMESWCHK = 1)
 		guicontrol,,EXTEXPLD,0
 		guicontrol,,RUNXTRACT,0
 	}		 
-if (ARCSYS = "- firmware -")
+if (EXTRSYS = "- firmware -")
 	{
 		gosub, MAMEBIOSFIRM
 	}
@@ -21740,6 +21670,8 @@ return
 
 SetOvd:
 gui,submit,nohide
+iniread,tmpsw,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
+stringsplit,tmpsx,tmpsw,|
 OVDFLDR= 
 FileSelectFolder,OVDFLDR,,3
 if (OVDFLDR = "")
@@ -21749,14 +21681,16 @@ if (OVDFLDR = "")
 guicontrol,,OVDCHK,1
 guicontrol,enable,OVDLDS
 guicontrol,enable,SETOVD
-guicontrol,,OVDLDS,|Matching||%systmfldrs%
+guicontrol,,OVDLDS,|Other||%systmfldrs%
 guicontrol,,OVDTXT,%OVDFLDR%
+iniwrite,%OVDFLDR%|%tmpsx2%|%tmpsx3%|%tmpsx4%|%tmpsx5%|%tmpsx6%,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
 return
 
 DWNINJACK:
 gui,submit,nohide
 guicontrol,enable,RNMJACK
 guicontrolget,JACKETMODE,,JACKETMODE
+guicontrol,,sortoverride,0
 if (JACKETMODE = 0)
 	{
 		guicontrol,,EXTEXPLD,0
@@ -21775,9 +21709,9 @@ if (JACKETMODE = 1)
 		guicontrol,show,RNMJACK
 	}
 IniWrite, "%JACKETMODE%", Settings.ini,GLOBAL,jacket_mode
-iniread,tmpsw,launchparams.ini,LAUNCHPARAMS,%ARCSYS%
+iniread,tmpsw,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
 stringsplit,tmpsx,tmpsw,|
-iniwrite,%tmpsx1%|%JACKETMODE%|%tmpsx3%|%tmpsx4%|%tmpsx5%|%tmpsx6%,launchparams.ini,LAUNCHPARAMS,%ARCSYS%
+iniwrite,%tmpsx1%|%JACKETMODE%|%tmpsx3%|%tmpsx4%|%tmpsx5%|%tmpsx6%,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
 return
 
 RNMJACK:
@@ -21800,59 +21734,63 @@ return
 
 OvdChk:
 gui,submit,nohide
+guicontrol,,sortoverride,0
 guicontrolget,OVDHCK,,OVDCHK
+iniread,tmpsw,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
+stringsplit,tmpsx,tmpsw,|
 if (OVDCHK = 1)
 	{
 		guicontrol,enable,SETOVD
 		guicontrol,enable,OVDLDS
-		guicontrol,,OVDLDS,|Netplay||Matching|%systmfldrs%
-		if (OVDFLDR = "")
+		guicontrolget,OVDLDS,,OVDLDS
+		guicontrolget,OVDTXT,,OVDTXT
+		if (OVDLDS = "Matching")
 			{
-				guicontrolget,ovdnm,,OVDLDS
-				ifinstring,ovdnm,:
-					{
-						OVDFLDR=%ovdnm%
-					}
-					else {
-						OVDFLDR= %RJSYSTEMS%\%ovdnm%
-					}
+				OVDFLDR= %RJSYSTEMS%\%OVDLDS%
+				iniwrite,$|%tmpsx2%|%tmpsx3%|%tmpsx4%|%tmpsx5%|%tmpsx6%,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%	
+				guicontrol,,OVDLDS,|Matching||Netplay|%systmfldrs%
+				guicontrol,,OVDTXT,
 			}
-		if (JACKETMODE = 1)
+		else 
 			{
-				OVDFLDR= %OVDFLDR%
+				guicontrolget,OVDFLDR,,OVDTXT
+				iniwrite,%OVDFLDR%|%tmpsx2%|%tmpsx3%|%tmpsx4%|%tmpsx5%|%tmpsx6%,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%	
+				guicontrol,,OVDLDS,|Other||Matching|Netplay|%systmfldrs%
+				guicontrol,,OVDTXT,%OVDFLDR%
 			}
-		guicontrol,,OVDTXT,%OVDFLDR%
 	}
-
 if (OVDCHK = 0)
 	{
 		guicontrol,disable,SETOVD
 		guicontrol,disable,OVDLDS
-		guicontrol,,OVDLDS,|Matching||%systmfldrs%
+		guicontrol,,OVDLDS,|Matching||Netplay|%systmfldrs%
 		guicontrol,,OVDTXT,
 		OVDFLDR= 
+		iniwrite,$|%tmpsx2%|%tmpsx3%|%tmpsx4%|%tmpsx5%|%tmpsx6%,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%	
 	}
 return
+
 
 OvDlds:
 gui, submit, nohide
 guicontrol,,OVDCHK,1
+guicontrol,,sortoverride,0
 guicontrol,enable,OVDLDS
 guicontrol,enable,SETOVD
 guicontrolget,ovdnm,,OVDLDS
-ifinstring,ovdnm,:
+guicontrolget,OVDTXT,,OVDTXT
+OVDFLDR= %RJSYSTEMS%\%ovdnm%
+iniread,tmpsw,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
+stringsplit,tmpsx,tmpsw,|
+if (ovdnm = "Other")
 	{
-		OVDFLDR=%ovdnm%
+		OVDFLDR= %OVDTXT%
+		iniwrite,%OVDFLDR%|%tmpsx2%|%tmpsx3%|%tmpsx4%|%tmpsx5%|%tmpsx6%,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%		
 	}
-	else {
-		OVDFLDR= %RJSYSTEMS%\%ovdnm%
-		}
-guicontrol,,OVDTXT,%OVDFLDR%
-if (OVDLDS = "Matching")
+if (ovdnm = "Matching")
 	{
-		guicontrol,,OVDCHK,0
-		gosub,OvdChk
-		guicontrol,,OVDTXT,%RJSYSTEMS%\%ARCSYS%\
+		OVDFLDR= %RJSYSTEMS%\%EXTRSYS%
+		iniwrite,$|%tmpsx2%|%tmpsx3%|%tmpsx4%|%tmpsx5%|%tmpsx6%,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%		
 	}
 return
 
@@ -21874,7 +21812,7 @@ ROMCRC= %save%
 gosub, URLCRC
 if (COPYINFO = 1)
 	{
-		clipboard= NET|%ipsplit1%.%ipsplit2%.%ipsplit3%.%ipsplit4%|%HPORTNUM%|%FRAMEDELAY%|%coreselv%|%URLFILE%|%ARCSYS%|%GAMCRC%|
+		clipboard= NET|%ipsplit1%.%ipsplit2%.%ipsplit3%.%ipsplit4%|%HPORTNUM%|%FRAMEDELAY%|%coreselv%|%URLFILE%|%EXTRSYS%|%GAMCRC%|
 	}
 gosub, HOSTING
 guicontrol,enable,ARCSYS
@@ -21902,8 +21840,9 @@ return
 ExtractURL:
 XtrZip= 
 gui,submit,nohide
+guicontrol,,sortoverride,0
 guicontrolget,EXTRURL,,EXTRURL
-iniread,tmpsw,launchparams.ini,LAUNCHPARAMS,%ARCSYS%
+iniread,tmpsw,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
 stringsplit,tmpsx,tmpsw,|
 if (EXTRURL = 0)
 	{
@@ -21925,37 +21864,40 @@ if (EXTRURL = 1)
 		RUNXTRACT= %tmpsx5%
 		ARCMOVE= %tmpsx6%
 	}
-iniwrite,%tmpsx1%|%tmpsx2%|%EXTRURL%|%EXTEXPLD%|%RUNXTRACT%|%ARCMOVE%,launchparams.ini,LAUNCHPARAMS,%ARCSYS%
+iniwrite,%tmpsx1%|%tmpsx2%|%EXTRURL%|%EXTEXPLD%|%RUNXTRACT%|%ARCMOVE%,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
 return
 
 EXTEXPLD:
 gui,submit,nohide
+guicontrol,,sortoverride,0
 guicontrolget,EXTEXPLD,,EXTEXPLD
 iniread,tmpsw,launchparams.ini,LAUNCHPARAMS,%ARCSYS%
 stringsplit,tmpsx,tmpsw,|
-iniwrite,%tmpsx1%|%tmpsx2%|%tmpsx3%|%EXTEXPLD%|%tmpsx5%|%tmpsx6%,launchparams.ini,LAUNCHPARAMS,%ARCSYS%
+iniwrite,%tmpsx1%|%tmpsx2%|%tmpsx3%|%EXTEXPLD%|%tmpsx5%|%tmpsx6%,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
 return
 
 ArcMove:
 gui,submit,nohide
+guicontrol,,sortoverride,0
 guicontrolget,ARCMOVE,,ARCMOVE
 iniread,tmpsw,launchparams.ini,LAUNCHPARAMS,%ARCSYS%
 stringsplit,tmpsx,tmpsw,|
-iniwrite,%tmpsx1%|%tmpsx2%|%tmpsx3%|%tmpsx4%|%tmpsx5%|%ARCMOVE%,launchparams.ini,LAUNCHPARAMS,%ARCSYS%
+iniwrite,%tmpsx1%|%tmpsx2%|%tmpsx3%|%tmpsx4%|%tmpsx5%|%ARCMOVE%,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
 
 RunXtract:
 gui, submit,nohide
 RXTRM= 
 guicontrolget,RUNXTRACT,,RUNXTRACT
+guicontrol,,sortoverride,0
 if (RUNXTRACT = 1)
 	{
 		RXTRM= 1
 		guicontrol,,DOWNONLY,0
 		gosub, DownOnly
 	}
-iniread,tmpsw,launchparams.ini,LAUNCHPARAMS,%ARCSYS%
+iniread,tmpsw,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
 stringsplit,tmpsx,tmpsw,|
-iniwrite,%tmpsx1%|%tmpsx2%|%tmpsx3%|%tmpsx4%|%RUNXTRACT%|%tmpsx6%,launchparams.ini,LAUNCHPARAMS,%ARCSYS%
+iniwrite,%tmpsx1%|%tmpsx2%|%tmpsx3%|%tmpsx4%|%RUNXTRACT%|%tmpsx6%,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
 return
 
 ClipURL:
@@ -21978,42 +21920,11 @@ if (tmpcc <> coreselv)
 		gosub, hideconfig
 	}
 APLN= 
-if (ARCSEL = 2)
-	{
-		goto, RunArcRom
-	}
-if (tmpsr <> "")
-	{
-		Loop, Parse, tmpsr,|
-			{
-				sysddlist= %mame_sys%
-				stringsplit,srchspl,A_LoopField,=
-				romfp= %srchspl2%
-				ARCSYS= %srchspl1%
-				ifnotinstring,srchspl1,%A_Space%-%A_Space%
-					{
-						sysddlist= %mame_syst%
-						ARCSYS= % rev_%srchspl1%
-						if (ARCSYS = "")
-							{
-								ARCSYS= %srchspl1%
-							}
-					}		
-				stringreplace,ARCSYSNH,ARCSYS,#HACKS#,,All
-				romsys= %ARCSYSNH%
-				guicontrol,,ARCSYS,|%ARCSYSNH%||Select a System|%sysddllist%
-				gosub, GamFND
-				gosub, ArcPPND
-				gosub, RomSavePPND
-				gosub, GetCoreFromSys
-				gosub, RomDownload
-			}
-		tmpsr= 
-		return
-	}
+
 romf= 
 guicontrol,disable,ARCSYS
 guicontrol,disable,ARCPOP
+guicontrol,disable,SRCHRSLT
 guicontrol,disable,ARCEDSRCH
 guicontrol,disable,ARCNCT
 guicontrol,disable,NETCONNECT
@@ -22021,379 +21932,439 @@ guicontrol,disable,ARCHOST
 guicontrol,disable,ARCLNCH
 guicontrol,disable,ARCCORES
 
-GetArcURL:
-gui, submit, nohide
-guicontrolget,ARCSYS,,ARCSYS
-romtch= 
-srcharcs= 
-if (norun = 1)
-	{
-		romdwnlst= 
-		guicontrolget,romdwnlst,,ARCPOP
-		if (romdwnlst = "")
+if (tmpsr <> "")
+	{		
+		Loop, Parse, tmpsr,|
 			{
-				srcharcs= 1
-				guicontrolget,romdwnlst,,SRCHRSLT
-			}
-		Loop, parse, romdwnlst,|
-			{
-				romtch= %A_LoopField%
-				if (srcharcs = 1)
+				sysddlist= %syslist%
+				stringsplit,srchspl,A_LoopField,=
+				romfp= %srchspl2%
+				EXTRSYS= %srchspl1%
+				OVDFLDR= 
+				ifnotinstring,srchspl1,%A_Space%-%A_Space%
 					{
-						stringsplit,romain,A_LoopField,=
-						ARCSYS= %romain1%
-						romtch= %romain2%
-					}
-				ifnotinstring,ARCSYS,%A_Space%-%A_SPace%
-					{
-					
-					}
-				gosub, SORBNT
-				stringreplace,romdwnlst,romdwnlst,%A_LoopField%|,,All
-			}
-		return	
-	}
-
-guicontrolget,romtch,,ARCPOP
-if (romtch = "")
-	{
-		guicontrolget,romprs,,SRCHRSLT
-		stringsplit,srchprs,romprs,=
-		ARCSYS= %srchprs1%
-		romtch= %srchprs2%
-	}
-if (romtch = "")
-	{
-		return
-	}
-
-SORBNT:
-if (MAMESWCHK = 1)
-	{
-		goto, CMDFUNSKP
-	}	
-ifnotinstring,ARCSYS,%A_Space%-%A_Space%
-	{
-		goto, CMDFUNSKP
-	}	
-if (ARCSYS = "Microsoft - DOS")
-	{
-		cmdfun= 1
-	}
-if (ARCSYS = "ScummVM")
-	{
-		cmdfun= 1
-	}
-romelg= 
-krbrk=
-Loop,gam\%HACKAPN%%ARCSYS%.gam
-	{
-		loop,Read, %A_LoopFileFullPath%
-			{
-				if (A_LoopReadLine = "")
-					{
-						continue
-					}
-				stringsplit,rommatch,A_LoopReadLine,|
-				if (rommatch2 = romtch)
-					{
-						romdwn= %rommatch1%
-						romelg= %rommatch3%
-						if (cmdfun = 1)
+						sysddlist= %mame_syst%
+						EXTRSYS= % rev_%srchspl1%
+						if (EXTRSYS = "")
 							{
-								emucmd= %rommatch3%
+								EXTRSYS= %srchspl1%
 							}
-						krbrk= 1	
-						break	
-					} 
-			}
-		if (krbrk = 1)
-			{
-				break
-			}
-	}
-CMDFUNSKP:
-ifnotinstring,ARCSYS,%A_Space%-%A_Space%
-	{
-		iniread,ARCTRA,emuCfgPresets.set,%ARCSYS%,RJMAMENM
-		loop, Read, gam\MAME - Systems\%ARCTRA%.gam
-			{
-				if (A_LoopReadLine = "")
+					}		
+				stringreplace,EXTRSYSNH,EXTRSYS,#HACKS#,,All
+				romsys= %EXTRSYSNH%
+				guicontrol,,ARCSYS,|%EXTRSYSNH%||Select a System|%sysddllist%
+				gosub, GamFIND
+				gosub, ArcPPND
+				guicontrolget,OVDLDS,,OVDLDS
+				guicontrolget,OVDFLDR,,OVDTXT
+				ACSVDEST= %RJSYSTEMS%\%romsys%
+				if (OVDLDS <> "Matching")
 					{
-						continue
+						guicontrolget,OVDFLDR,,OVDTXT
 					}
-				stringsplit,romarray,A_LoopReadLine,|,`n`r
-				if (romarray2 = romtch)
-						{
-							romdwn= %romarray1%
-							break	
-						} 
-			}
-		loop, Read, gam\MAME - Systems\%ARCSYS%.gam
-			{
-				if (A_LoopReadLine = "")
+				if (sortoverride = 0)
 					{
-						continue
-					}
-				stringsplit,romarray,A_LoopReadLine,|,`n`r
-				if (romarray2 = romtch)
-						{
-							romdwn= %romarray1%
-							break
-						} 
-			}	
-	}
-lwall= 
-sysurl= 
-loop, Parse, ArcOrgSet,`n`r
-	{
-		if (A_LoopField = "")
-			{
-				continue
-			}
-		ARCSUBS= %ARCSYS%
-		ifnotinstring,ARCSYS,%A_Space%-%A_Space%
-			{
-				ARCSUBS= MAME - Systems
-			}
-		gamurl1= 
-		gamurl2= 
-		gamurl3= 
-		stringsplit,gamurl,A_LoopField,=
-			{
-				if (gamurl1 = ARCSUBS)
-					{
-						sysurl= %gamurl2%
-					}
-			}
-	}
-EXTRAR= 
-EXTCHD= 
-EXT7Z= 
-romshere= 
-romdwnfull= %romdwn%
-stringreplace,revurl,romdwn,\,/,All
-stringreplace, romdwn,romdwn,/,\,All
-splitpath,romdwn,dwnchk,tmpth,chkxt,romname,tmpdrv
-StringCaseSense, On
-stringreplace,dwnchk,dwnchk,`%25,`%,All
-stringreplace,dwnchk,dwnchk,`%2B,+,All
-stringreplace,dwnchk,dwnchk,`%26,&,All
-stringreplace,dwnchk,dwnchk,`%20,%A_Space%,All
-stringreplace,dwnchk,dwnchk,`%23,#,All
-stringreplace,dwnchk,dwnchk,`%24,$,All
-stringreplace,dwnchk,dwnchk,`%21,!,All
-stringreplace,dwnchk,dwnchk,`%28,(,All
-stringreplace,dwnchk,dwnchk,`%29,),All
-stringreplace,dwnchk,dwnchk,`%5B,[,All
-stringreplace,dwnchk,dwnchk,`%5D,],All
-stringreplace,dwnchk,dwnchk,`%3D,=,All
-stringreplace,dwnchk,dwnchk,`%2C,`,,All
-stringreplace,dwnchk,dwnchk,`%40,@,All
-stringreplace,dwnchk,dwnchk,`%3B,`;,All
-stringreplace,dwnchk,dwnchk,`%27,',All
-stringreplace,dwnchk,dwnchk,`%7E,~,All
-
-stringreplace,romname,romname,`%25,`%,All
-stringreplace,romname,romname,`%2B,+,All
-stringreplace,romname,romname,`%26,&,All
-stringreplace,romname,romname,`%20,%A_Space%,All
-stringreplace,romname,romname,`%23,#,All
-stringreplace,romname,romname,`%24,$,All
-stringreplace,romname,romname,`%21,!,All
-stringreplace,romname,romname,`%28,(,All
-stringreplace,romname,romname,`%29,),All
-stringreplace,romname,romname,`%5B,[,All
-stringreplace,romname,romname,`%5D,],All
-stringreplace,romname,romname,`%3D,=,All
-stringreplace,romname,romname,`%2C,`,,All
-stringreplace,romname,romname,`%40,@,All
-stringreplace,romname,romname,`%3B,`;,All
-stringreplace,romname,romname,`%27,',All
-stringreplace,romname,romname,`%7E,~,All
-StringCaseSense, Off
-URLFILE= %ArcSite%/%sysurl%%revurl%
-stringleft,fputh,romdwn,8
-ifinstring,romdwnfull,://
-	{
-		URLFILE= %romdwnfull%
-	}
-if (GETURL = 1)
-	{
-		SB_SetText(" " URLFILE " in clipboard ")
-		return
-	}
-
-RunArcRom:
-if (ROMFLDR = "")
-	{
-		if (DOWNONLY = 0)
-			{
-				guicontrol,,OVDCHK,0
-				guicontrol,disable,SETOVD
-				guicontrol,disable,OVDLDS
-			}
-	}
-
-rjinsfldr= 
-rjdwnfldr= 
-
-if (romsys = "")
-	{
-		guicontrolget,romsys,,OVDLDS
-	}
-if (OVDLDS = "Matching")
-	{
-		guicontrolget,romsys,,ARCSYS
-	}
-
-ACSVDEST= %RJSYSTEMS%\%romsys%
-if (OVDCHK = 1)
-	{
-		ACSVDEST= %OVDFLDR%
-	}
-
-if (JACKETMODE = 1)
-	{
-		guicontrolget,RNMJACK,,RNMJACK
-		rjinsfldr= %rommatch2%\		
-		if (RNMJACK <> "")
-			{
-				rjinsfldr= %RNMJACK%\
-			}
-		if (RJCHKJ = 1)
-			{
-				StringGetPos, fldrdlmt, rjinsfldr,%RJCNSLDD%
-				stringtrimright,rjdwnfldr,rjinsfldr,%fldrdlmt%
-				rjinsfldr= %rjdwnfldr%
-			}
-		if (ARCSYS = "Open - Beats of Rage")
-			{
-				rjinsfldr.= "Paks\"
-			}	
-			
-		IfNotExist,%ACSVDEST%\%rjinsfldr%
-			{
-				updtguirst= 	
-				ifnotexist,%ACSVDEST%
-					{
-						updtguirst= 1
-					}
-				FileCreateDir,%ACSVDEST%\%rjinsfldr%
-				if (updtguirst = 1)
-					{
-						gosub, RJSYSRESET
-						ACSVDEST= %RJSYSTEMS%\%romsys%
-						if (OVDCHK = 1)
+						iniread,jkspl,Launchparams.ini,LAUNCHPARAMS,%romsys%
+						stringsplit,aprm,jkspk,|
+						OVDFLDR= %aprm1%
+						if (OVDFLDR <> "$")
 							{
+								OVDCHK= 1
 								ACSVDEST= %OVDFLDR%
 							}
+						else
+							{
+								OVDCHK= 0
+								OVDFLDR= 
+							}
+						JACKETMODE= %aprm2%
+						EXTRURL= %aprm3%
+						EXTEXPLD= %aprm4%
+						RUNXTRACT= %aprm5%
+						RXTRM= %aprm5%
+						ARCMOVE= %aprm6%
 					}
-			}
-	}	
-	
-save= %ACSVDEST%\%rjinsfldr%%dwnchk%
-ifnotexist,%ACSVDEST%
-	{
-		updtguirst= 	
-		ifnotexist,%ACSVDEST%
-			{
-				updtguirst= 1
-			}
-		FileCreateDir, %ACSVDEST%
-		if (updtguirst = 1)
-			{
-				gosub, RJSYSRESET
-				ACSVDEST= %RJSYSTEMS%\%romsys%
-				if (OVDCHK = 1)
+				else
+					{
+						if (OVDCHK = 0)
+							{
+								if (EXTRSYS = "- firmware -")
+									{
+										iniread,mame_verx,Apps.ini,EMULATORS,MAME
+										splitpath,mame_verx,,mamepth
+										ACSVDEST= %mamepth%\roms
+									}
+								if (EXTRSYS = "BIOS - BIOS")
+									{
+										OVDCHK= MAME - Arcade
+										iniread,mame_verx,Apps.ini,EMULATORS,MAME
+										splitpath,mame_verx,,mamepth
+										mambpri= 
+										if (mamepth <> "")
+											{
+												ifnotexist,%mamepth%\roms\
+													{
+														filecreatedir,%mamepth%\roms
+													}
+												mambpri= %mamepth%\roms|
+											}
+										ACSVDEST= %cacheDirectory%
+									}	
+							}
+						save= %ACSVDEST%\%savefile%
+						if (OVDCHK = 1)
+							{
+								guicontrolget,OVDLDS,,OVDLDS
+								if (OVDLDS = "Matching")
+									{
+										OVDCHK= 0
+										ACSVDEST= %RJSYSTEMS%\%romsys%
+									}
+								else
+									{
+										guicontrolget,OVDLDS,,OVDLDS
+										ACSVDEST= %OVDFLDR%
+									}
+							}
+							else
+								{
+									ACSVDEST= %RJSYSTEMS%\%romsys%
+								}
+					}		
+				rjinsfldr= 
+				if (JACKETMODE = 1)
+					{
+						guicontrolget,RNMJACK,,RNMJACK
+						rjinsfldr= %romfp%\
+						ifnotinstring,srchspl1,%A_Space%-%A_Space%
+							{
+								rjinsfldr= %srchspl2%\
+							}
+						if (RNMJACK <> "")
+							{
+								rjinsfldr= %RNMJACK%\
+							}
+						if (EXTRSYS = "Open - Beats of Rage")
+							{
+								rjinsfldr.= "Paks\"
+							}	
+						if (RJCHKJ = 1)
+							{
+								StringGetPos, fldrdlmt, rjinsfldr,%RJCNSLDD%
+								stringtrimright,rjdwnfldr,rjinsfldr,%fldrdlmt%
+								rjinsfldr= %rjdwnfldr%
+							}
+						IfNotExist,%ACSVDEST%\%rjinsfldr%
+							{
+								updtguirst= 	
+								ifnotexist,%ACSVDEST%
+									{
+										updtguirst= 1
+									}
+								FileCreateDir,%ACSVDEST%\%rjinsfldr%
+								if (updtguirst = 1)
+									{
+										gosub, RJSYSRESET
+									}
+							}
+					}
+				save= %ACSVDEST%\%rjinsfldr%%savefile%	
+				if (OVDCHK <> 0)
 					{
 						ACSVDEST= %OVDFLDR%
+						save= %ACSVDEST%\%rjinsfldr%%savefile%
 					}
+					else
+						{
+							if (EXTRSYS = "- firmware -")
+								{
+									iniread,mame_verx,Apps.ini,EMULATORS,MAME
+									splitpath,mame_verx,,mamepth
+									ACSVDEST= %mamepth%\roms
+								}
+							if (EXTRSYS = "BIOS - BIOS")
+								{
+									iniread,mame_verx,Apps.ini,EMULATORS,MAME
+									splitpath,mame_verx,,mamepth
+									mambpri= 
+									if (mamepth <> "")
+										{
+											ifnotexist,%mamepth%\roms\
+												{
+													filecreatedir,%mamepth%\roms
+												}
+										}
+									ACSVDEST= %cacheDirectory%
+								}	
+						}	
+				gosub, RomSavePPND				
+				IfNotExist,%ACSVDEST%\%rjinsfldr%
+					{
+						updtguirst= 	
+						ifnotexist,%OVDCHK%
+							{
+								updtguirst= 1
+							}
+						FileCreateDir,%ACSVDEST%\%rjinsfldr%
+						if (updtguirst = 1)
+							{
+								gosub, RJSYSRESET
+							}
+					}
+				gosub, RomDownload
 			}
+		tmpsr= 		
+		guicontrol,enable,ARCSYS
+		guicontrol,enable,ARCPOP
+		guicontrol,enable,SRCHRSLT
+		guicontrol,enable,ARCLNCH
+		guicontrol,enable,ARCHOST
+		guicontrol,enable,ARCCORES
+		return
 	}
-
-if (OVDCHK = 1)
+romtch= 
+srcharcs= 
+romdwnlst= 
+guicontrolget,EXTRSYS,,ARCSYS
+guicontrolget,OVDLDS,,OVDLDS
+guicontrolget,romdwnlst,,ARCPOP
+if (romdwnlst = "")
 	{
-		save= %OVDFLDR%\%rjinsfldr%%dwnchk%
-		IfNotExist,%OVDFLDR%\%rjinsfldr%
+		srcharcs= 1
+		guicontrolget,romdwnlst,,SRCHRSLT
+	}
+sysddlist= %syslist%
+Loop, parse, romdwnlst,|
+	{
+		romfp= %A_LoopField%
+		stringreplace,EXTRSYSNH,EXTRSYS,#HACKS#,,All
+		romsys= %EXTRSYSNH%
+		gosub, GamFIND
+		gosub, ArcPPND
+		guicontrolget,OVDLDS,,OVDLDS
+		guicontrolget,OVDFLDR,,OVDTXT
+		ACSVDEST= %RJSYSTEMS%\%romsys%
+		if (OVDLDS <> "Matching")
 			{
-				updtguirst= 	
-				ifnotexist,%OVDFLDR%
+				guicontrolget,OVDFLDR,,OVDTXT
+			}
+		if (sortoverride = 0)
+			{
+				iniread,jkspl,Launchparams.ini,LAUNCHPARAMS,%romsys%
+				stringsplit,aprm,jkspk,|
+				OVDFLDR= %aprm1%
+				if (OVDFLDR <> "$")
 					{
-						updtguirst= 1
-					}
-				FileCreateDir,%OVDFLDR%\%rjinsfldr%
-				if (updtguirst = 1)
-					{
-						gosub, RJSYSRESET
+						OVDCHK= 1
 						ACSVDEST= %OVDFLDR%
 					}
-			}
-	}
-splitpath,save,romtitle,rompth,romext,romname,romdrv
-updtmsg= downloading %URLFILE%
-guicontrolget,REDOWN,,REDWN
-
-if (REDOWN = 1)
-	{
-		FileMove, %save%, %cacheloc%\%save%.bak, 1
-	}
-
-ifnotexist, %RJSYSTEMS%\%romsys%
-	{ 
-		updtguirst= 	
-		ifnotexist,%RJSYSTEMS%\%romsys%
-			{
-				updtguirst= 1
-			}
-		FileCreateDir,%RJSYSTEMS%\%romsys%
-		gosub, resetCoreAssets
-		if (updtguirst = 1)
-			{
-				gosub, RJSYSRESET
-				ACSVDEST= %RJSYSTEMS%\%romsys%
-				if (OVDCHK = 1)
+				else
 					{
-						ACSVDEST= %OVDFLDR%
+						OVDCHK= 0
+						OVDFLDR= 
+					}
+				JACKETMODE= %aprm2%
+				EXTRURL= %aprm3%
+				EXTEXPLD= %aprm4%
+				RUNXTRACT= %aprm5%
+				RXTRM= %aprm5%
+				ARCMOVE= %aprm6%
+			}
+			else
+				{
+					if (OVDCHK = 0)
+						{
+							if (EXTRSYS = "- firmware -")
+								{
+									iniread,mame_verx,Apps.ini,EMULATORS,MAME
+									splitpath,mame_verx,,mamepth
+									ACSVDEST= %mamepth%\roms
+								}
+							if (EXTRSYS = "BIOS - BIOS")
+								{
+									OVDCHK= MAME - Arcade
+									iniread,mame_verx,Apps.ini,EMULATORS,MAME
+									splitpath,mame_verx,,mamepth
+									mambpri= 
+									if (mamepth <> "")
+										{
+											ifnotexist,%mamepth%\roms\
+												{
+													filecreatedir,%mamepth%\roms
+												}
+											mambpri= %mamepth%\roms|
+										}
+									ACSVDEST= %cacheDirectory%
+								}	
+						}
+					save= %RJSYSTEMS%\%romsys%\%savefile%
+					if (OVDCHK = 1)
+						{
+							guicontrolget,OVDLDS,,OVDLDS
+							if (OVDLDS = "Matching")
+								{
+									OVDCHK= 0
+									ACSVDEST= %RJSYSTEMS%\%romsys%
+								}
+								else
+									{
+										guicontrolget,OVDLDS,,OVDLDS
+										ACSVDEST= %OVDFLDR%
+									}
+						}
+						else
+							{
+								ACSVDEST= %RJSYSTEMS%\%romsys%
+							}
+			}
+		rjinsfldr= 		
+		if (JACKETMODE = 1)
+			{
+				guicontrolget,RNMJACK,,RNMJACK
+				rjinsfldr= %romfp%\
+				if (RNMJACK <> "")
+					{
+						rjinsfldr= %RNMJACK%\
+					}
+				if (EXTRSYS = "Open - Beats of Rage")
+					{
+						rjinsfldr.= "Paks\"
+					}
+					/*					
+				if (RJCHKJ = 1)
+					{
+						StringGetPos, fldrdlmt, rjinsfldr,%RJCNSLDD%
+						stringtrimright,rjdwnfldr,rjinsfldr,%fldrdlmt%
+						rjinsfldr= %rjdwnfldr%
+					}
+					*/
+			}
+		save= %ACSVDEST%\%rjinsfldr%%savefile%	
+		if (OVDCHK <> 0)
+			{
+				ACSVDEST= %OVDFLDR%
+				save= %ACSVDEST%\%rjinsfldr%%savefile%
+			}
+			else
+				{
+					if (EXTRSYS = "- firmware -")
+						{
+							iniread,mame_verx,Apps.ini,EMULATORS,MAME
+							splitpath,mame_verx,,mamepth
+							ACSVDEST= %mamepth%\roms
+						}
+					if (EXTRSYS = "BIOS - BIOS")
+						{
+							iniread,mame_verx,Apps.ini,EMULATORS,MAME
+							splitpath,mame_verx,,mamepth
+							mambpri= 
+							if (mamepth <> "")
+								{
+									ifnotexist,%mamepth%\roms\
+										{
+											filecreatedir,%mamepth%\roms
+										}
+								}
+							ACSVDEST= %cacheDirectory%
+						}	
+				}
+		gosub, RomSavePPND
+		IfNotExist,%ACSVDEST%\%rjinsfldr%
+				{
+					updtguirst= 	
+					ifnotexist,%OVDCHK%
+						{
+							updtguirst= 1
+						}
+					FileCreateDir,%ACSVDEST%\%rjinsfldr%
+					if (updtguirst = 1)
+						{
+							gosub, RJSYSRESET
+						}
+				}
+		gosub, RomDownload
+	}
+return	
+
+
+GetArcURL:
+if (arcpnum > 1)
+	{
+		SB_SetText("select a single item")
+		return
+	}
+if (tmprm <> "")
+	{
+		Loop, Parse, ArcOrgSet,`n`r
+			{
+				if (A_loopField = "")
+					{
+						continue
+					}
+				stringsplit,avx,A_LoopField,=
+				if (avx1 = ARCSYS)
+					{
+						sysurl= %avx2%
+						break
+					}
+			}
+		Loop, read, %SRCHMET%\%HACKAPN%%ARCSYS%.gam
+			{
+				stringsplit,ave,A_LoopReadLine,|
+				if (ave2 = arcpopcul)
+					{
+						URLFILE= %ArcSite%/%sysurl%%ave1%
+						ifinstring,ave1,://
+							{
+								URLFILE= %ave1%							
+							}
 					}
 			}
 	}
-if (chkxt = "rar")
+if (tmpsr <> "")
 	{
-		EXTRAR= 1
-		gosub, RarChk
+		Loop, Parse, ArcOrgSet,`n`r
+			{
+				if (A_loopField = "")
+					{
+						continue
+					}
+				stringsplit,avx,A_LoopField,=
+				if (avx1 = romsys)
+					{
+						sysurl= %avx2%
+						break
+					}
+			}
+		Loop, read, %SRCHMET%\%EXTRSYS%.gam
+			{
+				stringsplit,ave,A_LoopReadLine,|
+				if (ave2 = tmpsrg)
+					{
+						URLFILE= %ArcSite%/%sysurl%%ave1%
+						ifinstring,ave1,://
+							{
+								URLFILE= %ave1%							
+							}
+					}
+			}
 	}
-if (chkxt = "chd")
-	{	
-		gosub, ChdChk
-		EXTCHD= 1
-	}
-if (chkxt = "7z")
-	{
-		gosub, 7zChk
-		EXT7Z= 1
-	}
-if (cmdfun = 1)
-	{
-		gosub, 7zChk
-		EXT7Z= 1
-	}
-if (romshere = "X")
-	{
-		goto, RunArc
-	}
-guicontrolget,lastcore,,ARCCORES
-dxt2= 
+SB_SetText(" " URLFILE " in clipboard ")
+return
 
-StringSplit,dxt,coreselv,.
-if (dxt2 <> "dll")
-	{
-		APLN= 1
-	}
 
 RomDownload:
 RETRYTHR= 10
-DWNFLD= 	
+DWNFLD= 
+
+if (REDOWN = 1)
+	{
+		ifexist,%save%
+			{
+				filemove,%save%,%cacheloc%\%romname%\%romtitle%.bak,1
+			}
+	}
+
 ifnotexist, %save%
 	{
 		if (REDOWN = 0)
@@ -22404,22 +22375,18 @@ ifnotexist, %save%
 						goto, RomDowned
 					}
 			}
-		ifnotexist,%RJSYSTEMS%\%romsys%\%rjinsfldr%
+		saveloc= %ACSVDEST%
+		ifnotexist,%ACSVDEST%
 			{
-				updtguirst= 	
-				ifnotexist,%RJSYSTEMS%\%romsys%
+				updtguirst= 
+				ifnotexist,%ACSVDEST%
 					{
 						updtguirst= 1
-					}
-				FileCreateDir,%RJSYSTEMS%\%romsys%\%rjinsfldr%
+					}	
+				FileCreateDir,%ACSVDEST%
 				if (updtguirst = 1)
 					{
 						gosub, RJSYSRESET
-						ACSVDEST= %RJSYSTEMS%\%romsys%
-						if (OVDCHK = 1)
-							{
-								ACSVDEST= %OVDFLDR%
-							}
 					}
 			}
 		if (romelg = "$")
@@ -22459,16 +22426,18 @@ ifnotexist, %save%
 			{
 				if (RETRYTHR > 1499)
 					{
-						MsgBox,4421,Download Failed,"%dwnchk% could not be retrieved`n%URLFILE%`nto`n%save%",8
+						MsgBox,4421,Download Failed,"%savefile% could not be retrieved`n%URLFILE%`nto`n%save%",8
 						ifmsgbox,Retry
 							{
 								Filedelete, %save%
 								goto, RomDownload
 							}
 						DWNFLD= 
+						norun= 1
 						FileDelete, %save%
 						guicontrol,enable,ARCSYS
 						guicontrol,enable,ARCPOP
+						guicontrol,enable,SRCHRSLT
 						guicontrol,enable,ARCLNCH
 						guicontrol,enable,ARCHOST
 						guicontrol,hide,ARCNCT
@@ -22506,7 +22475,7 @@ if (chkxt = "zip")
 			{
 				Gosub, ZipXtr
 			}
-	}
+	}	
 if (klp <> 1)
 	{
 		ifexist, %save%
@@ -22515,6 +22484,7 @@ if (klp <> 1)
 				goto, RunArc
 			}
 	}
+
 RunArc:
 if (romf = "")
 	{
@@ -22586,6 +22556,7 @@ if (APLA <> 1)
 	
 guicontrol,enable,ARCSYS
 guicontrol,enable,ARCPOP
+guicontrol,enable,SRCHRSLT
 guicontrol,enable,ARCLNCH
 guicontrol,enable,ARCHOST
 guicontrol,enable,ARCCORES
@@ -22595,13 +22566,10 @@ return
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ChdXtr:
-if (JACKETMODE = 1)
+xtrdir= %ACSVDEST%
+if (JACKETMODE = 0)
 	{
-		xtrdir= %rompth%\%romname%
-	}
-if (RNMJACK <> "")
-	{
-		xtrdir= %rompth%\%RNMJACK%
+		xtrdir= %ACSVDEST%\%romname%
 	}
 ifnotexist, %xtrdir%
 	{
@@ -22615,23 +22583,20 @@ return
 
 RarXtr:
 SB_SetText(" extracting rar ")
-xtrdir= %rompth%\%romname%
+xtrdir= %ACSVDEST%
+if (JACKETMODE = 0)
+	{
+		xtrdir= %ACSVDEST%\%romname%
+	}
 xtrvar= x
 if (EXTEXPLD = 1)
 	{
 		xtrvar= e
-		xtrdir= %rompth%
+		xtrdir= %ACSVDEST%
 	}
-if (RNMJACK <> "")
-	{
-		if (romname <> RNMJACK)
-			{
-				xtrdir= %ACSVDEST%\%RNMJACK%
-			}
-	}
-runwait, %comspec% cmd /c "UnRAR.exe %xtrvar% -y "%romf%" "*" +o "%rompth%" ",,hide
+runwait, %comspec% cmd /c "UnRAR.exe %xtrvar% -y "%romf%" "*" +o "%xtrdir%" ",,hide
 sleep 2000
-FileMove, %romf%, %rompth%\%romname%.bak
+FileMove, %romf%, %ACSVDEST%\%romname%.bak
 SB_SetText(" extraction complete ")
 Loop, files, %rompth%\*.rar
 	{
@@ -22643,16 +22608,16 @@ Loop, files, %rompth%\*.rar
 				fileMove,%A_LoopFileFullPath%.bak,%cacheloc%\%romsys%\%romname%,1
 			}
 	}
-Loop, Files, %rompth%\%romname%\*.*
+Loop, Files, %xtrdir%\*.*,1
 	{
 		gosub, GetXtr
 	}
-	FileMove,%rompth%\%romname%.bak, %rompth%\%romname%.rar, 1
-	if (ArcMove = 1)
-		{
-			FileCreatedir,%cacheloc%\%romsys%\%romname%
-			fileMove, %rompth%\%romname%.rar,%cacheloc%\%romsys%\%romname%,1
-		}
+FileMove,%rompth%\%romname%.bak, %rompth%\%romname%.rar, 1
+if (ArcMove = 1)
+	{
+		FileCreatedir,%cacheloc%\%romsys%\%romname%
+		fileMove, %rompth%\%romname%.rar,%cacheloc%\%romsys%\%romname%,1
+	}
 return
 
 
@@ -22716,19 +22681,16 @@ return
 
 7zXtr:
 SB_SetText(" extracting 7zip ")
-xtrdir= %rompth%\%romname%
+xtrdir= %ACSVDEST%
+if (JACKETMODE = 0)
+	{
+		xtrdir= %ACSVDEST%\%romname%
+	}
 xtrvar= x
 if (EXTEXPLD = 1)
 	{
 		xtrvar= e
-		xtrdir= %rompth%
-	}
-if (RNMJACK <> "")
-	{
-		if (romname <> RNMJACK)
-			{
-				xtrdir= %ACSVDEST%\%RNMJACK%
-			}
+		xtrdir= %ACSVDEST%
 	}
 runwait, %comspec% cmd /c "7za.exe %xtrvar% -y "%save%" -O"%xtrdir%" ", ,hide
 SB_SetText(" extraction complete ")
@@ -22748,26 +22710,20 @@ Loop, Files, %xtrdir%\*.*
 return
 
 ZipXtr:
-guicontrolget,EXTEXPLD,,EXTEXPLD
-guicontrolget,RNMJACK,,RNMJACK
 SB_SetText(" extracting Zip ")
-xtrdir= %rompth%\%romname%	
+xtrdir= %ACSVDEST%
+if (JACKETMODE = 0)
+	{
+		xtrdir= %ACSVDEST%\%romname%
+	}
 xtrvar= x
 if (EXTEXPLD = 1)
 	{
 		xtrvar= e
-		xtrdir= %rompth%
-	}
-if (RNMJACK <> "")
-	{
-		if (romname <> RNMJACK)
-			{
-				xtrdir= %ACSVDEST%\%RNMJACK%
-			}
+		xtrdir= %ACSVDEST%
 	}
 runwait, %comspec% cmd /c "7za.exe %xtrvar% -y "%save%" -O"%xtrdir%" ", ,hide
 SB_SetText(" extraction complete ")
-guicontrolget, RXTRM,,RUNXTRACT
 if (RXTRM = 1)
 	{
 		gosub, ArcExtract
@@ -22775,7 +22731,7 @@ if (RXTRM = 1)
 return
 
 GetXtr:
-;{;;;;;;;;;;;;;  GET XTRATED ROM  ;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;  GET XT-RATED ROM  ;;;;;;;;;;;;;;;
 
 stringsplit,coreslc,coreslv,.
 if (coreslc2 = "dll")
@@ -22798,11 +22754,7 @@ if (coreslc2 = "dll")
 					ar.insert(new)
 				}
 		}
-		extrpth= %RJSYSTEMS%\%romsys%\%romname%
-		if (OVDCHK = 1)
-			{
-				extrpth= %OVDFLDR%\%romname%
-			}
+		extrpth= %ACSVDEST%
 		loop,files,%extrpth%\*.*,R
 			{
 				ext= %A_LoopFileExt%
@@ -22828,18 +22780,7 @@ if (lookf = "ERROR")
 	{
 		return
 	}
-extrpth= %RJSYSTEMS%\%romsys%\%romname%
-if (OVDCHK = 1)
-	{
-		extrpth= %OVDFLDR%\%romname%
-		if (JACKETMODE = 1)
-			{
-				if (EXTEXPLD = 1)
-					{
-						extrpth= %OVDFLDR%
-					}
-			}
-	}	
+extrpth= %ACSVDEST%
 Loop, Parse, lookf,`,
 	{
 		matchdxt= %A_LoopField%
@@ -22862,75 +22803,6 @@ Loop, Parse, lookf,`,
 	}	
 return	
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-7zChk:
-ifnotexist, %save%
-	{
-		return
-	}
-ifexist, %RJSYSTEMS%\%romsys%\%romname%
-	{
-		gosub, GetXtr
-	}
-return
-
-RarChk:
-ifnotexist, %save%
-	{
-		return
-	}
-extrpth= %RJSYSTEMS%\%romsys%\%romname%
-if (OVDCHK = 1)
-	{
-		extrpth= %OVDFLDR%\%romname%
-		if (JACKETMODE = 1)
-			{
-				if (EXTEXPLD = 1)
-					{
-						extrpth= %OVDFLDR%
-					}
-			}
-	}
-ifexist, %extrpth%
-	{
-		Loop, File, %extrpth%\*.*
-		{
-			if (A_LoopFileSize > 1)
-			{
-				romshere= X
-				romf= A_LoopFileFullPath
-				EXTRAR= 
-			}
-		}
-	}
-return
-
-ChdChk:
-extrpth= %RJSYSTEMS%\%romsys%\%romname%
-if (OVDCHK = 1)
-	{
-		extrpth= %OVDFLDR%\%romname%
-		if (JACKETMODE = 1)
-			{
-				if (EXTEXPLD = 1)
-					{
-						extrpth= %OVDFLDR%
-					}
-			}
-	}
-ifnotexist, %save%
-	{
-		return
-	}
-ifexist, %extrpth%
-	{
-		Loop, File, %extrpth%\*.cue
-		{
-				romshere= X
-				romf= A_LoopFileFullPath
-				EXTCHD= 
-		}
-	}
-return
 
 CustmOpt:
 gui, submit, nohide
@@ -23266,16 +23138,6 @@ ifnotinstring,scrsup,/%FEDDLA%/
 		ControlFocus, %FEDDLA%,skeletonKey
 	}
 return
-/*
-getboxart= 
-getbackdrop= 
-getsnapshot= 1 
-getvideo= 
-getmetadata= 
-getlogo= 
-gosub, ARCARTDWN
-return
-*/
 
 ARCGFAN:
 gui,submit,nohide
@@ -25326,7 +25188,7 @@ if (SK_MODE = 1)
 							}
 						if (aemcfg = 1)
 							{
-								MEDNFSYS= %ARCSYS%
+								MEDNFSYS= %EXTRSYS%
 							}
 					}
 			}
@@ -45963,6 +45825,9 @@ return
 ;};;;;;;;;;;;
 ;{;;;;; dosbox CORE  ;;;;;
 dosboxDDLA:
+dosbox_svnDDLA:
+dosbox_svn_glideDDLA:
+dosboxDDLA:
 guicontrol,,CORECHKA,1
 if (dosboxemulatedmouse = "disabled")
 {
@@ -51696,6 +51561,7 @@ if (NETPLIST = 1)
 					gosub, ArchiveSystems
 					NPLC= 
 				}
+	EXTRSYS= %ARCSYS%			
 	if (GLBLRUN = "")
 		{
 			gosub, MatchEmu
@@ -51821,6 +51687,7 @@ if (CLActive = 1)
 			guicontrolget, HOSTSWITCH
 			if (HOSTSWITCH = 1)
 				{
+					EXTRSYS= %ARCSYS%
 					gosub, MatchSyst
 				}
 		}
