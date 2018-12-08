@@ -175,7 +175,7 @@ video.glvsync=1
 gb.system_type=auto
 [-------------------------------------]
 [GBA]
-gba.bios=gba_bios.bin
+gba.bios=
 [-------------------------------------]
 [LYNX]
 lynx.lowpass=1

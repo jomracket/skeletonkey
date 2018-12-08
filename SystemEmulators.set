@@ -321,7 +321,7 @@ ScummVM - ScummVM|ScummVM|:scummvm_libretro.dll
 Sega - 32X - JAP|Fusion|gensplus|gens|MAME|:picodrive_libretro.dll|mame_libretro.dll
 Sega - 32X - PAL|Fusion|gensplus|gens|MAME|:picodrive_libretro.dll|mame_libretro.dll
 Sega - 32X|Fusion|gensplus|gens|MAME|:picodrive_libretro.dll
-Sega - Dreamcast|Demul|NullDC|chankast|reicast|redream|Makaron|:reicast_libretro.dll
+Sega - Dreamcast|Demul|NullDC|chankast|reicast|redream|Makaron|:reicast_libretro.dll|reicast_oit_libretro.dll|redream_libretro.dll
 Sega - Game Gear - JAP|Fusion|mednafen|dega|emukon|twombit|gamegear|mesadx|xe|gensplus|osmose|gearsystem|cogwheel|meka|osmose|regen|emukon|MAME|:genesis_plus_gx_libretro.dll|gearboy_libretro.dll|mame_libretro.dll
 Sega - Game Gear|Fusion|mednafen|dega|emukon|twombit|gamegear|mesadx|gensplus|xe|osmose|gearsystem|meka|osmose|cogwheel|regen|emukon|MAME|:genesis_plus_gx_libretro.dll|gearboy_libretro.dll
 Sega - Hikaru|Demul|mame_arcade|MAME|:mame_libretro.dll
