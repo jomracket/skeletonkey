@@ -1037,7 +1037,6 @@ FileInstall,gam\Bally - Astrocade.gam,gam\Bally - Astrocade.gam,1
 FileInstall,gam\Bandai - WonderSwan Color.gam,gam\Bandai - WonderSwan Color.gam,1
 FileInstall,gam\Bandai - WonderSwan.gam,gam\Bandai - WonderSwan.gam,1
 FileInstall,gam\BIOS - BIOS.gam,gam\BIOS - BIOS.gam,1
-FileInstall,gam\BIOS.gam,gam\BIOS.gam,1
 FileInstall,gam\Camputers - Lynx.gam,gam\Camputers - Lynx.gam,1
 FileInstall,gam\Capcom Play System - CPS II.gam,gam\Capcom Play System - CPS II.gam,1
 FileInstall,gam\Capcom Play System - CPS III.gam,gam\Capcom Play System - CPS III.gam,1
@@ -1540,13 +1539,6 @@ FileInstall,gam\MAME - Systems\zorba.gam,gam\MAME - Systems\zorba.gam,1
 FileInstall,gam\MAME - Systems\zx80.gam,gam\MAME - Systems\zx80.gam,1
 FileInstall,gam\MAME - Systems\zx81.gam,gam\MAME - Systems\zx81.gam,1
 FileInstall,gam\MAME - Systems\_firmware_.gam,gam\MAME - Systems\_firmware_.gam,1
-FileInstall,gam\MAME - Systems\ren\fightcade.gam,gam\MAME - Systems\ren\fightcade.gam,1
-FileInstall,gam\MAME - Systems\ren\fightcadeCV.gam,gam\MAME - Systems\ren\fightcadeCV.gam,1
-FileInstall,gam\MAME - Systems\ren\fightcadeGG.gam,gam\MAME - Systems\ren\fightcadeGG.gam,1
-FileInstall,gam\MAME - Systems\ren\fightcadeMD.gam,gam\MAME - Systems\ren\fightcadeMD.gam,1
-FileInstall,gam\MAME - Systems\ren\fightcadePCE.gam,gam\MAME - Systems\ren\fightcadePCE.gam,1
-FileInstall,gam\MAME - Systems\ren\fightcadeSG1K.gam,gam\MAME - Systems\ren\fightcadeSG1K.gam,1
-FileInstall,gam\MAME - Systems\ren\fightcadeSMS.gam,gam\MAME - Systems\ren\fightcadeSMS.gam,1
 FileInstall,rj\emucfgs\3doplay\config.xml.set,rj\emucfgs\3doplay\config.xml.set,1
 FileInstall,rj\emucfgs\4DO\Config.xml.set,rj\emucfgs\4DO\Config.xml.set,1
 FileInstall,rj\emucfgs\4DO\FourDO.settings.set,rj\emucfgs\4DO\FourDO.settings.set,1

@@ -144,7 +144,7 @@ if (romf <> "")
 		if (CHOSEN = "")
 			{
 				guicontrol,,LCORE,|%coreselv%||%runlist%
-				gosub,LNCH
+				gosub,SUBLNCH
 			}
 		CHOSEN=	
 		return
@@ -5331,7 +5331,7 @@ gosub, LnchCore
 coremsvc=
 ifinstring,coreselv,_libretro
 	{
-		goto, LNCH
+		goto, SUBLNCH
 	}
 coremsvc= 
 
@@ -5399,7 +5399,7 @@ if (CUSTMOPT = "[CUSTMOPT]")
 			}
 		guicontrol,,CUSTMOPTS,|%CSTINJOPT%||%INJOPT%
 	}
-gosub, LNCH
+gosub, SUBLNCH
 return
 	
 AQRUN:
@@ -12454,73 +12454,19 @@ return
 
 MAMELMREAD:
 SB_SetText(" Reading mame listed media ")
-loop,parse,mamelistedmedia,`n
+loop,parse,mamelistedmedia,`n`r
 	{
 		if (A_index < 3)
 			{
-				continue	
+				continue
 			}
 		ifinstring,A_LoopField,-
 			{
 				continue
 			}
-		ifinstring,A_LoopField,(None)
+		ifinstring,A_LoopField,(none)
 			{
 				continue
-			}
-		af= %A_loopField%	
-		stringsplit,and,af,)
-		stringsplit,vir,and1,(
-		med= %vir2%
-		ccrm:= and2
-		Loop, 20	
-			{
-				stringreplace,af,af,%A_Space%%A_Space%,%A_space%,All
-				stringreplace,af,af,`n,,All		
-				stringreplace,af,af,`r,,All		
-			}
-		if (A_Index = 10000)
-			{
-				emuprgpl+=15
-				guicontrol,,emuPRGA,%emuprgpl%
-			}
-		if (A_Index = 20000)
-			{
-				emuprgpl+=15
-				guicontrol,,emuPRGA,%emuprgpl%
-			}
-		if (A_Index = 30000)
-			{
-				emuprgpl+=15
-				guicontrol,,emuPRGA,%emuprgpl%
-			}
-		if (A_Index = 39000)
-			{
-				emuprgpl+=15
-				guicontrol,,emuPRGA,%emuprgpl%
-			}
-		if (af = "")
-			{
-				continue
-			}
-		stringsplit,nni,af,%A_Space%(
-			ifinstring,nni1,(
-				{
-					continue
-				}
-		ifinstring,nni2,(
-			{
-				nni1= %oldf%	
-				ifinstring,oldf,%nni1%
-					{
-						%RJMAMENM%lmfam.= afe1 . "|"
-					}
-			}
-		ifnotinstring,nni2,(
-			{
-				stringsplit,afe,vir1,%A_Space%
-				%RJMAMENM%lmfam:= afe1 . "|"
-				oldf= %nni1%
 			}
 		ifinstring,A_LoopField,(prin
 			{
@@ -12530,16 +12476,30 @@ loop,parse,mamelistedmedia,`n
 			{
 				continue
 			}
-		and2= %and2%
-		stringreplace,and2,and2,%A_space%,,All
-		stringreplace,and2,and2,.,.`,,All
-		stringreplace,and2,and2,`n,,All
-		stringreplace,and2,and2,`r,,All
-		MAME_%oldf%_SHRTN= %nni1%
-		MAME_%oldf%_%med%_extyr.= ("mame_" . oldf . "_" . med . "_extyp" . "=" . and2 . "`n")
-		MAME_%oldf%_%med%_extyp= %and2%
-		aav= % MAME_%oldf%_%med%_extyr
-		MAME_%oldf%_medtyps.= med . "|"
+		af= %A_loopField%	
+		Loop, 20	
+			{
+				stringreplace,af,af,%A_Space%%A_Space%,%A_space%,All
+			}
+		sysk1=	
+		sysk2=	
+		sysk3=	
+		stringsplit,sysk,af,%A_Space%
+		stringsplit,and,af,)
+		stringsplit,vir,and1,(
+		stringsplit,mediatype,vir2,)
+		ifinstring,sysk3,(
+			{
+				sysname= %sysk1%
+				MAME_%sysname%_SHRTN= %sysname%
+				MAME_%sysname%_medtyps= %mediatype1%|
+				MAME_%sysname%_%mediatype1%_extyp= %and2%
+			}
+			else
+				{
+					MAME_%sysname%_medtyps.= mediatype1 . "|"
+					MAME_%sysname%_%mediatype1%_extyp= %and2%
+				}
 	}
 SB_SetText(" Mame listed media indexing complete ")
 mlmed= 1	
@@ -22674,7 +22634,7 @@ if (APLA <> 1)
 						aemcfg=
 						refrae= 1
 					}
-				gosub, LNCH
+				gosub, SUBLNCH
 			}
 	}
 	
@@ -58907,7 +58867,7 @@ if (coe <> "dll")
 			}
 		goto, LNCHAPP
 	}
-goto, LNCH
+goto, SUBLNCH
 return
 
 
@@ -60639,7 +60599,7 @@ if (ROMSYS = "")
 svoc= 
 if (directrun = 1)
 	{
-		iniread,sysexov,AppParams.ini,%runsysddl%,%lnmxtn%
+		iniread,sysexov,AppParams.ini,%EXTRSYS%,%lnmxtn%
 		if (sysexov <> "ERROR")
 			{
 				if (sysexov <> "")
@@ -60659,7 +60619,6 @@ iniread,omtxt,AppParams.ini,%coreselv%,extension
 iniread,RunFrom,AppParams.ini,%coreselv%,run_location
 iniread,OMITQ,AppParams.ini,%coreselv%,no_quotes
 iniread,OMITPTH,AppParams.ini,%coreselv%,no_path
-guicontrolget,fi,
 
 if (coremsvc = "")
 	{
@@ -60667,9 +60626,8 @@ if (coremsvc = "")
 			{
 				ifinstring,coreselv,mame
 					{
-						iniread,RJMAMENM,emuCfgPresets.set,%RUNSYSDDL%,RJMAMENM
-						iniread,CUSTMOPTLST,emuCfgPresets.set,%RUNSYSDDL%,MAME?RJEMUOPTS
-						msgbox,,,coreselv=%coreselv%`nRJMAMENM=%RJMAMENM%`nCUSTMOPTLST=%CUSTMOPTLST%
+						iniread,RJMAMENM,emuCfgPresets.set,%EXTRSYS%,RJMAMENM
+						iniread,CUSTMOPTLST,emuCfgPresets.set,%EXTRSYS%,MAME?RJEMUOPTS
 						if (CUSTMOPTLST <> "ERROR")
 							{
 								Loop,Parse,CUSTMOPTLST,|
@@ -60687,10 +60645,12 @@ if (coremsvc = "")
 					}
 			}
 	}
+	
 ifinstring,RunOptions,[
 	{
 		if (coremsvc = 1)
 			{
+				coremsvc= 
 				ifinstring,coreselv,mame
 					{
 						ifinstring,CSTINJOPT,[RJ
@@ -61227,6 +61187,60 @@ return
 
 LNCH:
 gui,submit,nohide
+guicontrolget,EXTRSYS,,RUNSYSDDL
+ifinstring,EXTRSYS,.lpl
+	{
+		stringtrimright,EXTRSYSX,EXTRSYS,4
+		ifinstring,A_LoopField,%A_Space%-%A_Space%
+		Loop,parse,SysLLst,`n`r
+			{
+				if (A_loopField = "")
+					{
+						continue
+					}
+				stringsplit,vir,A_LoopField,=
+				if (vir1 = EXTRSYSX)
+					{
+						EXTRSYS= %A_LoopField%
+						break
+					}
+			}
+	}
+if (EXTRSYS = "History")
+	{
+		guicontrolget,rrn,,RUNROMCBX
+		Loop,parse,rrn,\
+			{
+				rsts= %A_LoopField%
+				ifinstring,rsts,%A_Space%-%A_Space%
+					{
+						Loop,parse,SysLLst,`n`r
+							{
+								if (A_loopField = "")
+									{
+										continue
+									}
+								stringsplit,vir,A_loopField,=						
+								if (vir1 = rsts)
+									{
+										EXTRSYSK= %vir1%
+										break
+									}
+							}
+					}
+				if (EXTRSYSK <> "")
+					{
+						EXTRSYS= %EXTRSYSK%
+						break
+					}
+			}
+	}
+if (EXTRSYSK = "")
+	{
+		SB_SetText("no system detected")
+	}
+
+SUBLNCH:
 guicontrolget,lcore,,LCORE
 if (aemcfg = 1)
 	{

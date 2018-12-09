@@ -563,7 +563,7 @@ RJEMUPRESET=Arculator
 RJMAMENM=a310
 RJMULTIDISC=1
 RJROMXT=.adf,.ads,.adm,.adl,.apd,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.fdi,.apd,.zip
-MAME?RJEMUOPTS=<a310 -flop<
+MAME?RJEMUOPTS=<a310 -flop<a7000 -flop
 RJZIPPEEK=0
 
 [Acorn - BBC]
@@ -914,7 +914,7 @@ RJMAMENM=arcadia
 RJEMUPRESET=MAME
 RJMAMENM=ep128
 RJMULTIDISC=1
-MAME?RJEMUOPTS=<ep128 -[RJRTYP]<|ep128 -cass<|<ep128 -cart<
+MAME?RJEMUOPTS=<ep128 -[RJRTYP]<|<ep128 -cass<|<ep128 -cart<
 RJROMXT=.wav,.bin,.rom,.zip
 
 [Enterprise - 64]
@@ -1301,7 +1301,7 @@ RJEMUPRESET=Mednafen
 RJMAMENM=vboy
 RJMEDNM=vb
 RJROMXT=.vb,.vboy,.bin,.zip
-MAME?RJEMUOPTS=<vb -cart<
+MAME?RJEMUOPTS=<vboy -cart<
 RJZIPPEEK=0
 
 [Nintendo - WiiU]
@@ -2614,7 +2614,7 @@ RJZIPPEEK=0
 [Sharp - MZ-2000]
 RJEMUPRESET=MAME
 RJMAMENM=mz2000
-MAME?RJEMUOPTS=<mz2000 -[RJRTYP]<|<mz2000 -flop1<|mz2000 -cass1<
+MAME?RJEMUOPTS=<mz2000 -[RJRTYP]<|<mz2000 -flop1<|<mz2000 -cass1<
 
 [Sharp - MZ-2500]
 RJEMUPRESET=MAME
@@ -2684,7 +2684,7 @@ RJZIPPEEK=0
 [Orion - Orion 128]
 RJEMUPRESET=MAME
 RJMAMENM=orionide
-MAME?RJEMUOPTS=<orionide -flop<|orionide -cass<|orionide -cart<
+MAME?RJEMUOPTS=<orionide -flop<|<orionide -cass<|<orionide -cart<
 RJZIPPEEK=0
 
 [Osborne - Osborne-1]
