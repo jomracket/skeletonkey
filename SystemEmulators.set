@@ -24,7 +24,7 @@ Apogee - BK-01|EMU|MAME|:mame_libretro.dll
 Apollo - Apollo|MAME|:mame_libretro.dll
 Apple - Bandai - Pippin|MAME|:mame_libretro.dll
 Apple - III|MAME|:mame_libretro.dll
-Apple - IIe|AppleWin|Bizhawk|virtu|apic|gsport|MAME|:mame_libretro.dll
+Apple - IIe|AppleWin|Bizhawk|virtu|aipc|gsport|MAME|:mame_libretro.dll
 Apple - IIgs|ActiveGS|Kegs32|kegs|gsport|MAME|:mame_libretro.dll
 Apple - II|agat|aipc|MAME|:mame_libretro.dll
 Apple - I|faux1|agat|apple1|MAME|:mame_libretro.dll
@@ -206,7 +206,7 @@ Microsoft - DOS|DOSBox|DosPlus|:dosbox_libretro.dll
 Microsoft - MSX TurboR|BlueMSX|msx2p|no$msx|MAME|nlmsx|openMSX|EMU|fmsx|vdmgr|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
 Microsoft - MSX2+|BlueMSX|msx2p|no$msx|MAME|fmsx|nlmsx|openMSX|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
 Microsoft - MSX2|BlueMSX|msx2|no$msx|MAME|openMSX|fmsx|nlmsx|EMU|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
-Microsoft - MSX|BlueMSX|msx1|no$msx|MAME|fmsx|fbalpha|vdmgr|nlmsx|Xspeccy|openMSX|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
+Microsoft - MSX|BlueMSX|msx1|no$msx|MAME|fmsx|finalburnalpha|vdmgr|nlmsx|Xspeccy|openMSX|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
 Microsoft - XBOX 360|Xenia
 Microsoft - Windows 3x|WinBox
 Microsoft - XBOX|Cxbx|cxbxreloaded|xqemu
@@ -258,7 +258,7 @@ Nintendo - Super Nintendo Entertainment System - PAL|snes9x|Mednafen|no$sns|MAME
 Nintendo - Super Nintendo Entertainment System|snes9x|Mednafen|no$sns|MAME|zsnes|kindred|BizHawk|xe|zmz|snesgt|:snes9x_libretro.dll|snes9x2002_libretro.dll|snes9x2005_libretro.dll|snes9x2010_libretro.dll||bsnes_accuracy_libretro.dll|bsnes_balanced_libretro.dll|bsnes_cplusplus98_libretro.dll|bsnes_mercury_accuracy_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll|mame_libretro.dll
 Nintendo - Sufami Turbo|snes9x|Mednafen|no$sns|MAME|zsnes|kindred|BizHawk|xe|zmz|snesgt|:snes9x_libretro.dll|snes9x2002_libretro.dll|snes9x2005_libretro.dll|snes9x2010_libretro.dll||bsnes_accuracy_libretro.dll|bsnes_balanced_libretro.dll|bsnes_cplusplus98_libretro.dll|bsnes_mercury_accuracy_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll|mame_libretro.dll
 Nintendo - Switch|yuzu|ryujinx
-Nintendo - Virtual Boy|Mednafen|realityboy|vbjin|retrorach|MAME|:mednafen_vboy_libretro.dll
+Nintendo - Virtual Boy|Mednafen|realityboy|vbjin|retroarch|MAME|:mednafen_vboy_libretro.dll
 Nintendo - WiiU|CEMU
 Nintendo - WiiWare|Dolphin|ishiiruka|:dolphin_libretro.dll
 Nintendo - Wii|Dolphin|ishiiruka|:dolphin_libretro.dll
@@ -360,7 +360,7 @@ Sinclair - ZX81|ZXSpin|eightyone|zesarux|mzxx|MAME|:81_libretro.dll|mame_libretr
 Signetics - Pipbug|winarcadia|MAME|:mame_libretro.dll
 Small Systems Engineering - SSE Softbox|MAME|:mame_libretro.dll
 Sony - Playstation 2|pcsx2|Play|hpsx
-Sony - Playstation 3|rpcs3|nucelus|shortwave
+Sony - Playstation 3|rpcs3|nucleus|shortwave
 Sony - Playstation Portable|PPSSPP|jpcsp|cpspemu|:ppsspp_libretro.dll
 Sony - Playstation Vita|BSL
 Sony - Playstation|epsxe|Mednafen|pcsxr|AdriPSX|Bizhawk|no$psx|psxfin|xebra|hpsx|:mednafen_psx_libretro.dll|pcsx_rearmed_libretro.dll|mednafen_psx_hw_libretro.dll|mame_libretro.dll

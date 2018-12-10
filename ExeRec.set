@@ -1077,6 +1077,8 @@ FileInstall,gam\Magnavox - Odyssey2.gam,gam\Magnavox - Odyssey2.gam,1
 FileInstall,gam\MAME - Arcade.gam,gam\MAME - Arcade.gam,1
 FileInstall,gam\Mattel - Aqarious.gam,gam\Mattel - Aqarious.gam,1
 FileInstall,gam\Mattel - Intellivision.gam,gam\Mattel - Intellivision.gam,1
+FileInstall,gam\megacd.gam,gam\megacd.gam,1
+FileInstall,gam\megacdj.gam,gam\megacdj.gam,1
 FileInstall,gam\Memotech - MTX.gam,gam\Memotech - MTX.gam,1
 FileInstall,gam\Microkey - Primo.gam,gam\Microkey - Primo.gam,1
 FileInstall,gam\Microsoft - DOS.gam,gam\Microsoft - DOS.gam,1
@@ -1228,6 +1230,7 @@ FileInstall,gam\MAME - Systems\cbm2.gam,gam\MAME - Systems\cbm2.gam,1
 FileInstall,gam\MAME - Systems\cbm8096.gam,gam\MAME - Systems\cbm8096.gam,1
 FileInstall,gam\MAME - Systems\cbm8296.gam,gam\MAME - Systems\cbm8296.gam,1
 FileInstall,gam\MAME - Systems\cc40.gam,gam\MAME - Systems\cc40.gam,1
+FileInstall,gam\MAME - Systems\cdtv.gam,gam\MAME - Systems\cdtv.gam,1
 FileInstall,gam\MAME - Systems\cgenie.gam,gam\MAME - Systems\cgenie.gam,1
 FileInstall,gam\MAME - Systems\channelf.gam,gam\MAME - Systems\channelf.gam,1
 FileInstall,gam\MAME - Systems\chessmstdm.gam,gam\MAME - Systems\chessmstdm.gam,1
@@ -1366,6 +1369,7 @@ FileInstall,gam\MAME - Systems\mz800.gam,gam\MAME - Systems\mz800.gam,1
 FileInstall,gam\MAME - Systems\n64.gam,gam\MAME - Systems\n64.gam,1
 FileInstall,gam\MAME - Systems\n64dd.gam,gam\MAME - Systems\n64dd.gam,1
 FileInstall,gam\MAME - Systems\nascom.gam,gam\MAME - Systems\nascom.gam,1
+FileInstall,gam\MAME - Systems\neocd.gam,gam\MAME - Systems\neocd.gam,1
 FileInstall,gam\MAME - Systems\neogeo.gam,gam\MAME - Systems\neogeo.gam,1
 FileInstall,gam\MAME - Systems\nes.gam,gam\MAME - Systems\nes.gam,1
 FileInstall,gam\MAME - Systems\nespal.gam,gam\MAME - Systems\nespal.gam,1
@@ -1394,6 +1398,7 @@ FileInstall,gam\MAME - Systems\pc88va.gam,gam\MAME - Systems\pc88va.gam,1
 FileInstall,gam\MAME - Systems\pc98.gam,gam\MAME - Systems\pc98.gam,1
 FileInstall,gam\MAME - Systems\pc9821xs.gam,gam\MAME - Systems\pc9821xs.gam,1
 FileInstall,gam\MAME - Systems\pce.gam,gam\MAME - Systems\pce.gam,1
+FileInstall,gam\MAME - Systems\pcecd.gam,gam\MAME - Systems\pcecd.gam,1
 FileInstall,gam\MAME - Systems\pcw.gam,gam\MAME - Systems\pcw.gam,1
 FileInstall,gam\MAME - Systems\pcw16.gam,gam\MAME - Systems\pcw16.gam,1
 FileInstall,gam\MAME - Systems\pecom.gam,gam\MAME - Systems\pecom.gam,1
@@ -1422,6 +1427,7 @@ FileInstall,gam\MAME - Systems\prof80.gam,gam\MAME - Systems\prof80.gam,1
 FileInstall,gam\MAME - Systems\psi98.gam,gam\MAME - Systems\psi98.gam,1
 FileInstall,gam\MAME - Systems\psion1.gam,gam\MAME - Systems\psion1.gam,1
 FileInstall,gam\MAME - Systems\psion2.gam,gam\MAME - Systems\psion2.gam,1
+FileInstall,gam\MAME - Systems\psx.gam,gam\MAME - Systems\psx.gam,1
 FileInstall,gam\MAME - Systems\pt68k2.gam,gam\MAME - Systems\pt68k2.gam,1
 FileInstall,gam\MAME - Systems\pv1000.gam,gam\MAME - Systems\pv1000.gam,1
 FileInstall,gam\MAME - Systems\pv2000.gam,gam\MAME - Systems\pv2000.gam,1
@@ -1538,7 +1544,6 @@ FileInstall,gam\MAME - Systems\z88.gam,gam\MAME - Systems\z88.gam,1
 FileInstall,gam\MAME - Systems\zorba.gam,gam\MAME - Systems\zorba.gam,1
 FileInstall,gam\MAME - Systems\zx80.gam,gam\MAME - Systems\zx80.gam,1
 FileInstall,gam\MAME - Systems\zx81.gam,gam\MAME - Systems\zx81.gam,1
-FileInstall,gam\MAME - Systems\_firmware_.gam,gam\MAME - Systems\_firmware_.gam,1
 FileInstall,rj\emucfgs\3doplay\config.xml.set,rj\emucfgs\3doplay\config.xml.set,1
 FileInstall,rj\emucfgs\4DO\Config.xml.set,rj\emucfgs\4DO\Config.xml.set,1
 FileInstall,rj\emucfgs\4DO\FourDO.settings.set,rj\emucfgs\4DO\FourDO.settings.set,1

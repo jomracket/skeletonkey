@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-12-09 3:00 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-12-09 9:38 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-12-09 3:00 PM
-VERSION= 0.99.68.08
+RELEASE= 2018-12-09 9:38 PM
+VERSION= 0.99.68.18
 RASTABLE= 1.7.5
 
 #Include tf.ahk
@@ -1867,7 +1867,7 @@ Gui, Add, Radio, x562 y212 w53 h18 vSRCHFLRAD gSRCHFLRAD Checked, Folder
 Gui, Add, Radio, x623 y212 w53 h18 vSRCHPLRAD gSRCHPLRAD, Playlist
 Gui, Add, CheckBox, x495 y212 w60 h16 vSRCHRCRSCHK gSRCHRCRSCHK Checked, Recurse
 Gui, Add, Edit, x491 y254 w218 h21 vSRCHROMEDT gSRCHROMEDT,
-Gui, Add, Button, x709 y253 w43 h23 vSRCHROMBUT gSRCHROMBUT, Search
+Gui, Add, Button, x709 y253 w43 h23 vSRCHROMBUT gSRCHROMBUT,Search
 Gui, Add, DropDownList, x491 y231 w260 vSRCHLOCDDL gSRCHLOCDDL, :=:System List:=:||%systmfldrs%
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;~~~DROP LOCATION~~~;;;;;;
@@ -5480,50 +5480,6 @@ Menu,AQRUN,DeleteAll
 RCLCNCH= 
 return
 
-/*
-Loop, Parse, SysLLst,`n`r
-	{
-		stringsplit,aie,A_loopField,=,`n`r
-		if (aie1 = ARCSYS)
-			{
-				Menu, AQRUN, Add
-				emuta:= % %aie2%SCL
-				Loop, Parse, emuta,|
-					{
-						if (A_Index = 1)
-							{
-								eivn= %A_LoopField%
-							}
-						Menu, AQRUN, Add, %A_LoopField%, ArcRCL
-					}
-				if (raexefile <> "NOT-FOUND.exe")
-					{
-						Menu, AQRUN, Add, %curiasn%, ArcRCL
-					}
-				iniread,aijsp,Assignments.ini,OVERRIDES,%aie1%
-				Loop, Parse, aijsp,|
-					{
-						if (A_LoopField = eivn)
-							{
-								continue
-							}
-						ifnotinstring,emuta,|%A_LoopField%|
-							{
-								if A_LoopField is not digit
-									{
-										Menu, AQRUN, Add, %A_LoopField%, ArcRCL
-									}
-							}
-					}
-				mousegetpos,Ngx,Ngy
-				Menu,AQRUN, Show, %Ngx% %Ngy%
-				Menu,AQRUN,DeleteAll
-				break
-			}
-	}
-return
-*/
-
 RCLLNCH:
 RCLLNCH= 1
 
@@ -5671,58 +5627,6 @@ Menu,SQRUN, Show, %Ngx% %Ngy%
 Menu,SQRUN,DeleteAll
 RCLCNCH= 
 return
-
-	
-/*	
-Loop, Parse, SysLLst,`n`r
-	{
-		stringsplit,aie,A_loopField,=,`n`r
-		if (aie1 = RUNSYSDDL)
-			{
-				Menu, SQRUN, Add
-				emuta:= % %aie2%SCL
-				Loop, Parse, emuta,|
-					{
-						if (A_Index = 1)
-							{
-								eivn= %A_LoopField%
-							}
-						Menu, SQRUN, Add, %A_LoopField%, RunRCL
-					}
-				if (raexefile <> "NOT-FOUND.exe")
-					{
-						Menu, SQRUN, Add, %curiasn%, RunRCL
-					}
-				iniread,aijsp,Assignments.ini,OVERRIDES,%aie1%
-				Loop, Parse, aijsp,|
-					{
-						if (A_LoopField = eivn)
-							{
-								continue
-							}
-						if (A_LoopField <= 1)
-							{
-								continue
-							}
-						ifnotinstring,emuta,|%A_LoopField%|
-							{
-								Menu, SQRUN, Add, %A_LoopField%, RunRCL
-							}
-					}
-				mousegetpos,Ngx,Ngy
-				if (RCLCNCH = 1)
-					{
-						Ngx:= 747
-						Ngy:= 5
-					}
-				Menu,SQRUN, Show, %Ngx% %Ngy%
-				Menu,SQRUN,DeleteAll
-				RCLCNCH= 
-				break
-			}
-	}
-return
-*/
 
 
 DelCfg_Add:
@@ -22539,7 +22443,10 @@ ifnotexist, %save%
 RomDowned:
 if (chkxt = "chd")
 	{
-		gosub, ChdXtr
+		ifnotinstring,coreselv,mame
+			{
+				gosub, ChdXtr
+			}
 	}
 if (chkxt = "rar")
 	{

@@ -1400,6 +1400,11 @@ RJZIPPEEK=0
 
 [SNK - Neo Geo CD]
 RJEMUPRESET=NeoRaine
+RJMAMENM=neocd
+MAME?RJEMUOPTS=<neocd -cdrm<
+RJROMXT=.zip,.chd,.cue,.iso,.bin
+RJMULTIDISC=1
+RJZIPPEEK=0
 
 [SNK - Neo Geo MVS]
 RJEMUPRESET=FinalBurnAlpha
