@@ -1779,6 +1779,7 @@ FileInstall,rj\emucfgs\map1010\map1010.ini.set,rj\emucfgs\map1010\map1010.ini.se
 FileInstall,rj\emucfgs\mastersystem\mastersystem.ini.set,rj\emucfgs\mastersystem\mastersystem.ini.set,1
 FileInstall,rj\emucfgs\MBS-1\mbs1.ini.set,rj\emucfgs\MBS-1\mbs1.ini.set,1
 FileInstall,rj\emucfgs\mednafen\defaults.ini.get,rj\emucfgs\mednafen\defaults.ini.get,1
+FileInstall,rj\emucfgs\mednafen\mednafen.cfg.set,rj\emucfgs\mednafen\mednafen.cfg.set,1
 FileInstall,rj\emucfgs\mednafen\mednafenjoy.get,rj\emucfgs\mednafen\mednafenjoy.get,1
 FileInstall,rj\emucfgs\mednafen\mednafenkb.get,rj\emucfgs\mednafen\mednafenkb.get,1
 FileInstall,rj\emucfgs\mednafen\xinput.default.get,rj\emucfgs\mednafen\xinput.default.get,1
