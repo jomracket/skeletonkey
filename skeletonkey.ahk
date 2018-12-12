@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-12-11 7:03 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-12-11 7:15 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-12-11 7:03 PM
-VERSION= 0.99.68.48
+RELEASE= 2018-12-11 7:15 PM
+VERSION= 0.99.68.50
 RASTABLE= 1.7.5
 
 #Include tf.ahk
@@ -28247,6 +28247,18 @@ mamecfg= mame.ini
 IniRead, RJMAMENM, emuCfgPresets.set,%EXTRSYS%,RJMAMENM
 iniread,mamexf,AppParams.ini,%LCORE%,per_game_configurations
 
+if (SK_MODE = "")
+	{
+		guicontrolget,ROMSYS,,RJSYSDD
+		ifnotexist,rj\syscfgs\%ROMSYS%\
+			{
+				filecreateDir,rj\syscfgs\%ROMSYS%
+			}
+		mamecfgloc= rj\syscfgs\%ROMSYS%\mame.ini
+		fileread,mameopts,%mamecfgloc%
+		mameopts= %mameoldopts%
+		curjf= %ROMSYS%
+	}
 if (mamexf = 0)
 	{
 		iniread,mamexpth,Assignments.ini,ASSIGNMENTS,%LCORE%
@@ -28254,20 +28266,22 @@ if (mamexf = 0)
 		MAMECFGLOC= %mamexloc%\%mamecfg%
 		indvcp= %MAMECFGLOC%
 	}
-else{
-		mamecfgloc= cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%\%mamecfg%
-		ifexist, %mamecfgloc%
-			{
-				mamecfgloc= cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%\%mamecfg%
-				fileread,mameopts,%mamecfgloc%
-			}
-			else 
+	else
+		{
+			mamecfgloc= cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%\%mamecfg%
+			ifexist, %mamecfgloc%
 				{
-					fileread,mameopts,rj\emuCfgs\mame\mame.ini.set
-					filecopy,rj\emuCfgs\mame\mame.ini.set,%mamecfgloc%
-					mameoldopts= %mameopts%
+					mamecfgloc= cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%\%mamecfg%
+					fileread,mameopts,%mamecfgloc%
 				}
-	}
+				else 
+					{
+						fileread,mameopts,rj\emuCfgs\mame\mame.ini.set
+						filecreatedir,cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%
+						filecopy,rj\emuCfgs\mame\mame.ini.set,%mamecfgloc%
+						mameoldopts= %mameopts%
+					}
+		}
 
 	
 if (ROMSYS = "")
@@ -28312,18 +28326,6 @@ if (ROMSYS = "")
 		
 	}
 
-if (SK_MODE = "")
-	{
-		guicontrolget,ROMSYS,,RJSYSDD
-		ifnotexist,rj\syscfgs\%ROMSYS%\
-			{
-				filecreateDir,rj\syscfgs\%ROMSYS%
-			}
-		mamecfgloc= rj\syscfgs\%ROMSYS%\mame.ini
-		fileread,mameopts,%mamecfgloc%
-		mameopts= %mameoldopts%
-		curjf= %ROMSYS%
-	}
 if (core_gui = "mame")
 	{
 		goto, LOADMAMEOPTS

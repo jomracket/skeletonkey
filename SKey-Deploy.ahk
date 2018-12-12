@@ -1693,7 +1693,7 @@ return
 GetGPAC:
 GITPATT= 
 envGet, GITPATT, GITHUB_TOKEN
-InputBox, GITPATT , Git-PAC, Input your git token, , 160, 140, , , ,,%GITPATT%
+InputBox, GITPATT , Git-PAC, Input your git token, , 230, 140, , , ,,%GITPATT%
 if (GITPAT <> "")
 	{
 		if (GITPATT = "")
