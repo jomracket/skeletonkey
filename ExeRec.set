@@ -1772,9 +1772,13 @@ FileInstall,rj\emucfgs\m5\m5.ini.set,rj\emucfgs\m5\m5.ini.set,1
 FileInstall,rj\emucfgs\m88x\M88x.ini.set,rj\emucfgs\m88x\M88x.ini.set,1
 FileInstall,rj\emucfgs\Makaron\JVS.ini.set,rj\emucfgs\Makaron\JVS.ini.set,1
 FileInstall,rj\emucfgs\Makaron\NAOMI.ini.set,rj\emucfgs\Makaron\NAOMI.ini.set,1
+FileInstall,rj\emucfgs\MAME\arpeture-grille.get,rj\emucfgs\MAME\arpeture-grille.get,1
 FileInstall,rj\emucfgs\MAME\default.cfg.set,rj\emucfgs\MAME\default.cfg.set,1
 FileInstall,rj\emucfgs\MAME\input.cfg.set,rj\emucfgs\MAME\input.cfg.set,1
-FileInstall,rj\emucfgs\MAME\mame.ini.ret,rj\emucfgs\MAME\mame.ini.ret,1
+FileInstall,rj\emucfgs\MAME\mame.ini.get,rj\emucfgs\MAME\mame.ini.get,1
+FileInstall,rj\emucfgs\MAME\mame.ini.set,rj\emucfgs\MAME\mame.ini.set,1
+FileInstall,rj\emucfgs\MAME\shadow-mask.get,rj\emucfgs\MAME\shadow-mask.get,1
+FileInstall,rj\emucfgs\MAME\slot-mask.get,rj\emucfgs\MAME\slot-mask.get,1
 FileInstall,rj\emucfgs\map1010\map1010.ini.set,rj\emucfgs\map1010\map1010.ini.set,1
 FileInstall,rj\emucfgs\mastersystem\mastersystem.ini.set,rj\emucfgs\mastersystem\mastersystem.ini.set,1
 FileInstall,rj\emucfgs\MBS-1\mbs1.ini.set,rj\emucfgs\MBS-1\mbs1.ini.set,1

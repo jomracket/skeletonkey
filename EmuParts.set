@@ -14,7 +14,7 @@ AdviEmulator=AdviEmulator/AdviEmulator.7z=AdviEmulator.exe=AdviEmulator.ini=
 4DO=4DO/4DO.7z=4DO.exe=Settings\FourDO.settings|Settings\JohnnyInputBindings.xml
 ActiveGS=ActiveGS/ActiveGS.7z=ActiveGS.exe=defaut.activegsxml=
 Altirra=Altirra/Altirra.7z=Altirra[ARCH].exe=Altirra.ini=|=*.altstate
-AdriPSX=AdriPSX/AdriPSX.7z=AdriRUN.exe=AdriPSX.ini=mems\*.mem=
+AdriPSX=AdriPSX/AdriPSX.7z=AdriRUN.exe=AdriPSX.ini= =mems\*.mem=
 Anex86=Anex86/Anex86.7z=Anex86.exe=Anex86.cmd
 AppleWin=AppleWin/AppleWin.7z=AppleWin.exe=DELREG.inf|AppleWin.cmd
 Arculator=Arculator/Arculator.7z=Arculator.exe=
@@ -37,14 +37,14 @@ ultimo=ultimo/ultimo.7z=Ultimox[ARCH].exe=
 oswan=oswan/oswan.7z=oswan.exe=oswan.ini=sram\*.*=sav\*.*=
 ASCD=ASCD/ASCD.7z=Ascd.exe=ascd.ini
 Bliss=Bliss/bliss.7z=Bliss32.exe=
-BlueMSX=BlueMSX/BlueMSX.7z=BlueMSX.exe=bluemsx.ini=SRAM\*.sram=QuickSave\*.*
+BlueMSX=BlueMSX/BlueMSX.7z=BlueMSX.exe=bluemsx.ini=QuickSave\*.*=SRAM\*.sram
 CD-I=CD-I/CD-I.7z=CD-I.exe=cdiroms.ini
 CEMU=CEMU/CEMU.7z=Cemu.exe=Settings.xml
-Citra=Citra/Citra.7z=citra-qt.exe=user\config\qt-config.ini=user\config\user\sdmc\Nintendo 3DS\*.*
+Citra=Citra/Citra.7z=citra-qt.exe=user\config\qt-config.ini= =user\config\user\sdmc\Nintendo 3DS\*.*
 Colem=Colem/Colem.7z=VColeco.exe=ini
 Cxbx=Cxbx/Cxbx.7z=CxBx.exe=
-DOSBox=DOSBox/DOSBox.7z=DOSBox.exe=dosbox.conf=SAVE\*.*
-Demul=Demul/Demul.7z=Demul.exe=gdrImage.ini|gpuDX11.ini|padDemul.ini|Demul.ini|gdrCHD.ini|netDemul.ini=memsaves\vms00.bin|memsaves\vms10.bin|nvram\*.*=sstaes\*.*
+DOSBox=DOSBox/DOSBox.7z=DOSBox.exe=dosbox.conf= =SAVE\*.*
+Demul=Demul/Demul.7z=Demul.exe=gdrImage.ini|gpuDX11.ini|padDemul.ini|Demul.ini|gdrCHD.ini|netDemul.ini=sstaes\*.*=memsaves\vms00.bin|memsaves\vms10.bin|nvram\*.*
 DesMume=DesMume/DesMume-[ARCH].7z=DesMume-x[ARCH].exe=desmume.ini=*.dsv=*.ds1
 Dolphin=Dolphin/Dolphin-[ARCH].7z=Dolphin.exe=User\Config\Dolphin.ini|User\Config\GFX.ini|User\Config\Hotkeys.ini|User\Config\GCPadNew.ini|User\Config\WiimoteNew.ini=User\GC\*.raw=|=User\SaveStates\*.s*
 DosPlus=DosPlus/DosPlus.7z=vDosPlus.exe=
@@ -59,38 +59,38 @@ FishNChips=FishNChips/FishNChips.7z=Fish 'N' Chips.exe=
 FlashPlayer=FlashPlayer/FlashPlayer.7z=FlashPlayer.exe=
 Fusion=Fusion/Fusion.7z=Fusion.exe=Fusion.ini=*.srm=*.SGX
 funnymu=funnymu/funnymu.7z=funnymu.exe=
-Ishiiruka=Ishiiruka/Ishiiruka.7z=Dolphin.exe=User\Config\Dolphin.ini|User\Config\GFX.ini|User\Config\Hotkeys.ini|User\Config\GCPadNew.ini|User\Config\WiimoteNew.ini=User\GC\MemoryCard*.raw=User\GC\SRAM.raw=User\SaveStates\*.s*
+Ishiiruka=Ishiiruka/Ishiiruka.7z=Dolphin.exe=User\Config\Dolphin.ini|User\Config\GFX.ini|User\Config\Hotkeys.ini|User\Config\GCPadNew.ini|User\Config\WiimoteNew.ini=User\SaveStates\*.s*=User\GC\MemoryCard*.raw=User\GC\SRAM.raw
 Kegs32=Kegs32/Kegs32.7z=Kegs32.exe=config.kegs
-Mame=Mame/mame-[ARCH].7z=Mame[ARCH].exe=*.ini|cfg\[ROMNAME]*.cfg
+Mame=Mame/mame-[ARCH].7z=mame.exe=*.ini|cfg\[ROMNAME]*.cfg
 Mednafen=Mednafen/Mednafen-[ARCH].7z=Mednafen.exe=mednafen.cfg=sav\*.bkr=sav\*.smpc
 medusa=medusa/medusa.7z=medusa.exe=portable.ini|config.ini
 Mesen=Mesen/Mesen.7z=Mesen.exe=settings.xml
 Mess=Mess/Mess-[ARCH].7z=Mess.exe=mess.ini|cfg\[ROMNAME]*.cfg
 minimon=minimon/minimon.7z=Minimon.exe=minimon.cfg
 Neko=Neko/Neko.7z=np21.exe=np21nt.ini=|=*.S00
-NeoRaine=NeoRaine/NeoRaine.7z=NeoRaine32.exe=raine32_sdl.cfg=savedata\*.bin=savegame\*.*
+NeoRaine=NeoRaine/NeoRaine.7z=NeoRaine32.exe=raine32_sdl.cfg=savegame\*.*=savedata\*.bin
 No$GBA=No$GBA/No$GBA.7z=No$GBA.exe=No$GBA.ini|NoZoomer.ini
 Nostalgia=Nostalgia/Nostalgia.7z=Nostalgia.exe=ini
-NullDC=NullDC/NullDC.7z=nullDC_Win32_Release.exe=NullDC.cfg=*.bin
+NullDC=NullDC/NullDC.7z=nullDC_Win32_Release.exe=NullDC.cfg=|=*.bin
 Ootake=Ootake/Ootake.7z=Ootake.exe=Ootake.dat
-openbeatsofrage=openbeatsofrage/openbeatsofrage.7z=OpenBOR.exe=saves\*.cfg=
+openbeatsofrage=openbeatsofrage/openbeatsofrage.7z=OpenBOR.exe= =saves\*.cfg
 PC6001VW=PC6001VW/PC6001VW.7z=p6snap.exe=
 PC6001VX=PC6001VX/PC6001VX.7z=PC6001VX.exe=
-PPSSPP=PPSSPP/PPSSPP-[ARCH].7z=PPSSPPWindows[ARCH].exe=memstick\PSP\SYSTEM\ppsspp.ini|memstick\PSP\SYSTEM\controls.ini=memstick\PSP\SAVEDATA\*=memstick\PSP\PPSSPP_STATE\*
+PPSSPP=PPSSPP/PPSSPP-[ARCH].7z=PPSSPPWindows[ARCH].exe=memstick\PSP\SYSTEM\ppsspp.ini|memstick\PSP\SYSTEM\controls.ini=memstick\PSP\PPSSPP_STATE\*=memstick\PSP\SAVEDATA\*
 ParaJVE=ParaJVE/ParaJVE.7z=ParaJVE.exe=data\configuration.xml=|=data\saves\*.jvesav
-Pcsx2=Pcsx2/Pcsx2.7z=Pcsx2.exe=inis\PCSX2_ui.ini|inis\GSdx.ini|inis\LilyPad.ini|inis\PCSX2_vm.ini|inis\padPokopom.ini|inis\SPU2-X.ini|shaders\GSdx_FX_Settings.ini|inis\Dev9null.ini|inis\FWnull.ini|inis\USBnull.ini=memcards\Mcd001.ps2|memcards\Mcd002.ps2=sstates\*.p2s
+Pcsx2=Pcsx2/Pcsx2.7z=Pcsx2.exe=inis\PCSX2_ui.ini|inis\GSdx.ini|inis\LilyPad.ini|inis\PCSX2_vm.ini|inis\padPokopom.ini|inis\SPU2-X.ini|shaders\GSdx_FX_Settings.ini|inis\Dev9null.ini|inis\FWnull.ini|inis\USBnull.ini=sstates\*.p2s=memcards\Mcd001.ps2|memcards\Mcd002.ps2
 PicoDrive=PicoDrive/PicoDrive.7z=PicoDrive.exe=pico.ini
 ProSystem=ProSystem/ProSystem.7z=ProSystem.exe=ProSystem.ini
-Project64=Project64/Project64-32.7z=Project64.exe=Plugin\GFX\Rice.cfg|Plugin\GFX\Rice.ini|Plugin\1.6 Plugins\Glide64.ini|Plugin\1.6 Plugins\MyGlide64.ini|Plugin\1.6 Plugins\NRage.ini|Plugin\1.6 Plugins\tr64_ogl.ini|Config\Project64.cfg=Save\*.eep|Save\Mempak1.mpk|vMempak2.mpk=Save\*.pj
+Project64=Project64/Project64-32.7z=Project64.exe=Plugin\GFX\Rice.cfg|Plugin\GFX\Rice.ini|Plugin\1.6 Plugins\Glide64.ini|Plugin\1.6 Plugins\MyGlide64.ini|Plugin\1.6 Plugins\NRage.ini|Plugin\1.6 Plugins\tr64_ogl.ini|Config\Project64.cfg=Save\*.pj=Save\*.eep|Save\Mempak1.mpk|vMempak2.mpk
 ProjectTempest=ProjectTempest/ProjectTempest.7z=PT.exe=
-reicast=reicast/reicast[ARCH].7z=reicast.exe=emu.cfg=vmu_save_*.bin
+reicast=reicast/reicast[ARCH].7z=reicast.exe=emu.cfg=|=vmu_save_*.bin
 SL9821=SL9821/SL9821.7z=SL9821.exe=
-SNESGT=SNESGT/SNESGT.7z=SNESGT.exe=SNESGT.ini=save\*.sram=save\*.sv*
-SSF=SSF/SSF.7z=SSF.exe=Setting.ini|SSF.ini=InternalBackupRam.bin=SaveStates\*.bin
+SNESGT=SNESGT/SNESGT.7z=SNESGT.exe=SNESGT.ini=save\*.sv*=save\*.sram
+SSF=SSF/SSF.7z=SSF.exe=Setting.ini|SSF.ini=SaveStates\*.bin=InternalBackupRam.bin
 SimCoupe=SimCoupe/SimCoupe.7z=SimCoupe.exe=SimCoupe.cfg
-Stella=Stella/Stella-[ARCH].7z=Stella.exe=stella.ini=|=*.st0
-Supermodel=Supermodel/Supermodel-[ARCH].7z=Supermodel.exe=Config\Supermodel.ini=|=Saves\*.*=NVRAM
-Unz=Unz/Unz.7z=Unz.exe=Unz.ini=|=*.unz
+Stella=Stella/Stella-[ARCH].7z=Stella.exe=stella.ini=*.st0=
+Supermodel=Supermodel/Supermodel-[ARCH].7z=Supermodel.exe=Config\Supermodel.ini=Saves\*.*=NVRAM
+Unz=Unz/Unz.7z=Unz.exe=Unz.ini=*.unz
 SWFOpener=swfopener/SWFOpener.7z=SWFOpener.exe=
 VirtuaNes=VirtuaNes/VirtuaNes.7z=VirtuaNes.exe=virtualnes.ini
 VisualBoyAdvance=VisualBoyAdvance/VisualBoyAdvance.7z=VisualBoyAdvance.exe=visualboyadvance.cfg|*.ini=*.sav=*.sgm
@@ -236,7 +236,7 @@ hyper64=hyper64/hyper64.7z=Hyper64.exe=
 ideas=ideas/ideas.7z=ideas.exe=
 intv=intv/intv.7z=intv.exe=
 xm8=xm8/xm8-[ARCH].7z=xm8.exe=*.ini=\
-turboengine=turboengine/turboengine.7z=TurboEngine.exe=TurboEngine.ini=BRAM\*=Saves\*=
+turboengine=turboengine/turboengine.7z=TurboEngine.exe=TurboEngine.ini=BRAM\*=Saves\*
 jagulator=jagulator/jagulator.7z=jagulator.exe=
 javacpc=javacpc/javacpc.7z=JavaCPC.exe=
 jpcsp=jpcsp/jpcsp-[ARCH].7z=start-windows-amd64.bat=settings.properties=
@@ -274,7 +274,7 @@ mz800=mz800/mz800.7z=mz800.exe=mz800.ini=
 nebula=nebula/nebula.7z=nebula.exe=nebula.ini=
 neocd=neocd/neocd.7z=neocd.exe=
 neopop=neopop/neopop.7z=NeoPop-Win32.exe=
-nestopia=nestopia/nestopia.7z=nestopia.exe=nestopia.xml=save\*.sav=states\*.nst
+nestopia=nestopia/nestopia.7z=nestopia.exe=nestopia.xml=states\*.nst=save\*.sav
 next=next/next.7z=next.exe=
 no$2k6=no$2k6/no$2k6.7z=NO$2K6.EXE=
 no$c64=no$c64/no$c64.7z=NO$C64.EXE=

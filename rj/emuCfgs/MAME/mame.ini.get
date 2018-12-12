@@ -202,6 +202,13 @@ prescale                  1
 waitvsync                 0
 syncrefresh               0
 menu                      0
+unevenstretch 1
+unevenstretchx 0
+unevenstretchy 0
+autostretchxy 0
+intoverscan 0
+intscalex 0
+intscaley 0
 
 #
 # DIRECTDRAW-SPECIFIC OPTIONS
