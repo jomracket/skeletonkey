@@ -369,11 +369,16 @@ splitpath, lastcore, coreselv,,,
 IniRead, romf, Settings.ini,GLOBAL,last_rom
 IniRead,ArcSite,Settings.ini,GLOBAL,RemoteRepository
 FileReadline,cloudloc,arcorg.set,1
-iniread,gblfilter,Settings.ini,GLOBAL,global_filter
-if (gblfilter = "ERROR")
+iniread,FILT_UNSUP,Settings.ini,GLOBAL,global_filter
+if (FILT_UNSUP = "ERROR")
 	{
-		gblfilter= 0
+		FILT_UNSUP= 0
 	}
+filtmrk= checked
+if (FILT_UNSUP = 0)
+		{
+			filtmrk= 
+		}
 if (ArcSite = "")
 	{
 		ArcSite:= cloudloc
@@ -685,6 +690,7 @@ StringReplace, omitxtv, omitxt, |,`,,All
 omitxj:= omitxtv
 
 medswaps= medswapB|medswapA|medswapX|medswapY|medswapStart|medswapSelect|medswapDown|medswapUp|medswapLeft|medswapRight|medswapL|medswapR|medswapL2|medswapR2|medswapR3|medswapL3|medswapLXMinus|medswapRXMinus|medswapRXPlus|medswapLXPlus|medswapLYPlus|medswapLYMinus|medswapRYPlus|medswapRYMinus|medswapHome|medSwapATXT|medSwapBTXT|medSwapCTXT|medSwapDTXT|medSwapETXT|medSwapFTXT|medSwapGTXT|medSwapHTXT|medSwapITXT|medSwapJTXT|medSwapLTXT|medSwapMTXT|medSwapCGRP|medSwapDGRP|medSwapEGRP
+mameswaps:= medswaps
 
 metaimages= 3DBoxart|Marquee|4Mix|3Mix|Label|Cart|Backdrop|BoxArt|Logo|Video|Metadata|Snapshot
 
@@ -712,6 +718,7 @@ INPKND= KB|J|AXIS
 PLAYERSET=1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16
 
 mednfsc= gb|gg|gba|lynx|md|nes|ngp|pce|pce_fast|pcfx|psx|sms|snes|snes_faust|ss|vb|wswan
+mamefsc= 32x|32xe|32xj|a1000n|a1200n|a2000n|a2600|a2600p|a3000|a3000n|a310|a500n|a5200|a7800|a800|a800pal|abc1600|abc80|adam|advantage|advision|aim65|aleste|alice32|alice90|alphatro|altos5|amiga|ampro|apc|apfimag|apfm1000|apogee|apollo|apple1|apple2|apple2gs|apple3|apricot|aquarius|arcadia|archimedes|astrocde|atom|attache|b2m|bbca|bbcb|bbcbc|bbcm|bbcmc|bk0010|bw12|bw14|bw2|bx256hp|c128|c64|c65|canonv30f|canonv8|casloopy|cbm2|cbm8096|cbm8296|cc40|cdtv|cgenie|channelf|chessmstdm|coco|coleco|colecop|compclr2|compis|comx35|copera|cpc|cpc6128p|crvision|cx3000tc|dai|database|dgnalpha|dgnbeta|dim68k|dmv|dps1|dragon|e01|ec1841|einstein|electron|ep64|epson|exl100|famicom|fidel|fm7|fm77av|fmtowns|fsa1st|g7400|galaxy|gamate|gameboy|gamecom|gamegear|gamegearj|gameking|gameking3|gamepock|gba|gbcolor|genesis|genius|genius6|gimix|gjmovie|gl2000|gl6000sl|glcolor|gmaster|gp32|guab|gx4000|h21|hbf9sp|horizon|hp|hp85|hp9835a|hp9845a|hp9845b|ht68k|hx20|i7000|ibm5140|ibm5150|ibm5170|ibm6580|ibmpcjr|interact|intv|intvecs|iq151|jaguar|juicebox|jupace|k28m2|kayproii|kc|kim1|konami|korvet|lantutor|laser2001|leapster|lisa|lisa2|lviv|lynx|m20|m5|mac|MAME-BIOS|mbc200|mbc55x|mc10|mc1502|md2|megadriv|megaduck|megapc|megatech|microvision|mikro80|mikrosha|misterx|mm1|mo5|mo6|mpu1000|mpz80|msx1|msx2|msx2p|msxr|mtx|mtx512|myvision|mz2000|mz2500|mz700|mz800|n64|n64dd|nascom|neocd|neogeo|nes|nespal|next|ngp|ngpc|nimbus|octopus|odyssey2|ondra|orao|orionide|orionpro|osborne1|osborne2|p500|partner|pasogo|pb2000c|pc1000|pc1512|pc1640|pc8201|pc8801|pc88va|pc98|pc9821xs|pce|pcecd|pcw|pcw16|pecom|pecom32|pegasus|pencil2|pentagon|pet64|phc25|picno|pico|picou|pippin|plus4|pmd853|pockchalv2|pockchalw|pofo|poisk1|pokemini|princ|pro128|pro128s|prof180|prof80|psi98|psion1|psion2|psx|pt68k2|pv1000|pv2000|px4|px8|pyl601|ql|qx10|r9751|radio86|rainbow|rwtrntcs|rx78|sage2|samcoupe|sat|saturnu|sawatte|sc3000|scv|sf7000|sg1000|sgx|sitcom|smc777|smondial2|sms|smsj|smspal|snes|snespal|snotec|snread|snspell|socrates|softbox|sol20|sorcerer|spc1000|spc1500|spec128|special|specpls3|spectrum|st|studio2|stv|super6|super80|superpet|supracan|sv8000|svi318|svision|svmu|t1000|tandy200|tandy2k|tandy6k|tdv2324|tek4052|tg16|ti74|ti95|ti99|tiki100|timex|tntell|to7|to770|to770a|to8|trs80m2|trsm100|tutor|tvc|unichamp|ut88|uzebox|v1050|vboy|vc4000|vector06|vectrex|vg5k|vic10|vic1001|victor9k|vidbrain|vii|vip|visicom|vixen|vsmile|vsmileb|vsmilef|vsmileg|vz|wangpc|waveterm|wicat|wmbullet|wscolor|wswan|x07|x1|x68k|x68ksupr|x820ii|xegs|xerox820|z80ne|z88|zorba|zx80|zx81
 
 JOYSET=0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|h0up|h0down|h0left|h0right|\-1|+1|\-0|+0|\-2|+2|\-3|+3|+4|+5|nul
 
@@ -728,6 +735,7 @@ hkiterate= input_Audio_Mute|input_Cheat_Index_Minus|input_Cheat_Index_Plus|input
 KBSET=a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|1|2|3|4|5|6|7|8|9|0|minus|add|f1|f2|f3|f4|f5|f6|f7|f8|f9|f10|f11|f12|up|down|left|right|pageup|pagedown|home|end|tilde|semicolon|quote|comma|period|slash|backslash|leftbracket|rightbracket|rshift|lshift|numlock|kp_period|keypad1|keypad2|keypad3|keypad4|keypad5|keypad6|keypad7|keypad8|keypad9|keypad0|subtract|equals|multiply|alt|ctrl|tab|capslock|escape|nul
 
 mednafsc= advance_frame|exit|fast_forward|insert_coin|insert_eject_disk|load_movie|load_state|power|reset|rotate_screen|run_normal|save_movie|save_state|select_disk|slow_forward|state_rewind|state_slot_dec|state_slot_inc|take_scaled_snapshot|take_snapshot|toggle_fps_view|toggle_fs|toggle_grab|toggle_state_rewind|togglecheatactive|togglecheatview|togglenetview
+mamescs:= mednafsc
 
 supgui= mednafen|mame|flashplayer|retroarch
 
@@ -1602,7 +1610,7 @@ Gui, Add, Button, x74 y136 w43 h23 vSETEMUD gSETEMUD, SET
 Gui, Add, Button, x74 y53 w43 h23 vSETJKD gSETJKD, SET
 Gui, Add, Text, x8 y81 vSKSYSTXT, Systems ROOT
 Gui, Add, Text, x8 y163 vSKEMUDTXT, Emulators Dir
-Gui, Add, CheckBox, x174 y105 vFILT_UNSUP gFILT_UNSUP %gblfilter%, Filter Unsupported
+Gui, Add, CheckBox, x174 y105 vFILT_UNSUP gFILT_UNSUP %filtmrk%, Filter Unsupported
 Gui,Font,Normal
 Gui, Add, Button, x579 y450 w55 h18 vUpdateSK gUpdateSK, UPDATE
 
@@ -25330,6 +25338,142 @@ guicontrol,%emutog%,emuTXTL
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+
+;{;;;;;;;;;;;;;;   RETROARCH JOYOPT TOGGLE  ;;;;;;;;
+
+RAJOYTOG:
+guicontrol,%rajoytog%,JOYPIC
+guicontrol,%rajoytog%,JOYDRVGRP
+guicontrol,%rajoytog%,JHIDDRV
+guicontrol,%rajoytog%,JDINDRV
+guicontrol,%rajoytog%,JXINDRV
+guicontrol,%rajoytog%,JSDLDRV
+guicontrol,%rajoytog%,INPDRVGRP
+guicontrol,%rajoytog%,IDDINP
+guicontrol,%rajoytog%,IDSDLINP
+guicontrol,%rajoytog%,IDRAW
+guicontrol,%rajoytog%,LASTKGRP
+guicontrol,%rajoytog%,RASTKGRP
+guicontrol,%rajoytog%,DPADGRP
+
+guicontrol,%rajoytog%,CIREMAPGRP
+guicontrol,%rajoytog%,BBUTTXT
+guicontrol,%rajoytog%,YBUTTXT
+guicontrol,%rajoytog%,XBUTTXT
+guicontrol,%rajoytog%,ABUTTXT
+guicontrol,%rajoytog%,L3BUTTXT
+guicontrol,%rajoytog%,R3BUTTXT
+guicontrol,%rajoytog%,LTRIGTXT
+guicontrol,%rajoytog%,RTRIGTXT
+guicontrol,%rajoytog%,LBUTTXT
+guicontrol,%rajoytog%,RBUTTXT
+guicontrol,%rajoytog%,HBTNTXT
+guicontrol,%rajoytog%,SELECTBUTTXT
+guicontrol,%rajoytog%,STARTBUTTXT
+guicontrol,%rajoytog%,CFGPLGRP
+guicontrol,%rajoytog%,INDWRN
+guicontrol,move,INDWRN,x463 y6 w170 h90
+guicontrol,,INDWRN,
+guicontrol,%rajoytog%,CLRPLYR
+guicontrol,%rajoytog%,RSTPLYR
+guicontrol,%rajoytog%,DEFPLCTRLGRP
+guicontrol,%rajoytog%,HOTKGRP
+guicontrol,%rajoytog%,JSW
+guicontrol,%rajoytog%,KSW
+guicontrol,%rajoytog%,HKEYCB
+guicontrol,%rajoytog%,HKEYDD
+guicontrol,%rajoytog%,JYPLTXT
+guicontrol,%rajoytog%,PLAYERN
+guicontrol,%rajoytog%,MENBUTCMBTXT
+guicontrol,%rajoytog%,DSPLGC
+guicontrol,%rajoytog%,MGPC
+guicontrol,%rajoytog%,MXUSRTXT
+guicontrol,%rajoytog%,MXUSR
+guicontrol,%rajoytog%,SWAPOKC
+guicontrol,%rajoytog%,ADJS
+guicontrol,%rajoytog%,REMPB
+guicontrol,%rajoytog%,RMPLOAD
+guicontrol,%rajoytog%,KBGP
+guicontrol,%rajoytog%,AUM
+guicontrol,%rajoytog%,JPINDX
+guicontrol,%rajoytog%,MOUSEIND
+guicontrol,%rajoytog%,JOYIND
+guicontrol,%rajoytog%,MINXTXT
+guicontrol,%rajoytog%,ANLDZGRP
+guicontrol,%rajoytog%,ANLDZTXT
+guicontrol,%rajoytog%,DEDZTXT
+guicontrol,%rajoytog%,DEDZ
+guicontrol,%rajoytog%,UNIFMENU
+guicontrol,%rajoytog%,POLLING
+guicontrol,%rajoytog%,POLTXT
+guicontrol,%rajoytog%,JBLNKGRP
+guicontrol,%rajoytog%,TRBPRD
+guicontrol,%rajoytog%,TURBOP
+guicontrol,%rajoytog%,TURBUD
+guicontrol,%rajoytog%,DUTCTXT
+guicontrol,%rajoytog%,DUTYCYCLE
+guicontrol,%rajoytog%,DUTYUD
+guicontrol,%rajoytog%,ANLDP
+guicontrol,%rajoytog%,TRBTXT
+
+guicontrol,%rajoytog%,TURBOIN
+guicontrol,%rajoytog%,LTRIGIN
+guicontrol,%rajoytog%,LBUMPIN
+guicontrol,%rajoytog%,RTRIGIN
+guicontrol,%rajoytog%,RBUMPIN
+guicontrol,%rajoytog%,LSTICKUPIN
+guicontrol,%rajoytog%,LSTICKLFTIN
+guicontrol,%rajoytog%,LSTICKRTIN
+guicontrol,%rajoytog%,LSTICKDWNIN
+guicontrol,%rajoytog%,LSTICKBUTIN
+guicontrol,%rajoytog%,RSTICKUPIN
+guicontrol,%rajoytog%,RSTICKLFTIN
+guicontrol,%rajoytog%,RSTICKRTIN
+guicontrol,%rajoytog%,RSTICKDWNIN
+guicontrol,%rajoytog%,RSTICKBUTIN
+guicontrol,%rajoytog%,DPADDWNIN
+guicontrol,%rajoytog%,DPADUPIN
+guicontrol,%rajoytog%,DPADLFTIN
+guicontrol,%rajoytog%,DPADRTIN
+guicontrol,%rajoytog%,SLCTBUTIN
+guicontrol,%rajoytog%,STRTBUTIN
+guicontrol,%rajoytog%,YBUTIN
+guicontrol,%rajoytog%,XBUTIN
+guicontrol,%rajoytog%,BBUTIN
+guicontrol,%rajoytog%,ABUTIN
+guicontrol,%rajoytog%,INPBUTIN
+guicontrol,%rajoytog%,TRBCMB
+guicontrol,%rajoytog%,RXMinus
+guicontrol,%rajoytog%,RYPlus
+guicontrol,%rajoytog%,R
+guicontrol,%rajoytog%,L
+guicontrol,%rajoytog%,RXPlus
+guicontrol,%rajoytog%,RYMinus
+guicontrol,%rajoytog%,R3
+guicontrol,%rajoytog%,L3
+guicontrol,%rajoytog%,LXMinus
+guicontrol,%rajoytog%,LYPlus
+guicontrol,%rajoytog%,LYMinus
+guicontrol,%rajoytog%,LXPlus
+guicontrol,%rajoytog%,select
+guicontrol,%rajoytog%,start
+guicontrol,%rajoytog%,up
+guicontrol,%rajoytog%,left
+guicontrol,%rajoytog%,right
+guicontrol,%rajoytog%,down
+guicontrol,%rajoytog%,Y
+guicontrol,%rajoytog%,X
+guicontrol,%rajoytog%,B
+guicontrol,%rajoytog%,A
+guicontrol,%rajoytog%,l2
+guicontrol,%rajoytog%,r2
+guicontrol,%rajoytog%,Home
+return
+
+;};;;;;;;;;;;;;;;
+
+
+
 ;;; RESET OVERRIDE TOGGLE ;;;
 EMUCFGOVRTGL= 1
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -28929,12 +29073,17 @@ return
 
 
 ;{;;;;;;;;;;;;;  MAME BUTTON FUNCTIONS  ;;;;;;;;;;;;;;;;;;
-MameCTRLS:
-if (loadedjoy = "mednafen")
+mameCTRLS:
+ejcex= 1
+if (emjDDLC = "")
 	{
-		goto, medjoycreated
+		emjDDLC= 1
 	}
-SB_SetText(" Loading Mednafen Joystick config ")
+if (loadedjoy = "mame")
+	{
+		goto, mamejoycreated
+	}	
+SB_SetText(" Loading mame Joystick config ")
 rajoytog= Hide
 gosub, RAJOYTOG
 emjtog= show
@@ -28942,9 +29091,196 @@ gosub, EMJTOG
 emjtog= disable
 gosub, EMJTOG
 
+guicontrol,show,INDWRN
+guicontrol,move,INDWRN,x262 y180 w200 h200
+guicontrol,,INDWRN,
+guicontrol,move,emjDDLD,x34 y158 w55
+guicontrol,show,emjDDLA
+
+guicontrol,show,emjCHKX
+guicontrol,show,emjCHKY
+guicontrol,show,emjCHKZ
+guicontrol,,emjCHKX,Shift
+guicontrol,,emjCHKY,Ctrl
+guicontrol,,emjCHKZ,Alt
+
+guicontrol,hide,emjAGRP
+guicontrol,hide,emjRAD1A
+guicontrol,hide,emjRAD1B
+guicontrol,hide,emjRAD1C
+guicontrol,hide,emjRAD2C
+guicontrol,hide,emjRAD1D
+
+guicontrol,,emjJGRP,Mouse Sensitivity
+guicontrol,,emjUTXT,`%
+guicontrol,hide,emjIGRP
+guicontrol,hide,emjBGRP
+guicontrol,hide,JCFGEDT
+
+guicontrol,hide,emjTRBCMB
+guicontrol,hide,emjTURBOIN
+
+guicontrol,hide,SAVEJOY
+
+guicontrol,show,emjCBA
+guicontrol,show,emjBUTA
+guicontrol,,emjBUTA,Load
+guicontrol,show,emjBUTB
+guicontrol,,emjBUTB,Reset
+guicontrol,show,emjQTXT
+guicontrol,,emjQTXT,Set
+guicontrol,move,emjQTXT,x200 y135 h23 w40
+guicontrol,show,emjDDLC
+guicontrol,move,emjDDLC,x156 y135 h23 w40
+guicontrol,,emjDDLC,|%emjDDLC%||1|2|3|4|5|6
+
+guicontrol,hide,emjTURBOIN
+guicontrol,hide,emjOTXT
+guicontrol,hide,emjTTXT
+guicontrol,hide,emjYTXT
+guicontrol,hide,emjXTXT
+guicontrol,hide,emjZTXT
+guicontrol,hide,MINXTXT
+guicontrol,hide,emjEDTB
+guicontrol,hide,emjUDB
+guicontrol,hide,emjEDTA
+guicontrol,hide,emjUDA
+
+guicontrol,hide,emjCHKE
+guicontrol,hide,emjCHKG
+guicontrol,hide,emjCHKH
+guicontrol,hide,emjCHKD
+guicontrol,hide,emjCHKC
+guicontrol,hide,emjCHKB
+guicontrol,hide,emjCHKA
+guicontrol,hide,emjCHKF
+guicontrol,hide,emjCHKH
+
+guicontrol,hide,emjDDLE
+
+guicontrol,hide,emjRAD2A
+guicontrol,hide,emjRAD2B
+guicontrol,hide,emjOTXT
+guicontrol,hide,emjNTXT
+guicontrol,hide,emjRTXT
+guicontrol,hide,emjTTXT
+
+guicontrol,move,emjSTXT,x31 y132 h23 w70
+guicontrol,,emjRAD3A,1
+guicontrol,,emjSTXT,System Type
+guicontrol,,emjWTXT,device
+guicontrol,,emjFGRP,Emulator
+guicontrol,,emjHGRP,Inputs
+guicontrol,,emjRAD3A,Keyboard
+guicontrol,move,emjRAD3A,x312 y32 w65 h13
+guicontrol,,emjRAD3B,Joystick
+guicontrol,move,emjRAD3B,x383 y32 w65 h13
+guicontrol,,emjPTXT,Player
+guicontrol,move,emjPTXT,x368 y50 w34 h23
+guicontrol,,emjGGRP,Hotkeys
+guicontrol,, emjgGRP, Shortcuts
+guicontrol,,emjDDLA,|%mamescs%
+if (emjddlb = "")
+	{
+		emjddlb= 1
+	}
+guicontrol,,emjDDLB,|%emjddlb%||
+
+if (RJMAMENM = "0")
+	{
+		RJMAMENM= psx
+	}
+if (RJMAMENM = "")
+	{
+		RJMAMENM= psx
+	}
+	
 mamejoycreated:
-loadedjoy= mednafen
-SB_SetText(" MAME  joystick loading complete ")
+loadedjoy= mame
+mamejbuts= 
+FileRead, mamejbuts, rj\emuCfgs\mame\xinput.default.get
+stringreplace,mamejbuts,mamejbuts,[PLAYERNUM],1,All
+stringreplace,mamejbuts,mamejbuts,[JOYINDEX],1,All
+if (mamejbid = "")
+	{				
+		Loop, parse, mamejbuts,`n`r
+			{	
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				ae1=	
+				ae2=	
+				stringsplit,ae,A_LoopField,=
+				%ae1%= %ae2%
+				stringtrimleft,xfddl,ae1,6
+				mamejbid.= xfddl . "|"
+			}
+	}
+
+mamekbctrls= 
+FileRead, mamekbctrls, rj\emuCfgs\mame\mamekb.get
+if (mamejname = "")
+	{
+		Loop, parse, mamekbctrls,`n
+			{
+				if (A_LoopField = "")
+					{
+						return
+					}
+				jnam1= 
+				jnam2=
+				stringsplit,jnam,A_LoopField,=
+				mamejname.= jnam1 . "|"
+			}
+	}
+
+guicontrol,,emjDDLD,|%RJMAMENM%||%mamefsc%
+gosub, JmameRAD3A
+guicontrol,,emjCBA,|%mamejname%%mamejbid%
+
+Loop, parse, mameglobal,`n`r
+	{
+		stringsplit,fii,A_LoopField,=
+		stringsplit,gii,fii2,+
+		cmdria= %fii1%
+		stringreplace,cmdriv,cmdria,.,_,All
+		stringreplace,mamecmd,cmdriv,command,mamecmd,All
+		stringsplit,fea,cmdria,.
+		ifinstring,fea1,command
+			{
+				ifinstring,mamescs,fea2
+					{
+						%mamecmd%= %fii2%
+					}
+			}
+	}
+
+mameJPRELOAD:
+if (emjddlb = "n")
+	{
+		emjddlb= 1
+	}
+gosub, MAME%RJMAMENM%JOY
+SB_SetText(" mame " RJMAMENM " joystick loading complete ")
+emjtog= enable
+gosub, EMJTOG
+return
+
+MAMEDDLJ:
+gui,submit,nohide
+guicontrolget,emuDDLJ,,emuDDLJ
+RJMAMENM= %emuDDLJ%
+return
+
+MAME0JOY:
+MAMEJOY:
+if (curmameINPT = "")
+	{
+		guicontrol,,emjDDLF,|gamepad||
+		curmameINPT= gamepad
+	}
+guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4
 return
 
 MAMEBUTA:
@@ -56211,7 +56547,7 @@ emjtog= enable
 gosub, EMJTOG
 return
 
-
+;{;;;;;;;;;;;;;;;;   MEDNAFEN JOYSTICK LAYOUTS ;;;;;;;;;;;;;;;;;;;;
 MED0JOY:
 MEDJOY:
 if (curmedINPT = "")
@@ -57123,139 +57459,8 @@ MedSwapCGRP=
 MedSwapDGRP= Right Analog Stick
 gosub, MednafenSwap
 return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;{;;;;;;;;;;;;;;   RETROARCH JOYOPT TOGGLE  ;;;;;;;;
-
-RAJOYTOG:
-guicontrol,%rajoytog%,JOYPIC
-guicontrol,%rajoytog%,JOYDRVGRP
-guicontrol,%rajoytog%,JHIDDRV
-guicontrol,%rajoytog%,JDINDRV
-guicontrol,%rajoytog%,JXINDRV
-guicontrol,%rajoytog%,JSDLDRV
-guicontrol,%rajoytog%,INPDRVGRP
-guicontrol,%rajoytog%,IDDINP
-guicontrol,%rajoytog%,IDSDLINP
-guicontrol,%rajoytog%,IDRAW
-guicontrol,%rajoytog%,LASTKGRP
-guicontrol,%rajoytog%,RASTKGRP
-guicontrol,%rajoytog%,DPADGRP
-
-guicontrol,%rajoytog%,CIREMAPGRP
-guicontrol,%rajoytog%,BBUTTXT
-guicontrol,%rajoytog%,YBUTTXT
-guicontrol,%rajoytog%,XBUTTXT
-guicontrol,%rajoytog%,ABUTTXT
-guicontrol,%rajoytog%,L3BUTTXT
-guicontrol,%rajoytog%,R3BUTTXT
-guicontrol,%rajoytog%,LTRIGTXT
-guicontrol,%rajoytog%,RTRIGTXT
-guicontrol,%rajoytog%,LBUTTXT
-guicontrol,%rajoytog%,RBUTTXT
-guicontrol,%rajoytog%,HBTNTXT
-guicontrol,%rajoytog%,SELECTBUTTXT
-guicontrol,%rajoytog%,STARTBUTTXT
-guicontrol,%rajoytog%,CFGPLGRP
-guicontrol,%rajoytog%,INDWRN
-guicontrol,move,INDWRN,x463 y6 w170 h90
-guicontrol,,INDWRN,
-guicontrol,%rajoytog%,CLRPLYR
-guicontrol,%rajoytog%,RSTPLYR
-guicontrol,%rajoytog%,DEFPLCTRLGRP
-guicontrol,%rajoytog%,HOTKGRP
-guicontrol,%rajoytog%,JSW
-guicontrol,%rajoytog%,KSW
-guicontrol,%rajoytog%,HKEYCB
-guicontrol,%rajoytog%,HKEYDD
-guicontrol,%rajoytog%,JYPLTXT
-guicontrol,%rajoytog%,PLAYERN
-guicontrol,%rajoytog%,MENBUTCMBTXT
-guicontrol,%rajoytog%,DSPLGC
-guicontrol,%rajoytog%,MGPC
-guicontrol,%rajoytog%,MXUSRTXT
-guicontrol,%rajoytog%,MXUSR
-guicontrol,%rajoytog%,SWAPOKC
-guicontrol,%rajoytog%,ADJS
-guicontrol,%rajoytog%,REMPB
-guicontrol,%rajoytog%,RMPLOAD
-guicontrol,%rajoytog%,KBGP
-guicontrol,%rajoytog%,AUM
-guicontrol,%rajoytog%,JPINDX
-guicontrol,%rajoytog%,MOUSEIND
-guicontrol,%rajoytog%,JOYIND
-guicontrol,%rajoytog%,MINXTXT
-guicontrol,%rajoytog%,ANLDZGRP
-guicontrol,%rajoytog%,ANLDZTXT
-guicontrol,%rajoytog%,DEDZTXT
-guicontrol,%rajoytog%,DEDZ
-guicontrol,%rajoytog%,UNIFMENU
-guicontrol,%rajoytog%,POLLING
-guicontrol,%rajoytog%,POLTXT
-guicontrol,%rajoytog%,JBLNKGRP
-guicontrol,%rajoytog%,TRBPRD
-guicontrol,%rajoytog%,TURBOP
-guicontrol,%rajoytog%,TURBUD
-guicontrol,%rajoytog%,DUTCTXT
-guicontrol,%rajoytog%,DUTYCYCLE
-guicontrol,%rajoytog%,DUTYUD
-guicontrol,%rajoytog%,ANLDP
-guicontrol,%rajoytog%,TRBTXT
-
-guicontrol,%rajoytog%,TURBOIN
-guicontrol,%rajoytog%,LTRIGIN
-guicontrol,%rajoytog%,LBUMPIN
-guicontrol,%rajoytog%,RTRIGIN
-guicontrol,%rajoytog%,RBUMPIN
-guicontrol,%rajoytog%,LSTICKUPIN
-guicontrol,%rajoytog%,LSTICKLFTIN
-guicontrol,%rajoytog%,LSTICKRTIN
-guicontrol,%rajoytog%,LSTICKDWNIN
-guicontrol,%rajoytog%,LSTICKBUTIN
-guicontrol,%rajoytog%,RSTICKUPIN
-guicontrol,%rajoytog%,RSTICKLFTIN
-guicontrol,%rajoytog%,RSTICKRTIN
-guicontrol,%rajoytog%,RSTICKDWNIN
-guicontrol,%rajoytog%,RSTICKBUTIN
-guicontrol,%rajoytog%,DPADDWNIN
-guicontrol,%rajoytog%,DPADUPIN
-guicontrol,%rajoytog%,DPADLFTIN
-guicontrol,%rajoytog%,DPADRTIN
-guicontrol,%rajoytog%,SLCTBUTIN
-guicontrol,%rajoytog%,STRTBUTIN
-guicontrol,%rajoytog%,YBUTIN
-guicontrol,%rajoytog%,XBUTIN
-guicontrol,%rajoytog%,BBUTIN
-guicontrol,%rajoytog%,ABUTIN
-guicontrol,%rajoytog%,INPBUTIN
-guicontrol,%rajoytog%,TRBCMB
-guicontrol,%rajoytog%,RXMinus
-guicontrol,%rajoytog%,RYPlus
-guicontrol,%rajoytog%,R
-guicontrol,%rajoytog%,L
-guicontrol,%rajoytog%,RXPlus
-guicontrol,%rajoytog%,RYMinus
-guicontrol,%rajoytog%,R3
-guicontrol,%rajoytog%,L3
-guicontrol,%rajoytog%,LXMinus
-guicontrol,%rajoytog%,LYPlus
-guicontrol,%rajoytog%,LYMinus
-guicontrol,%rajoytog%,LXPlus
-guicontrol,%rajoytog%,select
-guicontrol,%rajoytog%,start
-guicontrol,%rajoytog%,up
-guicontrol,%rajoytog%,left
-guicontrol,%rajoytog%,right
-guicontrol,%rajoytog%,down
-guicontrol,%rajoytog%,Y
-guicontrol,%rajoytog%,X
-guicontrol,%rajoytog%,B
-guicontrol,%rajoytog%,A
-guicontrol,%rajoytog%,l2
-guicontrol,%rajoytog%,r2
-guicontrol,%rajoytog%,Home
-return
-
-;};;;;;;;;;;;;;;;
 
 MednafenSwap:
 guicontrolget,emjDDLB,,emjDDLB
@@ -57523,137 +57728,6 @@ Loop, Parse, Medswaps,|
 	}
 return	
 ;};;;;;;;;;;;;;;;
-
-MedKBREV:
-emjtog= disable
-gosub, emjbtog
-stringreplace,orz,vprm,%A_Space%,#
-stringsplit,ors,orz,#
-stringreplace,orj,ors2,%A_Space%,#,All
-jprs=
-reinj= %A_Space%
-orzf= %A_Space%
-Loop, Parse, orj,#
-	{
-		if (A_Index <> 1)
-			{
-				reinj.= A_Space
-				orzf.= A_Space
-			}
-		if (jprs = "")
-			{
-				orzf.= A_LoopField
-				ifinstring,A_LoopField,keyboard
-					{
-						reinj.= "keyboard"
-						jprs:= 1
-						continue
-					}
-				reinj.= A_LoopField
-			}
-		if (jprs = 1)
-			{
-				if (A_LoopField = "0x0")
-					{
-						orzf.= A_LoopField
-						reinj.= A_LoopField
-						continue
-					}
-				orzf.= A_LoopField
-				Loop,Parse,mednkbctrls,`n`r
-					{
-						stringsplit,din,A_LoopField,=
-						if (A_LoopField = "")
-							{
-								continue
-							}	
-						if (din1 = kprm)
-							{
-								reinj.= din2
-								break
-							}
-					}
-				jprs+= 1
-				continue
-			}
-		if (jprs <> "")
-			{
-				orzf.= A_LoopField
-				reinj.= A_LoopField
-			}
-	}
-medjimp := RegExReplace(medjimp, "m)^\Q"  "" ors1 " \E.*", "" ors1 " " reinj "`n")
-;;stringreplace,medjimp,medjimp,%ors1%%A_Space%%orzf%,%ors1%%A_Space%%reinj%,All
-stringreplace,medjimp,medjimp,||||,||,All
-emjtog= enable
-gosub, emjbtog
-return
-
-MedJREV:
-medjinjid= % medjid%emjDDLB%
-stringreplace,orz,vprm,%A_Space%,#
-stringsplit,ors,orz,#
-stringreplace,orj,ors2,%A_Space%,#,All
-jprs= 
-reinj= %A_Space%
-orzf= %A_Space%
-
-Loop, Parse, orj,#
-	{
-		if (A_Index <> 1)
-			{
-				reinj.= A_Space
-				orzf.= A_Space
-			}
-		if (jprs = "")
-			{
-				orzf.= A_LoopField
-				ifinstring,A_LoopField,joystick
-					{
-						reinj.= "joystick"
-						jprs:= 1
-						continue
-					}
-				reinj.= A_LoopField
-			}
-		if (jprs = 1)
-			{
-				ifinstring,A_LoopField,0x0
-					{
-						orzf.= A_LoopField
-						reinj.= medjinjid
-						continue
-					}
-				orzf.= A_LoopField
-				Loop, Parse, medxset,`n`r
-					{
-						if (A_LoopField = "")
-							{
-								continue
-							}
-						stringsplit,mjvak,A_LoopField,=]
-						stringreplace,mjvcdp,mjvak4,%A_Space%,,All
-						stringmid,meditbd,mjvak2,5,13
-						if (meditbd = kprm)
-							{
-								reinj.= mjvcdp
-								break
-							}	
-					}
-				jprs+=1
-				continue
-			}
-		if (jprs <> "")
-			{
-				orzf.= A_LoopField
-				reinj.= A_LoopField
-			}
-	}
-stringreplace,medjimp,medjimp,%ors1%%A_Space%%orzf%,%ors1%%A_Space%%reinj%,All
-stringreplace,medjimp,medjimp,||||,||,All	
-emjtog= enable
-gosub, emjbtog
-return
 
 ;{;;;;;;;;;;;;;;  Emu Joy Option Functions  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 emjRAD1A:
@@ -59760,7 +59834,2889 @@ filedelete,%medcfgloc%
 fileappend,%medjimp%,%medcfgloc%
 gosub, mednafenswap
 return
+
+
+;{;;;;;;;;;;;;;;;;;;;  Mednafen Keyboard lookups  ;;;;;;;;;;;;;;;;;;;
+MedKBREV:
+emjtog= disable
+gosub, emjbtog
+stringreplace,orz,vprm,%A_Space%,#
+stringsplit,ors,orz,#
+stringreplace,orj,ors2,%A_Space%,#,All
+jprs=
+reinj= %A_Space%
+orzf= %A_Space%
+Loop, Parse, orj,#
+	{
+		if (A_Index <> 1)
+			{
+				reinj.= A_Space
+				orzf.= A_Space
+			}
+		if (jprs = "")
+			{
+				orzf.= A_LoopField
+				ifinstring,A_LoopField,keyboard
+					{
+						reinj.= "keyboard"
+						jprs:= 1
+						continue
+					}
+				reinj.= A_LoopField
+			}
+		if (jprs = 1)
+			{
+				if (A_LoopField = "0x0")
+					{
+						orzf.= A_LoopField
+						reinj.= A_LoopField
+						continue
+					}
+				orzf.= A_LoopField
+				Loop,Parse,mednkbctrls,`n`r
+					{
+						stringsplit,din,A_LoopField,=
+						if (A_LoopField = "")
+							{
+								continue
+							}	
+						if (din1 = kprm)
+							{
+								reinj.= din2
+								break
+							}
+					}
+				jprs+= 1
+				continue
+			}
+		if (jprs <> "")
+			{
+				orzf.= A_LoopField
+				reinj.= A_LoopField
+			}
+	}
+medjimp := RegExReplace(medjimp, "m)^\Q"  "" ors1 " \E.*", "" ors1 " " reinj "`n")
+;;stringreplace,medjimp,medjimp,%ors1%%A_Space%%orzf%,%ors1%%A_Space%%reinj%,All
+stringreplace,medjimp,medjimp,||||,||,All
+emjtog= enable
+gosub, emjbtog
+return
+
+MedJREV:
+medjinjid= % medjid%emjDDLB%
+stringreplace,orz,vprm,%A_Space%,#
+stringsplit,ors,orz,#
+stringreplace,orj,ors2,%A_Space%,#,All
+jprs= 
+reinj= %A_Space%
+orzf= %A_Space%
+
+Loop, Parse, orj,#
+	{
+		if (A_Index <> 1)
+			{
+				reinj.= A_Space
+				orzf.= A_Space
+			}
+		if (jprs = "")
+			{
+				orzf.= A_LoopField
+				ifinstring,A_LoopField,joystick
+					{
+						reinj.= "joystick"
+						jprs:= 1
+						continue
+					}
+				reinj.= A_LoopField
+			}
+		if (jprs = 1)
+			{
+				ifinstring,A_LoopField,0x0
+					{
+						orzf.= A_LoopField
+						reinj.= medjinjid
+						continue
+					}
+				orzf.= A_LoopField
+				Loop, Parse, medxset,`n`r
+					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						stringsplit,mjvak,A_LoopField,=]
+						stringreplace,mjvcdp,mjvak4,%A_Space%,,All
+						stringmid,meditbd,mjvak2,5,13
+						if (meditbd = kprm)
+							{
+								reinj.= mjvcdp
+								break
+							}	
+					}
+				jprs+=1
+				continue
+			}
+		if (jprs <> "")
+			{
+				orzf.= A_LoopField
+				reinj.= A_LoopField
+			}
+	}
+stringreplace,medjimp,medjimp,%ors1%%A_Space%%orzf%,%ors1%%A_Space%%reinj%,All
+stringreplace,medjimp,medjimp,||||,||,All	
+emjtog= enable
+gosub, emjbtog
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+
 ;};;;;;;;;
+
+;{;;;;;;;;   Mame Joy Option Functions   ;;;;;;;;;;;;;;;;;;;;;
+
+JMameRAD1A:
+gui, submit, nohide
+
+return
+
+JMameRAD1B:
+gui, submit, nohide
+return
+
+JMameRAD1C:
+gui, submit, nohide
+
+return
+
+JMameRAD1D:
+gui, submit, nohide
+
+return
+
+JMameRAD2A:
+gui, submit, nohide
+
+return
+
+JMameRAD2B:
+gui, submit, nohide
+
+return
+
+JMameRAD2C:
+gui, submit, nohide
+
+return
+
+JMameRAD3A:
+gui, submit, nohide
+guicontrol,hide,emjTURBOIN
+guicontrol,hide,emjL2In
+guicontrol,hide,emjLIn
+guicontrol,hide,emjR2In
+guicontrol,hide,emjRIn
+guicontrol,hide,emjLYPlusIn
+guicontrol,hide,emjLXMinusIn
+guicontrol,hide,emjLXPlusIn
+guicontrol,hide,emjLYMinusIn
+guicontrol,hide,emjL3In
+guicontrol,hide,emjRYPlusIn
+guicontrol,hide,emjRXMinusIn
+guicontrol,hide,emjRXPlusIn
+guicontrol,hide,emjRYMinusIn
+guicontrol,hide,emjR3In
+guicontrol,hide,emjDownIn
+guicontrol,hide,emjUpIn
+guicontrol,hide,emjLeftIn
+guicontrol,hide,emjRightIn
+guicontrol,hide,emjSelectIn
+guicontrol,hide,emjStartIn
+guicontrol,hide,emjYIn
+guicontrol,hide,emjXIn
+guicontrol,hide,emjBIn
+guicontrol,hide,emjAIn
+guicontrol,hide,emjINPBUTIN
+
+Loop, parse,joyiterate,|
+	{
+			INPDBX= 
+			StringReplace,INPDBX,A_LoopField,_,,All
+			guicontrol,,emj%INPDBX%,|%mamejname%
+	}
+gosub, MAMEJPRELOAD
+return
+
+JMameRAD3B:
+gui, submit, nohide
+guicontrol,show,emjL2In
+guicontrol,show,emjLIn
+guicontrol,show,emjR2In
+guicontrol,show,emjRIn
+guicontrol,show,emjLYPlusIn
+guicontrol,show,emjLXMinusIn
+guicontrol,show,emjLXPlusIn
+guicontrol,show,emjLYMinusIn
+guicontrol,show,emjL3In
+guicontrol,show,emjRYPlusIn
+guicontrol,show,emjRXMinusIn
+guicontrol,show,emjRXPlusIn
+guicontrol,show,emjRYMinusIn
+guicontrol,show,emjR3In
+guicontrol,show,emjDownIn
+guicontrol,show,emjUpIn
+guicontrol,show,emjLeftIn
+guicontrol,show,emjRightIn
+guicontrol,show,emjSelectIn
+guicontrol,show,emjStartIn
+guicontrol,show,emjYIn
+guicontrol,show,emjXIn
+guicontrol,show,emjBIn
+guicontrol,show,emjAIn
+guicontrol,show,emjINPBUTIN
+guicontrol,,emjDDLA,|%mamenafsc%
+guicontrol,,emjCBA,|%mamejname%%mamejbid%
+Loop, parse,joyiterate,|
+	{
+			INPDBX= 
+			StringReplace,INPDBX,A_LoopField,_,,All
+			guicontrol,,emj%INPDBX%,|%mamejbid%
+	}
+gosub, MAMEJPRELOAD	
+return
+
+JMameBUTA:
+gui, submit, nohide
+FileSelectFile,nwmamejoycfg,3, , Select a mame.cfg file, CFG (*.cfg)
+if (nwmamejoycfg = "")
+	{
+		return
+	}
+fileread,nwj,%nwmamejoycfg%
+Loop,Parse,njw,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		ifinstring,A_LoopField,%RJMAMENM%.input
+			{			
+				stringsplit,fi,A_loopField,%A_Space%
+				stringreplace,nv,fi1,.,_,All
+				Loop, %fi0%
+					{
+						if (A_index = 1)
+							{
+								continue
+							}
+						av= % fi%A_Index%
+						if (A_index = 2)
+							{
+								mameinput.= nv . "=" . av
+								continue
+							}
+						mameinput.= nv . A_space . av 
+					}
+				mameinput.= "`n"
+			}
+	}
+gosub, INTEMAMEJ
+return
+
+JMameBUTB:
+gui, submit, nohide
+asbn= 
+Loop, Parse, mameinput,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,rjmnm,A_LoopField,=
+		stringsplit,rjinm,rjmnm1,.
+		if (rjinm1 = RJMAMENM)
+			{
+				stringreplace,mameirsv,rjmnm1,.,_,All
+				mameirsv= %rjmnm2%
+				asbn.= mameirsv . "=" . rjmnm2 . "`n"
+			}	
+	}
+INTEMAMEJ:	
+Loop, Parse, MAMECFGLOC,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,aej,A_LoopField,%A_Space%
+		stringsplit,aiv,aej1,.
+		stringreplace,fij,aej1,.,_,All
+		if (aiv1 = RJMAMENM)
+			{
+				kfv= 	
+				ifinstring,mameinput,%aej1%=
+					{
+						Loop, Parse,mameinput,`n`r
+							{
+								stringsplit,rjmnm,A_LoopField,=
+								if (rjmnm1 = aej1)
+									{
+										nwmamecfg.= A_LoopField . "`n"
+										kvf= 1
+										break
+									}
+							}
+					}
+				if (kfv = 1)
+					{
+						continue
+					}
+			}
+		nwmamecfg.= A_LoopField . "`n"
+	}
+loadedjoy= 
+mameopts= %nwmamecfg%
+gosub, mameCTRLS
+return
+
+JMameCBA:
+gui, submit, nohide
+guicontrolget,emjCBA,,emjCBA
+mamemod= 
+if (emjCHKX = 1)
+	{
+		mamemod.= "+shift"
+	}
+if (emjCHKY = 1)
+	{
+		mamemod.= "+ctrl"
+	}
+if (emjCHKZ = 1)
+	{
+		mamemod.= "+alt"
+	}
+stringreplace,orz,vira,%A_Space%,#
+stringsplit,ors,orz,#
+stringreplace,orj,ors2,%A_Space%,#,All
+jprs=
+reinj= %A_Space%
+orzf= %A_Space%
+Loop, Parse, orj,#
+	{
+		if (A_Index <> 1)
+			{
+				reinj.= A_Space
+				orzf.= A_Space
+			}
+		if (jprs = "")
+			{
+				orzf.= A_LoopField
+				ifinstring,A_LoopField,keyboard
+					{
+						reinj.= "keyboard"
+						jprs:= 1
+						continue
+					}
+				reinj.= A_LoopField
+			}
+		if (jprs = 1)
+			{
+				if (A_LoopField = "0x0")
+					{
+						orzf.= A_LoopField
+						reinj.= A_LoopField
+						continue
+					}
+				orzf.= A_LoopField
+				stringsplit,fik,A_LoopField,+
+				Loop,Parse,mamenkbctrls,`n`r
+					{
+						stringsplit,din,A_LoopField,=
+						if (A_LoopField = "")
+							{
+								continue
+							}	
+						if (din1 = emjCBA)
+							{
+								reinj.= din2 . mamemod
+								SB_SetText(" " reinj " = " emjCBA " " mamemod " = " din1 " " mamemod " ")
+								break
+							}
+					}
+				jprs+= 1
+				continue
+			}
+		if (jprs <> "")
+			{
+				orzf.= A_LoopField
+				reinj.= A_LoopField
+			}
+	}
+stringreplace,mamejimp,mamejimp,%ors1%%A_Space%%orzf%,%ors1%%A_Space%%reinj%,All
+stringreplace,mamejimp,mamejimp,||||,||,All
+filedelete,%mamecfgloc%
+fileappend,%mamejimp%,%mamecfgloc%
+return
+
+JMameDDLA:
+gui, submit, nohide
+guicontrolget,emjDDLA,,emjDDLA
+guicontrol,,emjCHKX,0
+guicontrol,,emjCHKY,0
+guicontrol,,emjCHKZ,0
+Loop, Parse, mamejimp,`n`r
+	{
+		vira= %A_LoopField%
+		stringsplit,fej,A_LoopField,.
+		stringsplit,aif,fej2,%A_Space%
+		if (aif1 = emjDDLA)
+			{
+				stringreplace,afe,A_LoopField,%A_Space%,#
+				stringsplit,fae,afe,#
+				mcbsi= %fae2%
+				ifinstring,mcbsi,alt
+					{
+						guicontrol,,emjCHKZ,1
+					}
+				ifinstring,mcbsi,ctrl
+					{
+						guicontrol,,emjCHKY,1
+					}
+				ifinstring,mcbsi,shift
+					{
+						guicontrol,,emjCHKX,1
+					}
+				stringsplit,mtvi,mcbsi,|
+				stringsplit,mtxi,mtvi1,+
+				stringsplit,mameln,mtxi1,%A_Space%
+				Loop,Parse,mamenkbctrls,`n`r
+					{
+						stringsplit,din,A_LoopField,=
+						if (A_LoopField = "")
+							{
+								continue
+							}	
+						if (din2 = mameln3)
+							{
+								SB_SetText(" " mcbsi " = " din1 "+" mtxi2 "+" mtxi3 "+" mtxi4 " ")
+								guicontrol,,emjCBA,|%din1%||%mamejname%%mamejbid%
+								break
+							}
+					}
+				break	
+			}
+	}
+return
+
+JMameDDLB:
+gui, submit, nohide
+guicontrolget,emjDDLB,,emjDDLB
+curmameINPT= 
+gosub, mameCTRLS
+return
+
+JMameDDLC:
+gui, submit, nohide
+guicontrolget,emjDDLC,,emjDDLC
+curmameINPT= 
+gosub, mameCTRLS
+
+return
+
+JMameDDLD:
+gui, submit, nohide
+guicontrolget,emjDDLD,,emjDDLD
+gosub, MED%emjDDLD%Joy
+return
+
+JMameCHKA:
+gui, submit, nohide
+
+return
+
+JMameCHKB:
+gui, submit, nohide
+
+return
+
+JMameCHKC:
+gui, submit, nohide
+
+return
+
+JMameCHKD:
+gui, submit, nohide
+
+return
+
+JMameCHKE:
+gui, submit, nohide
+
+return
+
+JMameCHKX:
+gui, submit, nohide
+gosub, emjCBA
+return
+
+JMameCHKY:
+gui, submit, nohide
+gosub, emjCBA
+return
+
+JMameCHKZ:
+gui, submit, nohide
+gosub, emjCBA
+return
+
+JMameDDLE:
+gui, submit, nohide
+
+return
+
+JMameSLDA:
+gui, submit, nohide
+
+return
+
+JMameCHKF:
+gui, submit, nohide
+
+return
+
+JMameDDLF:
+gui, submit, nohide
+guicontrolget,curmameINPT,,emjDDLF
+if (RJMAMENM = "sms")
+	{
+		if (curmameINPT <> "gamepad")
+			{
+				emjtog= hide
+				gosub,EMJTOG
+			}
+	}
+if (RJMAMENM = "nes")
+	{
+		if (curmameINPT <> "gamepad")
+			{
+				emjtog= hide
+				gosub,EMJTOG
+				guicontrol,show,emjDDLF
+				return
+			}
+	}
+if (RJMAMENM = "md")
+	{
+		ifnotinstring,curmameINPT,gamepad
+			{
+				emjtog= hide
+				gosub,EMJTOG
+				guicontrol,show,emjDDLF
+				return
+			}
+	}
+if (RJMAMENM = "ss")
+	{
+		ifnotinstring,curmameINPT,pad
+			{
+				emjtog= hide
+				gosub,EMJTOG
+				guicontrol,show,emjDDLF
+				return
+			}
+	}
+if (RJMAMENM = "psx")
+	{
+		ifinstring,curmameINPT,dancepad
+			{
+				emjtog= hide
+				gosub,EMJTOG
+				guicontrol,show,emjDDLF
+				return
+			}
+		ifinstring,curmameINPT,mouse
+			{
+				emjtog= hide
+				gosub,EMJTOG
+				guicontrol,show,emjDDLF
+				return
+			}
+		ifinstring,curmameINPT,justifier
+			{
+				emjtog= hide
+				gosub,EMJTOG
+				guicontrol,show,emjDDLF
+				return
+			}
+		ifinstring,curmameINPT,negcon
+			{
+				emjtog= hide
+				gosub,EMJTOG
+				guicontrol,show,emjDDLF
+				return
+			}
+	}
+ifinstring,RJMAMENM,pce
+	{
+		if (curmameINPT <> "gamepad")			
+			{
+				emjtog= hide
+				gosub,EMJTOG
+				guicontrol,show,emjDDLF
+				return
+			}
+	}
+ifinstring,RJMAMENM,snes
+	{
+		ifinstring,curmameINPT,mouse
+			{
+				emjtog= hide
+				gosub,EMJTOG
+				guicontrol,show,emjDDLF
+				return
+			}
+		ifinstring,curmameINPT,superscope
+			{
+				emjtog= hide
+				gosub,EMJTOG
+				guicontrol,show,emjDDLF
+				return
+			}
+	}
+if (RJMAMENM = "pcfx")
+	{
+		if (curmameINPT <> "gamepad")			
+			{
+				emjtog= hide
+				gosub,EMJTOG
+				guicontrol,show,emjDDLF
+				return
+			}
+	}
+emjtog= show
+gosub,EMJTOG
+gosub,mameCTRLS
+return
+
+JMameEDTA:
+gui, submit, nohide
+
+return
+
+JMameUDA:
+gui, submit, nohide
+
+return
+
+JMameEDTB:
+gui, submit, nohide
+
+return
+
+JMameUDB:
+gui, submit, nohide
+
+return
+
+JMameCHKG:
+gui, submit, nohide
+
+return
+
+JMameCHKH:
+gui, submit, nohide
+
+return
+
+;{;;;;;;;;;;;;;;;;;;   MAME JOYSTICK LAYOUTS   ;;;;;;;;;;;;;;;;;;;;;;
+	
+MAMEgamegearJOY:
+MAMEgamegearjJOY:
+if (curmameINPT = "")
+	{
+		guicontrol,,emjDDLF,|gamepad||
+		curmameINPT= gamepad
+	}
+guicontrol,,emjDDLB,|n||
+
+supinp= gamepad
+mameswapB= button1
+mameswapA= button2
+mameswapX= 
+mameswapY= 
+mameswapStart= start
+mameswapSelect= 
+mameswapDown= down
+mameswapUp= up
+mameswapLeft= left
+mameswapRight= right
+mameswapL= 
+mameswapR= 
+mameswapL2= 
+mameswapR2= 
+mameswapR3= 
+mameswapL3= 
+mameswapLXMinus= 
+mameswapRXMinus= 
+mameswapRXPlus= 
+mameswapLXPlus= 
+mameswapLYPlus= 
+mameswapLYMinus= 
+mameswapRYPlus= 
+mameswapRYMinus= 
+mameswapHome= 
+
+MameSwapATXT= b1
+MameSwapBTXT= 
+MameSwapCTXT= b2
+MameSwapDTXT=
+MameSwapETXT=
+MameSwapFTXT=
+MameSwapGTXT=
+MameSwapHTXT=
+MameSwapITXT=
+MameSwapJTXT=
+MameSwapLTXT=
+MameSwapMTXT= start
+
+MameSwapCGRP= 
+MameSwapDGRP= 
+gosub, MameSwap
+return
+
+MAMEgbcolorJOY:
+MAMEgameboyJOY:
+if (curmameINPT = "")
+	{
+		guicontrol,,emjDDLF,|gamepad||
+		curmameINPT= gamepad
+	}
+guicontrol,,emjDDLB,|n||
+
+supinp= gamepad
+mameswapB= a
+mameswapA= b
+mameswapX= 
+mameswapY= 
+mameswapStart= start
+mameswapSelect= select
+mameswapDown= down
+mameswapUp= up
+mameswapLeft= left
+mameswapRight= right
+mameswapL= 
+mameswapR= 
+mameswapL2= 
+mameswapR2= 
+mameswapR3= 
+mameswapL3= 
+mameswapLXMinus= 
+mameswapRXMinus= 
+mameswapRXPlus= 
+mameswapLXPlus= 
+mameswapLYPlus= 
+mameswapLYMinus= 
+mameswapRYPlus= 
+mameswapRYMinus= 
+mameswapHome= 
+
+MameSwapATXT= a
+MameSwapBTXT= 
+MameSwapCTXT= 
+MameSwapDTXT= b
+MameSwapETXT=
+MameSwapFTXT=
+MameSwapGTXT=
+MameSwapHTXT=
+MameSwapITXT=
+MameSwapJTXT=
+MameSwapLTXT= select
+MameSwapMTXT= start
+
+MameSwapCGRP= 
+MameSwapDGRP= 
+gosub, MameSwap
+return
+
+MAMEgbaJOY:
+if (curmameINPT = "")
+	{
+		guicontrol,,emjDDLF,|gamepad||
+		curmameINPT= gamepad
+	}
+guicontrol,,emjDDLB,|n||
+
+supinp= gamepad
+mameswapB= a
+mameswapA= b
+mameswapX= y
+mameswapY= x
+mameswapStart= start
+mameswapSelect= select
+mameswapDown= down
+mameswapUp= up
+mameswapLeft= left
+mameswapRight= right
+mameswapL= shoulder_l
+mameswapR= shoulder_r
+mameswapL2= 
+mameswapR2= 
+mameswapR3= 
+mameswapL3= 
+mameswapLXMinus= 
+mameswapRXMinus= 
+mameswapRXPlus= 
+mameswapLXPlus= 
+mameswapLYPlus= 
+mameswapLYMinus= 
+mameswapRYPlus= 
+mameswapRYMinus= 
+mameswapHome= 
+
+MameSwapATXT= a
+MameSwapBTXT= y
+MameSwapCTXT= x
+MameSwapDTXT= b
+MameSwapETXT=
+MameSwapFTXT=
+MameSwapGTXT=
+MameSwapHTXT=
+MameSwapITXT= l
+MameSwapJTXT= r
+MameSwapLTXT= select
+MameSwapMTXT= start
+
+MameSwapCGRP= 
+MameSwapDGRP= 
+gosub, MameSwap
+return
+
+MAMElynxJOY:
+if (curmameINPT = "")
+	{
+		guicontrol,,emjDDLF,|gamepad||
+		curmameINPT= gamepad
+	}
+guicontrol,,emjDDLB,|n||
+
+supinp= gamepad
+mameswapB= a
+mameswapA= b
+mameswapX= option_1
+mameswapY= option_2
+mameswapStart= pause
+mameswapSelect= 
+mameswapDown= down
+mameswapUp= up
+mameswapLeft= left
+mameswapRight= right
+mameswapL= 
+mameswapR= 
+mameswapL2= 
+mameswapR2= 
+mameswapR3= 
+mameswapL3= 
+mameswapLXMinus= 
+mameswapRXMinus= 
+mameswapRXPlus= 
+mameswapLXPlus= 
+mameswapLYPlus= 
+mameswapLYMinus= 
+mameswapRYPlus= 
+mameswapRYMinus= 
+mameswapHome= 
+
+MameSwapATXT= a
+MameSwapBTXT= 1
+MameSwapCTXT= b
+MameSwapDTXT= 2
+MameSwapETXT=
+MameSwapFTXT=
+MameSwapGTXT=
+MameSwapHTXT=
+MameSwapITXT=
+MameSwapJTXT=
+MameSwapLTXT=
+MameSwapMTXT= pause
+
+MameSwapCGRP= 
+MameSwapDGRP= 
+gosub, MameSwap
+return
+
+MAMEngpcJOY:
+MAMEngpJOY:
+if (curmameINPT = "")
+	{
+		guicontrol,,emjDDLF,|gamepad||
+		curmameINPT= gamepad
+	}
+guicontrol,,emjDDLB,|n||
+
+supinp= gamepad
+mameswapB= a
+mameswapA= b
+mameswapX= 
+mameswapY= 
+mameswapStart= option
+mameswapSelect= 
+mameswapDown= down
+mameswapUp= up
+mameswapLeft= left
+mameswapRight= right
+mameswapL= 
+mameswapR= 
+mameswapL2= 
+mameswapR2= 
+mameswapR3= 
+mameswapL3= 
+mameswapLXMinus= 
+mameswapRXMinus= 
+mameswapRXPlus= 
+mameswapLXPlus= 
+mameswapLYPlus= 
+mameswapLYMinus= 
+mameswapRYPlus= 
+mameswapRYMinus= 
+mameswapHome= 
+
+MameSwapATXT= a
+MameSwapBTXT=
+MameSwapCTXT= b
+MameSwapDTXT=
+MameSwapETXT=
+MameSwapFTXT=
+MameSwapGTXT=
+MameSwapHTXT=
+MameSwapITXT=
+MameSwapJTXT=
+MameSwapLTXT=
+MameSwapMTXT= option
+
+MameSwapCGRP= 
+MameSwapDGRP= 
+gosub, MameSwap
+return
+
+
+MAME32xJOY:
+MAME32xeJOY:
+MAME32xjJOY:
+MAMEmegadrivJOY:
+MAMEgenesisJOY:
+if (curmameINPT = "")
+	{
+		guicontrol,,emjDDLF,|gamepad||gamepad6|megamouse
+		curmameINPT= gamepad
+	}
+guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4
+
+supinp= gamepad|gamepad6
+mameswapB= x
+mameswapA= a
+mameswapX= c
+mameswapY= b
+mameswapStart= start
+mameswapSelect= mode
+mameswapDown= down
+mameswapUp= up
+mameswapLeft= left
+mameswapRight= right
+mameswapL= y
+mameswapR= z
+mameswapL2= 
+mameswapR2= 
+mameswapR3= 
+mameswapL3= 
+mameswapLXMinus= 
+mameswapRXMinus= 
+mameswapRXPlus= 
+mameswapLXPlus= 
+mameswapLYPlus= 
+mameswapLYMinus= 
+mameswapRYPlus= 
+mameswapRYMinus= 
+mameswapHome= 
+
+MameSwapATXT= a
+MameSwapBTXT= c
+MameSwapCTXT= b
+MameSwapDTXT= x
+MameSwapETXT=
+MameSwapFTXT=
+MameSwapGTXT=
+MameSwapHTXT=
+MameSwapITXT= y
+MameSwapJTXT= z
+MameSwapLTXT= mode
+MameSwapMTXT= start
+
+MameSwapCGRP= 
+MameSwapDGRP= 
+gosub, MameSwap
+return
+
+MAMEfdsJOY:
+MAMEnesJOY:
+MAMEfamicomJOY:
+if (curmameINPT = "")
+	{
+		guicontrol,,emjDDLF,|gamepad||powerpad|arkanoid|zapper|partytap
+		curmameINPT= gamepad
+	}
+guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4|5|6|7|8
+
+supinp= gamepad
+mameswapB= a
+mameswapA= 
+mameswapX= b
+mameswapY= 
+mameswapStart= start
+mameswapSelect= select
+mameswapDown= down	
+mameswapUp= up
+mameswapLeft= left
+mameswapRight= right
+mameswapL= 
+mameswapR= 
+mameswapL2= 
+mameswapR2= 
+mameswapR3= 
+mameswapL3= 
+mameswapLXMinus= 
+mameswapRXMinus= 
+mameswapRXPlus= 
+mameswapLXPlus= 
+mameswapLYPlus= 
+mameswapLYMinus= 
+mameswapRYPlus= 
+mameswapRYMinus= 
+mameswapHome= 
+
+MameSwapBTXT= 
+MameSwapATXT= 
+MameSwapCTXT= b
+MameSwapDTXT= a
+MameSwapETXT=
+MameSwapFTXT=
+MameSwapGTXT=
+MameSwapHTXT=
+MameSwapITXT=
+MameSwapJTXT=
+MameSwapLTXT= select
+MameSwapMTXT= start
+
+MameSwapCGRP= 
+MameSwapDGRP= 
+gosub, MameSwap
+return
+
+MAMEtg16JOY:
+MAMEpceJOY:
+MAMEsgxJOY:
+MAMEpcecdJOY:
+if (curmameINPT = "")
+	{
+		guicontrol,,emjDDLF,|gamepad||lightgun
+		curmameINPT= gamepad
+	}
+guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4|5|6|7|8
+
+supinp= gamepad
+mameswapB= i
+mameswapA= ii
+mameswapX= iii
+mameswapY= iv
+mameswapStart= run
+mameswapSelect= select
+mameswapDown= down
+mameswapUp= up
+mameswapLeft= left
+mameswapRight= right
+mameswapL= v
+mameswapR= vi
+mameswapL2= 
+mameswapR2= 
+mameswapR3= mode_select
+mameswapL3= 
+mameswapLXMinus= 
+mameswapRXMinus= 
+mameswapRXPlus= 
+mameswapLXPlus= 
+mameswapLYPlus= 
+mameswapLYMinus= 
+mameswapRYPlus= 
+mameswapRYMinus= 
+mameswapHome= 
+
+MameSwapATXT= i 
+MameSwapBTXT= iii
+MameSwapCTXT= iv
+MameSwapDTXT= ii
+MameSwapETXT=
+MameSwapFTXT= mode
+MameSwapGTXT=
+MameSwapHTXT=
+MameSwapITXT= v
+MameSwapJTXT= vi
+MameSwapLTXT= select
+MameSwapMTXT= run
+
+MameSwapCGRP= 
+MameSwapDGRP= Right Analog Stick
+gosub, MameSwap
+return
+
+MAMEpce_fastJOY:
+if (curmameINPT = "")
+	{
+		guicontrol,,emjDDLF,|gamepad||lightgun
+		curmameINPT= gamepad
+	}
+guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4|5|6|7|8
+
+supinp= gamepad
+mameswapB= i
+mameswapA= ii
+mameswapX= iii
+mameswapY= iv
+mameswapStart= run
+mameswapSelect= select
+mameswapDown= down
+mameswapUp= up
+mameswapLeft= left
+mameswapRight= right
+mameswapL= v
+mameswapR= vi
+mameswapL2= 
+mameswapR2= 
+mameswapR3= mode_select
+mameswapL3= 
+mameswapLXMinus= 
+mameswapRXMinus= 
+mameswapRXPlus= 
+mameswapLXPlus= 
+mameswapLYPlus= 
+mameswapLYMinus= 
+mameswapRYPlus= 
+mameswapRYMinus= 
+mameswapHome= 
+
+MameSwapATXT= i 
+MameSwapBTXT= iii
+MameSwapCTXT= iv
+MameSwapDTXT= ii
+MameSwapETXT=
+MameSwapFTXT= mode
+MameSwapGTXT=
+MameSwapHTXT=
+MameSwapITXT= v
+MameSwapJTXT= vi
+MameSwapLTXT= select
+MameSwapMTXT= run
+
+MameSwapCGRP= 
+MameSwapDGRP= Right Analog Stick
+gosub, MameSwap
+return
+
+MAMEpcfxJOY:
+if (curmameINPT = "")
+	{
+		guicontrol,,emjDDLF,|gamepad||lightgun
+		curmameINPT= gamepad
+	}
+guicontrol,,emjDDLB|%emjddlb%||1|2|3|4
+
+supinp= gamepad
+mameswapB= i
+mameswapA= ii
+mameswapX= iii
+mameswapY= iv
+mameswapStart= run
+mameswapSelect= 
+mameswapDown= down
+mameswapUp= up
+mameswapLeft= left
+mameswapRight= right
+mameswapL= v
+mameswapR= vi
+mameswapL2= 
+mameswapR2= 
+mameswapR3= mode1
+mameswapL3= mode2
+mameswapLXMinus= 
+mameswapRXMinus= 
+mameswapRXPlus= 
+mameswapLXPlus= 
+mameswapLYPlus= 
+mameswapLYMinus= 
+mameswapRYPlus= 
+mameswapRYMinus= 
+mameswapHome= 
+
+MameSwapATXT= i 
+MameSwapBTXT= iii
+MameSwapCTXT= iv
+MameSwapDTXT= ii
+MameSwapETXT= mode2
+MameSwapFTXT= mode
+MameSwapGTXT=
+MameSwapHTXT=
+MameSwapITXT= v
+MameSwapJTXT= vi
+MameSwapLTXT= 
+MameSwapMTXT= run
+
+MameSwapCGRP= Left Analog Stick
+MameSwapDGRP= Right Analog Stick
+gosub, MameSwap
+return
+
+MAMEpsxJOY:
+if (curmameINPT = "")
+	{
+		guicontrol,,emjDDLF,|gamepad||dualshock|justifier|mouse
+		curmameINPT= dualshock
+	}
+guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4|5|6|7|8
+
+supinp= gamepad|dualshock
+mameswapB= cross
+mameswapA= circle
+mameswapX= square
+mameswapY= triangle
+mameswapStart= start
+mameswapSelect= select
+mameswapDown= down
+mameswapUp= up
+mameswapLeft= left
+mameswapRight= right
+mameswapL= l1
+mameswapR= r1
+mameswapL2= l2
+mameswapR2= r2
+mameswapR3= r3
+mameswapL3= l3
+mameswapLXMinus= lstick_left
+mameswapRXMinus= rstick_left
+mameswapRXPlus= rstick_right
+mameswapLXPlus= lstick_right
+mameswapLYPlus= lstick_up
+mameswapLYMinus= lstick_down
+mameswapRYPlus= rstick_up
+mameswapRYMinus= rstick_down
+mameswapHome= 
+
+MameSwapATXT= o
+MameSwapBTXT= ^
+MameSwapCTXT= []
+MameSwapDTXT= x
+MameSwapETXT= l3
+MameSwapFTXT= r3
+MameSwapGTXT= LTrig
+MameSwapHTXT= RTrig
+MameSwapITXT= L
+MameSwapJTXT= R
+MameSwapLTXT= select
+MameSwapMTXT= start
+
+MameSwapCGRP= Left Analog Stick
+MameSwapDGRP= Right Analog Stick
+gosub, MameSwap
+return
+
+MAMEsmsJOY:
+MAMEsmspalJOY:
+MAMEsmsjJOY:
+if (curmameINPT = "")
+	{
+		guicontrol,,emjDDLF,|gamepad||lightgun
+		curmameINPT= gamepad
+	}
+guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4
+
+supinp= gamepad
+mameswapB= fire1
+mameswapA= fire2
+mameswapX= 
+mameswapY= 
+mameswapStart= pause
+mameswapSelect= 
+mameswapDown= down
+mameswapUp= up
+mameswapLeft= left
+mameswapRight= right
+mameswapL= 
+mameswapR= 
+mameswapL2= 
+mameswapR2= 
+mameswapR3= 
+mameswapL3= 
+mameswapLXMinus= 
+mameswapRXMinus= 
+mameswapRXPlus= 
+mameswapLXPlus= 
+mameswapLYPlus= 
+mameswapLYMinus= 
+mameswapRYPlus= 
+mameswapRYMinus= 
+mameswapHome= 
+
+MameSwapATXT= f1
+MameSwapBTXT=
+MameSwapCTXT= f2
+MameSwapDTXT=
+MameSwapETXT=
+MameSwapFTXT=
+MameSwapGTXT=
+MameSwapHTXT=
+MameSwapITXT=
+MameSwapJTXT=
+MameSwapLTXT=
+MameSwapMTXT= pause
+
+MameSwapCGRP= 
+MameSwapDGRP= 
+gosub, MameSwap
+return
+
+MAMEsnespalJOY:
+MAMEsnesJOY:
+if (curmameINPT = "")
+	{
+		guicontrol,,emjDDLF,|gamepad||superscope
+		curmameINPT= gamepad
+	}
+guicontrol,,emjDDLB|%emjddlb%||1|2|3|4|5|6|7|8
+
+supinp= gamepad
+mameswapB= a
+mameswapA= b
+mameswapX= y
+mameswapY= x
+mameswapStart= start
+mameswapSelect= select
+mameswapDown= down
+mameswapUp= up
+mameswapLeft= left
+mameswapRight= right
+mameswapL= l
+mameswapR= r
+mameswapL2= 
+mameswapR2= 
+mameswapR3= 
+mameswapL3= 
+mameswapLXMinus= 
+mameswapRXMinus= 
+mameswapRXPlus= 
+mameswapLXPlus= 
+mameswapLYPlus= 
+mameswapLYMinus= 
+mameswapRYPlus= 
+mameswapRYMinus= 
+mameswapHome= 
+
+MameSwapATXT= a 
+MameSwapBTXT= y
+MameSwapCTXT= x
+MameSwapDTXT= b
+MameSwapETXT=
+MameSwapFTXT=
+MameSwapGTXT=
+MameSwapHTXT=
+MameSwapITXT= L
+MameSwapJTXT= R
+MameSwapLTXT= select
+MameSwapMTXT= start
+
+MameSwapCGRP= 
+MameSwapDGRP= 
+gosub, MameSwap
+return
+
+MAMEsatJOY:
+MAMEsaturnuJOY:
+if (curmameINPT = "")
+	{
+		guicontrol,,emjDDLF,|gamepad||3dpad|mission|dmission|keyboard|wheel
+		curmameINPT= gamepad
+	}
+guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4|5|6|7|8
+
+supinp= gamepad|3dpad
+mameswapB= a
+mameswapA= b
+mameswapX= c
+mameswapY= x
+mameswapStart= start
+mameswapSelect= mode
+mameswapDown= down
+mameswapUp= up
+mameswapLeft= left
+mameswapRight= right
+mameswapL= y
+mameswapR= z
+mameswapL2= ls
+mameswapR2= rs
+mameswapR3= 
+mameswapL3= 
+mameswapLXMinus= analog_left
+mameswapRXMinus= 
+mameswapRXPlus= 
+mameswapLXPlus= analog_right
+mameswapLYPlus= analog_up
+mameswapLYMinus= analog_down
+mameswapRYPlus= 
+mameswapRYMinus= 
+mameswapHome= 
+
+MameSwapATXT= a
+MameSwapBTXT= x
+MameSwapCTXT= b
+MameSwapDTXT= c
+MameSwapETXT=
+MameSwapFTXT= 
+MameSwapGTXT= L2
+MameSwapHTXT= R2
+MameSwapITXT= y
+MameSwapJTXT= z
+MameSwapLTXT= mode
+MameSwapMTXT= start
+
+MameSwapCGRP= Left Analog Stick
+MameSwapDGRP= 
+gosub, MameSwap
+return
+
+MAMEvboyJOY:
+if (curmameINPT = "")
+	{
+		guicontrol,,emjDDLF,|gamepad||
+		curmameINPT= gamepad
+	}
+guicontrol,,emjDDLB,|n||
+
+supinp= gamepad
+mameswapB= a
+mameswapA= b
+mameswapX= 
+mameswapY= 
+mameswapStart= start
+mameswapSelect= select
+mameswapDown= down-l
+mameswapUp= up-l
+mameswapLeft= left-l
+mameswapLeft= right-l
+mameswapL= 
+mameswapR= 
+mameswapL2= 
+mameswapR2= 
+mameswapR3= rt
+mameswapL3= 
+mameswapLXMinus= 
+mameswapLXPlus= 
+mameswapLYPlus= 
+mameswapLYMinus= 
+mameswapRXMinus= left-r
+mameswapRXPlus= right-r
+mameswapRYPlus= up-r
+mameswapRYMinus= down-r
+mameswapHome= 
+
+MameSwapATXT= a
+MameSwapBTXT= 
+MameSwapCTXT= b
+MameSwapDTXT= 
+MameSwapETXT=
+MameSwapFTXT= 
+MameSwapGTXT= 
+MameSwapHTXT= rt
+MameSwapITXT= 
+MameSwapJTXT= 
+MameSwapLTXT= select
+MameSwapMTXT= start
+
+MameSwapCGRP= Left Analog Stick
+MameSwapDGRP= Right Analog Stick
+gosub, MameSwap
+return
+
+MAMEwscolorJOY:
+MAMEwswanJOY:
+if (curmameINPT = "")
+	{
+		guicontrol,,emjDDLF,|gamepad||gamepadraa
+		curmameINPT= gamepad
+	}
+guicontrol,,emjDDLB,|n||
+
+supinp= gamepad|gamepadraa
+mameswapStart= start
+mameswapDown= down-x
+mameswapUp= up-x
+mameswapLeft= left-x
+mameswapRight= right-x
+mameswapRXPlus= right-y
+mameswapRXMinus= left-y
+mameswapRYPlus= up-y
+mameswapRYMinus= down-y
+mameswapB= a
+mameswapA= b
+mameswapX= 
+mameswapY= 
+mameswapSelect= 
+mameswapL= 
+mameswapR= 
+mameswapL2= 
+mameswapR2= 
+mameswapR3= 
+mameswapL3= 
+mameswapLXMinus= 
+mameswapLXPlus= 
+mameswapLYPlus= 
+mameswapLYMinus= 
+mameswapHome= 
+
+MameSwapATXT= a
+MameSwapBTXT=
+MameSwapCTXT= 
+MameSwapDTXT= b
+MameSwapETXT= 
+MameSwapFTXT=
+MameSwapGTXT=
+MameSwapHTXT=
+MameSwapITXT=
+MameSwapJTXT=
+MameSwapLTXT=
+MameSwapMTXT= start
+
+MameSwapCGRP= 
+MameSwapDGRP= Right Analog Stick
+gosub, MameSwap
+return
+
+MAMEa5200JOY:
+MAMEa7800JOY:
+MAMEa2600JOY:
+MAMEa2600pJOY:
+MAMEapple2JOY:
+MAMEapple2gsJOY:
+MAMEpc8201JOY:
+MAMEpc8801JOY:
+MAMEpc88vaJOY:
+MAMEpc98JOY:
+MAMEpc9821xsJOY:
+MAMEstJOY:
+MAMEvectrexJOY:
+MAMEx68kJOY:
+MAMEx68ksuprJOY:
+MAMEneocdJOY:
+MAMEneogeoJOY:
+MAMEn64JOY:
+MAMEn64ddmsx1JOY:
+MAMEmsx2JOY:
+MAMEmsx2pJOY:
+MAMEmsxrJOY:
+MAMEa1000nJOY:
+MAMEa1200nJOY:
+MAMEa2000nJOY:
+MAMEa3000JOY:
+MAMEa3000nJOY:
+MAMEa500nJOY:
+MAMEa800JOY:
+MAMEa800palJOY:
+MAMEarcadiaJOY:
+MAMEarchimedesJOY:
+MAMEbbcaJOY:
+MAMEbbcbJOY:
+MAMEbbcbcJOY:
+MAMEbbcmJOY:
+MAMEbbcmcJOY:
+MAMEamigaJOY:
+MAMEc128JOY:
+MAMEx1JOY:
+MAMEfm7JOY:
+MAMEfm77avJOY:
+MAMEfmtownsJOY:
+MAMEelectronJOY:
+MAMEc64JOY:
+MAMEc65JOY:
+MAMEcanonv30fJOY:
+MAMEcanonv8JOY:
+MAMEcolecoJOY:
+MAMEcolecopJOY:
+MAMEcpcJOY:
+MAMEcpc6128pJOY:
+MAMEcdtvJOY:
+MAMEzx80JOY:
+MAMEzx81JOY:
+MAMEsg1000JOY:
+MAMEsamcoupeJOY:
+MAMEiq151intvJOY:
+MAMEintvecsJOY:
+MAMEjaguarJOY:
+MAMEa310JOY:
+MAMEabc1600JOY:
+MAMEabc80JOY:
+MAMEadamJOY:
+MAMEadvantageJOY:
+MAMEadvisionJOY:
+MAMEaim65JOY:
+MAMEalesteJOY:
+MAMEalice32JOY:
+MAMEalice90JOY:
+MAMEalphatroJOY:
+MAMEaltos5JOY:
+MAMEamproJOY:
+MAMEapcJOY:
+MAMEapfimagJOY:
+MAMEapfm1000JOY:
+MAMEapogeeJOY:
+MAMEapolloJOY:
+MAMEapple1JOY:
+MAMEapple3JOY:
+MAMEapricotJOY:
+MAMEaquariusJOY:
+MAMEastrocdeJOY:
+MAMEatomJOY:
+MAMEattacheJOY:
+MAMEb2mJOY:
+MAMEbk0010JOY:
+MAMEbw12JOY:
+MAMEbw14JOY:
+MAMEbw2JOY:
+MAMEbx256hpJOY:
+MAMEcasloopyJOY:
+MAMEcbm2JOY:
+MAMEcbm8096JOY:
+MAMEcbm8296JOY:
+MAMEcc40JOY:
+MAMEcgenieJOY:
+MAMEchannelfJOY:
+MAMEchessmstdmJOY:
+MAMEcocoJOY:
+MAMEcompclr2JOY:
+MAMEcompisJOY:
+MAMEcomx35JOY:
+MAMEcoperaJOY:
+MAMEcrvisionJOY:
+MAMEcx3000tcJOY:
+MAMEdaiJOY:
+MAMEdatabaseJOY:
+MAMEdgnalphaJOY:
+MAMEdgnbetaJOY:
+MAMEdim68kJOY:
+MAMEdmvJOY:
+MAMEdps1JOY:
+MAMEdragonJOY:
+MAMEe01JOY:
+MAMEec1841JOY:
+MAMEeinsteinJOY:
+MAMEep64JOY:
+MAMEepsonJOY:
+MAMEexl100JOY:
+MAMEfidelJOY:
+MAMEfsa1stJOY:
+MAMEg7400JOY:
+MAMEgalaxyJOY:
+MAMEgamateJOY:
+MAMEgamecomJOY:
+MAMEgamekingJOY:
+MAMEgameking3JOY:
+MAMEgamepockJOY:
+MAMEgeniusJOY:
+MAMEgenius6JOY:
+MAMEgimixJOY:
+MAMEgjmovieJOY:
+MAMEgl2000JOY:
+MAMEgl6000slJOY:
+MAMEglcolorJOY:
+MAMEgmasterJOY:
+MAMEgp32JOY:
+MAMEguabJOY:
+MAMEgx4000JOY:
+MAMEh21JOY:
+MAMEhbf9spJOY:
+MAMEhorizonJOY:
+MAMEhpJOY:
+MAMEhp85JOY:
+MAMEhp9835aJOY:
+MAMEhp9845aJOY:
+MAMEhp9845bJOY:
+MAMEht68kJOY:
+MAMEhx20JOY:
+MAMEi7000JOY:
+MAMEibm5140JOY:
+MAMEibm5150JOY:
+MAMEibm5170JOY:
+MAMEibm6580JOY:
+MAMEibmpcjrJOY:
+MAMEinteractJOY:
+MAMEjuiceboxJOY:
+MAMEjupaceJOY:
+MAMEk28m2JOY:
+MAMEkayproiiJOY:
+MAMEkcJOY:
+MAMEkim1JOY:
+MAMEkonamiJOY:
+MAMEkorvetJOY:
+MAMElantutorJOY:
+MAMElaser2001JOY:
+MAMEleapsterJOY:
+MAMElisaJOY:
+MAMElisa2JOY:
+MAMElvivJOY:
+MAMEm20JOY:
+MAMEm5JOY:
+MAMEmacJOY:
+MAMEmbc200JOY:
+MAMEmbc55xJOY:
+MAMEmc10JOY:
+MAMEmc1502JOY:
+MAMEmd2JOY:
+MAMEmegaduckJOY:
+MAMEmegapcJOY:
+MAMEmegatechJOY:
+MAMEmicrovisionJOY:
+MAMEmikro80JOY:
+MAMEmikroshaJOY:
+MAMEmisterxJOY:
+MAMEmm1JOY:
+MAMEmo5JOY:
+MAMEmo6JOY:
+MAMEmpu1000JOY:
+MAMEmpz80JOY:
+MAMEmtxJOY:
+MAMEmtx512JOY:
+MAMEmyvisionJOY:
+MAMEmz2000JOY:
+MAMEmz2500JOY:
+MAMEmz700JOY:
+MAMEmz800JOY:
+MAMEnascomJOY:
+MAMEnextJOY:
+MAMEnimbusJOY:
+MAMEoctopusJOY:
+MAMEodyssey2JOY:
+MAMEondraJOY:
+MAMEoraoJOY:
+MAMEorionideJOY:
+MAMEorionproJOY:
+MAMEosborne1JOY:
+MAMEosborne2JOY:
+MAMEp500JOY:
+MAMEpartnerJOY:
+MAMEpasogoJOY:
+MAMEpb2000cJOY:
+MAMEpc1000JOY:
+MAMEpc1512JOY:
+MAMEpc1640JOY:
+MAMEpcwJOY:
+MAMEpcw16JOY:
+MAMEpecomJOY:
+MAMEpecom32JOY:
+MAMEpegasusJOY:
+MAMEpencil2JOY:
+MAMEpentagonJOY:
+MAMEpet64JOY:
+MAMEphc25JOY:
+MAMEpicnoJOY:
+MAMEpicoJOY:
+MAMEpicouJOY:
+MAMEpippinJOY:
+MAMEplus4JOY:
+MAMEpmd853JOY:
+MAMEpockchalv2JOY:
+MAMEpockchalwJOY:
+MAMEpofoJOY:
+MAMEpoisk1JOY:
+MAMEpokeminiJOY:
+MAMEprincJOY:
+MAMEpro128JOY:
+MAMEpro128sJOY:
+MAMEprof180JOY:
+MAMEprof80JOY:
+MAMEpsi98JOY:
+MAMEpsion1JOY:
+MAMEpsion2JOY:
+MAMEpt68k2JOY:
+MAMEpv1000JOY:
+MAMEpv2000JOY:
+MAMEpx4JOY:
+MAMEpx8JOY:
+MAMEpyl601JOY:
+MAMEqlJOY:
+MAMEqx10JOY:
+MAMEr9751JOY:
+MAMEradio86JOY:
+MAMErainbowJOY:
+MAMErwtrntcsJOY:
+MAMErx78JOY:
+MAMEsage2JOY:
+MAMEsawatteJOY:
+MAMEsc3000JOY:
+MAMEscvJOY:
+MAMEsf7000JOY:
+MAMEsitcomJOY:
+MAMEsmc777JOY:
+MAMEsmondial2JOY:
+MAMEsnotecJOY:
+MAMEsnreadJOY:
+MAMEsnspellJOY:
+MAMEsocratesJOY:
+MAMEsoftboxJOY:
+MAMEsol20JOY:
+MAMEsorcererJOY:
+MAMEspc1000JOY:
+MAMEspc1500JOY:
+MAMEspec128JOY:
+MAMEspecialJOY:
+MAMEspecpls3JOY:
+MAMEspectrumJOY:
+MAMEstudio2JOY:
+MAMEstvJOY:
+MAMEsuper6JOY:
+MAMEsuper80JOY:
+MAMEsuperpetJOY:
+MAMEsupracanJOY:
+MAMEsv8000JOY:
+MAMEsvi318JOY:
+MAMEsvisionJOY:
+MAMEsvmuJOY:
+MAMEt1000JOY:
+MAMEtandy200JOY:
+MAMEtandy2kJOY:
+MAMEtandy6kJOY:
+MAMEtdv2324JOY:
+MAMEtek4052JOY:
+MAMEti74JOY:
+MAMEti95JOY:
+MAMEti99JOY:
+MAMEtiki100JOY:
+MAMEtimexJOY:
+MAMEtntellJOY:
+MAMEto7JOY:
+MAMEto770JOY:
+MAMEto770aJOY:
+MAMEto8JOY:
+MAMEtrs80m2JOY:
+MAMEtrsm100JOY:
+MAMEtutorJOY:
+MAMEtvcJOY:
+MAMEunichampJOY:
+MAMEut88JOY:
+MAMEuzeboxJOY:
+MAMEv1050JOY:
+MAMEvc4000JOY:
+MAMEvector06JOY:
+MAMEvg5kJOY:
+MAMEvic10JOY:
+MAMEvic1001JOY:
+MAMEvictor9kJOY:
+MAMEvidbrainJOY:
+MAMEviiJOY:
+MAMEvipJOY:
+MAMEvisicomJOY:
+MAMEvixenJOY:
+MAMEvsmileJOY:
+MAMEvsmilebJOY:
+MAMEvsmilefJOY:
+MAMEvsmilegJOY:
+MAMEvzJOY:
+MAMEwangpcJOY:
+MAMEwavetermJOY:
+MAMEwicatJOY:
+MAMEwmbulletJOY:
+MAMEx07JOY:
+MAMEx820iiJOY:
+MAMExegsJOY:
+MAMExerox820JOY:
+MAMEz80neJOY:
+MAMEz88JOY:
+MAMEzorbaJOY:
+
+if (curmameINPT = "")
+	{
+		guicontrol,,emjDDLF,|gamepad||keyboard
+		curmameINPT= keyboard
+	}
+guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4|5|6|7|8
+
+supinp= gamepad|keyboard
+mameswapB= cross
+mameswapA= circle
+mameswapX= square
+mameswapY= triangle
+mameswapStart= start
+mameswapSelect= select
+mameswapDown= down
+mameswapUp= up
+mameswapLeft= left
+mameswapRight= right
+mameswapL= l1
+mameswapR= r1
+mameswapL2= l2
+mameswapR2= r2
+mameswapR3= r3
+mameswapL3= l3
+mameswapLXMinus= lstick_left
+mameswapRXMinus= rstick_left
+mameswapRXPlus= rstick_right
+mameswapLXPlus= lstick_right
+mameswapLYPlus= lstick_up
+mameswapLYMinus= lstick_down
+mameswapRYPlus= rstick_up
+mameswapRYMinus= rstick_down
+mameswapHome= 
+
+MameSwapATXT= o
+MameSwapBTXT= ^
+MameSwapCTXT= []
+MameSwapDTXT= x
+MameSwapETXT= l3
+MameSwapFTXT= r3
+MameSwapGTXT= LTrig
+MameSwapHTXT= RTrig
+MameSwapITXT= L
+MameSwapJTXT= R
+MameSwapLTXT= select
+MameSwapMTXT= start
+
+MameSwapCGRP= Left Analog Stick
+MameSwapDGRP= Right Analog Stick
+gosub, MameSwap
+return
+;};;;;;;;;;;;;;;;;;;;;
+
+;};;;;;;;;
+
+;{;;;;;;;;   Mame Joy Button Functions  ;;;;;;;;;;;;;;;;;
+JMameTURBOIN:
+gui, submit, nohide
+SB_SetText(" Waiting for input TURBO")
+gosub, GetJoystickInput
+if (MAMECOLLECT <> "")
+	{
+		guicontrol,,emjTRBCMB,|%MAMECOLLECT%||%mamejbid%
+	}
+SB_SetText(" MAMECOLLECT ")
+gosub, emjTRBCMB
+return
+
+JMameL2In:
+gui, submit, nohide
+SB_SetText(" Waiting for input L Trigger ")
+gosub, GetJoystickInput
+if (MAMECOLLECT <> "")
+	{
+		guicontrol,,emjl2,|%MAMECOLLECT%||%mamejbid%
+	}
+SB_SetText(" MAMECOLLECT ")
+gosub, emjl2
+return
+
+JMameLIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input L Bumper ")
+gosub, GetJoystickInput
+if (MAMECOLLECT <> "")
+	{
+		guicontrol,,emjL,|%MAMECOLLECT%||%mamejbid%
+	}
+SB_SetText(" MAMECOLLECT ")
+gosub, emjL
+return
+
+JMameR2In:
+gui, submit, nohide
+SB_SetText(" Waiting for input R Trigger ")
+gosub, GetJoystickInput
+if (MAMECOLLECT <> "")
+	{
+		guicontrol,,emjr2,|%MAMECOLLECT%||%mamejbid%
+	}
+SB_SetText(" MAMECOLLECT ")
+gosub, emjr2
+return
+
+JMameRIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input R Bumper ")
+gosub, GetJoystickInput
+if (MAMECOLLECT <> "")
+	{
+		guicontrol,,emjR,|%MAMECOLLECT%||%mamejbid%
+	}
+SB_SetText(" MAMECOLLECT ")
+gosub, emjR
+return
+
+JMameLYPlusIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input L-Stick Up ")
+gosub, GetJoystickInput
+if (MAMECOLLECT <> "")
+	{
+		guicontrol,,emjLYPlus,|%MAMECOLLECT%||%mamejbid%
+	}
+SB_SetText(" MAMECOLLECT ")
+gosub, emjLYPlus
+return
+
+JMameLXMinusIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input L-Stick Left ")
+gosub, GetJoystickInput
+if (MAMECOLLECT <> "")
+	{
+		guicontrol,,emjLYMinus,|%MAMECOLLECT%||%mamejbid%
+	}
+SB_SetText(" MAMECOLLECT ")
+gosub, emjLYMinus
+return
+
+JMameLXPlusIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input L-Stick Right ")
+gosub, GetJoystickInput
+if (MAMECOLLECT <> "")
+	{
+		guicontrol,,emjLXPlus,|%MAMECOLLECT%||%mamejbid%
+	}
+SB_SetText(" MAMECOLLECT ")
+gosub, emjLXPlus
+return
+
+JMameLYMinusIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input L-Stick Down ")
+gosub, GetJoystickInput
+if (MAMECOLLECT <> "")
+	{
+		guicontrol,,emjLXMinus,|%MAMECOLLECT%||%mamejbid%
+	}
+SB_SetText(" MAMECOLLECT ")
+gosub, emjLXMinus
+return
+
+JMameL3In:
+gui, submit, nohide
+SB_SetText(" Waiting for input L3 Button ")
+gosub, GetJoystickInput
+if (MAMECOLLECT <> "")
+	{
+		guicontrol,,emjL3,|%MAMECOLLECT%||%mamejbid%
+	}
+SB_SetText(" MAMECOLLECT ")
+gosub, emjL3
+return
+
+JMameRYPlusIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input R-Stick Up ")
+gosub, GetJoystickInput
+if (MAMECOLLECT <> "")
+	{
+		guicontrol,,emjRYPlus,|%MAMECOLLECT%||%mamejbid%
+	}
+SB_SetText(" MAMECOLLECT ")
+gosub, emjRYPlus
+return
+
+JMameRXMinusIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input R-Stick Left ")
+gosub, GetJoystickInput
+if (MAMECOLLECT <> "")
+	{
+		guicontrol,,emjRXMinus,|%MAMECOLLECT%||%mamejbid%
+	}
+SB_SetText(" MAMECOLLECT ")
+gosub, emjRXMinus
+return
+
+JMameRXPlusIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input R-Stick Right ")
+gosub, GetJoystickInput
+if (MAMECOLLECT <> "")
+	{
+		guicontrol,,emjRXPlus,|%MAMECOLLECT%||%mamejbid%
+	}
+SB_SetText(" MAMECOLLECT ")
+gosub, emjRXPlus
+return
+
+JMameRYMinusIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input R-Stick Down ")
+gosub, GetJoystickInput
+if (MAMECOLLECT <> "")
+	{
+		guicontrol,,emjRYMinus,|%MAMECOLLECT%||%mamejbid%
+	}
+SB_SetText(" MAMECOLLECT ")
+gosub, emjRYMinus
+return
+
+JMameR3In:
+gui, submit, nohide
+SB_SetText(" Waiting for input R3 Button ")
+gosub, GetJoystickInput
+if (MAMECOLLECT <> "")
+	{
+		guicontrol,,emjR3,|%MAMECOLLECT%||%mamejbid%
+	}
+SB_SetText(" MAMECOLLECT ")
+gosub, emjR3
+return
+
+JMameDownIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input DPad Down")
+gosub, GetJoystickInput
+if (MAMECOLLECT <> "")
+	{
+		guicontrol,,emjdown,|%MAMECOLLECT%||%mamejbid%
+	}
+SB_SetText(" MAMECOLLECT ")
+gosub, emjdown
+return
+
+JMameUpIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input DPad Up")
+gosub, GetJoystickInput
+if (MAMECOLLECT <> "")
+	{
+		guicontrol,,emjup,|%MAMECOLLECT%||%mamejbid%
+	}
+SB_SetText(" MAMECOLLECT ")
+gosub, emjup
+return
+
+JMameLeftIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input DPad Left")
+gosub, GetJoystickInput
+if (MAMECOLLECT <> "")
+	{
+		guicontrol,,emjleft,|%MAMECOLLECT%||%mamejbid%
+	}
+SB_SetText(" MAMECOLLECT ")
+gosub, emjleft
+return
+
+JMameRightIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input DPad Right")
+gosub, GetJoystickInput
+if (MAMECOLLECT <> "")
+	{
+		guicontrol,,emjright,|%MAMECOLLECT%||%mamejbid%
+	}
+SB_SetText(" MAMECOLLECT ")
+gosub, emjright
+return
+
+JMameSelectIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input Select Button")
+gosub, GetJoystickInput
+if (MAMECOLLECT <> "")
+	{
+		guicontrol,,emjselect,|%MAMECOLLECT%||%mamejbid%
+	}
+SB_SetText(" MAMECOLLECT ")
+gosub, emjselect
+return
+
+JMameStartIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input Start Button")
+gosub, GetJoystickInput
+if (MAMECOLLECT <> "")
+	{
+		guicontrol,,emjstart,|%MAMECOLLECT%||%mamejbid%
+	}
+SB_SetText(" MAMECOLLECT ")
+gosub, emjstart
+return
+
+JMameYIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input Y Button")
+gosub, GetJoystickInput
+if (MAMECOLLECT <> "")
+	{
+		guicontrol,,emjY,|%MAMECOLLECT%||%mamejbid%
+	}
+SB_SetText(" MAMECOLLECT ")
+gosub, emjY
+return
+
+JMameXIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input X Button")
+gosub, GetJoystickInput
+if (MAMECOLLECT <> "")
+	{
+		guicontrol,,emjX,|%MAMECOLLECT%||%mamejbid%
+	}
+SB_SetText(" MAMECOLLECT ")
+gosub, emjX
+return
+
+JMameBIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input B Button")
+gosub, GetJoystickInput
+if (MAMECOLLECT <> "")
+	{
+		guicontrol,,emjB,|%MAMECOLLECT%||%mamejbid%
+	}
+SB_SetText(" MAMECOLLECT ")
+gosub, emjB
+return
+
+JMameAIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input A Button")
+gosub, GetJoystickInput
+if (MAMECOLLECT <> "")
+	{
+		guicontrol,,emjA,|%MAMECOLLECT%||%mamejbid%
+	}
+SB_SetText(" MAMECOLLECT ")
+gosub, emjA
+return
+
+JMameINPBUTIN:
+gui, submit, nohide
+SB_SetText(" Waiting for input")
+return
+
+JMameTRBCMB:
+gui, submit, nohide
+return
+
+JMameRXMinus:
+gui, submit, nohide
+guicontrolget,kprm,,emjRXMinus
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjRXMinus%
+if (emjRAD3A = 1)
+	{
+		gosub, mamekbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, mamejrev
+	}
+filedelete,%mamecfgloc%
+fileappend,%mamejimp%,%mamecfgloc%
+gosub, mameswap
+return
+
+JMameRYPlus:
+gui, submit, nohide
+guicontrolget,kprm,,emjRYPlus
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjryplus%
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjRYPlus%
+if (emjRAD3A = 1)
+	{
+		gosub, mamekbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, mamejrev
+	}
+filedelete,%mamecfgloc%
+fileappend,%mamejimp%,%mamecfgloc%
+gosub, mameswap
+return
+
+JMameR:
+gui, submit, nohide
+guicontrolget,kprm,,emjR
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjR%
+if (emjRAD3A = 1)
+	{
+		gosub, mamekbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, mamejrev
+	}
+filedelete,%mamecfgloc%
+fileappend,%mamejimp%,%mamecfgloc%
+gosub, mameswap
+return
+
+JMameL:
+gui, submit, nohide
+guicontrolget,kprm,,emjL
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjL%
+if (emjRAD3A = 1)
+	{
+		gosub, mamekbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, mamejrev
+	}
+filedelete,%mamecfgloc%
+fileappend,%mamejimp%,%mamecfgloc%
+gosub, mameswap
+return
+
+JMameRXPlus:
+gui, submit, nohide
+guicontrolget,kprm,,emjRXPlus
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjRXPlus%
+if (emjRAD3A = 1)
+	{
+		gosub, mamekbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, mamejrev
+	}
+filedelete,%mamecfgloc%
+fileappend,%mamejimp%,%mamecfgloc%
+gosub, mameswap
+return
+
+JMameRYMinus:
+gui, submit, nohide
+guicontrolget,kprm,,emjRYMinus
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjRYMinus%
+if (emjRAD3A = 1)
+	{
+		gosub, mamekbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, mamejrev
+	}
+filedelete,%mamecfgloc%
+fileappend,%mamejimp%,%mamecfgloc%
+gosub, mameswap
+return
+
+JMameR3:
+gui, submit, nohide
+guicontrolget,kprm,,emjR3
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjR3%
+if (emjRAD3A = 1)
+	{
+		gosub, mamekbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, mamejrev
+	}
+filedelete,%mamecfgloc%
+fileappend,%mamejimp%,%mamecfgloc%
+gosub, mameswap
+return
+
+JMameL3:
+gui, submit, nohide
+guicontrolget,kprm,,emjL3
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjR3%
+if (emjRAD3A = 1)
+	{
+		gosub, mamekbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, mamejrev
+	}
+filedelete,%mamecfgloc%
+fileappend,%mamejimp%,%mamecfgloc%
+gosub, mameswap
+return
+
+JMameLXMinus:
+gui, submit, nohide
+guicontrolget,kprm,,emjLXMinus
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjLXMinus%
+if (emjRAD3A = 1)
+	{
+		gosub, mamekbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, mamejrev
+	}
+filedelete,%mamecfgloc%
+fileappend,%mamejimp%,%mamecfgloc%
+gosub, mameswap
+return
+
+JMameLYPlus:
+gui, submit, nohide
+guicontrolget,kprm,,emjLYPlus
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjLYPlus%
+if (emjRAD3A = 1)
+	{
+		gosub, mamekbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, mamejrev
+	}
+filedelete,%mamecfgloc%
+fileappend,%mamejimp%,%mamecfgloc%
+gosub, mameswap
+return
+
+JMameLYMinus:
+gui, submit, nohide
+guicontrolget,kprm,,emjLYMinus
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjLYMinus%
+if (emjRAD3A = 1)
+	{
+		gosub, mamekbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, mamejrev
+	}
+filedelete,%mamecfgloc%
+fileappend,%mamejimp%,%mamecfgloc%
+gosub, mameswap
+return
+
+JMameLXPlus:
+gui, submit, nohide
+guicontrolget,kprm,,emjLXPlus
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjLXPlus%
+if (emjRAD3A = 1)
+	{
+		gosub, mamekbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, mamejrev
+	}
+filedelete,%mamecfgloc%
+fileappend,%mamejimp%,%mamecfgloc%
+gosub, mameswap
+return
+
+JMameselect:
+gui, submit, nohide
+guicontrolget,kprm,,emjselect
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjselect%
+if (emjRAD3A = 1)
+	{
+		gosub, mamekbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, mamejrev
+	}
+filedelete,%mamecfgloc%
+fileappend,%mamejimp%,%mamecfgloc%
+gosub, mameswap
+return
+
+JMamestart:
+gui, submit, nohide
+guicontrolget,kprm,,emjstart
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjstart%
+if (emjRAD3A = 1)
+	{
+		gosub, mamekbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, mamejrev
+	}
+filedelete,%mamecfgloc%
+fileappend,%mamejimp%,%mamecfgloc%
+gosub, mameswap
+return
+
+JMameup:
+gui, submit, nohide
+guicontrolget,kprm,,emjup
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjup%
+if (emjRAD3A = 1)
+	{
+		gosub, mamekbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, mamejrev
+	}
+filedelete,%mamecfgloc%
+fileappend,%mamejimp%,%mamecfgloc%
+gosub, mameswap
+return
+
+JMameleft:
+gui, submit, nohide
+guicontrolget,kprm,,emjleft
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjleft%
+if (emjRAD3A = 1)
+	{
+		gosub, mamekbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, mamejrev
+	}
+filedelete,%mamecfgloc%
+fileappend,%mamejimp%,%mamecfgloc%
+gosub, mameswap
+return
+
+JMameright:
+gui, submit, nohide
+guicontrolget,kprm,,emjright
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjright%
+if (emjRAD3A = 1)
+	{
+		gosub, mamekbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, mamejrev
+	}
+filedelete,%mamecfgloc%
+fileappend,%mamejimp%,%mamecfgloc%
+gosub, mameswap
+return
+
+JMamameown:
+gui, submit, nohide
+guicontrolget,kprm,,emjdown
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjdown%
+if (emjRAD3A = 1)
+	{
+		gosub, mamekbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, mamejrev
+	}
+filedelete,%mamecfgloc%
+fileappend,%mamejimp%,%mamecfgloc%
+gosub, mameswap
+return
+
+JMameY:
+gui, submit, nohide
+guicontrolget,kprm,,emjY
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjY%
+if (emjRAD3A = 1)
+	{
+		gosub, mamekbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, mamejrev
+	}
+filedelete,%mamecfgloc%
+fileappend,%mamejimp%,%mamecfgloc%
+gosub, mameswap
+return
+
+JMameX:
+gui, submit, nohide
+guicontrolget,kprm,,emjX
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjX%
+if (emjRAD3A = 1)
+	{
+		gosub, mamekbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, mamejrev
+	}
+filedelete,%mamecfgloc%
+fileappend,%mamejimp%,%mamecfgloc%
+gosub, mameswap
+return
+
+JMameB:
+gui, submit, nohide
+guicontrolget,kprm,,emjB
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjB%
+if (emjRAD3A = 1)
+	{
+		gosub, mamekbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, mamejrev
+	}
+filedelete,%mamecfgloc%
+fileappend,%mamejimp%,%mamecfgloc%
+gosub, mameswap
+return
+
+JMameA:
+gui, submit, nohide
+guicontrolget,kprm,,emjA
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjA%
+if (emjRAD3A = 1)
+	{
+		gosub, mamekbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, mamejrev
+	}
+filedelete,%mamecfgloc%
+fileappend,%mamejimp%,%mamecfgloc%
+gosub, mameswap
+return
+
+JMamel2:
+gui, submit, nohide
+guicontrolget,kprm,,emjL2
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjL2%
+if (emjRAD3A = 1)
+	{
+		gosub, mamekbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, mamejrev
+	}
+filedelete,%mamecfgloc%
+fileappend,%mamejimp%,%mamecfgloc%
+gosub, mameswap
+return
+
+JMamer2:
+gui, submit, nohide
+guicontrolget,kprm,,emjR2
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjR2%
+if (emjRAD3A = 1)
+	{
+		gosub, mamekbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, mamejrev
+	}
+filedelete,%mamecfgloc%
+fileappend,%mamejimp%,%mamecfgloc%
+gosub, mameswap
+return
+
+JMameHome:
+gui, submit, nohide
+guicontrolget,kprm,,emjHome
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjHome%
+if (emjRAD3A = 1)
+	{
+		gosub, mamekbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, mamejrev
+	}
+filedelete,%mamecfgloc%
+fileappend,%mamejimp%,%mamecfgloc%
+gosub, mameswap
+return
+
+
+;{;;;;;;;;;;;;;;;;;;;  Mame Keyboard lookups  ;;;;;;;;;;;;;;;;;;;
+MameKBREV:
+emjtog= disable
+gosub, emjbtog
+stringreplace,orz,vprm,%A_Space%,#
+stringsplit,ors,orz,#
+stringreplace,orj,ors2,%A_Space%,#,All
+jprs=
+reinj= %A_Space%
+orzf= %A_Space%
+Loop, Parse, orj,#
+	{
+		if (A_Index <> 1)
+			{
+				reinj.= A_Space
+				orzf.= A_Space
+			}
+		if (jprs = "")
+			{
+				orzf.= A_LoopField
+				ifinstring,A_LoopField,keyboard
+					{
+						reinj.= "keyboard"
+						jprs:= 1
+						continue
+					}
+				reinj.= A_LoopField
+			}
+		if (jprs = 1)
+			{
+				if (A_LoopField = "0x0")
+					{
+						orzf.= A_LoopField
+						reinj.= A_LoopField
+						continue
+					}
+				orzf.= A_LoopField
+				Loop,Parse,mamekbctrls,`n`r
+					{
+						stringsplit,din,A_LoopField,=
+						if (A_LoopField = "")
+							{
+								continue
+							}	
+						if (din1 = kprm)
+							{
+								reinj.= din2
+								break
+							}
+					}
+				jprs+= 1
+				continue
+			}
+		if (jprs <> "")
+			{
+				orzf.= A_LoopField
+				reinj.= A_LoopField
+			}
+	}
+mamejimp := RegExReplace(mamejimp, "m)^\Q"  "" ors1 " \E.*", "" ors1 " " reinj "`n")
+;;stringreplace,mamejimp,mamejimp,%ors1%%A_Space%%orzf%,%ors1%%A_Space%%reinj%,All
+stringreplace,mamejimp,mamejimp,||||,||,All
+emjtog= enable
+gosub, emjbtog
+return
+
+MameJREV:
+mamejinjid= % mamejid%emjDDLB%
+stringreplace,orz,vprm,%A_Space%,#
+stringsplit,ors,orz,#
+stringreplace,orj,ors2,%A_Space%,#,All
+jprs= 
+reinj= %A_Space%
+orzf= %A_Space%
+
+Loop, Parse, orj,#
+	{
+		if (A_Index <> 1)
+			{
+				reinj.= A_Space
+				orzf.= A_Space
+			}
+		if (jprs = "")
+			{
+				orzf.= A_LoopField
+				ifinstring,A_LoopField,joystick
+					{
+						reinj.= "joystick"
+						jprs:= 1
+						continue
+					}
+				reinj.= A_LoopField
+			}
+		if (jprs = 1)
+			{
+				ifinstring,A_LoopField,0x0
+					{
+						orzf.= A_LoopField
+						reinj.= mamejinjid
+						continue
+					}
+				orzf.= A_LoopField
+				Loop, Parse, mamexset,`n`r
+					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						stringsplit,mjvak,A_LoopField,=]
+						stringreplace,mjvcdp,mjvak4,%A_Space%,,All
+						stringmid,mameitbd,mjvak2,5,13
+						if (mameitbd = kprm)
+							{
+								reinj.= mjvcdp
+								break
+							}	
+					}
+				jprs+=1
+				continue
+			}
+		if (jprs <> "")
+			{
+				orzf.= A_LoopField
+				reinj.= A_LoopField
+			}
+	}
+stringreplace,mamejimp,mamejimp,%ors1%%A_Space%%orzf%,%ors1%%A_Space%%reinj%,All
+stringreplace,mamejimp,mamejimp,||||,||,All	
+emjtog= enable
+gosub, emjbtog
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;;;                NULL POINTERS         ;;;;;;;;;;;;;;;;;;;
 JTURBOIN:
@@ -60332,6 +63288,273 @@ Loop, parse, SysEmuSet,`n`r
 			}
 	}
 return
+
+
+MameSwap:
+guicontrolget,emjDDLB,,emjDDLB
+guicontrolget,emjDDLC,,emjDDLC
+FileRead,mamejimp,%MAMECFGLOC%
+mamelkup= 
+rbab= |
+Loop, Parse, mamejimp,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		mdlnval= %A_LoopField%
+		stringleft,skln,A_LoopField,1
+		if (skln = ";")
+			{
+				continue
+			}
+		aik1=	
+		aik2=	
+		aik3=	
+		aik4=	
+		aik5=	
+		stringsplit,aik,A_LoopField,%A_Space%.
+		if (curmameINPT <> aik4)
+			{
+				continue
+			}
+		stringright,curjport,aik3,1
+		if (curjport <> emjDDLB)
+			{
+				continue
+			}
+		if ((aik1 = RJMAMENM)&&(aik2 = "input"))
+			{								
+				Loop, Parse, supinp,|
+					{
+						if (aik4 <> A_LoopField)
+							{
+								continue
+							}
+						mameitbv= %aik5%
+						if (aik5 = mameswapB)
+							{
+								mameitbv= B
+							}
+						if (aik5 = mameswapA)
+							{
+								mameitbv= A
+							}
+						if (aik5 = mameswapX)
+							{
+								mameitbv= X
+							}
+						if (aik5 = mameswapY)
+							{
+								mameitbv= Y
+							}
+						if (aik5 = mameswapSelect)
+							{
+								mameitbv= select
+							}
+						if (aik5 = mameswapStart)
+							{
+								mameitbv= start
+							}
+						if (aik5 = mameswapR3)
+							{
+								mameitbv= r3
+							}
+						if (aik5 = mameswapL3)
+							{
+								mameitbv= l3
+							}
+						if (aik5 = mameswapR2)
+							{
+								mameitbv= r2
+							}
+						if (aik5 = mameswapL2)
+							{
+								mameitbv= l2
+							}
+						if (aik5 = mameswapUp)
+							{
+								mameitbv= up
+							}
+						if (aik5 = mameswapDown)
+							{
+								mameitbv= down
+							}
+						if (aik5 = mameswapLeft)
+							{
+								mameitbv= left
+							}
+						if (aik5 = mameswapRight)
+							{
+								mameitbv= right
+							}
+						if (aik5 = mameswapR)
+							{
+								mameitbv= r
+							}
+						if (aik5 = mameswapL)
+							{
+								mameitbv= l
+							}
+						if (aik5 = mameswapRXMinus)
+							{
+								mameitbv= rxminus
+							}
+						if (aik5 = mameswapRXPlus)
+							{
+								mameitbv= rxplus
+							}
+						if (aik5 = mameswapLXMinus)
+							{
+								mameitbv= lxminus
+							}
+						if (aik5 = mameswapLXPlus)
+							{
+								mameitbv= lxplus
+							}
+						if (aik5 = mameswapRYMinus)
+							{
+								mameitbv= ryminus
+							}
+						if (aik5 = mameswapRYPlus)
+							{
+								mameitbv= ryplus
+							}
+						if (aik5 = mameswapLYMinus)
+							{
+								mameitbv= lyminus
+							}
+						if (aik5 = mameswapLYPlus)
+							{
+								mameitbv= lyplus
+							}
+						if (aik5 = mameswapHome)
+							{
+								mameitbv= home
+							}
+						aip1= 
+						aip2= 
+						aip3= 
+						aip4= 
+						aip5= 
+						aip6= 
+						aip7= 
+						aip8= 
+						stringreplace,iij,mdlnval,%A_Space%,#
+						iiv1=
+						iiv2=
+						stringsplit,iiv,iij,#
+						stringreplace,iik,iiv2,%A_Space%,-,All
+						aisp= %iik%
+						if (emjRAD3B = 1)  ;;joy
+							{
+								jsn= 
+								jprs= 
+								stringreplace,aispx,aisp,-,%A_Space%,All
+								Loop, Parse,aispx,|
+									{
+										ifinstring,A_LoopField,joystick
+											{
+												jsn+= 1
+												if (jsn <> emjDDLC)
+													{
+														continue
+													}
+												stringreplace,avi,A_LoopField,%A_Space%,#
+												stringsplit,uig,avi,%A_Space%
+												mamejcd= %uig3%
+												Loop, Parse, mamexset,`n`r
+													{
+														if (A_LoopField = "")
+															{
+																continue
+															}
+														stringsplit,mjvak,A_LoopField,=]
+														stringreplace,mjvcdp,mjvak4,%A_Space%,,All
+														stringreplace,mav,mjvcdp,-,,All
+														stringreplace,mad,mamejcd,-,,All
+														if (mav = mad)
+															{
+																stringmid,mameitbd,mjvak2,5,13
+																ifnotinstring,mamelkup,%aik5%=
+																	{
+																		mamelkup.= aik5 . "=" mameitbd . "`n"
+																	}
+																guicontrol,,emj%mameitbv%,|%mameitbd%||%mamejbid%
+																stringreplace,mameitbv,mameitbv,-,#,All
+																kmj%mameitbv%= %mdlnval%
+																break
+															}	
+													}
+											}
+										continue
+									}
+								continue
+							}
+						if (emjRAD3A = 1)  ;;kb
+							{
+								ksn= 
+								jprs= 
+								stringreplace,aispx,aisp,-,%A_Space%,All
+								Loop, Parse,aispx,|
+									{
+										ifinstring,A_LoopField,keyboard
+											{
+												ksn+=1
+												if (ksn <> emjDDLC)
+													{
+														continue
+													}
+												stringsplit,uig,A_LoopField,%A_Space%	
+												mknum:= uig3
+												Loop,Parse,mamekbctrls,`n`r
+													{
+														stringsplit,din,A_LoopField,=
+														if (A_LoopField = "")
+															{
+																continue
+															}
+														if (din2 = mknum)
+															{
+																ifnotinstring,mamelkup,%aik5%=
+																	{
+																		mamelkup.= aik5 . "=" din1 . "`n"
+																	}
+																guicontrol,,emj%mameitbv%,|%din1%||%mamejname%
+																stringreplace,mameitbv,mameitbv,-,#,All
+																kmj%mameitbv%= %mdlnval%
+																break
+															}
+													}
+												break	
+											}
+									}
+								
+							}
+					}
+			}
+		
+	}
+guicontrol,,INDWRN,%mamelkup%
+Loop, Parse, Medswaps,|
+	{
+		fie= % %A_LoopField%
+		stringreplace,fin,A_LoopField,mameswap,,All
+		if (fie = "")
+			{
+				guicontrol,hide,emj%fin%
+				guicontrol,hide,emj%fin%In
+			}
+		ifinstring,fin,TXT
+			{
+				guicontrol,,emj%fin%,%fie%
+			}
+		ifinstring,fin,GRP
+			{
+				guicontrol,,emj%fin%,%fie%
+			}
+	}
+return	
 
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;     EXTENSION TABLES     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ExtTables:
@@ -62879,8 +66102,7 @@ if (FILT_UNSUP = 1)
 		guicontrol,,SRCHLOCDDL,|:=:System List:=:||%systmfldrs%
 		guicontrol,,ESDWNLPOS,|%systmfldrs%
 	}
-gblfilter= %FILT_UNSUP%	
-iniwrite,%gblfilter%,Settings.ini,GLOBAL,global_filter
+iniwrite, "%FILT_UNSUP%",Settings.ini,GLOBAL,global_filter
 return
 
 
