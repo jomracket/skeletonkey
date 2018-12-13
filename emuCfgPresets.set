@@ -1132,7 +1132,7 @@ RJEMUPRESET=Mednafen
 RJMEDNM=pce
 RJMAMENM=tg16
 RJROMXT= .pce,.zip
-MAME?RJEMUOPTS=<pce -cart<|<tg16 -cart<
+MAME?RJEMUOPTS=<tg16 -cart<|<pce -cart<
 RJROMXT=.bin,.pce,.zip
 RJZIPPEEK=0
 
@@ -1620,7 +1620,7 @@ RJZIPPEEK=0
 RJEMUPRESET=X1turbo
 RJMAMENM=x1
 RJMULTIDISC=1
-RJROMXT=.2d,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.bin,.rom,.wav,.tap,
+RJROMXT=.2d,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.bin,.rom,.wav,.tap,.zip
 MAME?RJEMUOPTS=<x1twin -[RJRTYP]<|<x1twin -cart<|<x1twin -cass<|<x1turbo -flop1<|<x1 -flop1<|<x1 -cart<|<x1 -cass<|<x1turbo -flop1<|<x1turbo -cass<|<x1turbo -cart<|<x1turbo40 -flop1<|<x1turbo40 -cass<|<x1turbo40 -cart<|<x1twin -flop1<
 
 [Sharp - X68000]
