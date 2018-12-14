@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-12-13 1:10 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-12-13 9:44 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-12-13 1:10 PM
-VERSION= 0.99.68.62
+RELEASE= 2018-12-13 9:44 PM
+VERSION= 0.99.68.63
 RASTABLE= 1.7.5
 
 #Include tf.ahk
@@ -641,31 +641,44 @@ Loop, Parse, emucfgpr,`n`r
 						Loop, Parse, msyslist,|
 							{
 								einv= %A_LoopField%
+								ifnotinstring,mame_sysk,%einv%|	
+									{
+										mame_sysk.= einv . "|"
+									}
 								if (aeif2 = einv)
 									{
 										MAME_%aeif2%= %einv%
 										mame_syst.= ecfsysn . "|"
 										rev_%einv%= %ecfsysn%
+										mamesplit.= einv . "|" . ecfsysn . "`n"
 										mamad= 1
 										break
 									}
 							}
-						ifnotinstring,mame_sysk,%einv%|	
-							{
-								mame_sysk.= einv . "|"
-							}
 					}
 			}
 	}
-
-mame_sys.= mame_syst . mame_sysk
-sort,mame_sys, Alphabetically D|
-iniread,afip,emucfgpresets.set
 afep= |
-Loop, parse, afip,`n
+Loop, Parse, mamesplit,`n
 	{
-		afep.= A_LoopField . "|"
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,ji,A_LoopField,|
+		afep.= ji2 . "|"
+		Loop,parse,mame_sysk,|
+			{
+				if (A_Loopfield = ji1)
+					{
+						mame_sys.= ji2 . "|"
+						stringreplace,mame_sysk,mame_sysk,%ji1%|,,
+						break
+					}
+			}
 	}
+mame_sys.= mame_sysk
+sort,mame_sys, Alphabetically D|
 if (INITIAL = 1)
 	{	
 		gosub, DestroySplashGUI
@@ -8688,6 +8701,7 @@ if (FILT_UNSUP <> 1)
 					}
 			}
 	}
+
 REVSPL= 1
 omitxtn=
 omitxtz=
@@ -8805,23 +8819,21 @@ if coreselz is digit
 					}
 			}
 	}
-	else 
-		{
-			if (coreselz <> "ERROR")
-				{
-					stringsplit,coreselp,coreselz,|
-						{
-							coreselv= %coreselp1%
-							guicontrol,,LCORE,|%coreselv%||%runlist%
-							if (coretmp <> coreselv)
-								{
-									core_gui= 
-									loadedjoy= 
-								}
-						}
-				}
-		}
 emucoredd:	
+if (coreselz <> "ERROR")
+	{
+		coresela= 
+		stringsplit,coreselp,coreselz,|
+			{
+				coreselv= %coreselp1%
+				guicontrol,,LCORE,|%coreselv%||%runlista%
+				if (coretmp <> coreselv)
+					{
+						core_gui= 
+						loadedjoy= 
+					}
+			}
+	}
 if (coreselv = "")
 	{
 		kva=
@@ -22457,10 +22469,43 @@ if (tmprm <> "")
 						continue
 					}
 				stringsplit,avx,A_LoopField,=
+				if (MAMESWCHK = 1)
+					{
+						if (avx1 = "MAME - Systems")
+							{
+								sysurl= %avx2%
+								break
+							}
+						continue
+					}
 				if (avx1 = ARCSYS)
 					{
 						sysurl= %avx2%
 						break
+					}
+			}
+		if (MAMESWCHK = 1)
+			{
+				Loop, Parse, mamesplit,`n
+					{
+						stringsplit,ji,A_LoopField,|
+						if (ARCSYS = ji2)
+							{
+								Loop, read, %SRCHMET%\%ji1%.gam
+									{
+										stringsplit,ave,A_LoopReadLine,|
+										if (ave2 = arcpopcul)
+											{
+												URLFILE= %ArcSite%/%sysurl%%ave1%
+												ifinstring,ave1,://
+													{
+														URLFILE= %ave1%							
+													}
+												break	
+											}
+									}
+							}
+						continue	
 					}
 			}
 		Loop, read, %SRCHMET%\%HACKAPN%%ARCSYS%.gam
@@ -22473,6 +22518,7 @@ if (tmprm <> "")
 							{
 								URLFILE= %ave1%							
 							}
+						break	
 					}
 			}
 	}
@@ -22501,6 +22547,7 @@ if (tmpsr <> "")
 							{
 								URLFILE= %ave1%							
 							}
+						break	
 					}
 			}
 	}
