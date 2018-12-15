@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-12-14 4:31 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-12-14 6:36 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-12-14 4:31 PM
-VERSION= 0.99.68.65
+RELEASE= 2018-12-14 6:36 PM
+VERSION= 0.99.68.70
 RASTABLE= 1.7.5
 
 #Include tf.ahk
@@ -383,6 +383,14 @@ if (ArcSite = "")
 	{
 		ArcSite:= cloudloc
 		iniwrite, "%ArcSite%", Settings.ini,GLOBAL,RemoteRepository
+	}
+ifinstring,ArcSite,archive.org
+	{
+		GAMSRCS= gam\Internet-Archive
+	}
+ifinstring,ArcSite,the-eye
+	{
+		GAMSRCS= gam\THE-EYE
 	}
 
 LNCHPRIO= Checked
@@ -3001,12 +3009,12 @@ Gui, Add, ComboBox, x88 y78 w126 vCUSTMOPT gCustmOpt hidden,|%INJOPT%
 Gui, Add, ComboBox, x218 y78 w123 vCUSTMARG gCustmArg hidden,|
 Gui, Add, CheckBox, x26 y75 w61 h17 vCUSTSWITCH gCustSwitch, switches
 
-Gui, Add, Checkbox, x22 y263 vALTURL gEnableAltUrl, Override
-Gui, Add, Edit, x88 y258 w225 h21 vUrlTxt gREPOUrlEdt Readonly, %ArcSite%
+Gui, Add, Checkbox, x28 y240 h13 vALTURL gEnableAltUrl, Enable
+Gui, Add, DropDownlist, x88 y258 w225 vUrlTxt gREPOUrlEdt Readonly, %ArcSite%||http://archive.org/download|https://the-eye.eu
 Gui, Add, Edit, x24 y215 w159 h21 vARCLOGIN gArcLogin disabled,%ARC_USER%
 Gui, Add, Edit, x187 y215 w154 h21 Password vARCPASS gArcPass disabled,%ARC_PASS%
 Gui, Add, CheckBox, x260 y238 h15 vSAVPASS gSavPass disabled, save
-Gui, Add, Text, x28 y236 h14 vARCUTXT, email login
+Gui, Add, Text, x88 y240 h13 vARCUTXT, Login
 Gui, Add, Text, x191 y236 h14 vARCPTXT, password
 
 Gui, Add, Edit, x25 y286 w310 h21 vSRCHEDT gSearchInp,
@@ -8582,7 +8590,35 @@ if (RUNPLRAD = 1)
 									inpl= Assignments.set
 									goto, rereadasini
 								}
-							coreselv= mame_libretro.dll
+							coreselv= 
+						}
+					if (raexefile = "NOT-FOUND.exe")
+						{
+							Loop,Parse,SysEmuSet,`n`r
+								{
+									if (A_LoopField = "")
+										{
+											continue
+										}
+									stringsplit,air,A_LoopField,:
+									stringsplit,aix,air1,|
+									if (DDLUX = aix1)
+										{
+											Loop,Parse,air1,|
+												{
+													if (A_Index = 1)
+														{
+															continue
+														}
+													iniread,aib,Assignments.ini,ASSIGNMENTS,%A_LoopField%	
+													if (aib <> "")
+														{
+															coreselv= %aib%
+															goto,splitromhash
+														}
+												}
+										}
+								}	
 						}
 					Loop, Parse, fijj,|
 						{
@@ -8591,7 +8627,7 @@ if (RUNPLRAD = 1)
 									continue
 								}
 							coreselv= %A_LoopField%
-							break		
+							goto,splitromhash		
 						}
 					splitpath,fijj,,,,coreselv	
 					if fijj is digit
@@ -8613,6 +8649,7 @@ if (RUNPLRAD = 1)
 								}
 						}
 				}
+			splitromhash:	
 			stringsplit, romfj, romf,#
 			stringmid,romhnck,romfj1,2,1
 			if (romhnck <> ":")
@@ -18171,7 +18208,7 @@ gui, submit, nohide
 return
 
 NiceName:
-Loop, Read, gam\MAME.gam
+Loop, Read, %GAMSRCS%\MAME - Arcade.gam
 	{
 		stringsplit,romtitl,A_LoopReadLine,|
 		if (romn = romtitl1)
@@ -20944,8 +20981,23 @@ return
 
 REPOUrlEdt:
 gui,submit,nohide
-guicontrolget,ArcSite,,UrlTxt
-iniwrite, "%ArcSite%",Settings.ini,GLOBAL,RemoteRepository
+guicontrolget,ArcSitex,,UrlTxt
+iniwrite, "%ArcSitex%",Settings.ini,GLOBAL,RemoteRepository
+if (ArcSiteX <> Arcsite)
+	{
+		arcsite= %ArcSiteX%
+		FileDelete,sys.ini
+		ifinstring,ArcSite,Archive.org
+			{
+				GAMSRCS= gam\Internet-Archive
+			}
+		ifinstring,ArcSite,the-eye
+			{
+				GAMSRCS= gam\THE-EYE
+			}
+		gosub,resetSYS
+		SB_SetText("Repository source changed")
+	}
 return
 
 EnableAltURL:
@@ -21082,10 +21134,10 @@ if (SRCHSYS = "All")
 		SRCHSYS= *
 		SRCHREC= R
 	}
-SRCHMET= gam
+SRCHMET= %GAMSRCS%
 if (MAMESWCHK = 1)
 	{
-		SRCHMET= gam\MAME - Systems
+		SRCHMET= %GAMSRCS%\MAME - Systems
 		
 		iniread,ARCTRA,emuCfgPresets.set,%SRCHSYS%,RJMAMENM
 		if (ARCTRA <> "ERROR")
@@ -21167,10 +21219,10 @@ if (DownOnly = 1)
 	{
 		guicontrol,enable,ARCLNCH
 	}
-SRCHMET= gam
+SRCHMET= %GAMSRCS%
 if (MAMESWCHK = 1)
 	{
-		SRCHMET= gam\MAME - Systems
+		SRCHMET= %GAMSRCS%\MAME - Systems
 	}	
 if (DownOnly = 0)
 	{
@@ -21389,12 +21441,12 @@ return
 
 GamFIND:
 cmdfun= 
-SRCHMET= gam
+SRCHMET= %GAMSRCS%
 SRCHGAM= %EXTRSYS%
 stringreplace,romsys,EXTRSYS,#HACKS#,,All
 ifnotinstring,romsys,%A_Space%-%A_Space%
 	{
-		SRCHMET= gam\MAME - Systems
+		SRCHMET= %GAMSRCS%\MAME - Systems
 		if (tmpsr <> "")
 			{				
 				revinc= % rev_%srchspl1%
@@ -21549,11 +21601,19 @@ gui,submit,nohide
 guicontrolget,MAMESWCHK,,MAMESWCHK
 if (MAMESWCHK = 1)
 	{
+		ifnotexist,%GAMSRCS%\MAME - Systems\
+			{
+				SB_SetText("MAME systems not found")
+				MAMESWCHK= 0
+				guicontrol,,MAMESWCHK,%MAMESWCHK%
+				goto, nomameenabled
+			}
 		guicontrol,,ARCSYS,|Select a System||%mame_sys%
 		gosub, ArchiveSystems
 		guicontrol,,SRCHDDL,|All||%mame_sys%
 		return
 	}
+nomameenabled:	
 guicontrol,,ARCLNCH,PLAY ::>
 guicontrol,,ARCSYS,|Select a System||%syslist%
 guicontrol,,SRCHDDL,|All||%syslist%
@@ -21637,7 +21697,7 @@ if (MAMESWCHK = 1)
 		ifinstring,afep,|%ARCSYS%|
 			{
 				iniread,ARCTRA,emuCfgPresets.set,%ARCSYS%,RJMAMENM
-				loop, Read, gam\MAME - Systems\%ARCTRA%.gam
+				loop, Read, %GAMSRCS%\MAME - Systems\%ARCTRA%.gam
 					{
 						if (A_LoopReadLine = "")
 							{
@@ -21653,7 +21713,7 @@ if (MAMESWCHK = 1)
 				pdlist= %pop_list%
 				goto, pdlist
 			}
-		loop, Read, gam\MAME - Systems\%ARCSYS%.gam
+		loop, Read, %GAMSRCS%\MAME - Systems\%ARCSYS%.gam
 			{
 				if (A_LoopReadLine = "")
 					{
@@ -21669,7 +21729,7 @@ if (MAMESWCHK = 1)
 		pdlist= %pop_list%
 		goto, pdlist
 	}
-Loop,gam\%HACKAPN%%ARCSYS%.gam
+Loop,%GAMSRCS%\%HACKAPN%%ARCSYS%.gam
 	{
 		loop, Read, %A_LoopFileFullPath%
 			{
@@ -32556,7 +32616,7 @@ if (mameget = 1)
 	{
 		if (mamedbx = "")
 			{
-				FileRead, mamedbx, gam\MAME - Arcade.gam
+				FileRead, mamedbx, %GAMSRCS%\MAME - Arcade.gam
 			}
 	}
 if (mediaorder = "")
@@ -41465,11 +41525,11 @@ Loop, rj\*.jak
 		if (NICEFLDR = 1)
 			{
 				SETGAM= MAME - Arcade.gam
-				ifExist, gam\%curjf%.gam
+				ifExist, %GAMSRCS%\%curjf%.gam
 					{
 						SETGAM= %curjf%.gam
 					}
-				FileRead, fldmvr, gam\%SETGAM%
+				FileRead, fldmvr, %GAMSRCS%\%SETGAM%
 				FileCreateDir, %RJSYSTEMS%\%curjf%\SOURCE
 				FileSetAttrib,+H,%RJSYSTEMS%\%curjf%\SOURCE,2
 				IniRead,subdls,rj\%curjf%.ini,%curjf%,RJSUBDS
@@ -66853,18 +66913,21 @@ return
 
 
 resetSYS:
+FileDelete, msys.ini
 FileDelete, sys.ini
 FileDelete, hacksyst.ini
 syslist= 
+msyslist= 
 nsys=
 msys=
-loop, gam\MAME - Systems\*.gam
+loop, %GAMSRCS%\MAME - Systems\*.gam
 	{	
 		msys+=1	
 		stringsplit,syn,A_LoopFileName,.
 		msyslist .= (msys == 1 ? "" : "|") . syn1
 	}	
-loop, gam\*.gam
+hacksyst= 	
+loop, %GAMSRCS%\*.gam
 	{	
 		ifinstring,A_LoopFilename,#
 			{
@@ -66879,6 +66942,7 @@ stringreplace,hacksyst,hacksyst,#HACKS#,,All
 fileappend,%hacksyst%,hacksyst.ini
 fileappend,%syslist%,sys.ini
 fileappend,%msyslist%,msys.ini
+guicontrol,,ARCSYS,|Select A System||%syslist%
 return
 
 resetCoreAssets:
