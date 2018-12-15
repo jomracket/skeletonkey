@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-12-13 9:44 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-12-14 4:31 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-12-13 9:44 PM
-VERSION= 0.99.68.63
+RELEASE= 2018-12-14 4:31 PM
+VERSION= 0.99.68.65
 RASTABLE= 1.7.5
 
 #Include tf.ahk
@@ -8818,22 +8818,28 @@ if coreselz is digit
 							}
 					}
 			}
+		goto, emucin	
 	}
-emucoredd:	
+emucoredd:
 if (coreselz <> "ERROR")
 	{
 		coresela= 
 		stringsplit,coreselp,coreselz,|
 			{
-				coreselv= %coreselp1%
-				guicontrol,,LCORE,|%coreselv%||%runlista%
-				if (coretmp <> coreselv)
+				if coreselp is not digit
 					{
-						core_gui= 
-						loadedjoy= 
+						coreselv= %coreselp1%
+						guicontrol,,LCORE,|%coreselv%||%runlista%
+						msgbox,,,kj
+						if (coretmp <> coreselv)
+							{
+								core_gui= 
+								loadedjoy= 
+							}
 					}
 			}
 	}
+emucin:
 if (coreselv = "")
 	{
 		kva=

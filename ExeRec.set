@@ -1,5 +1,6 @@
 FileCreateDir, gam
 FileCreateDir, gam\MAME - Systems
+FileCreateDir, gam\THE-EYE
 FileCreateDir, joyImg
 FileCreateDir, sysico
 IfNotExist, rj
@@ -1544,6 +1545,51 @@ FileInstall,gam\MAME - Systems\z88.gam,gam\MAME - Systems\z88.gam,1
 FileInstall,gam\MAME - Systems\zorba.gam,gam\MAME - Systems\zorba.gam,1
 FileInstall,gam\MAME - Systems\zx80.gam,gam\MAME - Systems\zx80.gam,1
 FileInstall,gam\MAME - Systems\zx81.gam,gam\MAME - Systems\zx81.gam,1
+FileInstall,gam\THE-EYE\Acorn - 8bit.gam,gam\THE-EYE\Acorn - 8bit.gam,1
+FileInstall,gam\THE-EYE\Apple - Bandai - Pippin.gam,gam\THE-EYE\Apple - Bandai - Pippin.gam,1
+FileInstall,gam\THE-EYE\Atari - 2600.gam,gam\THE-EYE\Atari - 2600.gam,1
+FileInstall,gam\THE-EYE\Atari - 5200.gam,gam\THE-EYE\Atari - 5200.gam,1
+FileInstall,gam\THE-EYE\Atari - 7800.gam,gam\THE-EYE\Atari - 7800.gam,1
+FileInstall,gam\THE-EYE\Atari - Jaguar CD.gam,gam\THE-EYE\Atari - Jaguar CD.gam,1
+FileInstall,gam\THE-EYE\Atari - Jaguar.gam,gam\THE-EYE\Atari - Jaguar.gam,1
+FileInstall,gam\THE-EYE\Atari - Lynx.gam,gam\THE-EYE\Atari - Lynx.gam,1
+FileInstall,gam\THE-EYE\Atari - ST.gam,gam\THE-EYE\Atari - ST.gam,1
+FileInstall,gam\THE-EYE\Bandai - Playdia.gam,gam\THE-EYE\Bandai - Playdia.gam,1
+FileInstall,gam\THE-EYE\Bandai - WonderSwan Color.gam,gam\THE-EYE\Bandai - WonderSwan Color.gam,1
+FileInstall,gam\THE-EYE\Bandai - WonderSwan.gam,gam\THE-EYE\Bandai - WonderSwan.gam,1
+FileInstall,gam\THE-EYE\BIOS - BIOS.gam,gam\THE-EYE\BIOS - BIOS.gam,1
+FileInstall,gam\THE-EYE\Casio - PB-1000.gam,gam\THE-EYE\Casio - PB-1000.gam,1
+FileInstall,gam\THE-EYE\Coleco - ColecoVision.gam,gam\THE-EYE\Coleco - ColecoVision.gam,1
+FileInstall,gam\THE-EYE\Commodore - 64.gam,gam\THE-EYE\Commodore - 64.gam,1
+FileInstall,gam\THE-EYE\Commodore - Amiga CD32.gam,gam\THE-EYE\Commodore - Amiga CD32.gam,1
+FileInstall,gam\THE-EYE\Commodore - Amiga.gam,gam\THE-EYE\Commodore - Amiga.gam,1
+FileInstall,gam\THE-EYE\Commodore - VIC-20.gam,gam\THE-EYE\Commodore - VIC-20.gam,1
+FileInstall,gam\THE-EYE\Emerson - Arcadia 2001.gam,gam\THE-EYE\Emerson - Arcadia 2001.gam,1
+FileInstall,gam\THE-EYE\Entex - Adventure Vision.gam,gam\THE-EYE\Entex - Adventure Vision.gam,1
+FileInstall,gam\THE-EYE\Epoch - Super Cassette Vision.gam,gam\THE-EYE\Epoch - Super Cassette Vision.gam,1
+FileInstall,gam\THE-EYE\Fairchild - Channel F.gam,gam\THE-EYE\Fairchild - Channel F.gam,1
+FileInstall,gam\THE-EYE\Funtech - Super A'can.gam,gam\THE-EYE\Funtech - Super A'can.gam,1
+FileInstall,gam\THE-EYE\GCE - Vectrex.gam,gam\THE-EYE\GCE - Vectrex.gam,1
+FileInstall,gam\THE-EYE\Hartung - Game Master.gam,gam\THE-EYE\Hartung - Game Master.gam,1
+FileInstall,gam\THE-EYE\HiVE - HiVE.gam,gam\THE-EYE\HiVE - HiVE.gam,1
+FileInstall,gam\THE-EYE\Leapfrog - Leapster Learning Game System.gam,gam\THE-EYE\Leapfrog - Leapster Learning Game System.gam,1
+FileInstall,gam\THE-EYE\Magnavox - Odyssey2.gam,gam\THE-EYE\Magnavox - Odyssey2.gam,1
+FileInstall,gam\THE-EYE\Memorex - VIS.gam,gam\THE-EYE\Memorex - VIS.gam,1
+FileInstall,gam\THE-EYE\Microsoft - MSX.gam,gam\THE-EYE\Microsoft - MSX.gam,1
+FileInstall,gam\THE-EYE\Microsoft - MSX2.gam,gam\THE-EYE\Microsoft - MSX2.gam,1
+FileInstall,gam\THE-EYE\NEC - PC Engine - TurboGrafx 16.gam,gam\THE-EYE\NEC - PC Engine - TurboGrafx 16.gam,1
+FileInstall,gam\THE-EYE\NEC - SuperGrafx.gam,gam\THE-EYE\NEC - SuperGrafx.gam,1
+FileInstall,gam\THE-EYE\Nintendo - Gameboy Advance.gam,gam\THE-EYE\Nintendo - Gameboy Advance.gam,1
+FileInstall,gam\THE-EYE\Nintendo - Gameboy.gam,gam\THE-EYE\Nintendo - Gameboy.gam,1
+FileInstall,gam\THE-EYE\Nintendo - Nintendo 64.gam,gam\THE-EYE\Nintendo - Nintendo 64.gam,1
+FileInstall,gam\THE-EYE\Nintendo - Nintendo Entertainment System.gam,gam\THE-EYE\Nintendo - Nintendo Entertainment System.gam,1
+FileInstall,gam\THE-EYE\Nintendo - Super Nintendo Entertainment System.gam,gam\THE-EYE\Nintendo - Super Nintendo Entertainment System.gam,1
+FileInstall,gam\THE-EYE\Sammy - Atomiswave.gam,gam\THE-EYE\Sammy - Atomiswave.gam,1
+FileInstall,gam\THE-EYE\Sega - Chihiro.gam,gam\THE-EYE\Sega - Chihiro.gam,1
+FileInstall,gam\THE-EYE\SNK - Neo Geo CD.gam,gam\THE-EYE\SNK - Neo Geo CD.gam,1
+FileInstall,gam\THE-EYE\SNK - Neo Geo MVS.gam,gam\THE-EYE\SNK - Neo Geo MVS.gam,1
+FileInstall,gam\THE-EYE\SNK - Neo Geo Pocket.gam,gam\THE-EYE\SNK - Neo Geo Pocket.gam,1
+FileInstall,gam\THE-EYE\Sony - Playstation.gam,gam\THE-EYE\Sony - Playstation.gam,1
 FileInstall,rj\emucfgs\3doplay\config.xml.set,rj\emucfgs\3doplay\config.xml.set,1
 FileInstall,rj\emucfgs\4DO\Config.xml.set,rj\emucfgs\4DO\Config.xml.set,1
 FileInstall,rj\emucfgs\4DO\FourDO.settings.set,rj\emucfgs\4DO\FourDO.settings.set,1

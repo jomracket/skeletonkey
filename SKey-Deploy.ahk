@@ -2708,6 +2708,7 @@ if (INITINCL = 1)
 			exprt= 
 			exprt.= "FileCreateDir, gam" . "`n"
 			exprt.= "FileCreateDir, gam\MAME - Systems" . "`n"
+			exprt.= "FileCreateDir, gam\THE-EYE" . "`n"
 			exprt.= "FileCreateDir, joyImg" . "`n"
 			exprt.= "FileCreateDir, sysico" . "`n"
 	exprt.= "IfNotExist, rj" . "`n" . "{" . "`n" . "FileCreateDir, rj" . "`n" . "FILEINS= 1" . "`n" . "}" . "`n"
