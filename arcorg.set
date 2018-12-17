@@ -1,10 +1,12 @@
-http://archive.org/download
-https://github.com/romjacket
-http://newlobby.libretro.com/list
-http://raw.githubusercontent.com/libretro/shader-previews/master/
-http://raw.githubusercontent.com/romjacket/skeletonkey/master/version.txt
-http://www.netikus.net/show_ip.html
+[GLOBAL]
+HOSTINGURL=http://archive.org/download
+SOURCEURL=https://github.com/romjacket
+LOBBY=http://newlobby.libretro.com/list
+SHADERURL=http://raw.githubusercontent.com/libretro/shader-previews/master/
+UPDATEURL=http://raw.githubusercontent.com/romjacket/skeletonkey/master/version.txt
+IP_LOOKUP=http://www.netikus.net/show_ip.html
 
+[REPOSITORIES]
 Acorn - Electron=Acorn_Electronic_TOSEC_2012_04_23/Acorn_Electronic_TOSEC_2012_04_23.zip/
 Acorn - BBC=Acorn_BBC_TOSEC_2012_04_23/Acorn_BBC_TOSEC_2012_04_23.zip/
 Amstrad - CPC=Amstrad_CPC_TOSEC_2012_04_23/Amstrad_CPC_TOSEC_2012_04_23.zip/
