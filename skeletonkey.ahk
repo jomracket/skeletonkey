@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-12-14 6:36 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-12-16 4:49 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-12-14 6:36 PM
-VERSION= 0.99.68.70
+RELEASE= 2018-12-16 4:49 PM
+VERSION= 0.99.68.71
 RASTABLE= 1.7.5
 
 #Include tf.ahk
@@ -31,8 +31,13 @@ if (iniversion <> VERSION)
 			}
 	}
 ;};;;;;;
-
-FileReadLine,HOSTINGURL,arcorg.set,2
+ARCORG= arcorg.ini
+ifnotexist,%ARCORG%
+	{
+		fileCopy,arcorg.set,arcorg.ini
+	}
+IniRead,HOSTINGURL,%ARCORG%,GLOBAL,HOSTINGURL
+;;FileReadLine,HOSTINGURL,arcorg.set,2
 
 ;{;;;;;;;;;;;;;;;;;;;        DRAG & DROP        ;;;;;;;;;;;;;;;;;;;
 
@@ -368,7 +373,8 @@ IniRead, lastcore, Settings.ini,GLOBAL,last_core
 splitpath, lastcore, coreselv,,,
 IniRead, romf, Settings.ini,GLOBAL,last_rom
 IniRead,ArcSite,Settings.ini,GLOBAL,RemoteRepository
-FileReadline,cloudloc,arcorg.set,1
+INIREAD,cloudloc,%ARCORG%,GLOBAL,CLOUDLOC
+;;FileReadline,cloudloc,arcorg.set,1
 iniread,FILT_UNSUP,Settings.ini,GLOBAL,global_filter
 if (FILT_UNSUP = "ERROR")
 	{
@@ -515,7 +521,7 @@ if (raexefile = "NOT-FOUND.exe")
 FileRead, RepoLst,RepoList.ini
 stringreplace, RepoLst,RepoLst,`n,|,All
 FileRead,LibMatSet,libmatch.set
-FileRead,ArcOrgSet,arcorg.set
+FileRead,ArcOrgSet,%ARCORG%
 FileRead,EsLkUp,eslkup.set
 FileRead,UrlIndex,Urls.set
 stringreplace,UrlIndex,UrlIndex,[ARCH],%ARCH%,All
@@ -537,7 +543,8 @@ IniRead,repoloc,Settings.ini,GLOBAL,Emulator_Repository
 gosub, RBLDRUNLST
 if (repoloc = "ERROR")
 	{
-		FileReadLine,repoloc,arcorg.set,2
+		IniRead,repoloc,%ARCORG%,GLOBAL,HOSTINGURL
+		;;FileReadLine,repoloc,arcorg.set,2
 	}
 FilereadLine,scrsup,supported.set,1
 Loop, Parse, scrsup,/
@@ -1593,6 +1600,9 @@ Menu, ASOCRUN, Add, Configure Emulator, ASEMUCFG
 Menu,ASOCRUN,Add, 
 
 Menu, ARCGPCFG, Add, Configure Selected Game, ARCPCFG
+
+Menu, ARCSETB, Add, Edit Base Directory URL for selected system, ARCEDTBU
+Menu, ARCSETB, Add, Reset Base Directory URL for selected system, ARCEDTBR
 
 Menu, ARSOCCFG, Add, Configure Association, ARSCFG
 Menu, ARSOCCFG, Add,
@@ -4480,10 +4490,10 @@ if (shdprvsz < 20)
 	}
 IfNotExist,%assetsDirectory%\shaderPreviews\%shaderpth%\%shadername%.png
 			{
-				FileReadLine,shaderHost,arcorg.set,4
+				IniRead,shaderHost,%ARCORG%,GLOBAL,SHADERHOST
+				;;FileReadLine,shaderHost,arcorg.set,4
 				URLDownloadToFile,%shaderHost%\%shaderpth%/%shadername%.png,%assetsDirectory%\shaderPreviews\%shaderpth%\%shadername%.png
-				
-}
+			}
 ifnotexist,%assetsDirectory%\shaderPreviews\%shaderpth%\%shadername%.png
 return
 hovershd= %assetsDirectory%\shaderPreviews\%shaderpth%\%shadername%.png
@@ -4806,6 +4816,17 @@ If A_GuiControlEvent RightClick
 			Menu, ASOCCFG, Show, %A_GuiX% %A_GuiY%
 			return
 		}
+	if A_Guicontrol = UrlTxt
+		{
+			guicontrolget,ARCSYS,,ARCSYS
+			if (ARCSYS = "Select a System")
+				{
+					return
+				}
+			Menu, ARCSETB, Show, %A_GuiX% %A_GuiY%
+			return	
+		}
+		
 	if A_GuiControl = ARCSYS
 		{
 			guicontrolget,ARCSYS,,ARCSYS
@@ -5102,6 +5123,26 @@ Loop, Parse, SysEmuSet,`n`r
 			}
 	}
 return	
+
+ARCEDTBR:
+gui,submit,nohide
+IniRead,ECSEDT,Arcorg.set,REPOSITORIES,%ARCSYS%
+IniWrite,ECSEDT,%ARCORG%,REPOSITORIES,%ARCSYS%
+SB_SetText(" " ARCSYS " Base url reset")
+return
+
+ARCEDTBU:
+gui,submit,nohide
+ECSEDT= 	
+inputbox,ECSEDT,Set BASE URL for %ARCSYS%,,,400,100,,,,,
+if (ECSEDT = "")
+	{
+		return
+	}
+IniWrite,%ECSEDT%,%ARCORG%,REPOSITORIES,%ARCSYS%
+SB_SetText(" " ARCSYS " base url set to " ECSEDT " ")
+return
+
 
 ARCPCFG:
 gui,submit,nohide
@@ -7655,8 +7696,13 @@ return
 UpdateSK:
 guicontrol,disable,UpdateSK
 FileDelete, version.txt
-FileReadLine,sourceHost,arcorg.set,5
-FileReadLine,UPDATEFILE,arcorg.set,7
+
+IniRead,sourceHost,%ARCORG%,GLOBAL,SOURCEHOST
+IniRead,UPDATEFILE,%ARCORG%,GLOBAL,UPDATEFILE
+
+;;FileReadLine,sourceHost,arcorg.set,5
+;;FileReadLine,UPDATEFILE,arcorg.set,7
+
 URLDownloadToFile, %sourceHost%,version.txt
 ifnotexist, version.txt
 	{
@@ -10828,7 +10874,10 @@ return
 
 IP_Get:
 FileDelete,ShowIP.txt
-FileReadLine,ipLookup,arcorg.set,6
+
+IniRead,ipLookup,%ARCORG%,GLOBAL,IP_LOOKUP
+
+;;FileReadLine,ipLookup,arcorg.set,6
 URLDownloadToFile,%ipLookup%,%A_ScriptDir%\ShowIP.txt
 if ErrorLevel = 1
   {
@@ -32870,7 +32919,9 @@ if (FERAD2B = 1)
 					{
 						ifnotexist,rj\scrapeArt\%SYSLKUP%.7z
 							{
-								filereadline,dlprfx,arcorg.set,2
+								IniRead,dlprfx,%ARCORG%,GLOBAL,HOSTINGURL
+
+								;;filereadline,dlprfx,arcorg.set,2
 								URLFILE= %dlprfx%/DATFILES/%SYSLKUP%.7z
 								ifinstring,dlprfx,github
 									{
@@ -32893,7 +32944,8 @@ if (FERAD2B = 1)
 								}	
 						ifnotexist,rj\scrapeArt\%SYSLKUP%.7z
 							{
-								filereadline,dlprfx,arcorg.set,5
+								IniRead,dlprfx,%ARCORG%,GLOBAL,SOURCEHOST
+								;;filereadline,dlprfx,arcorg.set,5
 								URLFILE= %dlprfx%/rj/scrapeart/%SYSLKUP%.7z
 								save= rj\scrapeArt\%SYSLKUP%.7z
 								SB_SetText("Downloading " SYSLKUP " Metadata")
@@ -32991,7 +33043,8 @@ if (FERAD2C = 1)
 					{
 						ifnotexist,rj\scrapeArt\%SYSLKUP%.7z
 							{
-								filereadline,dlprfx,arcorg.set,2
+								IniRead,dlprfx,%ARCORG%,GLOBAL,HOSTINGURL
+								;;filereadline,dlprfx,arcorg.set,2
 								URLFILE= %dlprfx%/DATFILES/%SYSLKUP%.7z
 								ifinstring,dlprfx,github
 									{
@@ -52800,7 +52853,8 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 NewLobby:
-FileReadLine,curlobby,arcorg.set,3
+IniRead,curlobby,%ARCORG%,GLOBAL,LOBBY
+;;FileReadLine,curlobby,arcorg.set,3
 URLDownloadToFile,%curlobby%,%A_ScriptDir%\lobby.ini
 if ErrorLevel = 1
   {

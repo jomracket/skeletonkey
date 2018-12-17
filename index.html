@@ -110,7 +110,7 @@
 			<ul>
 				<li><strong>A comprehensive, easy to use &amp; compact GUI</strong></li>
 				<li><strong>Drag &amp; Drop ROMs to launch &amp; create playlists.</strong></li>
-				<li><strong>Leverages Archive.org ROM libraries for Netplay automation</strong></li>
+				<li><strong>Leverages internet ROM repositories for Netplay automation</strong></li>
 				<li><strong>Global and granular control over libraires of ROMs.</strong></li>
 				<li><strong>Deploy a gaming environment to a portable device such as a flash-drive.</strong></li>
 				<li><span style="font-size: xx-small">Mirror your saves and save-states into a cloud (Dropbox/GDrive/OneDrive)</span></li>
@@ -121,7 +121,7 @@
 	</div>
 	<div id="outer" align="left">
 		<div id="inner">
-			<h3>To Do:</h3>Mednafen Jacket integration &amp; Joystick calibrations. Cloud-saving. gamepad-driven disk-menus. MAME (softlist integration). distributed aria2 auto-downloading.
+			<h3>To Do:</h3>MAME joystick mappings, softlist support. Cloud-saving. gamepad-driven disk-menus. Distributed aria2 auto-downloading.
 		</div>
 	</div>
 	<div>
@@ -159,7 +159,7 @@
 				<li>Drag &amp; drop a ROM file to the desktop icon,</li>
 				<li>Drag &amp; drop a ROM into the main tab</li>
 				<li>Via the skeletonkey GUI to browse filtered ROMs categorically with search functions and quick-sets.</li>
-				<li>Streamed from Archive.org</li>
+				<li>Streamed from a ROM repository</li>
 				<li>From the command line</li>
 			</ul>
 			<p>As a configuration tool, skeletonKey can deploy a ROM-library that meets the expectations of users who desire a means to maintain the integrity of settings and assets indipendently of a frontend or emulator.</p>
@@ -230,7 +230,7 @@
 		<br>
 		<div id="inner">
 			<h3>Forking</h3>
-			<p>A deployment tool is available for users who wish to publish a skeletonKey. SKey-Deploy.ahk can be compiled to build, maintain and deploy a skeletonKey source-code versioning project, website and binaries.</p>
+			<p>A deployment tool is available for users who wish to publish a skeletonKey. SKey-Deploy.exe can be compiled to build, maintain and deploy a skeletonKey source-code versioning project, website and binaries.</p>
 		</div>
 	</div>
 	<br>
@@ -246,7 +246,7 @@
 			<p>SkeletonKey will automatically load any per-game settings previously created and create settings for the currently selected title upon launch if none are found.</p>
 			<h4>Systems Directory</h4>
 			<p>By default, ROMs are <em>[categorically]</em> stored by system-name in the <code><em>..[Systems ROOT]</em>\<em>[SYSTEM NAME]</em></code> folder.<br>
-			Archive.org ROMs will be downloaded to the corresponding system-name which follows the no-intro naming nomenclature.</p>
+			Repository ROMs will be downloaded to the corresponding system-name which follows the no-intro naming nomenclature.</p>
 			<h4>Emulators Directory</h4>
 			<p>By default, all emulators will be installed to the Emulator Directory. Upon assigning a directory to the Emulators Directory, skeletonKey will search subdirectories for previously installed known emulators not currently identified or manually assigned.</p>
 		
@@ -459,7 +459,7 @@
 	</div>
 	<div id="outer" align="left">
 		<div id="inner">
-			<p>Drag and Drop ROMs to dynamically add files to playlists. Each playlist is unique to the frontend it is created for however skeletonkey can convert retroArch to/from emulationStation playlists.<br></p>
+			<p>Skeletonkey can read and utilize retroArch playlist files natively.  Drag and Drop ROMs to dynamically add files to playlists. Each playlist is unique to the frontend it is created for however skeletonkey can convert retroArch to/from emulationStation playlists.<br></p>
 			<h3>XMB : retroArch</h3>
 			<p>Each item added to the playlist contains the name of the ROM, the path of the ROM, the crc hash of the ROM, the core/emulator name, path assignment, &amp; the name of the playlist.</p>
 			<p>The core/emulator dropdown is assigned to the selected items when they are added to the playlist.</p>
@@ -507,7 +507,7 @@
 			MAME ROM-sets can also be easily accessed, although these often contain ROMs which are incompatible with other emulators.</p>
 			<h3>Global-Prefix</h3>
 			<p>The global-prefix can be overridden to an ftp or http host, allowing for dynamic custom repositories. eg: <code>http://myhost.com/ROMs/No-Intro</code></p>
-			<p>Files in the <em>skeletonkey\gam</em> folder contain <strong><code>.gam</code></strong> files which contain the <u>relative path</u> to global-prefix followed by a <strong><code>:</code></strong> followed by the name of the ROM. eg: <code>[GLOBALPREFIX]/system-name/game_name.zip:game_name</code></p>
+			<p>Files in the <em>skeletonkey\gam</em> folder contain <strong><code>.gam</code></strong> files which contain the <u>relative path</u> to global-prefix followed by a pipe (<code><strong> | </strong></code> ) followed by the game-title or name of the ROM. eg: <code>[GLOBALPREFIX]/system-name/game_name.zip|game_title</code></p>
 			<p>A <u>full http url</u> path to the ROM file in a <strong><code>.gam</code></strong> file will override and ignore the global-prefix.</p>
 		</div>
 	</div>
@@ -654,7 +654,7 @@
 					<input id="tab-devm" name="tabs" type="checkbox"> <label for="tab-devm">Operational Details }&gt;</label>
 					<div class="tab-content">
 					 <p><img alt="" height="216" src="paradigm.png" width="144"></p>
-						To achieve this, each jacket's batch-script-launcher copies its emulator-configuration files and any changes made to the emulator during gameplay will be saved back to the jacket after exiting.
+						Each jacket's batch-script-launcher copies its emulator-configuration files to the emulator directory before launching and any changes made to the emulator during gameplay will back to the jacket after exiting the emulator.
 						<p>For those interested in developing for the RoM-Jacket spec, a few principles should be observed:</p>
 						<p>Launchers should be executable natively by the operating system, make no changes to the system environment and any augmenting behavior beyond the emulator should be disabled unless specifically detected<br>
 						(ie: the launcher should require no user interaction irrespective of any errors the script may encounter).<br>

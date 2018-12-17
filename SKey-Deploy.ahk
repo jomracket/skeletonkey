@@ -160,7 +160,9 @@ ifexist, %A_ProgramFilesx86%\Notepad++
 	{
 		npptmp= %A_ProgramFiles%\Notepad++
 	}
-FileReadline,REPOURLX,arcorg.set,2
+iniread,REPOURLX,arcorg.set,GLOBAL,HOSTINGURL
+;;iniread,REPORULX,arcorg.set,GLOBAL,HOSTINGURL
+;;FileReadline,REPOURLX,arcorg.set,2
 if (REPOURLX <> "")
 	{
 		REPORULT= %REPOURLX%
@@ -1310,7 +1312,8 @@ REPOURL=
 UPDTFILE= http://github.com/%GITUSER%/skeletonKey/releases/download/nodats
 if (REPORURLT = "")
 	{
-		filereadline,REPOURLT,arcorg.set,2
+		iniread,REPOURLT,arcorg.set,GLOBAL,HOSTINGURL
+		;;filereadline,REPOURLT,arcorg.set,2
 		UPDTFILE= %REPORULT%/skeletonKey/releases/download/nodats
 	}
 inputbox,REPOURL,Repository-URL,Enter the base-url of the file-repository,,345,140,,,,,%REPOURLT%
@@ -1352,7 +1355,8 @@ gui,submit,nohide
 STURL=
 STURLT= romjacket.github.io
 
-filereadline,cca,arcorg.set,2
+iniread,cca,arcorg.set,GLOBAL,HOSTINGURL
+;;filereadline,cca,arcorg.set,2
 ifnotinstring,cca,romjacket
 	{
 		STURLT= http://%gituser%.github.io
@@ -2375,7 +2379,8 @@ if (RESDD = "Site-URL")
 
 if (RESDD = "Repo-URL")
 	{
-		FileReadline,REPOURLT,arcorg.set,2
+		iniread,REPOURL,arcorg.set,GLOBAL,HOSTINGURL
+		;;FileReadline,REPOURLT,arcorg.set,2
 		Gosub, RepoURL
 	}
 
