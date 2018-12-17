@@ -385,6 +385,11 @@ if (FILT_UNSUP = 0)
 		{
 			filtmrk= 
 		}
+if (ArcSite = "ERROR")
+	{
+		iniwrite, "%cloudloc%", Settings.ini,GLOBAL,RemoteRepository
+		ArcSite:= cloudloc
+	}
 if (ArcSite = "")
 	{
 		ArcSite:= cloudloc
@@ -3020,7 +3025,7 @@ Gui, Add, ComboBox, x218 y78 w123 vCUSTMARG gCustmArg hidden,|
 Gui, Add, CheckBox, x26 y75 w61 h17 vCUSTSWITCH gCustSwitch, switches
 
 Gui, Add, Checkbox, x28 y240 h13 vALTURL gEnableAltUrl, Enable
-Gui, Add, DropDownlist, x88 y258 w225 vUrlTxt gREPOUrlEdt Readonly, %ArcSite%||http://archive.org/download|https://the-eye.eu
+Gui, Add, DropDownlist, x88 y258 w225 vUrlTxt gREPOUrlEdt Readonly, %ArcSite%||http://archive.org/download|https://the-eye.eu/public/rom
 Gui, Add, Edit, x24 y215 w159 h21 vARCLOGIN gArcLogin disabled,%ARC_USER%
 Gui, Add, Edit, x187 y215 w154 h21 Password vARCPASS gArcPass disabled,%ARC_PASS%
 Gui, Add, CheckBox, x260 y238 h15 vSAVPASS gSavPass disabled, save
@@ -7706,9 +7711,9 @@ IniRead,UPDATEFILE,%ARCORG%,GLOBAL,UPDATEFILE
 URLDownloadToFile, %sourceHost%,version.txt
 ifnotexist, version.txt
 	{
-	SB_SetText(" Update not found. ")
+		SB_SetText(" Update not found. ")
 		guicontrol,enable,UpdateSK
-	return
+		return
 	}
 FileReadLine,DATECHK,version.txt,1
 stringsplit,VERCHKC,DATECHK,=
@@ -7916,13 +7921,13 @@ IfNotExist, tmp
 	}
 ifexist,%cacheloc%\sk%upcnt%.zip
 	{
-		Runwait, %comspec% cmd /c "7za.exe x -y "%cacheloc%\sk%upcnt%.zip" -O"%cacheloc%" ",,hide
-		Run, %cacheloc%\skeletonkey_Install.exe
+		Run, "%cacheloc%\sk%upcnt%.zip"
 		Process, close, Invader.exe
 		Process, close, skeletonKey.exe
 		gosub, QUITOUT
 		exitapp
 	}
+SB_SetText("Update file not found")
 	return
 	
 Help:
@@ -21095,15 +21100,17 @@ if (ArcSite = "")
 		gui, submit, nohide
 		return
 	}	
-if (ArcSite <> "http://archive.org/download")
+if (ArcSite = "https://the-eye.eu/public/rom")
 		{
 			guicontrol,,ALTURL,1
+			iniwrite, "%ArcSite%",%ARCORG%,GLOBAL,CLOUDLOC
 			iniwrite, "%ArcSite%",Settings.ini,Global,RemoteRepository
 			guicontrol,,UrlTxt,%ArcSite%
 		}
 if (ArcSite = "http://archive.org/download")
 		{
 			guicontrol,,ALTURL,0
+			iniwrite, "%ArcSite%",%ARCORG%,GLOBAL,CLOUDLOC
 			iniwrite, "%ArcSite%",Settings.ini,Global,RemoteRepository
 			guicontrol,,UrlTxt,%ArcSite%
 		}

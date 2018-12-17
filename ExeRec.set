@@ -1,4 +1,3 @@
-FileCreateDir, gam
 FileCreateDir, gam\Internet-Archive\MAME - Systems
 FileCreateDir, gam\THE-EYE
 FileCreateDir, joyImg
@@ -778,7 +777,6 @@ FileInstall,opt.png,opt.png,1
 FileInstall,paradigm.png,paradigm.png,1
 FileInstall,splash.png,splash.png,1
 FileInstall,tip.png,tip.png,1
-FileInstall,favicon.ico,favicon.ico,1
 FileInstall,Helper.ico,Helper.ico,1
 FileInstall,Install.ico,Install.ico,1
 FileInstall,key.ico,key.ico,1
@@ -945,6 +943,605 @@ FileInstall,rj\KODI\IAGL\userdata\addon_data\plugin.program.iagl\settings.xml.se
 FileInstall,rj\KODI\IARL\userdata\addon_data\plugin.program.iarl\settings.xml.set,rj\KODI\IARL\userdata\addon_data\plugin.program.iarl\settings.xml.set,1
 FileInstall,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emurom.set,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emurom.set,1
 FileInstall,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emuromend.set,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emuromend.set,1
+FileInstall,gam\Internet-Archive\#HACKS#Acorn - BBC.gam,gam\Internet-Archive\#HACKS#Acorn - BBC.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Acorn - Electron.gam,gam\Internet-Archive\#HACKS#Acorn - Electron.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Amstrad - CPC.gam,gam\Internet-Archive\#HACKS#Amstrad - CPC.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Amstrad - GX4000.gam,gam\Internet-Archive\#HACKS#Amstrad - GX4000.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Apple - IIgs.gam,gam\Internet-Archive\#HACKS#Apple - IIgs.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Atari - 2600.gam,gam\Internet-Archive\#HACKS#Atari - 2600.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Atari - 7800.gam,gam\Internet-Archive\#HACKS#Atari - 7800.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Atari - Jaguar.gam,gam\Internet-Archive\#HACKS#Atari - Jaguar.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Bally - Astrocade.gam,gam\Internet-Archive\#HACKS#Bally - Astrocade.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Bandai - WonderSwan Color.gam,gam\Internet-Archive\#HACKS#Bandai - WonderSwan Color.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Bandai - WonderSwan.gam,gam\Internet-Archive\#HACKS#Bandai - WonderSwan.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Camputers - Lynx.gam,gam\Internet-Archive\#HACKS#Camputers - Lynx.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Capcom Play System - CPS II.gam,gam\Internet-Archive\#HACKS#Capcom Play System - CPS II.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Capcom Play System - CPS III.gam,gam\Internet-Archive\#HACKS#Capcom Play System - CPS III.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Capcom Play System - CPS.gam,gam\Internet-Archive\#HACKS#Capcom Play System - CPS.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Coleco - Adam.gam,gam\Internet-Archive\#HACKS#Coleco - Adam.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Commodore - Amiga.gam,gam\Internet-Archive\#HACKS#Commodore - Amiga.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Commodore - C128.gam,gam\Internet-Archive\#HACKS#Commodore - C128.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Commodore - PET.gam,gam\Internet-Archive\#HACKS#Commodore - PET.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Commodore - Plus-4.gam,gam\Internet-Archive\#HACKS#Commodore - Plus-4.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Commodore - VIC-20.gam,gam\Internet-Archive\#HACKS#Commodore - VIC-20.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Enterprise - 128.gam,gam\Internet-Archive\#HACKS#Enterprise - 128.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Fairchild - Channel F.gam,gam\Internet-Archive\#HACKS#Fairchild - Channel F.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Fujitsu - FM Towns.gam,gam\Internet-Archive\#HACKS#Fujitsu - FM Towns.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Fujitsu - FM-7.gam,gam\Internet-Archive\#HACKS#Fujitsu - FM-7.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#GCE - Vectrex.gam,gam\Internet-Archive\#HACKS#GCE - Vectrex.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Infocom - Z-Machine.gam,gam\Internet-Archive\#HACKS#Infocom - Z-Machine.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#MAME - Arcade.gam,gam\Internet-Archive\#HACKS#MAME - Arcade.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Mattel - Aqarious.gam,gam\Internet-Archive\#HACKS#Mattel - Aqarious.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Mattel - Intellivision.gam,gam\Internet-Archive\#HACKS#Mattel - Intellivision.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Memotech - MTX.gam,gam\Internet-Archive\#HACKS#Memotech - MTX.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Microkey - Primo.gam,gam\Internet-Archive\#HACKS#Microkey - Primo.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Microsoft - MSX TurboR.gam,gam\Internet-Archive\#HACKS#Microsoft - MSX TurboR.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Microsoft - MSX.gam,gam\Internet-Archive\#HACKS#Microsoft - MSX.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Microsoft - MSX2.gam,gam\Internet-Archive\#HACKS#Microsoft - MSX2.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Nascom - I-II.gam,gam\Internet-Archive\#HACKS#Nascom - I-II.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#NEC - PC Engine - TurboGrafx 16.gam,gam\Internet-Archive\#HACKS#NEC - PC Engine - TurboGrafx 16.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#NEC - PC-6001.gam,gam\Internet-Archive\#HACKS#NEC - PC-6001.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#NEC - PC88.gam,gam\Internet-Archive\#HACKS#NEC - PC88.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#NEC - PC98.gam,gam\Internet-Archive\#HACKS#NEC - PC98.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Nintendo - Famicom Disk System.gam,gam\Internet-Archive\#HACKS#Nintendo - Famicom Disk System.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Nintendo - Game Boy Advance.gam,gam\Internet-Archive\#HACKS#Nintendo - Game Boy Advance.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Nintendo - Game Boy Color.gam,gam\Internet-Archive\#HACKS#Nintendo - Game Boy Color.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Nintendo - Game Boy.gam,gam\Internet-Archive\#HACKS#Nintendo - Game Boy.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Nintendo - Nintendo 64.gam,gam\Internet-Archive\#HACKS#Nintendo - Nintendo 64.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Nintendo - Nintendo DS.gam,gam\Internet-Archive\#HACKS#Nintendo - Nintendo DS.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Nintendo - Nintendo Entertainment System.gam,gam\Internet-Archive\#HACKS#Nintendo - Nintendo Entertainment System.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Nintendo - Satellaview.gam,gam\Internet-Archive\#HACKS#Nintendo - Satellaview.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Nintendo - Super Nintendo Entertainment System.gam,gam\Internet-Archive\#HACKS#Nintendo - Super Nintendo Entertainment System.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Nintendo - Virtual Boy.gam,gam\Internet-Archive\#HACKS#Nintendo - Virtual Boy.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Philips - CD-I.gam,gam\Internet-Archive\#HACKS#Philips - CD-I.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Philips - P2000.gam,gam\Internet-Archive\#HACKS#Philips - P2000.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Philips - VG-5000.gam,gam\Internet-Archive\#HACKS#Philips - VG-5000.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#RCA - CHIP 8.gam,gam\Internet-Archive\#HACKS#RCA - CHIP 8.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#RCA - SuperChip.gam,gam\Internet-Archive\#HACKS#RCA - SuperChip.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Sega - 32X.gam,gam\Internet-Archive\#HACKS#Sega - 32X.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Sega - Game Gear.gam,gam\Internet-Archive\#HACKS#Sega - Game Gear.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Sega - Master System - Mark III.gam,gam\Internet-Archive\#HACKS#Sega - Master System - Mark III.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Sega - Mega Drive - Genesis.gam,gam\Internet-Archive\#HACKS#Sega - Mega Drive - Genesis.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Sega - SC-3000.gam,gam\Internet-Archive\#HACKS#Sega - SC-3000.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Sega - SF-7000.gam,gam\Internet-Archive\#HACKS#Sega - SF-7000.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Sega - Visual Memory Unit.gam,gam\Internet-Archive\#HACKS#Sega - Visual Memory Unit.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Sharp - X1.gam,gam\Internet-Archive\#HACKS#Sharp - X1.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Sharp - X68000.gam,gam\Internet-Archive\#HACKS#Sharp - X68000.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#SNK - Neo Geo MVS.gam,gam\Internet-Archive\#HACKS#SNK - Neo Geo MVS.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#SNK - Neo Geo Pocket Color.gam,gam\Internet-Archive\#HACKS#SNK - Neo Geo Pocket Color.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#SNK - Neo Geo Pocket.gam,gam\Internet-Archive\#HACKS#SNK - Neo Geo Pocket.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Sony - Playstation Portable.gam,gam\Internet-Archive\#HACKS#Sony - Playstation Portable.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Sony - Pocketstation.gam,gam\Internet-Archive\#HACKS#Sony - Pocketstation.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Tangerine - Microtan 65.gam,gam\Internet-Archive\#HACKS#Tangerine - Microtan 65.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Tangerine - Oric Atmos.gam,gam\Internet-Archive\#HACKS#Tangerine - Oric Atmos.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Thomson - M05.gam,gam\Internet-Archive\#HACKS#Thomson - M05.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Thomson - TO5.gam,gam\Internet-Archive\#HACKS#Thomson - TO5.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Thomson - TO7.gam,gam\Internet-Archive\#HACKS#Thomson - TO7.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Thomson - TO8.gam,gam\Internet-Archive\#HACKS#Thomson - TO8.gam,1
+FileInstall,gam\Internet-Archive\#HACKS#Watara - Supervision.gam,gam\Internet-Archive\#HACKS#Watara - Supervision.gam,1
+FileInstall,gam\Internet-Archive\Acorn - BBC.gam,gam\Internet-Archive\Acorn - BBC.gam,1
+FileInstall,gam\Internet-Archive\Acorn - Electron.gam,gam\Internet-Archive\Acorn - Electron.gam,1
+FileInstall,gam\Internet-Archive\Amstrad - CPC.gam,gam\Internet-Archive\Amstrad - CPC.gam,1
+FileInstall,gam\Internet-Archive\Amstrad - GX4000.gam,gam\Internet-Archive\Amstrad - GX4000.gam,1
+FileInstall,gam\Internet-Archive\Apple - Bandai - Pippin.gam,gam\Internet-Archive\Apple - Bandai - Pippin.gam,1
+FileInstall,gam\Internet-Archive\Apple - IIgs.gam,gam\Internet-Archive\Apple - IIgs.gam,1
+FileInstall,gam\Internet-Archive\Atari - 2600.gam,gam\Internet-Archive\Atari - 2600.gam,1
+FileInstall,gam\Internet-Archive\Atari - 5200.gam,gam\Internet-Archive\Atari - 5200.gam,1
+FileInstall,gam\Internet-Archive\Atari - 7800.gam,gam\Internet-Archive\Atari - 7800.gam,1
+FileInstall,gam\Internet-Archive\Atari - Jaguar.gam,gam\Internet-Archive\Atari - Jaguar.gam,1
+FileInstall,gam\Internet-Archive\Atari - Lynx.gam,gam\Internet-Archive\Atari - Lynx.gam,1
+FileInstall,gam\Internet-Archive\Atari - ST.gam,gam\Internet-Archive\Atari - ST.gam,1
+FileInstall,gam\Internet-Archive\Bally - Astrocade.gam,gam\Internet-Archive\Bally - Astrocade.gam,1
+FileInstall,gam\Internet-Archive\Bandai - WonderSwan Color.gam,gam\Internet-Archive\Bandai - WonderSwan Color.gam,1
+FileInstall,gam\Internet-Archive\Bandai - WonderSwan.gam,gam\Internet-Archive\Bandai - WonderSwan.gam,1
+FileInstall,gam\Internet-Archive\BIOS - BIOS.gam,gam\Internet-Archive\BIOS - BIOS.gam,1
+FileInstall,gam\Internet-Archive\Camputers - Lynx.gam,gam\Internet-Archive\Camputers - Lynx.gam,1
+FileInstall,gam\Internet-Archive\Capcom Play System - CPS II.gam,gam\Internet-Archive\Capcom Play System - CPS II.gam,1
+FileInstall,gam\Internet-Archive\Capcom Play System - CPS III.gam,gam\Internet-Archive\Capcom Play System - CPS III.gam,1
+FileInstall,gam\Internet-Archive\Capcom Play System - CPS.gam,gam\Internet-Archive\Capcom Play System - CPS.gam,1
+FileInstall,gam\Internet-Archive\Casio - Loopy.gam,gam\Internet-Archive\Casio - Loopy.gam,1
+FileInstall,gam\Internet-Archive\Casio - PV-1000.gam,gam\Internet-Archive\Casio - PV-1000.gam,1
+FileInstall,gam\Internet-Archive\Cave Systems - Cave.gam,gam\Internet-Archive\Cave Systems - Cave.gam,1
+FileInstall,gam\Internet-Archive\Coleco - Adam.gam,gam\Internet-Archive\Coleco - Adam.gam,1
+FileInstall,gam\Internet-Archive\Coleco - ColecoVision.gam,gam\Internet-Archive\Coleco - ColecoVision.gam,1
+FileInstall,gam\Internet-Archive\Commodore - 64.gam,gam\Internet-Archive\Commodore - 64.gam,1
+FileInstall,gam\Internet-Archive\Commodore - Amiga CD32.gam,gam\Internet-Archive\Commodore - Amiga CD32.gam,1
+FileInstall,gam\Internet-Archive\Commodore - Amiga CDTV.gam,gam\Internet-Archive\Commodore - Amiga CDTV.gam,1
+FileInstall,gam\Internet-Archive\Commodore - Amiga.gam,gam\Internet-Archive\Commodore - Amiga.gam,1
+FileInstall,gam\Internet-Archive\Commodore - C128.gam,gam\Internet-Archive\Commodore - C128.gam,1
+FileInstall,gam\Internet-Archive\Commodore - PET.gam,gam\Internet-Archive\Commodore - PET.gam,1
+FileInstall,gam\Internet-Archive\Commodore - Plus-4.gam,gam\Internet-Archive\Commodore - Plus-4.gam,1
+FileInstall,gam\Internet-Archive\Commodore - VIC-10.gam,gam\Internet-Archive\Commodore - VIC-10.gam,1
+FileInstall,gam\Internet-Archive\Commodore - VIC-20.gam,gam\Internet-Archive\Commodore - VIC-20.gam,1
+FileInstall,gam\Internet-Archive\Creatronic - Mega Duck.gam,gam\Internet-Archive\Creatronic - Mega Duck.gam,1
+FileInstall,gam\Internet-Archive\Cybiko - Cybiko.gam,gam\Internet-Archive\Cybiko - Cybiko.gam,1
+FileInstall,gam\Internet-Archive\EasyRPG - EasyRPG.gam,gam\Internet-Archive\EasyRPG - EasyRPG.gam,1
+FileInstall,gam\Internet-Archive\Emerson - Arcadia 2001.gam,gam\Internet-Archive\Emerson - Arcadia 2001.gam,1
+FileInstall,gam\Internet-Archive\Enterprise - 128.gam,gam\Internet-Archive\Enterprise - 128.gam,1
+FileInstall,gam\Internet-Archive\Entex - Adventure Vision.gam,gam\Internet-Archive\Entex - Adventure Vision.gam,1
+FileInstall,gam\Internet-Archive\Epoch - Super Cassette Vision.gam,gam\Internet-Archive\Epoch - Super Cassette Vision.gam,1
+FileInstall,gam\Internet-Archive\Exidy - Sorcerer.gam,gam\Internet-Archive\Exidy - Sorcerer.gam,1
+FileInstall,gam\Internet-Archive\Fairchild - Channel F.gam,gam\Internet-Archive\Fairchild - Channel F.gam,1
+FileInstall,gam\Internet-Archive\Fujitsu - FM Towns.gam,gam\Internet-Archive\Fujitsu - FM Towns.gam,1
+FileInstall,gam\Internet-Archive\Fujitsu - FM-7.gam,gam\Internet-Archive\Fujitsu - FM-7.gam,1
+FileInstall,gam\Internet-Archive\Funtech - Super A'can.gam,gam\Internet-Archive\Funtech - Super A'can.gam,1
+FileInstall,gam\Internet-Archive\Galeco - Galeco.gam,gam\Internet-Archive\Galeco - Galeco.gam,1
+FileInstall,gam\Internet-Archive\GamePark - GP32.gam,gam\Internet-Archive\GamePark - GP32.gam,1
+FileInstall,gam\Internet-Archive\GCE - Vectrex.gam,gam\Internet-Archive\GCE - Vectrex.gam,1
+FileInstall,gam\Internet-Archive\Hartung - Game Master.gam,gam\Internet-Archive\Hartung - Game Master.gam,1
+FileInstall,gam\Internet-Archive\Infocom - Z-Machine.gam,gam\Internet-Archive\Infocom - Z-Machine.gam,1
+FileInstall,gam\Internet-Archive\Leapfrog - Leapster Learning Game System.gam,gam\Internet-Archive\Leapfrog - Leapster Learning Game System.gam,1
+FileInstall,gam\Internet-Archive\Magnavox - Odyssey2.gam,gam\Internet-Archive\Magnavox - Odyssey2.gam,1
+FileInstall,gam\Internet-Archive\MAME - Arcade.gam,gam\Internet-Archive\MAME - Arcade.gam,1
+FileInstall,gam\Internet-Archive\Mattel - Aqarious.gam,gam\Internet-Archive\Mattel - Aqarious.gam,1
+FileInstall,gam\Internet-Archive\Mattel - Intellivision.gam,gam\Internet-Archive\Mattel - Intellivision.gam,1
+FileInstall,gam\Internet-Archive\Memotech - MTX.gam,gam\Internet-Archive\Memotech - MTX.gam,1
+FileInstall,gam\Internet-Archive\Microkey - Primo.gam,gam\Internet-Archive\Microkey - Primo.gam,1
+FileInstall,gam\Internet-Archive\Microsoft - DOS.gam,gam\Internet-Archive\Microsoft - DOS.gam,1
+FileInstall,gam\Internet-Archive\Microsoft - MSX TurboR.gam,gam\Internet-Archive\Microsoft - MSX TurboR.gam,1
+FileInstall,gam\Internet-Archive\Microsoft - MSX.gam,gam\Internet-Archive\Microsoft - MSX.gam,1
+FileInstall,gam\Internet-Archive\Microsoft - MSX2.gam,gam\Internet-Archive\Microsoft - MSX2.gam,1
+FileInstall,gam\Internet-Archive\Microsoft - Windows 3x.gam,gam\Internet-Archive\Microsoft - Windows 3x.gam,1
+FileInstall,gam\Internet-Archive\Microsoft - XBOX.gam,gam\Internet-Archive\Microsoft - XBOX.gam,1
+FileInstall,gam\Internet-Archive\Nascom - I-II.gam,gam\Internet-Archive\Nascom - I-II.gam,1
+FileInstall,gam\Internet-Archive\NEC - PC Engine - TurboGrafx 16.gam,gam\Internet-Archive\NEC - PC Engine - TurboGrafx 16.gam,1
+FileInstall,gam\Internet-Archive\NEC - PC Engine CD - TurboGrafx CD.gam,gam\Internet-Archive\NEC - PC Engine CD - TurboGrafx CD.gam,1
+FileInstall,gam\Internet-Archive\NEC - PC Engine SuperGrafx.gam,gam\Internet-Archive\NEC - PC Engine SuperGrafx.gam,1
+FileInstall,gam\Internet-Archive\NEC - PC-6001.gam,gam\Internet-Archive\NEC - PC-6001.gam,1
+FileInstall,gam\Internet-Archive\NEC - PC88.gam,gam\Internet-Archive\NEC - PC88.gam,1
+FileInstall,gam\Internet-Archive\NEC - PC98.gam,gam\Internet-Archive\NEC - PC98.gam,1
+FileInstall,gam\Internet-Archive\NEC - PC9821.gam,gam\Internet-Archive\NEC - PC9821.gam,1
+FileInstall,gam\Internet-Archive\Nintendo - Famicom Disk System.gam,gam\Internet-Archive\Nintendo - Famicom Disk System.gam,1
+FileInstall,gam\Internet-Archive\Nintendo - Game Boy Advance (e-Cards).gam,gam\Internet-Archive\Nintendo - Game Boy Advance (e-Cards).gam,1
+FileInstall,gam\Internet-Archive\Nintendo - Game Boy Advance.gam,gam\Internet-Archive\Nintendo - Game Boy Advance.gam,1
+FileInstall,gam\Internet-Archive\Nintendo - Game Boy Color.gam,gam\Internet-Archive\Nintendo - Game Boy Color.gam,1
+FileInstall,gam\Internet-Archive\Nintendo - Game Boy.gam,gam\Internet-Archive\Nintendo - Game Boy.gam,1
+FileInstall,gam\Internet-Archive\Nintendo - GameCube.gam,gam\Internet-Archive\Nintendo - GameCube.gam,1
+FileInstall,gam\Internet-Archive\Nintendo - Nintendo 3DS.gam,gam\Internet-Archive\Nintendo - Nintendo 3DS.gam,1
+FileInstall,gam\Internet-Archive\Nintendo - Nintendo 64.gam,gam\Internet-Archive\Nintendo - Nintendo 64.gam,1
+FileInstall,gam\Internet-Archive\Nintendo - Nintendo 64DD.gam,gam\Internet-Archive\Nintendo - Nintendo 64DD.gam,1
+FileInstall,gam\Internet-Archive\Nintendo - Nintendo DS.gam,gam\Internet-Archive\Nintendo - Nintendo DS.gam,1
+FileInstall,gam\Internet-Archive\Nintendo - Nintendo Entertainment System.gam,gam\Internet-Archive\Nintendo - Nintendo Entertainment System.gam,1
+FileInstall,gam\Internet-Archive\Nintendo - Pokemon Mini.gam,gam\Internet-Archive\Nintendo - Pokemon Mini.gam,1
+FileInstall,gam\Internet-Archive\Nintendo - Satellaview.gam,gam\Internet-Archive\Nintendo - Satellaview.gam,1
+FileInstall,gam\Internet-Archive\Nintendo - Sufami Turbo.gam,gam\Internet-Archive\Nintendo - Sufami Turbo.gam,1
+FileInstall,gam\Internet-Archive\Nintendo - Super Nintendo Entertainment System.gam,gam\Internet-Archive\Nintendo - Super Nintendo Entertainment System.gam,1
+FileInstall,gam\Internet-Archive\Nintendo - Virtual Boy.gam,gam\Internet-Archive\Nintendo - Virtual Boy.gam,1
+FileInstall,gam\Internet-Archive\Nintendo - Wii.gam,gam\Internet-Archive\Nintendo - Wii.gam,1
+FileInstall,gam\Internet-Archive\Nintendo - WiiWare.gam,gam\Internet-Archive\Nintendo - WiiWare.gam,1
+FileInstall,gam\Internet-Archive\Nokia - N-Gage.gam,gam\Internet-Archive\Nokia - N-Gage.gam,1
+FileInstall,gam\Internet-Archive\Open - Beats of Rage.gam,gam\Internet-Archive\Open - Beats of Rage.gam,1
+FileInstall,gam\Internet-Archive\Philips - CD-I.gam,gam\Internet-Archive\Philips - CD-I.gam,1
+FileInstall,gam\Internet-Archive\Philips - P2000.gam,gam\Internet-Archive\Philips - P2000.gam,1
+FileInstall,gam\Internet-Archive\Philips - VG-5000.gam,gam\Internet-Archive\Philips - VG-5000.gam,1
+FileInstall,gam\Internet-Archive\Philips - Videopac .gam,gam\Internet-Archive\Philips - Videopac .gam,1
+FileInstall,gam\Internet-Archive\RCA - CHIP 8.gam,gam\Internet-Archive\RCA - CHIP 8.gam,1
+FileInstall,gam\Internet-Archive\RCA - Studio II.gam,gam\Internet-Archive\RCA - Studio II.gam,1
+FileInstall,gam\Internet-Archive\RCA - SuperChip.gam,gam\Internet-Archive\RCA - SuperChip.gam,1
+FileInstall,gam\Internet-Archive\Sammy - Atomiswave.gam,gam\Internet-Archive\Sammy - Atomiswave.gam,1
+FileInstall,gam\Internet-Archive\ScummVM - ScummVM.gam,gam\Internet-Archive\ScummVM - ScummVM.gam,1
+FileInstall,gam\Internet-Archive\Sega - 32X.gam,gam\Internet-Archive\Sega - 32X.gam,1
+FileInstall,gam\Internet-Archive\Sega - Dreamcast.gam,gam\Internet-Archive\Sega - Dreamcast.gam,1
+FileInstall,gam\Internet-Archive\Sega - Game Gear.gam,gam\Internet-Archive\Sega - Game Gear.gam,1
+FileInstall,gam\Internet-Archive\Sega - Hikaru.gam,gam\Internet-Archive\Sega - Hikaru.gam,1
+FileInstall,gam\Internet-Archive\Sega - Master System - Mark III.gam,gam\Internet-Archive\Sega - Master System - Mark III.gam,1
+FileInstall,gam\Internet-Archive\Sega - Mega Drive - Genesis.gam,gam\Internet-Archive\Sega - Mega Drive - Genesis.gam,1
+FileInstall,gam\Internet-Archive\Sega - Mega-CD - Sega CD.gam,gam\Internet-Archive\Sega - Mega-CD - Sega CD.gam,1
+FileInstall,gam\Internet-Archive\Sega - Model 2.gam,gam\Internet-Archive\Sega - Model 2.gam,1
+FileInstall,gam\Internet-Archive\Sega - Model 3.gam,gam\Internet-Archive\Sega - Model 3.gam,1
+FileInstall,gam\Internet-Archive\Sega - NAOMI.gam,gam\Internet-Archive\Sega - NAOMI.gam,1
+FileInstall,gam\Internet-Archive\Sega - PICO.gam,gam\Internet-Archive\Sega - PICO.gam,1
+FileInstall,gam\Internet-Archive\Sega - Saturn.gam,gam\Internet-Archive\Sega - Saturn.gam,1
+FileInstall,gam\Internet-Archive\Sega - SC-3000.gam,gam\Internet-Archive\Sega - SC-3000.gam,1
+FileInstall,gam\Internet-Archive\Sega - SF-7000.gam,gam\Internet-Archive\Sega - SF-7000.gam,1
+FileInstall,gam\Internet-Archive\Sega - SG-1000.gam,gam\Internet-Archive\Sega - SG-1000.gam,1
+FileInstall,gam\Internet-Archive\Sega - Visual Memory Unit.gam,gam\Internet-Archive\Sega - Visual Memory Unit.gam,1
+FileInstall,gam\Internet-Archive\Sharp - X1.gam,gam\Internet-Archive\Sharp - X1.gam,1
+FileInstall,gam\Internet-Archive\Sharp - X68000.gam,gam\Internet-Archive\Sharp - X68000.gam,1
+FileInstall,gam\Internet-Archive\Sinclair - ZX Spectrum.gam,gam\Internet-Archive\Sinclair - ZX Spectrum.gam,1
+FileInstall,gam\Internet-Archive\SNK - Neo Geo CD.gam,gam\Internet-Archive\SNK - Neo Geo CD.gam,1
+FileInstall,gam\Internet-Archive\SNK - Neo Geo MVS.gam,gam\Internet-Archive\SNK - Neo Geo MVS.gam,1
+FileInstall,gam\Internet-Archive\SNK - Neo Geo Pocket Color.gam,gam\Internet-Archive\SNK - Neo Geo Pocket Color.gam,1
+FileInstall,gam\Internet-Archive\SNK - Neo Geo Pocket.gam,gam\Internet-Archive\SNK - Neo Geo Pocket.gam,1
+FileInstall,gam\Internet-Archive\Sony - Playstation 2.gam,gam\Internet-Archive\Sony - Playstation 2.gam,1
+FileInstall,gam\Internet-Archive\Sony - Playstation Portable.gam,gam\Internet-Archive\Sony - Playstation Portable.gam,1
+FileInstall,gam\Internet-Archive\Sony - Playstation.gam,gam\Internet-Archive\Sony - Playstation.gam,1
+FileInstall,gam\Internet-Archive\Sony - Pocketstation.gam,gam\Internet-Archive\Sony - Pocketstation.gam,1
+FileInstall,gam\Internet-Archive\Streets of Rage - Remake.gam,gam\Internet-Archive\Streets of Rage - Remake.gam,1
+FileInstall,gam\Internet-Archive\Tangerine - Microtan 65.gam,gam\Internet-Archive\Tangerine - Microtan 65.gam,1
+FileInstall,gam\Internet-Archive\Tangerine - Oric Atmos.gam,gam\Internet-Archive\Tangerine - Oric Atmos.gam,1
+FileInstall,gam\Internet-Archive\The 3DO Company - 3DO.gam,gam\Internet-Archive\The 3DO Company - 3DO.gam,1
+FileInstall,gam\Internet-Archive\Thomson - M05.gam,gam\Internet-Archive\Thomson - M05.gam,1
+FileInstall,gam\Internet-Archive\Thomson - TO7.gam,gam\Internet-Archive\Thomson - TO7.gam,1
+FileInstall,gam\Internet-Archive\Thomson - TO8.gam,gam\Internet-Archive\Thomson - TO8.gam,1
+FileInstall,gam\Internet-Archive\Tiger - Game-com.gam,gam\Internet-Archive\Tiger - Game-com.gam,1
+FileInstall,gam\Internet-Archive\Tomy - Tutor.gam,gam\Internet-Archive\Tomy - Tutor.gam,1
+FileInstall,gam\Internet-Archive\VTech - CreatiVision.gam,gam\Internet-Archive\VTech - CreatiVision.gam,1
+FileInstall,gam\Internet-Archive\VTech - V-Smile.gam,gam\Internet-Archive\VTech - V-Smile.gam,1
+FileInstall,gam\Internet-Archive\Watara - Supervision.gam,gam\Internet-Archive\Watara - Supervision.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\- firmware -.gam,gam\Internet-Archive\MAME - Systems\- firmware -.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\32x.gam,gam\Internet-Archive\MAME - Systems\32x.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\32xe.gam,gam\Internet-Archive\MAME - Systems\32xe.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\32xj.gam,gam\Internet-Archive\MAME - Systems\32xj.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\a1000n.gam,gam\Internet-Archive\MAME - Systems\a1000n.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\a1200n.gam,gam\Internet-Archive\MAME - Systems\a1200n.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\a2000n.gam,gam\Internet-Archive\MAME - Systems\a2000n.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\a2600.gam,gam\Internet-Archive\MAME - Systems\a2600.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\a2600p.gam,gam\Internet-Archive\MAME - Systems\a2600p.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\a3000.gam,gam\Internet-Archive\MAME - Systems\a3000.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\a3000n.gam,gam\Internet-Archive\MAME - Systems\a3000n.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\a310.gam,gam\Internet-Archive\MAME - Systems\a310.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\a500n.gam,gam\Internet-Archive\MAME - Systems\a500n.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\a5200.gam,gam\Internet-Archive\MAME - Systems\a5200.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\a7800.gam,gam\Internet-Archive\MAME - Systems\a7800.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\a800.gam,gam\Internet-Archive\MAME - Systems\a800.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\a800pal.gam,gam\Internet-Archive\MAME - Systems\a800pal.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\abc1600.gam,gam\Internet-Archive\MAME - Systems\abc1600.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\abc80.gam,gam\Internet-Archive\MAME - Systems\abc80.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\adam.gam,gam\Internet-Archive\MAME - Systems\adam.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\advantage.gam,gam\Internet-Archive\MAME - Systems\advantage.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\advision.gam,gam\Internet-Archive\MAME - Systems\advision.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\aim65.gam,gam\Internet-Archive\MAME - Systems\aim65.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\aleste.gam,gam\Internet-Archive\MAME - Systems\aleste.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\alice32.gam,gam\Internet-Archive\MAME - Systems\alice32.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\alice90.gam,gam\Internet-Archive\MAME - Systems\alice90.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\alphatro.gam,gam\Internet-Archive\MAME - Systems\alphatro.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\altos5.gam,gam\Internet-Archive\MAME - Systems\altos5.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\amiga.gam,gam\Internet-Archive\MAME - Systems\amiga.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\ampro.gam,gam\Internet-Archive\MAME - Systems\ampro.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\apc.gam,gam\Internet-Archive\MAME - Systems\apc.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\apfimag.gam,gam\Internet-Archive\MAME - Systems\apfimag.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\apfm1000.gam,gam\Internet-Archive\MAME - Systems\apfm1000.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\apogee.gam,gam\Internet-Archive\MAME - Systems\apogee.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\apollo.gam,gam\Internet-Archive\MAME - Systems\apollo.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\apple1.gam,gam\Internet-Archive\MAME - Systems\apple1.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\apple2.gam,gam\Internet-Archive\MAME - Systems\apple2.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\apple2gs.gam,gam\Internet-Archive\MAME - Systems\apple2gs.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\apple3.gam,gam\Internet-Archive\MAME - Systems\apple3.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\apricot.gam,gam\Internet-Archive\MAME - Systems\apricot.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\aquarius.gam,gam\Internet-Archive\MAME - Systems\aquarius.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\arcadia.gam,gam\Internet-Archive\MAME - Systems\arcadia.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\archimedes.gam,gam\Internet-Archive\MAME - Systems\archimedes.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\astrocde.gam,gam\Internet-Archive\MAME - Systems\astrocde.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\atom.gam,gam\Internet-Archive\MAME - Systems\atom.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\attache.gam,gam\Internet-Archive\MAME - Systems\attache.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\b2m.gam,gam\Internet-Archive\MAME - Systems\b2m.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\bbca.gam,gam\Internet-Archive\MAME - Systems\bbca.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\bbcb.gam,gam\Internet-Archive\MAME - Systems\bbcb.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\bbcbc.gam,gam\Internet-Archive\MAME - Systems\bbcbc.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\bbcm.gam,gam\Internet-Archive\MAME - Systems\bbcm.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\bbcmc.gam,gam\Internet-Archive\MAME - Systems\bbcmc.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\bk0010.gam,gam\Internet-Archive\MAME - Systems\bk0010.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\bw12.gam,gam\Internet-Archive\MAME - Systems\bw12.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\bw14.gam,gam\Internet-Archive\MAME - Systems\bw14.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\bw2.gam,gam\Internet-Archive\MAME - Systems\bw2.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\bx256hp.gam,gam\Internet-Archive\MAME - Systems\bx256hp.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\c128.gam,gam\Internet-Archive\MAME - Systems\c128.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\c64.gam,gam\Internet-Archive\MAME - Systems\c64.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\c65.gam,gam\Internet-Archive\MAME - Systems\c65.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\canonv30f.gam,gam\Internet-Archive\MAME - Systems\canonv30f.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\canonv8.gam,gam\Internet-Archive\MAME - Systems\canonv8.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\casloopy.gam,gam\Internet-Archive\MAME - Systems\casloopy.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\cbm2.gam,gam\Internet-Archive\MAME - Systems\cbm2.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\cbm8096.gam,gam\Internet-Archive\MAME - Systems\cbm8096.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\cbm8296.gam,gam\Internet-Archive\MAME - Systems\cbm8296.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\cc40.gam,gam\Internet-Archive\MAME - Systems\cc40.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\cdtv.gam,gam\Internet-Archive\MAME - Systems\cdtv.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\cgenie.gam,gam\Internet-Archive\MAME - Systems\cgenie.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\channelf.gam,gam\Internet-Archive\MAME - Systems\channelf.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\chessmstdm.gam,gam\Internet-Archive\MAME - Systems\chessmstdm.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\coco.gam,gam\Internet-Archive\MAME - Systems\coco.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\coleco.gam,gam\Internet-Archive\MAME - Systems\coleco.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\colecop.gam,gam\Internet-Archive\MAME - Systems\colecop.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\compclr2.gam,gam\Internet-Archive\MAME - Systems\compclr2.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\compis.gam,gam\Internet-Archive\MAME - Systems\compis.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\comx35.gam,gam\Internet-Archive\MAME - Systems\comx35.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\copera.gam,gam\Internet-Archive\MAME - Systems\copera.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\cpc.gam,gam\Internet-Archive\MAME - Systems\cpc.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\cpc6128p.gam,gam\Internet-Archive\MAME - Systems\cpc6128p.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\crvision.gam,gam\Internet-Archive\MAME - Systems\crvision.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\cx3000tc.gam,gam\Internet-Archive\MAME - Systems\cx3000tc.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\dai.gam,gam\Internet-Archive\MAME - Systems\dai.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\database.gam,gam\Internet-Archive\MAME - Systems\database.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\dgnalpha.gam,gam\Internet-Archive\MAME - Systems\dgnalpha.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\dgnbeta.gam,gam\Internet-Archive\MAME - Systems\dgnbeta.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\dim68k.gam,gam\Internet-Archive\MAME - Systems\dim68k.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\dmv.gam,gam\Internet-Archive\MAME - Systems\dmv.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\dps1.gam,gam\Internet-Archive\MAME - Systems\dps1.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\dragon.gam,gam\Internet-Archive\MAME - Systems\dragon.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\e01.gam,gam\Internet-Archive\MAME - Systems\e01.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\ec1841.gam,gam\Internet-Archive\MAME - Systems\ec1841.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\einstein.gam,gam\Internet-Archive\MAME - Systems\einstein.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\electron.gam,gam\Internet-Archive\MAME - Systems\electron.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\ep64.gam,gam\Internet-Archive\MAME - Systems\ep64.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\epson.gam,gam\Internet-Archive\MAME - Systems\epson.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\exl100.gam,gam\Internet-Archive\MAME - Systems\exl100.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\famicom.gam,gam\Internet-Archive\MAME - Systems\famicom.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\fidel.gam,gam\Internet-Archive\MAME - Systems\fidel.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\fightcade.gam,gam\Internet-Archive\MAME - Systems\fightcade.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\fightcadeCV.gam,gam\Internet-Archive\MAME - Systems\fightcadeCV.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\fightcadeGG.gam,gam\Internet-Archive\MAME - Systems\fightcadeGG.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\fightcadeMD.gam,gam\Internet-Archive\MAME - Systems\fightcadeMD.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\fightcadePCE.gam,gam\Internet-Archive\MAME - Systems\fightcadePCE.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\fightcadeSG1K.gam,gam\Internet-Archive\MAME - Systems\fightcadeSG1K.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\fightcadeSMS.gam,gam\Internet-Archive\MAME - Systems\fightcadeSMS.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\fm7.gam,gam\Internet-Archive\MAME - Systems\fm7.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\fm77av.gam,gam\Internet-Archive\MAME - Systems\fm77av.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\fmtowns.gam,gam\Internet-Archive\MAME - Systems\fmtowns.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\fsa1st.gam,gam\Internet-Archive\MAME - Systems\fsa1st.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\g7400.gam,gam\Internet-Archive\MAME - Systems\g7400.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\galaxy.gam,gam\Internet-Archive\MAME - Systems\galaxy.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\gamate.gam,gam\Internet-Archive\MAME - Systems\gamate.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\gameboy.gam,gam\Internet-Archive\MAME - Systems\gameboy.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\gamecom.gam,gam\Internet-Archive\MAME - Systems\gamecom.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\gamegear.gam,gam\Internet-Archive\MAME - Systems\gamegear.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\gamegearj.gam,gam\Internet-Archive\MAME - Systems\gamegearj.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\gameking.gam,gam\Internet-Archive\MAME - Systems\gameking.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\gameking3.gam,gam\Internet-Archive\MAME - Systems\gameking3.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\gamepock.gam,gam\Internet-Archive\MAME - Systems\gamepock.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\gba.gam,gam\Internet-Archive\MAME - Systems\gba.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\gbcolor.gam,gam\Internet-Archive\MAME - Systems\gbcolor.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\genesis.gam,gam\Internet-Archive\MAME - Systems\genesis.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\genius.gam,gam\Internet-Archive\MAME - Systems\genius.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\genius6.gam,gam\Internet-Archive\MAME - Systems\genius6.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\gimix.gam,gam\Internet-Archive\MAME - Systems\gimix.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\gjmovie.gam,gam\Internet-Archive\MAME - Systems\gjmovie.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\gl2000.gam,gam\Internet-Archive\MAME - Systems\gl2000.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\gl6000sl.gam,gam\Internet-Archive\MAME - Systems\gl6000sl.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\glcolor.gam,gam\Internet-Archive\MAME - Systems\glcolor.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\gmaster.gam,gam\Internet-Archive\MAME - Systems\gmaster.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\gp32.gam,gam\Internet-Archive\MAME - Systems\gp32.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\guab.gam,gam\Internet-Archive\MAME - Systems\guab.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\gx4000.gam,gam\Internet-Archive\MAME - Systems\gx4000.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\h21.gam,gam\Internet-Archive\MAME - Systems\h21.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\hbf9sp.gam,gam\Internet-Archive\MAME - Systems\hbf9sp.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\horizon.gam,gam\Internet-Archive\MAME - Systems\horizon.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\hp.gam,gam\Internet-Archive\MAME - Systems\hp.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\hp85.gam,gam\Internet-Archive\MAME - Systems\hp85.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\hp9835a.gam,gam\Internet-Archive\MAME - Systems\hp9835a.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\hp9845a.gam,gam\Internet-Archive\MAME - Systems\hp9845a.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\hp9845b.gam,gam\Internet-Archive\MAME - Systems\hp9845b.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\ht68k.gam,gam\Internet-Archive\MAME - Systems\ht68k.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\hx20.gam,gam\Internet-Archive\MAME - Systems\hx20.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\i7000.gam,gam\Internet-Archive\MAME - Systems\i7000.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\ibm5140.gam,gam\Internet-Archive\MAME - Systems\ibm5140.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\ibm5150.gam,gam\Internet-Archive\MAME - Systems\ibm5150.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\ibm5170.gam,gam\Internet-Archive\MAME - Systems\ibm5170.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\ibm6580.gam,gam\Internet-Archive\MAME - Systems\ibm6580.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\ibmpcjr.gam,gam\Internet-Archive\MAME - Systems\ibmpcjr.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\interact.gam,gam\Internet-Archive\MAME - Systems\interact.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\intv.gam,gam\Internet-Archive\MAME - Systems\intv.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\intvecs.gam,gam\Internet-Archive\MAME - Systems\intvecs.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\iq151.gam,gam\Internet-Archive\MAME - Systems\iq151.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\jaguar.gam,gam\Internet-Archive\MAME - Systems\jaguar.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\juicebox.gam,gam\Internet-Archive\MAME - Systems\juicebox.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\jupace.gam,gam\Internet-Archive\MAME - Systems\jupace.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\k28m2.gam,gam\Internet-Archive\MAME - Systems\k28m2.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\kayproii.gam,gam\Internet-Archive\MAME - Systems\kayproii.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\kc.gam,gam\Internet-Archive\MAME - Systems\kc.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\kim1.gam,gam\Internet-Archive\MAME - Systems\kim1.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\konami.gam,gam\Internet-Archive\MAME - Systems\konami.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\korvet.gam,gam\Internet-Archive\MAME - Systems\korvet.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\lantutor.gam,gam\Internet-Archive\MAME - Systems\lantutor.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\laser2001.gam,gam\Internet-Archive\MAME - Systems\laser2001.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\leapster.gam,gam\Internet-Archive\MAME - Systems\leapster.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\lisa.gam,gam\Internet-Archive\MAME - Systems\lisa.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\lisa2.gam,gam\Internet-Archive\MAME - Systems\lisa2.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\lviv.gam,gam\Internet-Archive\MAME - Systems\lviv.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\lynx.gam,gam\Internet-Archive\MAME - Systems\lynx.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\m20.gam,gam\Internet-Archive\MAME - Systems\m20.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\m5.gam,gam\Internet-Archive\MAME - Systems\m5.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\mac.gam,gam\Internet-Archive\MAME - Systems\mac.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\MAME - BIOS.gam,gam\Internet-Archive\MAME - Systems\MAME - BIOS.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\mbc200.gam,gam\Internet-Archive\MAME - Systems\mbc200.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\mbc55x.gam,gam\Internet-Archive\MAME - Systems\mbc55x.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\mc10.gam,gam\Internet-Archive\MAME - Systems\mc10.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\mc1502.gam,gam\Internet-Archive\MAME - Systems\mc1502.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\md2.gam,gam\Internet-Archive\MAME - Systems\md2.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\megacd.gam,gam\Internet-Archive\MAME - Systems\megacd.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\megacdj.gam,gam\Internet-Archive\MAME - Systems\megacdj.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\megadriv.gam,gam\Internet-Archive\MAME - Systems\megadriv.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\megaduck.gam,gam\Internet-Archive\MAME - Systems\megaduck.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\megapc.gam,gam\Internet-Archive\MAME - Systems\megapc.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\megatech.gam,gam\Internet-Archive\MAME - Systems\megatech.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\microvision.gam,gam\Internet-Archive\MAME - Systems\microvision.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\mikro80.gam,gam\Internet-Archive\MAME - Systems\mikro80.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\mikrosha.gam,gam\Internet-Archive\MAME - Systems\mikrosha.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\misterx.gam,gam\Internet-Archive\MAME - Systems\misterx.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\mm1.gam,gam\Internet-Archive\MAME - Systems\mm1.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\mo5.gam,gam\Internet-Archive\MAME - Systems\mo5.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\mo6.gam,gam\Internet-Archive\MAME - Systems\mo6.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\mpu1000.gam,gam\Internet-Archive\MAME - Systems\mpu1000.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\mpz80.gam,gam\Internet-Archive\MAME - Systems\mpz80.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\msx1.gam,gam\Internet-Archive\MAME - Systems\msx1.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\msx2.gam,gam\Internet-Archive\MAME - Systems\msx2.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\msx2p.gam,gam\Internet-Archive\MAME - Systems\msx2p.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\msxr.gam,gam\Internet-Archive\MAME - Systems\msxr.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\mtx.gam,gam\Internet-Archive\MAME - Systems\mtx.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\mtx512.gam,gam\Internet-Archive\MAME - Systems\mtx512.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\myvision.gam,gam\Internet-Archive\MAME - Systems\myvision.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\mz2000.gam,gam\Internet-Archive\MAME - Systems\mz2000.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\mz2500.gam,gam\Internet-Archive\MAME - Systems\mz2500.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\mz700.gam,gam\Internet-Archive\MAME - Systems\mz700.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\mz800.gam,gam\Internet-Archive\MAME - Systems\mz800.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\n64.gam,gam\Internet-Archive\MAME - Systems\n64.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\n64dd.gam,gam\Internet-Archive\MAME - Systems\n64dd.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\nascom.gam,gam\Internet-Archive\MAME - Systems\nascom.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\neocd.gam,gam\Internet-Archive\MAME - Systems\neocd.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\neogeo.gam,gam\Internet-Archive\MAME - Systems\neogeo.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\nes.gam,gam\Internet-Archive\MAME - Systems\nes.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\nespal.gam,gam\Internet-Archive\MAME - Systems\nespal.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\next.gam,gam\Internet-Archive\MAME - Systems\next.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\ngp.gam,gam\Internet-Archive\MAME - Systems\ngp.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\ngpc.gam,gam\Internet-Archive\MAME - Systems\ngpc.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\nimbus.gam,gam\Internet-Archive\MAME - Systems\nimbus.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\octopus.gam,gam\Internet-Archive\MAME - Systems\octopus.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\odyssey2.gam,gam\Internet-Archive\MAME - Systems\odyssey2.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\ondra.gam,gam\Internet-Archive\MAME - Systems\ondra.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\orao.gam,gam\Internet-Archive\MAME - Systems\orao.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\orionide.gam,gam\Internet-Archive\MAME - Systems\orionide.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\orionpro.gam,gam\Internet-Archive\MAME - Systems\orionpro.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\osborne1.gam,gam\Internet-Archive\MAME - Systems\osborne1.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\osborne2.gam,gam\Internet-Archive\MAME - Systems\osborne2.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\p500.gam,gam\Internet-Archive\MAME - Systems\p500.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\partner.gam,gam\Internet-Archive\MAME - Systems\partner.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pasogo.gam,gam\Internet-Archive\MAME - Systems\pasogo.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pb2000c.gam,gam\Internet-Archive\MAME - Systems\pb2000c.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pc1000.gam,gam\Internet-Archive\MAME - Systems\pc1000.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pc1512.gam,gam\Internet-Archive\MAME - Systems\pc1512.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pc1640.gam,gam\Internet-Archive\MAME - Systems\pc1640.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pc8201.gam,gam\Internet-Archive\MAME - Systems\pc8201.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pc8801.gam,gam\Internet-Archive\MAME - Systems\pc8801.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pc88va.gam,gam\Internet-Archive\MAME - Systems\pc88va.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pc98.gam,gam\Internet-Archive\MAME - Systems\pc98.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pc9821xs.gam,gam\Internet-Archive\MAME - Systems\pc9821xs.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pce.gam,gam\Internet-Archive\MAME - Systems\pce.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pcecd.gam,gam\Internet-Archive\MAME - Systems\pcecd.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pcw.gam,gam\Internet-Archive\MAME - Systems\pcw.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pcw16.gam,gam\Internet-Archive\MAME - Systems\pcw16.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pecom.gam,gam\Internet-Archive\MAME - Systems\pecom.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pecom32.gam,gam\Internet-Archive\MAME - Systems\pecom32.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pegasus.gam,gam\Internet-Archive\MAME - Systems\pegasus.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pencil2.gam,gam\Internet-Archive\MAME - Systems\pencil2.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pentagon.gam,gam\Internet-Archive\MAME - Systems\pentagon.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pet64.gam,gam\Internet-Archive\MAME - Systems\pet64.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\phc25.gam,gam\Internet-Archive\MAME - Systems\phc25.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\picno.gam,gam\Internet-Archive\MAME - Systems\picno.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pico.gam,gam\Internet-Archive\MAME - Systems\pico.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\picou.gam,gam\Internet-Archive\MAME - Systems\picou.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pippin.gam,gam\Internet-Archive\MAME - Systems\pippin.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\plus4.gam,gam\Internet-Archive\MAME - Systems\plus4.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pmd853.gam,gam\Internet-Archive\MAME - Systems\pmd853.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pockchalv2.gam,gam\Internet-Archive\MAME - Systems\pockchalv2.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pockchalw.gam,gam\Internet-Archive\MAME - Systems\pockchalw.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pofo.gam,gam\Internet-Archive\MAME - Systems\pofo.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\poisk1.gam,gam\Internet-Archive\MAME - Systems\poisk1.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pokemini.gam,gam\Internet-Archive\MAME - Systems\pokemini.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\princ.gam,gam\Internet-Archive\MAME - Systems\princ.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pro128.gam,gam\Internet-Archive\MAME - Systems\pro128.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pro128s.gam,gam\Internet-Archive\MAME - Systems\pro128s.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\prof180.gam,gam\Internet-Archive\MAME - Systems\prof180.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\prof80.gam,gam\Internet-Archive\MAME - Systems\prof80.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\psi98.gam,gam\Internet-Archive\MAME - Systems\psi98.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\psion1.gam,gam\Internet-Archive\MAME - Systems\psion1.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\psion2.gam,gam\Internet-Archive\MAME - Systems\psion2.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\psx.gam,gam\Internet-Archive\MAME - Systems\psx.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pt68k2.gam,gam\Internet-Archive\MAME - Systems\pt68k2.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pv1000.gam,gam\Internet-Archive\MAME - Systems\pv1000.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pv2000.gam,gam\Internet-Archive\MAME - Systems\pv2000.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\px4.gam,gam\Internet-Archive\MAME - Systems\px4.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\px8.gam,gam\Internet-Archive\MAME - Systems\px8.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\pyl601.gam,gam\Internet-Archive\MAME - Systems\pyl601.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\ql.gam,gam\Internet-Archive\MAME - Systems\ql.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\qx10.gam,gam\Internet-Archive\MAME - Systems\qx10.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\r9751.gam,gam\Internet-Archive\MAME - Systems\r9751.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\radio86.gam,gam\Internet-Archive\MAME - Systems\radio86.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\rainbow.gam,gam\Internet-Archive\MAME - Systems\rainbow.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\rwtrntcs.gam,gam\Internet-Archive\MAME - Systems\rwtrntcs.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\rx78.gam,gam\Internet-Archive\MAME - Systems\rx78.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\sage2.gam,gam\Internet-Archive\MAME - Systems\sage2.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\samcoupe.gam,gam\Internet-Archive\MAME - Systems\samcoupe.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\sat.gam,gam\Internet-Archive\MAME - Systems\sat.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\saturnu.gam,gam\Internet-Archive\MAME - Systems\saturnu.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\sawatte.gam,gam\Internet-Archive\MAME - Systems\sawatte.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\sc3000.gam,gam\Internet-Archive\MAME - Systems\sc3000.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\scv.gam,gam\Internet-Archive\MAME - Systems\scv.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\sf7000.gam,gam\Internet-Archive\MAME - Systems\sf7000.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\sg1000.gam,gam\Internet-Archive\MAME - Systems\sg1000.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\sgx.gam,gam\Internet-Archive\MAME - Systems\sgx.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\sitcom.gam,gam\Internet-Archive\MAME - Systems\sitcom.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\smc777.gam,gam\Internet-Archive\MAME - Systems\smc777.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\smondial2.gam,gam\Internet-Archive\MAME - Systems\smondial2.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\sms.gam,gam\Internet-Archive\MAME - Systems\sms.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\smsj.gam,gam\Internet-Archive\MAME - Systems\smsj.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\smspal.gam,gam\Internet-Archive\MAME - Systems\smspal.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\snes.gam,gam\Internet-Archive\MAME - Systems\snes.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\snespal.gam,gam\Internet-Archive\MAME - Systems\snespal.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\snotec.gam,gam\Internet-Archive\MAME - Systems\snotec.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\snread.gam,gam\Internet-Archive\MAME - Systems\snread.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\snspell.gam,gam\Internet-Archive\MAME - Systems\snspell.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\socrates.gam,gam\Internet-Archive\MAME - Systems\socrates.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\softbox.gam,gam\Internet-Archive\MAME - Systems\softbox.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\sol20.gam,gam\Internet-Archive\MAME - Systems\sol20.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\sorcerer.gam,gam\Internet-Archive\MAME - Systems\sorcerer.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\spc1000.gam,gam\Internet-Archive\MAME - Systems\spc1000.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\spc1500.gam,gam\Internet-Archive\MAME - Systems\spc1500.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\spec128.gam,gam\Internet-Archive\MAME - Systems\spec128.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\special.gam,gam\Internet-Archive\MAME - Systems\special.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\specpls3.gam,gam\Internet-Archive\MAME - Systems\specpls3.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\spectrum.gam,gam\Internet-Archive\MAME - Systems\spectrum.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\st.gam,gam\Internet-Archive\MAME - Systems\st.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\studio2.gam,gam\Internet-Archive\MAME - Systems\studio2.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\stv.gam,gam\Internet-Archive\MAME - Systems\stv.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\super6.gam,gam\Internet-Archive\MAME - Systems\super6.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\super80.gam,gam\Internet-Archive\MAME - Systems\super80.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\superpet.gam,gam\Internet-Archive\MAME - Systems\superpet.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\supracan.gam,gam\Internet-Archive\MAME - Systems\supracan.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\sv8000.gam,gam\Internet-Archive\MAME - Systems\sv8000.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\svi318.gam,gam\Internet-Archive\MAME - Systems\svi318.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\svision.gam,gam\Internet-Archive\MAME - Systems\svision.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\svmu.gam,gam\Internet-Archive\MAME - Systems\svmu.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\t1000.gam,gam\Internet-Archive\MAME - Systems\t1000.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\tandy200.gam,gam\Internet-Archive\MAME - Systems\tandy200.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\tandy2k.gam,gam\Internet-Archive\MAME - Systems\tandy2k.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\tandy6k.gam,gam\Internet-Archive\MAME - Systems\tandy6k.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\tdv2324.gam,gam\Internet-Archive\MAME - Systems\tdv2324.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\tek4052.gam,gam\Internet-Archive\MAME - Systems\tek4052.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\tg16.gam,gam\Internet-Archive\MAME - Systems\tg16.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\ti74.gam,gam\Internet-Archive\MAME - Systems\ti74.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\ti95.gam,gam\Internet-Archive\MAME - Systems\ti95.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\ti99.gam,gam\Internet-Archive\MAME - Systems\ti99.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\tiki100.gam,gam\Internet-Archive\MAME - Systems\tiki100.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\timex.gam,gam\Internet-Archive\MAME - Systems\timex.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\tntell.gam,gam\Internet-Archive\MAME - Systems\tntell.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\to7.gam,gam\Internet-Archive\MAME - Systems\to7.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\to770.gam,gam\Internet-Archive\MAME - Systems\to770.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\to770a.gam,gam\Internet-Archive\MAME - Systems\to770a.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\to8.gam,gam\Internet-Archive\MAME - Systems\to8.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\trs80m2.gam,gam\Internet-Archive\MAME - Systems\trs80m2.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\trsm100.gam,gam\Internet-Archive\MAME - Systems\trsm100.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\tutor.gam,gam\Internet-Archive\MAME - Systems\tutor.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\tvc.gam,gam\Internet-Archive\MAME - Systems\tvc.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\unichamp.gam,gam\Internet-Archive\MAME - Systems\unichamp.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\ut88.gam,gam\Internet-Archive\MAME - Systems\ut88.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\uzebox.gam,gam\Internet-Archive\MAME - Systems\uzebox.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\v1050.gam,gam\Internet-Archive\MAME - Systems\v1050.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\vboy.gam,gam\Internet-Archive\MAME - Systems\vboy.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\vc4000.gam,gam\Internet-Archive\MAME - Systems\vc4000.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\vector06.gam,gam\Internet-Archive\MAME - Systems\vector06.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\vectrex.gam,gam\Internet-Archive\MAME - Systems\vectrex.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\vg5k.gam,gam\Internet-Archive\MAME - Systems\vg5k.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\vic10.gam,gam\Internet-Archive\MAME - Systems\vic10.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\vic1001.gam,gam\Internet-Archive\MAME - Systems\vic1001.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\victor9k.gam,gam\Internet-Archive\MAME - Systems\victor9k.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\vidbrain.gam,gam\Internet-Archive\MAME - Systems\vidbrain.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\vii.gam,gam\Internet-Archive\MAME - Systems\vii.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\vip.gam,gam\Internet-Archive\MAME - Systems\vip.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\visicom.gam,gam\Internet-Archive\MAME - Systems\visicom.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\vixen.gam,gam\Internet-Archive\MAME - Systems\vixen.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\vsmile.gam,gam\Internet-Archive\MAME - Systems\vsmile.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\vsmileb.gam,gam\Internet-Archive\MAME - Systems\vsmileb.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\vsmilef.gam,gam\Internet-Archive\MAME - Systems\vsmilef.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\vsmileg.gam,gam\Internet-Archive\MAME - Systems\vsmileg.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\vz.gam,gam\Internet-Archive\MAME - Systems\vz.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\wangpc.gam,gam\Internet-Archive\MAME - Systems\wangpc.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\waveterm.gam,gam\Internet-Archive\MAME - Systems\waveterm.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\wicat.gam,gam\Internet-Archive\MAME - Systems\wicat.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\wmbullet.gam,gam\Internet-Archive\MAME - Systems\wmbullet.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\wscolor.gam,gam\Internet-Archive\MAME - Systems\wscolor.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\wswan.gam,gam\Internet-Archive\MAME - Systems\wswan.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\x07.gam,gam\Internet-Archive\MAME - Systems\x07.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\x1.gam,gam\Internet-Archive\MAME - Systems\x1.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\x68k.gam,gam\Internet-Archive\MAME - Systems\x68k.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\x68ksupr.gam,gam\Internet-Archive\MAME - Systems\x68ksupr.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\x820ii.gam,gam\Internet-Archive\MAME - Systems\x820ii.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\xegs.gam,gam\Internet-Archive\MAME - Systems\xegs.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\xerox820.gam,gam\Internet-Archive\MAME - Systems\xerox820.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\z80ne.gam,gam\Internet-Archive\MAME - Systems\z80ne.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\z88.gam,gam\Internet-Archive\MAME - Systems\z88.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\zorba.gam,gam\Internet-Archive\MAME - Systems\zorba.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\zx80.gam,gam\Internet-Archive\MAME - Systems\zx80.gam,1
+FileInstall,gam\Internet-Archive\MAME - Systems\zx81.gam,gam\Internet-Archive\MAME - Systems\zx81.gam,1
 FileInstall,gam\THE-EYE\Acorn - 8bit.gam,gam\THE-EYE\Acorn - 8bit.gam,1
 FileInstall,gam\THE-EYE\Apple - Bandai - Pippin.gam,gam\THE-EYE\Apple - Bandai - Pippin.gam,1
 FileInstall,gam\THE-EYE\Atari - 2600.gam,gam\THE-EYE\Atari - 2600.gam,1

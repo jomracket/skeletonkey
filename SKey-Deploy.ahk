@@ -161,7 +161,6 @@ ifexist, %A_ProgramFilesx86%\Notepad++
 		npptmp= %A_ProgramFiles%\Notepad++
 	}
 iniread,REPOURLX,arcorg.set,GLOBAL,HOSTINGURL
-;;iniread,REPORULX,arcorg.set,GLOBAL,HOSTINGURL
 ;;FileReadline,REPOURLX,arcorg.set,2
 if (REPOURLX <> "")
 	{
@@ -326,6 +325,13 @@ Loop, Read, skopt.cfg
 					if (curvl2 <> "")
 						{
 							UPDTURL= %curvl2%
+						}
+				}
+		if (curvl1 = "update_file")
+				{
+					if (curvl2 <> "")
+						{
+							UPDTFILE= %curvl2%
 						}
 				}
 		if (curvl1 = "git_url")
@@ -570,6 +576,10 @@ if (UPDTURL = "")
 	{
 		gosub, UpdateURL
 	}
+if (UPDTFILE = "")
+	{
+		gosub, UpdateFile
+	}
 if (NPPR = "")
 	{
 		NPPR= Notepad++.exe
@@ -694,7 +704,7 @@ Gui, Add, Text,x164 y5, Location
 Gui, Add, DropDownList, x8 y2 w100 vSRCDD gSrcDD, Project||Git.exe|github-release|Source|Compiler|Site|Deployment|Build|NSIS|NP++
 Gui, Add, Button, x109 y2 w52 h21 vSELDIR gSelDir, Select
 Gui, Add, Button, x109 y26 w52 h21 vRESGET gRESGET, Clone
-Gui Add, DropDownList,x331 y2 w92 vResDD gResDD, All||Dev-Build|Portable-Build|Stable-Build|Deployer|Site-URL|Update-URL|Shader-URL|Repo-URL|Internet-IP-URL|Git-User|Git-Password|Git-Token|Git-URL
+Gui Add, DropDownList,x331 y2 w92 vResDD gResDD, All||Dev-Build|Portable-Build|Stable-Build|Deployer|Site-URL|Update-URL|Update-File|Shader-URL|Repo-URL|Internet-IP-URL|Git-User|Git-Password|Git-Token|Git-URL
 Gui Add, Button, x425 y2 w52 h21 vResB gResB, Reset
 
 Gui Add, Text,x4 y125, %ARCH%-bit
@@ -1264,12 +1274,12 @@ gui,submit,nohide
 UPDTURL= 
 if (UPDTFILET = "")
 	{
-		UPDTFILET= http://raw.githubusercontent.com/%GITUSER%/skeletonkey/master/skeletonKey.zip	
+		UPDTFILET= https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey-portable.zip	
 	}
 inputbox,UPDTFILE,Version,Enter the url of the file which contains your update information,,345,140,,,,,%UPDTFILET%
 if (UPDTFILE = "")
 	{
-		UPDTFILET= http://raw.githubusercontent.com/romjacket/skeletonkey/master/skeletonKey.zip
+		UPDTFILET= https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey-portable.zip
 		UPDTFILE= %UPDTFILET%
 	}
 IniWrite,%UPDTFILE%,skopt.cfg,GLOBAL,update_file
@@ -2195,6 +2205,10 @@ if (RESDD = "Update-URL")
 	{
 		SB_SetText(" " UPDTURL " ")
 	}
+if (RESDD = "Update-File")
+	{
+		SB_SetText(" " UPDTFILE " ")
+	}
 if (RESDD = "Git-URL")
 	{
 		SB_SetText(" " GITSRC " ")
@@ -2405,6 +2419,11 @@ if (RESDD = "Update-URL")
 	{
 		UPDTURLT= %UPDTURL%
 		Gosub, UpdateURL
+	}
+if (RESDD = "Update-File")
+	{
+		UPDTURLT= %UPDTFILE%
+		Gosub, UpdateFile
 	}
 if (RESDD = "Git-Token")
 	{
@@ -2660,20 +2679,20 @@ StringReplace,readme,readme,[CURV],%vernum%
 StringReplace,readme,readme,[VERSION],%date% %timestring%
 FileAppend,%readme%,%SKELD%\ReadMe.md
 
-arcorg= 
+arcorgv= 
 FileMove, %SKELD%\Themes.set, %SKELD%\Themes.bak,1
 FileMove, %SKELD%\arcorg.set, %SKELD%\arcorg.bak,1
 FIleRead,themes,%SKELD%\Themes.put
-FIleRead,arcorg,%SKELD%\arcorg.put
+FIleRead,arcorgv,%SKELD%\arcorg.put
 StringReplace,themes,themes,[HOSTINGURL],%REPOURL%,All
-StringReplace,arcorg,arcorg,[UPDATEFILE],%UPDTFILE%,All
-StringReplace,arcorg,arcorg,[HOSTINGURL],%REPOURL%,All
-StringReplace,arcorg,arcorg,[LOBBY],%NLOB%,All
-StringReplace,arcorg,arcorg,[SHADERHOST],%SHDRPURL%,All
-StringReplace,arcorg,arcorg,[SOURCEHOST],%UPDTURL%,All
-StringReplace,arcorg,arcorg,[IPLK],%GETIPADR%,All
+StringReplace,arcorgv,arcorgv,[UPDATEFILE],%UPDTFILE%,All
+StringReplace,arcorgv,arcorgv,[HOSTINGURL],%REPOURL%,All
+StringReplace,arcorgv,arcorgv,[LOBBY],%NLOB%,All
+StringReplace,arcorgv,arcorgv,[SHADERHOST],%SHDRPURL%,All
+StringReplace,arcorgv,arcorgv,[SOURCEHOST],%UPDTURL%,All
+StringReplace,arcorgv,arcorgv,[IPLK],%GETIPADR%,All
 FileAppend,%themes%,%SKELD%\Themes.set
-FileAppend,%arcorg%,%SKELD%\arcorg.set
+FileAppend,%arcorgv%,%SKELD%\arcorg.set
 FileDelete, %SKELD%\skeletonKey.exe
 FileDelete,%SKELD%\skeletonkey.tmp
 FileMove,%SKELD%\skeletonkey.ahk,%SKELD%\skel.bak,1
@@ -2711,7 +2730,6 @@ if (OvrStable = 1)
 if (INITINCL = 1)
 	{
 			exprt= 
-			exprt.= "FileCreateDir, gam" . "`n"
 			exprt.= "FileCreateDir, gam\Internet-Archive\MAME - Systems" . "`n"
 			exprt.= "FileCreateDir, gam\THE-EYE" . "`n"
 			exprt.= "FileCreateDir, joyImg" . "`n"
