@@ -4,11 +4,11 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-12-17 6:46 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-12-18 9:42 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-12-17 6:46 PM
+RELEASE= 2018-12-18 9:42 AM
 VERSION= 0.99.68.75
 RASTABLE= 1.7.5
 
@@ -1607,8 +1607,8 @@ Menu,ASOCRUN,Add,
 
 Menu, ARCGPCFG, Add, Configure Selected Game, ARCPCFG
 
-Menu, ARCSETB, Add, Edit Base Directory URL for selected system, ARCEDTBU
-Menu, ARCSETB, Add, Reset Base Directory URL for selected system, ARCEDTBR
+Menu, ARCSETB, Add, Edit Base-URL for selected system, ARCEDTBU
+Menu, ARCSETB, Add, Reset Base-URL for selected system, ARCEDTBR
 
 Menu, ARSOCCFG, Add, Configure Association, ARSCFG
 Menu, ARSOCCFG, Add,
@@ -3030,7 +3030,7 @@ Gui, Add, DropDownlist, x88 y258 w225 vUrlTxt gREPOUrlEdt Readonly, %ArcSite%||h
 Gui, Add, Edit, x24 y215 w159 h21 vARCLOGIN gArcLogin disabled,%ARC_USER%
 Gui, Add, Edit, x187 y215 w154 h21 Password vARCPASS gArcPass disabled,%ARC_PASS%
 Gui, Add, CheckBox, x260 y238 h15 vSAVPASS gSavPass disabled, save
-Gui, Add, Text, x88 y240 h13 vARCUTXT, Login
+Gui, Add, Text, x80 y240 h13 vARCUTXT, Login
 Gui, Add, Text, x191 y236 h14 vARCPTXT, password
 
 Gui, Add, Edit, x25 y286 w310 h21 vSRCHEDT gSearchInp,
@@ -5139,8 +5139,9 @@ return
 
 ARCEDTBU:
 gui,submit,nohide
+IniRead,ECSEDTs,Arcorg.set,REPOSITORIES,%ARCSYS%
 ECSEDT= 	
-inputbox,ECSEDT,Set BASE URL for %ARCSYS%,,,400,100,,,,,
+inputbox,ECSEDT,Set BASE URL for %ARCSYS%,,,400,100,,,,,%ECSEDTs%
 if (ECSEDT = "")
 	{
 		return
@@ -12953,8 +12954,9 @@ Loop, Parse,UrlIndex,`n`r
 		urloc1= 
 		urloc2= 
 		cplstr= %A_LoopField%
-		stringsplit,urloc,A_LoopField,/
-		if (urloc1 = selfnd)
+		stringsplit,slfm,A_LoopField,|
+		stringsplit,urloc,slfm2,/
+		if (slfm1 = selfnd)
 			{
 				URLFILE= %repoloc%/%urloc1%/%urloc2%
 				ifinstring,repoloc,github
@@ -12963,7 +12965,7 @@ Loop, Parse,UrlIndex,`n`r
 					}
 				sb_settext(" " URLFILE " ")	
 				save=%cacheloc%\%urloc2%
-				ifinstring,cplstr,://
+				ifinstring,slfm1,://
 					{						
 						URLFILE= 
 						Loop, %urloc0%
@@ -12995,12 +12997,12 @@ Loop, Parse,UrlIndex,`n`r
 					}
 				if (xtractmu = "")
 					{
-						xtractmu= %RJEMUD%\%selfnd%
+						xtractmu= %RJEMUD%\%urloc1%
 					}
 				DownloadFile(URLFILE, save, DWNOV, True)
 				ifnotexist, %save%
 					{
-						msgbox,0,, %selfnd%`n''%URLFILE%`n'' was not downloaded, 20
+						msgbox,0,, %urloc1%`n''%URLFILE%`n'' was not downloaded, 20
 						GuiControl, Enable, EAVAIL
 						GuiControl, Enable, UAVAIL
 						GuiControl, Enable, AVAIL
@@ -13015,7 +13017,7 @@ Loop, Parse,UrlIndex,`n`r
 				gosub, XTRACTEMU
 				if (XTRACTFAIL = 1)
 					{
-						SB_SetText(" " selfnd " could not be installed.")
+						SB_SetText(" " urloc1 " could not be installed.")
 						GuiControl, Enable, EAVAIL
 						GuiControl, Enable, UAVAIL
 						GuiControl, Enable, AVAIL
@@ -13033,7 +13035,7 @@ Loop, Parse,UrlIndex,`n`r
 						emuxetmp5=
 						emuxetmp6=
 						StringSplit, emuxetmp, A_LoopField,=,:
-						if (emuxetmp1 = selfnd)
+						if (emuxetmp1 = urloc1)
 							{
 								xtractmfp= %xtractmu%\%emuxetmp3%
 							}
@@ -13062,7 +13064,7 @@ Loop, Parse,UrlIndex,`n`r
 							{
 								xtractmfp= Installed
 							}
-						iniwrite, "%xtractmfp%",apps.ini,HTPC_FRONTENDS,%selfnd%
+						iniwrite, "%xtractmfp%",apps.ini,HTPC_FRONTENDS,%urloc1%
 					}
 				if (INSTLTYP = "Utilities")
 					{
@@ -13096,23 +13098,23 @@ Loop, Parse,UrlIndex,`n`r
 							{
 								inisect= KEYBOARD_MAPPERS
 							}
-					iniwrite, "%xtractmfp%",apps.ini,%inisect%,%selfnd%
+					iniwrite, "%xtractmfp%",apps.ini,%inisect%,%urloc1%
 					}
 				if (INSTLTYP = "Emulators")
 					{
 						inisect= EMULATORS
-						iniwrite, "%xtractmfp%",apps.ini,%inisect%,%selfnd%
-						iniwrite, "%xtractmfp%",Assignments.ini,ASSIGNMENTS,%selfnd%
-						ifnotinstring,emulist,%selfnd%
+						iniwrite, "%xtractmfp%",apps.ini,%inisect%,%urloc1%
+						iniwrite, "%xtractmfp%",Assignments.ini,ASSIGNMENTS,%urloc1%
+						ifnotinstring,emulist,%urloc1%
 							{
-								emulist.= selfnd . "|"
+								emulist.= urloc1 . "|"
 							}
-						ifnotinstring,addemu,|%selfnd%
+						ifnotinstring,addemu,|%urloc1%
 							{
-								addemu.= "|" . selfnd
+								addemu.= "|" . urloc1
 							}	
 						guicontrol,,EMPRDDL,|%addemu%
-		}
+					}
 				if (EMUASIGN = 1)
 						{
 							OVRKND= 
@@ -13124,16 +13126,16 @@ Loop, Parse,UrlIndex,`n`r
 							Loop, Parse, EmuPartSet,`n`r
 								{
 									StringSplit,emuprt,A_LoopField,=,:
-									if (emuprt1 = selfnd)
+									if (emuprt1 = urloc1)
 										{
 											emuxe= %emuprt3%
 											OVRKND= %emuprt1%
-											iniwrite, "%xtractmu%\%emuxe%",apps.ini,%inisect%,%selfnd%
-											ifnotinstring,preEmuCfg,%selfnd%
+											iniwrite, "%xtractmu%\%emuxe%",apps.ini,%inisect%,%urloc1%
+											ifnotinstring,preEmuCfg,%urloc1%
 												{
-													preEmuCfg.= selfnd . "|"
+													preEmuCfg.= urloc1 . "|"
 												}
-											guicontrol,,EMPRDDL,|%selfnd%|%addemu%
+											guicontrol,,EMPRDDL,|%urloc1%|%addemu%
 											gosub, EMPRBUTASPLIT
 											iniwrite, "%xtractmu%\%emuxe%",Assignments.ini,ASSIGNMENTS,%OVRKND%
 											break
@@ -13158,7 +13160,7 @@ Loop, Parse,UrlIndex,`n`r
 							GuiControl, Enable, EMUASIGN
 							GuiControl, Disable, CNCLDWN
 							guicontrol,,EMPRLST,|%EMPRLT%
-							if (selfnd = "MAME")
+							ifinstring,selfnd,MAME
 								{
 									ifnotinstring,addemu,mame_system
 										{
@@ -13198,10 +13200,10 @@ if (selfnd = "retroArch")
 	}
 if (INSTLTYP = "Systems")
 	{
-		iniwrite, "%xtractmfp%",apps.ini,EMULATORS,%selfnd%
-		iniwrite, "%xtractmfp%",Assignments.ini,ASSIGNMENTS,%selfnd%
+		iniwrite, "%xtractmfp%",apps.ini,EMULATORS,%urloc1%
+		iniwrite, "%xtractmfp%",Assignments.ini,ASSIGNMENTS,%urloc1%
 	}
-if (selfnd = "MAME")
+ifinstring,selfnd,MAME
 	{
 		ifnotinstring,addemu,mame_system
 			{
@@ -14541,7 +14543,7 @@ if (runltmp = "|")
 		stringtrimleft,runlist,runlist,1
 	}
 
-if (selfnd = "MAME")
+ifinstring,selfnd,MAME
 	{
 		ifnotinstring,addemu,mame_system
 			{
@@ -21616,6 +21618,10 @@ return
 RomSavePPND:
 romf:= save
 URLFILE= %ArcSite%/%sysurl%%urlpth%
+ifinstring,sysurl,://
+	{
+		URLFILE= %sysurl%%urlpth%
+	}
 ifinstring,urlpth,://
 	{
 		URLFILE= %urlpth%
@@ -22620,6 +22626,10 @@ if (tmprm <> "")
 										if (ave2 = arcpopcul)
 											{
 												URLFILE= %ArcSite%/%sysurl%%ave1%
+												ifinstring,sysurl,://
+													{
+														URLFILE= %sysurl%%ave1%							
+													}
 												ifinstring,ave1,://
 													{
 														URLFILE= %ave1%							
@@ -22637,6 +22647,10 @@ if (tmprm <> "")
 				if (ave2 = arcpopcul)
 					{
 						URLFILE= %ArcSite%/%sysurl%%ave1%
+						ifinstring,sysurl,://
+							{
+								URLFILE= %sysurl%%ave1%							
+							}
 						ifinstring,ave1,://
 							{
 								URLFILE= %ave1%							
@@ -22666,6 +22680,10 @@ if (tmpsr <> "")
 				if (ave2 = tmpsrg)
 					{
 						URLFILE= %ArcSite%/%sysurl%%ave1%
+						ifinstring,sysurl,://
+							{
+								URLFILE= %sysurl%%ave1%							
+							}
 						ifinstring,ave1,://
 							{
 								URLFILE= %ave1%							
@@ -39629,8 +39647,9 @@ Loop, Parse, emupartset,`n`r
 						urloc= 
 						urloc1= 
 						urloc2= 
-						stringsplit,urloc,A_LoopField,/
-						if (urloc1 = xesel1)
+						stringsplit,slfm,A_LoopField,|
+						stringsplit,urloc,slfm2,/						
+						if (slfm1 = xesel1)
 							{
 								URLFILE= %repoloc%/%urloc1%/%urloc2%
 								ifinstring,repoloc,github
@@ -39934,8 +39953,9 @@ ifnotexist,%cacheloc%\antimicro%ARCH%.7z
 								urloc= 
 								urloc1= 
 								urloc2= 
-								stringsplit,urloc,A_LoopField,/
-								if (urloc1 = xesel1)
+								stringsplit,slfm,A_LoopField,|
+								stringsplit,urloc,slfm2,/
+								if (slfm1 = xesel1)
 									{
 										URLFILE= %repoloc%/%urloc1%/%urloc2%
 										ifinstring,repoloc,github
@@ -46804,7 +46824,7 @@ guicontrol,hide,PICINV
 gosub, GetOptVars
 guicontrolget,ccav, ,COREDDLA
 stringreplace, ccv, ccav,_libretro.dll, ,All
-if (ccv = "mame")
+ifinstring,ccv,mame
 	{
 		ccv= mamecore
 	}

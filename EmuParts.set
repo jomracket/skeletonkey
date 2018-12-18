@@ -62,6 +62,8 @@ funnymu=funnymu/funnymu.7z=funnymu.exe=
 Ishiiruka=Ishiiruka/Ishiiruka.7z=Dolphin.exe=User\Config\Dolphin.ini|User\Config\GFX.ini|User\Config\Hotkeys.ini|User\Config\GCPadNew.ini|User\Config\WiimoteNew.ini=User\SaveStates\*.s*=User\GC\MemoryCard*.raw=User\GC\SRAM.raw
 Kegs32=Kegs32/Kegs32.7z=Kegs32.exe=config.kegs
 Mame=Mame/mame-[ARCH].7z=mame.exe=*.ini|cfg\[ROMNAME]*.cfg
+Mame_arcade=Mame/mame-[ARCH].7z=mame.exe=*.ini|cfg\[ROMNAME]*.cfg
+Mame_system=Mame/mame-[ARCH].7z=mame.exe=*.ini|cfg\[ROMNAME]*.cfg
 Mednafen=Mednafen/Mednafen-[ARCH].7z=Mednafen.exe=mednafen.cfg=sav\*.bkr=sav\*.smpc
 medusa=medusa/medusa.7z=medusa.exe=portable.ini|config.ini
 Mesen=Mesen/Mesen.7z=Mesen.exe=settings.xml
