@@ -2,6 +2,7 @@
 # DIRECT3D POST-PROCESSING OPTIONS
 #
 hlslpath                  hlsl
+hlsl_preset               arpeture-grille
 hlsl_enable               1
 hlsl_oversampling         1
 hlsl_write                auto

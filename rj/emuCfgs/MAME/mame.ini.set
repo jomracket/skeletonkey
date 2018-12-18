@@ -362,6 +362,7 @@ menu                      0
 # DIRECT3D POST-PROCESSING OPTIONS
 #
 hlslpath                  hlsl
+hlsl_preset               Off
 hlsl_enable               0
 hlsl_oversampling         0
 hlsl_write                auto

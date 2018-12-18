@@ -1,8 +1,19 @@
 #
+# BGFX POST-PROCESSING OPTIONS
+#
+bgfx_path                 bgfx
+bgfx_backend              auto
+bgfx_debug                0
+bgfx_screen_chains        default
+bgfx_shadow_mask          slot-mask.png
+bgfx_avi_name             auto
+
+#
 # DIRECT3D POST-PROCESSING OPTIONS
 #
 hlsl_enable               1
 hlslpath                  hlsl
+hlsl_preset               slot-mask
 hlsl_prescale_x           6
 hlsl_prescale_y           6
 hlsl_write                1

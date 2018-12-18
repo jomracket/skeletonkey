@@ -225,6 +225,7 @@ filter                    1
 # DIRECT3D POST-PROCESSING OPTIONS
 #
 hlsl_enable               [SHD]
+hlsl_preset               Off
 hlslini %g
 hlslpath                  [EMUPATH]\hlsl
 hlsl_prescale_x           [presx]

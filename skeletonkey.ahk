@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-12-17 9:57 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-12-17 4:54 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-12-17 9:57 AM
-VERSION= 0.99.68.72
+RELEASE= 2018-12-17 4:54 PM
+VERSION= 0.99.68.74
 RASTABLE= 1.7.5
 
 #Include tf.ahk
@@ -723,7 +723,8 @@ StringReplace, omitxtv, omitxt, |,`,,All
 omitxj:= omitxtv
 
 medswaps= medswapB|medswapA|medswapX|medswapY|medswapStart|medswapSelect|medswapDown|medswapUp|medswapLeft|medswapRight|medswapL|medswapR|medswapL2|medswapR2|medswapR3|medswapL3|medswapLXMinus|medswapRXMinus|medswapRXPlus|medswapLXPlus|medswapLYPlus|medswapLYMinus|medswapRYPlus|medswapRYMinus|medswapHome|medSwapATXT|medSwapBTXT|medSwapCTXT|medSwapDTXT|medSwapETXT|medSwapFTXT|medSwapGTXT|medSwapHTXT|medSwapITXT|medSwapJTXT|medSwapLTXT|medSwapMTXT|medSwapCGRP|medSwapDGRP|medSwapEGRP
-mameswaps:= medswaps
+
+mameswaps= mameswapB|mameswapA|mameswapX|mameswapY|mameswapStart|mameswapSelect|mameswapDown|mameswapUp|mameswapLeft|mameswapRight|mameswapL|mameswapR|mameswapL2|mameswapR2|mameswapR3|mameswapL3|mameswapLXMinus|mameswapRXMinus|mameswapRXPlus|mameswapLXPlus|mameswapLYPlus|mameswapLYMinus|mameswapRYPlus|mameswapRYMinus|mameswapHome|mameSwapATXT|mameSwapBTXT|mameSwapCTXT|mameSwapDTXT|mameSwapETXT|mameSwapFTXT|mameSwapGTXT|mameSwapHTXT|mameSwapITXT|mameSwapJTXT|mameSwapLTXT|mameSwapMTXT|mameSwapCGRP|mameSwapDGRP|mameSwapEGRP
 
 metaimages= 3DBoxart|Marquee|4Mix|3Mix|Label|Cart|Backdrop|BoxArt|Logo|Video|Metadata|Snapshot
 
@@ -751,7 +752,7 @@ INPKND= KB|J|AXIS
 PLAYERSET=1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16
 
 mednfsc= gb|gg|gba|lynx|md|nes|ngp|pce|pce_fast|pcfx|psx|sms|snes|snes_faust|ss|vb|wswan
-mamefsc= 32x|32xe|32xj|a1000n|a1200n|a2000n|a2600|a2600p|a3000|a3000n|a310|a500n|a5200|a7800|a800|a800pal|abc1600|abc80|adam|advantage|advision|aim65|aleste|alice32|alice90|alphatro|altos5|amiga|ampro|apc|apfimag|apfm1000|apogee|apollo|apple1|apple2|apple2gs|apple3|apricot|aquarius|arcadia|archimedes|astrocde|atom|attache|b2m|bbca|bbcb|bbcbc|bbcm|bbcmc|bk0010|bw12|bw14|bw2|bx256hp|c128|c64|c65|canonv30f|canonv8|casloopy|cbm2|cbm8096|cbm8296|cc40|cdtv|cgenie|channelf|chessmstdm|coco|coleco|colecop|compclr2|compis|comx35|copera|cpc|cpc6128p|crvision|cx3000tc|dai|database|dgnalpha|dgnbeta|dim68k|dmv|dps1|dragon|e01|ec1841|einstein|electron|ep64|epson|exl100|famicom|fidel|fm7|fm77av|fmtowns|fsa1st|g7400|galaxy|gamate|gameboy|gamecom|gamegear|gamegearj|gameking|gameking3|gamepock|gba|gbcolor|genesis|genius|genius6|gimix|gjmovie|gl2000|gl6000sl|glcolor|gmaster|gp32|guab|gx4000|h21|hbf9sp|horizon|hp|hp85|hp9835a|hp9845a|hp9845b|ht68k|hx20|i7000|ibm5140|ibm5150|ibm5170|ibm6580|ibmpcjr|interact|intv|intvecs|iq151|jaguar|juicebox|jupace|k28m2|kayproii|kc|kim1|konami|korvet|lantutor|laser2001|leapster|lisa|lisa2|lviv|lynx|m20|m5|mac|MAME-BIOS|mbc200|mbc55x|mc10|mc1502|md2|megadriv|megaduck|megapc|megatech|microvision|mikro80|mikrosha|misterx|mm1|mo5|mo6|mpu1000|mpz80|msx1|msx2|msx2p|msxr|mtx|mtx512|myvision|mz2000|mz2500|mz700|mz800|n64|n64dd|nascom|neocd|neogeo|nes|nespal|next|ngp|ngpc|nimbus|octopus|odyssey2|ondra|orao|orionide|orionpro|osborne1|osborne2|p500|partner|pasogo|pb2000c|pc1000|pc1512|pc1640|pc8201|pc8801|pc88va|pc98|pc9821xs|pce|pcecd|pcw|pcw16|pecom|pecom32|pegasus|pencil2|pentagon|pet64|phc25|picno|pico|picou|pippin|plus4|pmd853|pockchalv2|pockchalw|pofo|poisk1|pokemini|princ|pro128|pro128s|prof180|prof80|psi98|psion1|psion2|psx|pt68k2|pv1000|pv2000|px4|px8|pyl601|ql|qx10|r9751|radio86|rainbow|rwtrntcs|rx78|sage2|samcoupe|sat|saturnu|sawatte|sc3000|scv|sf7000|sg1000|sgx|sitcom|smc777|smondial2|sms|smsj|smspal|snes|snespal|snotec|snread|snspell|socrates|softbox|sol20|sorcerer|spc1000|spc1500|spec128|special|specpls3|spectrum|st|studio2|stv|super6|super80|superpet|supracan|sv8000|svi318|svision|svmu|t1000|tandy200|tandy2k|tandy6k|tdv2324|tek4052|tg16|ti74|ti95|ti99|tiki100|timex|tntell|to7|to770|to770a|to8|trs80m2|trsm100|tutor|tvc|unichamp|ut88|uzebox|v1050|vboy|vc4000|vector06|vectrex|vg5k|vic10|vic1001|victor9k|vidbrain|vii|vip|visicom|vixen|vsmile|vsmileb|vsmilef|vsmileg|vz|wangpc|waveterm|wicat|wmbullet|wscolor|wswan|x07|x1|x68k|x68ksupr|x820ii|xegs|xerox820|z80ne|z88|zorba|zx80|zx81
+mamefsc= default|32x|32xe|32xj|a1000n|a1200n|a2000n|a2600|a2600p|a3000|a3000n|a310|a500n|a5200|a7800|a800|a800pal|abc1600|abc80|adam|advantage|advision|aim65|aleste|alice32|alice90|alphatro|altos5|amiga|ampro|apc|apfimag|apfm1000|apogee|apollo|apple1|apple2|apple2gs|apple3|apricot|aquarius|arcadia|archimedes|astrocde|atom|attache|b2m|bbca|bbcb|bbcbc|bbcm|bbcmc|bk0010|bw12|bw14|bw2|bx256hp|c128|c64|c65|canonv30f|canonv8|casloopy|cbm2|cbm8096|cbm8296|cc40|cdtv|cgenie|channelf|chessmstdm|coco|coleco|colecop|compclr2|compis|comx35|copera|cpc|cpc6128p|crvision|cx3000tc|dai|database|dgnalpha|dgnbeta|dim68k|dmv|dps1|dragon|e01|ec1841|einstein|electron|ep64|epson|exl100|famicom|fidel|fm7|fm77av|fmtowns|fsa1st|g7400|galaxy|gamate|gameboy|gamecom|gamegear|gamegearj|gameking|gameking3|gamepock|gba|gbcolor|genesis|genius|genius6|gimix|gjmovie|gl2000|gl6000sl|glcolor|gmaster|gp32|guab|gx4000|h21|hbf9sp|horizon|hp|hp85|hp9835a|hp9845a|hp9845b|ht68k|hx20|i7000|ibm5140|ibm5150|ibm5170|ibm6580|ibmpcjr|interact|intv|intvecs|iq151|jaguar|juicebox|jupace|k28m2|kayproii|kc|kim1|konami|korvet|lantutor|laser2001|leapster|lisa|lisa2|lviv|lynx|m20|m5|mac|MAME-BIOS|mbc200|mbc55x|mc10|mc1502|md2|megadriv|megaduck|megapc|megatech|microvision|mikro80|mikrosha|misterx|mm1|mo5|mo6|mpu1000|mpz80|msx1|msx2|msx2p|msxr|mtx|mtx512|myvision|mz2000|mz2500|mz700|mz800|n64|n64dd|nascom|neocd|neogeo|nes|nespal|next|ngp|ngpc|nimbus|octopus|odyssey2|ondra|orao|orionide|orionpro|osborne1|osborne2|p500|partner|pasogo|pb2000c|pc1000|pc1512|pc1640|pc8201|pc8801|pc88va|pc98|pc9821xs|pce|pcecd|pcw|pcw16|pecom|pecom32|pegasus|pencil2|pentagon|pet64|phc25|picno|pico|picou|pippin|plus4|pmd853|pockchalv2|pockchalw|pofo|poisk1|pokemini|princ|pro128|pro128s|prof180|prof80|psi98|psion1|psion2|psx|pt68k2|pv1000|pv2000|px4|px8|pyl601|ql|qx10|r9751|radio86|rainbow|rwtrntcs|rx78|sage2|samcoupe|sat|saturnu|sawatte|sc3000|scv|sf7000|sg1000|sgx|sitcom|smc777|smondial2|sms|smsj|smspal|snes|snespal|snotec|snread|snspell|socrates|softbox|sol20|sorcerer|spc1000|spc1500|spec128|special|specpls3|spectrum|st|studio2|stv|super6|super80|superpet|supracan|sv8000|svi318|svision|svmu|t1000|tandy200|tandy2k|tandy6k|tdv2324|tek4052|tg16|ti74|ti95|ti99|tiki100|timex|tntell|to7|to770|to770a|to8|trs80m2|trsm100|tutor|tvc|unichamp|ut88|uzebox|v1050|vboy|vc4000|vector06|vectrex|vg5k|vic10|vic1001|victor9k|vidbrain|vii|vip|visicom|vixen|vsmile|vsmileb|vsmilef|vsmileg|vz|wangpc|waveterm|wicat|wmbullet|wscolor|wswan|x07|x1|x68k|x68ksupr|x820ii|xegs|xerox820|z80ne|z88|zorba|zx80|zx81
 
 JOYSET=0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|h0up|h0down|h0left|h0right|\-1|+1|\-0|+0|\-2|+2|\-3|+3|+4|+5|nul
 
@@ -768,7 +769,7 @@ hkiterate= input_Audio_Mute|input_Cheat_Index_Minus|input_Cheat_Index_Plus|input
 KBSET=a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|1|2|3|4|5|6|7|8|9|0|minus|add|f1|f2|f3|f4|f5|f6|f7|f8|f9|f10|f11|f12|up|down|left|right|pageup|pagedown|home|end|tilde|semicolon|quote|comma|period|slash|backslash|leftbracket|rightbracket|rshift|lshift|numlock|kp_period|keypad1|keypad2|keypad3|keypad4|keypad5|keypad6|keypad7|keypad8|keypad9|keypad0|subtract|equals|multiply|alt|ctrl|tab|capslock|escape|nul
 
 mednafsc= advance_frame|exit|fast_forward|insert_coin|insert_eject_disk|load_movie|load_state|power|reset|rotate_screen|run_normal|save_movie|save_state|select_disk|slow_forward|state_rewind|state_slot_dec|state_slot_inc|take_scaled_snapshot|take_snapshot|toggle_fps_view|toggle_fs|toggle_grab|toggle_state_rewind|togglecheatactive|togglecheatview|togglenetview
-mamescs:= mednafsc
+mamescs= UI_ON_SCREEN_DISPLAY|UI_DEBUG_BREAK|UI_CONFIGURE|UI_PAUSE|UI_PAUSE_SINGLE|UI_SHOW_GFX|UI_FRAMESKIP_DEC|UI_FRAMESKIP_INC|UI_THROTTLE|UI_FAST_FORWARD|UI_REWIND_SINGLE|UI_RESET_MACHINE|TOGGLE_FULLSCREEN|UI_SOFT_RESET|UI_SHOW_FPS|UI_SNAPSHOT|UI_ROTATE|UI_TIMECODE|UI_RECORD_MNG|UI_RECORD_AVI|UI_SHOW_PROFILER|UI_PASTE|UI_TOGGLE_DEBUG|UI_SAVE_STATE|UI_LOAD_STATE|UITAPE_START|UI_TAPE_STOP|RENDER_SNAP|RENDER_AVI|POST_PROCESS
 
 supgui= mednafen|mame|flashplayer|retroarch
 
@@ -25702,7 +25703,7 @@ if (SK_MODE = 1)
 			}
 		if (mednafxf = 1)
 			{
-				MEDCFGLOC= cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%\%medcfg%
+				emucfgloc= cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%\%medcfg%
 				indvcp= %A_ScriptDir%\cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%
 			}
 	}
@@ -27116,7 +27117,7 @@ if (uuniv = "X")
 gosub, TOGGLESEARCHBOX
 
 EMUCFGOVRTGL= 0
-medcfg= Altirra.ini
+emucfgu= Altirra.ini
 
 if (SK_MODE = "")
 	{
@@ -27127,7 +27128,7 @@ if (SK_MODE = "")
 			{
 				medcfg= Altirra.ini.ret
 				EXTRSYS= %RJSYSDD%
-				MEDCFGLOC= rj\sysCfgs\%RJSYSDD%\%medcfg%
+				EMUCFGGLOC= rj\sysCfgs\%RJSYSDD%\%emucfgu%
 			}
 	}
 gosub, initEmuOpts
@@ -27145,7 +27146,7 @@ Mednafen_GUI:
 gosub, ShowOnlyEmuGui
 emutog= show
 
-medcfg= mednafen.cfg
+emucfgu= mednafen.cfg
 guicontrolget,uuniv,,FNDGUI
 if (medxset = "")
 	{	
@@ -27159,13 +27160,13 @@ if (medxset = "")
 
 iniread,mednafxf,AppParams.ini,%LCORE%,per_game_configurations
 
-MEDCFGLOC= cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%\%medcfg%
+EMUCFGLOC= cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%\%emucfgu%
 if (mednafxf = 0)
 	{
 		iniread,mednafpth,Assignments.ini,ASSIGNMENTS,%LCORE%
 		splitpath,mednafpth,,mednafloc
-		MEDCFGLOC= %mednafloc%\%medcfg%
-		indvcp= %MEDCFGLOC%
+		EMUCFGLOC= %mednafloc%\%emucfgu%
+		indvcp= %EMUCFGLOC%
 	}
 
 if (ROMSYS = "")
@@ -27217,8 +27218,8 @@ if (SK_MODE = "")
 			{
 				filecreateDir,rj\syscfgs\%ROMSYS%
 			}
-		medcfgloc= rj\syscfgs\%ROMSYS%\mednafen.cfg
-		filedelete,%medcfgloc%
+		emucfgloc= rj\syscfgs\%ROMSYS%\mednafen.cfg
+		filedelete,%emucfgloc%
 		curjf= %ROMSYS%
 	}
 	
@@ -27228,11 +27229,11 @@ if (RJMEDNM <> "ERROR")
 		guicontrol,,EMUDDLJ,|%RJMEDNM%||%mednfsc%
 	}
 guicontrolget,EMUDDLJ,,EMUDDLJ
-ifnotexist, %medcfgloc%
+ifnotexist, %emucfgloc%
 	{
 		gosub, MednafenInit
 	}
-FileRead,mednafenopts,%medcfgloc%
+FileRead,mednafenopts,%emucfgloc%
 if (core_gui = "mednafen")
 	{
 		goto, medguicreated
@@ -27571,18 +27572,18 @@ if (SK_MODE = "")
 		guicontrol,,emuBUTJ,SAVE
 		ifexist, rj\sysCfgs\%RJSYSDD%\mednafen.cfg.get
 			{
-				medcfg= mednafen.cfg.ret
+				emucfgu= mednafen.cfg.ret
 				EXTRSYS= %RJSYSDD%
-				MEDCFGLOC= rj\sysCfgs\%RJSYSDD%\%medcfg%
+				emucfgloc= rj\sysCfgs\%RJSYSDD%\%emucfgu%
 			}
 	}
 	
 
-ifexist, %MEDCFGLOC%
+ifexist, %emucfgloc%
 	{
 		goto, LOADMEDNAFENOPTS
 	}
-ifnotexist, %MEDCFGLOC%
+ifnotexist, %emucfgloc%
 	{
 		gosub, EMUCFGCOPY
 	}
@@ -27595,7 +27596,7 @@ if (RJMEDNM = "ERROR")
 	{
 		RJMEDNM= %emuDDLJ%
 	}
-ifnotexist,%MEDCFGLOC%
+ifnotexist,%emucfgloc%
 	{
 		goto, MednafenInit
 	}
@@ -27603,7 +27604,7 @@ ifnotexist,%MEDCFGLOC%
 LOADMEDNAFENOPTS:
 core_gui= mednafen
 mednafenopts= 
-FileRead,mednafenopts,%MEDCFGLOC%
+FileRead,mednafenopts,%emucfgloc%
 guicontrol,,emuDDLJ,|%RJMEDNM%||%mednfsc%
 abarb= |
 SB_SetText("Loading mednafen options")
@@ -27987,7 +27988,7 @@ guicontrol,,emuSLDB,0
 guicontrol,,emuSLDE,0
 guicontrol,,emuSLDC,0
 
-fileDelete,%MEDCFGLOC%
+fileDelete,%emucfgloc%
 gosub, MednafenInit
 gosub, MednafenRESETPOP
 emutog= enable
@@ -28015,7 +28016,7 @@ Loop, parse, medglobal,`n`r
 					{
 						ifinstring,A_LoopField,%aii2%
 							{
-								FileAppend,%aii1% %A_LoopField%`n,%MEDCFGLOC%
+								FileAppend,%aii1% %A_LoopField%`n,%emucfgloc%
 								inmk= 1
 								continue
 							}
@@ -28027,11 +28028,11 @@ Loop, parse, medglobal,`n`r
 				ifinstring,aii2,[ROMPATH]
 					{
 						stringreplace,aii2,aii2,[ROMPATH],%indvcp%,All
-						FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
+						FileAppend,%aii1% %aii2%`n,%emucfgloc%
 						continue
 					}
 			}
-		FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
+		FileAppend,%aii1% %aii2%`n,%emucfgloc%
 	}
 ;;;;system unique export;;;;
 Loop, parse, medsysdef,`n`r
@@ -28043,7 +28044,7 @@ Loop, parse, medsysdef,`n`r
 		aii1=
 		aii2=
 		stringsplit,aii,A_LoopField,=
-		FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
+		FileAppend,%aii1% %aii2%`n,%emucfgloc%
 	}
 ;;;;common system export;;;;
 Loop, parse, medcomn,`n`r
@@ -28055,7 +28056,7 @@ Loop, parse, medcomn,`n`r
 		aii1=
 		aii2=
 		stringsplit,aii,A_LoopField,=
-		FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
+		FileAppend,%aii1% %aii2%`n,%emucfgloc%
 	}
 ;;;;input export;;;;
 Loop, 16
@@ -28094,11 +28095,11 @@ Loop, parse, medinput,`n`r
 		stringsplit,api,aii1,.
 		if (api1 = RJMEDNM)
 			{
-				FileAppend,%aii1%%A_Space%%aii2%`n,%MEDCFGLOC%
+				FileAppend,%aii1%%A_Space%%aii2%`n,%emucfgloc%
 			}
 		if (RJMEDNM	= "")
 			{
-				FileAppend,%aii1%%A_Space%%aii2%`n,%MEDCFGLOC%
+				FileAppend,%aii1%%A_Space%%aii2%`n,%emucfgloc%
 			}
 	}
 return
@@ -28534,9 +28535,9 @@ gosub, RewMedn
 return
 
 RewMedn:
-FileDelete,%MEDCFGLOC%
-FileAppend,%mednafenopts%,%MEDCFGLOC%
-FileRead,mednafenopts,%MEDCFGLOC%
+FileDelete,%emucfgloc%
+FileAppend,%mednafenopts%,%emucfgloc%
+FileRead,mednafenopts,%emucfgloc%
 return
 
 mednafenSaveOpts:
@@ -28658,8 +28659,8 @@ if (SK_MODE = "")
 			{
 				filecreateDir,rj\syscfgs\%ROMSYS%
 			}
-		mamecfgloc= rj\syscfgs\%ROMSYS%\mame.ini
-		fileread,mameopts,%mamecfgloc%
+		emucfgloc= rj\syscfgs\%ROMSYS%\mame.ini
+		fileread,mameopts,%emucfgloc%
 		curjf= %ROMSYS%
 	}
 
@@ -28667,9 +28668,9 @@ if (mamexf = 0)
 	{
 		iniread,mamexpth,Assignments.ini,ASSIGNMENTS,%LCORE%
 		splitpath,mamexpth,,mamexloc
-		MAMECFGLOC= %mamexloc%\%mamecfg%
-		indvcp= %MAMECFGLOC%
-		ifnotexist,%MAMECFGLOC%
+		emucfgloc= %mamexloc%\%mamecfg%
+		indvcp= %emucfgloc%
+		ifnotexist,%emucfgloc%
 			{
 				ifexist,%mamexpth%
 					{
@@ -28677,24 +28678,24 @@ if (mamexf = 0)
 					}
 					else
 						{
-							filecopy,rj\emuCfgs\mame\mame.ini.set,%mamecfgloc%
+							filecopy,rj\emuCfgs\mame\mame.ini.set,%emucfgloc%
 						}
 			}
-		fileread,mameopts,%MAMECFGLOC%
+		fileread,mameopts,%emucfgloc%
 	}
 	else
 		{
-			mamecfgloc= cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%\%mamecfg%
-			ifexist, %mamecfgloc%
+			emucfgloc= cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%\%mamecfg%
+			ifexist, %emucfgloc%
 				{
-					mamecfgloc= cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%\%mamecfg%
-					fileread,mameopts,%mamecfgloc%
+					emucfgloc= cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%\%mamecfg%
+					fileread,mameopts,%emucfgloc%
 				}
 				else 
 					{
 						fileread,mameopts,rj\emuCfgs\mame\mame.ini.set
 						filecreatedir,cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%
-						filecopy,rj\emuCfgs\mame\mame.ini.set,%mamecfgloc%
+						filecopy,rj\emuCfgs\mame\mame.ini.set,%emucfgloc%
 					}
 		}
 
@@ -28978,8 +28979,8 @@ if (SK_MODE = "")
 		ifexist, rj\sysCfgs\%RJSYSDD%\mame.ini.set
 			{
 				mamecfg= mame.ini.set
-				MAMECFGLOC= %RJSYSDD%
-				MAMECFGLOC= rj\sysCfgs\%RJSYSDD%\%mamecfg%
+				emucfgloc= %RJSYSDD%
+				emucfgloc= rj\sysCfgs\%RJSYSDD%\%mamecfg%
 			}
 	}
 */
@@ -29175,6 +29176,11 @@ Loop, Parse, mameopts,`n`r
 				guicontrol,,emuCHKR,%nwmvti%
 				continue	
 			}
+			if (nwmvtp = "hlsl_preset")
+			{
+				guicontrol,,emuddlc,%nwmvti%
+				continue	
+			}
 		if (nwmvtp = "unevenstretch")
 			{
 				guicontrol,,emuCHKS,%nwmvti%
@@ -29260,6 +29266,7 @@ gosub, EMJTOG
 emjtog= disable
 gosub, EMJTOG
 
+;{;;;;;;;;;;;;;;;;   Populate MAME Joy GUI   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 guicontrol,show,INDWRN
 guicontrol,move,INDWRN,x262 y180 w200 h200
 guicontrol,,INDWRN,
@@ -29349,6 +29356,7 @@ guicontrol,move,emjPTXT,x368 y50 w34 h23
 guicontrol,,emjGGRP,Hotkeys
 guicontrol,, emjgGRP, Shortcuts
 guicontrol,,emjDDLA,|%mamescs%
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 if (emjddlb = "")
 	{
 		emjddlb= 1
@@ -29408,19 +29416,17 @@ guicontrol,,emjDDLD,|%RJMAMENM%||%mamefsc%
 gosub, JmameRAD3A
 guicontrol,,emjCBA,|%mamejname%%mamejbid%
 
-Loop, parse, mameglobal,`n`r
+fileread,mamejglob,rj\emuCfgs\mame\sysj\default.get
+Loop, parse, mamejglob,`n`r
 	{
-		stringsplit,fii,A_LoopField,=
-		stringsplit,gii,fii2,+
-		cmdria= %fii1%
-		stringreplace,cmdriv,cmdria,.,_,All
-		stringreplace,mamecmd,cmdriv,command,mamecmd,All
-		stringsplit,fea,cmdria,.
-		ifinstring,fea1,command
+		mameline:= A_index + 2
+		stringsplit,fii,A_LoopField,=,"<>%A_Space%
+		;"
+		if (fii1 = "port type")
 			{
-				ifinstring,mamescs,fea2
+				ifinstring,fea1,fii2
 					{
-						%mamecmd%= %fii2%
+						filereadline,%fii2%,rj\emuCfgs\mame\sysj\default.get,%mameline%
 					}
 			}
 	}
@@ -29430,6 +29436,7 @@ if (emjddlb = "n")
 	{
 		emjddlb= 1
 	}
+mamejcfgloc= rj\emuCfgs\mame\sysj\%RJMAMENM%.get
 gosub, MAME%RJMAMENM%JOY
 SB_SetText(" mame " RJMAMENM " joystick loading complete ")
 emjtog= enable
@@ -29440,16 +29447,6 @@ MAMEDDLJ:
 gui,submit,nohide
 guicontrolget,emuDDLJ,,emuDDLJ
 RJMAMENM= %emuDDLJ%
-return
-
-MAME0JOY:
-MAMEJOY:
-if (curmameINPT = "")
-	{
-		guicontrol,,emjDDLF,|gamepad||
-		curmameINPT= gamepad
-	}
-guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4
 return
 
 MAMEBUTA:
@@ -29648,9 +29645,9 @@ return
 
 MAMEDDLE:
 gui,submit,nohide
-guicontrolget,emuDDLB,,emuDDLB
+guicontrolget,emuDDLE,,emuDDLE
 MAME_video= %emuDDLB%
-mameopts:= RegExReplace(mameopts, "m)^\Q"  "video \E.*", "video " emuDDLB "`n")
+mameopts:= RegExReplace(mameopts, "m)^\Q"  "video \E.*", "video " emuDDLE "`n")
 gosub, MameRew
 return
 
@@ -29686,13 +29683,8 @@ return
 
 MAMEDDLC:
 gui,submit,nohide
+hlslen= 1
 guicontrolget,emuddlc,,emuddlc
-if (emuddlc = "off")
-	{
-		mameopts:= RegExReplace(mameopts, "m)^\Q"  "hlsl_enable \E.*", "hlsl_enable " 0 "`n")
-		gosub, MameRew
-		return
-	}
 fileread,hlslpr,rj\emucfgs\mame\%emuddlc%.get
 Loop,parse,hlslpr,`n`r
 	{
@@ -29725,6 +29717,12 @@ Loop,parse,hlslpr,`n`r
 			}
 		mameopts:= RegExReplace(mameopts, "m)^\Q"  "" nvs1 " \E.*", "" nvs1 " " vnm "`n")
 	}
+if (emuddlc = "Off")
+	{
+		hlslen= 0
+	}
+mameopts:= RegExReplace(mameopts, "m)^\Q"  "hlsl_preset \E.*", "hlsl_preset " emuddlc "`n")
+mameopts:= RegExReplace(mameopts, "m)^\Q"  "hlsl_enable \E.*", "hlsl_enable " hlslen "`n")
 gosub, MameRew
 return
 
@@ -29789,9 +29787,9 @@ return
 
 
 MameRew:
-FileDelete,%MAMECFGLOC%
-FileAppend,%mameopts%,%MAMECFGLOC%
-FileRead,mameopts,%MAMECFGLOC%
+FileDelete,%emucfgloc%
+FileAppend,%mameopts%,%emucfgloc%
+FileRead,mameopts,%emucfgloc%
 return
 ;};;;;;;;;;;;;;;;;;;;;
 
@@ -55575,23 +55573,37 @@ Medb8=joystick 00000000000%JoystickNumber%0000 00000004
 Medb9=joystick 00000000000%JoystickNumber%0000 00000006
 Medb0=joystick 00000000000%JoystickNumber%0000 00000007
 
+Mamebtn1=1
+Mamebtn2=2
+Mamebtn3=3
+Mamebtn4=4
+Mamebtn5=5
+Mamebtn6=6
+Mamebtn7=7
+Mamebtn8=8
+Mamebtn9=9
+Mamebtn10=10
+Mamebtn11=11
+Mamebtn12=12
+Mamebtn13=13
+
 if JoystickNumber <= 0
-{
-	Loop 16
 	{
-		GetKeyState, JoyName, %A_Index%JoyName
-		if JoyName <>
+		Loop 16
 		{
-			JoystickNumber = %A_Index%
-			break
+			GetKeyState, JoyName, %A_Index%JoyName
+			if JoyName <>
+			{
+				JoystickNumber = %A_Index%
+				break
+			}
+		}
+		if JoystickNumber <= 0
+		{
+			MsgBox The system does not appear to have any joysticks.
+			
 		}
 	}
-	if JoystickNumber <= 0
-	{
-		MsgBox The system does not appear to have any joysticks.
-		
-	}
-}
 
 SetFormat, float, 03  
 GetKeyState, joy_buttons, %JoystickNumber%JoyButtons
@@ -55643,6 +55655,7 @@ if (buttons_down <> "")
 	{
 		JOYCOLLECT:= buttons_down-1
 		MEDNAFENCOLLECT:= % Medb%buttons_down%
+		MAMECOLLECT:= % Mamebtn%buttons_down%
 		break
 	}
 inputparse1=
@@ -55656,6 +55669,7 @@ if (inputparse1 > lstkxvarianceA)
 	{
 		JOYCOLLECT= +0
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00008000
+		MAMECOLLECT= JOYCODE_%JoystickNumber%_XAXIS_RIGHT_SWITCH
 		break
 	}
 	
@@ -55663,6 +55677,7 @@ if (inputparse1 <  lstkxvarianceB)
 	{
 		JOYCOLLECT= \-0
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 0000c000
+		MAMECOLLECT= JOYCODE_%JoystickNumber%_XAXIS_LEFT_SWITCH
 		break
 	}
 	
@@ -55670,6 +55685,7 @@ if (inputparse3 > lstkyvarianceA)
 	{
 		JOYCOLLECT= +1
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 0000c001
+		MAMECOLLECT= JOYCODE_%JoystickNumber%_YAXIS_UP_SWITCH
 		break
 	}
 	
@@ -55677,6 +55693,7 @@ if (inputparse3 <  lstkyvarianceB)
 	{
 		JOYCOLLECT= \-1
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00008001
+		MAMECOLLECT= JOYCODE_%JoystickNumber%_YAXIS_DOWN_SWITCH
 		break
 	}
 	
@@ -55684,6 +55701,7 @@ if (inputparse5 >  trigvarianceA)
 	{
 		JOYCOLLECT= +5
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00008004
+		MAMECOLLET=JOYCODE_%JoystickNumber%_RZAXIS_NEG_SWITCH
 		break
 	}
 	
@@ -55691,6 +55709,7 @@ if (inputparse5 <  trigvarianceB)
 	{
 		JOYCOLLECT= +4
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00008005
+		MAMECOLLECT= JOYCODE_%JoystickNumber%_ZAXIS_NEG_SWITCH
 		break
 	}
 	
@@ -55698,6 +55717,7 @@ if (inputparse7 > rstkxvarianceA)
 	{
 		JOYCOLLECT= +3
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 0000c003
+		MAMECOLLET=JOYCODE_%JoystickNumber%_RXAXIS_POS_SWITCH
 		break
 	}
 	
@@ -55705,6 +55725,7 @@ if (inputparse7 <  rstkxvarianceB)
 	{
 		JOYCOLLECT= \-3
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00008003
+		MAMECOLLECT= JOYCODE_%JoystickNumber%_RXAXIS_NEG_SWITCH
 		break
 	}
 	
@@ -55712,6 +55733,7 @@ if (inputparse9 > rstkyvarianceA)
 	{
 		JOYCOLLECT= +2
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00008002
+		MAMECOLLECT= JOYCODE_%JoystickNumber%_RYAXIS_NEG_SWITCH
 		break
 	}
 	
@@ -55719,30 +55741,35 @@ if (inputparse9 < rstkyvarianceB)
 	{
 		JOYCOLLECT= \-2
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 0000c002
+		MAMECOLLECT= JOYCODE_%JoystickNumber%_RYAXIS_POS_SWITCH
 		break
 	}
 	if (inputparse11 > 22501)
 	{
 		JOYCOLLECT= h0left
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00000002
+		MAMECOLLECT= JOYCODE_%JoystickNumber%_DPADLEFT
 		break
 	}
 	if (inputparse11 > 13501)
 	{
 		JOYCOLLECT= h0down
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00000001
+		MAMECOLLECT= JOYCODE_%JoystickNumber%_DPADDOWN
 		break
 	}
 	if (inputparse11 > 4499)
 	{
 		JOYCOLLECT= h0right
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00000003
+		MAMECOLLECT= JOYCODE_%JoystickNumber%_DPADRIGHT
 		break
 	}
 	if (inputparse11 > -1)
 	{
 		JOYCOLLECT= h0up
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00000000
+		MAMECOLLECT= JOYCODE_%JoystickNumber%_DPADUP
 		break
 	}
 	
@@ -57639,10 +57666,10 @@ return
 MednafenSwap:
 guicontrolget,emjDDLB,,emjDDLB
 guicontrolget,emjDDLC,,emjDDLC
-FileRead,medjimp,%MEDCFGLOC%
+FileRead,emujoyopts,%emucfgloc%
 medlkup= 
 rbab= |
-Loop, Parse, medjimp,`n`r
+Loop, Parse, emujoyopts,`n`r
 	{
 		if (A_LoopField = "")
 			{
@@ -58834,7 +58861,7 @@ Loop, Parse, medinput,`n`r
 			}	
 	}
 INTEMEDJ:	
-Loop, Parse, MEDCFGLOC,`n`r
+Loop, Parse, emucfgloc,`n`r
 	{
 		if (A_LoopField = "")
 			{
@@ -58944,10 +58971,10 @@ Loop, Parse, orj,#
 				reinj.= A_LoopField
 			}
 	}
-stringreplace,medjimp,medjimp,%ors1%%A_Space%%orzf%,%ors1%%A_Space%%reinj%,All
-stringreplace,medjimp,medjimp,||||,||,All
-filedelete,%medcfgloc%
-fileappend,%medjimp%,%medcfgloc%
+stringreplace,emujoyopts,emujoyopts,%ors1%%A_Space%%orzf%,%ors1%%A_Space%%reinj%,All
+stringreplace,emujoyopts,emujoyopts,||||,||,All
+filedelete,%emucfgloc%
+fileappend,%emujoyopts%,%emucfgloc%
 return
 
 JMednafenDDLA:
@@ -58956,7 +58983,7 @@ guicontrolget,emjDDLA,,emjDDLA
 guicontrol,,emjCHKX,0
 guicontrol,,emjCHKY,0
 guicontrol,,emjCHKZ,0
-Loop, Parse, medjimp,`n`r
+Loop, Parse, emujoyopts,`n`r
 	{
 		vira= %A_LoopField%
 		stringsplit,fej,A_LoopField,.
@@ -59539,15 +59566,15 @@ gosub, emjbtog
 vprm= %kmjRXMinus%
 if (emjRAD3A = 1)
 	{
-		gosub, medkbrev
+		gosub, %EMUSN%kbrev
 	}
 if (emjRAD3B = 1)
 	{
-		gosub, medjrev
+		gosub, %EMUSN%jrev
 	}
-filedelete,%medcfgloc%
-fileappend,%medjimp%,%medcfgloc%
-gosub, mednafenswap
+filedelete,%emucfgfile%
+fileappend,%emujoyopts%,%emucfgfile%
+gosub, %emusn%swap
 return
 
 JMednafenRYPlus:
@@ -59561,15 +59588,15 @@ gosub, emjbtog
 vprm= %kmjRYPlus%
 if (emjRAD3A = 1)
 	{
-		gosub, medkbrev
+		gosub, %EMUSN%kbrev
 	}
 if (emjRAD3B = 1)
 	{
-		gosub, medjrev
+		gosub, %EMUSN%jrev
 	}
-filedelete,%medcfgloc%
-fileappend,%medjimp%,%medcfgloc%
-gosub, mednafenswap
+filedelete,%emucfgfile%
+fileappend,%emujoyopts%,%emucfgfile%
+gosub, %emusn%swap
 return
 
 JMednafenR:
@@ -59580,15 +59607,15 @@ gosub, emjbtog
 vprm= %kmjR%
 if (emjRAD3A = 1)
 	{
-		gosub, medkbrev
+		gosub, %EMUSN%kbrev
 	}
 if (emjRAD3B = 1)
 	{
-		gosub, medjrev
+		gosub, %EMUSN%jrev
 	}
-filedelete,%medcfgloc%
-fileappend,%medjimp%,%medcfgloc%
-gosub, mednafenswap
+filedelete,%emucfgfile%
+fileappend,%emujoyopts%,%emucfgfile%
+gosub, %emusn%swap
 return
 
 JMednafenL:
@@ -59599,15 +59626,15 @@ gosub, emjbtog
 vprm= %kmjL%
 if (emjRAD3A = 1)
 	{
-		gosub, medkbrev
+		gosub, %EMUSN%kbrev
 	}
 if (emjRAD3B = 1)
 	{
-		gosub, medjrev
+		gosub, %EMUSN%jrev
 	}
-filedelete,%medcfgloc%
-fileappend,%medjimp%,%medcfgloc%
-gosub, mednafenswap
+filedelete,%emucfgfile%
+fileappend,%emujoyopts%,%emucfgfile%
+gosub, %emusn%swap
 return
 
 JMednafenRXPlus:
@@ -59618,15 +59645,15 @@ gosub, emjbtog
 vprm= %kmjRXPlus%
 if (emjRAD3A = 1)
 	{
-		gosub, medkbrev
+		gosub, %EMUSN%kbrev
 	}
 if (emjRAD3B = 1)
 	{
-		gosub, medjrev
+		gosub, %EMUSN%jrev
 	}
-filedelete,%medcfgloc%
-fileappend,%medjimp%,%medcfgloc%
-gosub, mednafenswap
+filedelete,%emucfgfile%
+fileappend,%emujoyopts%,%emucfgfile%
+gosub, %emusn%swap
 return
 
 JMednafenRYMinus:
@@ -59637,15 +59664,15 @@ gosub, emjbtog
 vprm= %kmjRYMinus%
 if (emjRAD3A = 1)
 	{
-		gosub, medkbrev
+		gosub, %EMUSN%kbrev
 	}
 if (emjRAD3B = 1)
 	{
-		gosub, medjrev
+		gosub, %EMUSN%jrev
 	}
-filedelete,%medcfgloc%
-fileappend,%medjimp%,%medcfgloc%
-gosub, mednafenswap
+filedelete,%emucfgfile%
+fileappend,%emujoyopts%,%emucfgfile%
+gosub, %emusn%swap
 return
 
 JMednafenR3:
@@ -59656,15 +59683,15 @@ gosub, emjbtog
 vprm= %kmjR3%
 if (emjRAD3A = 1)
 	{
-		gosub, medkbrev
+		gosub, %EMUSN%kbrev
 	}
 if (emjRAD3B = 1)
 	{
-		gosub, medjrev
+		gosub, %EMUSN%jrev
 	}
-filedelete,%medcfgloc%
-fileappend,%medjimp%,%medcfgloc%
-gosub, mednafenswap
+filedelete,%emucfgfile%
+fileappend,%emujoyopts%,%emucfgfile%
+gosub, %emusn%swap
 return
 
 JMednafenL3:
@@ -59675,15 +59702,15 @@ gosub, emjbtog
 vprm= %kmjR3%
 if (emjRAD3A = 1)
 	{
-		gosub, medkbrev
+		gosub, %EMUSN%kbrev
 	}
 if (emjRAD3B = 1)
 	{
-		gosub, medjrev
+		gosub, %EMUSN%jrev
 	}
-filedelete,%medcfgloc%
-fileappend,%medjimp%,%medcfgloc%
-gosub, mednafenswap
+filedelete,%emucfgfile%
+fileappend,%emujoyopts%,%emucfgfile%
+gosub, %emusn%swap
 return
 
 JMednafenLXMinus:
@@ -59694,15 +59721,15 @@ gosub, emjbtog
 vprm= %kmjLXMinus%
 if (emjRAD3A = 1)
 	{
-		gosub, medkbrev
+		gosub, %EMUSN%kbrev
 	}
 if (emjRAD3B = 1)
 	{
-		gosub, medjrev
+		gosub, %EMUSN%jrev
 	}
-filedelete,%medcfgloc%
-fileappend,%medjimp%,%medcfgloc%
-gosub, mednafenswap
+filedelete,%emucfgfile%
+fileappend,%emujoyopts%,%emucfgfile%
+gosub, %emusn%swap
 return
 
 JMednafenLYPlus:
@@ -59713,15 +59740,15 @@ gosub, emjbtog
 vprm= %kmjLYPlus%
 if (emjRAD3A = 1)
 	{
-		gosub, medkbrev
+		gosub, %EMUSN%kbrev
 	}
 if (emjRAD3B = 1)
 	{
-		gosub, medjrev
+		gosub, %EMUSN%jrev
 	}
-filedelete,%medcfgloc%
-fileappend,%medjimp%,%medcfgloc%
-gosub, mednafenswap
+filedelete,%emucfgfile%
+fileappend,%emujoyopts%,%emucfgfile%
+gosub, %emusn%swap
 return
 
 JMednafenLYMinus:
@@ -59732,15 +59759,15 @@ gosub, emjbtog
 vprm= %kmjLYMinus%
 if (emjRAD3A = 1)
 	{
-		gosub, medkbrev
+		gosub, %EMUSN%kbrev
 	}
 if (emjRAD3B = 1)
 	{
-		gosub, medjrev
+		gosub, %EMUSN%jrev
 	}
-filedelete,%medcfgloc%
-fileappend,%medjimp%,%medcfgloc%
-gosub, mednafenswap
+filedelete,%emucfgfile%
+fileappend,%emujoyopts%,%emucfgfile%
+gosub, %emusn%swap
 return
 
 JMednafenLXPlus:
@@ -59751,15 +59778,15 @@ gosub, emjbtog
 vprm= %kmjLXPlus%
 if (emjRAD3A = 1)
 	{
-		gosub, medkbrev
+		gosub, %EMUSN%kbrev
 	}
 if (emjRAD3B = 1)
 	{
-		gosub, medjrev
+		gosub, %EMUSN%jrev
 	}
-filedelete,%medcfgloc%
-fileappend,%medjimp%,%medcfgloc%
-gosub, mednafenswap
+filedelete,%emucfgfile%
+fileappend,%emujoyopts%,%emucfgfile%
+gosub, %emusn%swap
 return
 
 JMednafenselect:
@@ -59770,15 +59797,15 @@ gosub, emjbtog
 vprm= %kmjselect%
 if (emjRAD3A = 1)
 	{
-		gosub, medkbrev
+		gosub, %EMUSN%kbrev
 	}
 if (emjRAD3B = 1)
 	{
-		gosub, medjrev
+		gosub, %EMUSN%jrev
 	}
-filedelete,%medcfgloc%
-fileappend,%medjimp%,%medcfgloc%
-gosub, mednafenswap
+filedelete,%emucfgfile%
+fileappend,%emujoyopts%,%emucfgfile%
+gosub, %emusn%swap
 return
 
 JMednafenstart:
@@ -59789,15 +59816,15 @@ gosub, emjbtog
 vprm= %kmjstart%
 if (emjRAD3A = 1)
 	{
-		gosub, medkbrev
+		gosub, %EMUSN%kbrev
 	}
 if (emjRAD3B = 1)
 	{
-		gosub, medjrev
+		gosub, %EMUSN%jrev
 	}
-filedelete,%medcfgloc%
-fileappend,%medjimp%,%medcfgloc%
-gosub, mednafenswap
+filedelete,%emucfgfile%
+fileappend,%emujoyopts%,%emucfgfile%
+gosub, %emusn%swap
 return
 
 JMednafenup:
@@ -59808,15 +59835,15 @@ gosub, emjbtog
 vprm= %kmjup%
 if (emjRAD3A = 1)
 	{
-		gosub, medkbrev
+		gosub, %EMUSN%kbrev
 	}
 if (emjRAD3B = 1)
 	{
-		gosub, medjrev
+		gosub, %EMUSN%jrev
 	}
-filedelete,%medcfgloc%
-fileappend,%medjimp%,%medcfgloc%
-gosub, mednafenswap
+filedelete,%emucfgfile%
+fileappend,%emujoyopts%,%emucfgfile%
+gosub, %emusn%swap
 return
 
 JMednafenleft:
@@ -59827,15 +59854,15 @@ gosub, emjbtog
 vprm= %kmjleft%
 if (emjRAD3A = 1)
 	{
-		gosub, medkbrev
+		gosub, %EMUSN%kbrev
 	}
 if (emjRAD3B = 1)
 	{
-		gosub, medjrev
+		gosub, %EMUSN%jrev
 	}
-filedelete,%medcfgloc%
-fileappend,%medjimp%,%medcfgloc%
-gosub, mednafenswap
+filedelete,%emucfgfile%
+fileappend,%emujoyopts%,%emucfgfile%
+gosub, %emusn%swap
 return
 
 JMednafenright:
@@ -59846,15 +59873,15 @@ gosub, emjbtog
 vprm= %kmjright%
 if (emjRAD3A = 1)
 	{
-		gosub, medkbrev
+		gosub, %EMUSN%kbrev
 	}
 if (emjRAD3B = 1)
 	{
-		gosub, medjrev
+		gosub, %EMUSN%jrev
 	}
-filedelete,%medcfgloc%
-fileappend,%medjimp%,%medcfgloc%
-gosub, mednafenswap
+filedelete,%emucfgfile%
+fileappend,%emujoyopts%,%emucfgfile%
+gosub, %emusn%swap
 return
 
 JMednafendown:
@@ -59865,15 +59892,15 @@ gosub, emjbtog
 vprm= %kmjdown%
 if (emjRAD3A = 1)
 	{
-		gosub, medkbrev
+		gosub, %EMUSN%kbrev
 	}
 if (emjRAD3B = 1)
 	{
-		gosub, medjrev
+		gosub, %EMUSN%jrev
 	}
-filedelete,%medcfgloc%
-fileappend,%medjimp%,%medcfgloc%
-gosub, mednafenswap
+filedelete,%emucfgfile%
+fileappend,%emujoyopts%,%emucfgfile%
+gosub, %emusn%swap
 return
 
 JMednafenY:
@@ -59884,15 +59911,15 @@ gosub, emjbtog
 vprm= %kmjY%
 if (emjRAD3A = 1)
 	{
-		gosub, medkbrev
+		gosub, %EMUSN%kbrev
 	}
 if (emjRAD3B = 1)
 	{
-		gosub, medjrev
+		gosub, %EMUSN%jrev
 	}
-filedelete,%medcfgloc%
-fileappend,%medjimp%,%medcfgloc%
-gosub, mednafenswap
+filedelete,%emucfgfile%
+fileappend,%emujoyopts%,%emucfgfile%
+gosub, %emusn%swap
 return
 
 JMednafenX:
@@ -59903,15 +59930,15 @@ gosub, emjbtog
 vprm= %kmjX%
 if (emjRAD3A = 1)
 	{
-		gosub, medkbrev
+		gosub, %EMUSN%kbrev
 	}
 if (emjRAD3B = 1)
 	{
-		gosub, medjrev
+		gosub, %EMUSN%jrev
 	}
-filedelete,%medcfgloc%
-fileappend,%medjimp%,%medcfgloc%
-gosub, mednafenswap
+filedelete,%emucfgfile%
+fileappend,%emujoyopts%,%emucfgfile%
+gosub, %emusn%swap
 return
 
 JMednafenB:
@@ -59922,15 +59949,15 @@ gosub, emjbtog
 vprm= %kmjB%
 if (emjRAD3A = 1)
 	{
-		gosub, medkbrev
+		gosub, %EMUSN%kbrev
 	}
 if (emjRAD3B = 1)
 	{
-		gosub, medjrev
+		gosub, %EMUSN%jrev
 	}
-filedelete,%medcfgloc%
-fileappend,%medjimp%,%medcfgloc%
-gosub, mednafenswap
+filedelete,%emucfgfile%
+fileappend,%emujoyopts%,%emucfgfile%
+gosub, %emusn%swap
 return
 
 JMednafenA:
@@ -59941,15 +59968,15 @@ gosub, emjbtog
 vprm= %kmjA%
 if (emjRAD3A = 1)
 	{
-		gosub, medkbrev
+		gosub, %EMUSN%kbrev
 	}
 if (emjRAD3B = 1)
 	{
-		gosub, medjrev
+		gosub, %EMUSN%jrev
 	}
-filedelete,%medcfgloc%
-fileappend,%medjimp%,%medcfgloc%
-gosub, mednafenswap
+filedelete,%emucfgfile%
+fileappend,%emujoyopts%,%emucfgfile%
+gosub, %emusn%swap
 return
 
 JMednafenl2:
@@ -59960,15 +59987,15 @@ gosub, emjbtog
 vprm= %kmjL2%
 if (emjRAD3A = 1)
 	{
-		gosub, medkbrev
+		gosub, %EMUSN%kbrev
 	}
 if (emjRAD3B = 1)
 	{
-		gosub, medjrev
+		gosub, %EMUSN%jrev
 	}
-filedelete,%medcfgloc%
-fileappend,%medjimp%,%medcfgloc%
-gosub, mednafenswap
+filedelete,%emucfgfile%
+fileappend,%emujoyopts%,%emucfgfile%
+gosub, %emusn%swap
 return
 
 JMednafenr2:
@@ -59979,15 +60006,15 @@ gosub, emjbtog
 vprm= %kmjR2%
 if (emjRAD3A = 1)
 	{
-		gosub, medkbrev
+		gosub, %EMUSN%kbrev
 	}
 if (emjRAD3B = 1)
 	{
-		gosub, medjrev
+		gosub, %EMUSN%jrev
 	}
-filedelete,%medcfgloc%
-fileappend,%medjimp%,%medcfgloc%
-gosub, mednafenswap
+filedelete,%emucfgfile%
+fileappend,%emujoyopts%,%emucfgfile%
+gosub, %emusn%swap
 return
 
 JMednafenHome:
@@ -59998,20 +60025,20 @@ gosub, emjbtog
 vprm= %kmjHome%
 if (emjRAD3A = 1)
 	{
-		gosub, medkbrev
+		gosub, %EMUSN%kbrev
 	}
 if (emjRAD3B = 1)
 	{
-		gosub, medjrev
+		gosub, %EMUSN%jrev
 	}
-filedelete,%medcfgloc%
-fileappend,%medjimp%,%medcfgloc%
-gosub, mednafenswap
+filedelete,%emucfgfile%
+fileappend,%emujoyopts%,%emucfgfile%
+gosub, %emusn%swap
 return
 
 
 ;{;;;;;;;;;;;;;;;;;;;  Mednafen Keyboard lookups  ;;;;;;;;;;;;;;;;;;;
-MedKBREV:
+mednafenkbrev:
 emjtog= disable
 gosub, emjbtog
 stringreplace,orz,vprm,%A_Space%,#
@@ -60069,14 +60096,14 @@ Loop, Parse, orj,#
 				reinj.= A_LoopField
 			}
 	}
-medjimp := RegExReplace(medjimp, "m)^\Q"  "" ors1 " \E.*", "" ors1 " " reinj "`n")
-;;stringreplace,medjimp,medjimp,%ors1%%A_Space%%orzf%,%ors1%%A_Space%%reinj%,All
-stringreplace,medjimp,medjimp,||||,||,All
+emujoyopts := RegExReplace(emujoyopts, "m)^\Q"  "" ors1 " \E.*", "" ors1 " " reinj "`n")
+;;stringreplace,emujoyopts,emujoyopts,%ors1%%A_Space%%orzf%,%ors1%%A_Space%%reinj%,All
+stringreplace,emujoyopts,emujoyopts,||||,||,All
 emjtog= enable
 gosub, emjbtog
 return
 
-MedJREV:
+mednafenjrev:
 medjinjid= % medjid%emjDDLB%
 stringreplace,orz,vprm,%A_Space%,#
 stringsplit,ors,orz,#
@@ -60136,8 +60163,8 @@ Loop, Parse, orj,#
 				reinj.= A_LoopField
 			}
 	}
-stringreplace,medjimp,medjimp,%ors1%%A_Space%%orzf%,%ors1%%A_Space%%reinj%,All
-stringreplace,medjimp,medjimp,||||,||,All	
+stringreplace,emujoyopts,emujoyopts,%ors1%%A_Space%%orzf%,%ors1%%A_Space%%reinj%,All
+stringreplace,emujoyopts,emujoyopts,||||,||,All	
 emjtog= enable
 gosub, emjbtog
 return
@@ -60249,7 +60276,7 @@ guicontrol,show,emjXIn
 guicontrol,show,emjBIn
 guicontrol,show,emjAIn
 guicontrol,show,emjINPBUTIN
-guicontrol,,emjDDLA,|%mamenafsc%
+guicontrol,,emjDDLA,|%mamescs%
 guicontrol,,emjCBA,|%mamejname%%mamejbid%
 Loop, parse,joyiterate,|
 	{
@@ -60317,7 +60344,7 @@ Loop, Parse, mameinput,`n`r
 			}	
 	}
 INTEMAMEJ:	
-Loop, Parse, MAMECFGLOC,`n`r
+Loop, Parse, emucfgloc,`n`r
 	{
 		if (A_LoopField = "")
 			{
@@ -60429,8 +60456,8 @@ Loop, Parse, orj,#
 	}
 stringreplace,mamejimp,mamejimp,%ors1%%A_Space%%orzf%,%ors1%%A_Space%%reinj%,All
 stringreplace,mamejimp,mamejimp,||||,||,All
-filedelete,%mamecfgloc%
-fileappend,%mamejimp%,%mamecfgloc%
+filedelete,%emucfgloc%
+fileappend,%mamejimp%,%emucfgloc%
 return
 
 JMameDDLA:
@@ -60501,7 +60528,7 @@ return
 JMameDDLD:
 gui, submit, nohide
 guicontrolget,emjDDLD,,emjDDLD
-gosub, MED%emjDDLD%Joy
+gosub, MAME%emjDDLD%Joy
 return
 
 JMameCHKA:
@@ -60570,6 +60597,66 @@ if (RJMAMENM = "sms")
 				gosub,EMJTOG
 			}
 	}
+if (RJMAMENM = "smsbr")
+	{
+		if (curmameINPT <> "gamepad")
+			{
+				emjtog= hide
+				gosub,EMJTOG
+			}
+	}
+if (RJMAMENM = "smspaln")
+	{
+		if (curmameINPT <> "gamepad")
+			{
+				emjtog= hide
+				gosub,EMJTOG
+			}
+	}
+if (RJMAMENM = "sms1")
+	{
+		if (curmameINPT <> "gamepad")
+			{
+				emjtog= hide
+				gosub,EMJTOG
+			}
+	}
+if (RJMAMENM = "smsj")
+	{
+		if (curmameINPT <> "gamepad")
+			{
+				emjtog= hide
+				gosub,EMJTOG
+			}
+	}
+if (RJMAMENM = "smspal")
+	{
+		if (curmameINPT <> "gamepad")
+			{
+				emjtog= hide
+				gosub,EMJTOG
+			}
+	}
+if (RJMAMENM = "fds")
+	{
+		if (curmameINPT <> "gamepad")
+			{
+				emjtog= hide
+				gosub,EMJTOG
+				guicontrol,show,emjDDLF
+				return
+			}
+	}
+if (RJMAMENM = "famicom")
+	{
+		if (curmameINPT <> "gamepad")
+			{
+				emjtog= hide
+				gosub,EMJTOG
+				guicontrol,show,emjDDLF
+				return
+			}
+	}
 if (RJMAMENM = "nes")
 	{
 		if (curmameINPT <> "gamepad")
@@ -60580,7 +60667,7 @@ if (RJMAMENM = "nes")
 				return
 			}
 	}
-if (RJMAMENM = "md")
+if (RJMAMENM = "megadriv")
 	{
 		ifnotinstring,curmameINPT,gamepad
 			{
@@ -60590,7 +60677,47 @@ if (RJMAMENM = "md")
 				return
 			}
 	}
-if (RJMAMENM = "ss")
+if (RJMAMENM = "megadrij")
+	{
+		ifnotinstring,curmameINPT,gamepad
+			{
+				emjtog= hide
+				gosub,EMJTOG
+				guicontrol,show,emjDDLF
+				return
+			}
+	}
+if (RJMAMENM = "megacd")
+	{
+		ifnotinstring,curmameINPT,gamepad
+			{
+				emjtog= hide
+				gosub,EMJTOG
+				guicontrol,show,emjDDLF
+				return
+			}
+	}
+if (RJMAMENM = "megacdj")
+	{
+		ifnotinstring,curmameINPT,gamepad
+			{
+				emjtog= hide
+				gosub,EMJTOG
+				guicontrol,show,emjDDLF
+				return
+			}
+	}
+if (RJMAMENM = "sat")
+	{
+		ifnotinstring,curmameINPT,pad
+			{
+				emjtog= hide
+				gosub,EMJTOG
+				guicontrol,show,emjDDLF
+				return
+			}
+	}
+if (RJMAMENM = "saturnu")
 	{
 		ifnotinstring,curmameINPT,pad
 			{
@@ -60631,7 +60758,7 @@ if (RJMAMENM = "psx")
 				return
 			}
 	}
-ifinstring,RJMAMENM,pce
+if (RJMAMENM = "sgx")
 	{
 		if (curmameINPT <> "gamepad")			
 			{
@@ -60641,7 +60768,54 @@ ifinstring,RJMAMENM,pce
 				return
 			}
 	}
-ifinstring,RJMAMENM,snes
+if (RJMAMENM = "tg16")
+	{
+		if (curmameINPT <> "gamepad")			
+			{
+				emjtog= hide
+				gosub,EMJTOG
+				guicontrol,show,emjDDLF
+				return
+			}
+	}
+if (RJMAMENM = "pce")
+	{
+		if (curmameINPT <> "gamepad")			
+			{
+				emjtog= hide
+				gosub,EMJTOG
+				guicontrol,show,emjDDLF
+				return
+			}
+	}
+if (RJMAMENM = "pcecd")
+	{
+		if (curmameINPT <> "gamepad")			
+			{
+				emjtog= hide
+				gosub,EMJTOG
+				guicontrol,show,emjDDLF
+				return
+			}
+	}
+if (RJMAMENM = "snes")
+	{
+		ifinstring,curmameINPT,mouse
+			{
+				emjtog= hide
+				gosub,EMJTOG
+				guicontrol,show,emjDDLF
+				return
+			}
+		ifinstring,curmameINPT,superscope
+			{
+				emjtog= hide
+				gosub,EMJTOG
+				guicontrol,show,emjDDLF
+				return
+			}
+	}
+if (RJMAMENM = "snespal")
 	{
 		ifinstring,curmameINPT,mouse
 			{
@@ -60704,6 +60878,63 @@ gui, submit, nohide
 return
 
 ;{;;;;;;;;;;;;;;;;;;   MAME JOYSTICK LAYOUTS   ;;;;;;;;;;;;;;;;;;;;;;
+
+MAMEDefaultJOY:
+MAMEJOY:
+if (curmameINPT = "")
+	{
+		guicontrol,,emjDDLF,|gamepad||keyboard
+		curmameINPT= gamepad
+	}
+guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4
+
+supinp= gamepad
+mameswapB= button1
+mameswapA= button2
+mameswapX= 
+mameswapY= 
+mameswapStart= start
+mameswapSelect= 
+mameswapDown= down
+mameswapUp= up
+mameswapLeft= left
+mameswapRight= right
+mameswapL= 
+mameswapR= 
+mameswapL2= 
+mameswapR2= 
+mameswapR3= 
+mameswapL3= 
+mameswapLXMinus= 
+mameswapRXMinus= 
+mameswapRXPlus= 
+mameswapLXPlus= 
+mameswapLYPlus= 
+mameswapLYMinus= 
+mameswapRYPlus= 
+mameswapRYMinus= 
+mameswapHome= 
+
+MameSwapATXT= b1
+MameSwapBTXT= 
+MameSwapCTXT= b2
+MameSwapDTXT=
+MameSwapETXT=
+MameSwapFTXT=
+MameSwapGTXT=
+MameSwapHTXT=
+MameSwapITXT=
+MameSwapJTXT=
+MameSwapLTXT=
+MameSwapMTXT= start
+
+MameSwapCGRP= 
+MameSwapDGRP= 
+gosub, MameSwap
+return
+return	
+	
+	
 	
 MAMEgamegearJOY:
 MAMEgamegearjJOY:
@@ -62290,8 +62521,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%mamecfgloc%
-fileappend,%mamejimp%,%mamecfgloc%
+filedelete,%emucfgloc%
+fileappend,%mamejimp%,%emucfgloc%
 gosub, mameswap
 return
 
@@ -62312,8 +62543,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%mamecfgloc%
-fileappend,%mamejimp%,%mamecfgloc%
+filedelete,%emucfgloc%
+fileappend,%mamejimp%,%emucfgloc%
 gosub, mameswap
 return
 
@@ -62331,8 +62562,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%mamecfgloc%
-fileappend,%mamejimp%,%mamecfgloc%
+filedelete,%emucfgloc%
+fileappend,%mamejimp%,%emucfgloc%
 gosub, mameswap
 return
 
@@ -62350,8 +62581,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%mamecfgloc%
-fileappend,%mamejimp%,%mamecfgloc%
+filedelete,%emucfgloc%
+fileappend,%mamejimp%,%emucfgloc%
 gosub, mameswap
 return
 
@@ -62369,8 +62600,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%mamecfgloc%
-fileappend,%mamejimp%,%mamecfgloc%
+filedelete,%emucfgloc%
+fileappend,%mamejimp%,%emucfgloc%
 gosub, mameswap
 return
 
@@ -62388,8 +62619,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%mamecfgloc%
-fileappend,%mamejimp%,%mamecfgloc%
+filedelete,%emucfgloc%
+fileappend,%mamejimp%,%emucfgloc%
 gosub, mameswap
 return
 
@@ -62407,8 +62638,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%mamecfgloc%
-fileappend,%mamejimp%,%mamecfgloc%
+filedelete,%emucfgloc%
+fileappend,%mamejimp%,%emucfgloc%
 gosub, mameswap
 return
 
@@ -62426,8 +62657,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%mamecfgloc%
-fileappend,%mamejimp%,%mamecfgloc%
+filedelete,%emucfgloc%
+fileappend,%mamejimp%,%emucfgloc%
 gosub, mameswap
 return
 
@@ -62445,8 +62676,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%mamecfgloc%
-fileappend,%mamejimp%,%mamecfgloc%
+filedelete,%emucfgloc%
+fileappend,%mamejimp%,%emucfgloc%
 gosub, mameswap
 return
 
@@ -62464,8 +62695,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%mamecfgloc%
-fileappend,%mamejimp%,%mamecfgloc%
+filedelete,%emucfgloc%
+fileappend,%mamejimp%,%emucfgloc%
 gosub, mameswap
 return
 
@@ -62483,8 +62714,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%mamecfgloc%
-fileappend,%mamejimp%,%mamecfgloc%
+filedelete,%emucfgloc%
+fileappend,%mamejimp%,%emucfgloc%
 gosub, mameswap
 return
 
@@ -62502,8 +62733,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%mamecfgloc%
-fileappend,%mamejimp%,%mamecfgloc%
+filedelete,%emucfgloc%
+fileappend,%mamejimp%,%emucfgloc%
 gosub, mameswap
 return
 
@@ -62521,8 +62752,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%mamecfgloc%
-fileappend,%mamejimp%,%mamecfgloc%
+filedelete,%emucfgloc%
+fileappend,%mamejimp%,%emucfgloc%
 gosub, mameswap
 return
 
@@ -62540,8 +62771,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%mamecfgloc%
-fileappend,%mamejimp%,%mamecfgloc%
+filedelete,%emucfgloc%
+fileappend,%mamejimp%,%emucfgloc%
 gosub, mameswap
 return
 
@@ -62559,8 +62790,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%mamecfgloc%
-fileappend,%mamejimp%,%mamecfgloc%
+filedelete,%emucfgloc%
+fileappend,%mamejimp%,%emucfgloc%
 gosub, mameswap
 return
 
@@ -62578,8 +62809,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%mamecfgloc%
-fileappend,%mamejimp%,%mamecfgloc%
+filedelete,%emucfgloc%
+fileappend,%mamejimp%,%emucfgloc%
 gosub, mameswap
 return
 
@@ -62597,8 +62828,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%mamecfgloc%
-fileappend,%mamejimp%,%mamecfgloc%
+filedelete,%emucfgloc%
+fileappend,%mamejimp%,%emucfgloc%
 gosub, mameswap
 return
 
@@ -62616,8 +62847,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%mamecfgloc%
-fileappend,%mamejimp%,%mamecfgloc%
+filedelete,%emucfgloc%
+fileappend,%mamejimp%,%emucfgloc%
 gosub, mameswap
 return
 
@@ -62635,8 +62866,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%mamecfgloc%
-fileappend,%mamejimp%,%mamecfgloc%
+filedelete,%emucfgloc%
+fileappend,%mamejimp%,%emucfgloc%
 gosub, mameswap
 return
 
@@ -62654,8 +62885,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%mamecfgloc%
-fileappend,%mamejimp%,%mamecfgloc%
+filedelete,%emucfgloc%
+fileappend,%mamejimp%,%emucfgloc%
 gosub, mameswap
 return
 
@@ -62673,8 +62904,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%mamecfgloc%
-fileappend,%mamejimp%,%mamecfgloc%
+filedelete,%emucfgloc%
+fileappend,%mamejimp%,%emucfgloc%
 gosub, mameswap
 return
 
@@ -62692,8 +62923,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%mamecfgloc%
-fileappend,%mamejimp%,%mamecfgloc%
+filedelete,%emucfgloc%
+fileappend,%mamejimp%,%emucfgloc%
 gosub, mameswap
 return
 
@@ -62711,8 +62942,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%mamecfgloc%
-fileappend,%mamejimp%,%mamecfgloc%
+filedelete,%emucfgloc%
+fileappend,%mamejimp%,%emucfgloc%
 gosub, mameswap
 return
 
@@ -62730,8 +62961,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%mamecfgloc%
-fileappend,%mamejimp%,%mamecfgloc%
+filedelete,%emucfgloc%
+fileappend,%mamejimp%,%emucfgloc%
 gosub, mameswap
 return
 
@@ -62749,8 +62980,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%mamecfgloc%
-fileappend,%mamejimp%,%mamecfgloc%
+filedelete,%emucfgloc%
+fileappend,%mamejimp%,%emucfgloc%
 gosub, mameswap
 return
 
@@ -63467,7 +63698,7 @@ return
 MameSwap:
 guicontrolget,emjDDLB,,emjDDLB
 guicontrolget,emjDDLC,,emjDDLC
-FileRead,mamejimp,%MAMECFGLOC%
+FileRead,mamejimp,%mamejcfgloc%
 mamelkup= 
 rbab= |
 Loop, Parse, mamejimp,`n`r
@@ -63477,240 +63708,153 @@ Loop, Parse, mamejimp,`n`r
 				continue
 			}
 		mdlnval= %A_LoopField%
-		stringleft,skln,A_LoopField,1
-		if (skln = ";")
+		ifinstring,mdlnval,</
 			{
 				continue
 			}
-		aik1=	
-		aik2=	
-		aik3=	
-		aik4=	
-		aik5=	
-		stringsplit,aik,A_LoopField,%A_Space%.
-		if (curmameINPT <> aik4)
+		ifinstring,mdlnval,newseq
 			{
 				continue
 			}
-		stringright,curjport,aik3,1
-		if (curjport <> emjDDLB)
+		mameitbv= %aik5%
+		if (aik5 = mameswapB)
 			{
-				continue
+				mameitbv= B
 			}
-		if ((aik1 = RJMAMENM)&&(aik2 = "input"))
-			{								
-				Loop, Parse, supinp,|
+		if (aik5 = mameswapA)
+			{
+				mameitbv= A
+			}
+		if (aik5 = mameswapX)
+			{
+				mameitbv= X
+			}
+		if (aik5 = mameswapY)
+			{
+				mameitbv= Y
+			}
+		if (aik5 = mameswapSelect)
+			{
+				mameitbv= select
+			}
+		if (aik5 = mameswapStart)
+			{
+				mameitbv= start
+			}
+		if (aik5 = mameswapR3)
+			{
+				mameitbv= r3
+			}
+		if (aik5 = mameswapL3)
+			{
+				mameitbv= l3
+			}
+		if (aik5 = mameswapR2)
+			{
+				mameitbv= r2
+			}
+		if (aik5 = mameswapL2)
+			{
+				mameitbv= l2
+			}
+		if (aik5 = mameswapUp)
+			{
+				mameitbv= up
+			}
+		if (aik5 = mameswapDown)
+			{
+				mameitbv= down
+			}
+		if (aik5 = mameswapLeft)
+			{
+				mameitbv= left
+			}
+		if (aik5 = mameswapRight)
+			{
+				mameitbv= right
+			}
+		if (aik5 = mameswapR)
+			{
+				mameitbv= r
+			}
+		if (aik5 = mameswapL)
+			{
+				mameitbv= l
+			}
+		if (aik5 = mameswapRXMinus)
+			{
+				mameitbv= rxminus
+			}
+		if (aik5 = mameswapRXPlus)
+			{
+				mameitbv= rxplus
+			}
+		if (aik5 = mameswapLXMinus)
+			{
+				mameitbv= lxminus
+			}
+		if (aik5 = mameswapLXPlus)
+			{
+				mameitbv= lxplus
+			}
+		if (aik5 = mameswapRYMinus)
+			{
+				mameitbv= ryminus
+			}
+		if (aik5 = mameswapRYPlus)
+			{
+				mameitbv= ryplus
+			}
+		if (aik5 = mameswapLYMinus)
+			{
+				mameitbv= lyminus
+			}
+		if (aik5 = mameswapLYPlus)
+			{
+				mameitbv= lyplus
+			}
+		if (aik5 = mameswapHome)
+			{
+				mameitbv= home
+			}
+		aip1= 
+		aip2= 
+		aip3= 
+		aip4= 
+		aip5= 
+		aip6= 
+		aip7= 
+		aip8= 
+		stringreplace,iij,mdlnval,%A_Space%,#
+		iiv1=
+		iiv2=
+		stringsplit,iiv,iij,#
+		stringreplace,iik,iiv2,%A_Space%,-,All
+		aisp= %iik%
+		if (emjRAD3B = 1)  ;;joy
+			{
+				Loop,Parse,mamejctrls,`n`r
 					{
-						if (aik4 <> A_LoopField)
-							{
-								continue
-							}
-						mameitbv= %aik5%
-						if (aik5 = mameswapB)
-							{
-								mameitbv= B
-							}
-						if (aik5 = mameswapA)
-							{
-								mameitbv= A
-							}
-						if (aik5 = mameswapX)
-							{
-								mameitbv= X
-							}
-						if (aik5 = mameswapY)
-							{
-								mameitbv= Y
-							}
-						if (aik5 = mameswapSelect)
-							{
-								mameitbv= select
-							}
-						if (aik5 = mameswapStart)
-							{
-								mameitbv= start
-							}
-						if (aik5 = mameswapR3)
-							{
-								mameitbv= r3
-							}
-						if (aik5 = mameswapL3)
-							{
-								mameitbv= l3
-							}
-						if (aik5 = mameswapR2)
-							{
-								mameitbv= r2
-							}
-						if (aik5 = mameswapL2)
-							{
-								mameitbv= l2
-							}
-						if (aik5 = mameswapUp)
-							{
-								mameitbv= up
-							}
-						if (aik5 = mameswapDown)
-							{
-								mameitbv= down
-							}
-						if (aik5 = mameswapLeft)
-							{
-								mameitbv= left
-							}
-						if (aik5 = mameswapRight)
-							{
-								mameitbv= right
-							}
-						if (aik5 = mameswapR)
-							{
-								mameitbv= r
-							}
-						if (aik5 = mameswapL)
-							{
-								mameitbv= l
-							}
-						if (aik5 = mameswapRXMinus)
-							{
-								mameitbv= rxminus
-							}
-						if (aik5 = mameswapRXPlus)
-							{
-								mameitbv= rxplus
-							}
-						if (aik5 = mameswapLXMinus)
-							{
-								mameitbv= lxminus
-							}
-						if (aik5 = mameswapLXPlus)
-							{
-								mameitbv= lxplus
-							}
-						if (aik5 = mameswapRYMinus)
-							{
-								mameitbv= ryminus
-							}
-						if (aik5 = mameswapRYPlus)
-							{
-								mameitbv= ryplus
-							}
-						if (aik5 = mameswapLYMinus)
-							{
-								mameitbv= lyminus
-							}
-						if (aik5 = mameswapLYPlus)
-							{
-								mameitbv= lyplus
-							}
-						if (aik5 = mameswapHome)
-							{
-								mameitbv= home
-							}
-						aip1= 
-						aip2= 
-						aip3= 
-						aip4= 
-						aip5= 
-						aip6= 
-						aip7= 
-						aip8= 
-						stringreplace,iij,mdlnval,%A_Space%,#
-						iiv1=
-						iiv2=
-						stringsplit,iiv,iij,#
-						stringreplace,iik,iiv2,%A_Space%,-,All
-						aisp= %iik%
-						if (emjRAD3B = 1)  ;;joy
-							{
-								jsn= 
-								jprs= 
-								stringreplace,aispx,aisp,-,%A_Space%,All
-								Loop, Parse,aispx,|
-									{
-										ifinstring,A_LoopField,joystick
-											{
-												jsn+= 1
-												if (jsn <> emjDDLC)
-													{
-														continue
-													}
-												stringreplace,avi,A_LoopField,%A_Space%,#
-												stringsplit,uig,avi,%A_Space%
-												mamejcd= %uig3%
-												Loop, Parse, mamexset,`n`r
-													{
-														if (A_LoopField = "")
-															{
-																continue
-															}
-														stringsplit,mjvak,A_LoopField,=]
-														stringreplace,mjvcdp,mjvak4,%A_Space%,,All
-														stringreplace,mav,mjvcdp,-,,All
-														stringreplace,mad,mamejcd,-,,All
-														if (mav = mad)
-															{
-																stringmid,mameitbd,mjvak2,5,13
-																ifnotinstring,mamelkup,%aik5%=
-																	{
-																		mamelkup.= aik5 . "=" mameitbd . "`n"
-																	}
-																guicontrol,,emj%mameitbv%,|%mameitbd%||%mamejbid%
-																stringreplace,mameitbv,mameitbv,-,#,All
-																kmj%mameitbv%= %mdlnval%
-																break
-															}	
-													}
-											}
-										continue
-									}
-								continue
-							}
-						if (emjRAD3A = 1)  ;;kb
-							{
-								ksn= 
-								jprs= 
-								stringreplace,aispx,aisp,-,%A_Space%,All
-								Loop, Parse,aispx,|
-									{
-										ifinstring,A_LoopField,keyboard
-											{
-												ksn+=1
-												if (ksn <> emjDDLC)
-													{
-														continue
-													}
-												stringsplit,uig,A_LoopField,%A_Space%	
-												mknum:= uig3
-												Loop,Parse,mamekbctrls,`n`r
-													{
-														stringsplit,din,A_LoopField,=
-														if (A_LoopField = "")
-															{
-																continue
-															}
-														if (din2 = mknum)
-															{
-																ifnotinstring,mamelkup,%aik5%=
-																	{
-																		mamelkup.= aik5 . "=" din1 . "`n"
-																	}
-																guicontrol,,emj%mameitbv%,|%din1%||%mamejname%
-																stringreplace,mameitbv,mameitbv,-,#,All
-																kmj%mameitbv%= %mdlnval%
-																break
-															}
-													}
-												break	
-											}
-									}
-								
-							}
+						guicontrol,,emj%mameitbv%,|%mameitbd%||%mamejbid%
+						stringreplace,mameitbv,mameitbv,-,#,All
+						kmj%mameitbv%= %mdlnval%
+						break
+					}
+			}	
+		if (emjRAD3A = 1)  ;;kb
+			{								
+				Loop,Parse,mamekbctrls,`n`r
+					{
+						guicontrol,,emj%mameitbv%,|%din1%||%mamejname%
+						stringreplace,mameitbv,mameitbv,-,#,All
+						kmj%mameitbv%= %mdlnval%
+						break
 					}
 			}
 		
 	}
 guicontrol,,INDWRN,%mamelkup%
-Loop, Parse, Medswaps,|
+Loop, Parse, mameswaps,|
 	{
 		fie= % %A_LoopField%
 		stringreplace,fin,A_LoopField,mameswap,,All

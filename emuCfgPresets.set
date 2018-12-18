@@ -1531,7 +1531,7 @@ RJMAMENM=sms
 RJMEDNM=sms
 Fusion?RJEMUOPTS=<-FullScreen -sms<|<-sms<
 RJROMXT=.sms,.bin,.zip
-MAME?RJEMUOPTS=<sms1 -cart<|<sms1br -cart<|<sms1pal -cart<|<sms1paln -cart<|<sg1000m3 -cart<|<sms -cart<
+MAME?RJEMUOPTS=<sms -cart<|<sms1br -cart<|<sms1pal -cart<|<sms1paln -cart<|<sg1000m3 -cart<|<sms1 -cart<
 RJZIPPEEK=0
 
 [Sega - Mega Drive - Genesis]

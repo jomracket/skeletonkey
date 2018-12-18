@@ -7,6 +7,7 @@ SOURCEHOST=http://raw.githubusercontent.com/romjacket/skeletonkey/master/version
 IP_LOOKUP=http://www.netikus.net/show_ip.html
 UPDATEFILE=https://github.com/romjacket/skeletonKey/releases/download/portable/skeletonKey-portable.zip
 
+[REPOSITORIES]
 Acorn - Electron=Acorn_Electronic_TOSEC_2012_04_23/Acorn_Electronic_TOSEC_2012_04_23.zip/
 Acorn - BBC=Acorn_BBC_TOSEC_2012_04_23/Acorn_BBC_TOSEC_2012_04_23.zip/
 Amstrad - CPC=Amstrad_CPC_TOSEC_2012_04_23/Amstrad_CPC_TOSEC_2012_04_23.zip/
