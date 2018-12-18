@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-12-17 4:54 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-12-17 6:46 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2018-12-17 4:54 PM
-VERSION= 0.99.68.74
+RELEASE= 2018-12-17 6:46 PM
+VERSION= 0.99.68.75
 RASTABLE= 1.7.5
 
 #Include tf.ahk
@@ -60889,16 +60889,16 @@ if (curmameINPT = "")
 guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4
 
 supinp= gamepad
-mameswapB= button1
-mameswapA= button2
+mameswapB= _BUTTON1
+mameswapA= _BUTTON2
 mameswapX= 
 mameswapY= 
-mameswapStart= start
+mameswapStart= _BUTTON8
 mameswapSelect= 
-mameswapDown= down
-mameswapUp= up
-mameswapLeft= left
-mameswapRight= right
+mameswapDown= _DPADDOWN
+mameswapUp= _DPADUP
+mameswapLeft= _DPADLEFT
+mameswapRight= _DPADRIGHT
 mameswapL= 
 mameswapR= 
 mameswapL2= 
@@ -60946,16 +60946,16 @@ if (curmameINPT = "")
 guicontrol,,emjDDLB,|n||
 
 supinp= gamepad
-mameswapB= button1
-mameswapA= button2
+mameswapB= _BUTTON1
+mameswapA= _BUTTON2
 mameswapX= 
 mameswapY= 
-mameswapStart= start
+mameswapStart= _BUTTON8
 mameswapSelect= 
-mameswapDown= down
-mameswapUp= up
-mameswapLeft= left
-mameswapRight= right
+mameswapDown= _DPADDOWN
+mameswapUp= _DPADUP
+mameswapLeft= _DPADLEFT
+mameswapRight= _DPADRIGHT
 mameswapL= 
 mameswapR= 
 mameswapL2= 
@@ -61000,16 +61000,16 @@ if (curmameINPT = "")
 guicontrol,,emjDDLB,|n||
 
 supinp= gamepad
-mameswapB= a
-mameswapA= b
+mameswapB= _BUTTON1
+mameswapA= _BUTTON2
 mameswapX= 
 mameswapY= 
-mameswapStart= start
-mameswapSelect= select
-mameswapDown= down
-mameswapUp= up
-mameswapLeft= left
-mameswapRight= right
+mameswapStart= _BUTTON8
+mameswapSelect= _BUTTON7
+mameswapDown= _DPADDOWN
+mameswapUp= _DPADUP
+mameswapLeft= _DPADLEFT
+mameswapRight= _DPADRIGHT
 mameswapL= 
 mameswapR= 
 mameswapL2= 
@@ -61053,18 +61053,18 @@ if (curmameINPT = "")
 guicontrol,,emjDDLB,|n||
 
 supinp= gamepad
-mameswapB= a
-mameswapA= b
-mameswapX= y
-mameswapY= x
-mameswapStart= start
-mameswapSelect= select
-mameswapDown= down
-mameswapUp= up
-mameswapLeft= left
-mameswapRight= right
-mameswapL= shoulder_l
-mameswapR= shoulder_r
+mameswapB= _BUTTON1
+mameswapA= _BUTTON2
+mameswapX= _BUTTON3
+mameswapY= _BUTTON4
+mameswapStart= _BUTTON8
+mameswapSelect= _BUTTON7
+mameswapDown= _DPADDOWN
+mameswapUp= _DPADUP
+mameswapLeft= _DPADLEFT
+mameswapRight= _DPADRIGHT
+mameswapL= _BUTTON5
+mameswapR= _BUTTON6
 mameswapL2= 
 mameswapR2= 
 mameswapR3= 
@@ -61106,18 +61106,18 @@ if (curmameINPT = "")
 guicontrol,,emjDDLB,|n||
 
 supinp= gamepad
-mameswapB= a
-mameswapA= b
-mameswapX= option_1
-mameswapY= option_2
-mameswapStart= pause
-mameswapSelect= 
-mameswapDown= down
-mameswapUp= up
-mameswapLeft= left
-mameswapRight= right
-mameswapL= 
-mameswapR= 
+mameswapB= _BUTTON1
+mameswapA= _BUTTON2
+mameswapX= _BUTTON3
+mameswapY= _BUTTON4
+mameswapStart= _BUTTON8
+mameswapSelect= _BUTTON7
+mameswapDown= _DPADDOWN
+mameswapUp= _DPADUP
+mameswapLeft= _DPADLEFT
+mameswapRight= _DPADRIGHT
+mameswapL=
+mameswapR=
 mameswapL2= 
 mameswapR2= 
 mameswapR3= 
@@ -61160,16 +61160,16 @@ if (curmameINPT = "")
 guicontrol,,emjDDLB,|n||
 
 supinp= gamepad
-mameswapB= a
-mameswapA= b
+mameswapB= _BUTTON1
+mameswapA= _BUTTON2
 mameswapX= 
 mameswapY= 
-mameswapStart= option
+mameswapStart= _BUTTON8
 mameswapSelect= 
-mameswapDown= down
-mameswapUp= up
-mameswapLeft= left
-mameswapRight= right
+mameswapDown= _DPADDOWN
+mameswapUp= _DPADUP
+mameswapLeft= _DPADLEFT
+mameswapRight= _DPADRIGHT
 mameswapL= 
 mameswapR= 
 mameswapL2= 
@@ -61218,18 +61218,18 @@ if (curmameINPT = "")
 guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4
 
 supinp= gamepad|gamepad6
-mameswapB= x
-mameswapA= a
-mameswapX= c
-mameswapY= b
-mameswapStart= start
-mameswapSelect= mode
-mameswapDown= down
-mameswapUp= up
-mameswapLeft= left
-mameswapRight= right
-mameswapL= y
-mameswapR= z
+mameswapB= _BUTTON1
+mameswapA= _BUTTON2
+mameswapX= _BUTTON3
+mameswapY= _BUTTON4
+mameswapStart= _BUTTON8
+mameswapSelect= _BUTTON7
+mameswapDown= _DPADDOWN
+mameswapUp= _DPADUP
+mameswapLeft= _DPADLEFT
+mameswapRight= _DPADRIGHT
+mameswapL= _BUTTON5
+mameswapR= _BUTTON6
 mameswapL2= 
 mameswapR2= 
 mameswapR3= 
@@ -61273,16 +61273,16 @@ if (curmameINPT = "")
 guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4|5|6|7|8
 
 supinp= gamepad
-mameswapB= a
+mameswapB= _BUTTON1
 mameswapA= 
-mameswapX= b
+mameswapX= _BUTTON2
 mameswapY= 
-mameswapStart= start
-mameswapSelect= select
-mameswapDown= down	
-mameswapUp= up
-mameswapLeft= left
-mameswapRight= right
+mameswapStart= _BUTTON8
+mameswapSelect= _BUTTON7
+mameswapDown= _DPADDOWN
+mameswapUp= _DPADUP
+mameswapLeft= _DPADLEFT
+mameswapRight= _DPADRIGHT
 mameswapL= 
 mameswapR= 
 mameswapL2= 
@@ -61329,21 +61329,21 @@ if (curmameINPT = "")
 guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4|5|6|7|8
 
 supinp= gamepad
-mameswapB= i
-mameswapA= ii
-mameswapX= iii
-mameswapY= iv
-mameswapStart= run
-mameswapSelect= select
-mameswapDown= down
-mameswapUp= up
-mameswapLeft= left
-mameswapRight= right
-mameswapL= v
-mameswapR= vi
+mameswapB= _BUTTON1
+mameswapA= _BUTTON2
+mameswapX= _BUTTON3
+mameswapY= _BUTTON4
+mameswapStart= _BUTTON8
+mameswapSelect= _BUTTON7
+mameswapDown= _DPADDOWN
+mameswapUp= _DPADUP
+mameswapLeft= _DPADLEFT
+mameswapRight= _DPADRIGHT
+mameswapL= _BUTTON5
+mameswapR= _BUTTON6
 mameswapL2= 
 mameswapR2= 
-mameswapR3= mode_select
+mameswapR3= _BUTTON10
 mameswapL3= 
 mameswapLXMinus= 
 mameswapRXMinus= 
@@ -61382,21 +61382,21 @@ if (curmameINPT = "")
 guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4|5|6|7|8
 
 supinp= gamepad
-mameswapB= i
-mameswapA= ii
-mameswapX= iii
-mameswapY= iv
-mameswapStart= run
-mameswapSelect= select
-mameswapDown= down
-mameswapUp= up
-mameswapLeft= left
-mameswapRight= right
-mameswapL= v
-mameswapR= vi
+mameswapB= _BUTTON1
+mameswapA= _BUTTON2
+mameswapX= _BUTTON3
+mameswapY= _BUTTON4
+mameswapStart= _BUTTON8
+mameswapSelect= _BUTTON7
+mameswapDown= _DPADDOWN
+mameswapUp= _DPADUP
+mameswapLeft= _DPADLEFT
+mameswapRight= _DPADRIGHT
+mameswapL= _BUTTON5
+mameswapR= _BUTTON6
 mameswapL2= 
 mameswapR2= 
-mameswapR3= mode_select
+mameswapR3= _BUTTON10
 mameswapL3= 
 mameswapLXMinus= 
 mameswapRXMinus= 
@@ -61435,22 +61435,22 @@ if (curmameINPT = "")
 guicontrol,,emjDDLB|%emjddlb%||1|2|3|4
 
 supinp= gamepad
-mameswapB= i
-mameswapA= ii
-mameswapX= iii
-mameswapY= iv
-mameswapStart= run
-mameswapSelect= 
-mameswapDown= down
-mameswapUp= up
-mameswapLeft= left
-mameswapRight= right
-mameswapL= v
-mameswapR= vi
+mameswapB= _BUTTON1
+mameswapA= _BUTTON2
+mameswapX= _BUTTON3
+mameswapY= _BUTTON4
+mameswapStart= _BUTTON8
+mameswapSelect= _BUTTON7
+mameswapDown= _DPADDOWN
+mameswapUp= _DPADUP
+mameswapLeft= _DPADLEFT
+mameswapRight= _DPADRIGHT
+mameswapL= _BUTTON5
+mameswapR= _BUTTON6
 mameswapL2= 
 mameswapR2= 
-mameswapR3= mode1
-mameswapL3= mode2
+mameswapR3= _BUTTON10
+mameswapL3= _BUTTON9
 mameswapLXMinus= 
 mameswapRXMinus= 
 mameswapRXPlus= 
@@ -61488,30 +61488,30 @@ if (curmameINPT = "")
 guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4|5|6|7|8
 
 supinp= gamepad|dualshock
-mameswapB= cross
-mameswapA= circle
-mameswapX= square
-mameswapY= triangle
-mameswapStart= start
-mameswapSelect= select
-mameswapDown= down
-mameswapUp= up
-mameswapLeft= left
-mameswapRight= right
-mameswapL= l1
-mameswapR= r1
-mameswapL2= l2
-mameswapR2= r2
-mameswapR3= r3
-mameswapL3= l3
-mameswapLXMinus= lstick_left
-mameswapRXMinus= rstick_left
-mameswapRXPlus= rstick_right
-mameswapLXPlus= lstick_right
-mameswapLYPlus= lstick_up
-mameswapLYMinus= lstick_down
-mameswapRYPlus= rstick_up
-mameswapRYMinus= rstick_down
+mameswapB= _BUTTON1
+mameswapA= _BUTTON2
+mameswapX= _BUTTON3
+mameswapY= _BUTTON4
+mameswapStart= _BUTTON8
+mameswapSelect= _BUTTON7
+mameswapDown= _DPADDOWN
+mameswapUp= _DPADUP
+mameswapLeft= _DPADLEFT
+mameswapRight= _DPADRIGHT
+mameswapL= _BUTTON5
+mameswapR= _BUTTON6
+mameswapL2= _ZAXIS_NEG_SWITCH
+mameswapR2= _RZAXIS_NEG_SWITCH
+mameswapR3= _BUTTON10
+mameswapL3= _BUTTON9
+mameswapLXMinus= _XAXIS_LEFT_SWITCH
+mameswapRXMinus= _RXAXIS_NEG_SWITCH
+mameswapRXPlus= _RXAXIS_POS_SWITCH
+mameswapLXPlus= _XAXIS_RIGHT_SWITCH
+mameswapLYPlus= _YAXIS_UP_SWITCH
+mameswapLYMinus= _YAXIS_DOWN_SWITCH
+mameswapRYPlus= _RYAXIS_NEG_SWITCH
+mameswapRYMinus= _RYAXIS_POS_SWITCH
 mameswapHome= 
 
 MameSwapATXT= o
@@ -61543,16 +61543,16 @@ if (curmameINPT = "")
 guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4
 
 supinp= gamepad
-mameswapB= fire1
-mameswapA= fire2
+mameswapB= _BUTTON1
+mameswapA= _BUTTON2
 mameswapX= 
 mameswapY= 
-mameswapStart= pause
+mameswapStart= _BUTTON8
 mameswapSelect= 
-mameswapDown= down
-mameswapUp= up
-mameswapLeft= left
-mameswapRight= right
+mameswapDown= _DPADDOWN
+mameswapUp= _DPADUP
+mameswapLeft= _DPADLEFT
+mameswapRight= _DPADRIGHT
 mameswapL= 
 mameswapR= 
 mameswapL2= 
@@ -61597,18 +61597,18 @@ if (curmameINPT = "")
 guicontrol,,emjDDLB|%emjddlb%||1|2|3|4|5|6|7|8
 
 supinp= gamepad
-mameswapB= a
-mameswapA= b
-mameswapX= y
-mameswapY= x
-mameswapStart= start
-mameswapSelect= select
-mameswapDown= down
-mameswapUp= up
-mameswapLeft= left
-mameswapRight= right
-mameswapL= l
-mameswapR= r
+mameswapB= _BUTTON1
+mameswapA= _BUTTON2
+mameswapX= _BUTTON3
+mameswapY= _BUTTON4
+mameswapStart= _BUTTON8
+mameswapSelect= _BUTTON7
+mameswapDown= _DPADDOWN
+mameswapUp= _DPADUP
+mameswapLeft= _DPADLEFT
+mameswapRight= _DPADRIGHT
+mameswapL= _BUTTON5
+mameswapR= _BUTTON6
 mameswapL2= 
 mameswapR2= 
 mameswapR3= 
@@ -61651,28 +61651,28 @@ if (curmameINPT = "")
 guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4|5|6|7|8
 
 supinp= gamepad|3dpad
-mameswapB= a
-mameswapA= b
-mameswapX= c
-mameswapY= x
-mameswapStart= start
-mameswapSelect= mode
-mameswapDown= down
-mameswapUp= up
-mameswapLeft= left
-mameswapRight= right
-mameswapL= y
-mameswapR= z
-mameswapL2= ls
-mameswapR2= rs
+mameswapB= _BUTTON1
+mameswapA= _BUTTON2
+mameswapX= _BUTTON3
+mameswapY= _BUTTON4
+mameswapStart= _BUTTON8
+mameswapSelect= _BUTTON7
+mameswapDown= _DPADDOWN
+mameswapUp= _DPADUP
+mameswapLeft= _DPADLEFT
+mameswapRight= _DPADRIGHT
+mameswapL= _BUTTON5
+mameswapR= _BUTTON6
+mameswapL2= _ZAXIS_NEG_SWITCH
+mameswapR2= _RZAXIS_NEG_SWITCH
 mameswapR3= 
 mameswapL3= 
-mameswapLXMinus= analog_left
+mameswapLXMinus= _XAXIS_LEFT_SWITCH
 mameswapRXMinus= 
 mameswapRXPlus= 
-mameswapLXPlus= analog_right
-mameswapLYPlus= analog_up
-mameswapLYMinus= analog_down
+mameswapLXPlus= _XAXIS_RIGHT_SWITCH
+mameswapLYPlus= _YAXIS_UP_SWITCH
+mameswapLYMinus= _YAXIS_DOWN_SWITCH
 mameswapRYPlus= 
 mameswapRYMinus= 
 mameswapHome= 
@@ -61704,30 +61704,30 @@ if (curmameINPT = "")
 guicontrol,,emjDDLB,|n||
 
 supinp= gamepad
-mameswapB= a
-mameswapA= b
+mameswapB= _BUTTON1
+mameswapA= _BUTTON2
 mameswapX= 
 mameswapY= 
-mameswapStart= start
-mameswapSelect= select
-mameswapDown= down-l
-mameswapUp= up-l
-mameswapLeft= left-l
-mameswapLeft= right-l
+mameswapStart= _BUTTON8
+mameswapSelect= _BUTTON7
+mameswapDown= _DPADDOWN
+mameswapUp= _DPADUP
+mameswapLeft= _DPADLEFT
+mameswapRight= _DPADRIGHT
 mameswapL= 
 mameswapR= 
 mameswapL2= 
 mameswapR2= 
-mameswapR3= rt
+mameswapR3= _BUTTON10
 mameswapL3= 
 mameswapLXMinus= 
 mameswapLXPlus= 
 mameswapLYPlus= 
 mameswapLYMinus= 
-mameswapRXMinus= left-r
-mameswapRXPlus= right-r
-mameswapRYPlus= up-r
-mameswapRYMinus= down-r
+mameswapRXMinus= _RXAXIS_NEG_SWITCH
+mameswapRXPlus= _RXAXIS_POS_SWITCH
+mameswapRYPlus= _RYAXIS_NEG_SWITCH
+mameswapRYMinus= _RYAXIS_POS_SWITCH
 mameswapHome= 
 
 MameSwapATXT= a
@@ -61758,15 +61758,15 @@ if (curmameINPT = "")
 guicontrol,,emjDDLB,|n||
 
 supinp= gamepad|gamepadraa
-mameswapStart= start
-mameswapDown= down-x
-mameswapUp= up-x
-mameswapLeft= left-x
-mameswapRight= right-x
-mameswapRXPlus= right-y
-mameswapRXMinus= left-y
-mameswapRYPlus= up-y
-mameswapRYMinus= down-y
+mameswapStart= _BUTTON8
+mameswapDown= _DPADDOWN
+mameswapUp= _DPADUP
+mameswapLeft= _DPADLEFT
+mameswapRight= _DPADRIGHT
+mameswapRXMinus= _RXAXIS_NEG_SWITCH
+mameswapRXPlus= _RXAXIS_POS_SWITCH
+mameswapLYMinus= _YAXIS_DOWN_SWITCH
+mameswapRYPlus= _RYAXIS_NEG_SWITCH
 mameswapB= a
 mameswapA= b
 mameswapX= 
@@ -62150,30 +62150,31 @@ if (curmameINPT = "")
 guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4|5|6|7|8
 
 supinp= gamepad|keyboard
-mameswapB= cross
-mameswapA= circle
-mameswapX= square
-mameswapY= triangle
-mameswapStart= start
-mameswapSelect= select
-mameswapDown= down
-mameswapUp= up
-mameswapLeft= left
-mameswapRight= right
-mameswapL= l1
-mameswapR= r1
-mameswapL2= l2
-mameswapR2= r2
-mameswapR3= r3
-mameswapL3= l3
-mameswapLXMinus= lstick_left
-mameswapRXMinus= rstick_left
-mameswapRXPlus= rstick_right
-mameswapLXPlus= lstick_right
-mameswapLYPlus= lstick_up
-mameswapLYMinus= lstick_down
-mameswapRYPlus= rstick_up
-mameswapRYMinus= rstick_down
+mameswapB= _BUTTON1
+mameswapA= _BUTTON2
+mameswapX= _BUTTON3
+mameswapY= _BUTTON4
+mameswapStart= _BUTTON8
+mameswapSelect= _BUTTON7
+mameswapDown= _DPADDOWN
+mameswapUp= _DPADUP
+mameswapLeft= _DPADLEFT
+mameswapRight= _DPADRIGHT
+mameswapL= _BUTTON5
+mameswapR= _BUTTON6
+mameswapL2= _ZAXIS_NEG_SWITCH
+mameswapR2= _RZAXIS_NEG_SWITCH
+mameswapR3= _BUTTON10
+mameswapL3= _BUTTON9
+mameswapLXMinus= _XAXIS_LEFT_SWITCH
+mameswapRXMinus= _RXAXIS_NEG_SWITCH
+mameswapRXPlus= _RXAXIS_POS_SWITCH
+mameswapLXPlus= _XAXIS_RIGHT_SWITCH
+mameswapLYPlus= _YAXIS_UP_SWITCH
+mameswapLYMinus= _YAXIS_DOWN_SWITCH
+mameswapRYPlus= _RYAXIS_NEG_SWITCH
+mameswapRYMinus= _RYAXIS_POS_SWITCH
+mameswapHome= 
 mameswapHome= 
 
 MameSwapATXT= o
@@ -63088,7 +63089,7 @@ Loop, Parse, orj,#
 						continue
 					}
 				orzf.= A_LoopField
-				Loop, Parse, mamexset,`n`r
+				Loop, Parse, mamejbuts,`n`r
 					{
 						if (A_LoopField = "")
 							{
@@ -63701,139 +63702,154 @@ guicontrolget,emjDDLC,,emjDDLC
 FileRead,mamejimp,%mamejcfgloc%
 mamelkup= 
 rbab= |
+mjnv= 
 Loop, Parse, mamejimp,`n`r
 	{
-		if (A_LoopField = "")
+		ifnotinstring,A_LoopField,port tag
 			{
 				continue
 			}
+		mjnv:= A_Index + 2	
 		mdlnval= %A_LoopField%
-		ifinstring,mdlnval,</
+		stringsplit,aik,mdlnval,=,<>:%A_Space%"
+		;"
+		mamenvl= 
+		Loop,%aik0%
 			{
-				continue
+				avk:= a_index + 1
+				lsv= aik%A_Index%
+				if (lsv = "type")
+					{
+						aiknv= % aik%avk%
+						stringsplit,injn,aiknv,%A_Space%,"
+						;"
+						kvir1=
+						kvir2=
+						kvir3=
+						kvir4=
+						kvir5=
+						kvir6=
+						stringsplit,kvir,injn1,_
+						Loop, %kvir%
+							{
+								if (A_Index = 1)
+									{
+										continue
+									}
+								mamenvx= % (kvir%a_index%)
+								mamenvl.= "_" . mamenvx
+							}
+						if (kvir2 = "")
+							{
+								mamenvl= "_" . kvir1
+							}
+						filereadline,mameitbv,%mamejcfgloc%,%mjnv%
+						P%emjddlc%%mameitbv%= %mamenvl%
+					}
 			}
-		ifinstring,mdlnval,newseq
-			{
-				continue
-			}
-		mameitbv= %aik5%
-		if (aik5 = mameswapB)
+		if (mamenvl = mameswapB)
 			{
 				mameitbv= B
 			}
-		if (aik5 = mameswapA)
+		if (mamenvl = mameswapA)
 			{
 				mameitbv= A
 			}
-		if (aik5 = mameswapX)
+		if (mamenvl = mameswapX)
 			{
 				mameitbv= X
 			}
-		if (aik5 = mameswapY)
+		if (mamenvl = mameswapY)
 			{
 				mameitbv= Y
 			}
-		if (aik5 = mameswapSelect)
+		if (mamenvl = mameswapSelect)
 			{
 				mameitbv= select
 			}
-		if (aik5 = mameswapStart)
+		if (mamenvl = mameswapStart)
 			{
 				mameitbv= start
 			}
-		if (aik5 = mameswapR3)
+		if (mamenvl = mameswapR3)
 			{
 				mameitbv= r3
 			}
-		if (aik5 = mameswapL3)
+		if (mamenvl = mameswapL3)
 			{
 				mameitbv= l3
 			}
-		if (aik5 = mameswapR2)
+		if (mamenvl = mameswapR2)
 			{
 				mameitbv= r2
 			}
-		if (aik5 = mameswapL2)
+		if (mamenvl = mameswapL2)
 			{
 				mameitbv= l2
 			}
-		if (aik5 = mameswapUp)
+		if (mamenvl = mameswapUp)
 			{
 				mameitbv= up
 			}
-		if (aik5 = mameswapDown)
+		if (mamenvl = mameswapDown)
 			{
 				mameitbv= down
 			}
-		if (aik5 = mameswapLeft)
+		if (mamenvl = mameswapLeft)
 			{
 				mameitbv= left
 			}
-		if (aik5 = mameswapRight)
+		if (mamenvl = mameswapRight)
 			{
 				mameitbv= right
 			}
-		if (aik5 = mameswapR)
+		if (mamenvl = mameswapR)
 			{
 				mameitbv= r
 			}
-		if (aik5 = mameswapL)
+		if (mamenvl = mameswapL)
 			{
 				mameitbv= l
 			}
-		if (aik5 = mameswapRXMinus)
+		if (mamenvl = mameswapRXMinus)
 			{
 				mameitbv= rxminus
 			}
-		if (aik5 = mameswapRXPlus)
+		if (mamenvl = mameswapRXPlus)
 			{
 				mameitbv= rxplus
 			}
-		if (aik5 = mameswapLXMinus)
+		if (mamenvl = mameswapLXMinus)
 			{
 				mameitbv= lxminus
 			}
-		if (aik5 = mameswapLXPlus)
+		if (mamenvl = mameswapLXPlus)
 			{
 				mameitbv= lxplus
 			}
-		if (aik5 = mameswapRYMinus)
+		if (mamenvl = mameswapRYMinus)
 			{
 				mameitbv= ryminus
 			}
-		if (aik5 = mameswapRYPlus)
+		if (mamenvl = mameswapRYPlus)
 			{
 				mameitbv= ryplus
 			}
-		if (aik5 = mameswapLYMinus)
+		if (mamenvl = mameswapLYMinus)
 			{
 				mameitbv= lyminus
 			}
-		if (aik5 = mameswapLYPlus)
+		if (mamenvl = mameswapLYPlus)
 			{
 				mameitbv= lyplus
 			}
-		if (aik5 = mameswapHome)
+		if (mamenvl = mameswapHome)
 			{
 				mameitbv= home
 			}
-		aip1= 
-		aip2= 
-		aip3= 
-		aip4= 
-		aip5= 
-		aip6= 
-		aip7= 
-		aip8= 
-		stringreplace,iij,mdlnval,%A_Space%,#
-		iiv1=
-		iiv2=
-		stringsplit,iiv,iij,#
-		stringreplace,iik,iiv2,%A_Space%,-,All
-		aisp= %iik%
 		if (emjRAD3B = 1)  ;;joy
 			{
-				Loop,Parse,mamejctrls,`n`r
+				Loop,Parse,mamejbuts,`n`r
 					{
 						guicontrol,,emj%mameitbv%,|%mameitbd%||%mamejbid%
 						stringreplace,mameitbv,mameitbv,-,#,All
