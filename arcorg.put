@@ -7,6 +7,10 @@ SOURCEHOST=[SOURCEHOST]
 IP_LOOKUP=[IPLK]
 UPDATEFILE=[UPDATEFILE]
 
+[SOURCES]
+Archive=http://archive.org/download
+the-eye=https://the-eye.eu/public/rom
+
 [REPOSITORIES]
 Acorn - Electron=Acorn_Electronic_TOSEC_2012_04_23/Acorn_Electronic_TOSEC_2012_04_23.zip/
 Acorn - BBC=Acorn_BBC_TOSEC_2012_04_23/Acorn_BBC_TOSEC_2012_04_23.zip/

@@ -189,6 +189,10 @@ RJPOSTCFG=copy /y "%EMUL%\Altirra.ini" "%GAMDIR%"
 RJRUNDIR=1
 RJLNCHP=0
 
+[SameBoy]
+RJRUNDIR=1
+RJLNCHP=0
+
 [StreetsOfRageRemake]
 RJRUNDIR=1
 RJLNCHP=0
@@ -1531,7 +1535,7 @@ RJMAMENM=sms
 RJMEDNM=sms
 Fusion?RJEMUOPTS=<-FullScreen -sms<|<-sms<
 RJROMXT=.sms,.bin,.zip
-MAME?RJEMUOPTS=<sms -cart<|<sms1br -cart<|<sms1pal -cart<|<sms1paln -cart<|<sg1000m3 -cart<|<sms1 -cart<
+MAME?RJEMUOPTS=<sms -cart<|<sms1br -cart<|<sms1pal -cart<|<sms1paln -cart<|<sg1000m3 -cart<|<smsj -cart<|<smspal -cart<|<sms1 -cart<
 RJZIPPEEK=0
 
 [Sega - Mega Drive - Genesis]

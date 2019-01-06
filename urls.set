@@ -361,6 +361,7 @@ rpcs3|rpcs3/rpcs3.7z
 rx78|rx78/rx78.7z
 ryujinx|ryujinx/ryujinx.7z
 sainT|sainT/sainT.7z
+sameboy|sameboy/sameboy.7z
 sc3000|sc3000/sc3000.7z
 SCP|SCP/SCP.7z
 scummvm|scummvm/scummvm.7z
@@ -484,7 +485,7 @@ ROM_Collection_Browser|ROM_Collection_Browser/ROM_Collection_Browser.7z
 XBMC_Kodi|XBMC_Kodi/XBMC.7z
 GameBrowser/Plugin.zip
 cabrio|cabrio/carousel.7z
-VideoBD/VideoBD.zip
+VideoBD|VideoBD/VideoBD.zip
 
 CabrioFE|CabrioFE/CabrioFE.7z
 emulationStation|emulationStation/emulationStation.7z
@@ -495,6 +496,8 @@ MediaBrowser|MediaBrowser/MediaBrowser.7z
 retroFE|retroFE/retroFE.7z
 WMC|WMC/WindowsMediaCenter.7z
 pegasus|pegasus/pegasus.7z
+NARL|NARL/NARL.7z
+bottlnose|bottlenose/bottlenose.7z
 
 Daemon_Tools|Daemon_Tools/DTLite.7z
 antimicro|antimicro/antimicro-[ARCH].7z

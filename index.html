@@ -16,8 +16,6 @@
   <li><a href="#ROMJACKETS">ROM-JACKETS</a></li>
   <li><a href="#NETPLAY">NETPLAY</a></li>
   <li><a href="#UTILITIES">UTILITIES</a></li>
-  <li class="dropdown"><button class="dropbtn" onclick="ddFunction()">HELP </button>
-	<div class="dropdown-content" id="myDropdown"> <a href="#TUTORIALS">Tutorials</a> <a href="#FAQS">FAQs</a> <a href="#RESOURCES">Resources</a></div></li>
 	
   <li class="icon">
     <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
@@ -121,8 +119,8 @@
 	</div>
 	<div id="outer" align="left">
 		<div id="inner">
-			<h3>To Do:</h3>MAME joystick mappings, softlist support. Cloud-saving. gamepad-driven disk-menus. Distributed aria2 auto-downloading.
 		</div>
+			<h3>To Do:</h3>MAME softlist support. Enhance MAME joystick support for more systems. Cloud-saving. gamepad-driven disk-menus. Aria2 support
 	</div>
 	<div>
 		<a id="TUTORIALS"></a><br>
@@ -243,7 +241,7 @@
 			<p>The settings tab is for the location for your systems, emulators, playlists and other environment-options.</p>
 			<div id="indent">
 			<h4>Auto-Load Per-Game Settings</h4>
-			<p>SkeletonKey will automatically load any per-game settings previously created and create settings for the currently selected title upon launch if none are found.</p>
+			<p>SkeletonKey will automatically load any per-game settings previously created and create settings for the currently selected title upon launch if none are detected.</p>
 			<h4>Systems Directory</h4>
 			<p>By default, ROMs are <em>[categorically]</em> stored by system-name in the <code><em>..[Systems ROOT]</em>\<em>[SYSTEM NAME]</em></code> folder.<br>
 			Repository ROMs will be downloaded to the corresponding system-name which follows the no-intro naming nomenclature.</p>
@@ -303,8 +301,9 @@
 			If .</p>
 			<h3>EMU List</h3>
 			<p>The EMU list is a core/emulator dropdown which contains a list of all cores, all nicknames for system-associations, and all emuators.<br>
-			Changing the core/emulator dropdown will populate the Main tab with options for the emulator/core (if supported) and any load existing settings the title may have.<br>
+			Changing the core/emulator dropdown will dynamically populate the Main tab with options for the emulator/core (if supported) and any load existing settings the title may have.<br>
 			Right-Clicking on this menu enables assignment and configuration.</p>
+			<p>RetroArch, MAME &amp; Mednafen are currently supported.<br></p>
 			<h3>[X] Clear button</h3>
 			<p>Clears all current launch options. Right-click on this to delete ROM settings for the emultor in the EMU List.</p>
 		</div><br>
@@ -504,11 +503,8 @@
 			<h4><a>Repository Options</a></h4>
 			<p>Options to download into a ROM-Jacket, manual overrides and extraction settings for compressed files<br> Most options available in the Main tab's Launch-menu are available.</p>
 			<p>Enabling the &quot;Download Only&quot; option will allow multiple files to be selected and queued.<br>
-			MAME ROM-sets can also be easily accessed, although these often contain ROMs which are incompatible with other emulators.</p>
-			<h3>Global-Prefix</h3>
-			<p>The global-prefix can be overridden to an ftp or http host, allowing for dynamic custom repositories. eg: <code>http://myhost.com/ROMs/No-Intro</code></p>
-			<p>Files in the <em>skeletonkey\gam</em> folder contain <strong><code>.gam</code></strong> files which contain the <u>relative path</u> to global-prefix followed by a pipe (<code><strong> | </strong></code> ) followed by the game-title or name of the ROM. eg: <code>[GLOBALPREFIX]/system-name/game_name.zip|game_title</code></p>
-			<p>A <u>full http url</u> path to the ROM file in a <strong><code>.gam</code></strong> file will override and ignore the global-prefix.</p>
+			Only direct-links are supported, however future releases of skeletonkey will support torrents as well as other redirecting network addresses.<br>
+			MAME ROM-Lists can often contain ROMs which are incompatible with other emulators.  MAME/MESS systems' ROM-Lists should be in a <code>MAME - Systems</code> subdirectory of the <strong>source</strong> folder.</p>
 		</div>
 	</div>
 	<br>
@@ -944,10 +940,9 @@
 				<h5><div align="center">Pay attention to the status bar.<br></div></h5>
 			</footer>
 			<div align="center">
-			<h3>This application is developed on computers intended to be a deterrent for public usage.
+			<h3>This application is developed on a borrowed laptop.
 			<br>
-			Each year this library recycles machines newer than these potatoes.<br>
-			FFS They have Windows XP stickers on them.</h3>
+			<br></h3>
 			</div>
 		</div>
 	</div>

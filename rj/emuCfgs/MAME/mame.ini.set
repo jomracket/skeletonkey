@@ -259,6 +259,18 @@ syncrefresh               0
 monitorprovider           auto
 
 #
+# BGFX POST-PROCESSING OPTIONS
+#
+bgfx_path                 bgfx
+bgfx_backend              auto
+bgfx_debug                0
+bgfx_screen_chains        default
+bgfx_shadow_mask          slot-mask.png
+bgfx_lut                  
+bgfx_avi_name             auto
+
+
+#
 # OSD PER-WINDOW VIDEO OPTIONS
 #
 screen                    auto

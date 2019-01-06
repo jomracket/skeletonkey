@@ -339,6 +339,18 @@ full_screen_contrast      1.0
 full_screen_gamma         1.0
 
 #
+# BGFX POST-PROCESSING OPTIONS
+#
+bgfx_path                 bgfx
+bgfx_backend              auto
+bgfx_debug                0
+bgfx_screen_chains        default
+bgfx_shadow_mask          slot-mask.png
+bgfx_lut                  
+bgfx_avi_name             auto
+
+
+#
 # WINDOWS SOUND OPTIONS
 #
 audio_latency             2

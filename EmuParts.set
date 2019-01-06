@@ -90,6 +90,7 @@ SL9821=SL9821/SL9821.7z=SL9821.exe=
 SNESGT=SNESGT/SNESGT.7z=SNESGT.exe=SNESGT.ini=save\*.sv*=save\*.sram
 SSF=SSF/SSF.7z=SSF.exe=Setting.ini|SSF.ini=SaveStates\*.bin=InternalBackupRam.bin
 SimCoupe=SimCoupe/SimCoupe.7z=SimCoupe.exe=SimCoupe.cfg
+sameboy=sameboy/sameboy.7z=sameboy.exe=
 Stella=Stella/Stella-[ARCH].7z=Stella.exe=stella.ini=*.st0=
 Supermodel=Supermodel/Supermodel-[ARCH].7z=Supermodel.exe=Config\Supermodel.ini=Saves\*.*=NVRAM
 Unz=Unz/Unz.7z=Unz.exe=Unz.ini=*.unz
@@ -387,6 +388,8 @@ IAGL=IAGL/plugin.program.iagl-master.7z=null
 ROM_Collection_Browser=ROM_Collection_Browser/ROM_Collection_Browser.7z=null
 XBMC_Kodi=XBMC_Kodi/XBMC.7z=XBMC.exe=
 CabrioFE=CabrioFE/cabrio.7z=cabrio.exe=
+NARL=NARL/NARL.7z=NARL.exe=
+bottlenose=bottlenose/bottlenose.7z=bottlenose.exe=
 emulationStation=emulationStation/emulationStation.7z=emulationstation.exe=
 Hyperspin=Hyperspin/Hyperspin.7z=Hyperspin.exe=
 ice=ice/ice.7z=ice.exe=

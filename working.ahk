@@ -374,7 +374,6 @@ splitpath, lastcore, coreselv,,,
 IniRead, romf, Settings.ini,GLOBAL,last_rom
 IniRead,ArcSite,Settings.ini,GLOBAL,RemoteRepository
 INIREAD,cloudloc,%ARCORG%,GLOBAL,CLOUDLOC
-;;FileReadline,cloudloc,arcorg.set,1
 iniread,FILT_UNSUP,Settings.ini,GLOBAL,global_filter
 if (FILT_UNSUP = "ERROR")
 	{
@@ -395,15 +394,25 @@ if (ArcSite = "")
 		ArcSite:= cloudloc
 		iniwrite, "%ArcSite%", Settings.ini,GLOBAL,RemoteRepository
 	}
-ifinstring,ArcSite,archive.org
-	{
-		GAMSRCS= gam\Internet-Archive
-	}
-ifinstring,ArcSite,the-eye
-	{
-		GAMSRCS= gam\THE-EYE
-	}
 
+stringsplit,cloudv,arcsite,./,:
+ARCSRC= %cloudv3%
+if (ARCSRC = "www")
+	{
+		ARCSRC= %cloudv4%
+	}
+IniRead,ArcSRCv,%ARCORG%,SOURCES,
+Loop,Parse,Arcsrcv,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ARCSRCx,A_LoopField,=,"
+		;"
+		ARCSRCS.= ARCSRCx1 . "|"
+	}
+GAMSRCS= gam\%ARCSRC%
 LNCHPRIO= Checked
 IniRead, LNCHPT,Settings.ini,GLOBAL,Launcher_Priority
 if (LNCHPT <> 1)
@@ -464,13 +473,14 @@ if (raexefile <> "NOT-FOUND.exe")
 				gosub, resetFILT
 			}
 	}
+
 if (INITIAL = 1)
 	{
 		gosub, DestroySplashGUI
 		SplashImage = emu.png
 		SplashImageGUI(SplashImage, "Center", "Center", true)
 	}
-ARC_USER= Not Set
+ARC_USER= Login Not Set
 IniRead,ARC_USERt,Settings.ini,GLOBAL,archive_login
 if (ARC_USERt <> "ERROR")
 	{
@@ -490,7 +500,7 @@ if (ARC_USERt <> "ERROR")
 	}
 if (INITIAL = 1)
 	{
-		ARC_USER= Not Set
+		ARC_USER= Login Not Set
 		ARC_PASS= *****
 	}
 Loop,Read,fltlist.ini
@@ -549,7 +559,6 @@ gosub, RBLDRUNLST
 if (repoloc = "ERROR")
 	{
 		IniRead,repoloc,%ARCORG%,GLOBAL,HOSTINGURL
-		;;FileReadLine,repoloc,arcorg.set,2
 	}
 FilereadLine,scrsup,supported.set,1
 Loop, Parse, scrsup,/
@@ -1607,12 +1616,17 @@ Menu,ASOCRUN,Add,
 
 Menu, ARCGPCFG, Add, Configure Selected Game, ARCPCFG
 
-Menu, ARCSETB, Add, Edit Base-URL for selected system, ARCEDTBU
-Menu, ARCSETB, Add, Reset Base-URL for selected system, ARCEDTBR
+Menu, ARCSETB, Add, Reset-URL, ARCEDURL
+Menu, ARCSETB, Add, 
+Menu, ARCSETB, Add, Reset-ALL Sources, ARCEDURA
 
 Menu, ARSOCCFG, Add, Configure Association, ARSCFG
 Menu, ARSOCCFG, Add,
-Menu, ARSOCCFG, Add, Reset Paramaters, ARSRST
+Menu, ARSOCCFG, Add, Reset Download/Run Paramaters, ARSRST
+Menu, ARSOCCFG, Add,
+Menu, ARSOCCFG, Add, Edit Base-URL for selected system, ARCEDTBU
+Menu, ARSOCCFG, Add, Reset Base-URL for selected system, ARCEDTBR
+
 
 Menu, ASOCCFG, Add, Configure Association, ASCFG
 Menu,ASOCCFG,Add, 
@@ -2142,7 +2156,7 @@ Gui,Font,%fontXsm% Bold
 
 Gui, Add, GroupBox, x465 y6 w275 h358 vSKRAstch, Skeletonkey-System-Associations
 Gui,Font,%fontXsm% Norm
-Gui, Add, DropDownList, x288 y477 w77 vLNCHPRDDL gLNCHPRDDL hidden,Emulators||retroarch
+Gui, Add, DropDownList, x288 y477 w77 vLNCHPRDDL gLNCHPRDDL hidden,Emulators|retroarch|%addemu%
 Gui, Add, Button, x368 y477 w42 h22 vLNCHPT gLNCHPT hidden,Priority
 Gui, Add, DropDownList, x470 y26 w251 vADDCORE gAddCore, Select_A_System||%reasign%
 Gui, Add, Button, x723 y25 w12 vOPNSYS gOpnSyS,+
@@ -3025,12 +3039,12 @@ Gui, Add, ComboBox, x88 y78 w126 vCUSTMOPT gCustmOpt hidden,|%INJOPT%
 Gui, Add, ComboBox, x218 y78 w123 vCUSTMARG gCustmArg hidden,|
 Gui, Add, CheckBox, x26 y75 w61 h17 vCUSTSWITCH gCustSwitch, switches
 
-Gui, Add, Checkbox, x28 y240 h13 vALTURL gEnableAltUrl, Enable
-Gui, Add, DropDownlist, x88 y258 w225 vUrlTxt gREPOUrlEdt Readonly, %ArcSite%||http://archive.org/download|https://the-eye.eu/public/rom
+Gui, Add, Checkbox, x28 y240 h13 vALTURL gEnableAltUrl, Enable Login
+Gui, Add, DropDownlist, x88 y258 w225 vUrlTxt gREPOUrlEdt Readonly, %ArcSRC%||%ARCSRCS%
+Gui, Add, Button, x326 y258 w18 h18 vALTURLSET gALTURLSET,+
 Gui, Add, Edit, x24 y215 w159 h21 vARCLOGIN gArcLogin disabled,%ARC_USER%
 Gui, Add, Edit, x187 y215 w154 h21 Password vARCPASS gArcPass disabled,%ARC_PASS%
 Gui, Add, CheckBox, x260 y238 h15 vSAVPASS gSavPass disabled, save
-Gui, Add, Text, x80 y240 h13 vARCUTXT, Login
 Gui, Add, Text, x191 y236 h14 vARCPTXT, password
 
 Gui, Add, Edit, x25 y286 w310 h21 vSRCHEDT gSearchInp,
@@ -3662,7 +3676,7 @@ return
 ;{;;;;;;;;;;;;;;;;;;;;;;;;       -o-o-o-o-o-o-o       TOOLTIPS      o-o-o-o-o-o-o-       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ADDNSYS_TT :="Name of the new system"
 ADJS_TT :="Automatically assigns joysticks."
-ALTURL_TT :="Enables URL prefix for remote repositories`n-- Leave this blank if you want to use archive.org --"
+ALTURL_TT :="Enables login-restricted titles"
 ALSLV_TT :="Allows connections in slave mode.  Requires less processing power for client and host,`nbut suffers from network latency."
 ANLDP_TT :="Uses the analog stick as the directional pad for systems without an analog stick"
 APORTNUM_TT :="The open port to your hosting session"
@@ -3670,7 +3684,7 @@ APPARG_TT :="Arguments for the emulator.`nThese are specified after the $ROM`nen
 APPOPT_TT :="Options for the emulator.`nThese are specified after the exe and before the $ROM`nenter ''[CUSTMOPT]'' to allow custom options at runtime"
 ARCCORES_TT :="Select a core to use"
 ARCHOST_TT :="Hosts the selected ROM."
-ARCLOGIN_TT :="Archive.org email addresss login."
+ARCLOGIN_TT :="Repository Login/username/email"
 ARCLNCH_TT :="Play the selected rom using current settings."
 ARCNCT_TT := "Connect to the selected host with the selected Archive.org ROM"
 ARCPASS_TT :="Archive.org login password."
@@ -3814,7 +3828,7 @@ HOSTCORES_TT := "Filter rooms using by core"
 HOSTIP_TT :="Your current IP Address"
 HOSTSWITCH_TT :="Host ROMS."
 LNCHPRDDL_TT :="Sets detected system's emulator-priority"
-LNCHPT_TT :="Assigns all supported systems for the selected emulator"
+LNCHPT_TT :="Assigns all supported systems for the selected emulator`n`n  Selecting *Emulators* will assign the default/preferred emulator `nto the system if available."
 AUTOPGS_TT :="Loads settings saved for the ROM in supported emulators."
 HOVPREV_TT :="Preview images by hovering over the button or dropdown menu."
 HSYNC_TT :="Attempts to hard-synchronize CPU and GPU. Can reduce latency at cost of performance."
@@ -3948,7 +3962,7 @@ RJEDTC_TT :="Filters the ROM-List for all content containing the entered charact
 RJFNDINLST_TT :="Searches and displays content for the current system"
 RJLSTV_TT :="ROM-List`nJackets have a '':'' prefix."
 RJSALITMS_TT :="Selects ALL items in the ROM-List"
-
+AltURLSet_TT :="Adds a Repository"
 RJCHKL_TT :="Deletes Launchers for the selected items in the ROM-List"
 RJCHKM_TT :="Deletes Config Files for the selected items in the ROM-List"
 RJCHKP_TT :="Deletes Joystick Profiles for the selected items in the ROM-List"
@@ -4497,7 +4511,6 @@ if (shdprvsz < 20)
 IfNotExist,%assetsDirectory%\shaderPreviews\%shaderpth%\%shadername%.png
 			{
 				IniRead,shaderHost,%ARCORG%,GLOBAL,SHADERHOST
-				;;FileReadLine,shaderHost,arcorg.set,4
 				URLDownloadToFile,%shaderHost%\%shaderpth%/%shadername%.png,%assetsDirectory%\shaderPreviews\%shaderpth%\%shadername%.png
 			}
 ifnotexist,%assetsDirectory%\shaderPreviews\%shaderpth%\%shadername%.png
@@ -4824,11 +4837,7 @@ If A_GuiControlEvent RightClick
 		}
 	if A_Guicontrol = UrlTxt
 		{
-			guicontrolget,ARCSYS,,ARCSYS
-			if (ARCSYS = "Select a System")
-				{
-					return
-				}
+			guicontrolget,URLTXT,,URLTXT
 			Menu, ARCSETB, Show, %A_GuiX% %A_GuiY%
 			return	
 		}
@@ -5129,6 +5138,30 @@ Loop, Parse, SysEmuSet,`n`r
 			}
 	}
 return	
+
+ARCEDURA:
+gui,submit,nohide
+IniRead,RESZEDA,Arcorg.set,SOURCES
+Loop,parse,RESZEDA,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,vin,A_Loopfield,=
+		iniwrite,%vin2%,%ARCORG%,SOURCES,%vin1%
+	}
+return
+
+ARCEDURL:
+gui,submit,nohide
+guicontrolget,urltxt,,urltxt
+IniRead,RESZEDT,Arcorg.set,SOURCES,%urltxt%
+if (RESZEDT <> "ERROR")
+	{
+		IniWrite,RESZEDT,%ARCORG%,REPOSITORIES,%urltxt%		
+	}
+return
 
 ARCEDTBR:
 gui,submit,nohide
@@ -8920,7 +8953,6 @@ if (coreselz <> "ERROR")
 					{
 						coreselv= %coreselp1%
 						guicontrol,,LCORE,|%coreselv%||%runlista%
-						msgbox,,,kj
 						if (coretmp <> coreselv)
 							{
 								core_gui= 
@@ -10610,6 +10642,7 @@ if (LNCHPRDDL = "retroarch")
 					}
 			}
 	}
+		
 if (LNCHPRDDL <> "retroarch")
 	{
 		Loop, Parse, origsys,`n`r
@@ -10645,6 +10678,10 @@ if (LNCHPRDDL <> "retroarch")
 												continue
 											}
 										if (A_Index = 1)
+											{
+												continue
+											}
+										if ((LNCHPRDDL <> "Emulators")&&(A_LoopField <> LNCHPRDDL))
 											{
 												continue
 											}
@@ -11206,6 +11243,7 @@ stringreplace,dwnlchk,dwnlchk,`%20,%A_Space%,All
 stringreplace,dwnlchk,dwnlchk,`%23,#,All
 stringreplace,dwnlchk,dwnlchk,`%24,$,All
 stringreplace,dwnlchk,dwnlchk,`%21,!,All
+stringreplace,dwnlchk,dwnlchk,`%25,`%,All
 stringreplace,dwnlchk,dwnlchk,`%28,(,All
 stringreplace,dwnlchk,dwnlchk,`%29,),All
 stringreplace,dwnlchk,dwnlchk,`%5B,[,All
@@ -12273,7 +12311,25 @@ for k, v in ar
 	}
 return
 
-
+SanUrl:
+stringreplace,sanfile,sanfile,`%25,`%,All
+stringreplace,sanfile,sanfile,`%26,&,All
+stringreplace,sanfile,sanfile,`%2B,+,All
+stringreplace,sanfile,sanfile,`%20,%A_Space%,All
+stringreplace,sanfile,sanfile,`%23,#,All
+stringreplace,sanfile,sanfile,`%24,$,All
+stringreplace,sanfile,sanfile,`%21,!,All
+stringreplace,sanfile,sanfile,`%28,(,All
+stringreplace,sanfile,sanfile,`%29,),All
+stringreplace,sanfile,sanfile,`%5B,[,All
+stringreplace,sanfile,sanfile,`%5D,],All
+stringreplace,sanfile,sanfile,`%3D,=,All
+stringreplace,sanfile,sanfile,`%2C,`,,All
+stringreplace,sanfile,sanfile,`%40,@,All
+stringreplace,sanfile,sanfile,`%3B,`;,All
+stringreplace,sanfile,sanfile,`%27,',All
+stringreplace,sanfile,sanfile,`%7E,~,All
+return
 
 INST_Kodi_XBMC:
 guicontrol,enable,CNCLDWN
@@ -21038,27 +21094,20 @@ return
 
 REPOUrlEdt:
 gui,submit,nohide
-guicontrolget,ArcSitex,,UrlTxt
+guicontrolget,UrlTxt,,UrlTxt
+iniread,ArcSitex,%ARCORG%,SOURCES,%UrlTxt%
 iniwrite, "%ArcSitex%",Settings.ini,GLOBAL,RemoteRepository
 if (ArcSiteX <> Arcsite)
 	{
 		arcsite= %ArcSiteX%
 		FileDelete,sys.ini
-		ifinstring,ArcSite,Archive.org
-			{
-				GAMSRCS= gam\Internet-Archive
-			}
-		ifinstring,ArcSite,the-eye
-			{
-				GAMSRCS= gam\THE-EYE
-			}
+		GAMSRCS= gam\%UrlTxt%
 		gosub,resetSYS
 		SB_SetText("Repository source changed")
 	}
 return
 
 EnableAltURL:
-guicontrol,-ReadOnly,UrlTxt
 gui, submit, nohide
 guicontrolget,ALTURL,,ALTURL
 if (ALTURL = 1)
@@ -21066,7 +21115,6 @@ if (ALTURL = 1)
 		guicontrol,enable,ARCLOGIN
 		guicontrol,enable,ARCPASS
 		guicontrol,enable,SAVPASS
-		guicontrol,enable,UrlTxt
 		IniRead, ArcSite,Settings.ini,Global,RemoteRepository
 		IniRead, ARC_USER,Settings.ini,Global,archive_login
 		IniRead, ARC_PASS,Settings.ini,Global,archive_password
@@ -21076,7 +21124,6 @@ if (ALTURL = 1)
 				guicontrol,,ARCLOGIN,%ARC_USER%
 				guicontrol,,UrlTxt,%ARCSITE%
 			}
-		guicontrol,show,ALTURLSET
 	}
 if (ALTURL = 0)
 	{
@@ -21084,8 +21131,6 @@ if (ALTURL = 0)
 		guicontrol,disable,ARCPASS
 		guicontrol,disable,SAVPASS
 		guicontrol,,ALTURL,0
-		guicontrol,hide,ALTURLSET
-		guicontrol,disable,UrlTxt
 		guicontrol,,UrlTxt,%cloudloc%
 		IniWrite, "%cloudLoc%"Settings.ini,GLOBAL,RemoteRepository
 		ARCSITE= %cloudloc%
@@ -21094,31 +21139,45 @@ if (ALTURL = 0)
 return
 
 AltURLSet:
-inputbox,ArcSite,Set Remote Repository URL,,,400,100,,,,,http://archive.org/download
-if (ArcSite = "")
+gui, submit, nohide
+guicontrolget,UrlTxt,,UrlTxt
+iniread,ddsp,%ARCORG%,SOURCES,%UrlTxt%
+inputbox,ArcSitex,Set Remote Repository URL,,,400,100,,,,,%ddsp%
+if (ArcSitex = "")
 	{
+		ARCSRC= archive
 		ArcSite = http://archive.org/download
 		iniwrite, "%ArcSite%",Settings.ini,Global,RemoteRepository
-		guicontrol,,UrlTxt,%ArcSite%
-		gui, submit, nohide
+		if (UrlTxt = "Archive")
+			{
+				guicontrol,,UrlTxt,|%ARCSRC%||%ARCSRCS%
+				iniwrite, %ArcSite%,%ARCORG%,SOURCES,Archive
+				return
+			}
+		stringreplace,arcsrcs,arcsrcs,%urltxt%|,,All
+		inidelete,%ARCORG%,SOURCES,%UrlTxt%	
+		guicontrol,,UrlTxt,|%ARCSRC%||%ARCSRCS%	
 		return
-	}	
-if (ArcSite = "https://the-eye.eu/public/rom")
-		{
-			guicontrol,,ALTURL,1
-			iniwrite, "%ArcSite%",%ARCORG%,GLOBAL,CLOUDLOC
-			iniwrite, "%ArcSite%",Settings.ini,Global,RemoteRepository
-			guicontrol,,UrlTxt,%ArcSite%
-		}
-if (ArcSite = "http://archive.org/download")
-		{
-			guicontrol,,ALTURL,0
-			iniwrite, "%ArcSite%",%ARCORG%,GLOBAL,CLOUDLOC
-			iniwrite, "%ArcSite%",Settings.ini,Global,RemoteRepository
-			guicontrol,,UrlTxt,%ArcSite%
-		}
-		gui, submit, nohide
-		return
+	}
+stringsplit,cloudv,Arcsitex,./,:
+ArcSite= %Arcsitex%
+ArcSRC= %cloudv3%
+if (cloudv3 = "www")
+	{
+		ARCSRC= %cloudv4%
+	}
+ifnotinstring,ARCSRCS,%ARCSRC%|
+	{
+		ArcSRCS.= ARCSRC . "|"
+	}
+guicontrol,,UrlTxt,|%ARCSRC%||%ARCSRCS%	
+ifnotexist, gam\%ARCSRC%\
+	{
+		filecreatedir,gam\%ARCSRC%
+	}
+iniwrite, %ArcSite%,%ARCORG%,SOURCES,%ARCSRC%
+iniwrite, "%ArcSite%",Settings.ini,Global,RemoteRepository
+return
 	
 SearchInp:
 gui, submit, nohide
@@ -21136,13 +21195,13 @@ if (ExpndASrch = "")
 		ExpndASrch= 1
 		ExpndTog= hide
 		guicontrol,hide,urltxt
+		guicontrol,hide,ALTURLSET
 		guicontrol,hide,ARCPOP
 		guicontrol,hide,ALTURL
 		guicontrol,hide,OVDTXT
 		guicontrol,hide,arclogin
 		guicontrol,hide,arcpass
 		guicontrol,hide,SavPass
-		guicontrol,hide,arcutxt
 		guicontrol,hide,arcptxt
 		guicontrol,hide,ARCGSYS
 		guicontrol,move,SETOVD,x360 y136 w59 h17
@@ -21157,6 +21216,7 @@ if (ExpndASrch = "")
 	}
 ExpndASrch= 
 guicontrol,show,UrlTxt
+guicontrol,show,ALTURLSET
 guicontrol,show,arclogin
 guicontrol,show,arcpass
 guicontrol,show,SavPass
@@ -21250,6 +21310,7 @@ ArcPopulateList:
 tmprm= 
 tmpsr= 
 srchpopcul= 
+genlst= 
 gui,submit,nohide
 guicontrol,enable,RNMJACK
 guicontrolget,EXTRSYS,,ARCSYS
@@ -21300,7 +21361,20 @@ if (DownOnly = 0)
 							{
 								continue
 							}
+						aftpth2=	
 						stringsplit,aftpth,A_LoopReadLine,|
+						if (aftpth2 = "")
+							{
+								genlst= 1
+								svipth= %aftpth1%
+								Loop,parse,aftpth1,/
+									{
+										svipth= %A_LoopField%
+									}
+								splitpath,svipth,,,,sanfile
+								gosub, SanURL
+								aftpth2= %sanfile%
+							}
 						if (aftpth2 = arcpopcul)
 							{
 								aftpth= %aftpth1%
@@ -21531,6 +21605,17 @@ Loop, %SRCHMET%\%HACKAPN%%SRCHGAM%.gam
 				getpth2=
 				getpth3=
 				stringsplit,getpth,A_LoopReadLine,|
+				if (getpth2 = "")
+					{
+						svipth= %getpth1%
+						Loop,parse,getpth1,/
+							{
+								svipth= %A_LoopField%
+							}
+						splitpath,svipth,,,,sanfile
+						gosub, SanURL
+						getpth2= %sanfile%						
+					}
 				if (getpth2 = romfp)
 					{
 						EXTRAR= 
@@ -21698,6 +21783,7 @@ guicontrol,hide,sortoverride
 guicontrol,,sortoverride,0
 guicontrolget,ENHAK,,ENHAK
 HACKAPN= 
+genlst= 
 ArchiveSysRefresh:
 if (ENHAK = 1)
 	{
@@ -21766,10 +21852,19 @@ if (MAMESWCHK = 1)
 							{
 								continue
 							}
+						romarray2= 	
 						stringsplit,romarray,A_LoopReadLine,|,`n`r
 						if (romarray2 = "")
 							{
-								continue
+								genlst= 1
+								svipth= %romarray1%
+								Loop,parse,romarray1,/
+									{
+										svipth= %A_LoopField%
+									}
+								splitpath,svipth,,,,sanfile
+								gosub, SanURL
+								romarray2= %sanfile%
 							}
 						pop_list .= romarray2 . "|"
 					}
@@ -21782,11 +21877,20 @@ if (MAMESWCHK = 1)
 					{
 						continue
 					}
+				romarray2= 	
 				stringsplit,romarray,A_LoopReadLine,|,`n`r
-				if (romarray2 = "")
-					{
-						continue
-					}
+					if (romarray2 = "")
+						{
+							genlst= 1
+							svipth= %romarray1%
+							Loop,parse,romarray1,/
+								{
+									svipth= %A_LoopField%
+								}
+							splitpath,svipth,,,,sanfile
+							gosub, SanURL
+							romarray2= %sanfile%
+						}
 				pop_list .= romarray2 . "|"
 			}
 		pdlist= %pop_list%
@@ -21800,10 +21904,19 @@ Loop,%GAMSRCS%\%HACKAPN%%ARCSYS%.gam
 					{
 						continue
 					}
+				romarray2= 	
 				stringsplit,romarray,A_LoopReadLine,|,`n`r
 				if (romarray2 = "")
 					{
-						continue
+						genlst= 1			
+						svipth= %romarray1%
+						Loop,parse,romarray1,/
+							{
+								svipth= %A_LoopField%
+							}
+						splitpath,svipth,,,,sanfile
+						gosub, SanURL
+						romarray2= %sanfile%
 					}
 				pop_list .= romarray2 . "|"
 			}
@@ -21875,6 +21988,7 @@ if (EXTRSYS = "MAME - Arcade")
 	{	
 		guicontrol,,OVDTXT,%RJSYSTEMS%\MAME - Arcade
 	}
+
 if (EXTRSYS = "BIOS - BIOS")
 	{
 		OVDCHK= MAME - Arcade
@@ -21889,7 +22003,7 @@ if (EXTRSYS = "BIOS - BIOS")
 					}
 				mambpri= %mamepth%\roms|
 			}
-		OVDFLDR= %cacheloc%
+		OVDFLDR= %cacheloc%\bios
 		guicontrol,,OVDTXT,%OVDFLDR%
 		guicontrol,,OVDLDS,|%mambpri%%OVDFLDR%||Matching|%systmfldrs%
 		guicontrol,,OVDCHK,1
@@ -23224,7 +23338,7 @@ if (ARCLOGIN = "")
 		SB_SetText(" You must enter a valid email login for archive.org to use this repository ")
 		return
 	}
-if (ARCLOGIN = "Not Set")
+if (ARCLOGIN = "Login Not Set")
 	{
 		SB_SetText(" You must enter a valid email login for archive.org to use this repository ")
 		return
@@ -28667,6 +28781,7 @@ if (uuniv = "X")
 	}
 
 mamecfg= mame.ini
+mamejcfg= default.cfg
 IniRead, RJMAMENM, emuCfgPresets.set,%EXTRSYS%,RJMAMENM
 iniread,mamexf,AppParams.ini,%LCORE%,per_game_configurations
 
@@ -28678,6 +28793,7 @@ if (SK_MODE = "")
 				filecreateDir,rj\syscfgs\%ROMSYS%
 			}
 		emucfgloc= rj\syscfgs\%ROMSYS%\mame.ini
+		mamejglbfile= rj\syscfgs\%ROMSYS%\default.cfg
 		fileread,mameopts,%emucfgloc%
 		curjf= %ROMSYS%
 	}
@@ -28687,6 +28803,7 @@ if (mamexf = 0)
 		iniread,mamexpth,Assignments.ini,ASSIGNMENTS,%LCORE%
 		splitpath,mamexpth,,mamexloc
 		emucfgloc= %mamexloc%\%mamecfg%
+		mamejglbfile= %mamexloc%\cfg\%mamejcfg%
 		indvcp= %emucfgloc%
 		ifnotexist,%emucfgloc%
 			{
@@ -28699,21 +28816,30 @@ if (mamexf = 0)
 							filecopy,rj\emuCfgs\mame\mame.ini.set,%emucfgloc%
 						}
 			}
+		ifnotexist,%mamejglbfile%
+			{
+				filecopy,rj\emuCfgs\mame\sysj\default.get,%mamejglbfile%
+			}
 		fileread,mameopts,%emucfgloc%
+		fileread,mamejglob,%mamejglbfile%
 	}
 	else
 		{
 			emucfgloc= cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%\%mamecfg%
+			mamejglbfile= cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%\%mamejcfg%
 			ifexist, %emucfgloc%
 				{
 					emucfgloc= cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%\%mamecfg%
+					mamejglbfile= cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%\%mamejcfg%
 					fileread,mameopts,%emucfgloc%
 				}
 				else 
 					{
 						fileread,mameopts,rj\emuCfgs\mame\mame.ini.set
+						fileread,mamejglob,rj\emuCfgs\mame\sysj\default.get
 						filecreatedir,cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%
 						filecopy,rj\emuCfgs\mame\mame.ini.set,%emucfgloc%
+						filecopy,rj\emuCfgs\mame\sysj\default.get,%mamejglbfile%
 					}
 		}
 
@@ -28812,7 +28938,7 @@ guicontrol,,emuCHKD,autosave
 guicontrol,+0x200,emuCHKD
 
 guicontrol, %emutog%, emuCHKE
-guicontrol, move, emuCHKE,x349 y439 w66 h13
+guicontrol, move, emuCHKE,x349 y479 w66 h13
 guicontrol,,emuCHKE,UI Active
 
 guicontrol, %emutog%, emuTXTL ;dynamic num
@@ -28833,8 +28959,8 @@ guicontrol, move, emuCHKG,x459 y452 w90 h13
 guicontrol,,emuCHKG,bench
 
 guicontrol, %emutog%, emuTXTO
-guicontrol, move, emuTXTO,x613 y140 w79 h16
-guicontrol,,emuTXTO,HLSL PRESET
+guicontrol, move, emuTXTO,x603 y140 w100 h16
+guicontrol,,emuTXTO,SHADER PRESET
 
 guicontrol, %emutog%, emuCHKH
 guicontrol, move, emuCHKH,x560 y107 w70 h13
@@ -28922,11 +29048,11 @@ guicontrol, move, emuTXTD,x412 y220 w75 h13
 guicontrol,,emuTXTD,Screen Number
 
 guicontrol, %emutog%, emuTXTC
-guicontrol, move, emuTXTC,x449 y249 w45 h13
-guicontrol,,emuTXTC,Samples
+guicontrol, move, emuTXTC,x419 y246 w75 h13
+guicontrol,,emuTXTC,Sound Samples
 
 guicontrol, %emutog%, emuCBXB  ;soundsamples
-guicontrol, move, emuCBXB,x496 y243 w49
+guicontrol, move, emuCBXB,x498 y240 w49
 guicontrol,,emuCBXB,|0||1|2|3
 
 guicontrol, %emutog%, emuCBXD  ;Processornum
@@ -28939,7 +29065,7 @@ guicontrol,,emuTXTF,Processors
 
 guicontrol, %emutog%, emuDDLE  ;videodriver
 guicontrol, move, emuDDLE,x403 y188 w102
-guicontrol,,emuDDLE,|auto||d3d|gdi|sdl|ogl
+guicontrol,,emuDDLE,|auto||d3d|bgfx|auto|gdi11|opengl|soft|accel
 
 guicontrol, %emutog%, emuTXTG  ;videodriver
 guicontrol, move, emuTXTG,x419 y170 w59 h13
@@ -28966,9 +29092,18 @@ guicontrol, %emutog%, emuDDLB  ;direcotryddl
 guicontrol, move, emuDDLB,x105 y297 w121
 guicontrol,,emuDDLB,||cfg_directory|nvram_directory|memcard_directory|input_directory|state_directory|snapshot_directory|hiscore_directory
 
-guicontrol, %emutog%, emuDDLC  ;hlsl-presets
-guicontrol, move, emuDDLC,x589 y159 w125
-guicontrol,,emuDDLC,||off|slot-mask|shadow-mask|arpeture-grille
+guicontrol, %emutog%, emuDDLC  ;bgfx-presets
+guicontrol, disable, emuDDLC  
+guicontrol, move, emuDDLC,x579 y159 w145
+guicontrol,,emuDDLC,|hlsl||crt-geom-deluxe|crt-geom|default|hlsl|lut|pillarbox_left_horizontal|pillarbox_left_vertical|pillarbox_right_horizontal|pillarbox_right_vertical|unfiltered|super-eagle|hq2x|hq3x|hq4x|super-2xbr-3d-2p|super-2xbr-3d-3p-smoother|super-4xbr-3d-4p|super-4xbr-3d-6p-smoother|super-xbr-2p|super-xbr-3p-smoother|super-xbr-6p|super-xbr-deposterize|super-xbr-fast-3p|super-xbr-fast-6p|xbr-hybrid|xbr-lv1-noblend|xbr-lv2-3d|xbr-lv2-accuracy-multipass|xbr-lv2-accuracy-smart-blur|xbr-lv2-deposterize|xbr-lv2-fast|xbr-lv2-multipass|xbr-lv2-noblend|xbr-lv2|xbr-lv3-multipass|xbr-lv3-noblend|xbr-lv3|xbr-mlv4-dilation|xbr-mlv4-multipass
+
+guicontrol, %emutog%, emuDDLG  ;hlsl-presets
+guicontrol, move, emuDDLg,x589 y215 w125
+guicontrol,,emuDDLG,|off||slot-mask|shadow-mask|arperture-grille
+
+guicontrol, %emutog%, emuTXTK  ;hlsl-presets
+guicontrol, move, emuTXTK,x589 y195 w125 h14
+guicontrol,,emuTXTK,HLSL PRESET
 
 guicontrol, %emutog%, emuEDTB  ;direcotry-display
 guicontrol, +Wrap, emuEDTB
@@ -28985,23 +29120,6 @@ guicontrol, move, emuRad1B,x245 y230 w73 h13
 guicontrol,,emuRad1B,Fullscreen
 guicontrol,,emuRad1B,0
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
-/*
-EMUCFGOVRTGL= 0
-if (SK_MODE = "")
-	{
-		guicontrol, %emutog%, emuBUTJ
-		guicontrol, move, emuBUTJ,x694 y486 w66 h23
-		guicontrol,,emuBUTJ,SAVE
-		ifexist, rj\sysCfgs\%RJSYSDD%\mame.ini.set
-			{
-				mamecfg= mame.ini.set
-				emucfgloc= %RJSYSDD%
-				emucfgloc= rj\sysCfgs\%RJSYSDD%\%mamecfg%
-			}
-	}
-*/
 
 LOADMAMEOPTS:
 core_gui= mame
@@ -29073,7 +29191,7 @@ Loop, Parse, mameopts,`n`r
 				guicontrol,,emuCHKH,%nwmvti%
 				if (nwmvti = 1)
 					{
-						guicontrol,,emuDDLC,|off||slot-mask|shadow-mask|arpeture-grille
+						guicontrol,,emuDDLG,|off||slot-mask|shadow-mask|arperture-grille
 					}
 				continue	
 			}
@@ -29166,7 +29284,11 @@ Loop, Parse, mameopts,`n`r
 			}
 		if (nwmvtp = "video")
 			{
-				guicontrol,,emuDDLE,|%nwmvti%||d3d|gdi|sdl|ogl
+				guicontrol,,emuDDLE,|%nwmvti%||d3d|bgfx|auto|gdi|opengl|soft|accel
+				ifinstring,nwmvti,bgfx
+					{
+						guicontrol,enable,emuddlc
+					}
 				continue	
 			}
 		if (nwmvtp = "samplerate")
@@ -29209,11 +29331,21 @@ Loop, Parse, mameopts,`n`r
 				guicontrol,,emuCHKT,%nwmvti%
 				continue	
 			}
+		if (nwmvtp = "bgfx_screen_chains")
+			{
+				stringsplit,efik,nwmvti,`,%A_Space%
+				guicontrol,,emuddlc,|%efik1%||hlsl|crt-geom-deluxe|crt-geom|default|hlsl|lut|pillarbox_left_horizontal|pillarbox_left_vertical|pillarbox_right_horizontal|pillarbox_right_vertical|unfiltered|super-eagle|hq2x|hq3x|hq4x|super-2xbr-3d-2p|super-2xbr-3d-3p-smoother|super-4xbr-3d-4p|super-4xbr-3d-6p-smoother|super-xbr-2p|super-xbr-3p-smoother|super-xbr-6p|super-xbr-deposterize|super-xbr-fast-3p|super-xbr-fast-6p|xbr-hybrid|xbr-lv1-noblend|xbr-lv2-3d|xbr-lv2-accuracy-multipass|xbr-lv2-accuracy-smart-blur|xbr-lv2-deposterize|xbr-lv2-fast|xbr-lv2-multipass|xbr-lv2-noblend|xbr-lv2|xbr-lv3-multipass|xbr-lv3-noblend|xbr-lv3|xbr-mlv4-dilation|xbr-mlv4-multipass
+			}
+		if (nwmvtp = "shadow_mask_texture")
+			{
+				stringreplace,fji,nwmvti,.png,,All
+				guicontrol,,emuddlg,|%fji%||off|slot-mask|shadow-mask|arperture-grille
+			}
 		if (nwmvtp = "hlsl_enable")
 			{
 				if (nwmvti = 0)
 					{
-						guicontrol,,emuDDLC,|off||slot-mask|shadow-mask|arpeture-grille
+						guicontrol,,emuDDLG,|off||slot-mask|shadow-mask|arperture-grille
 					}
 			}
 	}
@@ -29272,6 +29404,7 @@ if (emjDDLC = "")
 	{
 		emjDDLC= 1
 	}
+curmameINPT= 
 if (loadedjoy = "mame")
 	{
 		goto, mamejoycreated
@@ -29393,7 +29526,7 @@ if (RJMAMENM = "")
 mamejoycreated:
 loadedjoy= mame
 mamejbuts= 
-FileRead, mamejbuts, rj\emuCfgs\mame\xinput.default.get
+FileRead, mamejbuts,rj\emuCfgs\mame\xinput.default.get
 stringreplace,mamejbuts,mamejbuts,[PLAYERNUM],1,All
 stringreplace,mamejbuts,mamejbuts,[JOYINDEX],1,All
 if (mamejbid = "")
@@ -29414,7 +29547,7 @@ if (mamejbid = "")
 	}
 
 mamekbctrls= 
-FileRead, mamekbctrls, rj\emuCfgs\mame\mamekb.get
+FileRead, mamekbctrls,rj\emuCfgs\mame\mamekb.get
 if (mamejname = "")
 	{
 		Loop, parse, mamekbctrls,`n
@@ -29433,11 +29566,21 @@ if (mamejname = "")
 guicontrol,,emjDDLD,|%RJMAMENM%||%mamefsc%
 gosub, JmameRAD3A
 guicontrol,,emjCBA,|%mamejname%%mamejbid%
+ifnotexist,%mamejglbfile%
+	{
+		filecopy,rj\emuCfgs\mame\sysj\default.get,%mamejglbfile%
+		fileread,mamejglob,%mamejglbfile%
+	}
 
-fileread,mamejglob,rj\emuCfgs\mame\sysj\default.get
+snv= 
 Loop, parse, mamejglob,`n`r
 	{
-		mameline:= A_index + 2
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		snv+=1
+		mameline:= snv + 2
 		stringsplit,fii,A_LoopField,=,"<>%A_Space%
 		;"
 		if (fii1 = "port type")
@@ -29454,7 +29597,16 @@ if (emjddlb = "n")
 	{
 		emjddlb= 1
 	}
-mamejcfgloc= rj\emuCfgs\mame\sysj\%RJMAMENM%.get
+mamejsys= %RJMAMENM%
+mamejsysloc= %mamexloc%\cfg\%RJMAMENM%.cfg
+ifnotexist,%mamejsysloc%
+	{
+		filecopy,rj\emuCfgs\mame\sysj\%RJMAMENM%.get,%mamejsysloc%,1
+		if (ERRORLEVEL = 1)
+			{
+				filecopy,rj\emuCfgs\mame\sysj\generic.get,%mamejsysloc%,1
+			}
+	}
 gosub, MAME%RJMAMENM%JOY
 SB_SetText(" mame " RJMAMENM " joystick loading complete ")
 emjtog= enable
@@ -29530,7 +29682,6 @@ gui,submit,nohide
 mameopts:= RegExReplace(mameopts, "m)^\Q"  "prescale \E.*", "prescale " emuCHKH "`n")
 if (emuCHKH = 1)
 	{
-		guicontrol,,emuDDLC,|off||slot-mask|shadow-mask|arpeture-grille
 		goto, mameDDLC
 	}
 gosub, MameRew
@@ -29666,6 +29817,20 @@ gui,submit,nohide
 guicontrolget,emuDDLE,,emuDDLE
 MAME_video= %emuDDLB%
 mameopts:= RegExReplace(mameopts, "m)^\Q"  "video \E.*", "video " emuDDLE "`n")
+guicontrol,,emutxtk,HLSL SHADER
+if (emuddle = "bgfx")
+	{
+		guicontrol,enable,emuddlc
+		if (emuddlc <> "hlsl")
+			{
+				guicontrol,,emutxtk,MASK TYPE
+			}
+		guicontrol,,emuddlc,|hlsl||crt-geom-deluxe|crt-geom|default|hlsl|lut|pillarbox_left_horizontal|pillarbox_left_vertical|pillarbox_right_horizontal|pillarbox_right_vertical|unfiltered|super-eagle|hq2x|hq3x|hq4x|super-2xbr-3d-2p|super-2xbr-3d-3p-smoother|super-4xbr-3d-4p|super-4xbr-3d-6p-smoother|super-xbr-2p|super-xbr-3p-smoother|super-xbr-6p|super-xbr-deposterize|super-xbr-fast-3p|super-xbr-fast-6p|xbr-hybrid|xbr-lv1-noblend|xbr-lv2-3d|xbr-lv2-accuracy-multipass|xbr-lv2-accuracy-smart-blur|xbr-lv2-deposterize|xbr-lv2-fast|xbr-lv2-multipass|xbr-lv2-noblend|xbr-lv2|xbr-lv3-multipass|xbr-lv3-noblend|xbr-lv3|xbr-mlv4-dilation|xbr-mlv4-multipass
+		guicontrol,,emuddlg,|off||slot-mask|shadow-mask|arperture-grille
+		gosub, MameRew
+		return
+	}
+guicontrol,disable,emuddlc
 gosub, MameRew
 return
 
@@ -29699,10 +29864,54 @@ mameopts:= RegExReplace(mameopts, "m)^\Q"  "" emuDDLA " \E.*", "" emuDDLA " " em
 gosub, MameRew
 return
 
+MAMEDDLG:
+gui,submit,nohide
+guicontrolget,emuddle,,emuddle
+guicontrolget,emuddlc,,emuddlc
+guicontrolget,emuddlg,,emuddlg
+if (emuddle = "bgfx")
+	{
+			if (emuddlg = "off")
+				{
+					emuddlg= slot-mask
+					guicontrol,,emuddlg,|slot-mask||shadow-mask|arperture-grille
+				}
+			mameopts:= RegExReplace(mameopts, "m)^\Q"  "bgfx_shadow_mask \E.*", "bgfx_shadow_mask " emuddlg ".png`n")
+			if (emuddlc = "hlsl")
+				{
+					gosub, shaderbeg
+				}
+			return
+	}
+if (emuddlc = "hlsl")
+	{
+		gosub, shaderbeg
+	}
+return
+
+
 MAMEDDLC:
 gui,submit,nohide
 hlslen= 1
 guicontrolget,emuddlc,,emuddlc
+guicontrolget,emuddle,,emuddle
+guicontrol,,emutxtk,MASK TYPE
+if (emuddlc = "hlsl")
+	{
+		guicontrol,,emutxtk,HLSL PRESET
+		goto, shaderbeg
+	}
+if (emuddlg = "off")
+	{
+		emuddlg= slot-mask
+		guicontrol,,emuddlg,|slot-mask||shadow-mask|arperture-grille
+	}	
+mameopts:= RegExReplace(mameopts, "m)^\Q"  "bgfx_shadow_mask \E.*", "bgfx_shadow_mask " emuddlg ".png`n")
+mameopts:= RegExReplace(mameopts, "m)^\Q"  "bgfx_screen_chains \E.*", "bgfx_screen_chains " emuddlc "," emuddlc "," emuddlc "`n")
+gosub, MameRew
+return
+
+shaderbeg:	
 fileread,hlslpr,rj\emucfgs\mame\%emuddlc%.get
 Loop,parse,hlslpr,`n`r
 	{
@@ -29735,10 +29944,14 @@ Loop,parse,hlslpr,`n`r
 			}
 		mameopts:= RegExReplace(mameopts, "m)^\Q"  "" nvs1 " \E.*", "" nvs1 " " vnm "`n")
 	}
+mameopts:= RegExReplace(mameopts, "m)^\Q"  "bgfx_screen_chains \E.*", "bgfx_screen_chains hlsl,hlsl,hlsl`n")		
+
 if (emuddlc = "Off")
 	{
 		hlslen= 0
 	}
+
+shaderfin:	
 mameopts:= RegExReplace(mameopts, "m)^\Q"  "hlsl_preset \E.*", "hlsl_preset " emuddlc "`n")
 mameopts:= RegExReplace(mameopts, "m)^\Q"  "hlsl_enable \E.*", "hlsl_enable " hlslen "`n")
 gosub, MameRew
@@ -60342,62 +60555,17 @@ Loop,Parse,njw,`n`r
 				mameinput.= "`n"
 			}
 	}
-gosub, INTEMAMEJ
+gosub, MAMEJPRELOAD
 return
 
 JMameBUTB:
 gui, submit, nohide
-asbn= 
-Loop, Parse, mameinput,`n`r
-	{
-		if (A_LoopField = "")
-			{
-				continue
-			}
-		stringsplit,rjmnm,A_LoopField,=
-		stringsplit,rjinm,rjmnm1,.
-		if (rjinm1 = RJMAMENM)
-			{
-				stringreplace,mameirsv,rjmnm1,.,_,All
-				mameirsv= %rjmnm2%
-				asbn.= mameirsv . "=" . rjmnm2 . "`n"
-			}	
-	}
-INTEMAMEJ:	
-Loop, Parse, emucfgloc,`n`r
-	{
-		if (A_LoopField = "")
-			{
-				continue
-			}
-		stringsplit,aej,A_LoopField,%A_Space%
-		stringsplit,aiv,aej1,.
-		stringreplace,fij,aej1,.,_,All
-		if (aiv1 = RJMAMENM)
-			{
-				kfv= 	
-				ifinstring,mameinput,%aej1%=
-					{
-						Loop, Parse,mameinput,`n`r
-							{
-								stringsplit,rjmnm,A_LoopField,=
-								if (rjmnm1 = aej1)
-									{
-										nwmamecfg.= A_LoopField . "`n"
-										kvf= 1
-										break
-									}
-							}
-					}
-				if (kfv = 1)
-					{
-						continue
-					}
-			}
-		nwmamecfg.= A_LoopField . "`n"
-	}
 loadedjoy= 
-mameopts= %nwmamecfg%
+filecopy,rj\emuCfgs\mame\sysj\%RJMAMENM%.get,%mamejsysloc%,1
+if (ERRORLEVEL = 1)
+	{
+		filecopy,rj\emuCfgs\mame\sysj\generic.get,%mamejsysloc%
+	}
 gosub, mameCTRLS
 return
 
@@ -60407,125 +60575,81 @@ guicontrolget,emjCBA,,emjCBA
 mamemod= 
 if (emjCHKX = 1)
 	{
-		mamemod.= "+shift"
+		mamemod.= "KEYCODE_RSHIFT "
 	}
 if (emjCHKY = 1)
 	{
-		mamemod.= "+ctrl"
+		mamemod.= "KEYCODE_RCONTROL "
 	}
 if (emjCHKZ = 1)
 	{
-		mamemod.= "+alt"
+		mamemod.= "KEYCODE_RALT "
 	}
-stringreplace,orz,vira,%A_Space%,#
-stringsplit,ors,orz,#
-stringreplace,orj,ors2,%A_Space%,#,All
-jprs=
-reinj= %A_Space%
-orzf= %A_Space%
-Loop, Parse, orj,#
-	{
-		if (A_Index <> 1)
-			{
-				reinj.= A_Space
-				orzf.= A_Space
-			}
-		if (jprs = "")
-			{
-				orzf.= A_LoopField
-				ifinstring,A_LoopField,keyboard
-					{
-						reinj.= "keyboard"
-						jprs:= 1
-						continue
-					}
-				reinj.= A_LoopField
-			}
-		if (jprs = 1)
-			{
-				if (A_LoopField = "0x0")
-					{
-						orzf.= A_LoopField
-						reinj.= A_LoopField
-						continue
-					}
-				orzf.= A_LoopField
-				stringsplit,fik,A_LoopField,+
-				Loop,Parse,mamenkbctrls,`n`r
-					{
-						stringsplit,din,A_LoopField,=
-						if (A_LoopField = "")
-							{
-								continue
-							}	
-						if (din1 = emjCBA)
-							{
-								reinj.= din2 . mamemod
-								SB_SetText(" " reinj " = " emjCBA " " mamemod " = " din1 " " mamemod " ")
-								break
-							}
-					}
-				jprs+= 1
-				continue
-			}
-		if (jprs <> "")
-			{
-				orzf.= A_LoopField
-				reinj.= A_LoopField
-			}
-	}
-stringreplace,mamejimp,mamejimp,%ors1%%A_Space%%orzf%,%ors1%%A_Space%%reinj%,All
-stringreplace,mamejimp,mamejimp,||||,||,All
-filedelete,%emucfgloc%
-fileappend,%mamejimp%,%emucfgloc%
+TF_replaceline("!"mamejglbfile,mameline,mameline,"" mamemod "KEYCODE_" emjcba "")
 return
 
 JMameDDLA:
 gui, submit, nohide
 guicontrolget,emjDDLA,,emjDDLA
 guicontrol,,emjCHKX,0
-guicontrol,,emjCHKY,0
+guicontrol,,emjCHKY,00
 guicontrol,,emjCHKZ,0
-Loop, Parse, mamejimp,`n`r
+svi= 
+Loop, Parse, mamejglob,`n`r
 	{
-		vira= %A_LoopField%
-		stringsplit,fej,A_LoopField,.
-		stringsplit,aif,fej2,%A_Space%
-		if (aif1 = emjDDLA)
+		if (A_Loopfield = "")
 			{
-				stringreplace,afe,A_LoopField,%A_Space%,#
-				stringsplit,fae,afe,#
-				mcbsi= %fae2%
-				ifinstring,mcbsi,alt
+				continue
+			}
+		svi+= 1	
+		ifnotinstring,A_LoopField,port type
+			{
+				continue
+			}
+		mameline:= svi + 2
+		stringsplit,fii,A_LoopField,=,"<>%A_Space%
+		;"
+		if (fii1 = "port type")
+			{
+				if (fii2 = emjDDLA)
 					{
-						guicontrol,,emjCHKZ,1
-					}
-				ifinstring,mcbsi,ctrl
-					{
-						guicontrol,,emjCHKY,1
-					}
-				ifinstring,mcbsi,shift
-					{
-						guicontrol,,emjCHKX,1
-					}
-				stringsplit,mtvi,mcbsi,|
-				stringsplit,mtxi,mtvi1,+
-				stringsplit,mameln,mtxi1,%A_Space%
-				Loop,Parse,mamenkbctrls,`n`r
-					{
-						stringsplit,din,A_LoopField,=
-						if (A_LoopField = "")
+						krs= 
+						snv= 
+						filereadline,srbx,%mamejglbfile%,%mameline%
+						stringsplit,sli,srbx,%A_space%
+						Loop, %sli0%
 							{
-								continue
-							}	
-						if (din2 = mameln3)
-							{
-								SB_SetText(" " mcbsi " = " din1 "+" mtxi2 "+" mtxi3 "+" mtxi4 " ")
-								guicontrol,,emjCBA,|%din1%||%mamejname%%mamejbid%
-								break
+								if (A_Loopfield = "")
+									{
+										continue
+									}
+								snv+=1	
+								brb= % sli%a_index%
+								ifinstring,brb,SHIFT
+									{
+										guicontrol,,emjchkx,1
+										continue
+									}
+								ifinstring,brb,CONTROL
+									{
+										guicontrol,,emjchky,1
+										continue
+									}
+								ifinstring,brb,ALT
+									{
+										guicontrol,,emjchkz,1
+										continue
+									}
+								if (krs = "")
+									{
+										krs= %brb%
+										stringreplace,krs,krs,KEYCODE_,,All
+									}
 							}
+							SB_SetText(" " emjddla " = " srbx " on line " mameline "")
+							guicontrol,,emjCBA,|%krs%||%mamejname%%mamejbid%
+							break
 					}
-				break	
 			}
 	}
 return
@@ -60548,7 +60672,11 @@ return
 JMameDDLD:
 gui, submit, nohide
 guicontrolget,emjDDLD,,emjDDLD
-gosub, MAME%emjDDLD%Joy
+if (RJMAMENM <> emjDDLD)
+	{
+		RJMAMENM= %emjDDLD%
+		gosub, MAME%emjDDLD%Joy
+	}
 return
 
 JMameCHKA:
@@ -60906,19 +61034,19 @@ if (curmameINPT = "")
 		guicontrol,,emjDDLF,|gamepad||keyboard
 		curmameINPT= gamepad
 	}
-guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4
+ guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4
 
 supinp= gamepad
 mameswapB= _BUTTON1
 mameswapA= _BUTTON2
 mameswapX= 
 mameswapY= 
-mameswapStart= _BUTTON8
-mameswapSelect= 
-mameswapDown= _DPADDOWN
-mameswapUp= _DPADUP
-mameswapLeft= _DPADLEFT
-mameswapRight= _DPADRIGHT
+mameswapStart= _START
+mameswapSelect= _SELECT
+mameswapDown= _JOYSTICK_DOWN
+mameswapUp= _JOYSTICK_UP
+mameswapLeft= _JOYSTICK_LEFT
+mameswapRight= _JOYSTICK_RIGHT
 mameswapL= 
 mameswapR= 
 mameswapL2= 
@@ -60960,22 +61088,22 @@ MAMEgamegearJOY:
 MAMEgamegearjJOY:
 if (curmameINPT = "")
 	{
-		guicontrol,,emjDDLF,|gamepad||
-		curmameINPT= gamepad
+		guicontrol,,emjDDLF,|GG_PORT_DC||
+		curmameINPT= GG_PORT_DC
 	}
-guicontrol,,emjDDLB,|n||
+guicontrol,,emjDDLB,|1||
 
-supinp= gamepad
+supinp= GG_PORT_DC
 mameswapB= _BUTTON1
 mameswapA= _BUTTON2
 mameswapX= 
 mameswapY= 
-mameswapStart= _BUTTON8
-mameswapSelect= 
-mameswapDown= _DPADDOWN
-mameswapUp= _DPADUP
-mameswapLeft= _DPADLEFT
-mameswapRight= _DPADRIGHT
+mameswapStart= _START
+mameswapSelect= _SELECT
+mameswapDown= _JOYSTICK_DOWN
+mameswapUp= _JOYSTICK_UP
+mameswapLeft= _JOYSTICK_LEFT
+mameswapRight= _JOYSTICK_RIGHT
 mameswapL= 
 mameswapR= 
 mameswapL2= 
@@ -61010,26 +61138,27 @@ MameSwapDGRP=
 gosub, MameSwap
 return
 
+MAMEsupergbJOY:
 MAMEgbcolorJOY:
 MAMEgameboyJOY:
 if (curmameINPT = "")
 	{
-		guicontrol,,emjDDLF,|gamepad||
-		curmameINPT= gamepad
+		guicontrol,,emjDDLF,|INPUTS||
+		curmameINPT= INPUTS
 	}
-guicontrol,,emjDDLB,|n||
+guicontrol,,emjDDLB,|1||
 
-supinp= gamepad
+supinp= INPUTS
 mameswapB= _BUTTON1
 mameswapA= _BUTTON2
 mameswapX= 
 mameswapY= 
-mameswapStart= _BUTTON8
-mameswapSelect= _BUTTON7
-mameswapDown= _DPADDOWN
-mameswapUp= _DPADUP
-mameswapLeft= _DPADLEFT
-mameswapRight= _DPADRIGHT
+mameswapStart= _START
+mameswapSelect= _SELECT
+mameswapDown= _JOYSTICK_DOWN
+mameswapUp= _JOYSTICK_UP
+mameswapLeft= _JOYSTICK_LEFT
+mameswapRight= _JOYSTICK_RIGHT
 mameswapL= 
 mameswapR= 
 mameswapL2= 
@@ -61067,22 +61196,22 @@ return
 MAMEgbaJOY:
 if (curmameINPT = "")
 	{
-		guicontrol,,emjDDLF,|gamepad||
-		curmameINPT= gamepad
+		guicontrol,,emjDDLF,|INPUTS||
+		curmameINPT= INPUTS
 	}
-guicontrol,,emjDDLB,|n||
+guicontrol,,emjDDLB,|1||
 
-supinp= gamepad
+supinp= INPUTS
 mameswapB= _BUTTON1
 mameswapA= _BUTTON2
 mameswapX= _BUTTON3
 mameswapY= _BUTTON4
-mameswapStart= _BUTTON8
-mameswapSelect= _BUTTON7
-mameswapDown= _DPADDOWN
-mameswapUp= _DPADUP
-mameswapLeft= _DPADLEFT
-mameswapRight= _DPADRIGHT
+mameswapStart= _START
+mameswapSelect= _SELECT
+mameswapDown= _JOYSTICK_DOWN
+mameswapUp= _JOYSTICK_UP
+mameswapLeft= _JOYSTICK_LEFT
+mameswapRight= _JOYSTICK_RIGHT
 mameswapL= _BUTTON5
 mameswapR= _BUTTON6
 mameswapL2= 
@@ -61120,22 +61249,183 @@ return
 MAMElynxJOY:
 if (curmameINPT = "")
 	{
-		guicontrol,,emjDDLF,|gamepad||
-		curmameINPT= gamepad
+		guicontrol,,emjDDLF,|INPUTS||
+		curmameINPT= INPUTS
 	}
-guicontrol,,emjDDLB,|n||
+guicontrol,,emjDDLB,|1||
 
-supinp= gamepad
+supinp= INPUTS
 mameswapB= _BUTTON1
 mameswapA= _BUTTON2
 mameswapX= _BUTTON3
 mameswapY= _BUTTON4
-mameswapStart= _BUTTON8
-mameswapSelect= _BUTTON7
-mameswapDown= _DPADDOWN
-mameswapUp= _DPADUP
-mameswapLeft= _DPADLEFT
-mameswapRight= _DPADRIGHT
+mameswapStart= _START
+mameswapSelect= _SELECT
+mameswapDown= _JOYSTICK_DOWN
+mameswapUp= _JOYSTICK_UP
+mameswapLeft= _JOYSTICK_LEFT
+mameswapRight= _JOYSTICK_RIGHT
+mameswapL=
+mameswapR=
+mameswapL2= 
+mameswapR2= 
+mameswapR3= 
+mameswapL3= 
+mameswapLXMinus= 
+mameswapRXMinus= 
+mameswapRXPlus= 
+mameswapLXPlus= 
+mameswapLYPlus= 
+mameswapLYMinus= 
+mameswapRYPlus= 
+mameswapRYMinus= 
+mameswapHome= 
+
+MameSwapATXT= a
+MameSwapBTXT= 1
+MameSwapCTXT= b
+MameSwapDTXT= 2
+MameSwapETXT=
+MameSwapFTXT=
+MameSwapGTXT=
+MameSwapHTXT=
+MameSwapITXT=
+MameSwapJTXT=
+MameSwapLTXT=
+MameSwapMTXT= pause
+
+MameSwapCGRP= 
+MameSwapDGRP= 
+gosub, MameSwap
+return
+
+MAMEa7800JOY:
+MAMEa7800pJOY:
+if (curmameINPT = "")
+	{
+		guicontrol,,emjDDLF,|joysticks||
+		curmameINPT= joysticks
+	}
+guicontrol,,emjDDLB,|1||
+
+supinp= joysticks
+mameswapB= _BUTTON1
+mameswapA= _BUTTON2
+mameswapX= _BUTTON3
+mameswapY= _BUTTON4
+mameswapStart= _START
+mameswapSelect= _SELECT
+mameswapDown= _JOYSTICK_DOWN
+mameswapUp= _JOYSTICK_UP
+mameswapLeft= _JOYSTICK_LEFT
+mameswapRight= _JOYSTICK_RIGHT
+mameswapL=
+mameswapR=
+mameswapL2= 
+mameswapR2= 
+mameswapR3= 
+mameswapL3= 
+mameswapLXMinus= 
+mameswapRXMinus= 
+mameswapRXPlus= 
+mameswapLXPlus= 
+mameswapLYPlus= 
+mameswapLYMinus= 
+mameswapRYPlus= 
+mameswapRYMinus= 
+mameswapHome= 
+
+MameSwapATXT= a
+MameSwapBTXT= 1
+MameSwapCTXT= b
+MameSwapDTXT= 2
+MameSwapETXT=
+MameSwapFTXT=
+MameSwapGTXT=
+MameSwapHTXT=
+MameSwapITXT=
+MameSwapJTXT=
+MameSwapLTXT=
+MameSwapMTXT= pause
+
+MameSwapCGRP= 
+MameSwapDGRP= 
+gosub, MameSwap
+return
+
+MAMEa5200JOY:
+if (curmameINPT = "")
+	{
+		guicontrol,,emjDDLF,|djoy_b||keypad
+		curmameINPT= djoy_b
+	}
+guicontrol,,emjDDLB,|1||
+
+supinp= keypad.|djoy_b
+mameswapB= _BUTTON1
+mameswapA= _BUTTON2
+mameswapX= _BUTTON3
+mameswapY= _BUTTON4
+mameswapStart= _START
+mameswapSelect= _SELECT
+mameswapDown= _JOYSTICK_DOWN
+mameswapUp= _JOYSTICK_UP
+mameswapLeft= _JOYSTICK_LEFT
+mameswapRight= _JOYSTICK_RIGHT
+mameswapL=
+mameswapR=
+mameswapL2= 
+mameswapR2= 
+mameswapR3= 
+mameswapL3= 
+mameswapLXMinus= 
+mameswapRXMinus= 
+mameswapRXPlus= 
+mameswapLXPlus= 
+mameswapLYPlus= 
+mameswapLYMinus= 
+mameswapRYPlus= 
+mameswapRYMinus= 
+mameswapHome= 
+
+MameSwapATXT= a
+MameSwapBTXT= 1
+MameSwapCTXT= b
+MameSwapDTXT= 2
+MameSwapETXT=
+MameSwapFTXT=
+MameSwapGTXT=
+MameSwapHTXT=
+MameSwapITXT=
+MameSwapJTXT=
+MameSwapLTXT=
+MameSwapMTXT= pause
+
+MameSwapCGRP= 
+MameSwapDGRP= 
+gosub, MameSwap
+return
+
+MAMEa2600JOY:
+MAMEa2600pJOY:
+if (curmameINPT = "")
+	{
+		guicontrol,,emjDDLF,|joyport%emjddlb%:joy:JOY||
+		curmameINPT= joyport%emjddlb%:joy:JOY
+	}
+guicontrol,,emjDDLB,|1||
+
+supinp= joyport|joy|SWB
+mameswapB= _BUTTON1
+mameswapA= _BUTTON2
+mameswapX= _BUTTON3
+mameswapY= _BUTTON4
+mameswapStart= _START
+mameswapSelect= OTHER
+mameswapDown= _JOYSTICK_DOWN
+mameswapUp= _JOYSTICK_UP
+mameswapLeft= _JOYSTICK_LEFT
+mameswapRight= _JOYSTICK_RIGHT
 mameswapL=
 mameswapR=
 mameswapL2= 
@@ -61174,22 +61464,22 @@ MAMEngpcJOY:
 MAMEngpJOY:
 if (curmameINPT = "")
 	{
-		guicontrol,,emjDDLF,|gamepad||
-		curmameINPT= gamepad
+		guicontrol,,emjDDLF,|INPUTS||
+		curmameINPT= INPUTS
 	}
-guicontrol,,emjDDLB,|n||
+guicontrol,,emjDDLB,|1||
 
-supinp= gamepad
+supinp= INPUTS
 mameswapB= _BUTTON1
 mameswapA= _BUTTON2
 mameswapX= 
 mameswapY= 
-mameswapStart= _BUTTON8
-mameswapSelect= 
-mameswapDown= _DPADDOWN
-mameswapUp= _DPADUP
-mameswapLeft= _DPADLEFT
-mameswapRight= _DPADRIGHT
+mameswapStart= _START
+mameswapSelect= _SELECT
+mameswapDown= _JOYSTICK_DOWN
+mameswapUp= _JOYSTICK_UP
+mameswapLeft= _JOYSTICK_LEFT
+mameswapRight= _JOYSTICK_RIGHT
 mameswapL= 
 mameswapR= 
 mameswapL2= 
@@ -61232,22 +61522,22 @@ MAMEmegadrivJOY:
 MAMEgenesisJOY:
 if (curmameINPT = "")
 	{
-		guicontrol,,emjDDLF,|gamepad||gamepad6|megamouse
-		curmameINPT= gamepad
+		guicontrol,,emjDDLF,|PAD_%emjDDLB%_3B||PAD_%emjDDLB%_6B
+		curmameINPT= PAD_%emjDDLB%_6B
 	}
 guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4
 
-supinp= gamepad|gamepad6
+supinp= PAD|3B|6B
 mameswapB= _BUTTON1
 mameswapA= _BUTTON2
 mameswapX= _BUTTON3
 mameswapY= _BUTTON4
-mameswapStart= _BUTTON8
-mameswapSelect= _BUTTON7
-mameswapDown= _DPADDOWN
-mameswapUp= _DPADUP
-mameswapLeft= _DPADLEFT
-mameswapRight= _DPADRIGHT
+mameswapStart= _START
+mameswapSelect= _SELECT
+mameswapDown= _JOYSTICK_DOWN
+mameswapUp= _JOYSTICK_UP
+mameswapLeft= _JOYSTICK_LEFT
+mameswapRight= _JOYSTICK_RIGHT
 mameswapL= _BUTTON5
 mameswapR= _BUTTON6
 mameswapL2= 
@@ -61287,22 +61577,22 @@ MAMEnesJOY:
 MAMEfamicomJOY:
 if (curmameINPT = "")
 	{
-		guicontrol,,emjDDLF,|gamepad||powerpad|arkanoid|zapper|partytap
-		curmameINPT= gamepad
+		guicontrol,,emjDDLF,|ctrl%emjDDLB%:joypad:JOYPAD||
+		curmameINPT= ctrl%emjDDLB%:joypad:JOYPAD
 	}
 guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4|5|6|7|8
 
-supinp= gamepad
+supinp= ctrl|joypad
 mameswapB= _BUTTON1
 mameswapA= 
 mameswapX= _BUTTON2
 mameswapY= 
-mameswapStart= _BUTTON8
-mameswapSelect= _BUTTON7
-mameswapDown= _DPADDOWN
-mameswapUp= _DPADUP
-mameswapLeft= _DPADLEFT
-mameswapRight= _DPADRIGHT
+mameswapStart= _START
+mameswapSelect= _SELECT
+mameswapDown= _JOYSTICK_DOWN
+mameswapUp= _JOYSTICK_UP
+mameswapLeft= _JOYSTICK_LEFT
+mameswapRight= _JOYSTICK_RIGHT
 mameswapL= 
 mameswapR= 
 mameswapL2= 
@@ -61341,24 +61631,25 @@ MAMEtg16JOY:
 MAMEpceJOY:
 MAMEsgxJOY:
 MAMEpcecdJOY:
+mjina:= (emjddlb - 1)
 if (curmameINPT = "")
 	{
-		guicontrol,,emjDDLF,|gamepad||lightgun
-		curmameINPT= gamepad
+		guicontrol,,emjDDLF,|JOY6B_P.%mjina%||JOY_P.%mjina%
+		curmameINPT= JOY6B_P.%mjina%
 	}
 guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4|5|6|7|8
 
-supinp= gamepad
+supinp= JOY6B|JOY|P
 mameswapB= _BUTTON1
 mameswapA= _BUTTON2
 mameswapX= _BUTTON3
 mameswapY= _BUTTON4
-mameswapStart= _BUTTON8
-mameswapSelect= _BUTTON7
-mameswapDown= _DPADDOWN
-mameswapUp= _DPADUP
-mameswapLeft= _DPADLEFT
-mameswapRight= _DPADRIGHT
+mameswapStart= _START
+mameswapSelect= _SELECT
+mameswapDown= _JOYSTICK_DOWN
+mameswapUp= _JOYSTICK_UP
+mameswapLeft= _JOYSTICK_LEFT
+mameswapRight= _JOYSTICK_RIGHT
 mameswapL= _BUTTON5
 mameswapR= _BUTTON6
 mameswapL2= 
@@ -61393,78 +61684,27 @@ MameSwapDGRP= Right Analog Stick
 gosub, MameSwap
 return
 
-MAMEpce_fastJOY:
-if (curmameINPT = "")
-	{
-		guicontrol,,emjDDLF,|gamepad||lightgun
-		curmameINPT= gamepad
-	}
-guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4|5|6|7|8
-
-supinp= gamepad
-mameswapB= _BUTTON1
-mameswapA= _BUTTON2
-mameswapX= _BUTTON3
-mameswapY= _BUTTON4
-mameswapStart= _BUTTON8
-mameswapSelect= _BUTTON7
-mameswapDown= _DPADDOWN
-mameswapUp= _DPADUP
-mameswapLeft= _DPADLEFT
-mameswapRight= _DPADRIGHT
-mameswapL= _BUTTON5
-mameswapR= _BUTTON6
-mameswapL2= 
-mameswapR2= 
-mameswapR3= _BUTTON10
-mameswapL3= 
-mameswapLXMinus= 
-mameswapRXMinus= 
-mameswapRXPlus= 
-mameswapLXPlus= 
-mameswapLYPlus= 
-mameswapLYMinus= 
-mameswapRYPlus= 
-mameswapRYMinus= 
-mameswapHome= 
-
-MameSwapATXT= i 
-MameSwapBTXT= iii
-MameSwapCTXT= iv
-MameSwapDTXT= ii
-MameSwapETXT=
-MameSwapFTXT= mode
-MameSwapGTXT=
-MameSwapHTXT=
-MameSwapITXT= v
-MameSwapJTXT= vi
-MameSwapLTXT= select
-MameSwapMTXT= run
-
-MameSwapCGRP= 
-MameSwapDGRP= Right Analog Stick
-gosub, MameSwap
-return
 
 MAMEpcfxJOY:
+mjina:= (emjddlb - 1)
 if (curmameINPT = "")
 	{
-		guicontrol,,emjDDLF,|gamepad||lightgun
-		curmameINPT= gamepad
+		guicontrol,,emjDDLF,|JOY6B_P.%mjina%||
+		curmameINPT= JOY6B_P.%mjina%
 	}
-guicontrol,,emjDDLB|%emjddlb%||1|2|3|4
+guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4|5|6|7|8
 
-supinp= gamepad
+supinp= JOY6B|P
 mameswapB= _BUTTON1
 mameswapA= _BUTTON2
 mameswapX= _BUTTON3
 mameswapY= _BUTTON4
-mameswapStart= _BUTTON8
-mameswapSelect= _BUTTON7
-mameswapDown= _DPADDOWN
-mameswapUp= _DPADUP
-mameswapLeft= _DPADLEFT
-mameswapRight= _DPADRIGHT
+mameswapStart= _START
+mameswapSelect= _SELECT
+mameswapDown= _JOYSTICK_DOWN
+mameswapUp= _JOYSTICK_UP
+mameswapLeft= _JOYSTICK_LEFT
+mameswapRight= _JOYSTICK_RIGHT
 mameswapL= _BUTTON5
 mameswapR= _BUTTON6
 mameswapL2= 
@@ -61499,25 +61739,29 @@ MameSwapDGRP= Right Analog Stick
 gosub, MameSwap
 return
 
-MAMEpsxJOY:
+MAMEpsuJOY:
+MAMEpseJOY:
+MAMEpsjJOY:
+MAMEpsx_cdJOY:
+dvnk:= (emjddlb - 1)
 if (curmameINPT = "")
 	{
-		guicontrol,,emjDDLF,|gamepad||dualshock|justifier|mouse
-		curmameINPT= dualshock
+		guicontrol,,emjDDLF,|port%emjddlb%:dualshock_pad:PSXPAD%dvnk%||
+		curmameINPT= port%emjddlb%:dualshock_pad:PSXPAD%dvnk%
 	}
 guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4|5|6|7|8
 
-supinp= gamepad|dualshock
+supinp= port|dualshock_pad|PSXPAD|PSXLSTICKY|PSXMISC
 mameswapB= _BUTTON1
 mameswapA= _BUTTON2
 mameswapX= _BUTTON3
 mameswapY= _BUTTON4
-mameswapStart= _BUTTON8
-mameswapSelect= _BUTTON7
-mameswapDown= _DPADDOWN
-mameswapUp= _DPADUP
-mameswapLeft= _DPADLEFT
-mameswapRight= _DPADRIGHT
+mameswapStart= _START
+mameswapSelect= _SELECT
+mameswapDown= _JOYSTICK_DOWN
+mameswapUp= _JOYSTICK_UP
+mameswapLeft= _JOYSTICK_LEFT
+mameswapRight= _JOYSTICK_RIGHT
 mameswapL= _BUTTON5
 mameswapR= _BUTTON6
 mameswapL2= _ZAXIS_NEG_SWITCH
@@ -61557,22 +61801,22 @@ MAMEsmspalJOY:
 MAMEsmsjJOY:
 if (curmameINPT = "")
 	{
-		guicontrol,,emjDDLF,|gamepad||lightgun
-		curmameINPT= gamepad
+		guicontrol,,emjDDLF,|ctrl%emjDDLB%:joypad:JOYPAD||
+		curmameINPT= ctrl%emjDDLB%:joypad:JOYPAD
 	}
 guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4
 
-supinp= gamepad
+supinp= ctrl|joypad
 mameswapB= _BUTTON1
 mameswapA= _BUTTON2
 mameswapX= 
 mameswapY= 
-mameswapStart= _BUTTON8
+mameswapStart= _START
 mameswapSelect= 
-mameswapDown= _DPADDOWN
-mameswapUp= _DPADUP
-mameswapLeft= _DPADLEFT
-mameswapRight= _DPADRIGHT
+mameswapDown= _JOYSTICK_DOWN
+mameswapUp= _JOYSTICK_UP
+mameswapLeft= _JOYSTICK_LEFT
+mameswapRight= _JOYSTICK_RIGHT
 mameswapL= 
 mameswapR= 
 mameswapL2= 
@@ -61611,22 +61855,22 @@ MAMEsnespalJOY:
 MAMEsnesJOY:
 if (curmameINPT = "")
 	{
-		guicontrol,,emjDDLF,|gamepad||superscope
-		curmameINPT= gamepad
+		guicontrol,,emjDDLF,|ctrl%emjddlb%:joypad:JOYPAD||
+		curmameINPT= ctrl%emjddlb%:joypad:JOYPAD
 	}
 guicontrol,,emjDDLB|%emjddlb%||1|2|3|4|5|6|7|8
 
-supinp= gamepad
+supinp= ctrl|joypad
 mameswapB= _BUTTON1
 mameswapA= _BUTTON2
 mameswapX= _BUTTON3
 mameswapY= _BUTTON4
-mameswapStart= _BUTTON8
-mameswapSelect= _BUTTON7
-mameswapDown= _DPADDOWN
-mameswapUp= _DPADUP
-mameswapLeft= _DPADLEFT
-mameswapRight= _DPADRIGHT
+mameswapStart= _START
+mameswapSelect= _SELECT
+mameswapDown= _JOYSTICK_DOWN
+mameswapUp= _JOYSTICK_UP
+mameswapLeft= _JOYSTICK_LEFT
+mameswapRight= _JOYSTICK_RIGHT
 mameswapL= _BUTTON5
 mameswapR= _BUTTON6
 mameswapL2= 
@@ -61675,12 +61919,12 @@ mameswapB= _BUTTON1
 mameswapA= _BUTTON2
 mameswapX= _BUTTON3
 mameswapY= _BUTTON4
-mameswapStart= _BUTTON8
-mameswapSelect= _BUTTON7
-mameswapDown= _DPADDOWN
-mameswapUp= _DPADUP
-mameswapLeft= _DPADLEFT
-mameswapRight= _DPADRIGHT
+mameswapStart= _START
+mameswapSelect= _SELECT
+mameswapDown= _JOYSTICK_DOWN
+mameswapUp= _JOYSTICK_UP
+mameswapLeft= _JOYSTICK_LEFT
+mameswapRight= _JOYSTICK_RIGHT
 mameswapL= _BUTTON5
 mameswapR= _BUTTON6
 mameswapL2= _ZAXIS_NEG_SWITCH
@@ -61718,22 +61962,22 @@ return
 MAMEvboyJOY:
 if (curmameINPT = "")
 	{
-		guicontrol,,emjDDLF,|gamepad||
-		curmameINPT= gamepad
+		guicontrol,,emjDDLF,|INPUT||
+		curmameINPT= INPUT
 	}
-guicontrol,,emjDDLB,|n||
+guicontrol,,emjDDLB,|1||
 
-supinp= gamepad
+supinp= INPUT
 mameswapB= _BUTTON1
 mameswapA= _BUTTON2
-mameswapX= 
-mameswapY= 
-mameswapStart= _BUTTON8
-mameswapSelect= _BUTTON7
-mameswapDown= _DPADDOWN
-mameswapUp= _DPADUP
-mameswapLeft= _DPADLEFT
-mameswapRight= _DPADRIGHT
+mameswapX= _BUTTON3
+mameswapY= _BUTTON4
+mameswapStart= _START
+mameswapSelect= _SELECT
+mameswapDown= _JOYSTICKLEFT_DOWN
+mameswapUp= _JOYSTICKLEFT_UP
+mameswapLeft= _JOYSTICKLEFT_LEFT
+mameswapRight= _JOYSTICKLEFT_RIGHT
 mameswapL= 
 mameswapR= 
 mameswapL2= 
@@ -61744,10 +61988,10 @@ mameswapLXMinus=
 mameswapLXPlus= 
 mameswapLYPlus= 
 mameswapLYMinus= 
-mameswapRXMinus= _RXAXIS_NEG_SWITCH
-mameswapRXPlus= _RXAXIS_POS_SWITCH
-mameswapRYPlus= _RYAXIS_NEG_SWITCH
-mameswapRYMinus= _RYAXIS_POS_SWITCH
+mameswapRXMinus= _JOYSTICKRIGHT_LEFT	
+mameswapRXPlus= _JOYSTICKRIGHT_RIGHT
+mameswapRYPlus= _JOYSTICKRIGHT_UP
+mameswapRYMinus= _JOYSTICKRIGHT_DOWN
 mameswapHome= 
 
 MameSwapATXT= a
@@ -61772,26 +62016,27 @@ MAMEwscolorJOY:
 MAMEwswanJOY:
 if (curmameINPT = "")
 	{
-		guicontrol,,emjDDLF,|gamepad||gamepadraa
-		curmameINPT= gamepad
+		guicontrol,,emjDDLF,|INPUTS||
+		curmameINPT= INPUTS
 	}
-guicontrol,,emjDDLB,|n||
+guicontrol,,emjDDLB,|1||
 
-supinp= gamepad|gamepadraa
-mameswapStart= _BUTTON8
-mameswapDown= _DPADDOWN
-mameswapUp= _DPADUP
-mameswapLeft= _DPADLEFT
-mameswapRight= _DPADRIGHT
-mameswapRXMinus= _RXAXIS_NEG_SWITCH
-mameswapRXPlus= _RXAXIS_POS_SWITCH
-mameswapLYMinus= _YAXIS_DOWN_SWITCH
-mameswapRYPlus= _RYAXIS_NEG_SWITCH
+supinp= INPUTS
+
 mameswapB= a
 mameswapA= b
 mameswapX= 
 mameswapY= 
+mameswapStart= _START
 mameswapSelect= 
+mameswapDown= _JOYSTICK_DOWN
+mameswapUp= _JOYSTICK_UP
+mameswapLeft= _JOYSTICK_LEFT
+mameswapRight= _JOYSTICK_RIGHT
+mameswapRXMinus= _RXAXIS_NEG_SWITCH
+mameswapRXPlus= _RXAXIS_POS_SWITCH
+mameswapLYMinus= _YAXIS_DOWN_SWITCH
+mameswapRYPlus= _RYAXIS_NEG_SWITCH
 mameswapL= 
 mameswapR= 
 mameswapL2= 
@@ -61822,10 +62067,6 @@ MameSwapDGRP= Right Analog Stick
 gosub, MameSwap
 return
 
-MAMEa5200JOY:
-MAMEa7800JOY:
-MAMEa2600JOY:
-MAMEa2600pJOY:
 MAMEapple2JOY:
 MAMEapple2gsJOY:
 MAMEpc8201JOY:
@@ -62542,9 +62783,7 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%emucfgloc%
-fileappend,%mamejimp%,%emucfgloc%
-gosub, mameswap
+;;gosub, mameswap
 return
 
 JMameRYPlus:
@@ -62564,9 +62803,7 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%emucfgloc%
-fileappend,%mamejimp%,%emucfgloc%
-gosub, mameswap
+;;gosub, mameswap
 return
 
 JMameR:
@@ -62583,9 +62820,7 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%emucfgloc%
-fileappend,%mamejimp%,%emucfgloc%
-gosub, mameswap
+;;gosub, mameswap
 return
 
 JMameL:
@@ -62602,9 +62837,7 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%emucfgloc%
-fileappend,%mamejimp%,%emucfgloc%
-gosub, mameswap
+;;gosub, mameswap
 return
 
 JMameRXPlus:
@@ -62621,9 +62854,7 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%emucfgloc%
-fileappend,%mamejimp%,%emucfgloc%
-gosub, mameswap
+;;gosub, mameswap
 return
 
 JMameRYMinus:
@@ -62640,9 +62871,7 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%emucfgloc%
-fileappend,%mamejimp%,%emucfgloc%
-gosub, mameswap
+;;gosub, mameswap
 return
 
 JMameR3:
@@ -62659,9 +62888,7 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%emucfgloc%
-fileappend,%mamejimp%,%emucfgloc%
-gosub, mameswap
+;;gosub, mameswap
 return
 
 JMameL3:
@@ -62678,9 +62905,7 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%emucfgloc%
-fileappend,%mamejimp%,%emucfgloc%
-gosub, mameswap
+;;gosub, mameswap
 return
 
 JMameLXMinus:
@@ -62697,9 +62922,7 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%emucfgloc%
-fileappend,%mamejimp%,%emucfgloc%
-gosub, mameswap
+;;gosub, mameswap
 return
 
 JMameLYPlus:
@@ -62716,9 +62939,7 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%emucfgloc%
-fileappend,%mamejimp%,%emucfgloc%
-gosub, mameswap
+;;gosub, mameswap
 return
 
 JMameLYMinus:
@@ -62735,9 +62956,7 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%emucfgloc%
-fileappend,%mamejimp%,%emucfgloc%
-gosub, mameswap
+;;gosub, mameswap
 return
 
 JMameLXPlus:
@@ -62754,9 +62973,7 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%emucfgloc%
-fileappend,%mamejimp%,%emucfgloc%
-gosub, mameswap
+;;gosub, mameswap
 return
 
 JMameselect:
@@ -62773,9 +62990,7 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%emucfgloc%
-fileappend,%mamejimp%,%emucfgloc%
-gosub, mameswap
+;;gosub, mameswap
 return
 
 JMamestart:
@@ -62792,9 +63007,7 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%emucfgloc%
-fileappend,%mamejimp%,%emucfgloc%
-gosub, mameswap
+;;gosub, mameswap
 return
 
 JMameup:
@@ -62811,9 +63024,7 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%emucfgloc%
-fileappend,%mamejimp%,%emucfgloc%
-gosub, mameswap
+;;gosub, mameswap
 return
 
 JMameleft:
@@ -62830,9 +63041,7 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%emucfgloc%
-fileappend,%mamejimp%,%emucfgloc%
-gosub, mameswap
+;;gosub, mameswap
 return
 
 JMameright:
@@ -62849,12 +63058,10 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%emucfgloc%
-fileappend,%mamejimp%,%emucfgloc%
-gosub, mameswap
+;;gosub, mameswap
 return
 
-JMamameown:
+JMamedown:
 gui, submit, nohide
 guicontrolget,kprm,,emjdown
 emjtog= disable
@@ -62868,9 +63075,7 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%emucfgloc%
-fileappend,%mamejimp%,%emucfgloc%
-gosub, mameswap
+;;gosub, mameswap
 return
 
 JMameY:
@@ -62887,9 +63092,7 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%emucfgloc%
-fileappend,%mamejimp%,%emucfgloc%
-gosub, mameswap
+;;gosub, mameswap
 return
 
 JMameX:
@@ -62906,9 +63109,7 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%emucfgloc%
-fileappend,%mamejimp%,%emucfgloc%
-gosub, mameswap
+;;gosub, mameswap
 return
 
 JMameB:
@@ -62925,9 +63126,7 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%emucfgloc%
-fileappend,%mamejimp%,%emucfgloc%
-gosub, mameswap
+;;gosub, mameswap
 return
 
 JMameA:
@@ -62944,9 +63143,7 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%emucfgloc%
-fileappend,%mamejimp%,%emucfgloc%
-gosub, mameswap
+;;gosub, mameswap
 return
 
 JMamel2:
@@ -62963,9 +63160,7 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%emucfgloc%
-fileappend,%mamejimp%,%emucfgloc%
-gosub, mameswap
+;;gosub, mameswap
 return
 
 JMamer2:
@@ -62982,9 +63177,7 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%emucfgloc%
-fileappend,%mamejimp%,%emucfgloc%
-gosub, mameswap
+;;gosub, mameswap
 return
 
 JMameHome:
@@ -63001,140 +63194,92 @@ if (emjRAD3B = 1)
 	{
 		gosub, mamejrev
 	}
-filedelete,%emucfgloc%
-fileappend,%mamejimp%,%emucfgloc%
-gosub, mameswap
+;;gosub, mameswap
 return
 
 
 ;{;;;;;;;;;;;;;;;;;;;  Mame Keyboard lookups  ;;;;;;;;;;;;;;;;;;;
 MameKBREV:
-emjtog= disable
-gosub, emjbtog
-stringreplace,orz,vprm,%A_Space%,#
-stringsplit,ors,orz,#
-stringreplace,orj,ors2,%A_Space%,#,All
-jprs=
-reinj= %A_Space%
-orzf= %A_Space%
-Loop, Parse, orj,#
+snv=
+mjnv= 
+Loop, Parse, mamejimp,`n`r
 	{
-		if (A_Index <> 1)
+		if (A_Loopfield = "")
 			{
-				reinj.= A_Space
-				orzf.= A_Space
-			}
-		if (jprs = "")
-			{
-				orzf.= A_LoopField
-				ifinstring,A_LoopField,keyboard
-					{
-						reinj.= "keyboard"
-						jprs:= 1
-						continue
-					}
-				reinj.= A_LoopField
-			}
-		if (jprs = 1)
-			{
-				if (A_LoopField = "0x0")
-					{
-						orzf.= A_LoopField
-						reinj.= A_LoopField
-						continue
-					}
-				orzf.= A_LoopField
-				Loop,Parse,mamekbctrls,`n`r
-					{
-						stringsplit,din,A_LoopField,=
-						if (A_LoopField = "")
-							{
-								continue
-							}	
-						if (din1 = kprm)
-							{
-								reinj.= din2
-								break
-							}
-					}
-				jprs+= 1
 				continue
 			}
-		if (jprs <> "")
+		snv+= 1	
+		ifnotinstring,A_LoopField,port tag
 			{
-				orzf.= A_LoopField
-				reinj.= A_LoopField
+				continue
+			}
+		mjnv:= snv + 2	
+		mdlnval= %A_LoopField%
+		stringsplit,aik,mdlnval,=,<>:%A_Space%"
+		;"
+		stringsplit,kvir,aik3,_,"
+		;"
+		mamenvl=
+		Loop, %kvir0%
+			{
+				if (A_Index = 1)
+					{
+						continue
+					}
+				mamenvx= % (kvir%a_index%)
+				mamenvl.= "_" . mamenvx
+			}
+		stringsplit,btnk,mamenvl,%A_Space%,"
+		;"
+		if (btnk1 = vprm)
+			{
+				filereadline,mameitrpl,%mamejsysloc%,%mjnv%
+				TF_replaceline("!"mamejsysloc,mjnv,mjnv,"KEYCODE_" kprm "")
 			}
 	}
-mamejimp := RegExReplace(mamejimp, "m)^\Q"  "" ors1 " \E.*", "" ors1 " " reinj "`n")
-;;stringreplace,mamejimp,mamejimp,%ors1%%A_Space%%orzf%,%ors1%%A_Space%%reinj%,All
-stringreplace,mamejimp,mamejimp,||||,||,All
 emjtog= enable
 gosub, emjbtog
+
 return
 
 MameJREV:
-mamejinjid= % mamejid%emjDDLB%
-stringreplace,orz,vprm,%A_Space%,#
-stringsplit,ors,orz,#
-stringreplace,orj,ors2,%A_Space%,#,All
-jprs= 
-reinj= %A_Space%
-orzf= %A_Space%
-
-Loop, Parse, orj,#
+snv=
+mjnv= 
+Loop, Parse, mamejimp,`n`r
 	{
-		if (A_Index <> 1)
+		if (A_Loopfield = "")
 			{
-				reinj.= A_Space
-				orzf.= A_Space
-			}
-		if (jprs = "")
-			{
-				orzf.= A_LoopField
-				ifinstring,A_LoopField,joystick
-					{
-						reinj.= "joystick"
-						jprs:= 1
-						continue
-					}
-				reinj.= A_LoopField
-			}
-		if (jprs = 1)
-			{
-				ifinstring,A_LoopField,0x0
-					{
-						orzf.= A_LoopField
-						reinj.= mamejinjid
-						continue
-					}
-				orzf.= A_LoopField
-				Loop, Parse, mamejbuts,`n`r
-					{
-						if (A_LoopField = "")
-							{
-								continue
-							}
-						stringsplit,mjvak,A_LoopField,=]
-						stringreplace,mjvcdp,mjvak4,%A_Space%,,All
-						stringmid,mameitbd,mjvak2,5,13
-						if (mameitbd = kprm)
-							{
-								reinj.= mjvcdp
-								break
-							}	
-					}
-				jprs+=1
 				continue
 			}
-		if (jprs <> "")
+		snv+= 1	
+		ifnotinstring,A_LoopField,port tag
 			{
-				orzf.= A_LoopField
-				reinj.= A_LoopField
+				continue
+			}
+		mjnv:= snv + 2	
+		mdlnval= %A_LoopField%
+		stringsplit,aik,mdlnval,=,<>:%A_Space%"
+		;"
+		stringsplit,kvir,aik3,_,"
+		;"
+		mamenvl=
+		Loop, %kvir0%
+			{
+				if (A_Index = 1)
+					{
+						continue
+					}
+				mamenvx= % (kvir%a_index%)
+				mamenvl.= "_" . mamenvx
+			}
+		stringsplit,btnk,mamenvl,%A_Space%,"
+		;"
+		if (btnk1 = vprm)
+			{
+				filereadline,mameitrpl,%mamejsysloc%,%mjnv%
+				TF_replaceline("!"mamejsysloc,mjnv,mjnv,"JOYCODE_" kprm "")
 			}
 	}
-stringreplace,mamejimp,mamejimp,%ors1%%A_Space%%orzf%,%ors1%%A_Space%%reinj%,All
-stringreplace,mamejimp,mamejimp,||||,||,All	
 emjtog= enable
 gosub, emjbtog
 return
@@ -63715,58 +63860,127 @@ Loop, parse, SysEmuSet,`n`r
 	}
 return
 
-
+;{;;;;;;;;;;;;;;;
 MameSwap:
 guicontrolget,emjDDLB,,emjDDLB
 guicontrolget,emjDDLC,,emjDDLC
-FileRead,mamejimp,%mamejcfgloc%
+guicontrolget,emjDDLF,,emjDDLF
+FileRead,mamejimp,%mamejsysloc%
 mamelkup= 
 rbab= |
 mjnv= 
+snv= 
+gth= 
+sysgath= 
 Loop, Parse, mamejimp,`n`r
 	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		snv+= 1
+		ifinstring,A_LoopField,input>
+			{
+				if (gth = 1)
+					{
+						gth= 
+					}
+				gth= 1
+				continue
+			}
+		if (gth = 1)
+			{
+				sysgath.= A_LoopField . "`n"
+			}
 		ifnotinstring,A_LoopField,port tag
 			{
 				continue
 			}
-		mjnv:= A_Index + 2	
-		mdlnval= %A_LoopField%
+		mjnv:= snv + 2
+		stringsplit,ikj,A_LoopField,<
+		mdlnval= %ikj2%
+		stringreplace,mdlnval,mdlnval,%A_Space%mask,,All
+		stringreplace,mdlnval,mdlnval,%A_Space%type,,All
 		stringsplit,aik,mdlnval,=,<>:%A_Space%"
 		;"
-		mamenvl= 
-		Loop,%aik0%
+		mamenvl=
+		Loop, parse, supinp,|
 			{
-				avk:= a_index + 1
-				lsv= aik%A_Index%
-				if (lsv = "type")
+				stringreplace,viv3,viv3,%aik2%,,All
+			}
+		vov= %viv3%
+		if (vov <> "")
+			{
+				if (vov <> emjddlb)
 					{
-						aiknv= % aik%avk%
-						stringsplit,injn,aiknv,%A_Space%,"
-						;"
-						kvir1=
-						kvir2=
-						kvir3=
-						kvir4=
-						kvir5=
-						kvir6=
-						stringsplit,kvir,injn1,_
-						Loop, %kvir%
-							{
-								if (A_Index = 1)
-									{
-										continue
-									}
-								mamenvx= % (kvir%a_index%)
-								mamenvl.= "_" . mamenvx
-							}
-						if (kvir2 = "")
-							{
-								mamenvl= "_" . kvir1
-							}
-						filereadline,mameitbv,%mamejcfgloc%,%mjnv%
-						P%emjddlc%%mameitbv%= %mamenvl%
+						continue
+					}	
+			}
+			else {
+				vov= x
+			}	
+		kvir1=
+		kvir2=
+		kvir3=
+		kvir4=
+		kvir5=
+		kvir6=
+		stringsplit,kvir,aik3,_,"
+		;"
+		plnumb= 
+		Loop, %kvir0%
+			{
+				if (A_Index = 1)
+					{
+						mamenjk= % (kvir%a_index%)
+						stringtrimleft,plnumb,mamenjk,1
+						continue
+					}
+				mamenvx= % (kvir%a_index%)
+				mamenvl.= "_" . mamenvx	
+			}
+		if (plnumb <> emjddlb)
+				{
+					if (vov <> "x")
+						{
+							continue
+						}
+					else {
+						plnumb= %emjddlb%
+					}	
+				}
+		if (kvir2 = "")
+			{
+				mamenvl= _%kvir1%
+				ifinstring,mamenvl,CONFIG
+					{
+						continue
 					}
 			}
+		filereadline,mameitbX,%mamejsysloc%,%mjnv%
+		stringtrimleft,mameitbd,mamenvl,1
+		stringreplace,mameitbd,mameitbd,.,,All
+		P%emjddlc%%mameitbd%= %mameitbv%
+		rmpbtnvl=
+		Loop,parse,mameitbX,%A_Space%
+			{
+				if (A_Loopfield = "")
+					{
+						continue
+					}
+				ifinstring,A_LoopField,<
+					{
+						continue
+					}
+				if (rmpbtnvl = "")
+					{
+						rmpbtnvl= %A_LoopField%
+						continue
+					}
+				rmpbtnvl.= A_Space . A_LoopField 
+			}
+		stringreplace,rmpbtnvl,rmpbtnvl,KEYCODE_,,All
+		stringreplace,rmpbtnvl,rmpbtnvl,JOYCODE_,,All			
 		if (mamenvl = mameswapB)
 			{
 				mameitbv= B
@@ -63869,23 +64083,15 @@ Loop, Parse, mamejimp,`n`r
 			}
 		if (emjRAD3B = 1)  ;;joy
 			{
-				Loop,Parse,mamejbuts,`n`r
-					{
-						guicontrol,,emj%mameitbv%,|%mameitbd%||%mamejbid%
-						stringreplace,mameitbv,mameitbv,-,#,All
-						kmj%mameitbv%= %mdlnval%
-						break
-					}
+						guicontrol,,emj%mameitbv%,|%rmpbtnvl%||%mamejbid%
+						TF_replaceline("!"mamejsysloc,mjnv,mjnv,"JOYCODE_" rmpbtnvl "")
+						kmj%mameitbv%= %mamenvl%
 			}	
 		if (emjRAD3A = 1)  ;;kb
 			{								
-				Loop,Parse,mamekbctrls,`n`r
-					{
-						guicontrol,,emj%mameitbv%,|%din1%||%mamejname%
-						stringreplace,mameitbv,mameitbv,-,#,All
-						kmj%mameitbv%= %mdlnval%
-						break
-					}
+						guicontrol,,emj%mameitbv%,|%rmpbtnvl%||%mamejname%
+						TF_replaceline("!"mamejsysloc,mjnv,mjnv,"KEYCODE_" rmpbtnvl "")
+						kmj%mameitbv%= %mamenvl%
 			}
 		
 	}
@@ -63909,6 +64115,7 @@ Loop, Parse, mameswaps,|
 			}
 	}
 return	
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;     EXTENSION TABLES     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ExtTables:
@@ -63968,79 +64175,79 @@ ifinstring,dsopen,%tstxtn%
 UNKSZ:
 unkszstr= .bin|.hdf|.rom|.adf|.do|.po|.2mg|.cas|.xdf|.ipf|.dsk|.tap|.88d|.d88|.2dd|.2hd|.ssd|.dsd|.fdi|
 ifinstring,unkszstr,%tstxtn%
-{
-gosub,UNKOpen
-return
-}
+	{
+		gosub,UNKOpen
+		return
+	}
 
 if (tstxtn = ".dup")
-{
-gosub,SHRPX68KOpen
-Return
-}
+	{
+		gosub,SHRPX68KOpen
+		Return
+	}
 if (tstxtn = ".dim")
 {
 	gosub,SHRPX68KOpen
 	return
 }
 if (tstxtn = ".nhd")
-{
-gosub, NPC98Open
-Return
-}
+	{
+		gosub, NPC98Open
+		Return
+	}
 if (tstxtn = ".thd")
-{
-gosub, NPC98Open
-Return
-}
+	{
+		gosub, NPC98Open
+		Return
+	}
 if (tstxtn = ".vhd")
-{
-gosub, NPC98Open
-Return
-}
+	{
+		gosub, NPC98Open
+		Return
+	}
 
 MDSZ:
 n64open= .pal|.usa|.u64|.v64|.z64
 ifinstring,n64open,%tstxtn%
-{
-gosub,N64Open
-Return
-}
+	{
+		gosub,N64Open
+		Return
+	}
 if (tstxtn = ".j64")
-{
-gosub,JAGOpen
-Return
-}
+	{
+		gosub,JAGOpen
+		Return
+	}
 if (tstxtn = ".jag")
-{
-gosub,JAGOpen
-Return
-}
+	{
+		gosub,JAGOpen
+		Return
+	}
 if (tstxtn = ".adf")
-{
-gosub,CAMIGOpen
-Return
-}
+	{
+		gosub,CAMIGOpen
+		Return
+	}
 if (tstxtn = ".32x")
-{
-gosub,SG32XOpen
-Return
-}
+	{
+		gosub,SG32XOpen
+		Return
+	}
 if (tstxtn = ".gba")
-{
-gosub,NGBAOpen
-Return
-}
+	{
+		gosub,NGBAOpen
+		Return
+	}
 if (tstxtn = ".sgb")
-{
-gosub,NGBAOpen
-Return
-}
+	{
+		gosub,NGBAOpen
+		Return
+	}
 if (tstxtn = ".sgx")
-{
-gosub,SGFXOpen
-Return
-}
+	{
+		gosub,SGFXOpen
+		Return
+	}
 segagopen= .smd|.gen|.pco|.md
 ifinstring,segagopen,%tstxtn%
 {
@@ -64049,177 +64256,177 @@ Return
 }
 
 if (tstxtn = ".sfc")
-{
-gosub,SFAMOpen
-Return
-}
+	{
+		gosub,SFAMOpen
+		Return
+	}
 if (tstxtn = ".smc")
-{
-gosub,SNESOpen
-Return
-}
+	{
+		gosub,SNESOpen
+		Return
+	}
 if (tstxtn = ".bml")
-{
-gosub,BSNSOpen
-Return
-}
+	{
+		gosub,BSNSOpen
+		Return
+	}
 if (tstxtn = ".pce")
-{
-gosub,NECXOpen
-Return
-}
+	{
+		gosub,NECXOpen
+		Return
+	}
 
 SMSZ:
 if (tstxtn = ".ngp")
-{
-gosub,NEOPKTOpen
-Return
-}
+	{
+		gosub,NEOPKTOpen
+		Return
+	}
 if (tstxtn = ".ngc")
-{
-gosub,NEOPKTOpen
-Return
-}
+	{
+		gosub,NEOPKTOpen
+		Return
+	}
 if (tstxtn = ".npk")
-{
-gosub,NEOPKTOpen
-Return
-}
+	{
+		gosub,NEOPKTOpen
+		Return
+	}
 if (tstxtn = ".gg")
-{
-gosub,SEGGOpen
-Return
-}
+	{
+		gosub,SEGGOpen
+		Return
+	}
 if (tstxtn = ".gb")
-{
-gosub,NGBOpen
-Return
-}
+	{
+		gosub,NGBOpen
+		Return
+	}
 if (tstxtn = ".ws")
-{
-gosub,BWSOpen
-Return
-}
+	{
+		gosub,BWSOpen
+		Return
+	}
 if (tstxtn = ".msa")
-{
-gosub,ATSTOpen
-Return
-}
+	{
+		gosub,ATSTOpen
+		Return
+	}
 if (tstxtn = ".st")
-{
-gosub,ATSTOpen
-Return
-}
+	{
+		gosub,ATSTOpen
+		Return
+	}
 if (tstxtn = ".stx")
-{
-gosub,ATSTOpen
-Return
-}
+	{
+		gosub,ATSTOpen
+		Return
+	}
 if (tstxtn = ".lnx")
-{
-gosub,LYNXOpen
-Return
-}
+	{
+		gosub,LYNXOpen
+		Return
+	}
 if (tstxtn = ".sg")
-{
-gosub,SEG1KOpen
-Return
-}
+	{
+		gosub,SEG1KOpen
+		Return
+	}
 if (tstxtn = ".sms")
-{
-gosub,SEGMSOpen
-Return
-}
+	{
+		gosub,SEGMSOpen
+		Return
+	}
 if (tstxtn = ".amiga")
-{
-gosub,CAMIGOpen
-Return
-}
+	{
+		gosub,CAMIGOpen
+		Return
+	}
 if (tstxtn = ".wsc")
-{
-gosub,BWSCOpen
-Return
-}
+	{
+		gosub,BWSCOpen
+		Return
+	}
 if (tstxtn = ".vec")
-{
-gosub,VECTXOpen
-Return
-}
+	{
+		gosub,VECTXOpen
+		Return
+	}
 if (tstxtn = ".fds")
-{
-gosub,NFAMOpen
-Return
-}
+	{
+		gosub,NFAMOpen
+		Return
+	}
 if (tstxtn = ".fam")
-{
-gosub,NFAMOpen
-Return
-}
+	{
+		gosub,NFAMOpen
+		Return
+	}
 if (tstxtn = ".gcm")
-{
-gosub,NGCOpen
-Return
-}
+	{
+		gosub,NGCOpen
+		Return
+	}
 if (tstxtn = ".vb")
-{
-gosub,NVBOpen
-Return
-}
+	{
+		gosub,NVBOpen
+		Return
+	}
 if (tstxtn = ".vboy")
-{
-gosub,NVBOpen
-Return
-}
+	{
+		gosub,NVBOpen
+		Return
+	}
 at8hopen= .obx|.xex|.dcm|.pro|.atz|.xfd|.atx|.atr
 ifinstring,at8hopen,%tstxtn%
-{
-gosub,AT8HOpen
-Return
-}
+	{
+		gosub,AT8HOpen
+		Return
+	}
 nesopen= .unf|.nez|.nsf|.nes
 ifinstring,nesopen,%tstxtn%
-{
-gosub,NESOpen
-Return
-}
+	{
+		gosub,NESOpen
+		Return
+	}
 msxopen= .di1|.di2|.360|.720|.ri|.sc|.sf7|.mx1|.mx2
 ifinstring,msxopen,%tstxtn%
-{
-gosub,MSXOpen
-Return
-}
+	{
+		gosub,MSXOpen
+		Return
+	}
 if (tstxtn = ".gbc")
-{
-gosub,NGBCOpen
-Return
-}
+	{
+		gosub,NGBCOpen
+		Return
+	}
 if (tstxtn = ".a78")
-{
-gosub,AT78Open
-Return
-}
+	{
+		gosub,AT78Open
+		Return
+	}
 if (tstxtn = ".a52")
-{
-gosub,AT52Open
-Return
-}
+	{
+		gosub,AT52Open
+		Return
+	}
 if (tstxtn = ".z26")
-{
-gosub,AT26Open
-Return
-}
+	{
+		gosub,AT26Open
+		Return
+	}
 
 TNSZ:
 if (tstxtn = ".scummvm")
-{
-gosub,SCVMOpen
-Return
-}
+	{
+		gosub,SCVMOpen
+		Return
+	}
 if (tstxtn = ".conf")
-{
-gosub,DOSOpen
-Return
-}
+	{
+		gosub,DOSOpen
+		Return
+	}
 imgszset= .png|.bmp|.tif|.svg|.jpg|.gif|.psd
 ifinstring,imgszset,%tstxtn%
 	{
@@ -66943,7 +67150,7 @@ guicontrol,enable,GCUPDT
 guicontrol,, CRNTCORS, |%coreNamz%
 guicontrol,, ARCCORES, |%lastcore%||%runlist%
 guicontrol,, LCORE, |%lastcore%||%runlist%
-
+Guicontrol,,LNCHPT,|Emulators|%addemu%|retroarch
 guicontrol,,COREDDLA,|Select_A_Core||%corelist%
 if (RALIST = 1)
 	{

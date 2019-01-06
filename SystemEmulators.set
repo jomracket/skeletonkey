@@ -76,6 +76,7 @@ Casio - Loopy|MAME|:mame_libretro.dll
 Casio - PB-2000C|MAME|:mame_libretro.dll
 Casio - PV-1000|pv1000|MAME|:mame_libretro.dll
 Casio - PV-2000|pv2000|MAME|:mame_libretro.dll
+Cave Systems - Cave|MAME|:fbalpha_libretro.dll|mame_libretro.dll
 Chess-Master - Diamond Modules|MAME|:mame_libretro.dll
 Coleco - ADAM|adamemu|MAME|:mame_libretro.dll
 Coleco - ColecoVision|BlueMSX|dsp|colecovision|colem|meka|koleko|MAME|:mame_libretro.dll
@@ -240,8 +241,8 @@ Nintendo - Famicom Disk System|nestopia|virtuanes|xe|virtuanesplus|Mesen|BizHawk
 Nintendo - Famicom|nestopia|Mednafen|Mesen|xe|fceux|dsp|vdmgr|BizHawk|kindred|MAME|:fceumm_libretro.dll|nestopia_libretro.dll|quicknes_libretro.dll|bnes_libretro.dll|mesen_libretro.dll|mame_libretro.dll
 Nintendo - Game Boy Advance (e-Cards)|VisualBoyAdvance-M|VisualBoyAdvance|xe|Mednafen|BizHawk|boycottadv|firegb|mgba|no$gba|gbeplus|vgba|rascalboyadv|MAME|:vbam_libretro.dll|mgba_libretro.dll|vba_next_libretro.dll|mame_libretro.dll
 Nintendo - Game Boy Advance|VisualBoyAdvance-M|VisualBoyAdvance|xe|Mednafen|BizHawk|boycottadv|firegb|mgba|no$gba|gbeplus|vgba|rascalboyadv|MAME|:vbam_libretro.dll|mgba_libretro.dll|vba_next_libretro.dll|mame_libretro.dll
-Nintendo - Game Boy Color|bgb|mgba|dinoboy|no$gmb|tgbdual|gbeplus|mednafen|xe|vgb|kigb|BizHawk|dsp|MAME|:gambatte_libretro.dll|sameboy_libretro.dll|mgba_libretro.dll|mame_libretro.dll
-Nintendo - Game Boy|bgb|Mednafen|zboy|mgba|dinoboy|dmgboy|no$gmb|kindred|BizHawk|xe|vgb|dsp|tgbdual|gbeplus|gest|kigb|MAME|:gambatte_libretro.dll|sameboy_libretro.dll|mgba_libretro.dll|mame_libretro.dll
+Nintendo - Game Boy Color|bgb|mgba|dinoboy|no$gmb|tgbdual|gbeplus|mednafen|xe|vgb|kigb|BizHawk|sameboy|dsp|MAME|:gambatte_libretro.dll|sameboy_libretro.dll|mgba_libretro.dll|mame_libretro.dll
+Nintendo - Game Boy|bgb|Mednafen|zboy|mgba|dinoboy|dmgboy|no$gmb|kindred|BizHawk|xe|vgb|dsp|tgbdual|gbeplus|gest|sameboy|kigb|MAME|:gambatte_libretro.dll|sameboy_libretro.dll|mgba_libretro.dll|mame_libretro.dll
 Nintendo - GameCube|Dolphin|ishiiruka|supergamecube|ideas|:dolphin_libretro.dll
 Nintendo - Nintendo 3DS|Citra|tronds|:citra_libretro.dll|citra_canary_libretro.dll
 Nintendo - Nintendo 64DD|Project64|Project64k|Mupen64Plus|Mupen64PlusPlus|MAME|:parallel_n64_libretro.dll|mupen64_libretro.dll
@@ -411,6 +412,7 @@ Thomson - To7|MAME|:mame_libretro.dll
 Thomson - To8|MAME|:theodore_libretro.dll|mame_libretro.dll
 Tiger - Game-com|gamecomemu|MAME|:mame_libretro.dll
 Tiger - K28 7-232|MAME|:mame_libretro.dll
+Tiger Telematics - Gizmondo|MAME|:mame_libretro.dll
 Tiki Data A-S - TIKI 100|MAME|:mame_libretro.dll
 TimeTop - GameKing 3|MAME|:mame_libretro.dll
 TimeTop - GameKing|MAME|:mame_libretro.dll
