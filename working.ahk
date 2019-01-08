@@ -13021,7 +13021,7 @@ Loop, Parse,UrlIndex,`n`r
 					}
 				sb_settext(" " URLFILE " ")	
 				save=%cacheloc%\%urloc2%
-				ifinstring,slfm1,://
+				ifinstring,slfm2,://
 					{						
 						URLFILE= 
 						Loop, %urloc0%
