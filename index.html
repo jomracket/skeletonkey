@@ -119,8 +119,8 @@
 	</div>
 	<div id="outer" align="left">
 		<div id="inner">
+			<h3>To Do:</h3><p>- MAME softlist support.<br>- Enhance MAME joystick support for more systems.<br>- Cloud-state/mem-saving.<br>- Gamepad-driven disk-menus.<br>- Aria2 support<br>- Per-Jacket emulator-executable propagation option</p> 
 		</div>
-			<h3>To Do:</h3>MAME softlist support. Enhance MAME joystick support for more systems. Cloud-saving. gamepad-driven disk-menus. Aria2 support
 	</div>
 	<div>
 		<a id="TUTORIALS"></a><br>
@@ -446,9 +446,8 @@
 	</div>
 	<div id="outer" align="left">
 		<div id="inner">
-			<p>Up to 16 Joysticks are supported (through multiaps). Each core can also have input_remaps.</p>
 			<h4><a>Joystick Options</a></h4>
-			<p>Joystick options are dynamic and respond to the currently selected input-remap system.</p>
+			<p>Joystick options are dynamic and respond to the currently selected supported input-remap system and emulator.<br>Mednafen,MAME, &amp; retroArch are currently supported.</p>
 		</div>
 	</div>
 	<br>
@@ -499,11 +498,11 @@
 	</div>
 	<div id="outer" align="left">
 		<div id="inner">
-			Remote repositories such as archive.org's ROM libraries can be launched and hosted via this tab. The Archive Tab can be used to list, search, download and emulate the ROMs available on remote repositories such as archive.org. This tab is brought forward automatically under certain conditions while connecting to players listed in the netplay tab.
+			Remote repositories such as archive.org's ROM libraries can be launched and hosted via this tab. <br>Right-Clicking on a selection of ROMs will allow metadata to be downloaded.<br>The Archive Tab can be used to list, search, download and emulate the ROMs available on remote repositories such as archive.org.<br> This tab is brought forward automatically under certain conditions while connecting to players listed in the netplay tab.
 			<h4><a>Repository Options</a></h4>
-			<p>Options to download into a ROM-Jacket, manual overrides and extraction settings for compressed files<br> Most options available in the Main tab's Launch-menu are available.</p>
+			<p>Options to download into a ROM-Jacket, manual overrides and extraction settings for compressed files can be combined in many ways to create custom libraries.<br>Right-Clicking on the emu/core dropdown will allow the ROM to be configured for the selected emulator/core.</p>
 			<p>Enabling the &quot;Download Only&quot; option will allow multiple files to be selected and queued.<br>
-			Only direct-links are supported, however future releases of skeletonkey will support torrents as well as other redirecting network addresses.<br>
+			Only direct-links are supported, however future releases of skeletonkey will support torrents as well as other redirected networking addresses.<br>
 			MAME ROM-Lists can often contain ROMs which are incompatible with other emulators.  MAME/MESS systems' ROM-Lists should be in a <code>MAME - Systems</code> subdirectory of the <strong>source</strong> folder.</p>
 		</div>
 	</div>
@@ -780,14 +779,13 @@
 			<h3>GLOBAL</h3>
 			<p>All games using the assigned emulator have configurations and settings governed and maintained by the emulator.<br>
 			Paradigm:<br>
-			All settings, quick-saves, save-files &amp; snapshots for the emulator are saved in locations set by the emulator in its default state and any changes made to a game's settings in the console's set will be respected by all games using the global option.</p>
+			All settings, quick-saves, save-files &amp; snapshots for the emulator are saved in locations set by the emulator in its default state and any changes made to a game's settings in the console's set will be respected by all games using the global option.<br>This method may be preferrable for users deploying an emulator for each jacket or who wish homogenize a libraries' settings.</p>
 			<div class="wrapper">
 				<div class="tab">
 					<input id="tab-gblcav" name="tabs" type="checkbox"> <label for="tab-gblcav">Global Details }&gt;</label>
 					<div class="tab-content">
 						<p><em>Caveats</em>:<br>
-						Any and all changes made to the emulator's settings will affect all other games.<br>
-						Any multi-system emulator must be using a global option for all systems.</p>
+						Any and all changes made to the emulator's settings will affect all other games.</p>
 					</div>
 				</div>
 			</div>

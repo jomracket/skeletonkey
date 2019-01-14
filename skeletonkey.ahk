@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2019-01-07 4:28 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2019-01-14 10:23 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 
-RELEASE= 2019-01-07 4:28 PM
-VERSION= 0.99.68.80
+RELEASE= 2019-01-14 10:23 AM
+VERSION= 0.99.68.81
 RASTABLE= 1.7.5
 
 #Include tf.ahk
@@ -8595,6 +8595,7 @@ Sleep, 1000
 RUNSYSCHNG= 1
 ARCSYS= 
 RJMEDNM= 
+curmedINPT=
 indvcp= 
 core_gui=
 loadedjoy= 
@@ -8611,6 +8612,7 @@ guicontrol,,LCORE,||%runlist%
 guicontrolget,RUNPLRAD,,RUNPLRAD
 guicontrolget,OPTYP,,RUNSYSDDL
 EXTRSYS= %OPTYP%
+ROMSYS= %OPTYP%
 guicontrolget,SRCHTMP,,SRCHLOCDDL
 guicontrol,,RUNROMCBX,|.........indexing............||
 guicontrol,disable,RUNROMCBX
@@ -8768,20 +8770,6 @@ if (RUNPLRAD = 1)
 	}
 
 SB_SetText(" ... Indexing Directory ...")
-/*
-ifinstring,OPTYP,:=:
-	{
-		Loop, Parse, lkupa,`n`r
-			{
-				stringsplit,isv,A_LoopField,=,""
-				ifinstring,romf,%isv1%
-					{
-						OPTYP= %isv1%
-					}
-			}
-	}
-*/
-
 guicontrolget,lcrtst,,LCORE
 if (OPTYP = ":=:System List:=:")
 	{
@@ -8790,16 +8778,6 @@ if (OPTYP = ":=:System List:=:")
 		coreselv= 
 		romf= 
 		RUNSYSCHNG= 
-		
-		/*
-		if (dlx <> "dll")
-			{
-				gosub, RAOPTSHOW
-			}
-		gosub, LNCHCHK
-		guicontrol,enable,RUNROMCBX
-		guicontrol,enable,RUNSYSDDL
-		*/
 		
 		gosub, ShowOnlyEmuGui
 		SB_SetText("")
@@ -8835,7 +8813,7 @@ if (omitxtz <> "ERROR")
 		stringreplace,omitxtz,omitxtz,`,,|,All
 		stringsplit,omitxtn,omitxtz,= | ""
 	}
-if (omitxtn = "")
+if (omitxtn0 = "")
 	{
 		REVSPL= 
 		stringsplit,omitxtn,omitxt,= | ""
@@ -8844,7 +8822,7 @@ ar := Object()
 Loop, %omitxtn0%
 	{
 		new= % (omitxtn%a_index%)
-		if (omitxtn%a_index% <> "")
+		if (new <> "")
 			{
 				ar.insert(new)
 			}
@@ -8876,17 +8854,6 @@ Loop,%RJSYSTEMS%\%OPTYP%\*.*,0,1
 			}
 	}
 SB_SetText("... Directory Indexed ...")
-/*
-Loop,Parse,poptadd,|
-	{
-		splitpath,A_Loopfield,fej
-		if (fej = edtrmf)
-			{
-				romf= %A_LoopField%
-				break
-			}
-	}
-*/
 
 guicontrol,,RUNROMCBX,|%romf%||%poptadd%
 
@@ -12644,14 +12611,6 @@ loop,parse,mamelistedmedia,`n`r
 			{
 				continue
 			}
-		ifinstring,A_LoopField,(prin
-			{
-				continue
-			}
-		ifinstring,A_LoopField,(serl
-			{
-				continue
-			}
 		af= %A_loopField%	
 		Loop, 20	
 			{
@@ -12668,6 +12627,14 @@ loop,parse,mamelistedmedia,`n`r
 			{
 				sysname= %sysk1%
 				MAME_%sysname%_SHRTN= %sysname%
+				ifinstring,A_LoopField,(prin
+					{
+						continue
+					}
+				ifinstring,A_LoopField,(serl
+					{
+						continue
+					}
 				MAME_%sysname%_medtyps= %mediatype1%|
 				MAME_%sysname%_%mediatype1%_extyp= %and2%
 			}
@@ -27070,6 +27037,9 @@ return
 scv_GUI:
 gosub, initEmuOpts
 return
+streetsofrageremake_GUI:
+gosub, initEmuOpts
+return
 sharpchip8_GUI:
 gosub, initEmuOpts
 return
@@ -27291,7 +27261,6 @@ if (medxset = "")
 	}
 
 iniread,mednafxf,AppParams.ini,%LCORE%,per_game_configurations
-
 EMUCFGLOC= cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%\%emucfgu%
 if (mednafxf = 0)
 	{
@@ -27354,7 +27323,6 @@ if (SK_MODE = "")
 		filedelete,%emucfgloc%
 		curjf= %ROMSYS%
 	}
-	
 IniRead,RJMEDNM,emuCfgPresets.set,%ROMSYS%,RJMEDNM
 if (RJMEDNM <> "ERROR")
 	{
@@ -42101,7 +42069,7 @@ Loop, rj\*.jak
 								NUMINC= 
 								dromdtk= 
 								cvil= 
-								injromful=
+								injromful= 
 								NUMINC= 1
 								if (RJMULTIDISC = 1)
 									{
@@ -47233,6 +47201,7 @@ pokeminiDDLA:
 MesenDDLA:
 redreamDDLA:
 Atari800DDLA:
+kronosddla:
 sameboyDDLA:
 vice_x64DDLA:
 x64DDLA:
@@ -62395,6 +62364,7 @@ MAMEwangpcJOY:
 MAMEwavetermJOY:
 MAMEwicatJOY:
 MAMEwmbulletJOY:
+MAMEx680000JOY:
 MAMEx07JOY:
 MAMEx820iiJOY:
 MAMExegsJOY:
@@ -63614,25 +63584,6 @@ SplitPath,coreselv,cfn,cod,coe,con,cod
 if (coe <> "dll")
 	{
 		iniread,OvrExtAs,Assignments.ini,ASSIGNMENTS,%coreselv%
-		/*
-        iniread,lpovrd,Assignments.ini,OVERRIDES,
-		Loop,Parse,lpovrd,`n
-			{
-				StringSplit,corsyt, A_LoopField,=,"
-				;"
-				stringsplit,aij,corsyt2,|
-				corsyt2= %aij1%
-				if (corsyt2 = coreselv)
-					{
-						emucfgn= %corsyt2%
-						mtyp= %corsyt1%
-						if (ROMSYS = "")
-							{
-								ROMSYS= %corsyt1%
-							}
-					}
-			}
-		*/	
 		iniread,EPGC,AppParams.ini,%coreselv%,per_game_configurations
 		iniread,RunOptions,AppParams.ini,%coreselv%,options
 		ifinstring,coreselv,mame
@@ -65087,6 +65038,7 @@ romindnum=
 stilltyp:
 Gui, submit, nohide
 guicontrolget,OPTYP,,RUNSYSDDL
+ROMSYS= %OPTYP%
 Guicontrolget,romf,,RUNROMCBX
 splitpath,RUNROMCBX,EDTRMF,EDTRMP,inputext,EDTRMFN
 guicontrol,-Altsubmit,RUNROMCBX
@@ -65107,20 +65059,6 @@ if (romf = ".........indexing............")
 		return
 	}
 
-/*	
-ifinstring,OPTYP,:=:
-	{
-		Loop, Parse, lkupa,`n`r
-			{
-				stringsplit,isv,A_LoopField,=,""
-				ifinstring,romf,\%isv1%\
-					{
-						OPTYP= %isv1%
-						break
-					}
-			}
-	}
-*/	
 	
 cursli= 
 lnumfnd= 
@@ -65447,6 +65385,7 @@ gui,submit,nohide
 guicontrol,enable,LCORE
 guicontrolget,LCORE,,LCORE
 loadedjoy= 
+curmedINPT=
 BCSTO= 
 BCSTA= 
 USRCORE= 1
@@ -68829,7 +68768,7 @@ guicontrol,,CORECHKG,0
 guicontrol,,CORECHKH,1
 guicontrol,,CORECHKI,0
 guicontrol,,COREDDLB,|game||system
-guicontrol,,COREDDLC,|rom||cart|flop|cdrom|cass|hard|serl|prinreturn
+guicontrol,,COREDDLC,|rom||cart|flop|cdrom|cass|hard|serl|prin
 guicontrol,,COREDDLC,|enabled||disabled
 guicontrol,,COREDDLD,|disabled||enabled
 guicontrol,,CORERADA,1
@@ -68933,7 +68872,7 @@ guicontrol,,CORECHKG,0
 guicontrol,,CORECHKH,1
 guicontrol,,CORECHKI,0
 guicontrol,,COREDDLB,|game||system
-guicontrol,,COREDDLC,|rom||cart|flop|cdrom|cass|hard|serl|prinreturn
+guicontrol,,COREDDLC,|rom||cart|flop|cdrom|cass|hard|serl|prin
 guicontrol,,COREDDLC,|enabled||disabled
 guicontrol,,COREDDLD,|disabled||enabled
 guicontrol,,CORERADA,1
@@ -68988,7 +68927,7 @@ guicontrol,,CORECHKG,0
 guicontrol,,CORECHKH,1
 guicontrol,,CORECHKI,0
 guicontrol,,COREDDLB,|game||system
-guicontrol,,COREDDLC,|rom||cart|flop|cdrom|cass|hard|serl|prinreturn
+guicontrol,,COREDDLC,|rom||cart|flop|cdrom|cass|hard|serl|prin
 guicontrol,,COREDDLC,|enabled||disabled
 guicontrol,,COREDDLD,|disabled||enabled
 guicontrol,,CORERADA,1
@@ -69049,7 +68988,7 @@ guicontrol,,CORECHKG,0
 guicontrol,,CORECHKH,1
 guicontrol,,CORECHKI,0
 guicontrol,,COREDDLB,|game||system
-guicontrol,,COREDDLC,|rom||cart|flop|cdrom|cass|hard|serl|prinreturn
+guicontrol,,COREDDLC,|rom||cart|flop|cdrom|cass|hard|serl|prin
 guicontrol,,COREDDLC,|enabled||disabled
 guicontrol,,COREDDLD,|disabled||enabled
 guicontrol,,CORERADA,1
