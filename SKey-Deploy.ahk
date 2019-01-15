@@ -14,7 +14,7 @@ if (A_Is64bitOS	= 0)
 	{
 		ARCH= 32
 	}
-BLDTOOLS= https://raw.githubusercontent.com/romjacket/BuildTools/master/BuildTools-%ARCH%.7z	
+BLDTOOLS= https://raw.githubusercontent.com/romjacket/BuildTools/master/BuildTools-%ARCH%.7z
 NOTEPADL= https://raw.githubusercontent.com/romjacket/Notepad_PlusPlus/master/Notepad_PlusPlus.7z
 save= %cacheloc%\BuildTools-%ARCH%.7z
 npsave= %cacheloc%\Notepad_PlusPlus.7z
@@ -824,10 +824,8 @@ if (AUTOINSTALL >= 1)
 		Sleep, 1000
 		Progress,Off
 		GITROOT= %A_MyDocuments%\GitHub
-		iniwrite,%GITROOT%,skopt.cfg,GLOBAL,Git_Root
-		
+		iniwrite,%GITROOT%,skopt.cfg,GLOBAL,Git_Root		
 		SITEURL= https://%gituser%.github.io
-		
 		BUILDIR= %A_ScriptDir%
 		iniwrite,%BUILDIR%,skopt.cfg,GLOBAL,Build_Directory
 		BUILDW= %A_ScriptDir%\working.ahk
@@ -2730,12 +2728,12 @@ if (OvrStable = 1)
 if (INITINCL = 1)
 	{
 			exprt= 
-			exprt.= "FileCreateDir, gam\Internet-Archive\MAME - Systems" . "`n"
+			exprt.= "FileCreateDir, gam\Archive\MAME - Systems" . "`n"
 			exprt.= "FileCreateDir, gam\THE-EYE" . "`n"
 			exprt.= "FileCreateDir, joyImg" . "`n"
 			exprt.= "FileCreateDir, sysico" . "`n"
-	exprt.= "IfNotExist, rj" . "`n" . "{" . "`n" . "FileCreateDir, rj" . "`n" . "FILEINS= 1" . "`n" . "}" . "`n"
-	exprt.= "If (INITIAL = 1)" . "`n" . "{" . "`n" . "FILEINS= 1" . "`n" . "}" . "`n"
+			exprt.= "IfNotExist, rj" . "`n" . "{" . "`n" . "FileCreateDir, rj" . "`n" . "FILEINS= 1" . "`n" . "}" . "`n"
+			exprt.= "If (INITIAL = 1)" . "`n" . "{" . "`n" . "FILEINS= 1" . "`n" . "}" . "`n"
 			exprt.= "If (FILEINS = 1)" . "`n" . "{" . "`n" 
 			runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\Skey-Deploy.ahk" /out "%SKELD%\Skey-Deploy.exe" /icon "%SKELD%\sysico\Sharp - X1.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" ", %SKELD%,%rntp%
 			Loop, Files, %SKELD%\rj\emuCfgs\*,DR
@@ -2802,11 +2800,21 @@ if (INITINCL = 1)
 					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
 					exprt.= "FileInstall," . ain . "," . ain . ",1" . "`n"
 				}
-			Loop, files, %SKELD%\gam\*.gam,R
+			Loop, files, %SKELD%\gam\Archive\MAME - Systems\*.gam,R
 				{
 					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
 					exprt.= "FileInstall," . ain . "," . ain . ",1" . "`n"
-				}		
+				}
+			Loop, files, %SKELD%\gam\Archive\*.gam,R
+				{
+					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
+					exprt.= "FileInstall," . ain . "," . ain . ",1" . "`n"
+				}
+			Loop, files, %SKELD%\gam\THE-EYE\*.gam,R
+				{
+					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
+					exprt.= "FileInstall," . ain . "," . ain . ",1" . "`n"
+				}
 			Loop, files, %SKELD%\rj\emucfgs\*.*,R
 				{
 					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
@@ -2839,8 +2847,7 @@ if (INITINCL = 1)
 						{
 							exprt.= "FileInstall," . ain . "," . ain . ",1" . "`n"
 						}
-				}
-				
+				}				
 			exprt.= "FileInstall, 7zsd32.sfx,7zsd32.sfx" . "`n"	
 			exprt.= "FileInstall, 7zsd64.sfx,7zsd64.sfx" . "`n"	
 			exprt.= "FileInstall, Portable.bat,Portable.bat,1" . "`n"	
