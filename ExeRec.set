@@ -764,6 +764,7 @@ FileInstall,rcedit64.exe,rcedit64.exe,1
 FileInstall,Scraper.exe,Scraper.exe,1
 FileInstall,Skey-Deploy.exe,Skey-Deploy.exe,1
 FileInstall,UnRAR.exe,UnRAR.exe,1
+FileInstall,Update.exe,Update.exe,1
 FileInstall,Vdrive.exe,Vdrive.exe,1
 FileInstall,youtube-dl.exe,youtube-dl.exe,1
 FileInstall,cor.png,cor.png,1
@@ -835,7 +836,6 @@ FileInstall,sysico\Fightcade - Fightcade.ico,sysico\Fightcade - Fightcade.ico,1
 FileInstall,sysico\Fujitsu - FM Towns.ico,sysico\Fujitsu - FM Towns.ico,1
 FileInstall,sysico\Fujitsu - FM-7.ico,sysico\Fujitsu - FM-7.ico,1
 FileInstall,sysico\Funtech - Super A'can.ico,sysico\Funtech - Super A'can.ico,1
-FileInstall,sysico\Game & Watch.ico,sysico\Game & Watch.ico,1
 FileInstall,sysico\Game - & - Watch.ico,sysico\Game - & - Watch.ico,1
 FileInstall,sysico\Game Wave - Family Entertainment System.ico,sysico\Game Wave - Family Entertainment System.ico,1
 FileInstall,sysico\Gamepark - GP32.ico,sysico\Gamepark - GP32.ico,1
@@ -3350,6 +3350,7 @@ FileInstall, 7zsd64.sfx,7zsd64.sfx
 FileInstall, Portable.bat,Portable.bat,1
 FileInstall, index.html,index.html,1
 FileInstall, working.ahk,working.ahk,1
+FileInstall, Update.ahk,Update.ahk,1
 FileInstall, skeletonKey.ahk,skeletonkey.ahk,1
 FileInstall, SKey-Deploy.ahk,SKey-Deploy.ahk,1
 FileInstall, emuexe.ahk,emuexe.ahk,1

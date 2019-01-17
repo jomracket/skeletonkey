@@ -23,6 +23,15 @@ LicenseData "[SOURCE]\ReadMe.md"
 
 RequestExecutionLevel none
 
+Function .onInit
+System::Call 'kernel32::CreateMutex(p 0, i 0, t "skeletonKey-installer") p .r1 ?e'
+ Pop $R0
+ 
+ StrCmp $R0 0 +3
+   MessageBox MB_OK|MB_ICONEXCLAMATION "The installer is already running."
+   Abort
+   NoAbort:
+ FunctionEnd
 		
 Page license
 Page components
@@ -109,6 +118,8 @@ Function "CSCTest"
   CreateDirectory "$SMPROGRAMS\skeletonKey"
   SetOutPath $INSTDIR ; for working directory
   CreateShortCut "$SMPROGRAMS\skeletonKey\Uninstall skeletonKey.lnk" "$INSTDIR\skeletonKey-uninst.exe" ; use defaults for parameters, icon, etc.
+  CreateShortCut "$SMPROGRAMS\skeletonKey\skeletonKey.lnk" "$INSTDIR\skeletonKey.exe"
+  CreateShortCut "$DESKTOP\skeletonKey.lnk" "$INSTDIR\skeletonKey.exe" "" "$INSTDIR\key.ico"
 
 FunctionEnd
 

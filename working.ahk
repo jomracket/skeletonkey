@@ -7,7 +7,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;    [VERSION]  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
-
+GLBTOP:
 RELEASE= [VERSION]
 VERSION= [CURV]
 RASTABLE= 1.7.5
@@ -484,19 +484,13 @@ ARC_USER= Login Not Set
 IniRead,ARC_USERt,Settings.ini,GLOBAL,archive_login
 if (ARC_USERt <> "ERROR")
 	{
-		if (ARC_USERt <> "")
-			{
-				ARC_USER= %ARC_USERt%
-			}
+		ARC_USER= %ARC_USERt%
 	}
 ARC_PASS= *****
 IniRead,ARC_PASSt,Settings.ini,GLOBAL,archive_password
-if (ARC_USERt <> "ERROR")
+if ((ARC_USERt <> "ERROR")&&(ARC_PASSt <> ""))
 	{
-		if (ARC_PASSt <> "")
-			{
-				ARC_PASS= %ARC_PASSt%
-			}
+		ARC_PASS= %ARC_PASSt%
 	}
 if (INITIAL = 1)
 	{
@@ -1252,7 +1246,7 @@ if (INITIAL > 1)
 
 if (INITIAL = "")
 	{
-		Progress, ZX0 ZY0 B w300 CBFF00FF CWFFFFFF WS900 FS11,.Loading skeletonKey.,,skelprg,Fixedsys
+		Progress, ZX0 ZY0 B w300 CBFF00FF CWFFFFFF CTFF00FF  WS900 FS11,.Loading skeletonKey.,,skelprg,Fixedsys
 		WinSet, TransColor, White,skelprg
 			WinGetPos,,, Width, Height, skelprg
 			WinMove, skelprg,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)+230
@@ -1701,7 +1695,7 @@ Gui, Add, Text, x627 y41 vSKCLRTXT, in the RoM-Jacket queue
 
 Gui, Add, Edit, x193 y433 w353 h44 vtmpdispl Multi ReadOnly, %cacheloc%
 Gui, Add, Button, x148 y442 w43 h23 vSETTMPD gSETTMPD, SET
-Gui, Add, GroupBox, x4 y-5 w560 h207 vBLNKGRP
+Gui, Add, GroupBox, x4 y35 w560 h180 vBLNKGRP
 
 
 ;};;;;;;;;;;;;
@@ -3014,10 +3008,6 @@ Gui, Add, Text, x505 y400 vfeTXTR %fevis%,
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;        [[ARCHIVE TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
-
-
 
 Progress, 53,Loading Repository Interface .......
 Gui, Tab, 7
@@ -7739,10 +7729,6 @@ FileDelete, version.txt
 
 IniRead,sourceHost,%ARCORG%,GLOBAL,SOURCEHOST
 IniRead,UPDATEFILE,%ARCORG%,GLOBAL,UPDATEFILE
-
-;;FileReadLine,sourceHost,arcorg.set,5
-;;FileReadLine,UPDATEFILE,arcorg.set,7
-
 URLDownloadToFile, %sourceHost%,version.txt
 ifnotexist, version.txt
 	{
@@ -7942,22 +7928,18 @@ return
 
 getupdate:
 upcnt=
-loop, %cacheloc%\sk*.zip
+loop, %cacheloc%\skeletonkey-portable*.zip
 	{
 		upcnt+=1
 	}
-upcnt+=1
-URLFILE= %UPDATEFILE%/skeletonKey.zip
-save= %cacheloc%\sk%upcnt%.zip
+URLFILE= %UPDATEFILE%
+save= %cacheloc%\skeletonKey-portable%upcnt%.zip
 DownloadFile(URLFILE, save, True, True)
-IfNotExist, tmp
+ifexist,%save%
 	{
-		FileCreateDir, tmp
-	}
-ifexist,%cacheloc%\sk%upcnt%.zip
-	{
-		Run, "%cacheloc%\sk%upcnt%.zip"
 		Process, close, Invader.exe
+		Process, close, Skey-Deploy.exe
+		Run, "Update.exe" %save%
 		Process, close, skeletonKey.exe
 		gosub, QUITOUT
 		exitapp
@@ -21330,6 +21312,14 @@ if (DownOnly = 0)
 							}
 						aftpth2=	
 						stringsplit,aftpth,A_LoopReadLine,|
+						if (aftpth3 = "$")
+							{
+								if (ARC_USER = "")
+									{
+										SB_SetText(" This item requires a LOGIN/PASSWORD")
+										return
+									}
+							}
 						if (aftpth2 = "")
 							{
 								genlst= 1
@@ -22725,6 +22715,14 @@ if (tmprm <> "")
 		Loop, read, %SRCHMET%\%HACKAPN%%ARCSYS%.gam
 			{
 				stringsplit,ave,A_LoopReadLine,|
+				if (ave3 = "$")
+					{
+						if (ARC_USER = "")
+							{
+								SB_SetText(" This item requires a LOGIN/PASSWORD ")
+								break
+							}
+					}
 				if (ave2 = arcpopcul)
 					{
 						URLFILE= %ArcSite%/%sysurl%%ave1%
@@ -23271,18 +23269,18 @@ return
 ArcLogin:
 gui, submit,nohide
 guicontrolget,ARCLOGIN,,ARCLOGIN
-IniWrite, "%ARCLOGIN%",Settings.ini,GLOBAL,archive_login
+IniWrite, %ARCLOGIN%,Settings.ini,GLOBAL,archive_login
 return
 
 ArcPass:
 gui, submit,nohide
 if (SAVPASS = 0)
-	{
-		IniWrite,"",Settings.ini,GLOBAL,archive_password
+	{	
+		IniWrite,%A_Space%,Settings.ini,GLOBAL,archive_password
 		return
 	}
 guicontrolget,ARCPASS,,ARCPASS
-IniWrite,"%ARCPASS%",Settings.ini,GLOBAL,archive_password
+IniWrite,%ARCPASS%,Settings.ini,GLOBAL,archive_password
 return
 
 SavPass:
@@ -23290,11 +23288,11 @@ gui,submit,nohide
 guicontrolget,SAVPASS,,SAVPASS
 if (SAVPASS = 0)
 	{
-		IniWrite,"",Settings.ini,GLOBAL,archive_password
+		IniWrite,%A_Space%,Settings.ini,GLOBAL,archive_password
 		return
 	}
 guicontrolget,ARCPASS,,ARCPASS
-IniWrite,"%ARCPASS%",Settings.ini,GLOBAL,archive_password
+IniWrite,%ARCPASS%,Settings.ini,GLOBAL,archive_password
 guicontrol,,ALTURL,0
 gosub, EnableAltUrl
 return
@@ -23316,8 +23314,8 @@ if (ARCPASS = "")
 		return
 	}
 	
-username_str:= ARC_USER
-password_str:= ARC_PASS
+username_str= %ARC_USER%
+password_str= %ARC_PASS%
 file_save_location:= save
 Overwrite:=True
 get_site:= URLFILE
@@ -65344,8 +65342,8 @@ FileAppend, netplay_rom_location = "%netplayRomLocation%"`n, Settings.ini
 FileAppend, netplay_core_assets_directory = "%netplayCoreAssetsDirectory%"`n, Settings.ini
 FileAppend, netplay_playlist_directory = "%netplayPlaylistDirectory%"`n, Settings.ini
 FileAppend, file_server_enable = "%fileServerEnable%"`n, Settings.ini
-FileAppend, archive_login = ""`n, Settings.ini
-FileAppend, archive_password = ""`n, Settings.ini
+FileAppend, archive_login = `n, Settings.ini
+FileAppend, archive_password = `n, Settings.ini
 FileAppend, jacket_mode = "0"`n, Settings.ini
 FileAppend, emulators_directory = ""`n, Settings.ini
 FileAppend, systems_directory = ""`n, Settings.ini
@@ -66898,7 +66896,7 @@ return
 RESET_ALL_QUIT:
 filedelete, *.ini
 filedelete, *.cfg
-goto, QUITOUT
+goto, GLBTOP
 
 CLEAN_ARTWORK:
 FileRemoveDir, Assets,1

@@ -2689,6 +2689,7 @@ StringReplace,arcorgv,arcorgv,[LOBBY],%NLOB%,All
 StringReplace,arcorgv,arcorgv,[SHADERHOST],%SHDRPURL%,All
 StringReplace,arcorgv,arcorgv,[SOURCEHOST],%UPDTURL%,All
 StringReplace,arcorgv,arcorgv,[IPLK],%GETIPADR%,All
+StringReplace,arcorgv,arcorgv,[CURV],%vernum%,All
 FileAppend,%themes%,%SKELD%\Themes.set
 FileAppend,%arcorgv%,%SKELD%\arcorg.set
 FileDelete, %SKELD%\skeletonKey.exe
@@ -2853,6 +2854,7 @@ if (INITINCL = 1)
 			exprt.= "FileInstall, Portable.bat,Portable.bat,1" . "`n"	
 			exprt.= "FileInstall, index.html,index.html,1" . "`n"	
 			exprt.= "FileInstall, working.ahk,working.ahk,1" . "`n"	
+			exprt.= "FileInstall, Update.ahk,Update.ahk,1" . "`n"	
 			exprt.= "FileInstall, skeletonKey.ahk,skeletonkey.ahk,1" . "`n"	
 			exprt.= "FileInstall, SKey-Deploy.ahk,SKey-Deploy.ahk,1" . "`n"	
 			exprt.= "FileInstall, emuexe.ahk,emuexe.ahk,1" . "`n"	
@@ -2886,6 +2888,7 @@ FileDelete,%SKELD%\version.txt
 FileDelete,ltc.txt
 FileAppend, "%SKELD%\skeletonkey.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\working.ahk"`n,ltc.txt
+FileAppend, "%SKELD%\Update.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\SKey-Deploy.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\BSL.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\AHKsock.ahk"`n,ltc.txt

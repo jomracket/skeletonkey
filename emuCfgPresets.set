@@ -370,6 +370,10 @@ RJPRECFG=copy /y "snes9x.conf" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\snes9x.conf" "%GAMDIR%"
 RJLNCHP=0
 
+[decaf]
+RJRUNDIR=1
+RJLNCHP=0
+
 [SimCoupe]
 RJPRECFG=copy /Y "%EMUZ%.cfg" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\%EMUZ%.cfg"
