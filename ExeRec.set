@@ -3349,6 +3349,7 @@ FileInstall, 7zsd32.sfx,7zsd32.sfx
 FileInstall, 7zsd64.sfx,7zsd64.sfx
 FileInstall, Portable.bat,Portable.bat,1
 FileInstall, index.html,index.html,1
+FileInstall, version.txt,version.txt,1
 FileInstall, working.ahk,working.ahk,1
 FileInstall, Update.ahk,Update.ahk,1
 FileInstall, skeletonKey.ahk,skeletonkey.ahk,1

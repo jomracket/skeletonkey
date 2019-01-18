@@ -7738,7 +7738,7 @@ ifnotexist, version.txt
 	}
 FileReadLine,DATECHK,version.txt,1
 stringsplit,VERCHKC,DATECHK,=
-if (VERCHKC1 <> RELEASE)
+if (VERCHKC3 <> RELEASE)
 	{
 		msgbox,4,Update, Update available`n%VERCHKC1%`nWould you like to update skeletonKey?`n(program will close)
 		IfMsgBox, yes

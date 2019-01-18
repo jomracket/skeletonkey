@@ -4,11 +4,11 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2019-01-17 10:37 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2019-01-17 5:02 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 GLBTOP:
-RELEASE= 2019-01-17 10:37 AM
+RELEASE= 2019-01-17 5:02 PM
 VERSION= 0.99.68.83
 RASTABLE= 1.7.5
 
@@ -7738,7 +7738,7 @@ ifnotexist, version.txt
 	}
 FileReadLine,DATECHK,version.txt,1
 stringsplit,VERCHKC,DATECHK,=
-if (VERCHKC1 <> RELEASE)
+if (VERCHKC3 <> RELEASE)
 	{
 		msgbox,4,Update, Update available`n%VERCHKC1%`nWould you like to update skeletonKey?`n(program will close)
 		IfMsgBox, yes

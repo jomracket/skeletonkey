@@ -2583,7 +2583,7 @@ if (BLDERROR = 1)
 	}
 
 FileDelete, %SKELD%\version.txt
-FileAppend, %date% %timestring%=%nchash%=%verapnd%,%SKELD%\version.txt
+FileAppend, %date% %timestring%=%nchash%=%vernum%,%SKELD%\version.txt
 
 
 buildnum= 
@@ -2853,6 +2853,7 @@ if (INITINCL = 1)
 			exprt.= "FileInstall, 7zsd64.sfx,7zsd64.sfx" . "`n"	
 			exprt.= "FileInstall, Portable.bat,Portable.bat,1" . "`n"	
 			exprt.= "FileInstall, index.html,index.html,1" . "`n"	
+			exprt.= "FileInstall, version.txt,version.txt,1" . "`n"	
 			exprt.= "FileInstall, working.ahk,working.ahk,1" . "`n"	
 			exprt.= "FileInstall, Update.ahk,Update.ahk,1" . "`n"	
 			exprt.= "FileInstall, skeletonKey.ahk,skeletonkey.ahk,1" . "`n"	
@@ -2884,11 +2885,12 @@ if (OvrStable = 1)
 guicontrol,,progb,15
 FileDelete,%SKELD%\*.lpl
 FileDelete,%SKELD%\*.tmp
-FileDelete,%SKELD%\version.txt
+;;FileDelete,%SKELD%\version.txt
 FileDelete,ltc.txt
 FileAppend, "%SKELD%\skeletonkey.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\working.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\Update.ahk"`n,ltc.txt
+FileAppend, "%SKELD%\version.txt"`n,ltc.txt
 FileAppend, "%SKELD%\SKey-Deploy.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\BSL.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\AHKsock.ahk"`n,ltc.txt
@@ -3082,6 +3084,7 @@ if (GitPush = 1)
 		FileAppend, copy /y "*.set" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "Portable.bat" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "index.html" "%GITD%"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, copy /y "version.html" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "LV_InCellEdit.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "emuexe.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "BSL.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
