@@ -6,13 +6,24 @@ Name "skeletonKey"
 Caption "Universal ROM-Library Interface Kit"
 Icon "[SOURCE]\Install.ico"
 OutFile "[DBP]\skeletonkey[INSTYP].exe"
-
+AllowRootDirInstall true
+AutoCloseWindow true
 SetDateSave on
 SetDatablockOptimize on
 SilentInstall normal
 BGGradient off
 InstallColors /windows
 XPStyle off
+
+VIAddVersionKey "ProductName" "skeletonKey"
+VIAddVersionKey "Comments" "unified ROM environment"
+VIAddVersionKey "CompanyName" "RoM-Jacket"
+VIAddVersionKey "LegalTrademarks" "All Rights Reserved"
+VIAddVersionKey "LegalCopyright" "© RoM-Jacket"
+VIAddVersionKey "FileDescription" "skeletonKey Binary"
+VIAddVersionKey "FileVersion" "[CURV]"
+VIProductVersion [CURV]
+VIFileVersion [CURV]
 
 InstallDir "$DOCUMENTS\skeletonKey"
 InstallDirRegKey HKLM "Software\skeletonKey" "Install_Dir"
@@ -42,12 +53,8 @@ UninstPage uninstConfirm
 UninstPage instfiles
 
 !ifndef NOINSTTYPES ; only if not defined
-  ;InstType "Most"
-  ;InstType "Full"
-  ;InstType "More"
-  ;InstType "Base"
-  InstType /NOCUSTOM
-  ;InstType /COMPONENTSONLYONCUSTOM
+  ;InstType /NOCUSTOM
+  InstType /COMPONENTSONLYONCUSTOM
 !endif
 
 AutoCloseWindow true
@@ -59,7 +66,7 @@ Section "" ; empty string makes it hidden, so would starting with -
   ; write reg info
   StrCpy $1 "Installation"
   DetailPrint "I like to be able to see what is going on (debug) $1"
-  WriteRegStr HKLM SOFTWARE\RoM-Jacket "Install_Dir" "$INSTDIR"
+  WriteRegStr HKLM "SOFTWARE\skeletonKey" "Install_Dir" "$INSTDIR"
 
   ; write uninstall strings
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\skeletonKey" "skeletonKey" "skeletonKey (remove only)"
@@ -68,36 +75,14 @@ Section "" ; empty string makes it hidden, so would starting with -
   SetOutPath $INSTDIR
 
   File "[DBP]\skeletonKey.exe"
-  
-  ;File "[SOURCE]\Portable.bat"
-  ;File "[SOURCE]\*.set"
-  ;File "[SOURCE]\*.ttf"
-  ;File "[SOURCE]\*.html"
-  ;File "[SOURCE]\*.png"
-  ;File "[SOURCE]\*.ico"
-  ;File "[SOURCE]\BSL.ahk"
-  ;File "[SOURCE]\SKey-Deploy.ahk"
-  ;File "[SOURCE]\skeletonkey.ahk"
-  ;File "[SOURCE]\*.exe"
-  ;SetOutPath $INSTDIR\gam
-  ;File "[SOURCE]\gam\*.gam"
-  ;SetOutPath $INSTDIR\joyImg
-  ;File "[SOURCE]\joyImg\*.png"
-  ;SetOutPath $INSTDIR\rj\joyCfgs
-  ;File /r "[SOURCE]\rj\joyCfgs"
-  ;SetOutPath $INSTDIR\rj\emuCfgs
-  ;File /r "[SOURCE]\rj\emuCfgs"
-  ;SetOutPath $INSTDIR\rj\scrapeArt
-  ;File "[SOURCE]\rj\scrapeart\supported.set"
-  ;;File "[SOURCE]\rj\scrapeart\*.7z"
-  ;SetOutPath $INSTDIR\rj\KODI\AEL
-  ;File "[SOURCE]\rj\KODI\AEL\*.set"
-  ;SetOutPath $INSTDIR\rj\ES
-  ;File "[SOURCE]\rj\ES\*.set"
-  ;SetOutPath $INSTDIR
-  WriteUninstaller "skeletonKey-uninst.exe"
-  
+  WriteUninstaller "skeletonKey-uninst.exe"  
   Nop ; for fun
+
+SectionEnd
+
+Section "Desktop Shortcuts"
+
+  CreateShortCut "$DESKTOP\skeletonKey.lnk" "$INSTDIR\skeletonKey.exe" "" "$INSTDIR\key.ico"
 
 SectionEnd
 
@@ -119,7 +104,6 @@ Function "CSCTest"
   SetOutPath $INSTDIR ; for working directory
   CreateShortCut "$SMPROGRAMS\skeletonKey\Uninstall skeletonKey.lnk" "$INSTDIR\skeletonKey-uninst.exe" ; use defaults for parameters, icon, etc.
   CreateShortCut "$SMPROGRAMS\skeletonKey\skeletonKey.lnk" "$INSTDIR\skeletonKey.exe"
-  CreateShortCut "$DESKTOP\skeletonKey.lnk" "$INSTDIR\skeletonKey.exe" "" "$INSTDIR\key.ico"
 
 FunctionEnd
 

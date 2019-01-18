@@ -1,12 +1,12 @@
-skeletonKey 0.99.68.83
+skeletonKey 0.99.68.84
 
- 2019-01-17 5:02 PM
+ 2019-01-18 8:46 AM
  
 by romjacket 
 
 This tool is a unified interface for ROMs, emulators and frontends.
 In addition to deployment tools, skeletonKey can also be used as a GUI to launch
-ROMs, leveraging Archive.org and retroArch's netplay capabilities.
+ROMs, leveraging internet ROM repositories and retroArch's netplay capabilities.
 
 Official files are found at GITHUB
 http://github.com/romjacket/skeletonKey
@@ -22,13 +22,11 @@ https://www.paypal.me/romjacket
 
 Nearly all options have a hover-tool-tip which describe uses and functions.
 
-A quick-start wizard will allow users to get up and running quickly.
+Refer to the html help included (index.html) for detailed information.
+
+Upon installtion, a quick-start wizard will allow users to get up and running quickly.
 
 ###########################################
-
-Source files are ".ahk" and included is the deployment tool:
-
-SK-Deploy.ahk
 
 # Deployment.
 

@@ -1214,6 +1214,7 @@ if (bldexists = 1)
 		StringReplace, nsiv, nsiv,[INSTYP],-installer,All
 		StringReplace, nsiv, nsiv,[BUILD],%BUILDIR%,All
 		StringReplace, nsiv, nsiv,[DBP],%DEPL%,All
+		StringReplace, nsiv, nsiv,[CURV],%vernum%,All
 		FileAppend, %nsiv%,%BUILDIR%\skdeploy.nsi
 		return
 	}
@@ -2554,6 +2555,7 @@ StringReplace, nsiv, nsiv,[INSTYP],-installer,All
 StringReplace, nsiv, nsiv,[SOURCE],%SKELD%,All
 StringReplace, nsiv, nsiv,[BUILD],%BUILDIR%,All
 StringReplace, nsiv, nsiv,[DBP],%DEPL%,All
+StringReplace, nsiv, nsiv,[CURV],%vernum%,All
 FileAppend, %nsiv%, %BUILDIR%\skdeploy.nsi
 
 RunWait, %comspec% cmd /c " "%NSIS%" "%BUILDIR%\skdeploy.nsi" ", ,%rntp%
