@@ -2609,28 +2609,6 @@ if (DevlVer = 1)
 				FileMove,%DEPL%\skeletonK.zip, %DEPL%\Installer.zip,1	
 			}
 	}
-/*
-buildnum= 
-buildtnum= 1
-Loop, %DEPL%\skeletonkey-Full-%date%*.zip
-	{
-		buildnum+=1
-	}
-if (buildnum <> "")
-	{
-		buildnum= -%buildnum%
-	}	
-RunWait, "%BUILDIR%\7za.exe" a "%DEPL%\skeletonD.zip" "%DEPL%\skeletonkey-Full.exe", %BUILDIR%,%rntp%
-*/
-/*
-if (DevlVer = 1)
-	{
-		if (DBOV <> 1)
-			{
-				FileMove,%DEPL%\skeletonD.zip, %DEPL%\skeletonkey-Full-%date%%buildnum%.zip,1
-			}
-	}
-*/
 if (OvrStable = 1)
 	{
 				if (SBOV <> 1)
@@ -2994,6 +2972,7 @@ if (BCANC = 1)
 	{
 		SB_SetText(" Cancelling Development Build ")
 		guicontrol,,progb,0
+		gosub, canclbld
 		return
 	}
 	
@@ -3008,6 +2987,7 @@ if (BCANC = 1)
 	{
 		SB_SetText(" Cancelling Git Push ")
 		guicontrol,,progb,0
+		gosub, canclbld
 		return
 	}
 
@@ -3148,6 +3128,7 @@ if (BCANC = 1)
 	{
 		SB_SetText(" Cancelling Stable Overwrite ")
 		guicontrol,,progb,0
+		gosub, canclbld
 		return
 	}
 
@@ -3165,6 +3146,7 @@ if (BCANC = 1)
 	{
 		SB_SetText(" Cancelling Server Upload ")
 		guicontrol,,progb,0
+		gosub, canclbld
 		return
 	}
 
@@ -3231,6 +3213,7 @@ if (BCANC = 1)
 	{
 		SB_SetText(" Cancelling Site Update ")
 		guicontrol,,progb,0
+		gosub, canclbld
 		return
 	}
 
@@ -3408,6 +3391,7 @@ if (uptoserv = 1)
 
 guicontrol,,progb,100
 SB_SetText(" Complete ")
+gosub, canclbld
 guicontrol,,progb,0
 
 guicontrol,enable,OvrStable
@@ -3429,6 +3413,9 @@ guicontrol,show,COMPILE
 guicontrol,,progb,0
 return
 
+canclbld:
+filemove,%SKELD%\skeletonKey.exe, %SKELD%\skeletonKey.del,1
+return
 
 esc::
 #IfWinActive _DEV_

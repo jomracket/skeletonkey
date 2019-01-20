@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2019-01-18 8:46 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2019-01-20 3:25 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 GLBTOP:
-RELEASE= 2019-01-18 8:46 AM
-VERSION= 0.99.68.84
+RELEASE= 2019-01-20 3:25 PM
+VERSION= 0.99.68.85
 RASTABLE= 1.7.5
 
 #Include tf.ahk
@@ -1220,7 +1220,7 @@ netplayCoreAssetsDirectory= %RJSYSTEMS%
 SUPRSRCH= 1
 AUTOFUZ= 1
 FUZENB= Checked
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 ;{;;;;;;;;;;;;;;;;;;;      GENERATE CONFIG    ;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -1230,6 +1230,7 @@ ifnotexist, %curcfg%
 		filecopy,config.set,config.cfg,1
 		gosub, VARtoINI
 	}
+
 ifnotexist, %racoreopt%
 	{
 		Menu,Tray,Tip, Generating retroArch core-settings
@@ -1248,8 +1249,8 @@ if (INITIAL = "")
 	{
 		Progress, ZX0 ZY0 B w300 CBFF00FF CWFFFFFF CTFF00FF  WS900 FS11,.Loading skeletonKey.,,skelprg,Fixedsys
 		WinSet, TransColor, White,skelprg
-			WinGetPos,,, Width, Height, skelprg
-			WinMove, skelprg,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)+230
+		WinGetPos,,, Width, Height, skelprg
+		WinMove, skelprg,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)+230
 	}
 IniRead, HOVPREV, Settings.ini,GLOBAL,hover_preview
 hovvalue= 
@@ -1473,35 +1474,33 @@ if (INITIAL = 1)
 				FileCreateDir, rj\sysCfgs\%syscfgfld1%
 			}
 		gosub, EmuDetect
+		gosub, INITIALASIGN
 		ifnotexist, rj\sysCfgs
 			{
 				fileCreateDir, rj\sysCfgs
 			}
-
-	}	
+	}
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;Sort, INJOPT , Alphabetically D|
-;Sort, INJARG , Alphabetically D|
+								 
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 DCHINST=Not Found
 if (DCHANGER <> "0")
-{
-	DCHINST= Installed
-}
+	{
+		DCHINST= Installed
+	}
 DAMINST=Not Found
 if (DAMVAR <> "0")
-{
-	DAMINST= Installed
-}
+	{
+		DAMINST= Installed
+	}
 
 if (TGLPBL = 1)
-{
-	;
-
-}
+	{
+		;
+	}
 Gui,Font,%fontXsm%, %fontName%
 gosub, DestroySplashGUI
 SplashImage = splash.png
@@ -1617,7 +1616,7 @@ Menu, ARCSETB, Add, Reset-ALL Sources, ARCEDURA
 Menu, ARSOCCFG, Add, Configure Association, ARSCFG
 Menu, ARSOCCFG, Add,
 Menu, ARSOCCFG, Add, Reset Download/Run Paramaters, ARSRST
-Menu, ARSOCCFG, Add,
+Menu, ARSOCCFG, Add,  
 Menu, ARSOCCFG, Add, Edit Base-URL for selected system, ARCEDTBU
 Menu, ARSOCCFG, Add, Reset Base-URL for selected system, ARCEDTBR
 
@@ -6567,7 +6566,7 @@ iniread,pcsx2_verx,Apps.ini,EMULATORS,PCSX2
 if ((pcsx2_verx <> "ERROR")&&(pcsx2_verx <> ""))
 	{
 		splitpath,pcsx2_verx,,pcsx2_path
-		filecreateDir,%demul_path%\bios
+		filecreateDir,%pcsx2_verx%\bios
 	}
 	
 iniread,mame_verx,Apps.ini,EMULATORS,MAME
@@ -6893,25 +6892,33 @@ return
 IMPRTCFG:
 if (INITIAL = 1)
 	{
-		msgbox,260,Config File Detected,Would you like to import the detected retroarch.cfg file?`n%raexeloc%\retroarch.cfg	
-		ifmsgbox,Yes
-			{			
-				NwCfgFile= %raexeloc%\retroarch.cfg
-				gosub,NWCFGSPLIT
-			}
-	ifexist, %raexeloc%\retroarch-core-options.cfg
-		{
-			NwCoreCfg= %raexeloc%\retroarch-core-options.cfg
-			MsgBox,260,Config File Detected,Would you like to import the detected retroarch-core-options.cfg file?`n%raexeloc%\retroarch-core-options.cfg	
-			ifmsgbox,Yes
-				{			
-					ifexist, racoreopt.cfg
-					{
-					FileCopy,racoreopt.cfg,racoreopt.cfg.bak,1
+		ifnotexist,config.cfg
+			{
+				msgbox,260,Config File Detected,Would you like to import the detected retroarch.cfg file?`n%raexeloc%\retroarch.cfg	
+				ifmsgbox,Yes
+					{			
+						NwCfgFile= %raexeloc%\retroarch.cfg
+						gosub,NWCFGSPLIT
 					}
-					FileCopy,%NwCoreCfg%,racoreopt.cfg,1
-				}
 			}
+	ifnotexist,racoreopt.cfg
+		{
+			ifexist, %raexeloc%\retroarch-core-options.cfg
+				{
+					NwCoreCfg= %raexeloc%\retroarch-core-options.cfg
+					MsgBox,260,Config File Detected,Would you like to import the detected retroarch-core-options.cfg file?`n%raexeloc%\retroarch-core-options.cfg	
+					ifmsgbox,Yes
+						{			
+							ifexist, racoreopt.cfg
+							{
+							FileCopy,racoreopt.cfg,racoreopt.cfg.bak,1
+							}
+							FileCopy,%NwCoreCfg%,racoreopt.cfg,1
+						}
+					}
+										 
+		}
+	
 return
 	}
 
@@ -6970,6 +6977,7 @@ ifnotexist, %RJSYSTSL%
 SETJKR:
 RJSYSTEMF=
 FileSelectFolder, RJSYSTEMF,%RJSYSTSL%,3,Select the Root folder for all systems %vvtmp%
+RJSYSTEMFX= %RJSYSTEMF%
 if (RJSYSTEMF = "")
 	{
 		if (INITIAL = 1)
@@ -7017,12 +7025,14 @@ if (RJSYSTEMF = "")
 	}
 
 stringright,efi,RJSYSTEMF,2	
+stringLeft,efix,RJSYSTEMF,2
 if (efi = ":\")
 	{
 		RJSYSDRV= %RJSYSTEMF%
-		RJSYSTEMF= %RJSYSTEMF%Console
+		RJSYSTEMF= %efix%
+		RJSYSTEMFX= %RJSYSTEMF%Console
 	}
-splitpath,RJSYSTEMF,pthnm
+splitpath,RJSYSTEMFX,pthnm
 if (pthnm = A_Username)
 	{
 		Msgbox,3,User Directory Root?,Systems Directory set to`n " %RJSYSTEMF%\Console "`n      Is this okay?
@@ -7086,11 +7096,14 @@ if (nask = "")
 		if (efi = ":\")
 			{
 				SFEvb= Create a
+				RJSYSTEMFR= %RJSYSTEMF%
 				ifexist, %RJSYSTEMF%\Console
 					{
 						SFEvb= Use the
+						RJSYSTEMFR= %RJSYSTEMF%\Console
 					}
 				Msgbox,8196,Confirm,%SFEvb% Console directory?,4
+				RJSYSTEMF= %RJSYSTEMFR%
 				ifmsgbox,no
 					{
 						RJSYSTEMF= %RJSYSDRV%
@@ -7100,9 +7113,10 @@ if (nask = "")
 						RJSYSTSL= 
 						goto, SETJKR
 					}
+					
 			}
 			
-		Msgbox,8196,Confirm,You have selected ''%RJSYSTEMF%''`nAre you sure you would like to use this directory?,4
+		Msgbox,8196,Confirm,You have selected ''%RJSYSTEMF%''`nAre you sure you would like to use this directory?,14
 		ifmsgbox,no
 			{
 				goto, SETJKD
@@ -7142,7 +7156,7 @@ if (RJHHS <> "Console")
 			{
 				SFEvb= Use the
 			}
-		Msgbox,8196,Confirm,%SFEvb% Console directory?,4
+		Msgbox,8196,Confirm,%SFEvb% Console directory?,14
 		ifmsgbox,yes
 			{
 				RJSYSTEMF= %RJSYSTEMF%\Console
@@ -7169,7 +7183,7 @@ if (RJHHS <> "Console")
 			}
 	}
 	
-Msgbox,8196,Fuzzy Rename,Would you like to rename identified system directories to supported names?`nSelecting 'no' will simply link these systems.,4
+Msgbox,8452,Fuzzy Rename,Would you like to rename identified system directories to supported names?`nSelecting 'no' will simply link these systems.,14
 ifmsgbox,cancel
 	{
 		goto, SJMPOT
@@ -10591,7 +10605,8 @@ if (LNCHPRDDL = "retroarch")
 					}
 			}
 	}
-		
+
+INITIALASIGN:
 if (LNCHPRDDL <> "retroarch")
 	{
 		Loop, Parse, origsys,`n`r
@@ -10630,7 +10645,7 @@ if (LNCHPRDDL <> "retroarch")
 											{
 												continue
 											}
-										if ((LNCHPRDDL <> "Emulators")&&(A_LoopField <> LNCHPRDDL))
+										if ((LNCHPRDDL <> "Emulators") && (A_LoopField <> LNCHPRDDL))
 											{
 												continue
 											}
@@ -10669,6 +10684,15 @@ if (LNCHPRDDL <> "retroarch")
 					}
 			}
 		iniwrite, 1,Settings.ini,GLOBAL,Launcher_Priority
+	}
+if (INITIAL = 1)
+	{
+		if (raexefile <> "NOT-FOUND.exe")
+			{
+				locfnd= 
+				gosub, RETROARCHINIT
+			}
+		return
 	}
 SB_SetText("Systems now assigned to " LNCHPRDDL " where possible.")
 guicontrol,,SaList,|Systems||Emulators|RetroArch|Utilities|Frontends
@@ -11392,7 +11416,7 @@ return
 ;{;;;;;;;;;;;;;    RETROARCH FUNCTIONS     ;;;;;;;;;;;;;;;;
 
 QINSTALL:
-MsgBox,262404,Quick Install,Install RetroArch and popular emulator cores?,5
+MsgBox,262404,Quick Install,Install RetroArch and popular emulator cores?,15
 IfMsgBox, Yes
 	{
 		gosub, RASETUPCONT
@@ -62362,6 +62386,7 @@ MAMEwangpcJOY:
 MAMEwavetermJOY:
 MAMEwicatJOY:
 MAMEwmbulletJOY:
+MAMEx68000JOY:
 MAMEx680000JOY:
 MAMEx07JOY:
 MAMEx820iiJOY:
@@ -66519,7 +66544,7 @@ ifnotexist, %historyloc%
 		FileAppend,,%historyloc%
 	}
 guicontrol,,histtxt,%A_WorkingDir%\content_history.lpl
-iniwrite, "%A_WorkingDir%\content_history.lpl",Settings.ini,GLOBAL,history_location
+	iniwrite, "%A_WorkingDir%\content_history.lpl",Settings.ini,GLOBAL,history_location
 return
 
 NoFNDPL:
@@ -66552,13 +66577,37 @@ if (locfnd = 1)
 	{
 		return
 	}
-msgbox,257,No RA Found, Select a RetroArch executable file.`nor cancel to skip.,5
-ifmsgbox, OK
+iniread,raexepath,apps.ini,EMULATORS,retroarch
+RJEMUDtst= %RJEMUD%\retroarch\retroarch.exe
+if (raexepath <> "ERROR")
 	{
-		gosub, RAEXE
+		if (raexepath = "")
+			{
+				if (FileExist(RJEMUDtst))
+					{
+						raexepath= %RJEMUDtst%
+					}
+			}
+		splitpath,raexepath,raexefile,raexeloc
+		iniwrite,"%raexeloc%",Settings.ini,GLOBAL,retroarch_location
+		iniwrite,"%raexefile%",Settings.ini,GLOBAL,retroarch_executable
+		locfnd= 
 		return
 	}
-gosub, BLANKRA
+if (FileExist(RJEMUDtst))
+	{
+		raexepath= %RJEMUDtst%
+	}
+if (raexepath = "ERROR")
+	{
+		msgbox,257,No RA Found, Select a RetroArch executable file.`nor cancel to skip,15
+		ifmsgbox, OK
+			{
+				gosub, RAEXE
+				return
+			}
+		gosub, BLANKRA
+	}
 return
 
 GRAVER:
@@ -66694,7 +66743,7 @@ if (locfnd = 1)
 	{
 		return
 	}
-
+RETROARCHINIT:
 guicontrol,,SKRADISP,%raexeloc%
 SB_SetText("Initializing retroarch interface")
 gosub, RAInit
@@ -66739,11 +66788,12 @@ if (raexeloctmp = "")
 				locfnd= 
 				raexeloc= %RJEMUD%\retroarch		
 				iniwrite, "%raexeloc%",Settings.ini,GLOBAL,retroarch_location
-				ifnotexist, %raexeloc%
+				ifnotexist, %raexeloc%\
 					{
 						FileCreateDir,%raexeloc%
 						locfnd= 1
 					}	
+				raexefile= NOT-FOUND.exe
 				ifexist, %raexeloc%\retroarch.exe
 					{
 						raexefile= retroarch.exe
