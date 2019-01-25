@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2019-01-20 3:25 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2019-01-24 5:18 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 GLBTOP:
-RELEASE= 2019-01-20 3:25 PM
-VERSION= 0.99.68.85
+RELEASE= 2019-01-24 5:18 PM
+VERSION= 0.99.68.90
 RASTABLE= 1.7.5
 
 #Include tf.ahk
@@ -3155,7 +3155,7 @@ Gui, Add, CheckBox, x391 y132 h13 vRJENLNCHR gRJENLNCHR, Create ;Launcher Creati
 Gui, Add, CheckBox, x467 y122 w90 h20 +0x20 vRJLNCHOVR gRJLNCHOVR Disabled, Overwrite ;Launchers
 Gui, Add, Radio, x487 y144 h13 vRJRad4B gRJRad4B Disabled, Global
 Gui, Add, Radio, x487 y160 h13 vRJRad4A gRJRad4A checked  Disabled, Per-Game
-Gui, Add, Text, x379 y149 vRJTXTB, Emulators
+Gui, Add, Checkbox, x379 y149 vRJEXEB gRJEXEB, Per-EXE
 Gui, Add, Text, x379 y163 vRJTXTBP, preset
 Gui, Add, DropDownList, x379 y177 w156 vRJEMUPRECFG gRJEMUPRECFG Disabled, %emulist%
 Gui, Add, Button, x537 y177 w22 h23 vRJEMUPRM gRJEMUPRM Disabled, C
@@ -3983,6 +3983,7 @@ RJENLNCHR_TT :="Create launchers"
 RJLNCHOVR_TT :="Overwrites existing launchers with current settings"
 RJRad4B_TT :="Disables Per-Game configurations"
 RJRad4A_TT :="Enables Per-Game configurations"
+RJEXEB_TT :="Extracts the emulator to each ROM-Jacket`n(where supported)"
 RJEMUPRECFG_TT :="Emulator Preset"
 RJEMUPRM_TT :="Configure Emulator Preset"
 RJCHKQ_TT :="Enables a user-defined alternative emulator to be selected"
@@ -6962,9 +6963,46 @@ ifmsgbox, yes
 return
 
 SETJKD:
+
+RJSYSTL= x
+EMUTSL= x
+
+Process, Exist,
+CURPID= %ERRORLEVEL%
+
+splitpath,a_ScriptDir,,,,,drvp
 ifexist, %A_ScriptDir%\Console
 	{
 		RJSYSTSL= %A_ScriptDir%\Console
+	}
+
+ifexist, %A_ScriptDir%\apps
+	{
+		EMUTSL= %A_ScriptDir%\apps
+	}
+	
+ifexist, %drvp%\Console
+	{
+		RJSYSTSL= %drvp%\Console
+	}
+
+ifexist, %drvp%\Emulators
+	{
+		EMUTSL= %drvp%\Emulators
+	}
+	
+if (INITIAL = 1)
+	{
+		Runwait, init.exe %RJSYSTSL% %EMUTSL% %CURPID%
+		iniread,RJSYSTEMS,Settings.ini,GLOBAL,systems_directory
+		iniread,RJEMUD,Settings.ini,GLOBAL,emulators_directory
+		if ((RJSYSTEMS = "") or (RJEMUD = "") or (RJSYSTEMS = "ERROR") or (RJEMUD = "ERROR"))
+			{
+				fileDelete,Settings.ini
+				exitapp
+			}
+		gosub, CNFIR
+		return
 	}
 
 vvtmp= (cancel to select any location)
@@ -7530,6 +7568,7 @@ if (usremum = A_Username)
 CNFUR:	
 RJEMUD= %RJEMUF%
 stringreplace,RJEMUD,RJEMUD,\\,\,All
+CNFIR:
 IfNotExist,%RJEMUD%\BSL\BSL.exe
 	{
 		FileCreateDir,%RJEMUD%\BSL
@@ -8751,10 +8790,10 @@ if (RUNPLRAD = 1)
 		guicontrol,,LCORE,|%coreselv%||%runlist%
 		if (SRCHCOMPL = 1)
 			{
-						guicontrol,,SRCHPLRAD,1
-						guicontrol,,SRCHLOCDDL,|%OPTYP%||History|%plistfiles%
-						guicontrol,,SRCHROMLBX,|
-						gosub, SRCHROMBUT
+				guicontrol,,SRCHPLRAD,1
+				guicontrol,,SRCHLOCDDL,|%OPTYP%||History|%plistfiles%
+				guicontrol,,SRCHROMLBX,|
+				gosub, SRCHROMBUT
 			}
 		guicontrol,,RUNROMCBX,|%romf%||%poptadd%
 		gosub, EDTROM
@@ -8774,7 +8813,6 @@ if (OPTYP = ":=:System List:=:")
 		coreselv= 
 		romf= 
 		RUNSYSCHNG= 
-		
 		gosub, ShowOnlyEmuGui
 		SB_SetText("")
 		return
@@ -12973,6 +13011,7 @@ GuiControl, Disable, EMUASIGN
 GuiControl, Disable, EMUINST
 GuiControl, Enable, CNCLDWN
 
+EMURJINT:
 Loop, Parse,UrlIndex,`n`r
 	{
 		if (A_LoopField = "")
@@ -13029,8 +13068,13 @@ Loop, Parse,UrlIndex,`n`r
 						xtractmu= %RJEMUD%\%urloc1%
 					}
 				DownloadFile(URLFILE, save, DWNOV, True)
+				if (rjintr = 1)
+					{
+						rjintr= 2
+					}
 				ifnotexist, %save%
 					{
+						rjintr= x
 						msgbox,0,, %urloc1%`n''%URLFILE%`n'' was not downloaded, 20
 						GuiControl, Enable, EAVAIL
 						GuiControl, Enable, UAVAIL
@@ -13046,6 +13090,7 @@ Loop, Parse,UrlIndex,`n`r
 				gosub, XTRACTEMU
 				if (XTRACTFAIL = 1)
 					{
+						rjintr= x
 						SB_SetText(" " urloc1 " could not be installed.")
 						GuiControl, Enable, EAVAIL
 						GuiControl, Enable, UAVAIL
@@ -13053,6 +13098,11 @@ Loop, Parse,UrlIndex,`n`r
 						GuiControl, Enable, EMUINST
 						GuiControl, Enable, EMUASIGN
 						GuiControl, Disable, CNCLDWN
+						return
+					}
+				if ((rjintr = 1) or (rjintr = "x"))
+					{
+						rjintr= 
 						return
 					}
 				Loop, Parse, EmuPartSet,`n`r
@@ -15285,6 +15335,7 @@ SB_SetText(" " save " " "was extracted")
 ifnotexist, %xtractmu%
 		{
 			SB_SetText(" " save " " "was NOT extracted")
+			rjintr= 
 			XTRACTFAIL= 1
 		}
 if (KARC = 0)
@@ -18508,11 +18559,13 @@ if (PLCTYP = 1)
 	{
 		FileDelete,%plsave%\%SYSNAME%.lpl
 	}
+	
 FileAppend, %grb%`n, %plsave%\%SYSNAME%.lpl
 if (TmplCfg = "")
 	{
 		TemplCfg= %curcfg%
 	}
+	
 if (PGCONFG = 1)
 	{
 		gosub, getCREN
@@ -18529,6 +18582,7 @@ if (PGCONFG = 1)
 				FileCopy,%TemplCfg%,%raexeloc%\config\%corcfgnam%\%romname%.cfg,%PLOVR%
 			}
 	}
+	
 guicontrol, enable, CLRPP
 guicontrol, enable, CLRPL
 guicontrol, enable, MVPLOU
@@ -41335,6 +41389,7 @@ Loop, rj\*_q.tdb
 
 Loop, rj\*.jak
 	{
+		rjintr=
 		curjk:= A_LoopFileFullPath
 		FileRead, CURTDB, %curjk%
 		curjt:= A_LoopFileName
@@ -41373,6 +41428,7 @@ Loop, rj\*.jak
 		IniRead,RJPREOPT,rj\%curjf%.ini,%curjf%,RJPREOPT
 		IniRead,NICEFLDR,rj\%curjf%.ini,%curjf%,NICEFLDR
 		IniRead,RJEMUARGS,rj\%curjf%.ini,%curjf%,RJEMUARGS
+		IniRead,RJPROPXE,rj\%curjf%.ini,%curjf%,RJPROPXE
 		stringreplace,RJEMUARGS,RJEMUARGS,<,%A_Space%,All
 		IniRead,RJEMUOPTS,rj\%curjf%.ini,%curjf%,RJEMUOPTS
 		Loop,parse,rjemuopts,|
@@ -41416,8 +41472,11 @@ Loop, rj\*.jak
 		FileRead, toapc, rjcmd_runloop.set
 		FileRead, toapd, rjcmd_runproc.set
 		FileRead, toape, rjcmd_postjoy.set
-		StringReplace, toapa,toapa,[EMUL],%emulocd%,All
-		StringReplace, toapa,toapa,[EMUZ],%emuxe%,All
+		if (rjintr = "")
+			{
+				StringReplace, toapa,toapa,[EMUL],%emulocd%,All
+				StringReplace, toapa,toapa,[EMUZ],%emuxe%,All
+			}
 		StringReplace, toapa,toapa,[AMC],%AMCK%,All
 		StringReplace, toapa,toapa,[XPD],%XPDK%,All		
 		If (RJKEYMON = 0)
@@ -41710,7 +41769,7 @@ Loop, rj\*.jak
 		StringReplace,toape,toape,[XPDLOC],%RJMAPTD%,All
 
 		FileAppend,%toape%,rj\sysCfgs\%curjf%\lnch.cmd
-
+		fileread,lnchcmd,rj\sysCfgs\%curjf%\lnch.cmd
 ;};;;;;;;
 
 ;{;;;;;;;;;;;;;;;;    EMULATOR CFG Configuration    ;;;;;;;;;;;;;;;;;;;;;;;
@@ -41798,7 +41857,22 @@ Loop, rj\*.jak
 										FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,%cacheloc%\%curjf%\%ibjn2%,1
 									}
 							}
-																
+						If (RJPROPXE = 1)
+							{
+								if (rjintr = "")
+									{
+										rjintr= 1
+									}
+								selfnd= %emuname%
+								xtractmu= %RJSYSTEMS%\%curjf%\%nwjak%
+								if (rjintr = 1)
+									{
+										gosub, EMURJINT
+									}
+									
+								StringReplace, lnchcmd,lnchcmd,[EMUL],%RJSYSTEMS%\%curjf%\%nwjak%,All
+								StringReplace, lnchcmd,lnchcmd,[EMUZ],%emuxe%,All										
+							}
 					}
 			}
 			
@@ -43132,6 +43206,7 @@ if (RJENLNCHR = 1)
 			guicontrol,enable,RJEMUPRECFG
 			guicontrol,enable,RJEMUPRM
 			guicontrol,enable,RJCHKQ
+			guicontrol,enable,RJEXEB
 			guicontrol,enable,RJBUTM
 			guicontrol,enable,RJCHKK
 		}
@@ -43148,6 +43223,7 @@ if (RJENLNCHR = 0)
 			guicontrol,disable,RJRAD4B
 			guicontrol,disable,RJEMUPRECFG
 			guicontrol,disable,RJEMUPRM
+			guicontrol,disable,RJEXEB
 			guicontrol,disable,RJCHKQ
 			guicontrol,disable,RJBUTM
 			guicontrol,disable,RJCHKK
@@ -43785,6 +43861,7 @@ guicontrol,hide,RJENLNCHR
 guicontrol,hide,RJLNCHOVR
 guicontrol,hide,RJRad4B
 guicontrol,hide,RJRad4A
+guicontrol,hide,RJEXEB
 guicontrol,hide,RJEMUPRECFG
 guicontrol,hide,RJEMUPRM
 guicontrol,hide,RJCHKQ
@@ -43874,6 +43951,7 @@ guicontrol,show,RJENLNCHR
 guicontrol,show,RJLNCHOVR
 guicontrol,show,RJRad4B
 guicontrol,show,RJRad4A
+guicontrol,show,RJEXEB
 guicontrol,show,RJEMUPRECFG
 guicontrol,show,RJEMUPRM
 guicontrol,show,RJCHKQ
@@ -44870,6 +44948,25 @@ gui,submit,nohide
 
 return
 
+RJEXEB:
+gui,submit,nohide
+SB_SetText("**** WARNING **** ''Per-EXE'' can be a very disk-expensive and slow option ******* WARNING ******")
+guicontrolget,RJEXEB,,RJEXEB
+if (RJSYSRADB = 1)
+	{
+		EXSTCFG= rj\dflt.ini
+	}
+if (RJSYSRADC = 1)
+	{
+		EXSTCFG= rj\cur.ini
+		ifexist,rj\%RJSYSDD%.ini
+			{
+				EXSTCFG= rj\%RJSYSDD%.ini
+			}
+	}
+IniWrite,%RJEXEB%,rj\%RJSYSDD%.ini,%RJSYSDD%,RJPROPXE
+return
+
 RJRad4A:
 gui,submit,nohide
 
@@ -45306,7 +45403,7 @@ if (rjaval2 >= 1)
 		guicontrol,enable,RJLNCHOVR
 		guicontrol,enable,RJRAD4A
 		guicontrol,enable,RJRAD4B
-		guicontrol,enable,RJTXTB
+		guicontrol,enable,RJEXEB
 		guicontrol,enable,RJEMUPRECFG
 		guicontrol,enable,RJEMUPRM
 		guicontrol,enable,RJCHKQ
@@ -65082,7 +65179,6 @@ if (romf = ".........indexing............")
 		return
 	}
 
-	
 cursli= 
 lnumfnd= 
 numfnd= 
@@ -65375,7 +65471,6 @@ FileAppend, systems_directory = ""`n, Settings.ini
 FileAppend, AutoPopulate_Search = "1"`n, Settings.ini
 FileAppend, AutoLoad_PerGameSettings = "1"`n, Settings.ini
 FileAppend, Launcher_Priority = "1"`n, Settings.ini
-FileAppend, AutoPopulate_Search = "1"`n, Settings.ini
 FileAppend, version = "%VERSION%"`n, Settings.ini
 FileAppend, global_filter = "1"`n, Settings.ini
 
@@ -66597,8 +66692,11 @@ if (raexepath <> "ERROR")
 if (FileExist(RJEMUDtst))
 	{
 		raexepath= %RJEMUDtst%
+		splitpath,raexepath,raexefile,raexeloc
+		iniwrite,"%raexeloc%",Settings.ini,GLOBAL,retroarch_location
+		iniwrite,"%raexefile%",Settings.ini,GLOBAL,retroarch_executable
 	}
-if (raexepath = "ERROR")
+if ((raexepath = "ERROR") or (raexepath = ""))
 	{
 		msgbox,257,No RA Found, Select a RetroArch executable file.`nor cancel to skip,15
 		ifmsgbox, OK
