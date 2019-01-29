@@ -481,16 +481,20 @@ if (INITIAL = 1)
 		SplashImageGUI(SplashImage, "Center", "Center", true)
 	}
 ARC_USER= Login Not Set
+ARCURLCK= disabled
 IniRead,ARC_USERt,Settings.ini,GLOBAL,archive_login
 if (ARC_USERt <> "ERROR")
 	{
 		ARC_USER= %ARC_USERt%
+		ARCURLE= checked
+		ARCURLCK= 
 	}
 ARC_PASS= *****
 IniRead,ARC_PASSt,Settings.ini,GLOBAL,archive_password
 if ((ARC_USERt <> "ERROR")&&(ARC_PASSt <> ""))
 	{
 		ARC_PASS= %ARC_PASSt%
+		ARCPSVD= checked
 	}
 if (INITIAL = 1)
 	{
@@ -3028,12 +3032,12 @@ Gui, Add, ComboBox, x88 y78 w126 vCUSTMOPT gCustmOpt hidden,|%INJOPT%
 Gui, Add, ComboBox, x218 y78 w123 vCUSTMARG gCustmArg hidden,|
 Gui, Add, CheckBox, x26 y75 w61 h17 vCUSTSWITCH gCustSwitch, switches
 
-Gui, Add, Checkbox, x28 y240 h13 vALTURL gEnableAltUrl, Enable Login
+Gui, Add, Checkbox, x28 y240 h13 vALTURL gEnableAltUrl %ARCURLE%, Enable Login
 Gui, Add, DropDownlist, x88 y258 w225 vUrlTxt gREPOUrlEdt Readonly, %ArcSRC%||%ARCSRCS%
 Gui, Add, Button, x326 y258 w18 h18 vALTURLSET gALTURLSET,+
-Gui, Add, Edit, x24 y215 w159 h21 vARCLOGIN gArcLogin disabled,%ARC_USER%
-Gui, Add, Edit, x187 y215 w154 h21 Password vARCPASS gArcPass disabled,%ARC_PASS%
-Gui, Add, CheckBox, x260 y238 h15 vSAVPASS gSavPass disabled, save
+Gui, Add, Edit, x24 y215 w159 h21 vARCLOGIN gArcLogin %ARCURLCK%,%ARC_USER%
+Gui, Add, Edit, x187 y215 w154 h21 Password vARCPASS gArcPass %ARCURLCK%,%ARC_PASS%
+Gui, Add, CheckBox, x260 y238 h15 vSAVPASS gSavPass %ARCURLCK% %ARCPSVD%, save
 Gui, Add, Text, x191 y236 h14 vARCPTXT, password
 
 Gui, Add, Edit, x25 y286 w310 h21 vSRCHEDT gSearchInp,
@@ -21142,26 +21146,14 @@ if (ALTURL = 1)
 		guicontrol,enable,ARCLOGIN
 		guicontrol,enable,ARCPASS
 		guicontrol,enable,SAVPASS
-		IniRead, ArcSite,Settings.ini,Global,RemoteRepository
 		IniRead, ARC_USER,Settings.ini,Global,archive_login
 		IniRead, ARC_PASS,Settings.ini,Global,archive_password
-		if (ARCSITE <> "ERROR")
-			{
-				guicontrol,,ARCPASS,%ARC_PASS%
-				guicontrol,,ARCLOGIN,%ARC_USER%
-				guicontrol,,UrlTxt,%ARCSITE%
-			}
 	}
 if (ALTURL = 0)
 	{
 		guicontrol,disable,ARCLOGIN
 		guicontrol,disable,ARCPASS
 		guicontrol,disable,SAVPASS
-		guicontrol,,ALTURL,0
-		guicontrol,,UrlTxt,%cloudloc%
-		IniWrite, "%cloudLoc%"Settings.ini,GLOBAL,RemoteRepository
-		ARCSITE= %cloudloc%
-		
 	}
 return
 
@@ -23371,8 +23363,6 @@ if (SAVPASS = 0)
 	}
 guicontrolget,ARCPASS,,ARCPASS
 IniWrite,%ARCPASS%,Settings.ini,GLOBAL,archive_password
-guicontrol,,ALTURL,0
-gosub, EnableAltUrl
 return
 
 LoginWall:
@@ -23397,29 +23387,33 @@ password_str= %ARC_PASS%
 file_save_location:= save
 Overwrite:=True
 get_site:= URLFILE
-
 SB_SetText(" Downloading " romname " to " save " ")
 post_site:="https://archive.org/account/login.php"
-post_data:="username=" username_str "&password=" password_str "&remember=CHECKED&referer=https://archive.org/download/XBOX_HDD_READY&action=login&submit=Log in"
+post_data:="username=" username_str "&password=" password_str "&remember=CHECKED&referer=https://archive.org&action=login&submit=Log in"
 WebRequest := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+;;WebRequest.Option(6) := False
 WebRequest.Open("POST", post_site)
-WebRequest.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+WebRequest.SetRequestHeader("Content-Type", "application / zip, application / octet - stream""application / zip, application / octet - stream")
 WebRequest.SetRequestHeader("Cookie", "test-cookie=1")
+WebRequest.SetRequestHeader("Accept-Encoding","gzip,deflate,sdch")
 WebRequest.Send(post_data)
 WebRequest.Open("HEAD",get_site)
 WebRequest.Send()
 arcfz= % WebRequest.GetResponseHeader("Content-Length")
 WebRequest.Open("GET",get_site)
 WebRequest.Send()
-ADODBObj := ComObjCreate("ADODB.Stream")
+ADODBObj := ComObjCreate( "ADODB.Stream" )
 ADODBObj.Type := 1
+ADODBObj.Position := 0
+;;ADODBObj.Mode := 3
 ADODBObj.Open()
-ADODBObj.Write(WebRequest.ResponseBody)
+ADODBObj.Write( WebRequest.ResponseBody )
 ADODBObj.SaveToFile(file_save_location, Overwrite ? 2:1)
 ADODBObj.Close()
-;WebRequest.Close()
+;;WebRequest.Close()
 ADODBObj:=""
 WebRequest:=""
+SB_SetText(" Download Complete ")
 return
 
 ;{;;;;;;;;;;;;;;;; ARCHIVE ASSET DOWNLOAD ;;;;;;;;;;;;;;;;;;;
