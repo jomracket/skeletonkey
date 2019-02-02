@@ -1039,7 +1039,21 @@ ifexist, %nstmp%\NSIS\
 	{
 		nstmp= %nstmp%\NSIS
 	}
+ifnotexist, %nstmp%
+	{
+		nstmp= 
+	}
 FileSelectFile, NSIST,0,%nstmp%,Select makensis.exe or cancel to download and install it.,makensis.exe
+if (NSIST = "")
+	{
+		MsgBox,1,Download,Download NSIS?
+		ifMsgbox,OK
+			{
+				goto, GetNSISZ
+			}
+		nstmp= 
+		goto, GetNSIS
+	}
 SplitPath, NSIST,,NSISD
 nstmp= 
 nsisexists= 
@@ -1107,6 +1121,10 @@ return
 
 GitRoot:
 GITROOTT= %GITROOT%
+ifnotexist, %gitrttmp%
+	{
+		gitrttmp= 
+	}
 FileSelectFolder, GITROOTT,%gitrttmp% ,1,Select The GitHub Root Directory (contains all projects)
 gitrtexists= 
 if (GITROOT <> "")
@@ -1190,6 +1208,10 @@ return
 
 GetBld:
 BUILDIT= %BUILDIR%
+ifnotexist, %bldtmp%
+	{
+		bldtmp= 
+	}
 FileSelectFolder, BUILDIT,%bldtmp% ,1,Select The Build Directory
 bldtmp= 
 bldexists= 
@@ -1444,6 +1466,10 @@ return
 GetDepl:
 DEPL=
 DEPLT=
+ifnotexist, %depltmp%
+	{
+		depltmp= 
+	}
 FileSelectFolder, DEPLT,%depltmp% ,1,Select The Deployment Directory
 deplexists= 
 if (DEPL <> "")
@@ -1504,7 +1530,15 @@ iniwrite, %DEPL%,skopt.cfg,GLOBAL,Deployment_Directory
 return
 
 GetComp:
+ifnotexist, %comptmp%
+	{
+		comptmp= 
+	}
 AHKDIT= %AHKDIR%
+ifnotexist, %comptmp%
+	{
+		comptmp= 
+	}
 FileSelectFolder, AHKDIT,%comptmp%,0,Select The AHK Compiler Directory or cancel to install it.
 compexists= 
 if (AHKDIR <> "")
@@ -1556,6 +1590,11 @@ return
 
 GetSrc:
 SKELT= %SKELD%
+ifnotexist, %skeltmp%
+	{
+		skeltmp= 
+	}
+
 FileSelectFolder, SKELT,%skeltmp% ,1,Select The Source Directory
 skelexists= 
 if (SKELD <> "")
@@ -1607,6 +1646,15 @@ GITRLST= %GITRLS%
 GITRLSCONT:
 FileSelectFile, GITRLST,3,%gitrlstmp%,Select the github-release.exe or cancel to download and install,*.exe
 gitrlstmp= 
+if (GITRLST = "")
+	{
+		MsgBox,1,Git-Release,Download github-release?
+		ifmsgbox,OK
+			{
+				gosub, GetGITRZ
+			}
+		goto, GetRls
+	}
 gitrlsxst= 
 if (GITRLS <> "")
 	{
@@ -1656,8 +1704,22 @@ ifexist, %A_MyDocuments%\Git\bin
 	}
 GITAPPT= %GITAPP%
 GITAPPCONT:
+ifnotexist, %gitapdtmp%
+	{
+		gitapdtmp= 
+	}
+
 FileSelectFile, GITAPPT,3,%gitapdtmp%\git.exe,Select the git.exe or cancel to install it.,*.exe
 gitapptmp= 
+if (GITAPPT = "")
+	{
+		MsgBox,1,Git.exe,Download Git.exe?
+		ifMsgBox,OK
+			{
+				gosub, GetGITZ
+			}
+		goto,GetAPP 
+	}
 gitappxst= 
 if (GITAPP <> "")
 	{
@@ -1752,7 +1814,21 @@ return
 
 GetGit:
 GITT= 
+ifnotexist, %gittmp%
+	{
+		gittmp= 
+	}
+
 FileSelectFolder,GITT,%gittmp%,1,Select The Git skeletonKey Project Directory or cancel to pull it to the git-root directory.
+if (GITT = "")
+	{
+		MsgBox,1,Project,Pull the skeletonKey project from GitHub?
+		ifMsgbox,OK
+			{
+				gosub,gitclone
+			}
+		goto, GetGit
+	}
 gitexists= 
 if (GITD <> "")
 	{
@@ -1770,7 +1846,13 @@ if (GITD <> "")
 	}	
 if (GITT = "")
 	{
-		goto, gitclone
+		MsgBox,1,Clone,Would you like to clone skeletonKey from github?
+		ifmsgbox,OK
+			{
+				goto, gitclone
+			}
+		gittmp= 
+		goto, GetGit
 	}
 gittmp= 
 Loop, %GITT%\skeletonkey.ahk
@@ -2370,7 +2452,7 @@ if (RESDD = "github-release")
 			{
 				GITRLSTtmp= 
 				GBOV= 
-				FileSelectFile,GITRLST,3,%gitroot%\github-release.exe,Select github-release.exe or cancel to download and install it.
+				FileSelectFile,GITRLST,3,%gitroot%\github-release.exe,Select github-release.exe.
 				if (GITRLST = "")
 					{
 						return

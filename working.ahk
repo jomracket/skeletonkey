@@ -449,6 +449,7 @@ if (INITIAL = 1)
 		gosub, DestroySplashGUI
 		SplashImage = net.png
 		SplashImageGUI(SplashImage, "Center", "Center", true)
+		SplashTextOn, ,skeletonKey,Creating Configuration
 	}
 if (raexefile <> "NOT-FOUND.exe")
 	{
@@ -479,6 +480,7 @@ if (INITIAL = 1)
 		gosub, DestroySplashGUI
 		SplashImage = emu.png
 		SplashImageGUI(SplashImage, "Center", "Center", true)
+		SplashTextOn, ,skeletonKey,Creating Configuration
 	}
 ARC_USER= Login Not Set
 ARCURLCK= disabled
@@ -522,6 +524,7 @@ if (INITIAL = 1)
 		gosub, DestroySplashGUI
 		SplashImage = cor.png
 		SplashImageGUI(SplashImage, "Center", "Center", true)
+		SplashTextOn, ,skeletonKey,Creating Configuration
 	}
 
 RACORETAB= |Netplay|Cores
@@ -589,6 +592,7 @@ if (INITIAL = 1)
 		gosub, DestroySplashGUI
 		SplashImage = key.png
 		SplashImageGUI(SplashImage, "Center", "Center", true)
+		SplashTextOn, ,skeletonKey,Creating Configuration
 	}
 Loop, Parse, EmuPartSet,`n`r
 	{
@@ -711,6 +715,7 @@ if (INITIAL = 1)
 		gosub, DestroySplashGUI
 		SplashImage = Ins.png
 		SplashImageGUI(SplashImage, "Center", "Center", true)
+		SplashTextOn, ,skeletonKey,Detecting Environment
 	}
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -1433,7 +1438,7 @@ if (RJEMUD = "ERROR")
 		RJEMUD= %A_Scriptdir%\app
 	}
 if (RJEMUD = "")
-	{
+	{	
 		RJEMUD= %A_Scriptdir%\app
 	}
 iniread,bsltmp,apps.ini,EMULATORS,BSL
@@ -2153,8 +2158,8 @@ Gui,Font,%fontXsm% Bold
 
 Gui, Add, GroupBox, x465 y6 w275 h358 vSKRAstch, Skeletonkey-System-Associations
 Gui,Font,%fontXsm% Norm
-Gui, Add, DropDownList, x288 y477 w77 vLNCHPRDDL gLNCHPRDDL hidden,Emulators|retroarch|%addemu%
-Gui, Add, Button, x368 y477 w42 h22 vLNCHPT gLNCHPT hidden,Priority
+Gui, Add, DropDownList, x288 y477 w97 vLNCHPRDDL gLNCHPRDDL hidden,retroarch|Emulators|%addemu%
+Gui, Add, Button, x388 y477 w42 h22 vLNCHPT gLNCHPT hidden,Priority
 Gui, Add, DropDownList, x470 y26 w251 vADDCORE gAddCore, Select_A_System||%reasign%
 Gui, Add, Button, x723 y25 w12 vOPNSYS gOpnSyS,+
 Gui, Add, DropDownList, x503 y73 w52 vOVEXTL gOVEXTL,All||
@@ -4262,6 +4267,7 @@ if (locfnd = 1)
 if (INITIAL = 1)
 	{
 		iniWrite, "%VERSION%",Settings.ini,GLOBAL,version
+		SplashTextOff
 	}
 iniread,mamexsts,Apps.ini,EMULATORS,MAME
 if (mamexsts <> "ERROR")
@@ -6968,13 +6974,13 @@ return
 
 SETJKD:
 
-RJSYSTL= x
-EMUTSL= x
+splitpath,a_ScriptDir,,,,,drvp
+RJSYSTSL= %drvp%\Console
+EMUTSL= %drvp%\Emulators
 
 Process, Exist,
 CURPID= %ERRORLEVEL%
 
-splitpath,a_ScriptDir,,,,,drvp
 ifexist, %A_ScriptDir%\Console
 	{
 		RJSYSTSL= %A_ScriptDir%\Console
@@ -12226,20 +12232,6 @@ if (SALIST = "Emulators")
 		guicontrol, show,LOCEMUIN
 		guicontrol,,CCGRP,Installer
 		guicontrol,,CACGRP,Emulators
-		guicontrol,show,EMGRPF
-		guicontrol,show,EMCHKW
-		guicontrol,show,EMDDLF
-		guicontrol,show,EMBUTG
-		guicontrol,show,EMCBXH
-		guicontrol,show,EMDDLP
-		guicontrol,show,EMBUTO
-		guicontrol,show,EMEDTO
-		guicontrol,show,EMBUTH
-		guicontrol,show,DSKMNTGRP
-		guicontrol,show,DSKMNTCHK
-		guicontrol,show,DSKMNTDDL
-		guicontrol,show,DSKSELBUT
-		guicontrol,show,DSKMNTOVR
 		guicontrol,hide,CRNTCORS
 		guicontrol,hide,ADDNYS
 		guicontrol,hide,SAVNSYS
@@ -23399,14 +23391,14 @@ WebRequest.SetRequestHeader("Accept-Encoding","gzip,deflate,sdch")
 WebRequest.Send(post_data)
 WebRequest.Open("HEAD",get_site)
 WebRequest.Send()
-arcfz= % WebRequest.GetResponseHeader("Content-Length")
+;;arcfz= % WebRequest.GetResponseHeader("Content-Length")
 WebRequest.Open("GET",get_site)
 WebRequest.Send()
 ADODBObj := ComObjCreate( "ADODB.Stream" )
 ADODBObj.Type := 1
-ADODBObj.Position := 0
 ;;ADODBObj.Mode := 3
 ADODBObj.Open()
+ADODBObj.Position := 0
 ADODBObj.Write( WebRequest.ResponseBody )
 ADODBObj.SaveToFile(file_save_location, Overwrite ? 2:1)
 ADODBObj.Close()
@@ -64923,10 +64915,10 @@ Loop,parse,viditerate,|
 ;{;;;;;;;;;;;;;;;;;;;;;   INPUT  ;;;;;;;;;;;;;;;;;
 
 if (INITIAL = 1)
-{
-gosub, InitializeJoysticks
-return
-}
+	{
+		gosub, InitializeJoysticks
+		return
+	}
 
 JXT=
 CLJXT=

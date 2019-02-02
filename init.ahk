@@ -126,74 +126,35 @@ if (efi = ":\")
 				RJSYSTSL= 
 				goto, SETJKR
 			}
+		ifnotexist, %RJSYSTEMF%
+			{
+				filecreatedir,%RJSYSTEMF%
+					if (ERRORLEVEL <> 0)
+						{
+							Msgbox,5,Directory Creation Failed,Directory %RJSYSTEMF% could not be created.
+							ifmsgbox, Retry
+								{
+									RJSYSTSL= 
+									goto, SETJKR
+								}
+							FileDelete,Settings.ini
+							Run, %comspec% cmd /c taskkill /f /im init.exe,,hide
+							Run, %comspec% cmd /c taskkill /f /im skeletonKey.exe,,hide
+							ExitApp	
+						}
+			}
 			
 	}
 	
-Msgbox,8196,Confirm,You have selected ''%RJSYSTEMF%''`nAre you sure you would like to use this directory?,14
-ifmsgbox,no
-	{
-		goto, SETJKD
-	}
-ifmsgbox,cancel
-	{
-		goto, SETJKD
-	}
 AUTOFUZ= 0
 JUNCTOPT= 1
 RJSYSTEMS= %RJSYSTEMF%
 nfemu= 1
 stringreplace,RJSYSTEMS,RJSYSTEMS,\\,\,All
 IniWrite, "%RJSYSTEMS%",Settings.ini,GLOBAL,systems_directory
-ifnotexist, %RJSYSTEMF%
-	{
-		filecreatedir,%RJSYSTEMF%
-			if (ERRORLEVEL <> 0)
-				{
-					Msgbox,5,Directory Creation Failed,Directory %RJSYSTEMF% could not be created.
-					ifmsgbox, Retry
-						{
-							RJSYSTSL= 
-							goto, SETJKR
-						}
-					FileDelete,Settings.ini
-					Run, %comspec% cmd /c taskkill /f /im skeletonKey.exe,,hide
-					ExitApp	
-				}
-	}
+
 splitpath,RJSYSTEMF,RJHHS
-if (RJHHS <> "Console")
-	{
-		SFEvb= Create a
-		ifexist, %RJSYSTEMF%\Console
-			{
-				SFEvb= Use the
-			}
-		Msgbox,8196,Confirm,%SFEvb% Console directory?,14
-		ifmsgbox,yes
-			{
-				RJSYSTEMF= %RJSYSTEMF%\Console
-				ifnotexist,%RJSYSTEMF%
-					{
-						filecreatedir,%RJSYSTEMF%
-						if (ERRORLEVEL <> 0)
-							{
-								Msgbox,5,Directory Creation Failed,Directory %RJSYSTEMF% could not be created.
-								ifmsgbox, Retry
-									{
-										RJSYSTSL= 
-										goto, SETJKR
-									}
-								FileDelete,Settings.ini
-								Run, %comspec% cmd /c taskkill /f /im skeletonKey.exe,,hide
-								ExitApp	
-							}
-					}
-			}
-		ifmsgbox,cancel
-			{
-				goto, SETJKD
-			}
-	}
+
 guicontrol,,intrmsys,%RJSYSTEMS%
 iniread,RJSYSTEMS,Settings.ini,GLOBAL,systems_directory
 iniread,RJEMUD,Settings.ini,GLOBAL,emulators_directory
@@ -233,8 +194,9 @@ if (RJEMUF = "")
 			}
 	}
 
+splitpath,RJEMUF,usremum
 stringright,efi,RJEMUF,2	
-if (efi = ":\")
+if ((efi = ":\") or (usremum = A_Username))
 	{
 		SFEvb= Create an
 		ifexist,%RJEMUF%\Emulators
@@ -253,100 +215,25 @@ if (efi = ":\")
 				EMUTSL= 
 				goto, SETEMUR
 			}
-	}	
-ifnotexist,%RJEMUF%	
-	{
-		filecreatedir,%RJEMUF%
-		if (ERRORLEVEL <> 0)
+		ifnotexist,%RJEMUF%	
 			{
-				Msgbox,5,Directory Creation Failed, Directory %RJEMUF% could not be created.
-				ifmsgbox, Retry
+				filecreatedir,%RJEMUF%
+				if (ERRORLEVEL <> 0)
 					{
-						EMUTSL= 
-						goto, SETEMUR
-					}
-				FileDelete,Settings.ini
-				Run, %comspec% cmd /c taskkill /f /im skeletonKey.exe,,hide
-				ExitApp
-			}
-	}
-splitpath,RJEMUF,RJHHS
-if (RJHHS <> "Emulators")
-	{
-		SFEvb= Create an
-		ifexist, %RJEMUF%\Emulators
-			{
-				SFEvb= Use the
-			}
-		Msgbox,8196,Confirm,%SFEvb% Emulator directory?,4
-		ifmsgbox,yes
-			{
-				RJEMUF= %RJEMUF%\Emulators
-				ifnotexist,%RJEMUF%
-					{
-						filecreatedir,%RJEMUF%
-						if (ERRORLEVEL <> 0)
+						Msgbox,5,Directory Creation Failed, Directory %RJEMUF% could not be created.
+						ifmsgbox, Retry
 							{
-								Msgbox,5,Directory Creation Failed, Directory %RJEMUF% could not be created.
-								ifmsgbox, Retry
-									{
-										EMUTSL= 
-										goto, SETEMUR
-									}
-								FileDelete,Settings.ini
-								Run, %comspec% cmd /c taskkill /f /im skeletonKey.exe,,hide
-								ExitApp
-							}
-					}
-			}
-		ifmsgbox,cancel
-			{
-				EMUTSL= 
-				goto, SETEMUR
-			}
-	}
-splitpath,RJEMUF,usremum
-if (usremum = A_Username)
-	{
-		Msgbox,8196,Confirm,Create an Emulators directory?,4
-		ifmsgbox,Yes
-			{
-				RJEMUF= %RJEMUF%\Emulators
-			}
-		ifmsgbox,cancel
-			{
-				EMUTSL= 
-				goto, SETEMUR
-			}
-		Msgbox,3,User Directory Root?,Emulators Directory set to`n " %RJEMUF% "`n      Is this okay?
-		ifmsgbox,yes
-			{
-				ifnotexist, %RJEMUF%
-					{
-						FileCreateDir,%RJEMUF%
-						if (ERRORLEVEL <> 0)
-							{
-								Msgbox,5,Directory Creation Failed, Directory %RJEMUF% could not be created.
+								EMUTSL= 
 								goto, SETEMUR
 							}
+						FileDelete,Settings.ini
+						Run, %comspec% cmd /c taskkill /f /im init.exe,,hide
+						Run, %comspec% cmd /c taskkill /f /im skeletonKey.exe,,hide
+						ExitApp
 					}
 			}
-		ifmsgbox,no
-			{
-				anii= SETEMUD
-				if (nfemu = 1)
-					{
-						anii= CNFUR
-					}
-				nfemu= 	
-				goto, %anii%
-			}
-		ifmsgbox,cancel
-			{
-				EMUTSL= 
-				goto, SETEMUR
-			}
-	}
+	}	
+
 IniWrite, "%RJEMUF%",Settings.ini,GLOBAL,emulators_directory
 guicontrol,,intrmemu,%RJEMUF%
 iniread,RJSYSTEMS,Settings.ini,GLOBAL,systems_directory
@@ -360,7 +247,19 @@ return
 
 
 CONTINUE:
-IniWrite, "1",Settings.ini,GLOBAL,wizard_complete
 IniWrite, "%RJEMUF%",Settings.ini,GLOBAL,emulators_directory
 IniWrite, "%RJSYSTEMS%",Settings.ini,GLOBAL,systems_directory
 exitapp
+
+
+ESC::
+msgbox,1,Exit,Exit Skeletonkey?
+ifmsgbox,OK
+	{
+		FileDelete,Settings.ini
+		exitapp
+	}
+return
+GuiClose:
+FileDelete,Settings.ini
+ExitApp
