@@ -145,7 +145,18 @@ if (efi = ":\")
 			}
 			
 	}
-	
+fileappend,f,%RJSYSTEMF%\sk
+if (ERRORLEVEL <> 0)
+	{
+		MsgBox,1,NoWrite,skeletonKey does not have write access`nAre you sure you want to use the ''%RJSYSTEMF%'' directory?
+		ifMsgBox,OK
+			{
+				goto,JKDFINISH
+			}
+		goto, SETJKD
+	}
+JKDFINISH:
+filedelete,%RJSYSTEMF%\sk
 AUTOFUZ= 0
 JUNCTOPT= 1
 RJSYSTEMS= %RJSYSTEMF%
@@ -233,7 +244,18 @@ if ((efi = ":\") or (usremum = A_Username))
 					}
 			}
 	}	
-
+fileappend,f,%RJEMUF%\sk
+if (ERRORLEVEL <> 0)
+	{
+		MsgBox,1,NoWrite,skeletonKey does not have write access`nAre you sure you want to use the ''%RJEMUF%'' directory?
+		ifMsgBox,OK
+			{
+				goto,EMUDFINISH
+			}
+		goto, SETEMUD
+	}
+EMUDFINISH:
+filedelete,%RJEMUF%\sk
 IniWrite, "%RJEMUF%",Settings.ini,GLOBAL,emulators_directory
 guicontrol,,intrmemu,%RJEMUF%
 iniread,RJSYSTEMS,Settings.ini,GLOBAL,systems_directory

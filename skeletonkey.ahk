@@ -4,13 +4,13 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2019-02-02 10:01 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2019-02-03 9:37 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 GLBTOP:
-RELEASE= 2019-02-02 10:01 AM
-VERSION= 0.99.68.92
-RASTABLE= 1.7.5
+RELEASE= 2019-02-03 9:37 PM
+VERSION= 0.99.68.91
+RASTABLE= 1.7.6
 
 #Include tf.ahk
 #Include lbex.ahk
@@ -179,7 +179,7 @@ romf= %1%
 ;{;;;;;;;;;;;;;;;;;;;;        ===   INITIALIZE   ====         ;;;;;;;;;;;;;;;;;;;;;;;;;
 if (INITIAL = "")
 	{
-		TrayTip, skeletonKey,skeletonKey is loading
+		TrayTip, skeletonKey,skeletonKey is loading,48
 	}
 ;{;;;;;;;;;;;;;;;;;;;      GENERATE SETTINGS    ;;;;;;;;;;;;;;;;;;;;;;;;
 for obj in ComObjGet("winmgmts:\\.\root\cimv2").ExecQuery("SELECT OSArchitecture FROM Win32_OperatingSystem")
@@ -6973,36 +6973,36 @@ ifmsgbox, yes
 return
 
 SETJKD:
-
-splitpath,a_ScriptDir,,,,,drvp
-RJSYSTSL= %drvp%\Console
-EMUTSL= %drvp%\Emulators
-
-Process, Exist,
-CURPID= %ERRORLEVEL%
-
-ifexist, %A_ScriptDir%\Console
-	{
-		RJSYSTSL= %A_ScriptDir%\Console
-	}
-
-ifexist, %A_ScriptDir%\apps
-	{
-		EMUTSL= %A_ScriptDir%\apps
-	}
-	
-ifexist, %drvp%\Console
-	{
-		RJSYSTSL= %drvp%\Console
-	}
-
-ifexist, %drvp%\Emulators
-	{
-		EMUTSL= %drvp%\Emulators
-	}
-	
+RJSYSTSL= 
+EMUTSL= 
 if (INITIAL = 1)
 	{
+		splitpath,a_ScriptDir,,,,,drvp
+		RJSYSTSL= %drvp%\Console
+		EMUTSL= %drvp%\Emulators
+
+		Process, Exist,
+		CURPID= %ERRORLEVEL%
+
+		ifexist, %A_ScriptDir%\Console
+			{
+				RJSYSTSL= %A_ScriptDir%\Console
+			}
+
+		ifexist, %A_ScriptDir%\apps
+			{
+				EMUTSL= %A_ScriptDir%\apps
+			}
+			
+		ifexist, %drvp%\Console
+			{
+				RJSYSTSL= %drvp%\Console
+			}
+
+		ifexist, %drvp%\Emulators
+			{
+				EMUTSL= %drvp%\Emulators
+			}
 		Runwait, init.exe %RJSYSTSL% %EMUTSL% %CURPID%
 		iniread,RJSYSTEMS,Settings.ini,GLOBAL,systems_directory
 		iniread,RJEMUD,Settings.ini,GLOBAL,emulators_directory
@@ -7015,61 +7015,14 @@ if (INITIAL = 1)
 		return
 	}
 
-vvtmp= (cancel to select any location)
-
-ifnotexist, %RJSYSTSL%
-	{
-		splitpath,A_ScriptDir,,,,,RJSYSTSL
-	}
 
 SETJKR:
 RJSYSTEMF=
-FileSelectFolder, RJSYSTEMF,%RJSYSTSL%,3,Select the Root folder for all systems %vvtmp%
+FileSelectFolder, RJSYSTEMF,%RJSYSTSL%,3,Select the Root folder for all systems
 RJSYSTEMFX= %RJSYSTEMF%
 if (RJSYSTEMF = "")
 	{
-		if (INITIAL = 1)
-			{
-				IF (SYSRETRY = "1")
-					{
-						MsgBox,1,--=REQUIRED=--,You must select a location for your systems.
-						ifmsgbox,OK
-							{
-								RJSYSTSL= 
-								goto, SETJKR
-							}
-						ifmsgbox,Cancel
-							{
-								FileDelete,Settings.ini
-								Run, %comspec% cmd /c taskkill /f /im skeletonKey.exe,,hide
-								ExitApp
-							}
-					}
-				if (SYSRETRY = "")
-					{
-						SYSRETRY= 1
-						RJSYSTSL= 
-						vvtmp= 
-						goto, SETJKR
-					}
-			}
-		
-		
-		IF (SYSRETRY = "1")
-			{
-				return
-			}
-
-		if (SYSRETRY = "")
-			{
-				SYSRETRY= 1
-				RJSYSTSL= 
-				vvtmp= 
-				goto, SETJKR
-			}
-		FileDelete,Settings.ini
-		Run, %comspec% cmd /c taskkill /f /im skeletonKey.exe,,hide
-		ExitApp
+		return
 	}
 
 stringright,efi,RJSYSTEMF,2	
@@ -7083,7 +7036,7 @@ if (efi = ":\")
 splitpath,RJSYSTEMFX,pthnm
 if (pthnm = A_Username)
 	{
-		Msgbox,3,User Directory Root?,Systems Directory set to`n " %RJSYSTEMF%\Console "`n      Is this okay?
+		Msgbox,3,User Directory Root?,Would you like to create a ''Console'' directory?`n     *reccommended*
 		ifmsgbox,yes
 			{
 				RJSYSTEMF=%RJSYSTEMF%\Console
@@ -7098,32 +7051,11 @@ if (pthnm = A_Username)
 										RJSYSTSL= 
 										goto, SETJKR
 									}
-								FileDelete,Settings.ini
-								Run, %comspec% cmd /c taskkill /f /im skeletonKey.exe,,hide
-								ExitApp	
 							}
 					}
-			}
-		ifmsgbox,no
-			{
-				if (INITIAL = 1)
-					{
-						avhl= SJMPOT
-						if (alii = 1)
-							{
-								avhl= SETJKD	
-							}
-						alii= 	
-						goto, %avhl%
-					}
-				return	
 			}
 		ifmsgbox,cancel
 			{
-				if (INITIAL = 1)
-					{
-						goto, SETJKD
-					}
 				return
 			}
 	
@@ -7150,7 +7082,7 @@ if (nask = "")
 						SFEvb= Use the
 						RJSYSTEMFR= %RJSYSTEMF%\Console
 					}
-				Msgbox,8196,Confirm,%SFEvb% Console directory?,4
+				Msgbox,8196,Confirm,%SFEvb% Console directory?
 				RJSYSTEMF= %RJSYSTEMFR%
 				ifmsgbox,no
 					{
@@ -7164,7 +7096,7 @@ if (nask = "")
 					
 			}
 			
-		Msgbox,8196,Confirm,You have selected ''%RJSYSTEMF%''`nAre you sure you would like to use this directory?,14
+		Msgbox,8196,Confirm,You have selected ''%RJSYSTEMF%''`nAre you sure you would like to use this directory?
 		ifmsgbox,no
 			{
 				goto, SETJKD
@@ -7175,6 +7107,18 @@ if (nask = "")
 			}
 		AUTOFUZ= 0
 		JUNCTOPT= 1
+		fileappend,k,%RJSYSTEMF%\sk
+		if (ERRORLEVEL <> 0)
+			{
+				MsgBox,1,NoWrite,skeletonKey cannot write to ''%RJSYSTEMF%''`nAre you sure you want to use this directory?
+				ifmsgbox,OK
+					{
+						goto,INRJSYSOK
+					}
+				return
+			}
+		filedelete,%RJSYSTEMF%\sk
+		INRJSYSOK:
 		RJSYSTEMS= %RJSYSTEMF%
 		nfemu= 1
 		stringreplace,RJSYSTEMS,RJSYSTEMS,\\,\,All
@@ -7191,47 +7135,21 @@ ifnotexist, %RJSYSTEMF%
 							RJSYSTSL= 
 							goto, SETJKR
 						}
-					FileDelete,Settings.ini
-					Run, %comspec% cmd /c taskkill /f /im skeletonKey.exe,,hide
-					ExitApp	
 				}
 	}
-splitpath,RJSYSTEMF,RJHHS
-if (RJHHS <> "Console")
+fileappend,k,%RJSYSTEMF%\sk
+if (ERRORLEVEL <> 0)
 	{
-		SFEvb= Create a
-		ifexist, %RJSYSTEMF%\Console
+		MsgBox,1,NoWrite,skeletonKey cannot write to ''%RJSYSTEMF%''`nAre you sure you want to use this directory?
+		ifmsgbox,OK
 			{
-				SFEvb= Use the
+				goto,RJSYSTMWROK
 			}
-		Msgbox,8196,Confirm,%SFEvb% Console directory?,14
-		ifmsgbox,yes
-			{
-				RJSYSTEMF= %RJSYSTEMF%\Console
-				ifnotexist,%RJSYSTEMF%
-					{
-						filecreatedir,%RJSYSTEMF%
-						if (ERRORLEVEL <> 0)
-							{
-								Msgbox,5,Directory Creation Failed,Directory %RJSYSTEMF% could not be created.
-								ifmsgbox, Retry
-									{
-										RJSYSTSL= 
-										goto, SETJKR
-									}
-								FileDelete,Settings.ini
-								Run, %comspec% cmd /c taskkill /f /im skeletonKey.exe,,hide
-								ExitApp	
-							}
-					}
-			}
-		ifmsgbox,cancel
-			{
-				goto, SETJKD
-			}
+		return
 	}
-	
-Msgbox,8452,Fuzzy Rename,Would you like to rename identified system directories to supported names?`nSelecting 'no' will simply link these systems.,14
+
+RJSYSTMWROK:	
+Msgbox,8452,Fuzzy Rename,Would you like to rename identified system directories to supported names?`nSelecting 'no' will simply link these systems.
 ifmsgbox,cancel
 	{
 		goto, SJMPOT
@@ -7241,7 +7159,8 @@ ifmsgbox,no
 		AUTOFUZ= 0
 		JUNCTOPT= 1
 	}
-
+gosub,CORASMAT
+return
 SJMPOT:
 RJSYSTEMS= %RJSYSTEMF%
 nfemu= 1
@@ -7249,10 +7168,7 @@ stringreplace,RJSYSTEMS,RJSYSTEMS,\\,\,All
 guicontrol,,SKSYSDISP,%RJSYSTEMS%
 IniWrite, "%RJSYSTEMS%",Settings.ini,GLOBAL,systems_directory
 gosub, RJSYSRESET
-if (INITIAL = 1)
-	{
-		return
-	}
+
 if (FILT_UNSUP = 1)
 	{
 		systmfldrs= %knownfldrs%
@@ -7262,10 +7178,14 @@ if (FILT_UNSUP = 1)
 		guicontrol,,ESDWNLPOS,|%systmfldrs%
 		return
 	}
+gosub,CORASMAT
+
 return	
+
+CORASMAT:
 if (coreassetsdirectory <> RJSYSTEMS)
 	{
-		MsgBox,3,Set core_assets_directory,Would you like to set the retroArch ''downloads'' directory to`n %RJSYSTEMS%`n..`n...`ncore_assets_directory = ''%RJSYSTEMS%''`n
+		MsgBox,3,Set core_assets_directory,Would you like to set the retroArch ''downloads'' directory to`n %RJSYSTEMS%`
 		ifMsgBox,Yes
 			{
 				ARNMB= 0
@@ -7337,7 +7257,10 @@ if (coreassetsdirectory <> RJSYSTEMS)
 								MsgBox,1,Success,retroArch systems imported successfully,10
 							}
 			}
+		return
 	}
+return
+
 if (playlistDirectory <> playlistLoc)
 	{
 		MsgBox,3,Set playlist_directory,Would you like to set the retroArch ''playlists'' directory to`n %playlistLoc%`n..`n...`nplaylist_directory = ''%playlistdirectory%''`n
@@ -7387,60 +7310,11 @@ if (playlistDirectory <> playlistLoc)
 return
 
 SETEMUD:
-ifexist, %A_ScriptDir%\apps
-	{
-		EMUTSL= %A_ScriptDir%\apps
-	}
-vvtmp= (cancel to select any location)
-RJEMUF=
-ifnotexist, %EMUTSL%
-	{
-		splitpath,A_ScriptDir,,,,,EMUTSL
-	}
 SETEMUR:
-FileSelectFolder, RJEMUF,%EMUTSL%,3,Select the Root folder for all emulators %vvtmp%
+FileSelectFolder, RJEMUF,,3,Select the Root folder for all emulators
 if (RJEMUF = "")
 	{
-		if (INITAL = 1)
-			{
-				if (EMUTRST = 1)
-					{
-						MsgBox,1,--=REQUIRED=--,You must select a directory for emulators.			
-						ifmsgbox,OK
-							{
-								EMUTSL= 
-								goto, SETEMUR
-							}
-						ifmsgbox,Cancel
-							{
-								FileDelete,Settings.ini
-								Run, %comspec% cmd /c taskkill /f /im skeletonKey.exe,,hide
-								ExitApp
-							}
-					}
-				if (EMUTRST = "")
-					{
-						emutrst= 1
-						EMUTSL= 
-						vvtmp= 
-						goto, SETEMUR
-					}
-			}
-		
-		if (EMUTRST = 1)
-			{
-				return
-			}
-		if (EMUTRST = "")
-			{
-				emutrst= 1
-				EMUTSL= 
-				vvtmp= 
-				goto, SETEMUR
-			}
-		FileDelete,Settings.ini
-		Run, %comspec% cmd /c taskkill /f /im skeletonKey.exe,,hide
-		ExitApp
+		return
 	}
 stringright,efi,RJEMUF,2	
 
@@ -7453,7 +7327,7 @@ if (efi = ":\")
 			}
 		RJSDRV= %RJEMUF%
 		RJEMUF= %RJEMUF%Emulators
-		Msgbox,8196,Confirm,Confirm %SFEvb% Emulator directory?,4
+		Msgbox,8196,Confirm,Confirm %SFEvb% Emulator directory?
 		ifmsgbox,no
 			{
 				RJEMUF= %RJSDRV%
@@ -7469,56 +7343,19 @@ ifnotexist,%RJEMUF%
 		filecreatedir,%RJEMUF%
 		if (ERRORLEVEL <> 0)
 			{
-				Msgbox,5,Directory Creation Failed, Directory %RJEMUF% could not be created.
-				ifmsgbox, Retry
+				Msgbox,1,Directory Creation Failed, Directory %RJEMUF% could not be created.`nAre you sure you want to set this directory?
+				ifmsgbox, OK
 					{
-						EMUTSL= 
-						goto, SETEMUR
+						goto, EMUROK
 					}
-				FileDelete,Settings.ini
-				Run, %comspec% cmd /c taskkill /f /im skeletonKey.exe,,hide
-				ExitApp
+				return
 			}
 	}
 splitpath,RJEMUF,RJHHS
-if (RJHHS <> "Emulators")
-	{
-		SFEvb= Create an
-		ifexist, %RJEMUF%\Emulators
-			{
-				SFEvb= Use the
-			}
-		Msgbox,8196,Confirm,%SFEvb% Emulator directory?,4
-		ifmsgbox,yes
-			{
-				RJEMUF= %RJEMUF%\Emulators
-				ifnotexist,%RJEMUF%
-					{
-						filecreatedir,%RJEMUF%
-						if (ERRORLEVEL <> 0)
-							{
-								Msgbox,5,Directory Creation Failed, Directory %RJEMUF% could not be created.
-								ifmsgbox, Retry
-									{
-										EMUTSL= 
-										goto, SETEMUR
-									}
-								FileDelete,Settings.ini
-								Run, %comspec% cmd /c taskkill /f /im skeletonKey.exe,,hide
-								ExitApp
-							}
-					}
-			}
-		ifmsgbox,cancel
-			{
-				EMUTSL= 
-				goto, SETEMUR
-			}
-	}
 splitpath,RJEMUF,usremum
 if (usremum = A_Username)
 	{
-		Msgbox,8196,Confirm,Create an Emulators directory?,4
+		Msgbox,8196,Confirm,Create an Emulators directory?
 		ifmsgbox,Yes
 			{
 				RJEMUF= %RJEMUF%\Emulators
@@ -7536,45 +7373,35 @@ if (usremum = A_Username)
 						FileCreateDir,%RJEMUF%
 						if (ERRORLEVEL <> 0)
 							{
-								Msgbox,5,Directory Creation Failed, Directory %RJEMUF% could not be created.
-								ifmsgbox, Retry
+								Msgbox,1,Directory Creation Failed, Directory %RJEMUF% could not be created.`nAre you sure you want to set this directory?
+								ifmsgbox, OK
 									{
-										EMUTSL= 
-										goto, SETEMUR
+										goto, EMUROK
 									}
-								FileDelete,Settings.ini
-								Run, %comspec% cmd /c taskkill /f /im skeletonKey.exe,,hide
-								ExitApp
+								return
 							}
 					}
 			}
 		ifmsgbox,no
 			{
-				if (INITIAL = 1)
-					{
-						anii= SETEMUD
-						if (nfemu = 1)
-							{
-								anii= CNFUR
-							}
-						nfemu= 	
-						goto, %anii%
-					}
-				FileDelete,Settings.ini
-				Run, %comspec% cmd /c taskkill /f /im skeletonKey.exe,,hide
-				ExitApp
+				goto, SETEMUR
 			}
 		ifmsgbox,cancel
 			{
-				if (INITIAL = 1)
-					{
-						EMUTSL= 
-						goto, SETEMUR
-					}
 				return
 			}
 	}
+fileappend,k,%RJEMUF%\sk
+if (ERRORLEVEL <> 0)
+	{
+		MsgBox,1,NoWrite,skeletonKey cannot write to ''%RJEMUF%''`nAre you sure you want to use this directory?
+		ifmsgbox,OK
+			{
+				goto,EMUROK
+			}
+	}
 
+EMUROK:
 CNFUR:	
 RJEMUD= %RJEMUF%
 stringreplace,RJEMUD,RJEMUD,\\,\,All
@@ -7590,12 +7417,6 @@ IfNotExist,%RJEMUD%\BSL\BSL.exe
 IniWrite, "%RJEMUD%",Settings.ini,GLOBAL,emulators_directory
 SB_SetText("Use the ''Detect'' button to add emulators to the available index.")
 
-if (INITIAL = 1)
-	{
-		SplashTextOff
-		Progress,off
-		return
-	}
 gosub, emuDetect
 gosub, resetEmuList
 guicontrol,,SKDSETXT, Detected Supported Emulators: %emunumtot%
