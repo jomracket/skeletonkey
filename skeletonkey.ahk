@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2019-02-03 9:37 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2019-02-11 7:44 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 GLBTOP:
-RELEASE= 2019-02-03 9:37 PM
-VERSION= 0.99.68.91
+RELEASE= 2019-02-11 7:44 AM
+VERSION= 0.99.68.93
 RASTABLE= 1.7.6
 
 #Include tf.ahk
@@ -24,7 +24,7 @@ stringreplace,iniversion,iniversion,",,All
 if (iniversion <> VERSION)
 	{
 		#Include ExeRec.set
-		TrayTip,Skeletonkey,Initializing
+		TrayTip,Skeletonkey,Initializing,,48
 		ifexist,Settings.ini
 			{
 				iniwrite,"%version%",Settings.ini,GLOBAL,version
@@ -171,7 +171,7 @@ GenSetQ:
 ifnotexist, Settings.ini
 	{
 		INITIAL:= 1
-		TrayTip, skeletonKey, Welcome to skeletonKey`nPlease take a moment to setup your locations-
+		TrayTip, skeletonKey, Welcome to skeletonKey`nPlease take a moment to setup your locations,,48
 		SplashImage = key.png
 		SplashImageGUI(SplashImage, "Center", 100, true)
 	}
@@ -179,7 +179,7 @@ romf= %1%
 ;{;;;;;;;;;;;;;;;;;;;;        ===   INITIALIZE   ====         ;;;;;;;;;;;;;;;;;;;;;;;;;
 if (INITIAL = "")
 	{
-		TrayTip, skeletonKey,skeletonKey is loading,48
+		TrayTip, skeletonKey,skeletonKey is loading,,48
 	}
 ;{;;;;;;;;;;;;;;;;;;;      GENERATE SETTINGS    ;;;;;;;;;;;;;;;;;;;;;;;;
 for obj in ComObjGet("winmgmts:\\.\root\cimv2").ExecQuery("SELECT OSArchitecture FROM Win32_OperatingSystem")
@@ -12887,6 +12887,7 @@ Loop, Parse,UrlIndex,`n`r
 				DownloadFile(URLFILE, save, DWNOV, True)
 				if (rjintr = 1)
 					{
+						KARC= 1
 						rjintr= 2
 					}
 				ifnotexist, %save%
@@ -12903,6 +12904,10 @@ Loop, Parse,UrlIndex,`n`r
 						gosub, DCore
 						guicontrol,,DCORE,1
 						break
+					}
+				if (rjintr = 2)
+					{
+						return
 					}
 				gosub, XTRACTEMU
 				if (XTRACTFAIL = 1)
@@ -15108,7 +15113,7 @@ ifinstring,racht,NOT-FOUND
 	{
 		iniwrite, "%raexeloc%\%raexefile%",Assignments.ini,ASSIGNMENTS,retroarch
 	}
-if (KARC= 0)
+if (KARC = 0)
 	{
 		filedelete, %save%
 	}
@@ -15138,7 +15143,7 @@ if (BCKCORE = 1)
 	}
 runwait, %comspec% cmd /c "7za.exe x -y "%save%" -O"%libretroDirectory%" ", ,hide
 SB_SetText(" " save " " "was extracted")
-if (KARC= 0)
+if (KARC = 0)
 	{
 		filedelete, %save%
 	}
@@ -41279,7 +41284,7 @@ Loop, rj\*.jak
 		FileRead, toapc, rjcmd_runloop.set
 		FileRead, toapd, rjcmd_runproc.set
 		FileRead, toape, rjcmd_postjoy.set
-		if (rjintr = "")
+		if (RJPROPXE = 0)
 			{
 				StringReplace, toapa,toapa,[EMUL],%emulocd%,All
 				StringReplace, toapa,toapa,[EMUZ],%emuxe%,All
@@ -41599,8 +41604,14 @@ Loop, rj\*.jak
 						ibjn2= 
 						stringreplace,cursysfld,cursysfld,:,,All
 						stringsplit,ibjn,cursysfld,|
+						
+						
 						mvrom= %ibjn2%
 						nwjak= %ibjn1%
+						if ((mvrom = "")&&(nwjak = ""))
+							{
+								continue
+							}
 						inclfl.= nwjak . ">" . mvrom . "`n"
 						nwjakxtr= 
 						SplitPath,ibjn2,nwjakf,nwjakd,nwjakx,nwjakn
@@ -41663,22 +41674,6 @@ Loop, rj\*.jak
 									{
 										FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,%cacheloc%\%curjf%\%ibjn2%,1
 									}
-							}
-						If (RJPROPXE = 1)
-							{
-								if (rjintr = "")
-									{
-										rjintr= 1
-									}
-								selfnd= %emuname%
-								xtractmu= %RJSYSTEMS%\%curjf%\%nwjak%
-								if (rjintr = 1)
-									{
-										gosub, EMURJINT
-									}
-									
-								StringReplace, lnchcmd,lnchcmd,[EMUL],%RJSYSTEMS%\%curjf%\%nwjak%,All
-								StringReplace, lnchcmd,lnchcmd,[EMUZ],%emuxe%,All										
 							}
 					}
 			}
@@ -41949,7 +41944,8 @@ Loop, rj\*.jak
 										StringReplace, newlnch,newlnch,[ROMX],%xinjromx%,All
 										StringReplace, newlnch,newlnch,[ROMFN],%xinjromn%,All
 										injrmltix= 
-									}
+									}								
+
 								if (injrmltix <> "")
 									{
 										if (Einjpri <> "")
@@ -42150,6 +42146,35 @@ Loop, rj\*.jak
 									}
 							}
 					}
+				If (RJPROPXE = 1)
+					{
+						if (rjintr = "")
+							{
+								rjintr= 1
+							}
+						selfnd= %emuname%
+						xtractmu= %RJSYSTEMS%\%curjf%\%curomfd%
+						if (rjintr = 2)
+							{
+								KARC= 1
+								gosub, XTRACTEMU
+								KARC= 0
+							}
+						if (rjintr = 1)
+							{
+								DWNOV= False
+								gosub, EMURJINT
+								DWNOV= True
+							}
+						FileRead,newlnch,rj\sysCfgs\%curjf%\lnch.cmd
+						FileMove, rj\sysCfgs\%curjf%\lnch.cmd,rj\sysCfgs\%curjf%\lnch.orig,1
+						StringReplace,newlnch,newlnch,[EMUL],%RJSYSTEMS%\%curjf%\%curomfd%,All
+						StringReplace,newlnch,newlnch,[EMUZ],%emuxe%,All										
+						filedelete,rj\sysCfgs\%curjf%\lnch.cmd
+						fileappend,%newlnch%,rj\syscfgs\%curjf%\lnch.cmd
+						FileCopy, rj\sysCfgs\%curjf%\lnch.cmd,%RJSYSTEMS%\%curjf%\%curomfd%\%curomfd%.bat,%RJLNCHCFGOW%
+						FileMove, rj\sysCfgs\%curjf%\lnch.orig,rj\sysCfgs\%curjf%\lnch.cmd,1
+					}		
 				If (RJKEYMON = 1)
 					{
 						if (RJMP1LC = 1)
@@ -42275,7 +42300,6 @@ Loop, rj\*_q.tdb
 		StringTrimRight,dbqueue,dbqv,2
 		SYSTMQ.= dbqueue . "|"
 	}
-
 Loop, Parse, SYSTMQ,|
 	{
 		if (RJSYSDD = A_LoopField)
@@ -42284,11 +42308,8 @@ Loop, Parse, SYSTMQ,|
 				return
 			}
 	}
-	
 guicontrol,,RJINCEXCL,|All||A-Z|#
-
 FileCopy, rj\cur.ini, rj\%RJSYSDD%.ini,1
-
 RJQNUM+=1
 gosub, MUTEJACKOPT
 gui, Listview, RJLSTV
@@ -42298,6 +42319,7 @@ SYSTMQ.= RJSYSDD . "|"
 QItems= 
 QItems:= LVGetCheckedItems("", "ahk_id" . RJLV)
 FileDelete, rj\%RJSYSDD%_incl.tdb
+
 Loop, Parse, QItems,`n
 	{
 		qarray1= 
@@ -42313,12 +42335,22 @@ guicontrol,,RJSYSDD,|Systems|%RJSYSDD%||%systmfldrs%
 SB_SetText("Adding " RJSYSDD " to the system queue")
 guicontrol,disable,RJADDQ
 Guicontrol,,RJPROCQ,CONFIRM %RJQNUM%
-Iniread,syspref,rj\EmuCfgPresets.ini,%RJSYSDD%
-loop, parse, syspref,`n
+/*
+Iniread,syspref,EmuCfgPresets.set,%RJSYSDD%
+loop, parse, syspref,`n`r
 	{
+		if (A_LoopField = "")	
+			{
+				continue
+			}
 		stringsplit,curpref,A_LoopField,=
-		IniWrite,%curpref2%,rj\%RJSYSDD%.ini,%RJSYSDD%,%curpref2%
+		iniread,vki,rj\%RJSYSDD%.ini,%RJSYSDD%,%curpref1%
+		if ((vki = "") or (vki = "ERROR"))
+			{
+				IniWrite,%curpref2%,rj\%RJSYSDD%.ini,%RJSYSDD%,%curpref1%
+			}
 	}
+	*/
 guicontrol,enable,RJLSTV
 gosub,OPENJACKOPT
 gosub, RJSYSDD
@@ -43056,6 +43088,18 @@ if (RJLNCHOVR = 1)
 	}
 IniWrite,%RJLNCHOVR%,rj\cur.ini,%RJSYSDD%,RJLNCHCFGOW
 return
+
+RJEXEB:
+gui,submit,nohide
+guicontrolget,RJEXEB,,RJEXEB
+if (RJEXEB = 1)
+	{
+		SB_SetText("**** WARNING **** ''Per-EXE'' can be a very disk-expensive and slow option ******* WARNING ******")
+	}	
+IniWrite,%RJEXEB%,rj\cur.ini,%RJSYSDD%,RJPROPXE
+return
+
+
 
 RJCHKF:
 gui,submit,nohide
@@ -44526,7 +44570,7 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-RJLSTYP:
+RJLSTYP:	
 gui,submit,nohide
 Gui, ListView, RJLSTV
 LV_Delete()
@@ -44755,24 +44799,6 @@ gui,submit,nohide
 
 return
 
-RJEXEB:
-gui,submit,nohide
-SB_SetText("**** WARNING **** ''Per-EXE'' can be a very disk-expensive and slow option ******* WARNING ******")
-guicontrolget,RJEXEB,,RJEXEB
-if (RJSYSRADB = 1)
-	{
-		EXSTCFG= rj\dflt.ini
-	}
-if (RJSYSRADC = 1)
-	{
-		EXSTCFG= rj\cur.ini
-		ifexist,rj\%RJSYSDD%.ini
-			{
-				EXSTCFG= rj\%RJSYSDD%.ini
-			}
-	}
-IniWrite,%RJEXEB%,rj\%RJSYSDD%.ini,%RJSYSDD%,RJPROPXE
-return
 
 RJRad4A:
 gui,submit,nohide
@@ -44785,7 +44811,6 @@ gui,submit,nohide
 return
 
 RJSYSRAD:
-
 gui,submit,nohide
 guicontrolget,RJSYSRADA,,RJSYSRADA
 
@@ -45268,6 +45293,15 @@ return
 RJROMINJ:
 gui,submit,nohide
 
+return
+
+RJPROPXE:
+gui,submit,nohide
+guicontrol,,RJEXEB,0
+if (rjaval2 = 1)
+	{
+		guicontrol,,RJEXEB,1
+	}
 return
 
 RJLNCHP:

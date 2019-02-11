@@ -2640,13 +2640,13 @@ StringReplace, nsiv, nsiv,[DBP],%DEPL%,All
 StringReplace, nsiv, nsiv,[CURV],%vernum%,All
 FileAppend, %nsiv%, %BUILDIR%\skdeploy.nsi
 
-RunWait, %comspec% cmd /c " "%NSIS%" "%BUILDIR%\skdeploy.nsi" ", ,%rntp%
+RunWait, %comspec% cmd /c " "%NSIS%" "%BUILDIR%\skdeploy.nsi" >"%DEPL%\buildskeydeploy.log"", ,%rntp%
 CrCFLN= %DEPL%\skeletonkey-installer.exe
 gosub, SHA1GET
 nchash:= ApndSHA
 ;;RunWait, %comspec% cmd /c " "%BUILDIR%\fciv.exe" -sha1 "%DEPL%\skeletonkey-installer.exe" > "%BUILDIR%\fcivINST.txt" ", %BUILDIR%,%rntp%
 ;;FileReadLine, nchash, %BUILDIR%\fcivINST.txt,4
-RunWait, %comspec% cmd /c " "%NSIS%" "%BUILDIR%\skdeploy.nsi" ", ,%rntp%
+;;RunWait, %comspec% cmd /c " "%NSIS%" "%BUILDIR%\skdeploy.nsi" >"%DEPL%\buildskeydeploy.log"", ,%rntp%
 BLDERROR= 
 ifnotexist, %DEPL%\skeletonKey-installer.exe
 	{
@@ -2682,7 +2682,7 @@ if (buildnum <> "")
 		buildnum= -%buildnum%
 	}	
 
-RunWait, %comspec% cmd /c " "%BUILDIR%\7za.exe" a "%DEPL%\skeletonK.zip" "%DEPL%\skeletonKey-installer.exe" ", %BUILDIR%,%rntp%
+RunWait, %comspec% cmd /c " "%BUILDIR%\7za.exe" a "%DEPL%\skeletonK.zip" "%DEPL%\skeletonKey-installer.exe" >"%DEPL%\createinstallerzip.log"", %BUILDIR%,%rntp%
 if (DevlVer = 1)
 	{
 		if (DBOV <> 1)
@@ -2798,7 +2798,7 @@ if (INITINCL = 1)
 			exprt.= "IfNotExist, rj" . "`n" . "{" . "`n" . "FileCreateDir, rj" . "`n" . "FILEINS= 1" . "`n" . "}" . "`n"
 			exprt.= "If (INITIAL = 1)" . "`n" . "{" . "`n" . "FILEINS= 1" . "`n" . "}" . "`n"
 			exprt.= "If (FILEINS = 1)" . "`n" . "{" . "`n" 
-			runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\Skey-Deploy.ahk" /out "%SKELD%\Skey-Deploy.exe" /icon "%SKELD%\sysico\Sharp - X1.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" ", %SKELD%,%rntp%
+			runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\Skey-Deploy.ahk" /out "%SKELD%\Skey-Deploy.exe" /icon "%SKELD%\sysico\Sharp - X1.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" >"%DEPL%\compiledeployer.log"", %SKELD%,%rntp%
 			Loop, Files, %SKELD%\rj\emuCfgs\*,DR
 				{
 					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
@@ -2940,8 +2940,8 @@ if (OvrStable = 1)
 			{
 				SB_SetText("You should not compile this tool with the compiled skey-deploy.exe executable")
 			}
-		runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\Skey-Deploy.ahk" /out "%SKELD%\Skey-Deploy.exe" /icon "%SKELD%\sysico\Sharp - X1.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" ", %SKELD%,%rntp%	
-		runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\skeletonkey.ahk" /out "%DEPL%\skeletonkey.exe" /icon "%SKELD%\key.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" ", %SKELD%,%rntp%
+		runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\Skey-Deploy.ahk" /out "%SKELD%\Skey-Deploy.exe" /icon "%SKELD%\sysico\Sharp - X1.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" >"%DEPL%\compiledeployer.log"", %SKELD%,%rntp%	
+		runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\skeletonkey.ahk" /out "%DEPL%\skeletonkey.exe" /icon "%SKELD%\key.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" >"%DEPL%\compile.log"", %SKELD%,%rntp%
 		FileCopy, %DEPL%\skeletonkey.exe,%SKELD%,1
 	}
 
@@ -3030,7 +3030,7 @@ if (DATBLD = 1)
 		FileDelete, %DEPL%\DATFILES.7z
 		Loop, %GITD%\rj\scrapeArt\*.7z
 			{
-				runwait, %comspec% cmd /c " "%BUILDIR%\7za.exe" a -t7z "DATFILES.7z" "%A_LoopFileFullPath%" ",%DEPL%,%rntp%
+				runwait, %comspec% cmd /c " "%BUILDIR%\7za.exe" a -t7z "DATFILES.7z" "%A_LoopFileFullPath%" >"%DEPL%\createmetadatazip.log"",%DEPL%,%rntp%
 			}
 	}
 
@@ -3046,7 +3046,7 @@ if (PortVer = 1)
 		if (PBOV <> 1)
 			{
 				FileDelete, %DEPL%\skeletonKey-portable.zip
-				runwait, %comspec% cmd /c " "%BUILDIR%\7za.exe" a "%DEPL%\skeletonKey-portable.zip" "%DEPL%\skeletonkey.exe" ", %SKELD%,%rntp%
+				runwait, %comspec% cmd /c " "%BUILDIR%\7za.exe" a "%DEPL%\skeletonKey-portable.zip" "%DEPL%\skeletonkey.exe" >"%DEPL%\createportablezip.log"", %SKELD%,%rntp%
 				sleep, 1000
 			}
 	}
@@ -3142,7 +3142,7 @@ if (GitPush = 1)
 		FileAppend, del /q "%GITD%\rj\*.tdb"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, del /q "%GITD%\rj\*.tmp"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, del /q "%GITD%\rj\*.ini"`n,%SKELD%\!gitupdate.cmd
-		FileAppend, robocopy rj "%GITD%\rj" /s /e /w:1 /r:1 /xf syscfgs`n,%SKELD%\!gitupdate.cmd
+		FileAppend, robocopy rj "%GITD%\rj" /s /e /w:1 /r:1 /xf "*.ini" "*.tdb" "*.tmp" "*.jak" /xd "syscfgs"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, robocopy joyimg "%GITD%\joyimg" /s /e /w:1 /r:1`n,%SKELD%\!gitupdate.cmd
 		FileAppend, robocopy joyimg "%GITD%\rj\emuCfgs" /s /e /w:1 /r:1`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "rj\scrapeArt\*.7z" "%GITD%\rj\scrapeArt"`n,%SKELD%\!gitupdate.cmd
@@ -3180,7 +3180,7 @@ if (GitPush = 1)
 
 		FileSetAttrib, +h, %SKELD%\!gitupdate.cmd
 		SB_SetText(" Adding changes to git ")
-		RunWait, %comspec% cmd /c " "%SKELD%\!gitupdate.cmd" ",%SKELD%,%rntp%
+		RunWait, %comspec% cmd /c " "%SKELD%\!gitupdate.cmd" >"%DEPL%\gitupdate.log"",%SKELD%,%rntp%
 		SB_SetText(" committing changes to git ")
 		FileDelete, %BUILDIR%\gitcommit.bat
 			{
@@ -3199,11 +3199,11 @@ if (GitPush = 1)
 			}
 			
 		FileAppend, "%PushNotes%`n",%DEPL%\changelog.txt
-		RunWait, %comspec% cmd /c " "%SKELD%\!gitupdate.cmd" ",%SKELD%,%rntp%
+		RunWait, %comspec% cmd /c " "%SKELD%\!gitupdate.cmd" >"%DEPL%\gitupdate.log"",%SKELD%,%rntp%
 		SB_SetText(" Source changes committed.  Files Copied to git.  Committing...")
 		StringReplace,PushNotes,PushNotes,",,All
 		;"
-		RunWait, %comspec% cmd /c " "%BUILDIR%\gitcommit.bat" "%PushNotes%" ",%GITD%
+		RunWait, %comspec% cmd /c " "%BUILDIR%\gitcommit.bat" "%PushNotes%" >"%DEPL%\gitcommit.log"",%GITD%
 		FileDelete, %BUILDIR%\gitcommit.bat
 		SB_SetText(" source changes pushed to master ")
 		guicontrol,,progb,65
@@ -3290,7 +3290,7 @@ if (ServerPush = 1)
 		guicontrol,,progb,80
 		if (GitPush = 1)
 			{
-				RunWait, %comspec% cmd /c "%DEPL%\gpush.cmd",%DEPL%,%rntp%
+				RunWait, %comspec% cmd /c "%DEPL%\gpush.cmd">"%DEPL%\gitpush.log",%DEPL%,%rntp%
 			}
 	}
 	
@@ -3471,7 +3471,7 @@ if (uptoserv = 1)
 			{
 				FileAppend,"`%gitapp`%" push`n,%BUILDIR%\sitecommit.bat
 			}
-		RunWait, %comspec% cmd /c " "%BUILDIR%\sitecommit.bat" "site-commit" ",%BUILDIR%
+		RunWait, %comspec% cmd /c " "%BUILDIR%\sitecommit.bat" "site-commit" >"%DEPL%\sitecommit.log"",%BUILDIR%
 	}
 
 guicontrol,,progb,100
