@@ -3203,7 +3203,7 @@ if (GitPush = 1)
 		SB_SetText(" Source changes committed.  Files Copied to git.  Committing...")
 		StringReplace,PushNotes,PushNotes,",,All
 		;"
-		RunWait, %comspec% cmd /c " "%BUILDIR%\gitcommit.bat" "%PushNotes%" >"%DEPL%\gitcommit.log"",%GITD%
+		RunWait, %comspec% cmd /c " "%BUILDIR%\gitcommit.bat" "%PushNotes%" >"%DEPL%\gitcommit.log"",%GITD%,%rntp%
 		FileDelete, %BUILDIR%\gitcommit.bat
 		SB_SetText(" source changes pushed to master ")
 		guicontrol,,progb,65
@@ -3471,7 +3471,7 @@ if (uptoserv = 1)
 			{
 				FileAppend,"`%gitapp`%" push`n,%BUILDIR%\sitecommit.bat
 			}
-		RunWait, %comspec% cmd /c " "%BUILDIR%\sitecommit.bat" "site-commit" >"%DEPL%\sitecommit.log"",%BUILDIR%
+		RunWait, %comspec% cmd /c " "%BUILDIR%\sitecommit.bat" "site-commit" >"%DEPL%\sitecommit.log"",%BUILDIR%,%rntp%
 	}
 
 guicontrol,,progb,100

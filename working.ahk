@@ -41229,6 +41229,7 @@ Loop, rj\*.jak
 		IniRead,RJQUOTES,rj\%curjf%.ini,%curjf%,RJQUOTES
 		IniRead,RJPATH,rj\%curjf%.ini,%curjf%,RJPATH
 		IniRead,RJEXT,rj\%curjf%.ini,%curjf%,RJEXT
+		IniRead,RJABSOLROM,rj\%curjf%.ini,%curjf%,RJABSOLROM
 		IniRead,RJEMULOC,rj\%curjf%.ini,%curjf%,RJEMULOC
 		IniRead,RJKEYMAPPER,rj\%curjf%.ini,%curjf%,RJKEYMAPPER
 		IniRead,RJPATH,rj\%curjf%.ini,%curjf%,RJPATH
@@ -41276,9 +41277,8 @@ Loop, rj\*.jak
 			{
 				emuloc= %RJEMULOC%
 			}
+		SplitPath,emuloc,emuxe,emulocd,emulocn
 		
-		SplitPath,emuloc,emuxe,emulocd
-
 		FileRead, toapa, rjcmd_header.set
 		FileRead, toapb, rjcmd_prejoy.set
 		FileRead, toapc, rjcmd_runloop.set
@@ -41581,7 +41581,7 @@ Loop, rj\*.jak
 		StringReplace,toape,toape,[XPDLOC],%RJMAPTD%,All
 
 		FileAppend,%toape%,rj\sysCfgs\%curjf%\lnch.cmd
-		fileread,lnchcmd,rj\sysCfgs\%curjf%\lnch.cmd
+		;;fileread,lnchcmd,rj\sysCfgs\%curjf%\lnch.cmd
 ;};;;;;;;
 
 ;{;;;;;;;;;;;;;;;;    EMULATOR CFG Configuration    ;;;;;;;;;;;;;;;;;;;;;;;
@@ -41881,14 +41881,14 @@ Loop, rj\*.jak
 					}
 				if (RJLNCHCFG <> 0)
 					{
+						FileRead, newlnch, rj\sysCfgs\%curjf%\lnch.cmd
+						FileMove, rj\sysCfgs\%curjf%\lnch.cmd,rj\sysCfgs\%curjf%\lnch.orig,1
 						if (RJABSOLROM = 1)
 							{	
 								if (RJROMXT = "*.*")
 									{
 										continue
 									}
-								FileRead, newlnch, rj\sysCfgs\%curjf%\lnch.cmd
-								FileMove, rj\sysCfgs\%curjf%\lnch.cmd,rj\sysCfgs\%curjf%\lnch.orig,1
 								extpvr= %RJROMSPL%
 								stringreplace,extpvr,extpvr,.,,All
 								stringsplit,extpvx,extpvr,`,
@@ -41930,6 +41930,7 @@ Loop, rj\*.jak
 														injrmltix.= A_LoopFileFullPath . "|"
 													}
 											}
+										stringreplace,injromnX,injromnR,%A_LoopfileDir%,`%CD`%,All
 									}
 								if (RJMULTIDISC = 0)
 									{
@@ -41937,6 +41938,7 @@ Loop, rj\*.jak
 											{
 												injromnR= %Einjpri%
 											}
+										stringreplace,newlnch,newlnch,[ABSOLROM],"%injromnX%"
 										stringreplace,newlnch,newlnch,[ABSOLROM],"%injromnR%",All
 										splitpath,injromnR,xinjromf,xinjromd,xinjromx,xinjromn,xinjromd
 										StringReplace, newlnch,newlnch,[ROM],%xinjrom%,All
@@ -42096,9 +42098,45 @@ Loop, rj\*.jak
 										stringreplace,newlnch,newlnch,[NWLNCH],%injromful%,All
 									}
 								stringreplace,newlnch,newlnch,[GAMLST],%dromdtk%,All	
-								FileAppend, %newlnch%,rj\sysCfgs\%curjf%\lnch.cmd
 							}
+						If (RJPROPXE = 1)
+							{
+								if (rjintr = "")
+									{
+										rjintr= 1
+									}
+								selfnd= %emuname%
+								xtractmu= %RJSYSTEMS%\%curjf%\%curomfd%\%emuname%
+								if (rjintr = 2)
+									{
+										KARC= 1
+										gosub, XTRACTEMU
+										KARC= 0
+									}
+								if (rjintr = 1)
+									{
+										DWNOV= False
+										gosub, EMURJINT
+										DWNOV= True
+										KARC= 1
+										gosub, XTRACTEMU
+										KARC= 0
+									}
+									
+								;;FileRead,newlnch,rj\sysCfgs\%curjf%\lnch.cmd
+								;;FileMove, rj\sysCfgs\%curjf%\lnch.cmd,rj\sysCfgs\%curjf%\lnch.orig,1
+								StringReplace,newlnch,newlnch,[EMUL],`%CD`%\%emuname%
+								StringReplace,newlnch,newlnch,[EMUL],%RJSYSTEMS%\%curjf%\%curomfd%\%emuname%,All
+								StringReplace,newlnch,newlnch,[EMUZ],%emuxe%,All										
+								;;filedelete,rj\sysCfgs\%curjf%\lnch.cmd
+								;;fileappend,%newlnch%,rj\syscfgs\%curjf%\lnch.cmd
+								;;FileCopy, rj\sysCfgs\%curjf%\lnch.cmd,%RJSYSTEMS%\%curjf%\%curomfd%\%curomfd%.bat,%RJLNCHCFGOW%
+								;;FileMove, rj\sysCfgs\%curjf%\lnch.orig,rj\sysCfgs\%curjf%\lnch.cmd,1
+							}	
+						;;msgbox,,,injromnR=%injromnR%`ninjromnX=%injromnX%
+						FileAppend, %newlnch%,rj\sysCfgs\%curjf%\lnch.cmd
 						FileCopy, rj\sysCfgs\%curjf%\lnch.cmd,%RJSYSTEMS%\%curjf%\%curomfd%\%curomfd%.bat,%RJLNCHCFGOW%
+						;;msgbox,,,%RJSYSTEMS%\%curjf%\%curomfd%\%curomfd%`nrj\sysCfgs\%curjf%\lnch.cmd
 						FileMove, rj\sysCfgs\%curjf%\lnch.orig,rj\sysCfgs\%curjf%\lnch.cmd,1
 					}
 				if (RJEMUCFG <> 0)
@@ -42145,36 +42183,7 @@ Loop, rj\*.jak
 										FileAppend,%curomcpl%,%RJSYSTEMS%\%curjf%\%curomfd%\%curininx%
 									}
 							}
-					}
-				If (RJPROPXE = 1)
-					{
-						if (rjintr = "")
-							{
-								rjintr= 1
-							}
-						selfnd= %emuname%
-						xtractmu= %RJSYSTEMS%\%curjf%\%curomfd%
-						if (rjintr = 2)
-							{
-								KARC= 1
-								gosub, XTRACTEMU
-								KARC= 0
-							}
-						if (rjintr = 1)
-							{
-								DWNOV= False
-								gosub, EMURJINT
-								DWNOV= True
-							}
-						FileRead,newlnch,rj\sysCfgs\%curjf%\lnch.cmd
-						FileMove, rj\sysCfgs\%curjf%\lnch.cmd,rj\sysCfgs\%curjf%\lnch.orig,1
-						StringReplace,newlnch,newlnch,[EMUL],%RJSYSTEMS%\%curjf%\%curomfd%,All
-						StringReplace,newlnch,newlnch,[EMUZ],%emuxe%,All										
-						filedelete,rj\sysCfgs\%curjf%\lnch.cmd
-						fileappend,%newlnch%,rj\syscfgs\%curjf%\lnch.cmd
-						FileCopy, rj\sysCfgs\%curjf%\lnch.cmd,%RJSYSTEMS%\%curjf%\%curomfd%\%curomfd%.bat,%RJLNCHCFGOW%
-						FileMove, rj\sysCfgs\%curjf%\lnch.orig,rj\sysCfgs\%curjf%\lnch.cmd,1
-					}		
+					}					
 				If (RJKEYMON = 1)
 					{
 						if (RJMP1LC = 1)
