@@ -9022,19 +9022,26 @@ PerGameOverride:
 gui, submit, nohide
 guicontrol,, PGM, %PGM%
 gameSpecificOptions= false
-if PGM= 1
+if (PGM = 1)
 	{
 		gameSpecificOptions= true
 	}
 gosub, RACHKOPTLINE
 IniWrite, "%gameSpecificOptions%", %curcfg%,OPTIONS,game_specific_options
 return
+
 AutoOverride:
 gui, submit, nohide
 guicontrol,, AUO, %AUO%
 autoOverridesEnable= false
-if AUO= 1 
-	autoOverridesEnable= false
+if (AUO = 1) 
+	{
+		autoOverridesEnable= true
+		guicontrol,,PGM,1
+		gosub, PerGameOverride
+		guicontrol,,COV,1
+		gosub, CoreOverride
+	}
 gosub, RACHKOPTLINE
 IniWrite, "%autoOverridesEnable%", %curcfg%,OPTIONS,auto_overrides_enable
 return
@@ -9043,8 +9050,10 @@ CoreOverride:
 gui, submit, nohide
 guicontrol,, COV, %COV%
 coreSpecificConfig= false
-if COV= 1
-coreSpecificConfig= true
+if (COV = 1)
+	{
+		coreSpecificConfig= true
+	}
 gosub, RACHKOPTLINE
 IniWrite, "%coreSpecificConfig%", %curcfg%,OPTIONS,core_specific_config
 return
@@ -46010,7 +46019,7 @@ if (ccv = "mednafen_ngp")
     }
 if (ccv = "mednafen_pce_fast")
 	{
-		corcfgnam= Mednafen PCE Fast
+		corcfgnam= Beetle PCE Fast
 	    return
     }
 if (ccv = "mednafen_pcfx")
@@ -46513,6 +46522,12 @@ if (syslk = "Mednafen PCE Fast")
 		corelk= mednafen_pce_fast
 	    return
 }
+if (syslk = "Beetle PCE Fast")
+	{
+		ASPOP= NEC - PC Engine - TurboGrafx 16
+		corelk= mednafen_pce_fast
+	    return
+}
 if (syslk = "Mednafen/Beetle PCE Fast")
 	{
 		ASPOP= NEC - PC Engine - TurboGrafx 16
@@ -46896,6 +46911,10 @@ Loop, parse,supgui,|
 if (fig = "")
 	{
 		gosub, CoreDerive
+		if (qisf = "")
+			{
+				Gosub,ShowOnlyEmuGui
+			}
 	}
 
 guicontrol,,JOYCORE,|%decore%||Antimicro|Xpadder|%supgui%|%corelist%
@@ -54760,7 +54779,7 @@ if (JOYCORE = "")
 	{
 		JOYCORE= %LCORE%
 	}
-	
+
 RetroArchGLOBALJOY:
 emujchk= 
 emujchk1= 
@@ -56818,7 +56837,10 @@ guicontrol,hide,emjRTXT
 guicontrol,hide,emjTTXT
 
 guicontrol,move,emjSTXT,x31 y132 h23 w70
-guicontrol,,emjRAD3A,1
+if (joyreset = "")
+	{
+		guicontrol,,emjRAD3A,1
+	}
 guicontrol,,emjSTXT,System Type
 guicontrol,,emjWTXT,device
 guicontrol,,emjFGRP,Emulator
@@ -56832,6 +56854,7 @@ guicontrol,move,emjPTXT,x368 y50 w34 h23
 guicontrol,,emjGGRP,Hotkeys
 guicontrol,, emjgGRP, Shortcuts
 guicontrol,,emjDDLA,|%mednafsc%
+
 if (emjddlb = "")
 	{
 		emjddlb= 1
@@ -56888,7 +56911,14 @@ if (medjname = "")
 	}
 
 guicontrol,,emjDDLD,|%RJMEDNM%||%mednfsc%
-gosub, JMednafenRAD3A
+if (emjRAD3A = 1)
+	{
+		gosub, JMednafenRAD3A
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, JMednafenRAD3B
+	}
 guicontrol,,emjCBA,|%medjname%%medjbid%
 
 Loop, parse, medglobal,`n`r
@@ -59016,29 +59046,39 @@ return
 JMednafenBUTB:
 gui, submit, nohide
 asbn= 
-Loop, Parse, medinput,`n`r
+stringreplace,medinputr,medinput,[0x01],%medjid1%,All
+stringreplace,medinputr,medinputr,[0x02],%medjid2%,All
+Loop, Parse, medinputr,`n`r
 	{
 		if (A_LoopField = "")
 			{
 				continue
 			}
-		stringsplit,rjmnm,A_LoopField,=
-		stringsplit,rjinm,rjmnm1,.
-		if (rjinm1 = RJMEDNM)
+		stringsplit,orep,A_LoopField,=
+		stringsplit,orip,orep1,.
+		if (orip1 = RJMEDNM)
 			{
-				stringreplace,medirsv,rjmnm1,.,_,All
-				medirsv= %rjmnm2%
-				asbn.= medirsv . "=" . rjmnm2 . "`n"
+				stringreplace,medirsv,orep1,.,_,All
+				medirsv= %orep2%
+				asbn.= medirsv . "=" . orep2 . "`n"
+				apndmi= %orep1% %orep2%
 			}	
 	}
-INTEMEDJ:	
-Loop, Parse, emucfgloc,`n`r
+INTEMEDJ:
+medjinjid= % medjid%emjddlb%
+nwmezcfg= 
+
+Loop, Parse, mednafenopts,`n`r
 	{
 		if (A_LoopField = "")
 			{
 				continue
 			}
+		medinf=	
+		stringsplit,aez,A_LoopField,|
+		pfar= %A_LoopField%
 		stringsplit,aej,A_LoopField,%A_Space%
+		stringreplace,oldmedv,pfar,%aej1%,,All
 		stringsplit,aiv,aej1,.
 		stringreplace,fij,aej1,.,_,All
 		if (aiv1 = RJMEDNM)
@@ -59046,14 +59086,104 @@ Loop, Parse, emucfgloc,`n`r
 				kfv= 	
 				ifinstring,medinput,%aej1%=
 					{
-						Loop, Parse,medinput,`n`r
+						medinf= 1
+						Loop, Parse,medinputr,`n`r
 							{
-								stringsplit,rjmnm,A_LoopField,=
-								if (rjmnm1 = aej1)
+								stringsplit,oldmdspl,oldmedv,|
+								stringsplit,orep,A_LoopField,=
+								stringsplit,repin,orep2,|
+								if (orep1 = aej1)
 									{
-										nwmedcfg.= A_LoopField . "`n"
-										kvf= 1
-										break
+										if (emjRAD3A = 1)
+											{
+												npfar= %aej1%%A_Space%
+												kvz:= max(oldmdspl0)
+												ifnotinstring,oldmedv,keyboard
+													{
+														ifnotinstring,oldmedv,joystick
+															{
+																break
+															}
+													}
+												kfv= 1	
+												Loop,parse,oldmedv,|
+													{
+														jrep= 
+														if (A_LoopField = "")
+															{
+																continue
+															}
+														oldmedvx= %A_LoopField%
+														ifinstring,A_LoopField,keyboard
+															{
+																npfar.= repin1 . "||"
+																jrep= 1
+																continue
+															}
+														if ((A_Index = kvz)&&(A_index = 1))
+															{
+																npfar.= A_LoopField . A_Space . "||" . repin1
+															}
+															else {
+																	npfar.= A_LoopField . "||"
+																}
+													}
+												;;msgbox,,,nwmedcfg=%nwmedcfg%,1
+												kvn= 	
+												stringright,kvn,npfar,2
+												if (kvn = "||")
+													{
+														stringtrimright,npfar,npfar,2
+													}
+												nwmezcfg.= npfar . "`n"
+												stringreplace,mednafenopts,pfar,%npfar%,All
+												break
+											}
+										if (emjRAD3B = 1)
+											{
+												npfar= %aej1%%A_Space%
+												kvz:= max(oldmdspl0)
+												ifnotinstring,oldmedv,keyboard
+													{
+														ifnotinstring,oldmedv,joystick
+															{
+																break
+															}
+													}
+												kfv= 1	
+												Loop,parse,oldmedv,|
+													{
+														jrep= 
+														if (A_LoopField = "")
+															{
+																continue
+															}
+														oldmedvx= %A_LoopField%
+														ifinstring,A_LoopField,joystick
+															{
+																npfar.= repin3 . "||"
+																jrep= 1
+																continue
+															}
+														if ((A_Index = kvz)&&(A_index = 1))
+															{
+																npfar.= A_LoopField . A_Space . "||" . repin3
+															}
+															else {
+																	npfar.= A_LoopField . "||"
+																}
+													}
+												;;msgbox,,,nwmedcfg=%nwmedcfg%,1
+												kvn= 	
+												stringright,kvn,npfar,2
+												if (kvn = "||")
+													{
+														stringtrimright,npfar,npfar,2
+													}
+												nwmezcfg.= npfar . "`n"
+												stringreplace,mednafenopts,pfar,%npfar%,All
+												break
+											}
 									}
 							}
 					}
@@ -59062,11 +59192,18 @@ Loop, Parse, emucfgloc,`n`r
 						continue
 					}
 			}
-		nwmedcfg.= A_LoopField . "`n"
+		nwmezcfg.= A_LoopField . "`n"
+	}
+if (medinf = "")
+	{
+		mednafenopts.= nwmezcfg
 	}
 loadedjoy= 
-mednafenopts= %nwmedcfg%
+joyreset= 1
+filedelete,%emucfgloc%
+fileappend,%mednafenopts%,%emucfgloc%
 gosub, mednafenCTRLS
+joyreset= 
 return
 
 JMednafenCBA:
@@ -65197,13 +65334,27 @@ if (RUNPLRAD = 1)
 					}
 			}
 	}
-
+pgmargs= 
+SplitPath,romf,romtitle,rompth,romxt,romname
 ifinstring,coreselv,_libretro.dll
 	{
 		APLN= 
+		if (PGM = 1)
+			{
+				stringreplace,ccv,coreselv,_libretro.dll
+				gosub, getCREN
+				Loop,%raexeloc%\config\%corcfgnam%\%romname%.*
+					{
+						if (A_Index = 1)
+							{
+								pgmargs:= A_Space . "-appendconfig="
+							}
+						pgmargs.= "%A_LoopField%" . "|"
+
+					}
+			}
 	}
 
-SplitPath,romf,romtitle,rompth,romxt,romname
 guicontrolget,coreselv,,LCORE
 
 if (FILT_UNSUP <> 1)
@@ -66163,7 +66314,7 @@ ifinstring,runcfginj,|%lcore%|
 			}
 	}
 guicontrolget,romf,,RUNROMCBX
-splitpath,romf,,,lnmxtn
+splitpath,romf,,,lnmxtn,romna
 romfj1= 
 romfj2= 
 stringsplit, romfj, romf,#
@@ -66188,6 +66339,20 @@ if (APLN = 1)
 				refrae= 
 			}
 		goto, SKLNCH
+	}
+pgmargs= 
+if (PGM = 1)
+	{
+		stringreplace,ccv,lcore,_libretro.dll
+		gosub, getCREN
+		Loop,%raexeloc%\config\%corcfgnam%\%romna%.*
+			{
+				if (A_Index = 1)
+					{
+						pgmargs:= A_Space . "-appendconfig="
+					}
+				pgmargs.= "%A_LoopField%" . "|"
+			}
 	}
 
 LNCH= 1
@@ -66221,8 +66386,8 @@ guicontrol, Disable, LNCHBUT
 guicontrol, Disable, CNCTBUT
 guicontrol, Disable, HostButton
 gosub, PreOpt
-SB_SetText(" " raexeloc " \ " RaExeFile " "LNCHCORE " " BSV " "LNCHROM " " LNCHCFG " |||from ~emu directory ")
-Runwait, "%raexeloc%\%RaExeFile%" %LNCHCORE% %BSV% %LNCHROM% %LNCHCFG%,%raexeloc%,,
+SB_SetText(" " raexeloc " \ " RaExeFile " "LNCHCORE " " BSV " "LNCHROM " " LNCHCFG " " pgmargs " |||from ~emu directory ")
+Runwait, "%raexeloc%\%RaExeFile%" %LNCHCORE% %BSV% %LNCHROM% %LNCHCFG%%pgmargs%,%raexeloc%,,
 gosub, PostOpt
 guicontrolget, SAVEXIT
 if (SAVEXIT = 1)
@@ -66311,6 +66476,21 @@ if (RETROM = 1)
 					}
 			}
 	}
+
+if (PGM = 1)
+	{
+		stringreplace,ccv,coreselv,_libretro.dll
+		gosub, getCREN		
+		Loop,%raexeloc%\config\%corcfgnam%\%romname%.*
+			{
+				if (A_Index = 1)
+					{
+						pgmargs:= A_Space . "-appendconfig="
+					}
+				pgmargs.= "%A_LoopField%" . "|"
+			}
+	}
+	
 SB_SetText("Connecting to " IPADR "")
 romcnct= 
 if (romf <> "")
@@ -66320,7 +66500,7 @@ if (romf <> "")
 corecnct= "%libretroDirectory%\%coreselv%"
 gosub, PreOpt
 guicontrolget,netplayRemotePort,,CPORTNUM
-Runwait, "%raexeloc%\%RaExeFile%" -C %IPADR% --port %netplayRemotePort% -L %corecnct% %romcnct% %gameoverdcfg%,%raexeloc%
+Runwait, "%raexeloc%\%RaExeFile%" -C %IPADR% --port %netplayRemotePort% -L %corecnct% %romcnct% %gameoverdcfg%%pgmargs%,%raexeloc%
 SRCHARCORG= 0
 gosub, PostOpt
 guicontrolget, SAVEXIT
@@ -66415,8 +66595,23 @@ romhf=
 if (romf <> "")
 	{
 		romhf= "%romf%"
+		splitpath,romf,,,,romname
 	}
-Runwait, "%raexeloc%\%RaExeFile%" -H -L %corehlb% %romhf% %gameoverdcfg%,%raexeloc%
+pgmargs= 	
+if (PGM = 1)
+	{
+		stringreplace,ccv,coreselv,_libretro.dll
+		gosub, getCREN
+		Loop,%raexeloc%\config\%corcfgnam%\%romname%.*
+			{
+				if (A_Index = 1)
+					{
+						pgmargs:= A_Space . "-appendconfig="
+					}
+				pgmargs.= "%A_LoopField%" . "|"
+			}
+	}	
+Runwait, "%raexeloc%\%RaExeFile%" -H -L %corehlb% %romhf% %gameoverdcfg%%pgmargs%,%raexeloc%
 gosub, PostOpt
 guicontrolget, SAVEXIT
 if (SAVEXIT = 1)
