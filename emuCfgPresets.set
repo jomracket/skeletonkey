@@ -519,6 +519,13 @@ RJEXTRARC=0
 RJRUNDIR=0
 RJLNCHP=0
 
+[bsnes]
+RJPRECFG=copy /y "*.bml" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\*.bml" "%GAMDIR%"
+RJEMUOPTS=<--fullscreen<
+RJLNCHP=0
+
+
 [WinBox]
 RJPRECFG=copy /y ".sstates\*.*" "%EMUL%\STATES"|copy /y "dosbox.conf" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\dosbox.conf" "%GAMDIR%"|move /y "%EMUL%\STATES\*.*" "%GAMDIR%\.sstates"

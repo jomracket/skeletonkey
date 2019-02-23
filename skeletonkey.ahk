@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2019-02-21 4:56 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2019-02-23 11:26 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 GLBTOP:
-RELEASE= 2019-02-21 4:56 PM
-VERSION= 0.99.68.95
+RELEASE= 2019-02-23 11:26 AM
+VERSION= 0.99.68.96
 RASTABLE= 1.7.6
 
 #Include tf.ahk
@@ -42142,10 +42142,8 @@ Loop, rj\*.jak
 								;;FileCopy, rj\sysCfgs\%curjf%\lnch.cmd,%RJSYSTEMS%\%curjf%\%curomfd%\%curomfd%.bat,%RJLNCHCFGOW%
 								;;FileMove, rj\sysCfgs\%curjf%\lnch.orig,rj\sysCfgs\%curjf%\lnch.cmd,1
 							}	
-						;;msgbox,,,injromnR=%injromnR%`ninjromnX=%injromnX%
 						FileAppend, %newlnch%,rj\sysCfgs\%curjf%\lnch.cmd
 						FileCopy, rj\sysCfgs\%curjf%\lnch.cmd,%RJSYSTEMS%\%curjf%\%curomfd%\%curomfd%.bat,%RJLNCHCFGOW%
-						;;msgbox,,,%RJSYSTEMS%\%curjf%\%curomfd%\%curomfd%`nrj\sysCfgs\%curjf%\lnch.cmd
 						FileMove, rj\sysCfgs\%curjf%\lnch.orig,rj\sysCfgs\%curjf%\lnch.cmd,1
 					}
 				if (RJEMUCFG <> 0)
@@ -56909,16 +56907,17 @@ if (medjname = "")
 				medjname.= jnam1 . "|"
 			}
 	}
-
+guicontrolget,emjRAD3B,,emjRAD3B
 guicontrol,,emjDDLD,|%RJMEDNM%||%mednfsc%
-if (emjRAD3A = 1)
-	{
-		gosub, JMednafenRAD3A
-	}
 if (emjRAD3B = 1)
 	{
 		gosub, JMednafenRAD3B
 	}
+	else	
+		{
+			guicontrol,,emjRAD3A,1
+			gosub, JMednafenRAD3A
+		}
 guicontrol,,emjCBA,|%medjname%%medjbid%
 
 Loop, parse, medglobal,`n`r
@@ -59128,7 +59127,6 @@ Loop, Parse, mednafenopts,`n`r
 																	npfar.= A_LoopField . "||"
 																}
 													}
-												;;msgbox,,,nwmedcfg=%nwmedcfg%,1
 												kvn= 	
 												stringright,kvn,npfar,2
 												if (kvn = "||")
@@ -59173,7 +59171,6 @@ Loop, Parse, mednafenopts,`n`r
 																	npfar.= A_LoopField . "||"
 																}
 													}
-												;;msgbox,,,nwmedcfg=%nwmedcfg%,1
 												kvn= 	
 												stringright,kvn,npfar,2
 												if (kvn = "||")
@@ -59880,8 +59877,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, %EMUSN%jrev
 	}
-filedelete,%emucfgfile%
-fileappend,%emujoyopts%,%emucfgfile%
+filedelete,%emucfgloc%
+fileappend,%emujoyopts%,%emucfgloc%
 gosub, %emusn%swap
 return
 
@@ -59902,8 +59899,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, %EMUSN%jrev
 	}
-filedelete,%emucfgfile%
-fileappend,%emujoyopts%,%emucfgfile%
+filedelete,%emucfgloc%
+fileappend,%emujoyopts%,%emucfgloc%
 gosub, %emusn%swap
 return
 
@@ -59921,8 +59918,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, %EMUSN%jrev
 	}
-filedelete,%emucfgfile%
-fileappend,%emujoyopts%,%emucfgfile%
+filedelete,%emucfgloc%
+fileappend,%emujoyopts%,%emucfgloc%
 gosub, %emusn%swap
 return
 
@@ -59940,8 +59937,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, %EMUSN%jrev
 	}
-filedelete,%emucfgfile%
-fileappend,%emujoyopts%,%emucfgfile%
+filedelete,%emucfgloc%
+fileappend,%emujoyopts%,%emucfgloc%
 gosub, %emusn%swap
 return
 
@@ -59959,8 +59956,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, %EMUSN%jrev
 	}
-filedelete,%emucfgfile%
-fileappend,%emujoyopts%,%emucfgfile%
+filedelete,%emucfgloc%
+fileappend,%emujoyopts%,%emucfgloc%
 gosub, %emusn%swap
 return
 
@@ -59978,8 +59975,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, %EMUSN%jrev
 	}
-filedelete,%emucfgfile%
-fileappend,%emujoyopts%,%emucfgfile%
+filedelete,%emucfgloc%
+fileappend,%emujoyopts%,%emucfgloc%
 gosub, %emusn%swap
 return
 
@@ -59997,8 +59994,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, %EMUSN%jrev
 	}
-filedelete,%emucfgfile%
-fileappend,%emujoyopts%,%emucfgfile%
+filedelete,%emucfgloc%
+fileappend,%emujoyopts%,%emucfgloc%
 gosub, %emusn%swap
 return
 
@@ -60016,8 +60013,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, %EMUSN%jrev
 	}
-filedelete,%emucfgfile%
-fileappend,%emujoyopts%,%emucfgfile%
+filedelete,%emucfgloc%
+fileappend,%emujoyopts%,%emucfgloc%
 gosub, %emusn%swap
 return
 
@@ -60035,8 +60032,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, %EMUSN%jrev
 	}
-filedelete,%emucfgfile%
-fileappend,%emujoyopts%,%emucfgfile%
+filedelete,%emucfgloc%
+fileappend,%emujoyopts%,%emucfgloc%
 gosub, %emusn%swap
 return
 
@@ -60054,8 +60051,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, %EMUSN%jrev
 	}
-filedelete,%emucfgfile%
-fileappend,%emujoyopts%,%emucfgfile%
+filedelete,%emucfgloc%
+fileappend,%emujoyopts%,%emucfgloc%
 gosub, %emusn%swap
 return
 
@@ -60073,8 +60070,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, %EMUSN%jrev
 	}
-filedelete,%emucfgfile%
-fileappend,%emujoyopts%,%emucfgfile%
+filedelete,%emucfgloc%
+fileappend,%emujoyopts%,%emucfgloc%
 gosub, %emusn%swap
 return
 
@@ -60092,8 +60089,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, %EMUSN%jrev
 	}
-filedelete,%emucfgfile%
-fileappend,%emujoyopts%,%emucfgfile%
+filedelete,%emucfgloc%
+fileappend,%emujoyopts%,%emucfgloc%
 gosub, %emusn%swap
 return
 
@@ -60111,8 +60108,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, %EMUSN%jrev
 	}
-filedelete,%emucfgfile%
-fileappend,%emujoyopts%,%emucfgfile%
+filedelete,%emucfgloc%
+fileappend,%emujoyopts%,%emucfgloc%
 gosub, %emusn%swap
 return
 
@@ -60130,8 +60127,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, %EMUSN%jrev
 	}
-filedelete,%emucfgfile%
-fileappend,%emujoyopts%,%emucfgfile%
+filedelete,%emucfgloc%
+fileappend,%emujoyopts%,%emucfgloc%
 gosub, %emusn%swap
 return
 
@@ -60149,8 +60146,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, %EMUSN%jrev
 	}
-filedelete,%emucfgfile%
-fileappend,%emujoyopts%,%emucfgfile%
+filedelete,%emucfgloc%
+fileappend,%emujoyopts%,%emucfgloc%
 gosub, %emusn%swap
 return
 
@@ -60168,8 +60165,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, %EMUSN%jrev
 	}
-filedelete,%emucfgfile%
-fileappend,%emujoyopts%,%emucfgfile%
+filedelete,%emucfgloc%
+fileappend,%emujoyopts%,%emucfgloc%
 gosub, %emusn%swap
 return
 
@@ -60187,8 +60184,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, %EMUSN%jrev
 	}
-filedelete,%emucfgfile%
-fileappend,%emujoyopts%,%emucfgfile%
+filedelete,%emucfgloc%
+fileappend,%emujoyopts%,%emucfgloc%
 gosub, %emusn%swap
 return
 
@@ -60206,8 +60203,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, %EMUSN%jrev
 	}
-filedelete,%emucfgfile%
-fileappend,%emujoyopts%,%emucfgfile%
+filedelete,%emucfgloc%
+fileappend,%emujoyopts%,%emucfgloc%
 gosub, %emusn%swap
 return
 
@@ -60225,8 +60222,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, %EMUSN%jrev
 	}
-filedelete,%emucfgfile%
-fileappend,%emujoyopts%,%emucfgfile%
+filedelete,%emucfgloc%
+fileappend,%emujoyopts%,%emucfgloc%
 gosub, %emusn%swap
 return
 
@@ -60244,8 +60241,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, %EMUSN%jrev
 	}
-filedelete,%emucfgfile%
-fileappend,%emujoyopts%,%emucfgfile%
+filedelete,%emucfgloc%
+fileappend,%emujoyopts%,%emucfgloc%
 gosub, %emusn%swap
 return
 
@@ -60263,8 +60260,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, %EMUSN%jrev
 	}
-filedelete,%emucfgfile%
-fileappend,%emujoyopts%,%emucfgfile%
+filedelete,%emucfgloc%
+fileappend,%emujoyopts%,%emucfgloc%
 gosub, %emusn%swap
 return
 
@@ -60282,8 +60279,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, %EMUSN%jrev
 	}
-filedelete,%emucfgfile%
-fileappend,%emujoyopts%,%emucfgfile%
+filedelete,%emucfgloc%
+fileappend,%emujoyopts%,%emucfgloc%
 gosub, %emusn%swap
 return
 
@@ -60301,8 +60298,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, %EMUSN%jrev
 	}
-filedelete,%emucfgfile%
-fileappend,%emujoyopts%,%emucfgfile%
+filedelete,%emucfgloc%
+fileappend,%emujoyopts%,%emucfgloc%
 gosub, %emusn%swap
 return
 
@@ -60320,8 +60317,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, %EMUSN%jrev
 	}
-filedelete,%emucfgfile%
-fileappend,%emujoyopts%,%emucfgfile%
+filedelete,%emucfgloc%
+fileappend,%emujoyopts%,%emucfgloc%
 gosub, %emusn%swap
 return
 
@@ -60339,8 +60336,8 @@ if (emjRAD3B = 1)
 	{
 		gosub, %EMUSN%jrev
 	}
-filedelete,%emucfgfile%
-fileappend,%emujoyopts%,%emucfgfile%
+filedelete,%emucfgloc%
+fileappend,%emujoyopts%,%emucfgloc%
 gosub, %emusn%swap
 return
 
