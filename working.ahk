@@ -3024,7 +3024,7 @@ Gui,Font,%fontXsm% Bold
 Gui, Add, GroupBox, x16 y2 w332 h284 vARCGSYS Center, SYSTEMS
 Gui,Font,%fontXsm% Normal
 
-Gui, Add, Checkbox, x18 y12 w25 vENHAK gENHAK +0x200,+hacks
+Gui, Add, Checkbox, x18 y11 w25 vENHAK gENHAK +0x200,+hacks
 Gui, Add, Checkbox, x26 y28 w25 vMAMESWCHK gMAMESWCHK,MAME
 Gui, Add, DropDownList, x84 y20 w260 vARCSYS gArchiveSystems, Select a System||%syslist%
 Gui, Add, DropDownList, x26 y48 w136 vARCCORES gArcCores, Select_a_Core||%runlist%
@@ -3868,6 +3868,7 @@ MOUSEON_TT :="Allows you to use the mouse within the XMB GUI."
 MSWCHI_TT :="Tells the video driver to use a specified buffering mode.`n3 is good for slower machines.  2 for stronger."
 MULTILNK_TT :="Assigns a single system nickname-identfier for all selected systems.`nf"
 MUTE_TT :="Mutes all audio"
+ENHAK_TT :="Displays a list containing the currrent systems'`nhacks`naltenates`noverdumps and broken`nbetas`ntranslations`nunlicensed"
 MXUSR_TT :="Maximum users displayed in the GUI"
 NAVWRAP_TT :="Revolves the menu when reaching the end"
 NETCONNECT_TT := "Connect to the selected host"
@@ -8503,25 +8504,62 @@ if (RUNPLRAD = 1)
 		PLineAdd= 
 		splitpath,OPTYP,,,,DDLUX
 		finumb= 
-		Loop, Read, %playlistLoc%\%OPTYP%,|
+		newPlF= 
+		Loop, Read, %playlistLoc%\%OPTYP%
 			{
+				if (A_LoopReadLine = "")
+					{
+						continue
+					}
 				PLineNum+=1
 				PLineAdd+=1	
 				if (PLineAdd = 1)
 					{
 						romhn1= 
 						romhn2= 
+						if (A_LoopReadLine = "{")
+							{
+								newPlF= 1
+								continue
+							}							
+						if (newPlF = 1)
+							{
+								continue
+							}
 						StringSplit,romhn,A_LoopReadLine,#
 						if (romhn2 = "")
 							{
 								romhn2= %romhn1%
-							}							
+							}
 						if (romf = "")
 							{
 								romf= %romhn1%
 								finumb:= PlineNum + 2							
 							}
 						poptadd.= romhn1 . "|"
+					}
+				if (newPlF = 1)
+					{
+						Stringreplace,romha,A_LoopReadLine,"path":%A_Space%,,UseErrorLevel
+						if (ERRORLEVEL = 1)
+							{
+								finumb:= PLineNum+2
+								stringtrimright,romha,romha,1
+								stringreplace,romha,romha,\\,\,All
+								stringreplace,romha,romha,",,All
+								;"
+								ifinstring,romha,.zip#
+									{
+										stringsplit,romhn,romha,#
+										romf= %romhn1%
+									}
+									else {
+											romf= %romha%
+									}
+								poptadd.= romf . "|"	
+								PLineAdd=		
+								continue
+							}
 					}
 				if (PLineAdd =  6)
 					{
@@ -8531,6 +8569,14 @@ if (RUNPLRAD = 1)
 			romfj1= 
 			romfj2= 
 			filereadline,tolcr,%playlistLoc%\%OPTYP%,%finumb%
+			if (newPlF = 1)
+				{
+					stringreplace,tolcr,tolcr,"core_path":%A_Space%,,UseErrorLevel
+					stringtrimright,tolcr,tolcr,1
+					stringreplace,tolcr,tolcr,\\,\,All
+					stringreplace,tolcr,tolcr,",,All
+					;"
+				}
 			splitpath,tolcr,coreselv
 			if (tolcr = "DETECT")
 				{
@@ -9233,11 +9279,45 @@ if (SRCHPLRAD = 1)
 				plnuminc+=1
 				if (plnuminc = 1)
 					{
+						if (A_LoopReadLine = "{")
+							{
+								newPlF= 1
+								continue
+							}		
+						if (newPlF = 1)
+							{
+								continue
+							}	
 						IfInString, A_LoopReadLine, %SRCHROMEDT%
 							{	
 								plnumnam= %A_LoopReadLine%
 							}
 					}
+				if (newPlF = 1)
+					{
+						IfInString, A_LoopReadLine, %SRCHROMEDT%
+							{	
+								Stringreplace,romha,A_LoopReadLine,"path":%A_Space%,,UseErrorLevel
+								if (ERRORLEVEL = 1)
+									{
+										finumb:= A_Index+2
+										stringtrimright,romha,romha,1
+										stringreplace,romha,romha,\\,\,All
+										stringreplace,romha,romha,",,All
+										;"
+										filereadline,ecnmz,%playlistLoc%\%SRCHLOCDDL%,%finumb%
+										stringreplace,ecnav,ecnmz,"core_path":%A_Space%,,All
+										stringreplace,ecnav,ecnav,\\,\,All
+										stringreplace,ecnav,ecnav,",,All
+										;"
+										stringtrimright,ecnav,ecnav,1
+										splitpath,ecnav,ecnam,,,,ecnamg
+										lsrchpop.= romha . ">" . ecnam . "|"
+									}
+								plnuminc= 	
+							}
+						continue
+					}	
 				if (plnuminc = 3)
 					{
 						splitpath,A_LoopReadLine,ecnam,,,,ecnamg
@@ -17796,6 +17876,7 @@ guicontrol, hide, RECURSE
 PLineNum= 
 PLineAdd=
 poptadd= 
+newPlF=
 splitpath,DWNLPOS,,,,DDLUX
 Loop, Read, %playlistLoc%\%DWNLPOS%,|
 	{
@@ -17805,6 +17886,15 @@ Loop, Read, %playlistLoc%\%DWNLPOS%,|
 			{
 				romhn1= 
 				romhn2= 
+				if (A_LoopReadLine = "{")
+					{
+						newPlF= 1
+						continue
+					}												
+				if (newPlF = 1)
+					{
+						continue
+					}
 				StringSplit,romhn,A_LoopReadLine,#
 				if (romhn2 = "")
 					{
@@ -17816,6 +17906,29 @@ Loop, Read, %playlistLoc%\%DWNLPOS%,|
 					}
 				poptadd.= romhn1 . "|"
 			}
+		if (newPlF = 1)
+				{
+					Stringreplace,romha,A_LoopReadLine,"path":%A_Space%,,UseErrorLevel
+					if (ERRORLEVEL = 1)
+						{
+							finumb:= A_Index+2
+							stringtrimright,romha,romha,1
+							stringreplace,romha,romha,\\,\,All
+							stringreplace,romha,romha,",,All
+							;"
+							ifinstring,romha,.zip#
+								{
+									stringsplit,romhn,romha,#
+									romf= %romhn2%
+								}
+								else {
+										romf= %romhn%
+								}
+							poptadd.= romf . "|"
+							PLineAdd= 
+						}
+					continue
+				}
 		if (PLineAdd =  6)
 			{
 				PLineAdd= 
@@ -24262,19 +24375,47 @@ if (MNUSYS = "Playlists")
 if (XMBPL =1)
 	{
 		rlin= 2
+		newPlF=
 		GUIplstl= 
 		Loop, Read, %playlistLoc%\%MNUSYS%.lpl
 			{	
+				if (A_LoopReadLine = "{")
+					{
+						newPlF= 1
+						continue
+					}
+				if (newPlF = 1)
+					{
+						Stringreplace,romha,A_LoopReadLine,"label":%A_Space%,,UseErrorLevel
+						if (ERRORLEVEL = 1)
+							{
+								stringtrimright,romha,romha,1
+								stringreplace,romha,romha,\\,\,All
+								stringreplace,romha,romha,",,All
+								;"
+								ifinstring,romha,.zip#
+									{
+										stringsplit,romhn,romha,#
+										romf= %romhn2%
+									}
+									else {
+											romf= %romha%
+									}
+								SplitPath,romf,PlstROMFile,PlsROMPth,PlsROMExt,PlsROMName,PlsROMDrv
+								GUIplstl.= romf . "|"
+							}
+						continue
+					}	
 				if (A_Index = rlin)
-				{
-					if (A_LoopReadLine = "")
-						{
-							break
-						}
-						SplitPath,A_LoopReadLine,PlstROMFile,PlsROMPth,PlsROMExt,PlsROMName,PlsROMDrv
-					GUIplstl .= PlsROMName . "|"
-				rlin+=6
-				}	
+					{
+						if (A_LoopReadLine = "")
+							{
+								break
+							}
+							SplitPath,A_LoopReadLine,PlstROMFile,PlsROMPth,PlsROMExt,PlsROMName,PlsROMDrv
+						GUIplstl .= PlsROMName . "|"
+					rlin+=6
+					}	
 			}
 		Sort,GUIplstl,D|
 		guicontrol, ,ROMFLS, |%GUIplstl%
@@ -65169,6 +65310,7 @@ numfnd=
 optnt= 1
 opcnt=
 APLN= 1
+newPlF= 
 stringtrimright,TRPTYP,OPTYP,4
 if (RUNPLRAD = 1)
 	{
@@ -65201,7 +65343,45 @@ if (RUNPLRAD = 1)
 				Loop, Read, %playlistLoc%\%OPTYP%
 					{				
 						ttnf1= 
-						ttnf2= 		
+						ttnf2= 
+						if (A_LoopReadLine = "{")
+							{
+								newPlF= 1
+								continue
+							}
+						if (newPlF = 1)
+							{
+								Stringreplace,ttnf,A_LoopReadLine,"path":%A_Space%,,UseErrorLevel
+								if (ERRORLEVEL = 1)
+									{
+										lnumfnd:= A_Index+2
+										stringtrimright,ttnf,ttnf,1
+										stringreplace,ttnf,ttnf,\\,\,All
+										stringreplace,ttnf,ttnf,",,All
+										;"
+										ifinstring,ttnf,.zip#
+											{
+												stringsplit,romhn,ttnf,#
+												romf= %romhn2%
+											}
+											else {
+													romf= %ttnf%
+											}
+										filereadline,coreselz,%playlistLoc%\%OPTYP%,%lnumfnd%	
+										Stringreplace,coreselz,coreselz,"core_path":%A_Space%,,UseErrorLevel
+										stringtrimright,coreselz,coreselz,1
+										stringreplace,coreselz,coreselz,\\,\,All
+										stringreplace,coreselz,coreselz,",,All
+										;"
+										splitpath,coreselz,coreselv
+										if (coreselv <> "DETECT")
+											{
+												guicontrol,,LCORE,|%coreselv%||%runlist%
+											}
+										break
+									}
+								continue
+							}							
 						StringSplit,ttnf,A_LoopReadLine,#
 						opcnt+=1
 						if (romf = ttnf1)
