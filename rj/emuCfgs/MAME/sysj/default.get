@@ -70,27 +70,27 @@
             </port>
             <port type="UI_UP">
                 <newseq type="standard">
-                    KEYCODE_UP
+                    KEYCODE_UP OR JOYCODE_1_DPADUP
                 </newseq>
             </port>
             <port type="UI_DOWN">
                 <newseq type="standard">
-                    KEYCODE_DOWN
+                    KEYCODE_DOWN OR JOYCODE_1_DPADDOWN
                 </newseq>
             </port>
             <port type="UI_LEFT">
                 <newseq type="standard">
-                    KEYCODE_LEFT
+                    KEYCODE_LEFT OR JOYCODE_1_DPADLEFT
                 </newseq>
             </port>
             <port type="UI_RIGHT">
                 <newseq type="standard">
-                    KEYCODE_RIGHT
+                    KEYCODE_RIGHT OR JOYCODE_1_DPADRIGHT
                 </newseq>
             </port>
             <port type="UI_SELECT">
                 <newseq type="standard">
-                    KEYCODE_ENTER OR KEYCODE_ENTERPAD
+                    KEYCODE_ENTER JOYCODE_1_BUTTON1
                 </newseq>
             </port>
             <port type="UI_SHOW_PROFILER">
@@ -150,7 +150,7 @@
             </port>
             <port type="POST_PROCESS">
                 <newseq type="standard">
-                    KEYCODE_LALT KEYCODE_LCONTROL OR KEYCODE_LSHIFT KEYCODE_LALT KEYCODE_F5
+                    KEYCODE_LALT KEYCODE_LCONTROL KEYCODE_F5
                 </newseq>
             </port>
         </input>
