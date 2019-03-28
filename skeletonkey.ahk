@@ -4,11 +4,11 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2019-03-27 7:16 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2019-03-28 3:42 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 GLBTOP:
-RELEASE= 2019-03-27 7:16 PM
+RELEASE= 2019-03-28 3:42 PM
 VERSION= 0.99.68.99
 RASTABLE= 1.7.6
 
@@ -30360,6 +30360,8 @@ moptog= enable
 gosub, TOGSKELRUN
 srchtog= hide
 gosub, TOGGLESEARCHBOX
+emjtog= Hide
+gosub, EMJTOG
 return
 
 
@@ -64052,7 +64054,6 @@ Loop, Parse, mamejimp,`n`r
 					{
 						ifinstring,A_LoopField,JOYCODE_
 							{
-								;;MSGBOX,,,vprm=%vprm%`nmlku_kprm=%mlku_kprm%`nkprm=%kprm%`nmamecollect=%mamecollect%`nmamecorrect=%mamecorrect%
 								if (kcf = "")
 									{
 										sysrep.=  "JOYCODE_1_" . mlku_kprm . A_Space
@@ -66669,7 +66670,7 @@ if (EPGC = 1)
 				pgpts7= 
 				StringReplace,emuvers,A_LoopField,[ROMSYS],%RJMAMENM%,All
 				StringReplace,emuvers,emuvers,[ROMNAME],%romname%,All
-				stringsplit,pgpts,emuvers,=|,:
+				stringsplit,pgpts,emuvers,=,:
 				if (pgpts1 = emudx)
 						{	
 							emupts= 1
@@ -66683,7 +66684,7 @@ if (EPGC = 1)
 											cplp= %A_LoopField%
 											Loop,cfg\%ROMSYS%\%emucfgn%\%romname%\%pgptf%
 												{
-													FileCopy,cfg\%ROMSYS%\%emucfgn%\%romname%\%A_LoopField%,%ptsp%\%cplp%,1
+													FileCopy,cfg\%ROMSYS%\%emucfgn%\%romname%\%A_LoopFilename%,%ptsp%\%cplp%,1
 												}
 										}
 								}
@@ -66696,7 +66697,7 @@ if (EPGC = 1)
 											cplp= %A_LoopField%
 											Loop,cfg\%ROMSYS%\%emucfgn%\%romname%\%pgptf%
 												{
-													FileCopy,cfg\%ROMSYS%\%emucfgn%\%romname%\.sstates\%A_LoopField%,%ptsp%\%cplp%,1												
+													FileCopy,cfg\%ROMSYS%\%emucfgn%\%romname%\.sstates\%A_LoopFilename%,%ptsp%\%cplp%,1												
 												}
 										}
 								}
@@ -66709,7 +66710,7 @@ if (EPGC = 1)
 											cplp= %A_LoopField%
 											Loop,cfg\%ROMSYS%\%emucfgn%\%romname%\%pgptf%
 												{
-													FileCopy,cfg\%ROMSYS%\%emucfgn%\%romname%\.Mem\%A_LoopField%,%ptsp%\%cplp%,1												
+													FileCopy,cfg\%ROMSYS%\%emucfgn%\%romname%\.Mem\%A_LoopFilename%,%ptsp%\%cplp%,1												
 												}
 										}
 								}
@@ -66722,7 +66723,7 @@ if (EPGC = 1)
 											cplp= %A_LoopField%
 											Loop,cfg\%ROMSYS%\%emucfgn%\%romname%\%pgptf%
 												{
-													FileCopy,cfg\%ROMSYS%\%emucfgn%\%romname%\.Mem\%A_LoopField%,%ptsp%\%cplp%,1												
+													FileCopy,cfg\%ROMSYS%\%emucfgn%\%romname%\.Mem\%A_LoopFilename%,%ptsp%\%cplp%,1												
 												}
 										}
 								}
@@ -66803,7 +66804,7 @@ if (EPGC = 1)
 						cplp= %A_LoopField%
 						Loop,%ptsp%\%A_LoopField%
 							{
-								FileCopy,%ptsp%\%A_LoopField%,cfg\%ROMSYS%\%emucfgn%\%romname%\%pgptf%,1
+								FileCopy,%ptsp%\%A_LoopFilename%,cfg\%ROMSYS%\%emucfgn%\%romname%\%pgptf%,1
 							}
 					}
 			}
@@ -66815,7 +66816,7 @@ if (EPGC = 1)
 						cplp= %A_LoopField%
 						Loop,%ptsp%\%A_LoopField%
 							{
-								FileCopy,%ptsp%\%A_LoopField%,cfg\%ROMSYS%\%emucfgn%\%romname%\.sstates\%pgptf%,1
+								FileCopy,%ptsp%\%A_LoopFilename%,cfg\%ROMSYS%\%emucfgn%\%romname%\.sstates\%pgptf%,1
 							}
 					}
 			}
@@ -66827,7 +66828,7 @@ if (EPGC = 1)
 						cplp= %A_LoopField%
 						Loop,%ptsp%\%A_LoopField%
 							{
-								FileCopy,%ptsp%\%A_LoopField%,cfg\%ROMSYS%\%emucfgn%\%romname%\.Mem\%pgptf%,1
+								FileCopy,%ptsp%\%A_LoopFilename%,cfg\%ROMSYS%\%emucfgn%\%romname%\.Mem\%pgptf%,1
 							}
 					}
 			}
@@ -66839,7 +66840,7 @@ if (EPGC = 1)
 						cplp= %A_LoopField%
 						Loop,%ptsp%\%A_LoopField%
 							{
-								FileCopy,%ptsp%\%A_LoopField%,cfg\%ROMSYS%\%emucfgn%\%romname%\.Mem\%pgptf%,1
+								FileCopy,%ptsp%\%A_LoopFilename%,cfg\%ROMSYS%\%emucfgn%\%romname%\.Mem\%pgptf%,1
 							}
 					}
 			}
