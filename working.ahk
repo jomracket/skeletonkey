@@ -56142,7 +56142,8 @@ if (buttons_down <> "")
 	{
 		JOYCOLLECT:= buttons_down-1
 		MEDNAFENCOLLECT:= % Medb%buttons_down%
-		MAMECOLLECT:= % Mamebtn%buttons_down%
+		MAMEBUTDWN:= % Mamebtn%buttons_down%
+		MAMECOLLECT= JOYCODE_%JoystickNumber%_BUTTON%MAMEBUTDWN%
 		break
 	}
 inputparse1=
@@ -62837,6 +62838,20 @@ JMameTURBOIN:
 gui, submit, nohide
 SB_SetText(" Waiting for input TURBO")
 gosub, GetJoystickInput
+Loop,Parse,mamejbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (MAMECOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				MAMECOLLECT= %avr%
+				break
+			}
+	}
 if (MAMECOLLECT <> "")
 	{
 		guicontrol,,emjTRBCMB,|%MAMECOLLECT%||%mamejbid%
@@ -62849,6 +62864,20 @@ JMameL2In:
 gui, submit, nohide
 SB_SetText(" Waiting for input L Trigger ")
 gosub, GetJoystickInput
+Loop,Parse,mamejbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (MAMECOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				MAMECOLLECT= %avr%
+				break
+			}
+	}
 if (MAMECOLLECT <> "")
 	{
 		guicontrol,,emjl2,|%MAMECOLLECT%||%mamejbid%
@@ -62861,18 +62890,46 @@ JMameLIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input L Bumper ")
 gosub, GetJoystickInput
+Loop,Parse,mamejbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (MAMECOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				MAMECOLLECT= %avr%
+				break
+			}
+	}
 if (MAMECOLLECT <> "")
 	{
 		guicontrol,,emjL,|%MAMECOLLECT%||%mamejbid%
 	}
-SB_SetText(" MAMECOLLECT ")
 gosub, emjL
+SB_SetText(" MAMECOLLECT ")
 return
 
 JMameR2In:
 gui, submit, nohide
 SB_SetText(" Waiting for input R Trigger ")
 gosub, GetJoystickInput
+Loop,Parse,mamejbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (MAMECOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				MAMECOLLECT= %avr%
+				break
+			}
+	}
 if (MAMECOLLECT <> "")
 	{
 		guicontrol,,emjr2,|%MAMECOLLECT%||%mamejbid%
@@ -62885,11 +62942,25 @@ JMameRIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input R Bumper ")
 gosub, GetJoystickInput
+Loop,Parse,mamejbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (MAMECOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				MAMECOLLECT= %avr%
+				break
+			}
+	}
+SB_SetText(" MAMECOLLECT ")
 if (MAMECOLLECT <> "")
 	{
 		guicontrol,,emjR,|%MAMECOLLECT%||%mamejbid%
 	}
-SB_SetText(" MAMECOLLECT ")
 gosub, emjR
 return
 
@@ -62897,11 +62968,25 @@ JMameLYPlusIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input L-Stick Up ")
 gosub, GetJoystickInput
+Loop,Parse,mamejbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (MAMECOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				MAMECOLLECT= %avr%
+				break
+			}
+	}
+SB_SetText(" MAMECOLLECT ")
 if (MAMECOLLECT <> "")
 	{
 		guicontrol,,emjLYPlus,|%MAMECOLLECT%||%mamejbid%
 	}
-SB_SetText(" MAMECOLLECT ")
 gosub, emjLYPlus
 return
 
@@ -62909,11 +62994,25 @@ JMameLXMinusIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input L-Stick Left ")
 gosub, GetJoystickInput
+Loop,Parse,mamejbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (MAMECOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				MAMECOLLECT= %avr%
+				break
+			}
+	}
+SB_SetText(" MAMECOLLECT ")
 if (MAMECOLLECT <> "")
 	{
 		guicontrol,,emjLYMinus,|%MAMECOLLECT%||%mamejbid%
 	}
-SB_SetText(" MAMECOLLECT ")
 gosub, emjLYMinus
 return
 
@@ -62921,11 +63020,25 @@ JMameLXPlusIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input L-Stick Right ")
 gosub, GetJoystickInput
+Loop,Parse,mamejbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (MAMECOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				MAMECOLLECT= %avr%
+				break
+			}
+	}
+SB_SetText(" MAMECOLLECT ")
 if (MAMECOLLECT <> "")
 	{
 		guicontrol,,emjLXPlus,|%MAMECOLLECT%||%mamejbid%
 	}
-SB_SetText(" MAMECOLLECT ")
 gosub, emjLXPlus
 return
 
@@ -62933,11 +63046,25 @@ JMameLYMinusIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input L-Stick Down ")
 gosub, GetJoystickInput
+Loop,Parse,mamejbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (MAMECOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				MAMECOLLECT= %avr%
+				break
+			}
+	}
+SB_SetText(" MAMECOLLECT ")
 if (MAMECOLLECT <> "")
 	{
 		guicontrol,,emjLXMinus,|%MAMECOLLECT%||%mamejbid%
 	}
-SB_SetText(" MAMECOLLECT ")
 gosub, emjLXMinus
 return
 
@@ -62945,11 +63072,25 @@ JMameL3In:
 gui, submit, nohide
 SB_SetText(" Waiting for input L3 Button ")
 gosub, GetJoystickInput
+Loop,Parse,mamejbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (MAMECOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				MAMECOLLECT= %avr%
+				break
+			}
+	}
+SB_SetText(" MAMECOLLECT ")
 if (MAMECOLLECT <> "")
 	{
 		guicontrol,,emjL3,|%MAMECOLLECT%||%mamejbid%
 	}
-SB_SetText(" MAMECOLLECT ")
 gosub, emjL3
 return
 
@@ -62957,11 +63098,25 @@ JMameRYPlusIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input R-Stick Up ")
 gosub, GetJoystickInput
+Loop,Parse,mamejbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (MAMECOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				MAMECOLLECT= %avr%
+				break
+			}
+	}
+SB_SetText(" MAMECOLLECT ")
 if (MAMECOLLECT <> "")
 	{
 		guicontrol,,emjRYPlus,|%MAMECOLLECT%||%mamejbid%
 	}
-SB_SetText(" MAMECOLLECT ")
 gosub, emjRYPlus
 return
 
@@ -62969,11 +63124,25 @@ JMameRXMinusIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input R-Stick Left ")
 gosub, GetJoystickInput
+Loop,Parse,mamejbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (MAMECOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				MAMECOLLECT= %avr%
+				break
+			}
+	}
+SB_SetText(" MAMECOLLECT ")
 if (MAMECOLLECT <> "")
 	{
 		guicontrol,,emjRXMinus,|%MAMECOLLECT%||%mamejbid%
 	}
-SB_SetText(" MAMECOLLECT ")
 gosub, emjRXMinus
 return
 
@@ -62981,6 +63150,20 @@ JMameRXPlusIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input R-Stick Right ")
 gosub, GetJoystickInput
+Loop,Parse,mamejbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (MAMECOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				MAMECOLLECT= %avr%
+				break
+			}
+	}
 if (MAMECOLLECT <> "")
 	{
 		guicontrol,,emjRXPlus,|%MAMECOLLECT%||%mamejbid%
@@ -62993,6 +63176,20 @@ JMameRYMinusIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input R-Stick Down ")
 gosub, GetJoystickInput
+Loop,Parse,mamejbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (MAMECOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				MAMECOLLECT= %avr%
+				break
+			}
+	}
 if (MAMECOLLECT <> "")
 	{
 		guicontrol,,emjRYMinus,|%MAMECOLLECT%||%mamejbid%
@@ -63005,6 +63202,20 @@ JMameR3In:
 gui, submit, nohide
 SB_SetText(" Waiting for input R3 Button ")
 gosub, GetJoystickInput
+Loop,Parse,mamejbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (MAMECOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				MAMECOLLECT= %avr%
+				break
+			}
+	}
 if (MAMECOLLECT <> "")
 	{
 		guicontrol,,emjR3,|%MAMECOLLECT%||%mamejbid%
@@ -63017,6 +63228,20 @@ JMameDownIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input DPad Down")
 gosub, GetJoystickInput
+Loop,Parse,mamejbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (MAMECOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				MAMECOLLECT= %avr%
+				break
+			}
+	}
 if (MAMECOLLECT <> "")
 	{
 		guicontrol,,emjdown,|%MAMECOLLECT%||%mamejbid%
@@ -63029,9 +63254,25 @@ JMameUpIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input DPad Up")
 gosub, GetJoystickInput
+Loop,Parse,mamejbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		ae1= 
+		ae2= 
+		stringsplit,ae,A_LoopField,=
+		if (MAMECOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				MAMECORRECT= %avr%
+				break
+			}
+	}
 if (MAMECOLLECT <> "")
 	{
-		guicontrol,,emjup,|%MAMECOLLECT%||%mamejbid%
+		guicontrol,,emjup,|%MAMECORRECT%||%mamejbid%
 	}
 SB_SetText(" MAMECOLLECT ")
 gosub, emjup
@@ -63041,6 +63282,20 @@ JMameLeftIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input DPad Left")
 gosub, GetJoystickInput
+Loop,Parse,mamejbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (MAMECOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				MAMECOLLECT= %avr%
+				break
+			}
+	}
 if (MAMECOLLECT <> "")
 	{
 		guicontrol,,emjleft,|%MAMECOLLECT%||%mamejbid%
@@ -63053,6 +63308,20 @@ JMameRightIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input DPad Right")
 gosub, GetJoystickInput
+Loop,Parse,mamejbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (MAMECOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				MAMECOLLECT= %avr%
+				break
+			}
+	}
 if (MAMECOLLECT <> "")
 	{
 		guicontrol,,emjright,|%MAMECOLLECT%||%mamejbid%
@@ -63065,6 +63334,20 @@ JMameSelectIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input Select Button")
 gosub, GetJoystickInput
+Loop,Parse,mamejbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (MAMECOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				MAMECOLLECT= %avr%
+				break
+			}
+	}
 if (MAMECOLLECT <> "")
 	{
 		guicontrol,,emjselect,|%MAMECOLLECT%||%mamejbid%
@@ -63077,6 +63360,20 @@ JMameStartIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input Start Button")
 gosub, GetJoystickInput
+Loop,Parse,mamejbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (MAMECOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				MAMECOLLECT= %avr%
+				break
+			}
+	}
 if (MAMECOLLECT <> "")
 	{
 		guicontrol,,emjstart,|%MAMECOLLECT%||%mamejbid%
@@ -63089,6 +63386,20 @@ JMameYIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input Y Button")
 gosub, GetJoystickInput
+Loop,Parse,mamejbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (MAMECOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				MAMECOLLECT= %avr%
+				break
+			}
+	}
 if (MAMECOLLECT <> "")
 	{
 		guicontrol,,emjY,|%MAMECOLLECT%||%mamejbid%
@@ -63101,6 +63412,21 @@ JMameXIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input X Button")
 gosub, GetJoystickInput
+Loop,Parse,mamejbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (MAMECOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				MAMECOLLECT= %avr%
+				break
+			}
+	}
+	
 if (MAMECOLLECT <> "")
 	{
 		guicontrol,,emjX,|%MAMECOLLECT%||%mamejbid%
@@ -63113,6 +63439,20 @@ JMameBIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input B Button")
 gosub, GetJoystickInput
+Loop,Parse,mamejbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (MAMECOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				MAMECOLLECT= %avr%
+				break
+			}
+	}
 if (MAMECOLLECT <> "")
 	{
 		guicontrol,,emjB,|%MAMECOLLECT%||%mamejbid%
@@ -63125,11 +63465,25 @@ JMameAIn:
 gui, submit, nohide
 SB_SetText(" Waiting for input A Button")
 gosub, GetJoystickInput
+Loop,Parse,mamejbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (MAMECOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				MAMECOLLECT= %avr%
+				break
+			}
+	}
+SB_SetText(" MAMECOLLECT ")
 if (MAMECOLLECT <> "")
 	{
 		guicontrol,,emjA,|%MAMECOLLECT%||%mamejbid%
 	}
-SB_SetText(" MAMECOLLECT ")
 gosub, emjA
 return
 
@@ -63698,9 +64052,10 @@ Loop, Parse, mamejimp,`n`r
 					{
 						ifinstring,A_LoopField,JOYCODE_
 							{
+								;;MSGBOX,,,vprm=%vprm%`nmlku_kprm=%mlku_kprm%`nkprm=%kprm%`nmamecollect=%mamecollect%`nmamecorrect=%mamecorrect%
 								if (kcf = "")
 									{
-										sysrep.= "JOYCODE_1_" . mlku_kprm . A_Space
+										sysrep.=  "JOYCODE_1_" . mlku_kprm . A_Space
 										kcf= 1
 									}
 								continue
@@ -64538,7 +64893,7 @@ Loop, Parse, mamejimp,`n`r
 					}
 				guicontrol,,emj%mameitbv%,|%rmpvsetj%||%mamejbid%
 				TF_replaceline("!"mamejsysloc,mjnv,mjnv,rmpbtnvlfk "JOYCODE_1_" rmpbtnvlj "")
-				kmj%mameitbv%= %mamenvl%
+				kmj%mameitbv%= %mamenvl%	
 			}	
 		if (emjRAD3A = 1)  ;;kb
 			{
