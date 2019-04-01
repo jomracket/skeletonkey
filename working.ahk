@@ -23343,8 +23343,8 @@ return
 
 ArcLogin:
 gui, submit,nohide
-guicontrolget,ARCLOGIN,,ARCLOGIN
-IniWrite, %ARCLOGIN%,Settings.ini,GLOBAL,archive_login
+guicontrolget,ARC_USER,,ARCLOGIN
+IniWrite, %ARC_USER%,Settings.ini,GLOBAL,archive_login
 return
 
 ArcPass:
@@ -23354,8 +23354,8 @@ if (SAVPASS = 0)
 		IniWrite,%A_Space%,Settings.ini,GLOBAL,archive_password
 		return
 	}
-guicontrolget,ARCPASS,,ARCPASS
-IniWrite,%ARCPASS%,Settings.ini,GLOBAL,archive_password
+guicontrolget,ARC_PASS,,ARCPASS
+IniWrite,%ARC_PASS%,Settings.ini,GLOBAL,archive_password
 return
 
 SavPass:
@@ -23366,27 +23366,32 @@ if (SAVPASS = 0)
 		IniWrite,%A_Space%,Settings.ini,GLOBAL,archive_password
 		return
 	}
-guicontrolget,ARCPASS,,ARCPASS
-IniWrite,%ARCPASS%,Settings.ini,GLOBAL,archive_password
+guicontrolget,ARC_PASS,,ARCPASS
+IniWrite,%ARC_PASS%,Settings.ini,GLOBAL,archive_password
 return
 
 LoginWall:
-if (ARCLOGIN = "")
+if (ARC_USER = "")
 	{
 		SB_SetText(" You must enter a valid email login for archive.org to use this repository ")
 		return
 	}
-if (ARCLOGIN = "Login Not Set")
+if (ARC_USER = "Login Not Set")
 	{
 		SB_SetText(" You must enter a valid email login for archive.org to use this repository ")
 		return
 	}
-if (ARCPASS = "")
+if (ARC_PASS = "")
 	{
 		SB_SetText(" You must enter a valid password for archive.org to use this repository ")
 		return
 	}
-	
+splitpath,save,,savetmp
+filetmp= %savetmp%\tmp.tmp
+filedelete, %savetmp%\tmp.tmp
+filedelete, %savetmp%\old.del
+bgn:= 0
+dnd:= 5000000
 username_str= %ARC_USER%
 password_str= %ARC_PASS%
 file_save_location:= save
@@ -23395,32 +23400,114 @@ get_site:= URLFILE
 SB_SetText(" Downloading " romname " to " save " ")
 post_site:="https://archive.org/account/login.php"
 post_data:="username=" username_str "&password=" password_str "&remember=CHECKED&referer=https://archive.org&action=login&submit=Log in"
-WebRequest := ComObjCreate("WinHttp.WinHttpRequest.5.1")
-;;WebRequest.Option(6) := False
-WebRequest.Open("POST", post_site)
-WebRequest.SetRequestHeader("Content-Type", "application / zip, application / octet - stream""application / zip, application / octet - stream")
-WebRequest.SetRequestHeader("Cookie", "test-cookie=1")
-WebRequest.SetRequestHeader("Accept-Encoding","gzip,deflate,sdch")
-WebRequest.Send(post_data)
-WebRequest.Open("HEAD",get_site)
-WebRequest.Send()
-;;arcfz= % WebRequest.GetResponseHeader("Content-Length")
-WebRequest.Open("GET",get_site)
-WebRequest.Send()
-ADODBObj := ComObjCreate( "ADODB.Stream" )
-ADODBObj.Type := 1
-;;ADODBObj.Mode := 3
-;;gosub,createcscr
-ADODBObj.Open()
-ADODBObj.Position := 0
-ADODBObj.Write( WebRequest.ResponseBody )
-ADODBObj.SaveToFile(file_save_location, Overwrite ? 2:1)
-fileappend,,%cachedirectory%\tmp.tmp,%file_save_location%,1
-ADODBObj.Close()
-;;WebRequest.Close()
-ADODBObj:=""
-WebRequest:=""
+Loop,
+	{
+		WebRequest := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+		WebRequest.Open("POST", post_site)
+		WebRequest.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+		WebRequest.SetRequestHeader("Cookie", "test-cookie=1")
+		WebRequest.Send(post_data)
+		WebRequest.Open("HEAD",get_site)
+		WebRequest.Send()
+		arcfz= % WebRequest.GetResponseHeader("Content-Length")
+		WebRequest.Open("GET",get_site)
+		WebRequest.SetRequestHeader("Range", "bytes=" bgn "-" dnd "")
+		WebRequest.Send()
+		WebRequest.WaitForResponse(5)
+		ADODBObj := ComObjCreate( "ADODB.Stream" )
+		ADODBObj.Type := 1
+		;;ADODBObj.Mode := 3
+		ADODBObj.Open()
+		ADODBObj.Position := 0
+		ADODBObj.Write( WebRequest.ResponseBody )
+		ADODBObj.SaveToFile(filetmp, Overwrite ? 2:1)
+		ADODBObj.Close()
+		ADODBObj:=""
+		WebRequest:=""
+		if FileExist(savetmp "\tmp.tmp")
+				{
+					if (dnd <> arcfz)
+						{
+							filegetsize,fmtmp,%savetmp%\tmp.tmp
+							if ((fmtmp < 20000)&&(finv > 20000))
+								{
+									msgbox,1,too small,filesize is %fmtmp%
+									goto, logindwnfail
+								}
+							bgn+=5000001
+							dnd+=5000000
+							if (dnd > arcfz)
+								{
+									dnd:= arcfz
+								}
+							finv:= dnd - bgn
+				}
+					if FileExist(savetmp "\old.del")
+						{
+							RunWait,%comspec% cmd /c copy /b "%savetmp%\old.del"+"%filetmp%" "%save%",,hide
+							filedelete, "%filetmp%"
+							filedelete, "%savetmp%\old.del"
+							filemove,%save%,%savetmp%\old.del,1
+							filegetsize,oldtmp,%savetmp%\old.del							
+							mvmult:= dnd / arcfz
+							stringsplit,percn,mvmult,.
+							stringLeft,percentDone,percn2,2
+							Guicontrol, ,utlPRGA, %PercentDone%
+							Guicontrol, ,ARCDPRGRS, %PercentDone%
+							Guicontrol, ,DWNPRGRS, %PercentDone%
+							Guicontrol, ,FEPRGA, %PercentDone%
+							SB_SetText(" " PercentDone "`% completed. " dnd " bytes downloaded ")
+						}
+						else 
+							{
+								filemove, %filetmp%,%savetmp%\old.del,1
+								filegetsize,oldtmp,%savetmp%\old.del
+							}
+					continue
+				}
+			else{
+					SB_SetText("File Not Downloaded")
+					MsgBox,1,Not Found,%save%`nnot found
+					goto, logindwnfail
+				}
+		filegetsize,oldtmp,%savetmp%\old.del
+		if (fmtmp < 20000)
+			{
+				if (arcfz <= oldtmp)
+					{
+						filemove,%savetmp%\old.del,%save%,1
+						break
+					}
+				SB_SetText("File Not Downloaded")
+				goto, logindwnfail
+			}
+		mvmult:= dnd / arcfz
+		stringsplit,percn,mvmult,.
+		stringLeft,percentDone,percn2,2
+		Guicontrol, ,utlPRGA, %PercentDone%
+		Guicontrol, ,ARCDPRGRS, %PercentDone%
+		Guicontrol, ,DWNPRGRS, %PercentDone%
+		Guicontrol, ,FEPRGA, %PercentDone%
+		SB_SetText(" " PercentDone "`% completed. " dnd " bytes downloaded ")
+	}
 SB_SetText(" Download Complete ")
+filegetsize,oldtmp,%savetmp%\old.del
+if (arcfz <= oldtmp)
+	{
+		filemove,%savetmp%\old.del,%save%,1
+	}
+Guicontrol, ,utlPRGA, 0
+Guicontrol, ,ARCDPRGRS, 0
+Guicontrol, ,DWNPRGRS, 0
+Guicontrol, ,FEPRGA, 0	
+return
+
+logindwnfail:
+Msgbox,1,Error,File Not Found
+Guicontrol, ,utlPRGA, 0
+Guicontrol, ,ARCDPRGRS, 0
+Guicontrol, ,DWNPRGRS, 0
+Guicontrol, ,FEPRGA, 0
 return
 
 createcscr:
@@ -29552,7 +29639,6 @@ guicontrol,show,emjQTXT
 guicontrol,,emjQTXT,Set
 guicontrol,move,emjQTXT,x200 y135 h23 w40
 guicontrol,show,emjDDLC
-guicontrol,move,emjDDLC,x156 y135 h23 w40
 guicontrol,,emjDDLC,|%emjDDLC%||1|2|3|4|5|6
 
 guicontrol,hide,emjTURBOIN
@@ -30360,8 +30446,6 @@ moptog= enable
 gosub, TOGSKELRUN
 srchtog= hide
 gosub, TOGGLESEARCHBOX
-emjtog= Hide
-gosub, EMJTOG
 return
 
 
@@ -47163,7 +47247,9 @@ guicontrolget,romf,,RUNROMCBX
 
 if (LCORE = "")
 	{
-		gosub,ShowOnlyEmuGui
+		gosub,ShowOnlyEmuGui		
+		emjtog= Hide
+		gosub, EMJTOG
 		return
 	}
 	
@@ -47209,7 +47295,9 @@ if (fig = "")
 		gosub, CoreDerive
 		if (qisf = "")
 			{
-				Gosub,ShowOnlyEmuGui
+				Gosub,ShowOnlyEmuGui				
+				emjtog= Hide
+				gosub, EMJTOG
 			}
 	}
 
@@ -55089,7 +55177,10 @@ ifinstring,JOYCORE,_libretro.dll
 	{
 		rajoycore= retroArch
 	}
-
+if (JOYCORE <> loadedjoy)
+	{
+		loadedjoy= 
+	}
 if (JOYCORE = "retroArch")
 	{
 		guicontrol,,RMPLOAD,0
@@ -55130,13 +55221,15 @@ if (emujchk2 <> "dll")
 		gosub, RAJOYTOG
 		ejcex= 
 		autcfglst=
+		afnei= 
 		guicontrol,,JCFGEDT,|
 		stringsplit,JOYCORD,JOYCORE,_
 		JOYCORE= %JOYCORD1%
-		Loop,parse, supgui,|
+		Loop,parse,supgui,|
 			{
 				if (JOYCORE = A_LoopField)
 					{
+						afnei= 1
 						if (A_LoopField = loadedjoy)
 							{
 								ejcex= 1
@@ -55150,9 +55243,17 @@ if (emujchk2 <> "dll")
 				gosub, EMJTOG
 				SB_SetText(" Resetting Joystick ")
 				guicontrol,enable,JOYCORE
+				if (afnei = 1)
+					{
+						gosub, %EMUFN%ctrls
+					}
 				return
 			}
-		guicontrol,enable,JOYCORE	
+		if (afnei = 1)
+			{
+				gosub, %EMUFN%ctrls
+			}
+		guicontrol,enable,JOYCORE
 		return
 	}
 
