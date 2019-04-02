@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2019-03-31 8:22 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2019-04-01 7:26 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 GLBTOP:
-RELEASE= 2019-03-31 8:22 PM
-VERSION= 0.99.69.00
+RELEASE= 2019-04-01 7:26 PM
+VERSION= 0.99.69.01
 RASTABLE= 1.7.6
 
 #Include tf.ahk
@@ -1744,6 +1744,8 @@ Gui, Add, Button, x740 y30 w16 h17 vCLRCUROM gCLREDT,X
 gui, font, bold
 Gui, Add, Button, x740 y30 w16 h17 vRETAL gRETAL hidden,>
 gui,font,normal
+
+RUNBOXGUIITEMS=LCORE|CUSTSWITCHS|RUNSYSDDL|RUNPLRAD|RUNFLRAD|RUNROMCBX|GROM|OPNCORE|LNCHBUT|RCLLNCH|CLRCUROM
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;  Speed ;;;;;
@@ -1941,6 +1943,8 @@ Gui, Add, CheckBox, x495 y212 w60 h16 vSRCHRCRSCHK gSRCHRCRSCHK Checked, Recurse
 Gui, Add, Edit, x491 y254 w218 h21 vSRCHROMEDT gSRCHROMEDT,
 Gui, Add, Button, x709 y253 w43 h23 vSRCHROMBUT gSRCHROMBUT,Search
 Gui, Add, DropDownList, x491 y231 w260 vSRCHLOCDDL gSRCHLOCDDL, :=:System List:=:||%systmfldrs%
+
+GUISRCHITEMS=SRCHGRP|SRCHLOCDDL|SRCHFLRAD|SRCHPLRAD|SRCHROMLBX|SRCHROMEDT|SRCHROMBUT|SRCHRCRSCHK
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;~~~DROP LOCATION~~~;;;;;;
 ;};;;;
@@ -2080,7 +2084,7 @@ Gui, Add, Text, x505 y400 vemuTXTR %tmpvis%, emuTXTR
 Gui, Add, Text, x504 y416 vemuTXTS %tmpvis%, emuTXTS
 Gui, Add, Text, x504 y432 vemuTXTT %tmpvis%, emuTXTT
 
-
+EMUTABGUIITEMS=emuBUTA|emuBUTB|emuBUTC|emuBUTG|emuBUTD|emuBUTE|emuBUTF|emuBUTH|emuBUTI|emuBUTJ|emuCHKD|emuCHKE|emuCHKF|emuCHKG|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKO|emuCHKP|emuCHKQ|emuCHKR|emuCHKS|emuCHKT|emuCHKA|emuCHKB|emuCHKC|emuCBXE|emuCBXF|emuCBXG|emuCBXH|emuCBXI|emuCBXJ|emuCBXA|emuCBXB|emuCBXC|emuCBXD|emuDDLE|emuDDLF|emuDDLG|emuDDLH|emuDDLI|emuDDLJ|emuDDLC|emuDDLD|emuDDLA|emuDDLB|emuEDTA|emuEDTB|emuEDTC|emuEDTD|emuEDTE|emuEDTF|emuEDTG|emuEDTI|emuUPDA|emuEDTH|emuUPDB|emuLVA|emuUPDC|emuLBXA|emuLBXB|emuLVA|emuLVB|emuLVC|emuPRGB|emuPRGA|emuRad5B|emuRad5C|emuRad4A|emuRad4B|emuRad5A|emuRad6A|emuRad6B|emuRad6C|emuRad6D|emuRad7A|emuRad7B|emuRad8A|emuRad8B|emuRad9A|emuRad9B|emuRad9C|emuRad10A|emuRad10B|emuRad11A|emuRad11B|emuRad2A|emuRad2B|emuRad2C|emuRad1A|emuRad3A|emuRad3B|emuRad3C|emuRad3D|emuRad1B|emuSLDA|emuSLDB|emuSLDD|emuSLDE|emuSLDC|emuGRPA|emuGRPB|emuGRPC|emuGRPD|emuGRPE|emuGRPF|emuGRPG|emuTXTA|emuTXTB|emuTXTC|emuTXTD|emuTXTE|emuTXTF|emuTXTG|emuTXTS|emuTXTT|emuTXTR|emuTXTM|emuTXTH|emuTXTI|emuTXTN|emuTXTO|emuTXTP|emuTXTQ|emuTXTJ|emuTXTK|emuTXTL
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[INSTALL TAB]]     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui, Tab, 3
@@ -2227,7 +2231,7 @@ Gui, Add, Text,x589 y154 w130 h29 vRAVERTXT hidden, version:  %RAVERS%  build:  
 Gui, Add, Button,x533 y158 w45 h17 vGRAVER gGRAVER hidden, version
 Gui, Add, Button,x578 y188 w45 h22 vQRSETUP gQRSETUP hidden, QUICK
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+RAGUIMENUITEMS=ART|ARTXT|ASYNC|AUO|AUTOASPECT|AUTSHD|BFI|CGSHDVAR|CGSLCT|CROP|CSTCMD|CSTCRE|CSTRAOPTF|CSTRAARGF|D3DDRV|D3D11|D3D12|DDRVGRP|DIRSTXT|DLFRMTXT|DRCGRP|DSND|DTCOMP|DirBut|FILTSEL|FILTXT|FLICKF|FLK|FLTFILE|FORCEAR|FRMDL|FRMDLTXT|FSREZ|GDIDRV|GLBLAUDIO|GLSHDVAR|GLSLCT|GPUFRMTXT|GPUSS|GPUV|GPUVREC|DISPLDRV|RaSpdEdt|RaSpdSld|RASpdTxt|DISPDRVTXT|AUDDRVTXT|GUIDRV|AUDDRV|GUIDRVTXT|HSYNC|INTG|IntXres|IntYres|LATENCY|LOCDIR|LOCPTH|MAXSWPTXT|MONGTXT|MONRESTXT|MONUM|MONXREZ|MONXTXT|MONYREZ|MSWCHI|MUTE|OGLDRV|OPENAL|OPERGRP|OUTFS|OUTFW|OUTMGRP|OUTW|OVRIDGRP|PAUSEBG|PGM|POSYTXT|PTHSTXT|PthBut|REFRESH|REFSLD|REFTXT|REFUD|REWEN|REWGRAN|REZV|ROTATE|SAVDIVTXT|SAVEXIT|SAVGRP|SAVSECTXT|SAVSRT|SAVSTPTXT|SCLGRP|SCLTXT|SDL2|SDL2DRV|SHAREDV|SHDEN|SHDPTHTXT|SHDSEL|SLCT|SLSHDVAR|SMTHV|SNDGRP|SNDLATXT|STAI|STAL|STAS|STORT|STRCH|SVINT|SWHOST|SWPFRMTXT|SWPV|THRDV|VIDASPECT|VIDGTXT|VIDRESTXT|VIDRESTXT|VIDSCL|AVIDSYNC|VIDSYNC|VIDXTXT|VPOSTXT|VPOSXTXT|VROTXT|VidXLoc|VidYLoc|RUN2ND|RUNAHEAD|RUNAFRMS|SRCHGRP|ROMRPGRP|SRCHLOCDDL|SRCHFLRAD|SRCHPLRAD|SRCHROMLBX|SRCHROMEDT|SRCHROMBUT|SRCHRCRSCHK
 
 ;;;;;;;;;;;;;;;;;;  BSL ;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -2418,6 +2422,9 @@ Gui, Add, ComboBox, x566 y449 w75 vB gb hidden, 0||%JOYSET%
 Gui, Add, ComboBox, x616 y427 w75 vA ga hidden, 1||%JOYSET%
 Gui, Add, ComboBox, x131 y201 w75 vl2 gl2 hidden, +5||%JOYSET%
 Gui, Add, ComboBox, x523 y202 w75 vr2 gr2 hidden, +4||%JOYSET%
+
+RAJOYGUIITEMS=JOYPIC|JOYDRVGRP|JHIDDRV|JDINDRV|JXINDRV|JSDLDRV|INPDRVGRP|IDDINP|IDSDLINP|IDRAW|LASTKGRP|RASTKGRP|DPADGRP|CIREMAPGRP|BBUTTXT|YBUTTXT|XBUTTXT|ABUTTXT|L3BUTTXT|R3BUTTXT|LTRIGTXT|RTRIGTXT|LBUTTXT|RBUTTXT|HBTNTXT|SELECTBUTTXT|STARTBUTTXT|CFGPLGRP|INDWRN|CLRPLYR|RSTPLYR|DEFPLCTRLGRP|HOTKGRP|JSW|KSW|HKEYCB|HKEYDD|JYPLTXT|PLAYERN|MENBUTCMBTXT|DSPLGC|MGPC|MXUSRTXT|MXUSR|SWAPOKC|ADJS|REMPB|RMPLOAD|KBGP|AUM|JPINDX|MOUSEIND|JOYIND|MINXTXT|ANLDZGRP|ANLDZTXT|DEDZTXT|DEDZ|UNIFMENU|POLLING|POLTXT|JBLNKGRP|TRBPRD|TURBOP|TURBUD|DUTCTXT|DUTYCYCLE|DUTYUD|ANLDP|TRBTXT|TURBOIN|LTRIGIN|LBUMPIN|RTRIGIN|RBUMPIN|LSTICKUPIN|LSTICKLFTIN|LSTICKRTIN|LSTICKDWNIN|LSTICKBUTIN|RSTICKUPIN|RSTICKLFTIN|RSTICKRTIN|RSTICKDWNIN|RSTICKBUTIN|DPADDWNIN|DPADUPIN|DPADLFTIN|DPADRTIN|SLCTBUTIN|STRTBUTIN|YBUTIN|XBUTIN|BBUTIN|ABUTIN|INPBUTIN|TRBCMB|RXMinus|RYPlus|R|L|RXPlus|RYMinus|R3|L3|LXMinus|LYPlus|LYMinus|LXPlus|select|start|up|left|right|down|Y|X|B|A|l2|r2|Home
+
 ;;gui, Add, ComboBox, x327 y274 w75  vHome gHome Disabled, nul||%JOYSET%
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -2515,7 +2522,8 @@ Gui, Add, UpDown, x405 y209 w17 h21 vemjUDB Hidden,
 
 Gui, Add, CheckBox, x49 y363 vemjCHKG gemjCHKG Hidden,
 Gui, Add, Text, x280 y213 h17 vemjZTXT Hidden,
-
+EMUINPUTNULLITEMS=emjAGRP|emjCGRP|emjDGRP|emjEGRP|emjFGRP|emjATXT|emjBTXT|emjCTXT|emjDTXT|emjETXT|emjFTXT|emjGTXT|emjHTXT|emjITXT|emjJTXT|emjKTXT|emjLTXT|emjMTXT|emJHGRP|emjNTXT|emjOTXT|emjGGRP|emjPTXT|emjRTXT|emjSTXT|emjTTXT|emjJGRP|emjUTXT|emjVTXT|emjWTXT|emjIGRP|emjXTXT|emjYTXT|emjZTXT|emjQTXT
+EMUINPUTGUIITEMS=emjRAD1A|emjRAD1B|emjRAD1C|emjRAD1D|emjBGRP|emjRAD2A|emjRAD2B|emjRAD2C|emjBUTA|emjBUTB|emjRAD3A|emjRAD3B|emjCBA|emjDDLA|emjDDLB|emjDDLD|emjCHKA|emjCHKB|emjCHKC|emjCHKD|emjCHKE|emjCHKX|emjCHKY|emjCHKZ|emjCHKH|emjDDLE|emjSLDA|emjCHKF|emjDDLF|emjUDA|emjEDTA|emjEDTB|emjUDB|emjCHKG|emjDDLC
 ;{;;;;;;;;;;;;;  ==Emu Buttons==  ;;;;;;;;;;;;;;;;;;
 Gui, Add, Button, x355 y192 w20 h20 vemjTURBOIN gemjTURBOIN Hidden, +
 Gui, Add, Button, x206 y202 w20 h20 vemjL2In gemjL2In Hidden, +
@@ -2571,7 +2579,8 @@ Gui, Add, DropDownList, x566 y449 w75 vemjB gemjB Hidden,
 Gui, Add, DropDownList, x616 y427 w75 vemjA gemjA Hidden,
 Gui, Add, DropDownList, x131 y201 w75 vemjl2 gemjl2 Hidden,
 Gui, Add, DropDownList, x523 y202 w75 vemjr2 gemjr2 Hidden,
-
+EMUJOYBUTGUIITEMS=emjTURBOIN|emjL2In|emjLIn|emjR2In|emjRIn|emjLYPlusIn|emjLXMinusIn|emjLXPlusIn|emjLYMinusIn|emjL3In|emjRYPlusIn|emjRXMinusIn|emjRXPlusIn|emjRYMinusIn|emjR3In|emjDownIn|emjUpIn|emjLeftIn|emjRightIn|emjSelectIn|emjStartIn|emjYIn|emjXIn|emjBIn|emjAIn|emjINPBUTIN
+EMUJOYCBXGUIITEMS=emjTRBCMB|emjRXMinus|emjRYPlus|emjR|emjL|emjRXPlus|emjRYMinus|emjR3|emjL3|emjLXMinus|emjLYPlus|emjLYMinus|emjLXPlus|emjselect|emjstart|emjup|emjleft|emjright|emjdown|emjY|emjX|emjB|emjA|emjl2|emjr2|emjHome
 ;};;;;;;;;;;;;
 
 
@@ -25013,7 +25022,12 @@ if (emutog = "show")
 	{
 		emutog= show
 	}
-gosub, EmuGuiVisTog
+
+Loop,Parse,EMUTABGUIITEMS,|
+	{
+		guicontrol,%emutog%,%A_LoopField%
+	}
+;;gosub, EmuGuiVisTog
 gosub, %EMUSN%BUTA
 return
 
@@ -25530,52 +25544,17 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;
 
 TOGSKELRUN:
-guicontrol,%moptog%,LCORE
-guicontrol,%moptog%,CUSTSWITCHS
-guicontrol,%moptog%,RUNSYSDDL
-guicontrol,%moptog%,RUNPLRAD
-guicontrol,%moptog%,RUNFLRAD
-guicontrol,%moptog%,RUNROMCBX
-guicontrol,%moptog%,GROM
-guicontrol,%moptog%,OPNCORE
-guicontrol,%moptog%,LNCHBUT
-guicontrol,%moptog%,RCLLNCH
-guicontrol,%moptog%,CLRCUROM
-return
-
-TOGSKELGUI:
-guicontrol,%moptog%,LCORE
-guicontrol,%moptog%,CUSTSWITCHS
-guicontrol,%moptog%,RUNSYSDDL
-guicontrol,%moptog%,RUNPLRAD
-guicontrol,%moptog%,RUNFLRAD
-guicontrol,%moptog%,RUNROMCBX
-guicontrol,%moptog%,GROM
-guicontrol,%moptog%,OPNCORE
-guicontrol,%moptog%,LNCHBUT
-guicontrol,%moptog%,RCLLNCH
-guicontrol,%moptog%,CLRCUROM
-
-TOGSKELOPTS:
-guicontrol,%moptog%,SRCHGRP
-guicontrol,%moptog%,SRCHFLRAD
-guicontrol,%moptog%,SRCHPLRAD
-guicontrol,%moptog%,SRCHRCRSCHK
-guicontrol,%moptog%,SRCHROMEDT
-guicontrol,%moptog%,SRCHROMBUT
-guicontrol,%moptog%,SRCHLOCDDL
-guicontrol,%moptog%,ROMRPGRP
-guicontrol,%moptog%,SRCHROMLBX
+Loop,Parse,RUNBOXGUIITEMS,|
+	{
+		guicontrol,%moptog%,%A_LoopField%
+	}
 return
 
 TOGGLESEARCHBOX:
-guicontrol,%srchtog%,SRCHLOCDDL
-guicontrol,%srchtog%,SRCHFLRAD
-guicontrol,%srchtog%,SRCHPLRAD
-guicontrol,%srchtog%,SRCHROMLBX
-guicontrol,%srchtog%,SRCHROMEDT
-guicontrol,%srchtog%,SRCHROMBUT
-guicontrol,%srchtog%,SRCHRCRSCHK
+Loop,Parse,GUISRCHITEMS,|
+	{
+		guicontrol,%srchtog%,%A_LoopField%
+	}
 return
 
 INITSEARCHBOX:
@@ -25678,6 +25657,7 @@ return
 ;{;;; ~~~~ OPTION-template items ~~~ ;;;
 
 EmuGuiVisTog:
+/*
 guicontrol,%emutog%,emuBUTA
 guicontrol,%emutog%,emuBUTB
 guicontrol,%emutog%,emuBUTC
@@ -25741,13 +25721,6 @@ guicontrol,%emutog%,emuEDTH
 guicontrol,%emutog%,emuUPDB
 guicontrol,%emutog%,emuLVA
 guicontrol,%emutog%,emuUPDC
-guicontrol,%emutog%,emuGRPA
-guicontrol,%emutog%,emuGRPB
-guicontrol,%emutog%,emuGRPC
-guicontrol,%emutog%,emuGRPD
-guicontrol,%emutog%,emuGRPE
-guicontrol,%emutog%,emuGRPF
-guicontrol,%emutog%,emuGRPG
 guicontrol,%emutog%,emuLBXA
 guicontrol,%emutog%,emuLBXB
 guicontrol,%emutog%,emuLVA
@@ -25789,6 +25762,13 @@ guicontrol,%emutog%,emuSLDB
 guicontrol,%emutog%,emuSLDD
 guicontrol,%emutog%,emuSLDE
 guicontrol,%emutog%,emuSLDC
+guicontrol,%emutog%,emuGRPA
+guicontrol,%emutog%,emuGRPB
+guicontrol,%emutog%,emuGRPC
+guicontrol,%emutog%,emuGRPD
+guicontrol,%emutog%,emuGRPE
+guicontrol,%emutog%,emuGRPF
+guicontrol,%emutog%,emuGRPG
 guicontrol,%emutog%,emuTXTA
 guicontrol,%emutog%,emuTXTB
 guicontrol,%emutog%,emuTXTC
@@ -25809,6 +25789,7 @@ guicontrol,%emutog%,emuTXTQ
 guicontrol,%emutog%,emuTXTJ
 guicontrol,%emutog%,emuTXTK
 guicontrol,%emutog%,emuTXTL
+*/
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -25816,132 +25797,12 @@ return
 ;{;;;;;;;;;;;;;;   RETROARCH JOYOPT TOGGLE  ;;;;;;;;
 
 RAJOYTOG:
-guicontrol,%rajoytog%,JOYPIC
-guicontrol,%rajoytog%,JOYDRVGRP
-guicontrol,%rajoytog%,JHIDDRV
-guicontrol,%rajoytog%,JDINDRV
-guicontrol,%rajoytog%,JXINDRV
-guicontrol,%rajoytog%,JSDLDRV
-guicontrol,%rajoytog%,INPDRVGRP
-guicontrol,%rajoytog%,IDDINP
-guicontrol,%rajoytog%,IDSDLINP
-guicontrol,%rajoytog%,IDRAW
-guicontrol,%rajoytog%,LASTKGRP
-guicontrol,%rajoytog%,RASTKGRP
-guicontrol,%rajoytog%,DPADGRP
-
-guicontrol,%rajoytog%,CIREMAPGRP
-guicontrol,%rajoytog%,BBUTTXT
-guicontrol,%rajoytog%,YBUTTXT
-guicontrol,%rajoytog%,XBUTTXT
-guicontrol,%rajoytog%,ABUTTXT
-guicontrol,%rajoytog%,L3BUTTXT
-guicontrol,%rajoytog%,R3BUTTXT
-guicontrol,%rajoytog%,LTRIGTXT
-guicontrol,%rajoytog%,RTRIGTXT
-guicontrol,%rajoytog%,LBUTTXT
-guicontrol,%rajoytog%,RBUTTXT
-guicontrol,%rajoytog%,HBTNTXT
-guicontrol,%rajoytog%,SELECTBUTTXT
-guicontrol,%rajoytog%,STARTBUTTXT
-guicontrol,%rajoytog%,CFGPLGRP
-guicontrol,%rajoytog%,INDWRN
+Loop, Parse, RAJOYGUIITEMS,|
+	{
+		guicontrol,%rajoytog%,%A_LoopField%
+	}
 guicontrol,move,INDWRN,x463 y6 w170 h90
 guicontrol,,INDWRN,
-guicontrol,%rajoytog%,CLRPLYR
-guicontrol,%rajoytog%,RSTPLYR
-guicontrol,%rajoytog%,DEFPLCTRLGRP
-guicontrol,%rajoytog%,HOTKGRP
-guicontrol,%rajoytog%,JSW
-guicontrol,%rajoytog%,KSW
-guicontrol,%rajoytog%,HKEYCB
-guicontrol,%rajoytog%,HKEYDD
-guicontrol,%rajoytog%,JYPLTXT
-guicontrol,%rajoytog%,PLAYERN
-guicontrol,%rajoytog%,MENBUTCMBTXT
-guicontrol,%rajoytog%,DSPLGC
-guicontrol,%rajoytog%,MGPC
-guicontrol,%rajoytog%,MXUSRTXT
-guicontrol,%rajoytog%,MXUSR
-guicontrol,%rajoytog%,SWAPOKC
-guicontrol,%rajoytog%,ADJS
-guicontrol,%rajoytog%,REMPB
-guicontrol,%rajoytog%,RMPLOAD
-guicontrol,%rajoytog%,KBGP
-guicontrol,%rajoytog%,AUM
-guicontrol,%rajoytog%,JPINDX
-guicontrol,%rajoytog%,MOUSEIND
-guicontrol,%rajoytog%,JOYIND
-guicontrol,%rajoytog%,MINXTXT
-guicontrol,%rajoytog%,ANLDZGRP
-guicontrol,%rajoytog%,ANLDZTXT
-guicontrol,%rajoytog%,DEDZTXT
-guicontrol,%rajoytog%,DEDZ
-guicontrol,%rajoytog%,UNIFMENU
-guicontrol,%rajoytog%,POLLING
-guicontrol,%rajoytog%,POLTXT
-guicontrol,%rajoytog%,JBLNKGRP
-guicontrol,%rajoytog%,TRBPRD
-guicontrol,%rajoytog%,TURBOP
-guicontrol,%rajoytog%,TURBUD
-guicontrol,%rajoytog%,DUTCTXT
-guicontrol,%rajoytog%,DUTYCYCLE
-guicontrol,%rajoytog%,DUTYUD
-guicontrol,%rajoytog%,ANLDP
-guicontrol,%rajoytog%,TRBTXT
-
-guicontrol,%rajoytog%,TURBOIN
-guicontrol,%rajoytog%,LTRIGIN
-guicontrol,%rajoytog%,LBUMPIN
-guicontrol,%rajoytog%,RTRIGIN
-guicontrol,%rajoytog%,RBUMPIN
-guicontrol,%rajoytog%,LSTICKUPIN
-guicontrol,%rajoytog%,LSTICKLFTIN
-guicontrol,%rajoytog%,LSTICKRTIN
-guicontrol,%rajoytog%,LSTICKDWNIN
-guicontrol,%rajoytog%,LSTICKBUTIN
-guicontrol,%rajoytog%,RSTICKUPIN
-guicontrol,%rajoytog%,RSTICKLFTIN
-guicontrol,%rajoytog%,RSTICKRTIN
-guicontrol,%rajoytog%,RSTICKDWNIN
-guicontrol,%rajoytog%,RSTICKBUTIN
-guicontrol,%rajoytog%,DPADDWNIN
-guicontrol,%rajoytog%,DPADUPIN
-guicontrol,%rajoytog%,DPADLFTIN
-guicontrol,%rajoytog%,DPADRTIN
-guicontrol,%rajoytog%,SLCTBUTIN
-guicontrol,%rajoytog%,STRTBUTIN
-guicontrol,%rajoytog%,YBUTIN
-guicontrol,%rajoytog%,XBUTIN
-guicontrol,%rajoytog%,BBUTIN
-guicontrol,%rajoytog%,ABUTIN
-guicontrol,%rajoytog%,INPBUTIN
-guicontrol,%rajoytog%,TRBCMB
-guicontrol,%rajoytog%,RXMinus
-guicontrol,%rajoytog%,RYPlus
-guicontrol,%rajoytog%,R
-guicontrol,%rajoytog%,L
-guicontrol,%rajoytog%,RXPlus
-guicontrol,%rajoytog%,RYMinus
-guicontrol,%rajoytog%,R3
-guicontrol,%rajoytog%,L3
-guicontrol,%rajoytog%,LXMinus
-guicontrol,%rajoytog%,LYPlus
-guicontrol,%rajoytog%,LYMinus
-guicontrol,%rajoytog%,LXPlus
-guicontrol,%rajoytog%,select
-guicontrol,%rajoytog%,start
-guicontrol,%rajoytog%,up
-guicontrol,%rajoytog%,left
-guicontrol,%rajoytog%,right
-guicontrol,%rajoytog%,down
-guicontrol,%rajoytog%,Y
-guicontrol,%rajoytog%,X
-guicontrol,%rajoytog%,B
-guicontrol,%rajoytog%,A
-guicontrol,%rajoytog%,l2
-guicontrol,%rajoytog%,r2
-guicontrol,%rajoytog%,Home
 return
 
 ;};;;;;;;;;;;;;;;
@@ -27412,8 +27273,8 @@ raoptgl= hide
 srchtog= hide
 
 gosub, RAGuiVisTog
-gosub, TOGSKELGUI
-
+gosub, TOGSKELRUN
+gosub, TOGGLESEARCHBOX
 
 guicontrolget,uuniv,,FNDGUI
 
@@ -27608,6 +27469,7 @@ if (uuniv = "X")
 		guicontrol,move,FNDGUI, x720 y516 w42 h19
 		guicontrol,,FNDGUI,find
 	}
+MEDNAFENGUIITEMS= emuBUTC|emuCHKD|emuCHKB|emuCHKC|emuCHKD|emuCHKE|emuCHKF|emuCHKG|emuCHKH|emuDDLA|emuDDLB|emuDDLC|emuDDLD|emuDDLE|emuDDLF|emuDDLJ|emuEDTA|emuEDTB|emuEDTC|emuEDTD|emuEDTE|emuEDTF|emuEDTG|emuEDTH|emuEDTI|emuCBXA|emuCBXB|emuRAD11A|emuRAD11B|emuRAD8A|emuRAD8B|emuRad5B|emuRad5C|emuRad5A|emuRad9A|emuRad9B|emuRad9C|emuRad3A|emuRad3B|emuRad3C|emuRad3D|emuSLDA|emuSLDB|emuSLDE|emuSLDC
 guicontrol, %emutog%, emuTXTA
 guicontrol,move,emuTXTA,x240 y121 w48 h13
 guicontrol,,emuTXTA, Shader
@@ -27853,7 +27715,7 @@ guicontrol, %emutog%, emuSLDA
 guicontrol,+Range0-100,emuSLDA
 guicontrol,move,emuSLDA,x269 y178 w120 h24
 
-guicontrol, %emutog%, emuSLDB,
+guicontrol, %emutog%, emuSLDB
 guicontrol,+Range0-100,emuSLDB
 guicontrol,move,emuSLDB,x114 y393 w120 h24
 
@@ -27866,6 +27728,10 @@ guicontrol, %emutog%, emuSLDC
 guicontrol,+Range0-10,emuSLDC
 guicontrol,move,emuSLDC,x215 y270 w120 h24
 
+Loop, Parse, MEDNAFENGUIITEMS,|
+	{
+		guicontrol,disable,%A_LoopField%
+	}
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -28200,14 +28066,22 @@ Loop, Parse, mednafenopts,`n`r
 SB_SetText("Mednafen options loaded")	
 gosub, MednafenCTRLS
 emutog= enable
-gosub, EmuGuiVisTog
+Loop, parse, MEDNAFENGUIITEMS,|
+	{
+		guicontrol,%emutog%,%A_LoopField%
+	}
+;;gosub, EmuGuiVisTog
 return
 
 ;{;;;;;;;;;;;;    RESET MEDNAFEN   ;;;;;;;;;;;;;;;;;;;;;
 mednafenBUTC:
 gui,submit,nohide
 emutog= disable
-gosub, EmuGuiVisTog
+Loop, parse, MEDNAFENGUIITEMS,|
+	{
+		guicontrol,%emutog%,%A_LoopField%
+	}
+;;gosub, EmuGuiVisTog
 
 MEDemuRAD11A= 0
 MEDemuRAD11B= 0
@@ -28299,7 +28173,11 @@ fileDelete,%emucfgloc%
 gosub, MednafenInit
 gosub, MednafenRESETPOP
 emutog= enable
-gosub, EmuGuiVisTog
+Loop, parse, MEDNAFENGUIITEMS,|
+	{
+		guicontrol,%emutog%,%A_LoopField%
+	}
+;;gosub, EmuGuiVisTog
 
 return
 
@@ -28853,9 +28731,16 @@ guicontrol,,CFGSWITCH,%A_Space%
 iniwrite,mednafen.cfg,rj\cur.ini,%curjf%,CFG2PROP
 emutog= hide
 raoptgl= hide
+Loop,Parse,MEDNAFENGUIITEMS
+	{
+		guicontrol,%emutog%,%A_LoopField%
+	}
+;;gosub, EmuGuiVisTog
 moptog= show
-gosub, EmuGuiVisTog
-gosub, TOGSKELGUI
+gosub, TOGSKELRUN
+srchtog= show
+gosub, TOGGLESEARCHBOX
+
 return
 
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;  MEDNAFEN GUI HIDE-SHOW TOGGLE  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -28876,6 +28761,11 @@ guicontrol, %fndtog%, emuTXTM
 guicontrol, %fndtog%, emuTXTN
 guicontrol, %fndtog%, emuTXTO
 guicontrol, %fndtog%, emuTXTP
+Loop, Parse, MEDNAFENGUIITEMS,|
+	{
+		guicontrol,%fndtog%,%A_LoopField%
+	}
+/*	
 guicontrol, %fndtog%, emuBUTC
 guicontrol, %fndtog%, emuCHKD
 guicontrol, %fndtog%, emuCHKB
@@ -28921,6 +28811,7 @@ guicontrol, %fndtog%, emuSLDA
 guicontrol, %fndtog%, emuSLDB,
 guicontrol, %fndtog%, emuSLDE
 guicontrol, %fndtog%, emuSLDC
+*/
 return
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -29072,6 +28963,7 @@ if (core_gui = "mame")
 		goto, LOADMAMEOPTS
 	}
 InitMameGui:
+MAMEGUIITEMS=emuBUTJ|emuBUTA|emuBUTB|emuCHKO|emuCHKD|emuCHKE|emuSLDA|emuCHKF|emuCHKG|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKP|emuCHKA|emuCHKB|emuCHKQ|emuCHKR|emuCHKS|emuCHKT|emuCHKC|emuCBXE|emuCBXA|emuCBXC|emuCBXB|emuCBXD|emuDDLE|emuDDLD|emuEDTA|emuDDLA|emuDDLB|emuDDLC|emuDDLG|emuEDTB|emuRad1A|emuRad1B
 ;{;;;;;;;;;;;;;;;  create mame gui ;;;;;;;;;;;;;;;;
 guicontrol, %emutog%, emuBUTJ
 guicontrol, move, emuBUTJ,x694 y486 w66 h23
@@ -29300,6 +29192,10 @@ guicontrol, %emutog%, emuRad1B  ;fullscreen
 guicontrol, move, emuRad1B,x245 y230 w73 h13
 guicontrol,,emuRad1B,Fullscreen
 guicontrol,,emuRad1B,0
+Loop, Parse,MAMEGUIITEMS,|
+	{
+		guicontrol,disable,%A_LoopField%
+	}
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 LOADMAMEOPTS:
@@ -29533,7 +29429,11 @@ Loop, Parse, mameopts,`n`r
 SB_SetText("mame options loaded")	
 gosub, MameCTRLS
 emutog= enable
-gosub, EmuGuiVisTog
+Loop, parse, MAMEGUIITEMS,|
+	{
+		guicontrol,%emutog%,%A_LoopField%
+	}
+;;gosub, EmuGuiVisTog
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -29573,7 +29473,11 @@ Loop,Parse,mameopts,`n`r
 			
 	}
 emutog= enable
-gosub, EmuGuiVisTog
+Loop, parse, MAMEGUIITEMS,|
+	{
+		guicontrol,%emutog%,%A_LoopField%
+	}
+;;gosub, EmuGuiVisTog
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -29591,10 +29495,11 @@ if (loadedjoy = "mame")
 		goto, mamejoycreated
 	}	
 SB_SetText(" Loading mame Joystick config ")
+MAMEJOYGUIITEMS=INDWRN|emjDDLD|emjDDLB|emjDDLA|emjCHKX|emjCHKY|emjCHKZ|emjCBA|emjBUTA|emjBUTB|emjDDLC|emjRAD3A|emjRAD3B|JOYCORE
 rajoytog= Hide
 gosub, RAJOYTOG
-emjtog= show
-gosub, EMJTOG
+;;emjtog= show
+;;gosub, EMJTOG
 emjtog= disable
 gosub, EMJTOG
 
@@ -29602,33 +29507,17 @@ gosub, EMJTOG
 guicontrol,show,INDWRN
 guicontrol,move,INDWRN,x262 y180 w200 h200
 guicontrol,,INDWRN,
+guicontrol,show,emjDDLD
 guicontrol,move,emjDDLD,x34 y158 w55
 guicontrol,show,emjDDLA
+guicontrol,show,emjDDLB
 
 guicontrol,show,emjCHKX
-guicontrol,show,emjCHKY
-guicontrol,show,emjCHKZ
 guicontrol,,emjCHKX,Shift
+guicontrol,show,emjCHKY
 guicontrol,,emjCHKY,Ctrl
+guicontrol,show,emjCHKZ
 guicontrol,,emjCHKZ,Alt
-
-guicontrol,hide,emjAGRP
-guicontrol,hide,emjRAD1A
-guicontrol,hide,emjRAD1B
-guicontrol,hide,emjRAD1C
-guicontrol,hide,emjRAD2C
-guicontrol,hide,emjRAD1D
-
-guicontrol,,emjJGRP,Mouse Sensitivity
-guicontrol,,emjUTXT,`%
-guicontrol,hide,emjIGRP
-guicontrol,hide,emjBGRP
-guicontrol,hide,JCFGEDT
-
-guicontrol,hide,emjTRBCMB
-guicontrol,hide,emjTURBOIN
-
-guicontrol,hide,SAVEJOY
 
 guicontrol,show,emjCBA
 guicontrol,show,emjBUTA
@@ -29641,6 +29530,46 @@ guicontrol,move,emjQTXT,x200 y135 h23 w40
 guicontrol,show,emjDDLC
 guicontrol,,emjDDLC,|%emjDDLC%||1|2|3|4|5|6
 
+guicontrol,,emjJGRP,Mouse Sensitivity
+guicontrol,,emjUTXT,`%
+
+guicontrol,move,emjSTXT,x31 y132 h23 w70
+guicontrol,show,emjRAD3A
+guicontrol,,emjRAD3A,Keyboard
+guicontrol,move,emjRAD3A,x312 y32 w65 h13
+guicontrol,,emjRAD3A,0
+guicontrol,show,emjRAD3B
+guicontrol,,emjRAD3B,Joystick
+guicontrol,,emjRAD3B,0
+guicontrol,move,emjRAD3B,x383 y32 w65 h13
+guicontrol,show,emjSTXT
+guicontrol,,emjSTXT,System Type
+guicontrol,show,emjWTXT
+guicontrol,,emjWTXT,device
+guicontrol,show,emjFGRP
+guicontrol,,emjFGRP,Emulator
+guicontrol,show,emjHGRP
+guicontrol,,emjHGRP,Inputs
+guicontrol,show,emjPTXT
+guicontrol,,emjPTXT,Player
+guicontrol,move,emjPTXT,x368 y50 w34 h23
+guicontrol,show,emjGGRP
+guicontrol,,emjgGRP,Shortcuts
+guicontrol,,emjDDLA,|%mamescs%
+
+/*
+guicontrol,hide,emjAGRP
+guicontrol,hide,emjRAD1A
+guicontrol,hide,emjRAD1B
+guicontrol,hide,emjRAD1C
+guicontrol,hide,emjRAD2C
+guicontrol,hide,emjRAD1D
+guicontrol,hide,emjIGRP
+guicontrol,hide,emjBGRP
+guicontrol,hide,JCFGEDT
+guicontrol,hide,emjTRBCMB
+guicontrol,hide,emjTURBOIN
+guicontrol,hide,SAVEJOY
 guicontrol,hide,emjTURBOIN
 guicontrol,hide,emjOTXT
 guicontrol,hide,emjTTXT
@@ -29652,7 +29581,6 @@ guicontrol,hide,emjEDTB
 guicontrol,hide,emjUDB
 guicontrol,hide,emjEDTA
 guicontrol,hide,emjUDA
-
 guicontrol,hide,emjCHKE
 guicontrol,hide,emjCHKG
 guicontrol,hide,emjCHKH
@@ -29662,32 +29590,14 @@ guicontrol,hide,emjCHKB
 guicontrol,hide,emjCHKA
 guicontrol,hide,emjCHKF
 guicontrol,hide,emjCHKH
-
 guicontrol,hide,emjDDLE
-
 guicontrol,hide,emjRAD2A
 guicontrol,hide,emjRAD2B
 guicontrol,hide,emjOTXT
 guicontrol,hide,emjNTXT
 guicontrol,hide,emjRTXT
 guicontrol,hide,emjTTXT
-
-guicontrol,move,emjSTXT,x31 y132 h23 w70
-guicontrol,,emjRAD3A,0
-guicontrol,,emjRAD3B,0
-guicontrol,,emjSTXT,System Type
-guicontrol,,emjWTXT,device
-guicontrol,,emjFGRP,Emulator
-guicontrol,,emjHGRP,Inputs
-guicontrol,,emjRAD3A,Keyboard
-guicontrol,move,emjRAD3A,x312 y32 w65 h13
-guicontrol,,emjRAD3B,Joystick
-guicontrol,move,emjRAD3B,x383 y32 w65 h13
-guicontrol,,emjPTXT,Player
-guicontrol,move,emjPTXT,x368 y50 w34 h23
-guicontrol,,emjGGRP,Hotkeys
-guicontrol,, emjgGRP, Shortcuts
-guicontrol,,emjDDLA,|%mamescs%
+*/
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 if (emjddlb = "")
 	{
@@ -30287,157 +30197,34 @@ return
 
 FlashPlayer_GUI:
 gosub, initEmuOpts
-guicontrol, %emutog%, emuBUTA
-guicontrol, %emutog%, emuBUTB
-guicontrol, %emutog%, emuBUTC
-guicontrol, %emutog%, emuBUTG
-guicontrol, %emutog%, emuBUTD
-guicontrol, %emutog%, emuBUTE
-guicontrol, %emutog%, emuBUTF
-guicontrol, %emutog%, emuBUTH
-guicontrol, %emutog%, emuBUTI
-guicontrol, %emutog%, emuBUTJ
-guicontrol, %emutog%, emuCHKD
-guicontrol, %emutog%, emuCHKE
-guicontrol, %emutog%, emuCHKF
-guicontrol, %emutog%, emuCHKG
-guicontrol, %emutog%, emuCHKH
-guicontrol, %emutog%, emuCHKI
-guicontrol, %emutog%, emuCHKJ
-guicontrol, %emutog%, emuCHKK
-guicontrol, %emutog%, emuCHKL
-guicontrol, %emutog%, emuCHKM
-guicontrol, %emutog%, emuCHKN
-guicontrol, %emutog%, emuCHKO
-guicontrol, %emutog%, emuCHKP
-guicontrol, %emutog%, emuCHKQ
-guicontrol, %emutog%, emuCHKR
-guicontrol, %emutog%, emuCHKS
-guicontrol, %emutog%, emuCHKT
-guicontrol, %emutog%, emuCHKA
-guicontrol, %emutog%, emuCHKB
-guicontrol, %emutog%, emuCHKC
-guicontrol, %emutog%, emuCBXE
-guicontrol, %emutog%, emuCBXF
-guicontrol, %emutog%, emuCBXG
-guicontrol, %emutog%, emuCBXH
-guicontrol, %emutog%, emuCBXI
-guicontrol, %emutog%, emuCBXJ
-guicontrol, %emutog%, emuCBXA
-guicontrol, %emutog%, emuCBXB
-guicontrol, %emutog%, emuCBXC
-guicontrol, %emutog%, emuCBXD
-guicontrol, %emutog%, emuDDLE
-guicontrol, %emutog%, emuDDLF
-guicontrol, %emutog%, emuDDLG
-guicontrol, %emutog%, emuDDLH
-guicontrol, %emutog%, emuDDLI
-guicontrol, %emutog%, emuDDLJ
-guicontrol, %emutog%, emuDDLC
-guicontrol, %emutog%, emuDDLD
-guicontrol, %emutog%, emuDDLA
-guicontrol, %emutog%, emuDDLB
-guicontrol, %emutog%, emuEDTA
-guicontrol, %emutog%, emuEDTB
-guicontrol, %emutog%, emuEDTC
-guicontrol, %emutog%, emuEDTD
-guicontrol, %emutog%, emuEDTE
-guicontrol, %emutog%, emuEDTF
-guicontrol, %emutog%, emuEDTG
-guicontrol, %emutog%, emuEDTI
-guicontrol, %emutog%, emuUPDA
-guicontrol, %emutog%, emuEDTH
-guicontrol, %emutog%, emuUPDB
-guicontrol, %emutog%, emuLVA
-guicontrol, %emutog%, emuUPDC
-guicontrol, %emutog%, emuGRPA
-guicontrol, %emutog%, emuGRPB
-guicontrol, %emutog%, emuGRPC
-guicontrol, %emutog%, emuGRPD
-guicontrol, %emutog%, emuGRPE
-guicontrol, %emutog%, emuGRPF
-guicontrol, %emutog%, emuGRPG
-guicontrol, %emutog%, emuLBXA
-guicontrol, %emutog%, emuLBXB
-guicontrol, %emutog%, emuLVA
-guicontrol, %emutog%, emuLVB
-guicontrol, %emutog%, emuLVC
-guicontrol, %emutog%, emuPRGB
-guicontrol, %emutog%, emuPRGA
-guicontrol, %emutog%, emuRad5B
-guicontrol, %emutog%, emuRad5C
-guicontrol, %emutog%, emuRad4A
-guicontrol, %emutog%, emuRad4B
-guicontrol, %emutog%, emuRad5A
-guicontrol, %emutog%, emuRad6A
-guicontrol, %emutog%, emuRad6B
-guicontrol, %emutog%, emuRad6C
-guicontrol, %emutog%, emuRad6D
-guicontrol, %emutog%, emuRad7A
-guicontrol, %emutog%, emuRad7B
-guicontrol, %emutog%, emuRad8A
-guicontrol, %emutog%, emuRad8B
-guicontrol, %emutog%, emuRad9A
-guicontrol, %emutog%, emuRad9B
-guicontrol, %emutog%, emuRad9C
-guicontrol, %emutog%, emuRad10A
-guicontrol, %emutog%, emuRad10B
-guicontrol, %emutog%, emuRad11A
-guicontrol, %emutog%, emuRad11B
-guicontrol, %emutog%, emuRad2A
-guicontrol, %emutog%, emuRad2B
-guicontrol, %emutog%, emuRad2C
-guicontrol, %emutog%, emuRad1A
-guicontrol, %emutog%, emuRad3A
-guicontrol, %emutog%, emuRad3B
-guicontrol, %emutog%, emuRad3C
-guicontrol, %emutog%, emuRad3D
-guicontrol, %emutog%, emuRad1B
-guicontrol, %emutog%, emuSLDA
-guicontrol, %emutog%, emuSLDB
-guicontrol, %emutog%, emuSLDD
-guicontrol, %emutog%, emuSLDE
-guicontrol, %emutog%, emuSLDC
-guicontrol, %emutog%, emuTXTA
-guicontrol, %emutog%, emuTXTB
-guicontrol, %emutog%, emuTXTC
-guicontrol, %emutog%, emuTXTD
-guicontrol, %emutog%, emuTXTE
-guicontrol, %emutog%, emuTXTF
-guicontrol, %emutog%, emuTXTG
-guicontrol, %emutog%, emuTXTS
-guicontrol, %emutog%, emuTXTT
-guicontrol, %emutog%, emuTXTR
-guicontrol, %emutog%, emuTXTM
-guicontrol, %emutog%, emuTXTH
-guicontrol, %emutog%, emuTXTI
-guicontrol, %emutog%, emuTXTN
-guicontrol, %emutog%, emuTXTO
-guicontrol, %emutog%, emuTXTP
-guicontrol, %emutog%, emuTXTQ
-guicontrol, %emutog%, emuTXTJ
-guicontrol, %emutog%, emuTXTK
-guicontrol, %emutog%, emuTXTL
 return
 
 ;};;;;;;;;;;;;;;;;;;;;;
 
 ShowOnlyRAGUI:
 moptog= show
-gosub, TOGSKELGUI
+gosub, TOGSKELRUN
 moptog= enable
-gosub, TOGSKELGUI
+gosub, TOGSKELRUN
 srchtog= show
 gosub, TOGGLESEARCHBOX
+srchtog= enable
+gosub, TOGGLESEARCHBOX
 emutog= hide
-gosub, EmuGuiVisTog
+Loop, Parse, EMUTABGUIITEMS
+	{
+		guicontrol,%emutog%,%A_LoopField%
+	}
 raoptgl= show
 gosub, RAGuiVisTog
 return
 
 ShowOnlyEmuGui:
 emutog= hide
-gosub, EmuGuiVisTog
+Loop, Parse, EMUTABGUIITEMS,|
+	{
+		guicontrol,%emutog%,%A_LoopField%
+	}
 raoptgl= hide
 gosub, RAGuiVisTog
 moptog= show
@@ -30453,161 +30240,24 @@ return
 ;{;;;;;;;;;;;;;;;;;;;;;;;  TOGGLE RA OPTIONS   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 RAOPTPOP:
 guicontrolget,LCORE,,LCORE
+
 raoptgl= show
 emutog= hide
-gosub, EmuGuiVisTog
+
+Loop,Parse,EMUTABGUIITEMS,|
+	{
+		guicontrol,%emutog%,%A_LoopField%
+	}
+
+;;gosub, EmuGuiVisTog
 
 RAGuiVisTog:
-guicontrol,%raoptgl%,ART
-guicontrol,%raoptgl%,ARTXT
-guicontrol,%raoptgl%,ASYNC
-guicontrol,%raoptgl%,AUO
-guicontrol,%raoptgl%,AUTOASPECT
-guicontrol,%raoptgl%,AUTSHD
-guicontrol,%raoptgl%,BFI
-guicontrol,%raoptgl%,CGSHDVAR
-guicontrol,%raoptgl%,CGSLCT
-guicontrol,%raoptgl%,CROP
-guicontrol,%raoptgl%,CSTCMD
-guicontrol,%raoptgl%,CSTCRE
-guicontrol,%raoptgl%,CSTRAOPTF
-guicontrol,%raoptgl%,CSTRAARGF
-guicontrol,%raoptgl%,D3DDRV
-guicontrol,%raoptgl%,D3D11
-guicontrol,%raoptgl%,D3D12
-guicontrol,%raoptgl%,DDRVGRP
-guicontrol,%raoptgl%,DIRSTXT
-guicontrol,%raoptgl%,DLFRMTXT
-guicontrol,%raoptgl%,DRCGRP
-guicontrol,%raoptgl%,DSND
-guicontrol,%raoptgl%,DTCOMP
-guicontrol,%raoptgl%,DirBut
-guicontrol,%raoptgl%,FILTSEL
-guicontrol,%raoptgl%,FILTXT
-guicontrol,%raoptgl%,FLICKF
-guicontrol,%raoptgl%,FLK
-guicontrol,%raoptgl%,FLTFILE
-guicontrol,%raoptgl%,FORCEAR
-guicontrol,%raoptgl%,FRMDL
-guicontrol,%raoptgl%,FRMDLTXT
-guicontrol,%raoptgl%,FSREZ
-guicontrol,%raoptgl%,GDIDRV
-guicontrol,%raoptgl%,GLBLAUDIO
-guicontrol,%raoptgl%,GLSHDVAR
-guicontrol,%raoptgl%,GLSLCT
-guicontrol,%raoptgl%,GPUFRMTXT
-guicontrol,%raoptgl%,GPUSS
-guicontrol,%raoptgl%,GPUV
-guicontrol,%raoptgl%,GPUVREC
-guicontrol,%raoptgl%,DISPLDRV
-guicontrol,%raoptgl%,RaSpdEdt
-guicontrol,%raoptgl%,RaSpdSld
-guicontrol,%raoptgl%,RASpdTxt
-guicontrol,%raoptgl%,DISPDRVTXT
-guicontrol,%raoptgl%,AUDDRVTXT
-guicontrol,%raoptgl%,GUIDRV
-guicontrol,%raoptgl%,AUDDRV
-guicontrol,%raoptgl%,GUIDRVTXT
-
-guicontrol,%raoptgl%,HSYNC
-guicontrol,%raoptgl%,INTG
-guicontrol,%raoptgl%,IntXres
-guicontrol,%raoptgl%,IntYres
-guicontrol,%raoptgl%,LATENCY
-guicontrol,%raoptgl%,LOCDIR
-guicontrol,%raoptgl%,LOCPTH
-guicontrol,%raoptgl%,MAXSWPTXT
-guicontrol,%raoptgl%,MONGTXT
-guicontrol,%raoptgl%,MONRESTXT
-guicontrol,%raoptgl%,MONUM
-guicontrol,%raoptgl%,MONXREZ
-guicontrol,%raoptgl%,MONXTXT
-guicontrol,%raoptgl%,MONYREZ
-guicontrol,%raoptgl%,MSWCHI
-guicontrol,%raoptgl%,MUTE
-guicontrol,%raoptgl%,OGLDRV
-guicontrol,%raoptgl%,OPENAL
-guicontrol,%raoptgl%,OPERGRP
-guicontrol,%raoptgl%,OUTFS
-guicontrol,%raoptgl%,OUTFW
-guicontrol,%raoptgl%,OUTMGRP
-guicontrol,%raoptgl%,OUTW
-guicontrol,%raoptgl%,OVRIDGRP
-guicontrol,%raoptgl%,PAUSEBG
-guicontrol,%raoptgl%,PGM
-guicontrol,%raoptgl%,POSYTXT
-guicontrol,%raoptgl%,PTHSTXT
-guicontrol,%raoptgl%,PthBut
-guicontrol,%raoptgl%,REFRESH
-guicontrol,%raoptgl%,REFSLD
-guicontrol,%raoptgl%,REFTXT
-guicontrol,%raoptgl%,REFUD
-guicontrol,%raoptgl%,REWEN
-guicontrol,%raoptgl%,REWGRAN
-guicontrol,%raoptgl%,REZV
-guicontrol,%raoptgl%,ROTATE
-guicontrol,%raoptgl%,SAVDIVTXT
-guicontrol,%raoptgl%,SAVEXIT
-guicontrol,%raoptgl%,SAVGRP
-guicontrol,%raoptgl%,SAVSECTXT
-guicontrol,%raoptgl%,SAVSRT
-guicontrol,%raoptgl%,SAVSTPTXT
-guicontrol,%raoptgl%,SCLGRP
-guicontrol,%raoptgl%,SCLTXT
-guicontrol,%raoptgl%,SDL2
-guicontrol,%raoptgl%,SDL2DRV
-guicontrol,%raoptgl%,SHAREDV
-guicontrol,%raoptgl%,SHDEN
-guicontrol,%raoptgl%,SHDPTHTXT
-guicontrol,%raoptgl%,SHDSEL
-guicontrol,%raoptgl%,SLCT
-guicontrol,%raoptgl%,SLSHDVAR
-guicontrol,%raoptgl%,SMTHV
-guicontrol,%raoptgl%,SNDGRP
-guicontrol,%raoptgl%,SNDLATXT
-guicontrol,%raoptgl%,STAI
-guicontrol,%raoptgl%,STAL
-guicontrol,%raoptgl%,STAS
-guicontrol,%raoptgl%,STORT
-guicontrol,%raoptgl%,STRCH
-guicontrol,%raoptgl%,SVINT
-guicontrol,%raoptgl%,SWHOST
-guicontrol,%raoptgl%,SWPFRMTXT
-guicontrol,%raoptgl%,SWPV
-guicontrol,%raoptgl%,THRDV
-guicontrol,%raoptgl%,VIDASPECT
-guicontrol,%raoptgl%,VIDGTXT
-guicontrol,%raoptgl%,VIDRESTXT
-guicontrol,%raoptgl%,VIDRESTXT
-guicontrol,%raoptgl%,VIDSCL
-guicontrol,%raoptgl%,AVIDSYNC
-guicontrol,%raoptgl%,VIDSYNC
-guicontrol,%raoptgl%,VIDXTXT
-guicontrol,%raoptgl%,VPOSTXT
-guicontrol,%raoptgl%,VPOSXTXT
-guicontrol,%raoptgl%,VROTXT
-guicontrol,%raoptgl%,VidXLoc
-guicontrol,%raoptgl%,VidYLoc
-guicontrol,%raoptgl%,RUN2ND
-guicontrol,%raoptgl%,RUNAHEAD
-guicontrol,%raoptgl%,RUNAFRMS
-
-RDXgrid= %RegionX%
-RDYgrid= %RegionY%
-RDWgrid= %RegionW%
-RDHgrid= %RegionH%
-
+Loop,Parse,RAGUIMENUITEMS,|
+	{
+		guicontrol,%raoptgl%,%A_LoopFied%
+	}
 gosub, initsearchbox
 
-guicontrol,%raoptgl%,SRCHGRP
-guicontrol,%raoptgl%,ROMRPGRP
-guicontrol,%raoptgl%,SRCHLOCDDL
-guicontrol,%raoptgl%,SRCHFLRAD
-guicontrol,%raoptgl%,SRCHPLRAD
-guicontrol,%raoptgl%,SRCHROMLBX
-guicontrol,%raoptgl%,SRCHROMEDT
-guicontrol,%raoptgl%,SRCHROMBUT
-guicontrol,%raoptgl%,SRCHRCRSCHK
 return
 
 if (raoptgl = "show")
@@ -41378,7 +41028,9 @@ EMUSN= %RJEMUTG%
 raoptgl= hide
 gosub, RAGuiVisTog
 moptog= hide
-gosub, TOGSKELGUI
+gosub, TOGSKELRUN
+srchtog= hide
+gosub, TOGGLESEARCHBOX
 emutog= show
 goto, %EMUSN%_GUI
 return
@@ -57012,137 +56664,32 @@ FusionCTRLS:
 ejcex= 1
 
 EMJTOG:
-guicontrol,%emjtog%,emjAGRP
-guicontrol,%emjtog%,emjRAD1A
-guicontrol,%emjtog%,emjRAD1B
-guicontrol,%emjtog%,emjRAD1C
-guicontrol,%emjtog%,emjRAD1D
-guicontrol,%emjtog%,emjBGRP
-guicontrol,%emjtog%,emjRAD2A
-guicontrol,%emjtog%,emjRAD2B
-guicontrol,%emjtog%,emjRAD2C
-guicontrol,%emjtog%,emjCGRP
-guicontrol,%emjtog%,emjDGRP
-guicontrol,%emjtog%,emjEGRP
-guicontrol,%emjtog%,emjFGRP
-guicontrol,%emjtog%,emjATXT
-guicontrol,%emjtog%,emjBTXT
-guicontrol,%emjtog%,emjCTXT
-guicontrol,%emjtog%,emjDTXT
-guicontrol,%emjtog%,emjETXT
-guicontrol,%emjtog%,emjFTXT
-guicontrol,%emjtog%,emjGTXT
-guicontrol,%emjtog%,emjHTXT
-guicontrol,%emjtog%,emjITXT
-guicontrol,%emjtog%,emjJTXT
-guicontrol,%emjtog%,emjKTXT
-guicontrol,%emjtog%,emjLTXT
-guicontrol,%emjtog%,emjMTXT
-guicontrol,%emjtog%,emJHGRP
-guicontrol,%emjtog%,emjNTXT
-guicontrol,%emjtog%,emjBUTA
-guicontrol,%emjtog%,emjBUTB
-guicontrol,%emjtog%,emjOTXT
-guicontrol,%emjtog%,emjGGRP
-guicontrol,%emjtog%,emjRAD3A
-guicontrol,%emjtog%,emjRAD3B
-guicontrol,%emjtog%,emjCBA
-guicontrol,%emjtog%,emjDDLA
-guicontrol,%emjtog%,emjPTXT
-guicontrol,%emjtog%,emjDDLB
-guicontrol,%emjtog%,emjRTXT
-guicontrol,%emjtog%,emjSTXT
-guicontrol,%emjtog%,emjDDLD
-guicontrol,%emjtog%,emjCHKA
-guicontrol,%emjtog%,emjCHKB
-guicontrol,%emjtog%,emjCHKC
-guicontrol,%emjtog%,emjCHKD
-guicontrol,%emjtog%,emjCHKE
-guicontrol,%emjtog%,emjCHKX
-guicontrol,%emjtog%,emjCHKY
-guicontrol,%emjtog%,emjCHKZ
-guicontrol,%emjtog%,emjCHKH
-guicontrol,%emjtog%,emjTTXT
-guicontrol,%emjtog%,emjDDLE
-guicontrol,%emjtog%,emjJGRP
-guicontrol,%emjtog%,emjUTXT
-guicontrol,%emjtog%,emjVTXT
-guicontrol,%emjtog%,emjSLDA
-guicontrol,%emjtog%,emjCHKF
-guicontrol,%emjtog%,emjDDLF
-guicontrol,%emjtog%,emjWTXT
-guicontrol,%emjtog%,emjIGRP
-guicontrol,%emjtog%,emjXTXT
-guicontrol,%emjtog%,emjEDTA
-guicontrol,%emjtog%,emjUDA
-guicontrol,%emjtog%,emjYTXT
-guicontrol,%emjtog%,emjEDTB
-guicontrol,%emjtog%,emjUDB
-guicontrol,%emjtog%,emjCHKG
-guicontrol,%emjtog%,emjZTXT
-guicontrol,%emjtog%,emjDDLC
-guicontrol,%emjtog%,emjQTXT
-EMJBTOG:
+Loop,Parse,EMUINPUTNULLITEMS,|
+	{
+		guicontrol,%emjtog%,%A_Loopfield%
+	}
 
-guicontrol,%emjtog%,emjTURBOIN
-guicontrol,%emjtog%,emjL2In
-guicontrol,%emjtog%,emjLIn
-guicontrol,%emjtog%,emjR2In
-guicontrol,%emjtog%,emjRIn
-guicontrol,%emjtog%,emjLYPlusIn
-guicontrol,%emjtog%,emjLXMinusIn
-guicontrol,%emjtog%,emjLXPlusIn
-guicontrol,%emjtog%,emjLYMinusIn
-guicontrol,%emjtog%,emjL3In
-guicontrol,%emjtog%,emjRYPlusIn
-guicontrol,%emjtog%,emjRXMinusIn
-guicontrol,%emjtog%,emjRXPlusIn
-guicontrol,%emjtog%,emjRYMinusIn
-guicontrol,%emjtog%,emjR3In
-guicontrol,%emjtog%,emjDownIn
-guicontrol,%emjtog%,emjUpIn
-guicontrol,%emjtog%,emjLeftIn
-guicontrol,%emjtog%,emjRightIn
-guicontrol,%emjtog%,emjSelectIn
-guicontrol,%emjtog%,emjStartIn
-guicontrol,%emjtog%,emjYIn
-guicontrol,%emjtog%,emjXIn
-guicontrol,%emjtog%,emjBIn
-guicontrol,%emjtog%,emjAIn
-guicontrol,%emjtog%,emjINPBUTIN
-guicontrol,%emjtog%,emjTRBCMB
-guicontrol,%emjtog%,emjRXMinus
-guicontrol,%emjtog%,emjRYPlus
-guicontrol,%emjtog%,emjR
-guicontrol,%emjtog%,emjL
-guicontrol,%emjtog%,emjRXPlus
-guicontrol,%emjtog%,emjRYMinus
-guicontrol,%emjtog%,emjR3
-guicontrol,%emjtog%,emjL3
-guicontrol,%emjtog%,emjLXMinus
-guicontrol,%emjtog%,emjLYPlus
-guicontrol,%emjtog%,emjLYMinus
-guicontrol,%emjtog%,emjLXPlus
-guicontrol,%emjtog%,emjselect
-guicontrol,%emjtog%,emjstart
-guicontrol,%emjtog%,emjup
-guicontrol,%emjtog%,emjleft
-guicontrol,%emjtog%,emjright
-guicontrol,%emjtog%,emjdown
-guicontrol,%emjtog%,emjY
-guicontrol,%emjtog%,emjX
-guicontrol,%emjtog%,emjB
-guicontrol,%emjtog%,emjA
-guicontrol,%emjtog%,emjl2
-guicontrol,%emjtog%,emjr2
-guicontrol,%emjtog%,emjHome
+Loop,Parse,EMUINPUTGUIITEMS,|
+	{
+		guicontrol,%emjtog%,%A_Loopfield%
+	}
+
+EMJBTOG:
+Loop,Parse,EMUJOYBUTGUIITEMS,|
+	{
+		guicontrol,%emjtog%,%A_LoopField%
+	}
+Loop,Parse,EMUJOYCBXGUIITEMS,|
+	{
+		guicontrol,%emjtog%,%A_LoopField%
+	}
 return
 
 EmuJoy:
-emjtog= Show
 rajoytog= Hide
 gosub, RAJOYTOG
-gosub, EMJTOG
+;;emjtog= Show
+;;gosub, EMJTOG
 return
 
 mednafenCTRLS:
@@ -57154,46 +56701,31 @@ if (emjDDLC = "")
 if (loadedjoy = "mednafen")
 	{
 		goto, medjoycreated
-	}	
+	}
+MEDNAFENJOYGUIITEMS=INDWRN|emjDDLD|emjDDLA|emjDDLF|emjCHKX|emjCHKY|emjCHKZ|emjCBA|emjBUTA|emjBUTB|emjDDLC|emjRAD3A|emjRAD3B|emjDDLB|JOYCORE|emjDDLC
 SB_SetText(" Loading Mednafen Joystick config ")
 rajoytog= Hide
 gosub, RAJOYTOG
-emjtog= show
-gosub, EMJTOG
+;;emjtog= show
+;;gosub, EMJTOG
 emjtog= disable
 gosub, EMJTOG
 
 guicontrol,show,INDWRN
-guicontrol,move,INDWRN,x262 y180 w200 h200
 guicontrol,,INDWRN,
+guicontrol,move,INDWRN,x262 y180 w200 h200
+guicontrol,show,emjDDLD
+guicontrol,show,emjDDLF
 guicontrol,move,emjDDLD,x34 y158 w55
 guicontrol,show,emjDDLA
-
 guicontrol,show,emjCHKX
-guicontrol,show,emjCHKY
-guicontrol,show,emjCHKZ
 guicontrol,,emjCHKX,Shift
+guicontrol,show,emjCHKY
 guicontrol,,emjCHKY,Ctrl
+guicontrol,show,emjCHKZ
 guicontrol,,emjCHKZ,Alt
-
-guicontrol,hide,emjAGRP
-guicontrol,hide,emjRAD1A
-guicontrol,hide,emjRAD1B
-guicontrol,hide,emjRAD1C
-guicontrol,hide,emjRAD2C
-guicontrol,hide,emjRAD1D
-
 guicontrol,,emjJGRP,Mouse Sensitivity
 guicontrol,,emjUTXT,`%
-guicontrol,hide,emjIGRP
-guicontrol,hide,emjBGRP
-guicontrol,hide,JCFGEDT
-
-guicontrol,hide,emjTRBCMB
-guicontrol,hide,emjTURBOIN
-
-guicontrol,hide,SAVEJOY
-
 guicontrol,show,emjCBA
 guicontrol,show,emjBUTA
 guicontrol,,emjBUTA,Load
@@ -57202,60 +56734,35 @@ guicontrol,,emjBUTB,Reset
 guicontrol,show,emjQTXT
 guicontrol,,emjQTXT,Set
 guicontrol,move,emjQTXT,x200 y135 h23 w40
+guicontrol,show,emjDDLB
 guicontrol,show,emjDDLC
 guicontrol,move,emjDDLC,x156 y135 h23 w40
 guicontrol,,emjDDLC,|%emjDDLC%||1|2|3|4|5|6
-
-guicontrol,hide,emjTURBOIN
-guicontrol,hide,emjOTXT
-guicontrol,hide,emjTTXT
-guicontrol,hide,emjYTXT
-guicontrol,hide,emjXTXT
-guicontrol,hide,emjZTXT
-guicontrol,hide,MINXTXT
-guicontrol,hide,emjEDTB
-guicontrol,hide,emjUDB
-guicontrol,hide,emjEDTA
-guicontrol,hide,emjUDA
-
-guicontrol,hide,emjCHKE
-guicontrol,hide,emjCHKG
-guicontrol,hide,emjCHKH
-guicontrol,hide,emjCHKD
-guicontrol,hide,emjCHKC
-guicontrol,hide,emjCHKB
-guicontrol,hide,emjCHKA
-guicontrol,hide,emjCHKF
-guicontrol,hide,emjCHKH
-
-guicontrol,hide,emjDDLE
-
-guicontrol,hide,emjRAD2A
-guicontrol,hide,emjRAD2B
-guicontrol,hide,emjOTXT
-guicontrol,hide,emjNTXT
-guicontrol,hide,emjRTXT
-guicontrol,hide,emjTTXT
-
 guicontrol,move,emjSTXT,x31 y132 h23 w70
 if (joyreset = "")
 	{
 		guicontrol,,emjRAD3A,1
 	}
+guicontrol,show,emjSTXT
 guicontrol,,emjSTXT,System Type
+guicontrol,show,emjWTXT
 guicontrol,,emjWTXT,device
+guicontrol,show,emjFGRP
 guicontrol,,emjFGRP,Emulator
+guicontrol,show,emjHGRP
 guicontrol,,emjHGRP,Inputs
+guicontrol,show,emjRAD3A
 guicontrol,,emjRAD3A,Keyboard
 guicontrol,move,emjRAD3A,x312 y32 w65 h13
+guicontrol,show,emjRAD3B
 guicontrol,,emjRAD3B,Joystick
 guicontrol,move,emjRAD3B,x383 y32 w65 h13
+guicontrol,show,emjPTXT
 guicontrol,,emjPTXT,Player
 guicontrol,move,emjPTXT,x368 y50 w34 h23
-guicontrol,,emjGGRP,Hotkeys
-guicontrol,, emjgGRP, Shortcuts
+guicontrol,show,emjGGRP
+guicontrol,,emjGGRP, Shortcuts
 guicontrol,,emjDDLA,|%mednafsc%
-
 if (emjddlb = "")
 	{
 		emjddlb= 1
@@ -57270,7 +56777,47 @@ if (RJMEDNM = "")
 	{
 		RJMEDNM= psx
 	}
-	
+/*
+guicontrol,hide,emjAGRP
+guicontrol,hide,emjRAD1A
+guicontrol,hide,emjRAD1B
+guicontrol,hide,emjRAD1C
+guicontrol,hide,emjRAD2C
+guicontrol,hide,emjRAD1D
+guicontrol,hide,emjIGRP
+guicontrol,hide,emjBGRP
+guicontrol,hide,JCFGEDT
+guicontrol,hide,emjTRBCMB
+guicontrol,hide,emjTURBOIN
+guicontrol,hide,SAVEJOY
+guicontrol,hide,emjTURBOIN
+guicontrol,hide,emjOTXT
+guicontrol,hide,emjTTXT
+guicontrol,hide,emjYTXT
+guicontrol,hide,emjXTXT
+guicontrol,hide,emjZTXT
+guicontrol,hide,MINXTXT
+guicontrol,hide,emjEDTB
+guicontrol,hide,emjUDB
+guicontrol,hide,emjEDTA
+guicontrol,hide,emjUDA
+guicontrol,hide,emjCHKE
+guicontrol,hide,emjCHKG
+guicontrol,hide,emjCHKH
+guicontrol,hide,emjCHKD
+guicontrol,hide,emjCHKC
+guicontrol,hide,emjCHKB
+guicontrol,hide,emjCHKA
+guicontrol,hide,emjCHKF
+guicontrol,hide,emjCHKH
+guicontrol,hide,emjDDLE
+guicontrol,hide,emjRAD2A
+guicontrol,hide,emjRAD2B
+guicontrol,hide,emjOTXT
+guicontrol,hide,emjNTXT
+guicontrol,hide,emjRTXT
+guicontrol,hide,emjTTXT
+*/	
 medjoycreated:
 loadedjoy= mednafen
 mednjbuts= 
@@ -58456,6 +58003,8 @@ Loop, Parse, emujoyopts,`n`r
 																	{
 																		medlkup.= aik5 . "=" meditbd . "`n"
 																	}
+																guicontrol,show,emj%meditbv%In
+																guicontrol,show,emj%meditbv%
 																guicontrol,,emj%meditbv%,|%meditbd%||%medjbid%
 																stringreplace,meditbv,meditbv,-,#,All
 																kmj%meditbv%= %mdlnval%
@@ -58496,6 +58045,7 @@ Loop, Parse, emujoyopts,`n`r
 																	{
 																		medlkup.= aik5 . "=" din1 . "`n"
 																	}
+																guicontrol,show,emj%meditbv%
 																guicontrol,,emj%meditbv%,|%din1%||%medjname%
 																stringreplace,meditbv,meditbv,-,#,All
 																kmj%meditbv%= %mdlnval%
@@ -58512,14 +58062,17 @@ Loop, Parse, emujoyopts,`n`r
 		
 	}
 guicontrol,,INDWRN,%medlkup%
+curmedjoyset=
 Loop, Parse, Medswaps,|
 	{
 		fie= % %A_LoopField%
 		stringreplace,fin,A_LoopField,medswap,,All
-		if (fie = "")
+		if (fie <> "")
 			{
-				guicontrol,hide,emj%fin%
-				guicontrol,hide,emj%fin%In
+				;;guicontrol,show,emj%fin%
+				;;guicontrol,show,emj%fin%In
+				curmedjoyset.= "emj" . fin . "|"
+				curmedjoyset.= "emj" . fin . "In" . "|"
 			}
 		ifinstring,fin,TXT
 			{
@@ -59333,32 +58886,10 @@ return
 
 JMednafenRAD3A:
 gui, submit, nohide
-guicontrol,hide,emjTURBOIN
-guicontrol,hide,emjL2In
-guicontrol,hide,emjLIn
-guicontrol,hide,emjR2In
-guicontrol,hide,emjRIn
-guicontrol,hide,emjLYPlusIn
-guicontrol,hide,emjLXMinusIn
-guicontrol,hide,emjLXPlusIn
-guicontrol,hide,emjLYMinusIn
-guicontrol,hide,emjL3In
-guicontrol,hide,emjRYPlusIn
-guicontrol,hide,emjRXMinusIn
-guicontrol,hide,emjRXPlusIn
-guicontrol,hide,emjRYMinusIn
-guicontrol,hide,emjR3In
-guicontrol,hide,emjDownIn
-guicontrol,hide,emjUpIn
-guicontrol,hide,emjLeftIn
-guicontrol,hide,emjRightIn
-guicontrol,hide,emjSelectIn
-guicontrol,hide,emjStartIn
-guicontrol,hide,emjYIn
-guicontrol,hide,emjXIn
-guicontrol,hide,emjBIn
-guicontrol,hide,emjAIn
-guicontrol,hide,emjINPBUTIN
+Loop,Parse,EMUJOYBUTGUIITEMS,|
+	{
+		guicontrol,hide,%A_LoopField%
+	}
 
 Loop, parse,joyiterate,|
 	{
@@ -59371,31 +58902,14 @@ return
 
 JMednafenRAD3B:
 gui, submit, nohide
-guicontrol,show,emjL2In
-guicontrol,show,emjLIn
-guicontrol,show,emjR2In
-guicontrol,show,emjRIn
-guicontrol,show,emjLYPlusIn
-guicontrol,show,emjLXMinusIn
-guicontrol,show,emjLXPlusIn
-guicontrol,show,emjLYMinusIn
-guicontrol,show,emjL3In
-guicontrol,show,emjRYPlusIn
-guicontrol,show,emjRXMinusIn
-guicontrol,show,emjRXPlusIn
-guicontrol,show,emjRYMinusIn
-guicontrol,show,emjR3In
-guicontrol,show,emjDownIn
-guicontrol,show,emjUpIn
-guicontrol,show,emjLeftIn
-guicontrol,show,emjRightIn
-guicontrol,show,emjSelectIn
-guicontrol,show,emjStartIn
-guicontrol,show,emjYIn
-guicontrol,show,emjXIn
-guicontrol,show,emjBIn
-guicontrol,show,emjAIn
-guicontrol,show,emjINPBUTIN
+Loop,Parse,EMUJOYBUTGUIITEMS,|
+	{
+		ifinstring,curmedjoyset,%A_LoopField%
+			{
+				guicontrol,show,%A_LoopField%			
+			}
+	}
+
 guicontrol,,emjDDLA,|%mednafsc%
 guicontrol,,emjCBA,|%medjname%%medjbid%
 Loop, parse,joyiterate,|
@@ -60921,32 +60435,10 @@ return
 
 JMameRAD3A:
 gui, submit, nohide
-guicontrol,hide,emjTURBOIN
-guicontrol,hide,emjL2In
-guicontrol,hide,emjLIn
-guicontrol,hide,emjR2In
-guicontrol,hide,emjRIn
-guicontrol,hide,emjLYPlusIn
-guicontrol,hide,emjLXMinusIn
-guicontrol,hide,emjLXPlusIn
-guicontrol,hide,emjLYMinusIn
-guicontrol,hide,emjL3In
-guicontrol,hide,emjRYPlusIn
-guicontrol,hide,emjRXMinusIn
-guicontrol,hide,emjRXPlusIn
-guicontrol,hide,emjRYMinusIn
-guicontrol,hide,emjR3In
-guicontrol,hide,emjDownIn
-guicontrol,hide,emjUpIn
-guicontrol,hide,emjLeftIn
-guicontrol,hide,emjRightIn
-guicontrol,hide,emjSelectIn
-guicontrol,hide,emjStartIn
-guicontrol,hide,emjYIn
-guicontrol,hide,emjXIn
-guicontrol,hide,emjBIn
-guicontrol,hide,emjAIn
-guicontrol,hide,emjINPBUTIN
+Loop,Parse,EMUJOYBUTGUIITEMS,|
+	{
+		guicontrol,hide,%A_loopfield%
+	}
 
 Loop, parse,joyiterate,|
 	{
@@ -60959,31 +60451,14 @@ return
 
 JMameRAD3B:
 gui, submit, nohide
-guicontrol,show,emjL2In
-guicontrol,show,emjLIn
-guicontrol,show,emjR2In
-guicontrol,show,emjRIn
-guicontrol,show,emjLYPlusIn
-guicontrol,show,emjLXMinusIn
-guicontrol,show,emjLXPlusIn
-guicontrol,show,emjLYMinusIn
-guicontrol,show,emjL3In
-guicontrol,show,emjRYPlusIn
-guicontrol,show,emjRXMinusIn
-guicontrol,show,emjRXPlusIn
-guicontrol,show,emjRYMinusIn
-guicontrol,show,emjR3In
-guicontrol,show,emjDownIn
-guicontrol,show,emjUpIn
-guicontrol,show,emjLeftIn
-guicontrol,show,emjRightIn
-guicontrol,show,emjSelectIn
-guicontrol,show,emjStartIn
-guicontrol,show,emjYIn
-guicontrol,show,emjXIn
-guicontrol,show,emjBIn
-guicontrol,show,emjAIn
-guicontrol,show,emjINPBUTIN
+Loop,Parse,EMUJOYBUTGUIITEMS,|
+	{
+		ifinstring,curmamejoyset,%A_LoopField%
+			{
+				guicontrol,show,%A_loopfield%
+			}
+	}
+
 guicontrol,,emjDDLA,|%mamescs%
 guicontrol,,emjCBA,|%mamejname%%mamejbid%
 Loop, parse,joyiterate,|
@@ -64993,6 +64468,8 @@ Loop, Parse, mamejimp,`n`r
 								break
 							}
 					}
+				guicontrol,show,emj%mameitbv%In
+				guicontrol,show,emj%mameitbv%
 				guicontrol,,emj%mameitbv%,|%rmpvsetj%||%mamejbid%
 				TF_replaceline("!"mamejsysloc,mjnv,mjnv,rmpbtnvlfk "JOYCODE_1_" rmpbtnvlj "")
 				kmj%mameitbv%= %mamenvl%	
@@ -65014,6 +64491,7 @@ Loop, Parse, mamejimp,`n`r
 								break
 							}
 					}
+				guicontrol,show,emj%mameitbv%
 				guicontrol,,emj%mameitbv%,|%rmpvsetk%||%mamejname%
 				TF_replaceline("!"mamejsysloc,mjnv,mjnv,"KEYCODE_" rmpbtnvlk rmpbtnvlfj "")
 				kmj%mameitbv%= %mamenvl%
@@ -65021,14 +64499,17 @@ Loop, Parse, mamejimp,`n`r
 		
 	}
 guicontrol,,INDWRN,%mamelkup%
+curmamejoyset=
 Loop, Parse, mameswaps,|
 	{
 		fie= % %A_LoopField%
 		stringreplace,fin,A_LoopField,mameswap,,All
-		if (fie = "")
+		if (fie <> "")
 			{
-				guicontrol,hide,emj%fin%
-				guicontrol,hide,emj%fin%In
+				;;guicontrol,show,emj%fin%
+				;;guicontrol,show,emj%fin%In
+				curmamejoyset.= "emj" . fin . "|"
+				curmamejoyset.= "emj" . fin . "In" . "|"
 			}
 		ifinstring,fin,TXT
 			{
@@ -66647,6 +66128,10 @@ ifinstring,RunOptions,[
 							}
 					}
 			}
+		else {
+			stringreplace,CUSTMOPT,CUSTMOPT,[CUSTMOPT],,All
+			stringreplace,CUSTMARG,CUSTMARG,[CUSTMARG],,All
+		}
 	}
 
 if (CSTINJOPT <> "")
