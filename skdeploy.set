@@ -65,7 +65,7 @@ Section "" ; empty string makes it hidden, so would starting with -
 
   ; write reg info
   StrCpy $1 "Installation"
-  DetailPrint "I like to be able to see what is going on (debug) $1"
+  DetailPrint "Installing... $1"
   WriteRegStr HKLM "SOFTWARE\skeletonKey" "Install_Dir" "$INSTDIR"
 
   ; write uninstall strings

@@ -6794,6 +6794,10 @@ guicontrol,enable,UAVAIL
 guicontrol,enable,AVAIL
 return
 
+IsFolder( path ) {
+	return !!InStr( FileExist(path), "D")  ; double NOT returns 0/1
+}
+
 GuiDropFiles:
 guicontrolget,TABMENU,,TABMENU
 ROMDRP= 1
@@ -6928,34 +6932,36 @@ if ( (A_GuiX >= dRegionX) && (A_GuiX <= dRegionX+dRegionW) && (A_GuiY >= dRegion
 	{
 		if (TABMENU = "Emu:=:Sys")
 			{
-				ifnotexist, %A_GuiEvent%\
-					{
-						SB_SetText(" This is not a directory ")
-						return
-					}
 				if (SALIST <> "Systems")
 					{
 						return
 					}
-				stringreplace,semrn,semu,|,`n,All
-				if (semu = "")
+				Loop,Parse,A_GuiEvent,`n
 					{
-						SB_SetText(" Select a System First")
-						return
+						sysapn= %A_LoopField%
+						if IsFolder(sysapn)
+							{
+								stringreplace,semrn,semu,|,`n,All
+								if (semu = "")
+									{
+										SB_SetText(" Select a System First")
+										return
+									}
+								MsgBox,3,MultiLinkDrop,This will Link the following folders to:`n       "%sysapn%"`n%semrn%
+								ifMsgBox, No
+									{
+										SB_SetText(" Cancelled ")
+										return
+									}
+								ifMsgBox, Cancel
+									{
+										SB_SetText(" Cancelled ")
+										return
+									}
+								ROMDFLDR= %sysapn%
+								gosub, MULTI_LINKLOOP
+							}
 					}
-				MsgBox,3,MultiLinkDrop,This will Link the following folders to:`n       "%A_GuiEvent%"`n%semrn%
-				ifMsgBox, No
-					{
-						SB_SetText(" Cancelled ")
-						return
-					}
-				ifMsgBox, Cancel
-					{
-						SB_SetText(" Cancelled ")
-						return
-					}
-				ROMDFLDR= %A_GuiEvent%
-				goto, MULTI_LINKLOOP
 			}
 	}
 
@@ -42992,7 +42998,7 @@ CLRSYSLOC:
 gui,submit,nohide
 iniwrite,"",SystemLocations.ini,LOCATIONS,%semu%
 SB_SetText(" " semu " System Location Cleared")
-
+guicontrol,,ROMDEDT,
 ;{;;;;;;;;;;;  RJ RIGHTCLICK MENUS  ;;;;;;;;;;;;;;
 
 TOGRJSEL:

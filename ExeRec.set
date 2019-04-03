@@ -743,6 +743,7 @@ FileInstall,rjcmd_runproc.set,rjcmd_runproc.set,1
 FileInstall,skdeploy.set,skdeploy.set,1
 FileInstall,supported.set,supported.set,1
 FileInstall,SystemEmulators.set,SystemEmulators.set,1
+FileInstall,SystemLocations.set,SystemLocations.set,1
 FileInstall,Themes.set,Themes.set,1
 FileInstall,UnSupportedEmulators.set,UnSupportedEmulators.set,1
 FileInstall,urls.set,urls.set,1

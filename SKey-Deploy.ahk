@@ -2932,7 +2932,7 @@ if (INITINCL = 1)
 			exprt.= "FileInstall, AHKSock.ahk,AHKSock.ahk,1" . "`n"
 			exprt.= "FileInstall, Readme.md,Readme.md,1" . "`n"
 			FileDelete,%SKELD%\ExeRec.set
-			FileAppend, %exprt%,ExeRec.set
+			FileAppend,%exprt%,%SKELD%\ExeRec.set
 	}
 
 if (OvrStable = 1)

@@ -8,7 +8,9 @@ if (ERRORLEVEL = 0)
 		exitapp
 	}
 splitpath,A_ScriptDir,,,,,drvp
+Gui,Font, Bold
 Gui, Add, GroupBox, x4 y0 w265 h162 +Center, SETUP
+Gui,Font, Normal
 Gui, Add, Text, x14 y18 w44 h16, Systems
 Gui, Add, Text, x13 y89 w46 h18, Emulators
 Gui, Add, Edit, x13 y42 w247 h42 vintrmsys +readonly, %rjsyst%
@@ -16,7 +18,9 @@ Gui, Add, Edit, x14 y110 w247 h42 vintrmemu +readonly, %rjemut%
 Gui, Add, Button, x60 y19 w62 h17 gSETJKR, BROWSE
 Gui, Add, Button, x61 y89 w62 h17 gSETEMUD, BROWSE
 Gui, Add, CheckBox, x139 y18 w112 h17 vRNMDIR checked, Rename Directories
+Gui,Font, Bold
 Gui Add, Button, x190 y163 w80 h23 vCONTINUE gCONTINUE disabled, CONTINUE
+Gui,Font, Normal
 Gui, Show, w274 h188, Window
 ifexist,%rjsyst%\
 	{
