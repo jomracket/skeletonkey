@@ -195,9 +195,9 @@ formattime, date, YYYY_MM_DD, yyyy-MM-dd
 RAUPDT= RetroArch_update.zip
 ARCHR= 
 if (ARCH = 64)
-{
-	ARCHR= _64
-}
+	{
+		ARCHR= _64
+	}
 if (OSVRZ1 >= 7)
 	{
 		vdskwin= Windows|
@@ -232,7 +232,10 @@ IfNotExist,mediafe.ini
 	{
 		FileCopy,mediafe.set,mediafe.ini
 	}
-
+ifnotexist,SystemLocations.ini
+	{
+		filecopy,SystemLocations.set,SystemLocations.ini,1
+	}
 
 Iniread, raexeloc, Settings.ini,GLOBAL,retroarch_location
 RJQNUM:= 0
@@ -300,6 +303,11 @@ If (historyloctmp = "ERROR")
 	{
 		gosub, NoHistoryFile
 	}
+IniRead,HISAPND,Settings.ini,GLOBAL,history_append
+if (HISAPND = 1)
+	{
+		HISAPNDCHK= Checked
+	}
 IniRead, RaExeFile, Settings.ini,GLOBAL,retroarch_executable
 
 IniRead, RAVERS, Settings.ini,GLOBAL,retroarch_Version
@@ -322,6 +330,7 @@ cglist:={}
 
 mirnum=
 MIRDDLOC=
+FileRead,SysEmuSet,SystemEmulators.set
 Loop, Read, Settings.ini
 	{
 		stringsplit,mirlocv,A_LoopReadLine,=,""
@@ -550,7 +559,6 @@ FileRead,PrgLst,Programs.set
 FileRead,BiosFSet,Bios.set
 FileRead,fuzsys,fuzsyslk.set
 FileRead,SysLLst,lkup.set
-FileRead,SysEmuSet,SystemEmulators.set
 stringreplace,SysEmuSet,SysEmuSet,",,All
 ;"
 FileRead, EmuPartSet, EmuParts.set
@@ -775,6 +783,7 @@ dirlocations= assets_directory|audio_filter_dir|bundle_assets_dst_path_subdir|ca
 pathlocations= content_database_path|cheat_database_path|content_favorites_path|content_history_path|content_image_history_path|content_music_history_path|content_video_history_path|bundle_assets_dst_path|bundle_assets_src_path|core_options_path|menu_wallpaper|video_filter|video_font_path|core_updater_buildbot_assets_url|core_updater_buildbot_url|video_shader|input_overlay
 
 joyiterate= _L_X_Plus|_L_X_Minus|_R_X_Plus|_R_X_Minus|_L_Y_Plus|_L_Y_Minus|_R_Y_Plus|_R_Y_Minus|_R|_L|_B|_A|_X|_Y|_L2|_R2|_L3|_R3|_Start|_Select|_Up|_Down|_Left|_Right|_Turbo
+stringreplace,joyitervars,joyiterate,_,,All
 
 hkiterate= input_Audio_Mute|input_Cheat_Index_Minus|input_Cheat_Index_Plus|input_Cheat_Toggle|input_Disk_Eject_Toggle|input_Disk_Next|input_Disk_Prev|input_Enable_Hotkey|input_Exit_Emulator|input_Frame_Advance|input_Toggle_Fullscreen|input_Game_Focus_Toggle|input_Grab_Mouse_Toggle|input_Hold_Fast_Forward|input_hold_slowmotion|input_Load_State|input_Menu_Toggle|input_Movie_Record_Toggle|input_netplay_game_watch|input_Osk_Toggle|input_Overlay_Next|input_Pause_Toggle|input_Reset|input_Rewind|input_Save_State|input_Screenshot|input_Shader_Next|input_Shader_Prev|input_Slowmotion|input_State_Slot_Decrease|input_State_Slot_Increase|input_Toggle_Fast_Forward|input_Toggle_Fullscreen|input_Volume_Down|input_Volume_Up|input_Turbo_Period|input_Duty_cycle
 
@@ -804,7 +813,8 @@ CoreMI= DDLB|DDLC|DDLD|DDLE|DDLF|DDLG|DDLH|DDLI|DDLJ|DDLK|DDLL|RadA|RadB|CMBA|Ra
 supCoreLst= mgba|genesisplusgx|mame|desmume|ppsspp|nestopia|mesen|mednafenpcefast|mednafensaturn|redream|reicast|blusemsx|dosbox|picodrive|snes9x|mednafenPsx|mednafenngp|mednafensupergrafx|mednafenvb|fceumm|mame2014|fba|fbalpha2012|fbalpha2012neogeo|fbalpha2012cps2|fbalphacps2012|mupen64plus|4do|gambatte|mame2000|mame2010|mame|bsnes|yabause|fuse|fmsx
 
 COREVARS= mgba_solar_sensor_level|mgba_allow_opposing_directions|mgba_use_bios|mgba_skip_bios|mgba_idle_optimization|genesis_plus_gx_system_hw|genesis_plus_gx_region_detect|genesis_plus_gx_force_dtack|genesis_plus_gx_bios|genesis_plus_gx_bram|genesis_plus_gx_addr_error|genesis_plus_gx_lock_on|genesis_plus_gx_ym2413|genesis_plus_gx_dac_bits|genesis_plus_gx_blargg_ntsc_filter|genesis_plus_gx_lcd_filter|genesis_plus_gx_overscan|genesis_plus_gx_gg_extra|genesis_plus_gx_render|genesis_plus_gx_gun_cursor|genesis_plus_gx_invert_mouse|mame2014_read_config|mame2014_write_config|mame2014_saves|mame2014_auto_save|mame2014_mouse_enable|mame2014_throttle|mame2014_cheats_enable|mame2014_hide_nagscreen|mame2014_hide_gameinfo|mame2014_hide_warnings|mame2014_alternate_renderer|mame2014_softlists_enable|mame2014_softlists_auto_media|mame2014_media_type|mame2014_boot_to_bios|mame2014_boot_to_osd|mame2014_boot_from_cli|ume2014_read_config|ume2014_write_config|ume2014_saves|ume2014_auto_save|ume2014_mouse_enable|ume2014_throttle|ume2014_cheats_enable|ume2014_hide_nagscreen|ume2014_hide_gameinfo|ume2014_hide_warnings|ume2014_alternate_renderer|ume2014_softlists_enable|ume2014_softlists_auto_media|ume2014_media_type|ume2014_boot_to_bios|ume2014_boot_to_osd|ume2014_boot_from_cli|mame_read_config|mame_write_config|mame_saves|mame_auto_save|mame_mouse_enable|mame_throttle|mame_cheats_enable|mame_hide_nagscreen|mame_hide_gameinfo|mame_hide_warnings|mame_alternate_renderer|mame_softlists_enable|mame_softlists_auto_media|mame_media_type|mame_boot_to_bios|mame_boot_to_osd|mame_boot_from_cli|desmume_internal_resolution|desmume_num_cores|desmume_cpu_mode|desmume_jit_block_size|desmume_screens_layout|desmume_pointer_mouse|desmume_pointer_type|desmume_pointer_colour|desmume_pointer_device|desmume_pointer_device_deadzone|desmume_pointer_device_acceleration_mod|desmume_pointer_stylus_pressure|desmume_pointer_stylus_jitter|desmume_load_to_memory|desmume_advanced_timing|desmume_firmware_language|desmume_frameskip|desmume_screens_gap|desmume_gfx_edgemark|desmume_gfx_linehack|desmume_gfx_txthack|desmume_mic_force_enable|desmume_mic_mode|desmume_hybrid_layout_scale|ppsspp_cpu_core|ppsspp_locked_cpu_speed|ppsspp_language|ppsspp_rendering_mode|ppsspp_auto_frameskip|ppsspp_frameskip|ppsspp_framerate_limit|ppsspp_force_max_fps|ppsspp_audio_latency|ppsspp_internal_resolution|ppsspp_output_resolution|ppsspp_button_preference|ppsspp_fast_memory|ppsspp_set_rounding_mode|ppsspp_block_transfer_gpu|ppsspp_texture_scaling_level|ppsspp_texture_scaling_type|ppsspp_texture_anisotropic_filtering|ppsspp_texture_deposterize|ppsspp_internal_shader|ppsspp_gpu_hardware_transform|ppsspp_vertex_cache|ppsspp_prescale_uv|ppsspp_separate_io_thread|ppsspp_unsafe_func_replacements|ppsspp_sound_speedhack|ppsspp_threaded_input|nestopia_blargg_ntsc_filter|nestopia_palette|nestopia_nospritelimit|nestopia_fds_auto_insert|nestopia_overscan_v|nestopia_overscan_h|nestopia_aspect|nestopia_genie_distortion|nestopia_favored_system|nestopia_ram_power_state|pce_fast_cdimagecache|pce_nospritelimit|pce_ocmultiplier|pce_hoverscan|pce_initial_scanline|pce_last_scanline|pce_cddavolume|pce_adpcmvolume|pce_cdpsgvolume|pce_cdspeed|Turbo_Delay|p0_turbo_I_enable|p0_turbo_II_enable|p1_turbo_I_enable|p1_turbo_II_enable|p2_turbo_I_enable|p2_turbo_II_enable|p3_turbo_I_enable|p3_turbo_II_enable|p4_turbo_I_enable|p4_turbo_II_enable|beetle_saturn_cdimagecache|beetle_saturn_initial_scanline|beetle_saturn_initial_scanline_pal|beetle_saturn_last_scanline|beetle_saturn_last_scanline_pal|reicast_cpu_mode|reicast_boot_to_bios|reicast_internal_resolution|reicast_mipmapping|reicast_widescreen_hack|reicast_audio_buffer_size|reicast_cable_type|reicast_broadcast|reicast_region|reicast_precompile_shaders|reicast_enable_rtt|reicast_enable_purupuru|bluemsx_msxtype|bluemsx_vdp_synctype|bluemsx_ym2413_enable|dosbox_machine_type|dosbox_emulated_mouse|dosbox_cpu_cycles_0|dosbox_cpu_cycles_1|dosbox_cpu_cycles_2|dosbox_cpu_cycles_3|dosbox_mapper_y|dosbox_mapper_x|dosbox_mapper_b|dosbox_mapper_a|dosbox_mapper_l|dosbox_mapper_r|dosbox_mapper_up|dosbox_mapper_down|dosbox_mapper_left|dosbox_mapper_right|dosbox_mapper_select|dosbox_mapper_start|picodrive_input1|picodrive_input2|picodrive_sprlim|picodrive_ramcart|picodrive_region|picodrive_region_fps|picodrive_aspect|snes9x_overclock|snes9x_layer_1|snes9x_layer_2|snes9x_layer_3|snes9x_layer_4|snes9x_layer_5|snes9x_gfx_clip|snes9x_gfx_transp|snes9x_sndchan_1|snes9x_sndchan_2|snes9x_sndchan_3|snes9x_sndchan_4|snes9x_sndchan_5|snes9x_sndchan_6|snes9x_sndchan_7|snes9x_sndchan_8|beetle_psx_renderer|beetle_psx_renderer_software_fb|beetle_psx_cdimagecache|beetle_psx_cpu_overclock|beetle_psx_skipbios|beetle_psx_widescreen_hack|beetle_psx_internal_resolution|beetle_psx_filter|beetle_psx_internal_color_depth|beetle_psx_scale_dither|beetle_psx_wireframe|beetle_psx_display_vram|beetle_psx_dither_mode|beetle_psx_pgxp_mode|beetle_psx_pgxp_caching|beetle_psx_pgxp_texture|beetle_psx_use_mednafen_memcard0_method|beetle_psx_enable_memcard1|beetle_psx_shared_memory_cards|beetle_psx_analog_calibration|beetle_psx_initial_scanline|beetle_psx_initial_scanline_pal|beetle_psx_last_scanline|beetle_psx_last_scanline_pal|beetle_psx_analog_toggle|beetle_psx_enable_multitap_port1|beetle_psx_enable_multitap_port2|beetle_psx_frame_duping_enable|beetle_psx_display_internal_framerate|beetle_psx_crop_overscan|beetle_psx_image_offset|beetle_psx_image_crop|ngp_language|fceumm_palette|fceumm_nospritelimit|fceumm_overclocking|fceumm_overscan|fceumm_aspect|mame2014_read_config|mame2014_auto_save|mame2014_mouse_enable|mame2014_throttle|mame2014_cheats_enable|mame2014_hide_nagscreen|mame2014_hide_infoscreen|mame2014_hide_warnings|mame2014_alternate_renderer|mame2014_boot_to_osd|mame2014_boot_from_cli|mame2016_read_config|mame2016_auto_save|mame2016_mouse_enable|mame2016_throttle|mame2016_cheats_enable|mame2016_hide_nagscreen|mame2016_hide_infoscreen|mame2016_hide_warnings|mame2016_alternate_renderer|mame2016_boot_to_osd|mame2016_boot_from_cli|fba-diagnostics|fba-unibios|fba-cpu-speed-adjust|fba-controls|fba-aspect|fba-controls-p1|fba-controls-p2|fba-sh2-mode|fba-hiscores|fba-lr-controls-p1|fba-lr-controls-p2|fba-neogeo-mode|fba-neogeo-controls-p1|fba-neogeo-controls-p2|mupen64-cpucore|mupen64-audio-buffer-size|mupen64-astick-deadzone|mupen64-pak1|mupen64-pak2|mupen64-pak3|mupen64-pak4|mupen64-disable_expmem|mupen64-gfxplugin-accuracy|mupen64-gfxplugin|mupen64-rspplugin|mupen64-screensize|mupen64-aspectratiohint|mupen64-filtering|mupen64-polyoffset-factor|mupen64-polyoffset-units|mupen64-angrylion-vioverlay|mupen64-virefresh|mupen64-bufferswap|mupen64-framerate|mupen64-vcache-vbo|mupen64-boot-device|mupen64-64dd-hardware|reicast_volume_modifier_mode|reicast_framerate|4do_high_resolution|gambatte_gb_colorization|gambatte_gb_internal_palette|gambatte_gbc_color_correction|gambatte_gb_hwmode|gambatte_gb_link_mode|gambatte_gb_link_network_port|gambatte_gb_link_network_server_ip_octet1|gambatte_gb_link_network_server_ip_octet2|gambatte_gb_link_network_server_ip_octet3|gambatte_gb_link_network_server_ip_octet4|mame_current_mouse_enable|mame_current_videoapproach1_enable|mame_current_skip_nagscreen|mame_current_skip_gameinfo|mame_current_skip_warnings|mame2003-frameskip|mame2003-dcs-speedhack|mame2003-skip_disclaimer|mame2003-skip_warnings|mame2003-samples|mame2003-sample_rate|mame2003-cheats|mame2003-dialsharexy|mame2003-mouse_device|mame2003-rstick_to_btns|mame2000-skip_disclaimer|mame2000-show_gameinfo|cpu-speed-adjust|diagnostics|vbam_layer_1|vbam_layer_2|vbam_layer_3|vbam_layer_4|vbam_layer_5|vbam_layer_6|vbam_layer_7|vbam_layer_8|vbanext_bios|yabause_frameskip|yabause_force_hle_bios|yabause_addon_cart|handy_rot|bsnes_violate_accuracy|bsnes_chip_hle|bsnes_superfx_overclock|vb_anaglyph_preset|vb_color_mode|fuse_machine|fuse_hide_border|fuse_fast_load|fuse_load_sound|fuse_speaker_type|fuse_ay_stereo_separation|fuse_key_ovrlay_transp|fuse_key_hold_time|fmsx_mode|fmsx_video_mode|fmsx_mapper_type_mode|glupen64-cpucore|glupen64-rspmode|glupen64-43screensize|glupen64-169screensize|glupen64-aspect|glupen64-BilinearMode|glupen64-EnableFBEmulation|glupen64-UseNativeResolutionFactor|glupen64-EnableCopyAuxiliaryToRDRAM|glupen64-EnableCopyColorToRDRAM|glupen64-EnableCopyDepthToRDRAM|glupen64-EnableCopyColorFromRDRAM|glupen64-EnableHWLighting|glupen64-CorrectTexrectCoords|glupen64-EnableNativeResTexrects|glupen64-EnableLegacyBlending|glupen64-astick-deadzone|glupen64-pak1|glupen64-pak2|glupen64-pak3|glupen64-pak4|virtualjaguar_usefastblitter|virtualjaguar_doom_res_hack|vice_Statusbar|vice_Drive8Type|vice_DriveTrueEmulation|vice_RetroJoy|vice_Controller|px68k_cpuspeed|px68k_ramsize|px68k_analog|px68k_joytype1|px68k_joytype2
-
+pspce:= A_Tab . A_Space . A_Space
+pspxe:= A_Tab
 FAN1ART= Backdrops
 FAN2ART= Backdrops
 FAN3ART= Backdrops
@@ -1431,6 +1441,25 @@ if (RJSYSTMP <> "")
 							}
 					}
 			}
+		IniRead,suvai,SystemLocations.ini,LOCATIONS
+		Loop,parse,suvai,`n`r
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				stringsplit,aei,A_LoopField,=,""
+				if (aei2 <> "")
+					{
+						ifnotinstring,knownfldrs,%aei1%|
+							{
+								totsys+= 1
+								systmfldrs.= aei1 . "|"
+								knownfldrs.= aei1 . "|"
+							}
+					}
+					
+			}
 	}
 IniRead,RJEMUD,Settings.ini,GLOBAL,emulators_directory
 if (RJEMUD = "ERROR")
@@ -1585,6 +1614,8 @@ Menu, FERCLMENU, Add, Add Selection, ADDFESEL
 
 Menu, FERCLMENU, Add, Remove Selection, REMFESEL
 
+Menu, CLRROMLST, Add, Clear Assignments, CLRSYSLOC
+
 Menu, RJRCLMENU, Add, Toggle Selection, TOGRJSEL
 
 Menu, RJRCLMENU, Add, Add Selection, ADDRJSEL
@@ -1677,6 +1708,7 @@ Gui Add, Edit, x77 y285 w439 h41 Right vplaylisttxt ReadOnly, %playlistloc%
 Gui, Font, Bold
 Gui Add, GroupBox, x72 y333 w445 h64 Right, History
 Gui Add, Button, x516 y361 w43 h23 vhistset ghistset,SET
+Gui, Add, Checkbox, x72 y402 vHISAPND gHISAPND %HISAPNDCHK%, Append All
 Gui, Font, normal
 Gui Add, Edit, x77 y346 w438 h44 Right vhisttxt ReadOnly, %historyloc%
 
@@ -2212,7 +2244,7 @@ Gui, Add, Button, x408 y55 w51 h18 vCHEMUINST gChEmuInst, Browse
 Gui, Add, Text, x288 y58 h13 Center vEINSTTXT, Change Install Location
 Gui, Add, Edit, x286 y118 w171 h51 +ReadOnly vEINSTLOC,
 
-Gui, Add, Button, x382 y277 w75 h23 vROMDLOC gRomDLoc, SET
+Gui, Add, Button, x382 y277 w75 h23 vROMDLOC gRomDLoc, ADD
 Gui, Add, Button, x382 y277 w75 h23 vMROMDLOC gMRomDLoc hidden, MULTI-SET
 Gui, Add, Text, x288 y282 h17 vROMDTXT, Set ROM Directory
 Gui, Add, Edit, x285 y304 w171 h53 vROMDEDT Multi ReadOnly,
@@ -2355,11 +2387,9 @@ Gui, Add, Text, x437 y187 h18 vTRBPRD hidden, Period
 Gui, Add, Edit, x388 y184 w45 h21 vTURBOP gTURBOP Number hidden, %inputTurboPeriod%
 Gui, Add, UpDown, x412 y185 w17 h21 vTURBUD hidden, 
 
-
 Gui, Add, Text, x437 y209 h18 vDUTCTXT hidden, Duty-Cycle
 Gui, Add, Edit, x388 y209 w45 h21 vDUTYCYCLE gDutyCycle Number hidden, %inputDutyCycle%
 Gui, Add, UpDown, x405 y209 w17 h21 vDUTYUD hidden, 
-
 
 Gui, Add, CheckBox, x665 y110 h15 vRMPLOAD gRmpLoad hidden, Auto-Load
 
@@ -2394,6 +2424,7 @@ Gui, Add, Button, x590 y428 w20 h20 vXBUTIN gXBIN hidden, +
 Gui, Add, Button,x641 y450 w20 h20 vBBUTIN gBBIN hidden, +
 Gui, Add, Button, x691 y428 w20 h20 vABUTIN gABIN hidden, +
 Gui, Add, Button, x484 y137 w20 h20 vINPBUTIN gINPBIN hidden, +
+RAJOYINBUTITEMS=LTRIGIN|LBUMPIN|RTRIGIN|RBUMPIN|LSTICKUPIN|LSTICKLFTIN|LSTICKRTIN|LSTICKDWNIN|LSTICKBUTIN|RSTICKUPIN|RSTICKLFTIN|RSTICKRTIN|RSTICKDWNIN|RSTICKBUTIN|DPADDWNIN|DPADUPIN|DPADLFTIN|DPADRTIN|SLCTBUTIN|STRTBUTIN|YBUTIN|XBUTIN|BBUTIN|ABUTIN|INPBUTIN|TURBOIN
 ;};;;;;;
 
 ;{;;;;;;;;;;;;;;     == ComboBoxes ==    ;;;;;;;;;;;
@@ -3499,7 +3530,8 @@ Gui, Add, Button, x520 y411 w40 h17 vGETIP gIP_Get hidden, Get IP
 Gui, Add, Button, x520 y411 w40 h17 vGETLAN gLAN_Get hidden, Get IP
 Gui, Add, Radio, x525 y432 vNETIPRAD gNetSET Checked hidden, NET
 Gui, Add, Radio, x570 y432 vLANIPRAD gLanSET hidden, LAN
-
+NETHOSTGUIITEMS=INETHOST|RELYSRV|ALSLV|SLVONLY|PRVTSV|IPORTNUM|NOSTATE|CHECKFRAMES|CHKFTXT|CHKFRSLD|MINLAT|MINLATTXT|MINLATSLD|LATRNG|LATRNGTXT|LATRNGSLD|NETHROM|HOSTBUTTON|PSTIP|HOSTIP|FSRVTXT|FILESERV|SERVPORT|GETIP|GETLAN|NETIPRAD|LANIPRAD|NETPW
+NETCLIENTGUIITEMS=NETROM|AUTOCORE|ROOMFILTER|FORCEROM|SRCHARCORG|AUTSYS|RETROM|IPA|IPB|IPC|IPD|NETSPECPW|NETCROM|CPORTNUM|PSTIP|NETCONNECT
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;        [[CORE OPTIONS TAB]]        ;;;;;;;;;;;;;;;;;;;;;
 
@@ -3587,7 +3619,7 @@ Gui, Add, Button, x635 y452 w50 h17 vSELCORCFGLOC gSelectCoreCfgLoc, Browse
 Gui, Add, Button, x690 y452 w50 h17 vSAVECORECFG gSaveCoreCfg, Save
 Gui, Add, Text, x365 y423 w102 h23 vCORENAMTXT, CoreOverride Confg
 Gui, Add, Button, x731 y426 w13 h19 vDELCORECFG gDeleteCoreCfg, X
-
+COREGUIITEMS=COREDDLB|COREDDLC|COREDDLD|COREDDLE|COREDDLTXTA|COREDDLTXTB|COREDDLTXTC|COREDDLTXTD|CORERADA|CORERADB|CORECMBA|CORECMBTXTA|CORERADC|CORERADD|CORERADE|CORERADF|CORECHKA|CORECHKB|CORECHKC|COREDDLH|CORERADG|CORERADH|CORECHKD|CORECHKD|CORECMBB|CORECMBTXTB|CORESLDA|CORESLDTXTA|CORERADI|CORERADJ|CORERADK|CORERADL|COREDDLTXTE|COREDDLF|COREDDLG|COREDDLH|COREDDLI|COREDDLJ|COREDDLK|COREDDLL|COREDDLTXTF|COREDDLTXTG|COREDDLTXTH|COREDDLTXTI|CORECHKE|CORECHKF|CORECHKG|CORECHKH|CORECHKI|CORERADM|CORERADN|CORERADO|CORERADP|CORERADQ|CORERADR|CORERADS|CORERADT|CORERADU|CORERADV
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -3614,6 +3646,7 @@ Progress, off
 Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util%RACORETAB%
 
 setPortable:
+/*  ;;[DEBUGOV]
 OnMessage(0x200, "WM_MOUSEMOVE")
 
 WM_MOUSEMOVE(){
@@ -3915,6 +3948,7 @@ OUTW_TT :="Displays retroArch in a window"
 OVDCHK_TT :="Overrides the default directory for downloaded archives."
 OVLIST_TT :="Up to 4 sets of extensions can be reassigned to a core or emulator."
 PARSEALL_TT :="Will not filter any ROMs."
+HISAPND_TT :="Append All Launched ROMs to the history file."
 PAUSEBG_TT :="Pauses retroarch when not the top window"
 PAUSMNU_TT :="Pauses the currently active media while in the menu"
 PGCONFG_TT :="Creates a config file for every ROM in the currently selected playlist assigned to a core/emulator`n ie:        ''DETECT'' cannot be specified`n"
@@ -4211,7 +4245,7 @@ ZIPSEEK_TT :="Gets and writes the CRC Hash number of ROMs to the playlist.`nThis
 SHDEN_TT :="Toggles shader"
 FILT_UNSUP_TT :="Any dropdown listing the contents of your ''systems'' directory`n will filter out any directories which have not been detected or assigned"
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+*/  ;;[DEBUGOV]
 if (SETPORTABLE = 1)
 {
 		gui,submit,nohide
@@ -4876,6 +4910,11 @@ If A_GuiControlEvent RightClick
 	if A_GuiControl = AUTOBIOS
 		{
 			Menu, BDRCLMENU, Show, %A_GuiX% %A_GuiY%
+			return
+		}
+	if A_GuiControl = RomDLoc
+		{
+			Menu, CLRROMLST, Show, %A_GuiX% %A_GuiY%
 			return
 		}
 	if A_GuiControl = UTLLVA
@@ -5657,6 +5696,7 @@ if (RUNPLRAD = 1)
 							}
 					}
 			}
+		/*
 		if (RUNSYSDDL = "History")
 			{
 				RUNSYSDDL= 
@@ -5686,6 +5726,7 @@ if (RUNPLRAD = 1)
 							}
 					}
 			}
+		*/	
 		ifinstring,RUNSYSDDL,.lpl
 			{
 				stringtrimright,RUNSYSDDX,RUNSYSDDL,4
@@ -6390,8 +6431,14 @@ SplitPath,ttnf2,,,inputext
 FileGetSize,romsz,%ttnf1%,K
 if (RUNPLRAD = 1)
 	{
+		selectedplaylist= %playlistLoc%\%RSYSDL%
 		SplitPath,TOXTN,rton,rtod,inputext
 		FileGetSize,romsz,%TOXTN%,K
+		if (OPTYP = "History")
+			{
+				selectedplaylist= %historyloc%
+			}
+		/*
 		if (OPTYP = "History")
 			{
 				curline= 0
@@ -6421,6 +6468,7 @@ if (RUNPLRAD = 1)
 				SB_SetText(" indexing history complete ")	
 				return
 			}
+		*/	
 		APLN= 1
 		if (dlx = "dll")
 			{
@@ -6450,7 +6498,81 @@ if (RUNPLRAD = 1)
 		SB_SetText(" indexing playlist complete ")		
 		curline= 
 		coreline= 
-		Loop, Read, %playlistLoc%\%RSYSDL%
+		Loop, Read, %selectedplaylist%
+			{
+				if (A_LoopReadLine = "")
+					{
+						continue
+					}
+				PLineNum+=1
+				PLineAdd+=1	
+				if (PLineAdd = 1)
+					{
+						romhn1= 
+						romhn2= 
+						if (A_LoopReadLine = "{")
+							{
+								newPlF= 1
+								continue
+							}							
+						if (newPlF = 1)
+							{
+								continue
+							}
+						StringSplit,romhn,A_LoopReadLine,#
+						if (romhn2 = "")
+							{
+								romhn2= %romhn1%
+							}
+						if (romf = "")
+							{
+								romf= %romhn1%
+								finumb:= PlineNum + 2							
+							}
+						poptadd.= romhn1 . "|"
+					}
+				if (newPlF = 1)
+					{
+						Stringreplace,romha,A_LoopReadLine,"path":%A_Space%,,UseErrorLevel
+						if (ERRORLEVEL = 1)
+							{
+								finumb:= PLineNum+2
+								stringtrimright,romha,romha,1
+								stringreplace,romha,romha,\\,\,All
+								stringreplace,romha,romha,",,All
+								;"
+								ifinstring,romha,.zip#
+									{
+										stringsplit,romhn,romha,#
+										romf= %romhn1%
+									}
+									else {
+											romf= %romha%
+									}
+								poptadd.= romf . "|"	
+								PLineAdd=		
+								continue
+							}
+					}
+				if (PLineAdd =  6)
+					{
+						PLineAdd= 
+					}
+			}
+		romfj1= 
+		romfj2= 
+		filereadline,tolcr,%selectedplaylist%,%finumb%
+		if (newPlF = 1)
+			{
+				stringreplace,tolcr,tolcr,"core_path":%A_Space%,,UseErrorLevel
+				stringtrimright,tolcr,tolcr,1
+				stringreplace,tolcr,tolcr,\\,\,All
+				stringreplace,tolcr,tolcr,",,All
+				;"
+			}
+		splitpath,tolcr,coreselv
+		/*
+		Loop, Read, %selectedplaylist%
 			{	
 				curline+=1
 				plrls1= 
@@ -6463,9 +6585,9 @@ if (RUNPLRAD = 1)
 					}
 			}
 		FileReadLine, stcl, %playlistLoc%\%RSYSDL%,%coreline%
+		*/
 		if (stcl <> "DETECT")
 			{
-				SplitPath, stcl, coreselv
 				guicontrol,, LCORE,|%coreselv%||%runlist%
 				SB_SetText(" indexing detected playlist complete ")	
 				return
@@ -7034,7 +7156,10 @@ if (RJSYSTEMF = "")
 	{
 		return
 	}
-
+ifnotexist,SystemLocations.ini
+	{
+		filecopy,SystemLocations.set,SystemLocations.ini,1
+	}
 stringright,efi,RJSYSTEMF,2	
 stringLeft,efix,RJSYSTEMF,2
 if (efi = ":\")
@@ -7077,8 +7202,8 @@ Loop,Parse,SysLLst,`n
 		stringsplit,fei,A_LoopField,=
 		ifexist,%RJSYSTEMF%\%fei1%
 			{
-				break
 				nask= 1
+				break
 			}
 	}
 if (nask = "")
@@ -7656,6 +7781,10 @@ Process,close,skeletonKey.exe
 Exitapp
 Return
 
+HISAPND:
+gui,submit,nohide
+iniwrite,"%HISAPND%",Settings.ini,GLOBAL,history_append
+return
 
 histset:
 hstmp= %contentHistoryPath%
@@ -7735,7 +7864,11 @@ Loop, Parse, SysLLst,`n`r
 		ifexist,%RJSYSTEMS%\%afe1%\
 			{
 				toinsj.= afe1 . "|"
-				continue
+				iniread,fik,SystemLocations.ini,LOCATIONS,%afe1%
+				ifnotinstring,fik,%RJSYSTEMS%\%afe1%|
+					{
+						iniwrite,"%RJSYSTEMS%\%afe1%|%fik%",SystemLocations.ini,LOCATIONS,%afe1%
+					}
 			}
 		pnsys.= afe1 . "|"
 		arsys.= afe2 . "|"
@@ -7779,7 +7912,25 @@ Loop, parse, fuzsys,`n`r
 								splitpath,A_LoopFileFullPath,fdirnam,fdirpth
 								if (JUNCTOPT = 1)
 									{
+										iniread,fik,SystemLocations.ini,LOCATIONS,%fsys%
+										;;ifnotinstring,fik,%A_LoopfileFullPath%|
+										ifnotinstring,fik,%RJSYSTEMS%\%fsys%|
+											{
+												;;iniwrite,"%A_LoopFileFullPath%|%fik%",SystemLocations.ini,LOCATIONS,%fsys%
+												iniwrite,"%RJSYSTEMS%\%fsys%|%fik%",SystemLocations.ini,LOCATIONS,%fsys%
+											}
 										RunWait, %comspec% cmd /c "mklink /J "%RJSYSTEMS%\%fsys%" "%A_LoopFileFullPath%" ",,hide
+										knownfldrs.= A_LoopFileName . "|"
+										aeg=2
+										break
+									}
+								if (JUNCTOPT = 2)
+									{
+										iniread,fik,SystemLocations.ini,LOCATIONS,%fsys%
+										ifnotinstring,fik,%A_LoopfileFullPath%|
+											{
+												iniwrite,"%A_LoopFileFullPath%|%fik%",SystemLocations.ini,LOCATIONS,%fsys%
+											}
 										knownfldrs.= A_LoopFileName . "|"
 										aeg=2
 										break
@@ -7788,7 +7939,12 @@ Loop, parse, fuzsys,`n`r
 									{
 										FileMoveDir,%A_LoopFileFullPath%,%fdirpth%\%fsys%,1
 										if (errorlevel = 0)
-											{
+											{	
+												iniread,fik,SystemLocations.ini,LOCATIONS,%fsys%
+												ifnotinstring,fik,%fdirpth%\%fsys%|
+													{
+														iniwrite,"%fdirpth%\%fsys%|%fik%",SystemLocations.ini,LOCATIONS,%fsys%
+													}
 												knownfldrs.= A_LoopFileName . "|"
 												aeg=2
 												break														
@@ -7796,9 +7952,7 @@ Loop, parse, fuzsys,`n`r
 										nnewmsg.= "''" . A_LoopFileName . "''" . " could not be renamed" . "`n"	
 										aeg=1
 										break
-										
 									}
-
 								aeg=1
 								break
 							}
@@ -8498,23 +8652,20 @@ romf=
 if (RUNPLRAD = 1)
 	{
 		coreselv= 
+		selectedplaylist= %playlistLoc%\%OPTYP%
 		guicontrol,,LCORE,|%runlist%
 		if (OPTYP = "History")
 			{
-				guicontrol,,RUNROMCBX,|%romf%||%HISTORY%%romf%
-				gosub, LNCHCHK
-				guicontrol,enable,RUNROMCBX
-				guicontrol,enable,RUNSYSDDL
-				RUNSYSCHNG= 
-				return
+				selectedplaylist= %historyloc%
 			}
 		SB_SetText(" ... Indexing Playlist ...")
 		PLineNum= 
 		PLineAdd= 
 		splitpath,OPTYP,,,,DDLUX
 		finumb= 
+		finumj= 
 		newPlF= 
-		Loop, Read, %playlistLoc%\%OPTYP%
+		Loop, Read, %selectedplaylist%
 			{
 				if (A_LoopReadLine = "")
 					{
@@ -8553,6 +8704,7 @@ if (RUNPLRAD = 1)
 						if (ERRORLEVEL = 1)
 							{
 								finumb:= PLineNum+2
+								finumj:= PLineNum+3
 								stringtrimright,romha,romha,1
 								stringreplace,romha,romha,\\,\,All
 								stringreplace,romha,romha,",,All
@@ -8575,103 +8727,112 @@ if (RUNPLRAD = 1)
 						PLineAdd= 
 					}
 			}
-			romfj1= 
-			romfj2= 
-			filereadline,tolcr,%playlistLoc%\%OPTYP%,%finumb%
-			if (newPlF = 1)
-				{
-					stringreplace,tolcr,tolcr,"core_path":%A_Space%,,UseErrorLevel
-					stringtrimright,tolcr,tolcr,1
-					stringreplace,tolcr,tolcr,\\,\,All
-					stringreplace,tolcr,tolcr,",,All
-					;"
-				}
-			splitpath,tolcr,coreselv
-			if (tolcr = "DETECT")
-				{
-					inpl= Assignments.ini
-					rereadasini:
-					iniread,fijj,%inpl%,OVERRIDES,%DDLUX%
-					if (fijj = "ERROR")
-						{
-							if (inpl <> "Assignments.set")
-								{
-									inpl= Assignments.set
-									goto, rereadasini
-								}
-							coreselv= 
-						}
-					if (raexefile = "NOT-FOUND.exe")
-						{
-							Loop,Parse,SysEmuSet,`n`r
-								{
-									if (A_LoopField = "")
-										{
-											continue
-										}
-									stringsplit,air,A_LoopField,:
-									stringsplit,aix,air1,|
-									if (DDLUX = aix1)
-										{
-											Loop,Parse,air1,|
-												{
-													if (A_Index = 1)
-														{
-															continue
-														}
-													iniread,aib,Assignments.ini,ASSIGNMENTS,%A_LoopField%	
-													if (aib <> "")
-														{
-															coreselv= %aib%
-															goto,splitromhash
-														}
-												}
-										}
-								}	
-						}
-					Loop, Parse, fijj,|
-						{
-							if (A_LoopField = "")
-								{
-									continue
-								}
-							coreselv= %A_LoopField%
-							goto,splitromhash		
-						}
-					splitpath,fijj,,,,coreselv	
-					if fijj is digit
-						{
-							rereadasset:
-							iniread,fijj,%inpl%,ASSIGNMENTS,%DDLUX%
-							if (fijj = "ERROR")
-								{
-									if (inpl = "Assignments.ini")
-										{
-											inpl= Assignments.set
-											goto, rereadasset
-										}
-									coreselv= mame_libretro.dll	
-								}
-							ifinstring,fijj,_libretro.dll
-								{
-									coreselv= %fijj%
-								}
-						}
-				}
-			splitromhash:	
-			stringsplit, romfj, romf,#
-			stringmid,romhnck,romfj1,2,1
-			if (romhnck <> ":")
-				{
-					ifexist, %raexeloc%\%romfj1%
-						{
-							romf= %raexeloc%\%romfj1%
-							if (romfj2 <> "")
-								{
-									romf= %raexeloc%\%romfj1%#%romfj2%
-								}
-						}
-				}
+		romfj1= 
+		romfj2= 
+		filereadline,tolcr,%selectedplaylist%,%finumb%
+		filereadline,toljr,%selectedplaylist%,%finumj%
+		if (newPlF = 1)
+			{
+				stringreplace,tolcr,tolcr,"core_path":%A_Space%,,UseErrorLevel
+				stringtrimright,tolcr,tolcr,1
+				stringreplace,tolcr,tolcr,\\,\,All
+				stringreplace,tolcr,tolcr,",,All
+				;"
+				stringreplace,toljr,toljr,"core_name":%A_Space%,,UseErrorLevel
+				stringtrimright,toljr,toljr,1
+				stringreplace,toljr,toljr,",,All
+				;"
+			}
+		splitpath,tolcr,coreselv,,corextnt,corejname
+		if (corextnt = "exe")
+			{
+				coreselv= %toljr%
+			}
+		if (tolcr = "DETECT")
+			{
+				inpl= Assignments.ini
+				rereadasini:
+				iniread,fijj,%inpl%,OVERRIDES,%DDLUX%
+				if (fijj = "ERROR")
+					{
+						if (inpl <> "Assignments.set")
+							{
+								inpl= Assignments.set
+								goto, rereadasini
+							}
+						coreselv= 
+					}
+				if (raexefile = "NOT-FOUND.exe")
+					{
+						Loop,Parse,SysEmuSet,`n`r
+							{
+								if (A_LoopField = "")
+									{
+										continue
+									}
+								stringsplit,air,A_LoopField,:
+								stringsplit,aix,air1,|
+								if (DDLUX = aix1)
+									{
+										Loop,Parse,air1,|
+											{
+												if (A_Index = 1)
+													{
+														continue
+													}
+												iniread,aib,Assignments.ini,ASSIGNMENTS,%A_LoopField%	
+												if (aib <> "")
+													{
+														coreselv= %aib%
+														goto,splitromhash
+													}
+											}
+									}
+							}	
+					}
+				Loop, Parse, fijj,|
+					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						coreselv= %A_LoopField%
+						goto,splitromhash		
+					}
+				splitpath,fijj,,,,coreselv	
+				if fijj is digit
+					{
+						rereadasset:
+						iniread,fijj,%inpl%,ASSIGNMENTS,%DDLUX%
+						if (fijj = "ERROR")
+							{
+								if (inpl = "Assignments.ini")
+									{
+										inpl= Assignments.set
+										goto, rereadasset
+									}
+								coreselv= mame_libretro.dll	
+							}
+						ifinstring,fijj,_libretro.dll
+							{
+								coreselv= %fijj%
+							}
+					}
+			}
+		splitromhash:	
+		stringsplit, romfj, romf,#
+		stringmid,romhnck,romfj1,2,1
+		if (romhnck <> ":")
+			{
+				ifexist, %raexeloc%\%romfj1%
+					{
+						romf= %raexeloc%\%romfj1%
+						if (romfj2 <> "")
+							{
+								romf= %raexeloc%\%romfj1%#%romfj2%
+							}
+					}
+			}
 		guicontrol,,RUNROMCBX,|%romf%||%poptadd%
 		guicontrol,,LCORE,|%coreselv%||%runlist%
 		if (SRCHCOMPL = 1)
@@ -8752,25 +8913,34 @@ Loop, %omitxtn0%
 
 SB_SetText("... Indexing Directory ...")
 poptadd= 
-Loop,%RJSYSTEMS%\%OPTYP%\*.*,0,1
+IniRead,kiv,SystemLocations.ini,LOCATIONS,%OPTYP%
+Loop,Parse,kiv,|
 	{
-		ext= %A_LoopFileExt%
-		noapl= 
-		for k, v in ar
+		if (A_LoopField = "")
 			{
-				extm:= v
-				if (ext = extm)
-					{
-						noapl= 1
-					}
+				continue
 			}
-		if (noapl = REVSPL)
+		;;Loop,%RJSYSTEMS%\%OPTYP%\*.*,0,1
+		Loop,%A_LoopField%\*.*,0,1
 			{
-				if (romf = "")
+				ext= %A_LoopFileExt%
+				noapl= 
+				for k, v in ar
 					{
-						romf= %A_LoopFileLongPath%
+						extm:= v
+						if (ext = extm)
+							{
+								noapl= 1
+							}
 					}
-				poptadd .= A_LoopFileLongPath . "|"
+				if (noapl = REVSPL)
+					{
+						if (romf = "")
+							{
+								romf= %A_LoopFileLongPath%
+							}
+						poptadd .= A_LoopFileLongPath . "|"
+					}
 			}
 	}
 SB_SetText("... Directory Indexed ...")
@@ -9356,54 +9526,63 @@ if (SRCHPLRAD = 1)
 		guicontrol,enable,SRCHROMBUT
 		return
 	}
-
-LOCSRCHFLDR= %RJSYSTEMS%\%SRCHLOCDDL%
-guicontrolget,SRCHRCRSCHK,,SRCHRCRSCHK
-if (SRCHLOCDDL = ":=:System List:=:")
+IniRead,kiv,SystemLocations.ini,LOCATIONS,%SRCHLOCDDL%
+Loop,Parse,kiv,|
 	{
-		LOCSRCHFLDR= %RJSYSTEMS%
-	}
-
-stringsplit,omitxtn,omitxt,= | ""
-ar := Object()
-Loop, %omitxtn0%
-{
-	new= % (omitxtn%a_index%)
-	if (omitxtn%a_index% <> "")
-		{
-			ar.insert(new)
-		}
-}
-SB_SetText("...Searching...")
-lsrchpop= 
-existingpop= 
-Loop,%LOCSRCHFLDR%\*%SRCHROMEDT%*,,%SRCHRCRSCHK%
-	{
-		ext= %A_LoopFileExt%
-		if (ext = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
-		noapl= 
-		for k, v in ar
+		;;;LOCSRCHFLDR= %RJSYSTEMS%\%SRCHLOCDDL%
+		LOCSRCHFLDR= %A_LoopField%
+		guicontrolget,SRCHRCRSCHK,,SRCHRCRSCHK
+		if (SRCHLOCDDL = ":=:System List:=:")
 			{
-				extm:= v
-				if (ext = extm)
+				LOCSRCHFLDR= %RJSYSTEMS%
+			}
+		stringsplit,omitxtn,omitxt,= | ""
+		ar := Object()
+		Loop, %omitxtn0%
+			{
+				new= % (omitxtn%a_index%)
+				if (omitxtn%a_index% <> "")
 					{
-						noapl= 1
+						ar.insert(new)
 					}
 			}
-		if (noapl = "")
+		SB_SetText("...Searching...")
+		lsrchpok= 
+		lsrchpop= 
+		existingpop= 
+		Loop,%LOCSRCHFLDR%\*%SRCHROMEDT%*,,%SRCHRCRSCHK%
 			{
-				lsrchpop .= A_LoopFileFullPath . "|"
+				ext= %A_LoopFileExt%
+				if (ext = "")
+					{
+						continue
+					}
+				noapl= 
+				for k, v in ar
+					{
+						extm:= v
+						if (ext = extm)
+							{
+								noapl= 1
+							}
+					}
+				if (noapl = "")
+					{
+						lsrchpop .= A_LoopFileFullPath . "|"
+					}
 			}
+		lsrchpok= %lsrchpop%	
+		stringreplace,lsrchpop,lsrchpop,%LOCSRCHFLDR%\,,All
+		guicontrolget, existingpop,,SRCHROMLBX
+		guicontrol,,SRCHROMLBX,|%existingpop%|%lsrchpop%
+		SB_SetText("Search Complete")
+		guicontrol,enable,SRCHROMBUT
 	}
-	
-stringreplace,lsrchpop,lsrchpop,%LOCSRCHFLDR%\,,All
-guicontrolget, existingpop,,SRCHROMLBX
-guicontrol,,SRCHROMLBX,|%existingpop%|%lsrchpop%
-SB_SetText("Search Complete")
-guicontrol,enable,SRCHROMBUT
+
 return
 
 SRCHROMEDT:
@@ -9428,41 +9607,53 @@ Loop, Parse, romOVf,|
 		if (A_Index > 1)
 			{
 				MSRCHSEL= 1
+				break
 			}
 	}
+ainc= 	
 Loop, Parse, romOVf,|
 	{
 		if (A_LoopField = "")
 			{
 				continue
 			}
+		ainc+=1
 		romf= %A_LoopField%
 		ifnotinstring,romf,:
 			{
-				romf_= %RJSYSTEMS%\%SRCHLOCDDL%\%romf%
-				romf= %romf_%
+				Loop,parse,lsrchpok,|
+					{
+						if (A_Index = ainc)
+							{
+								romf_= %A_LoopField%
+								romf= %romf_%
+							}
+					}
 			}
 		SRCHOVRD= 1
 		if (SRCHFLRAD = 1)
 			{
 				stringreplace,nocad,romf,%RJSYSTEMS%\,,All
-				isofldr1= 
-				StringSplit,isofldr,nocad,\
-				SRCHLOCDDL:= isofldr1
-				guicontrol,,RUNSYSDDL,|%SRCHLOCDDL%||%systmfldrs%
-				coreslv= 
-				iniread, coreord,Assignments.ini,OVERRIDES,%isofldr%
-				if coreord is digit
+				if (ERRORLEVEL <> 0)
 					{
-						iniread,coreslv,Assignments.ini,ASSIGNMENTS,%isofldr1% 
+						isofldr1= 
+						StringSplit,isofldr,nocad,\
+						SRCHLOCDDL:= isofldr1
+						guicontrol,,RUNSYSDDL,|%SRCHLOCDDL%||%systmfldrs%
+						coreslv= 
+						iniread, coreord,Assignments.ini,OVERRIDES,%isofldr%
+						if coreord is digit
+							{
+								iniread,coreslv,Assignments.ini,ASSIGNMENTS,%isofldr1% 
+							}
+							else if (coreord <> "ERROR")		
+								{
+									stringsplit,aij,coreord,|
+									coreord= %aij1%
+									iniread,coreslv,Assignments.ini,ASSIGNMENTS,%coreord%					
+								}
+						GRPOVRD= 1
 					}
-					else if (coreord <> "ERROR")		
-						{
-							stringsplit,aij,coreord,|
-							coreord= %aij1%
-							iniread,coreslv,Assignments.ini,ASSIGNMENTS,%coreord%					
-						}
-				GRPOVRD= 1
 				if (lsrchpop <> "")
 					{
 						if (RUNSYSDDL <> SRCHLOCDDL)
@@ -12842,6 +13033,18 @@ guicontrol,enable,EMBUTH
 
 guicontrol,enable,DSKMNTCHK
 gosub, EMRAD11B
+iniread,kfr,SystemLocations.ini,LOCATIONS,%semu%
+kfrt= 
+Loop,Parse,kfr,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		kfrt.= A_LoopField . "`n"
+	}
+guicontrol,,ROMDEDT,%kfrt%
+/*	
 ifexist, %RJSYSTEMS%\%semu%
 	{
 		gosub, LnkGet
@@ -12850,6 +13053,7 @@ ifexist, %RJSYSTEMS%\%semu%
 				guicontrol,,ROMDEDT,%RJSYSTEMS%\%semu%
 			}
 	}
+*/	
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -14769,12 +14973,32 @@ guicontrolget,EAVAIL,,EAVAIL
 Loop, Parse, EAVAIL,|
 	{
 		semu:= A_LoopField
-		gosub, RomDLoc
+		gosub, RomDLocM
 	}
 return
 
-
 RomDLoc:
+ROMDFLDR= 
+FileSelectFolder,ROMDFLDR,,,Locate the %semu% folder
+if (ROMDFLDR = "")
+	{
+		SB_SetText("No folder selected")
+		return
+	}
+RomDLocM:	
+IniRead,kiv,SystemLocations.ini,LOCATIONS,%semu%
+ifinstring,kiv,%ROMDFLDR%|
+	{
+		SB_SetText("This location already exists in the " semu " list")
+		return
+	}
+iniWrite,"%ROMDFLDR%|%kiv%",SystemLocations.ini,LOCATIONS,%semu%
+stringreplace,kivt,kiv,|,`n,All
+guicontrol,,ROMDEDT,%ROMDFLDR%`n%kivt%
+gosub, resetCoreAssets
+return
+
+/*
 Filecont= 1
 ifexist,%RJSYSTEMS%\%semu%
 	{
@@ -14813,7 +15037,7 @@ if (MULTISYS = "")
 			}
 	}
 if (Filecont = 2)
-{
+	{
 		FileMoveDir,%RJSYSTEMS%\%semu%,%RJSYSTEMS%\%semu%(bak),R
 	}
 RunWait, %comspec% cmd /c "mklink /J "%RJSYSTEMS%\%semu%" "%ROMDFLDR%" ",,hide
@@ -14826,6 +15050,7 @@ ifexist, %RJSYSTEMS%\%semu%
 	}
 SB_SetText("Could not create link to " ROMDFLDR "  Do you have write access to the " RJSYSTEMS " directory?")
 return	
+*/
 
 LnkGet:
 JNKLNK= 
@@ -16539,9 +16764,27 @@ Loop, %RJSYSTEMS%\*,2
 					{
 						totsys+=1
 						knownfldrs.= avnu1 . "|" 
+						rjsystmfldrs.= avnu1 . "|" 
 					}
 			}
 	}
+IniRead,ksvi,SystemLocations.ini,LOCATIONS
+Loop,Parse,ksvi,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,sdfj,A_LoopField,=,""
+		if (sdfj2 <> "")
+			{
+				ifnotinstring,knownfldrs,%sdfj1%
+					{
+						knownfldrs.= sdfj1 . "|"
+						systmfldrs.= sdfj1 . "|"
+					}
+			}
+	}	
 gosub, SYSDETECT
 guicontrol,,DWNLPOS,|:=:System List:=:||%systmfldrs%
 overplmn= 
@@ -16551,7 +16794,7 @@ if (OVDFLDR <> "")
 	}
 guicontrol,,OVDLDS,|Matching%overplmn%||%systmfldrs%
 guicontrol,,SKDETSTXT,Detected Systems: %totsys%
-guicontrol,,RJSYSDD,|Systems||%systmfldrs%
+guicontrol,,RJSYSDD,|Systems||%rjsystmfldrs%
 
 guicontrol,,SRCHLOCDDL,|:=:System List:=:||%systmfldrs%
 guicontrol,,ESDWNLPOS,|%systmfldrs%
@@ -17742,6 +17985,26 @@ Loop, %RJSYSTEMS%\*,2
 					}
 			}
 	}
+IniRead,suvai,SystemLocations.ini,LOCATIONS
+Loop,parse,suvai,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,aei,A_LoopField,=,""
+		if (aei2 <> "")
+			{
+				ifnotinstring,knownfldrs,%aei1%|
+					{
+						totsys+= 1
+						systmfldrs.= aei1 . "|"
+						dwnlfldrs.= aei1 . "|"
+						knownfldrs.= aei1 . "|"
+					}
+			}
+			
+	}	
 guicontrol,,DWNLPOS,|:=:System List:=:||%systmfldrs%
 guicontrol,,SKSYSDISP,%RJSYSTEMS%
 guicontrol,,RJSYSDD,|Systems||%systmfldrs%
@@ -17891,21 +18154,30 @@ Loop, %omitxtn0%
 				ar.insert(new)
 			}
 	}
-Loop,%RJSYSTEMS%\%DWNLPOS%\*.*,,%RECURSE%
+IniRead,kef,SystemLocations.ini,LOCATIONS,%DWNLPOS%
+Loop,parse,kef,|
 	{
-		ext= %A_LoopFileExt%
-		noapl= 
-		for k, v in ar
+		if (A_Loopfield = "")
 			{
-				extm:= v
-				if (ext = extm)
-					{
-						noapl= 1
-					}
+				continue
 			}
-		if (noapl = 1)
+		;;Loop,%RJSYSTEMS%\%DWNLPOS%\*.*,,%RECURSE%
+		Loop,%A_LoopField%\*.*,,%RECURSE%
 			{
-				POPLDWN .= A_LoopFileFullPath . "|"
+				ext= %A_LoopFileExt%
+				noapl= 
+				for k, v in ar
+					{
+						extm:= v
+						if (ext = extm)
+							{
+								noapl= 1
+							}
+					}
+				if (noapl = 1)
+					{
+						POPLDWN .= A_LoopFileFullPath . "|"
+					}
 			}
 	}
 stringreplace,POPLDWN,POPLDWN,%RJSYSTEMS%\%DWNLPOS%\,,All
@@ -18468,8 +18740,7 @@ if (arcdt = "fbal")
 	}
 FileDelete,tmp.lpl
 krnum= 
-pspce:= A_Tab . A_Space . A_Space
-pspxe:= A_Tab
+
 Loop, Parse, existlst,|
 	{
 		if (A_LoopField = "")
@@ -22230,8 +22501,16 @@ guicontrol,enable,OVDLDS
 guicontrol,enable,SETOVD
 guicontrolget,ovdnm,,OVDLDS
 guicontrolget,OVDTXT,,OVDTXT
-OVDFLDR= %RJSYSTEMS%\%ovdnm%
 iniread,tmpsw,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
+iniread,ksr,SystemLocations.ini,LOCATIONS,%EXTRSYS%
+if (ksr = "")
+	{
+		OVDFLDR= %RJSYSTEMS%\%ovdnm%
+	}
+	else {
+		stringsplit,fir,ksr,|
+		OVDFLDR= %fir1%
+	}
 stringsplit,tmpsx,tmpsw,|
 if (ovdnm = "Other")
 	{
@@ -22407,13 +22686,39 @@ if (tmpsr <> "")
 				stringreplace,EXTRSYSNH,EXTRSYS,#HACKS#,,All
 				romsys= %EXTRSYSNH%
 				updtguirst=
-				ACSVDEST= %RJSYSTEMS%\%romsys%
+				iniread,ksr,SystemLocations.ini,LOCATIONS,%EXTRSYS%
+				if (ksr = "ERROR")
+					{
+						ksr= 
+					}
+				if (ksr = "")
+					{
+						ACSVDEST= %RJSYSTEMS%\%romsys%
+					}
+					else {
+						stringsplit,fir,ksr,|
+						ACSVDEST= %fir1%
+					}
+				;;ACSVDEST= %RJSYSTEMS%\%romsys%
 				guicontrol,,ARCSYS,|%EXTRSYSNH%||Select a System|%sysddllist%
 				gosub, GamFIND
 				gosub, ArcPPND
 				guicontrolget,OVDLDS,,OVDLDS
 				guicontrolget,OVDFLDR,,OVDTXT
-				ACSVDEST= %RJSYSTEMS%\%romsys%
+				iniread,ksr,SystemLocations.ini,LOCATIONS,%EXTRSYS%
+				if (ksr = "ERROR")
+					{
+						ksr= 
+					}
+				if (ksr = "")
+					{
+						ACSVDEST= %RJSYSTEMS%\%romsys%
+					}
+					else {
+						stringsplit,fir,ksr,|
+						ACSVDEST= %fir1%
+					}
+				;;ACSVDEST= %RJSYSTEMS%\%romsys%
 				if (sortoverride = 0)
 					{
 						iniread,jkspl,Launchparams.ini,LAUNCHPARAMS,%romsys%
@@ -22428,7 +22733,20 @@ if (tmpsr <> "")
 									}
 									else 
 										{
-											ACSVDEST= %RJSYSTEMS%\%OVDFLDR%
+											iniread,ksr,SystemLocations.ini,LOCATIONS,%OVDFLDR%							
+											if (ksr = "ERROR")
+												{
+													ksr= 
+												}
+											if (ksr = "")
+												{
+													ACSVDEST= %RJSYSTEMS%\%OVDFLDR%
+												}
+												else {
+													stringsplit,fir,ksr,|
+													ACSVDEST= %fir1%
+												}
+												;;ACSVDEST= %RJSYSTEMS%\%OVDFLDR%
 										}
 							}	
 							else
@@ -22511,7 +22829,20 @@ if (tmpsr <> "")
 										if (OVDLDS = "Matching")
 											{
 												OVDCHK= 0
-												ACSVDEST= %RJSYSTEMS%\%romsys%
+												iniread,ksr,SystemLocations.ini,LOCATIONS,%romsys%
+												if (ksr = "ERROR")
+													{
+														ksr= 
+													}
+												if (ksr = "")
+													{
+														ACSVDEST= %RJSYSTEMS%\%romsys%
+													}
+													else {
+														stringsplit,fir,ksr,|
+														ACSVDEST= %fir1%
+													}
+												;;ACSVDEST= %RJSYSTEMS%\%romsys%
 											}
 											else
 												{
@@ -22521,7 +22852,20 @@ if (tmpsr <> "")
 														}
 														else 
 															{
-																ACSVDEST= %RJSYSTEMS%\%OVDLDS%
+																iniread,ksr,SystemLocations.ini,LOCATIONS,%OVDLDS%
+																if (ksr = "ERROR")
+																	{
+																		ksr= 
+																	}
+																if (ksr = "")
+																	{
+																		ACSVDEST= %RJSYSTEMS%\%OVDLDS%
+																	}
+																	else {
+																		stringsplit,fir,ksr,|
+																		ACSVDEST= %fir1%
+																	}
+																;;ACSVDEST= %RJSYSTEMS%\%OVDLDS%
 															}
 												}
 								}
@@ -22604,7 +22948,20 @@ Loop, parse, romdwnlst,|
 		gosub, ArcPPND
 		guicontrolget,OVDLDS,,OVDLDS
 		guicontrolget,OVDFLDR,,OVDTXT
-		ACSVDEST= %RJSYSTEMS%\%romsys%
+		iniread,ksr,SystemLocations.ini,LOCATIONS,%romsys%
+		if (ksr = "ERROR")
+			{
+				ksr= 
+			}
+		if (ksr = "")
+			{
+				ACSVDEST= %RJSYSTEMS%\%romsys%
+			}
+			else {
+				stringsplit,fir,ksr,|
+				ACSVDEST= %fir1%
+			}
+		;;ACSVDEST= %RJSYSTEMS%\%romsys%
 		ifnotexist, %ACSVDEST%\
 			{
 				if ((romsys <> "BIOS - BIOS") && if (romsys <> "- firmware -"))
@@ -22627,7 +22984,20 @@ Loop, parse, romdwnlst,|
 									}
 									else 
 										{
-											ACSVDEST= %RJSYSTEMS%\%OVDFLDR%
+											iniread,ksr,SystemLocations.ini,LOCATIONS,%OVDFLDR%
+											if (ksr = "ERROR")
+												{
+													ksr= 
+												}
+											if (ksr = "")
+												{
+													ACSVDEST= %RJSYSTEMS%\%OVDFLDR%
+												}
+												else {
+													stringsplit,fir,ksr,|
+													ACSVDEST= %fir1%
+												}
+											;;ACSVDEST= %RJSYSTEMS%\%OVDFLDR%
 										}
 					}
 					else
@@ -22635,7 +23005,20 @@ Loop, parse, romdwnlst,|
 							OVDCHK= 0
 							OVDFLDR= 
 						}
-				ACSVDEST= %RJSYSTEMS%\%romsys%
+				iniread,ksr,SystemLocations.ini,LOCATIONS,%romsys%
+				if (ksr = "ERROR")
+					{
+						ksr= 
+					}
+				if (ksr = "")
+					{
+						ACSVDEST= %RJSYSTEMS%\%romsys%
+					}
+					else {
+						stringsplit,fir,ksr,|
+						ACSVDEST= %fir1%
+					}		
+				;;ACSVDEST= %RJSYSTEMS%\%romsys%
 				JACKETMODE= %aprm2%
 				EXTRURL= %aprm3%
 				EXTEXPLD= %aprm4%
@@ -22663,7 +23046,20 @@ Loop, parse, romdwnlst,|
 				{
 					if (OVDCHK = 0)
 						{
-							ACSVDEST= %RJSYSTEMS%\%romsys%
+							iniread,ksr,SystemLocations.ini,LOCATIONS,%romsys%
+							if (ksr = "ERROR")
+								{
+									ksr= 
+								}
+							if (ksr = "")
+								{
+									ACSVDEST= %RJSYSTEMS%\%romsys%
+								}
+								else {
+									stringsplit,fir,ksr,|
+									ACSVDEST= %fir1%
+								}		
+							;;ACSVDEST= %RJSYSTEMS%\%romsys%
 							if (EXTRSYS = "- firmware -")
 								{
 									iniread,mame_verx,Apps.ini,EMULATORS,MAME
@@ -22691,8 +23087,21 @@ Loop, parse, romdwnlst,|
 						{
 							if (OVDLDS = "Matching")
 								{
-									OVDCHK= 0
-									ACSVDEST= %RJSYSTEMS%\%romsys%
+									OVDCHK= 0									
+									iniread,ksr,SystemLocations.ini,LOCATIONS,%romsys%
+									if (ksr = "ERROR")
+										{
+											ksr= 
+										}
+									if (ksr = "")
+										{
+											ACSVDEST= %RJSYSTEMS%\%romsys%
+										}
+										else {
+											stringsplit,fir,ksr,|
+											ACSVDEST= %fir1%
+										}		
+									;;ACSVDEST= %RJSYSTEMS%\%romsys%
 								}
 								else
 									{
@@ -22702,7 +23111,20 @@ Loop, parse, romdwnlst,|
 											}
 											else
 												{
-													ACSVDEST= %RJSYSTEMS%\%OVDLDS%
+													iniread,ksr,SystemLocations.ini,LOCATIONS,%OVDLDS%
+													if (ksr = "ERROR")
+														{
+															ksr= 
+														}
+													if (ksr = "")
+														{
+															ACSVDEST= %RJSYSTEMS%\%OVDLDS%
+														}
+														else {
+															stringsplit,fir,ksr,|
+															ACSVDEST= %fir1%
+														}		
+													;;ACSVDEST= %RJSYSTEMS%\%OVDLDS%
 												}
 									}
 						}						
@@ -22888,7 +23310,17 @@ ifnotexist, %save%
 				goto, DWNLOADTST
 			}
 		klp= 
-		fndpath= %RJSYSTEMS%\%romsys%\%rjinsfldr%%romname%
+		iniread,ksr,SystemLocations.ini,LOCATIONS,%romsys%
+		fndpath= %ksr%\%rjinsfldr%%romname%
+		if (ksr = "ERROR")
+			{
+				ksr= 
+			}
+		if (ksr = "")
+			{
+				fndpath= %RJSYSTEMS%\%romsys%\%rjinsfldr%%romname%
+			}
+		;;fndpath= %RJSYSTEMS%\%romsys%\%rjinsfldr%%romname%
 		gosub, LkExtrExt
 		if (romshere = "X")
 			{				
@@ -30211,7 +30643,7 @@ gosub, TOGGLESEARCHBOX
 srchtog= enable
 gosub, TOGGLESEARCHBOX
 emutog= hide
-Loop, Parse, EMUTABGUIITEMS
+Loop, Parse, EMUTABGUIITEMS,|
 	{
 		guicontrol,%emutog%,%A_LoopField%
 	}
@@ -30254,7 +30686,7 @@ Loop,Parse,EMUTABGUIITEMS,|
 RAGuiVisTog:
 Loop,Parse,RAGUIMENUITEMS,|
 	{
-		guicontrol,%raoptgl%,%A_LoopFied%
+		guicontrol,%raoptgl%,%A_LoopField%
 	}
 gosub, initsearchbox
 
@@ -42556,6 +42988,11 @@ LV_Modify(0,"+Select")
 return
 ;};;;;;;;;;;
 
+CLRSYSLOC:
+gui,submit,nohide
+iniwrite,"",SystemLocations.ini,LOCATIONS,%semu%
+SB_SetText(" " semu " System Location Cleared")
+
 ;{;;;;;;;;;;;  RJ RIGHTCLICK MENUS  ;;;;;;;;;;;;;;
 
 TOGRJSEL:
@@ -44401,9 +44838,7 @@ Loop, %RJSYSTEMS%\%RJSYSDD%\*, 2
 				FileDelete,rj\%RJSYSDD%.tdb
 				break
 			}
-	}		
-
-
+	}	
 SB_SetText("...building...")
 Loop, %RJSYSTEMS%\%RJSYSDD%\*.*
 	{
@@ -44430,7 +44865,7 @@ Loop, %RJSYSTEMS%\%RJSYSDD%\*.*
 					}
 			}
 	}
-FileRead, RJSYSDD_TDB,rj\%RJSYSDD%.tdb		
+FileRead, RJSYSDD_TDB,rj\%RJSYSDD%.tdb
 return
 
 RJEMUPRECFG:
@@ -45622,65 +46057,10 @@ return
 
 ;{;;;;;;;;;;    HIDE UI ELEMENTS   ;;;;;;;;;;
 HideCoreUI:
-GuiControl, hide,COREDDLB
-GuiControl, hide,COREDDLC
-GuiControl, hide,COREDDLD
-GuiControl, hide,COREDDLE
-GuiControl, hide,COREDDLTXTA
-GuiControl, hide,COREDDLTXTB
-GuiControl, hide,COREDDLTXTC
-GuiControl, hide,COREDDLTXTD
-GuiControl, hide,CORERADA
-GuiControl, hide,CORERADB
-GuiControl, hide,CORECMBA
-GuiControl, hide,CORECMBTXTA
-GuiControl, hide,CORERADC
-GuiControl, hide,CORERADD
-GuiControl, hide,CORERADE
-GuiControl, hide,CORERADF
-GuiControl, hide,CORECHKA
-GuiControl, hide,CORECHKB
-GuiControl, hide,CORECHKC
-GuiControl, hide,COREDDLH
-GuiControl, hide,CORERADG
-GuiControl, hide,CORERADH
-GuiControl, hide,CORECHKD
-GuiControl, hide,CORECHKD
-GuiControl, hide,CORECMBB
-GuiControl, hide,CORECMBTXTB
-GuiControl, hide,CORESLDA
-GuiControl, hide,CORESLDTXTA
-GuiControl, hide,CORERADI
-GuiControl, hide,CORERADJ
-GuiControl, hide,CORERADK
-GuiControl, hide,CORERADL
-GuiControl, hide,COREDDLTXTE
-GuiControl, hide,COREDDLF
-GuiControl, hide,COREDDLG
-GuiControl, hide,COREDDLH
-GuiControl, hide,COREDDLI
-GuiControl, hide,COREDDLJ
-GuiControl, hide,COREDDLK
-GuiControl, hide,COREDDLL
-GuiControl, hide,COREDDLTXTF
-GuiControl, hide,COREDDLTXTG
-GuiControl, hide,COREDDLTXTH
-GuiControl, hide,COREDDLTXTI
-GuiControl, hide,CORECHKE
-GuiControl, hide,CORECHKF
-GuiControl, hide,CORECHKG
-GuiControl, hide,CORECHKH
-GuiControl, hide,CORECHKI
-GuiControl, hide,CORERADM
-GuiControl, hide,CORERADN
-GuiControl, hide,CORERADO
-GuiControl, hide,CORERADP
-GuiControl, hide,CORERADQ
-GuiControl, hide,CORERADR
-GuiControl, hide,CORERADS
-GuiControl, hide,CORERADT
-GuiControl, hide,CORERADU
-GuiControl, hide,CORERADV
+Loop,Parse,COREGUIITEMS,|
+	{
+		guicontrol,hide,%A_LoopField%
+	}
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -52903,57 +53283,22 @@ HOSTINGROMS=
 syslk= 
 corever= 
 HOSTINGCRCS= 
+Loop,Parse,NETHOSTGUIITEMS,|
+	{
+		guicontrol,hide,%A_LoopField%
+	}
+Loop,Parse,NETCLIENTGUIITEMS,|
+	{
+		guicontrol,show,%A_LoopField%
+	}
 guicontrolget,NETPLIST,,NETPLIST
-guicontrol,show,NETROM
-guicontrol,show,AUTOCORE
-guicontrol,show,FORCEROM
-guicontrol,show,SRCHARCORG
-guicontrol,show,AUTSYS
-
 if (NETPLIST = 1)
 	{
 		guicontrolget,NETCOREASSETS,,NETCOREASSETS
 		guicontrol,,NETCOREASSETS,|%NETCOREASSETS%||History|%plistfiles%
 	}
-guicontrol,show,NETCONNECT
 guicontrol,enable,NETCORE
 guicontrol,enable,NETHOSTLIST
-guicontrol,hide,INETHOST
-guicontrol,hide,RELYSRV
-guicontrol,show,ROOMFILTER
-guicontrol,hide,ALSLV
-guicontrol,hide,SLVONLY
-guicontrol,hide,PRVTSV
-guicontrol,show,IPA
-guicontrol,show,IPB
-guicontrol,show,IPC
-guicontrol,show,IPD
-guicontrol,show,CPORTNUM
-guicontrol,show,NETCROM
-guicontrol,hide,IPORTNUM
-guicontrol,hide,NOSTATE
-guicontrol,hide,CHECKFRAMES
-guicontrol,hide,CHKFTXT
-guicontrol,hide,CHKFRSLD
-guicontrol,hide,MINLAT
-guicontrol,hide,MINLATTXT
-guicontrol,hide,MINLATSLD
-guicontrol,hide,LATRNG
-guicontrol,hide,LATRNGTXT
-guicontrol,hide,LATRNGSLD
-guicontrol,hide,NETHROM
-guicontrol,hide,HOSTBUTTON
-guicontrol,show,PSTIP
-guicontrol,hide,HOSTIP
-guicontrol,hide,FSRVTXT
-guicontrol,hide,FILESERV
-guicontrol,hide,SERVPORT
-guicontrol,hide,GETIP
-guicontrol,hide,GETLAN
-guicontrol,hide,NETIPRAD
-guicontrol,hide,LANIPRAD
-guicontrol,hide,NETPW
-guicontrol,show,NETSPECPW
 guicontrolget,NETDWNL,,NETDWNL
 guicontrolget,NETCOREASSETS,,NETCOREASSETS
 guicontrolget,NETROMLIST,,NETROMLIST
@@ -52970,59 +53315,23 @@ HOSTINGROMS=
 syslk= 
 corever= 
 HOSTINGCRCS= 
+Loop,Parse,NETCLIENTGUIITEMS,|
+	{
+		guicontrol,hide,%A_Loopfield%
+	}
+Loop,Parse,NETHOSTGUIITEMS,|
+	{
+		guicontrol,show,%A_LoopField%
+	}
 guicontrolget,NETPLIST,,NETPLIST
-guicontrol,hide,NETROM
-guicontrol,hide,AUTOCORE
-guicontrol,hide,ROOMFILTER
-guicontrol,hide,FORCEROM
-guicontrol,hide,SRCHARCORG
-guicontrol,hide,AUTSYS
-guicontrol,hide,RETROM
 guicontrol,,NETHINFO
 guicontrol,,ARCDET
 if (NETPLIST = 1)
 	{
 		guicontrol,,NETCOREASSETS,|All_Playlists||%plistfiles%
 	}
-guicontrol,hide,NETCONNECT
-
-
 guicontrol,enable,NETCORE
 guicontrol,disable,NETHOSTLIST
-guicontrol,show,INETHOST
-guicontrol,show,RELYSRV
-guicontrol,show,ALSLV
-guicontrol,show,SLVONLY
-guicontrol,show,PRVTSV
-guicontrol,hide,IPA
-guicontrol,hide,IPB
-guicontrol,hide,IPC
-guicontrol,hide,IPD
-guicontrol,hide,NETCROM
-guicontrol,show,IPORTNUM
-guicontrol,hide,CPORTNUM
-guicontrol,show,NOSTATE
-guicontrol,show,CHECKFRAMES
-guicontrol,show,CHKFTXT
-guicontrol,show,CHKFRSLD
-guicontrol,show,MINLAT
-guicontrol,show,MINLATTXT
-guicontrol,show,MINLATSLD
-guicontrol,show,LATRNG
-guicontrol,show,LATRNGTXT
-guicontrol,show,LATRNGSLD
-guicontrol,show,NETHROM
-guicontrol,show,HOSTBUTTON
-guicontrol,hide,PSTIP
-guicontrol,show,HOSTIP
-guicontrol,show,FSRVTXT
-guicontrol,show,FILESERV
-guicontrol,show,SERVPORT
-guicontrol,show,GETIP
-guicontrol,show,NETIPRAD
-guicontrol,show,LANIPRAD
-guicontrol,show,NETPW
-guicontrol,hide,NETSPECPW
 guicontrolget,NETDWNL,,NETDWNL
 guicontrol,enable,NETCOREASSETS
 guicontrolget,NETCOREASSETS,,NETCOREASSETS
@@ -55407,61 +55716,17 @@ return
 ;{;;;;;;;;;    RA KB/Joy Display Toggle    ;;;;;;;;;;;;;;;;;;
 
 HideInpBut:
-guicontrol, hide, LTRIGIN
-guicontrol, hide, LBUMPIN
-guicontrol, hide, RTRIGIN
-guicontrol, hide, RBUMPIN
-guicontrol, hide, LSTICKUPIN
-guicontrol, hide, LSTICKLFTIN
-guicontrol, hide, LSTICKRTIN
-guicontrol, hide, LSTICKDWNIN
-guicontrol, hide, LSTICKBUTIN
-guicontrol, hide, RSTICKUPIN
-guicontrol, hide, RSTICKLFTIN
-guicontrol, hide, RSTICKRTIN
-guicontrol, hide, RSTICKDWNIN
-guicontrol, hide, RSTICKBUTIN
-guicontrol, hide, DPADDWNIN
-guicontrol, hide, DPADUPIN
-guicontrol, hide, DPADLFTIN
-guicontrol, hide, DPADRTIN
-guicontrol, hide, SLCTBUTIN
-guicontrol, hide, STRTBUTIN
-guicontrol, hide, YBUTIN
-guicontrol, hide, XBUTIN
-guicontrol, hide, BBUTIN
-guicontrol, hide, ABUTIN
-guicontrol, hide, INPBUTIN
-guicontrol, hide, TURBOIN
+Loop,Parse,RAJOYINBUTITEMS,|
+	{
+		guicontrol,hide,%A_LoopField%
+	}
 return
 
 ShowInpBut:
-guicontrol, Show, LTRIGIN
-guicontrol, Show, LBUMPIN
-guicontrol, Show, RTRIGIN
-guicontrol, Show, RBUMPIN
-guicontrol, Show, LSTICKUPIN
-guicontrol, Show, LSTICKLFTIN
-guicontrol, Show, LSTICKRTIN
-guicontrol, Show, LSTICKDWNIN
-guicontrol, Show, LSTICKBUTIN
-guicontrol, Show, RSTICKUPIN
-guicontrol, Show, RSTICKLFTIN
-guicontrol, Show, RSTICKRTIN
-guicontrol, Show, RSTICKDWNIN
-guicontrol, Show, RSTICKBUTIN
-guicontrol, Show, DPADDWNIN
-guicontrol, Show, DPADUPIN
-guicontrol, Show, DPADLFTIN
-guicontrol, Show, DPADRTIN
-guicontrol, Show, SLCTBUTIN
-guicontrol, Show, STRTBUTIN
-guicontrol, Show, YBUTIN
-guicontrol, Show, XBUTIN
-guicontrol, Show, BBUTIN
-guicontrol, Show, ABUTIN
-guicontrol, Show, INPBUTIN
-guicontrol, Show, TURBOIN
+Loop,Parse,RAJOYINBUTITEMS,|
+	{
+		guicontrol,show,%A_LoopField%
+	}
 return
 
 
@@ -56777,47 +57042,6 @@ if (RJMEDNM = "")
 	{
 		RJMEDNM= psx
 	}
-/*
-guicontrol,hide,emjAGRP
-guicontrol,hide,emjRAD1A
-guicontrol,hide,emjRAD1B
-guicontrol,hide,emjRAD1C
-guicontrol,hide,emjRAD2C
-guicontrol,hide,emjRAD1D
-guicontrol,hide,emjIGRP
-guicontrol,hide,emjBGRP
-guicontrol,hide,JCFGEDT
-guicontrol,hide,emjTRBCMB
-guicontrol,hide,emjTURBOIN
-guicontrol,hide,SAVEJOY
-guicontrol,hide,emjTURBOIN
-guicontrol,hide,emjOTXT
-guicontrol,hide,emjTTXT
-guicontrol,hide,emjYTXT
-guicontrol,hide,emjXTXT
-guicontrol,hide,emjZTXT
-guicontrol,hide,MINXTXT
-guicontrol,hide,emjEDTB
-guicontrol,hide,emjUDB
-guicontrol,hide,emjEDTA
-guicontrol,hide,emjUDA
-guicontrol,hide,emjCHKE
-guicontrol,hide,emjCHKG
-guicontrol,hide,emjCHKH
-guicontrol,hide,emjCHKD
-guicontrol,hide,emjCHKC
-guicontrol,hide,emjCHKB
-guicontrol,hide,emjCHKA
-guicontrol,hide,emjCHKF
-guicontrol,hide,emjCHKH
-guicontrol,hide,emjDDLE
-guicontrol,hide,emjRAD2A
-guicontrol,hide,emjRAD2B
-guicontrol,hide,emjOTXT
-guicontrol,hide,emjNTXT
-guicontrol,hide,emjRTXT
-guicontrol,hide,emjTTXT
-*/	
 medjoycreated:
 loadedjoy= mednafen
 mednjbuts= 
@@ -58547,114 +58771,15 @@ if (JSW= 1)
 
 PLYRCLRD:
 ;{;;;;;;;;;;;;;;;;;;;;;;      Joystick Init Values    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-JRXMinus= nul
-JLXMinus= nul
-Jr= nul
-Jl= nul
-JRXPlus= nul
-JLYPlus= nul
-JRYMinus= nul
-JR3= nul
-JL3= nul
-JLYMinus= nul
-Jselect= nul
-Jstart= nul
-Jup= nul
-Jleft= nul
-Jright= nul
-Jdown= nul
-Jy= nul
-Jx= nul
-Jb= nul
-Ja= nul
-JLXPlus= nul
-Jl2= nul
-JRYPlus= nul
-Jr2= nul
+Loop,Parse,joyitervars,|
+	{
+		J%A_LoopField%= nul
+		KBX%A_LoopField%= nul
+		KBY%A_LoopField%= nul
+		KBZ%A_LoopField%= nul
+	}
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;{;;;;;;;;;;;;;;;;;;;;;;      KB1 init Values     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-KBXRXMinus= nul
-KBXR= nul
-KBXL= nul
-KBXRXPlus= nul
-KBXLYPlus= nul
-KBXRYMinus= nul
-KBXLYMinus= nul
-KBXLXMinus= nul
-KBXselect= nul
-KBXstart= nul
-KBXup= nul
-KBXleft= nul
-KBXright= nul
-KBXdown= nul
-KBXY= nul
-KBXX= nul
-KBXB= nul
-KBXA= nul
-KBXLXPlus= nul
-KBXL2= nul
-KBXRYPlus= nul
-KBXR2= nul
-KBXR3= nul
-KBXL3= nul
-
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;{;;;;;;;;;;;;;;;;;;;;;;      KB2 init Values     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-KBYRXMinus= nul
-KBYLXMinus= nul
-KBYR= nul
-KBYL= nul
-KBYRXPlus= nul
-KBYLYPlus= nul
-KBYRYMinus= nul
-KBYLYMinus= nul
-KBYselect= nul
-KBYstart= nul
-KBYup= nul
-KBYleft= nul
-KBYright= nul
-KBYdown= nul
-KBYY= nul
-KBYX= nul
-KBYB= nul
-KBYA= nul
-KBYLXPlus= nul
-KBYL2= nul
-KBYRYPlus= nul
-KBYR2= nul
-KBYR3= nul
-KBYL3= nul
-
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;{;;;;;;;;;;;;;;;;;;;;;;      KBZ init Values     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-KBZRXMinus= nul
-KBZLXMinus= nul
-KBZR= nul
-KBZL= nul
-KBZRXPlus= nul
-KBZLYPlus= nul
-KBZRYMinus= nul
-KBZLYMinus= nul
-KBZselect= nul
-KBZstart= nul
-KBZup= nul
-KBZleft= nul
-KBZright= nul
-KBZdown= nul
-KBZY= nul
-KBZX= nul
-KBZB= nul
-KBZA= nul
-KBZLXPlus= nul
-KBZR2= nul
-KBZRYPlus= nul
-KBZR2= nul
-KBZR3= nul
-KBZL3= nul
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 goto, KBJInitd
 
 ResetPlayerJoy:
@@ -65517,6 +65642,7 @@ if (romf = ".........indexing............")
 cursli= 
 lnumfnd= 
 numfnd= 
+finumj= 
 optnt= 1
 opcnt=
 APLN= 1
@@ -65524,8 +65650,14 @@ newPlF=
 stringtrimright,TRPTYP,OPTYP,4
 if (RUNPLRAD = 1)
 	{
+		selectedplaylist= %playlistLoc%\%OPTYP%
 		if (OPTYP = "History")
 			{
+				if (OPTYP = "History")
+					{
+						selectedplaylist= %historyloc%
+					}
+				/*
 				curline= 0
 				guicontrolget,HISROM,, RUNROMCBX
 				Loop, Read, %historyLoc%
@@ -65547,10 +65679,11 @@ if (RUNPLRAD = 1)
 								break
 							}	
 					}
+				*/	
 			}
 		ifinstring,OPTYP,.lpl
 			{
-				Loop, Read, %playlistLoc%\%OPTYP%
+				Loop, Read, %selectedplaylist%
 					{				
 						ttnf1= 
 						ttnf2= 
@@ -65565,6 +65698,7 @@ if (RUNPLRAD = 1)
 								if (ERRORLEVEL = 1)
 									{
 										lnumfnd:= A_Index+2
+										finumj:= A_Index+3
 										stringtrimright,ttnf,ttnf,1
 										stringreplace,ttnf,ttnf,\\,\,All
 										stringreplace,ttnf,ttnf,",,All
@@ -65577,14 +65711,23 @@ if (RUNPLRAD = 1)
 											else {
 													romf= %ttnf%
 											}
-										filereadline,coreselz,%playlistLoc%\%OPTYP%,%lnumfnd%	
+										filereadline,coreselz,%selectedplaylist%,%lnumfnd%	
 										Stringreplace,coreselz,coreselz,"core_path":%A_Space%,,UseErrorLevel
 										stringtrimright,coreselz,coreselz,1
 										stringreplace,coreselz,coreselz,\\,\,All
 										stringreplace,coreselz,coreselz,",,All
 										;"
-										splitpath,coreselz,coreselk
+										splitpath,coreselz,coreselk,corextnt
 										coreselv= %coreselk%
+										if (corextnt = "exe")
+											{
+												filereadline,coreselz,%selectedplaylist%,%finumj%	
+												Stringreplace,coreselz,coreselz,"core_name":%A_Space%,,UseErrorLevel
+												stringtrimright,coreselz,coreselz,1
+												stringreplace,coreselz,coreselz,",,All
+												;"
+												coreselv= %coreselz%
+											}
 										if (coreselv <> "DETECT")
 											{
 												guicontrol,,LCORE,|%coreselv%||%runlist%
@@ -65862,6 +66005,7 @@ FileAppend, AutoLoad_PerGameSettings = "1"`n, Settings.ini
 FileAppend, Launcher_Priority = "1"`n, Settings.ini
 FileAppend, version = "%VERSION%"`n, Settings.ini
 FileAppend, global_filter = "1"`n, Settings.ini
+FileAppend, history_append = "1"`n, Settings.ini
 
 filedelete, apps.ini
 FileAppend, [EMULATORS]`n, apps.ini
@@ -66441,7 +66585,16 @@ guicontrol, Enable, LNCHBUT
 guicontrol, Enable, RCLLNCH
 guicontrol, Enable, CNCTBUT
 guicontrol, Enable, HostButton
-	
+if (HISAPND = 1)
+	{
+		hisapl= %pspxe%{`n%pspce%"path": "%RUNROM%"`,`n%pspce%"label": "%ROMNAME%"`,`n%pspce%"core_path": "%OvrExtAs%"`,`n%pspce%"core_name": "%coreselv%"`,`n%pspce%"crc32": ""`,`n%pspce%"db_name": ""`,`n%pspxe%}`n%A_Space%%A_Space%]`n
+		stringreplace,hisapl,hisapl,\,\\,All
+		hiscnt:=TF_CountLines(TF(historyloc))
+		replinea:= hiscnt - 3
+		replineb:= hiscnt - 2
+		TF_replaceline("!"historyloc,replinea,replinea,"" pspxe "}," "")
+		TF_replaceline("!"historyloc,replineb,replineb,hisapl)
+	}
 if (DDRUN = "")
 	{
 		return
@@ -67056,7 +67209,7 @@ if historyloctmp = "ERROR")
 		guicontrol,,histtxt,%A_WorkingDir%\content_history.lpl
 		ifnotexist, %historyloc%
 			{
-				FileAppend,,%historyloc%
+				FileAppend,{%pspce%"version": "1.0"`,`n%pspce%"items": [`n%pspxe%{`n%pspxe%}`n%A_Space%%A_Space%]`n}`n,%historyloc%
 			}
 		iniwrite, "%A_WorkingDir%\content_history.lpl",Settings.ini,GLOBAL,history_location
 		return
@@ -67919,16 +68072,33 @@ return
 resetCoreAssets:
 dwnlfldrs=
 systmfldrs=
+
 Loop, %RJSYSTEMS%\*,2
 	{
 		if A_LoopFileAttrib contains H
 			{
 				continue
 			}
-		dwnlfldrs .= A_LoopFileName . "|"
-		systmfldrs .= A_LoopFileName . "|"
+		rjsystmfldrs .= A_LoopFileName . "|"
 	}
-guicontrol,,RJSYDD,|Systems||%systmfldrs%
+IniRead,suitar,SystemLocations.ini,LOCATIONS
+Loop,parse,suitar,`n`r
+	{
+		if (A_LOopField = "")
+			{
+				continue
+			}
+		stringsplit,aip,A_LOopField,=,""
+		if (aip2 <> "")
+			{				
+				ifnotinstring,systmfldrs,%aip1%|
+					{
+						dwnlfldrs .= aip1 . "|"
+						systmfldrs .= aip1 . "|"
+					}
+			}
+	}
+guicontrol,,RJSYDD,|Systems||%rjsystmfldrs%
 guicontrol,,RUNSYSDDL,|:=:System List:=:||%systmfldrs%
 guicontrol,,SRCHLOCDDL,|:=:System List:=:||%systmfldrs%	
 guicontrol,,ESDWNLPOS,|%systmfldrs%
