@@ -2448,7 +2448,9 @@ FileInstall,rj\emucfgs\smb80te\smb80te.ini.set,rj\emucfgs\smb80te\smb80te.ini.se
 FileInstall,rj\emucfgs\smc70\smc70.ini.set,rj\emucfgs\smc70\smc70.ini.set,1
 FileInstall,rj\emucfgs\smc777\smc777.ini.set,rj\emucfgs\smc777\smc777.ini.set,1
 FileInstall,rj\emucfgs\snes9x\snes9x.conf.ret,rj\emucfgs\snes9x\snes9x.conf.ret,1
+FileInstall,rj\emucfgs\snes9x\snes9xkb.get,rj\emucfgs\snes9x\snes9xkb.get,1
 FileInstall,rj\emucfgs\snes9x\snes9x_defaults.set,rj\emucfgs\snes9x\snes9x_defaults.set,1
+FileInstall,rj\emucfgs\snes9x\xinput.default.get,rj\emucfgs\snes9x\xinput.default.get,1
 FileInstall,rj\emucfgs\snesGT\SNESGT.ini.ret,rj\emucfgs\snesGT\SNESGT.ini.ret,1
 FileInstall,rj\emucfgs\sorcerer\default.ini.set,rj\emucfgs\sorcerer\default.ini.set,1
 FileInstall,rj\emucfgs\sorcerer\WSORCER.ini.set,rj\emucfgs\sorcerer\WSORCER.ini.set,1

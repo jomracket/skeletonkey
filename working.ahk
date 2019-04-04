@@ -746,6 +746,8 @@ medswaps= medswapB|medswapA|medswapX|medswapY|medswapStart|medswapSelect|medswap
 
 mameswaps= mameswapB|mameswapA|mameswapX|mameswapY|mameswapStart|mameswapSelect|mameswapDown|mameswapUp|mameswapLeft|mameswapRight|mameswapL|mameswapR|mameswapL2|mameswapR2|mameswapR3|mameswapL3|mameswapLXMinus|mameswapRXMinus|mameswapRXPlus|mameswapLXPlus|mameswapLYPlus|mameswapLYMinus|mameswapRYPlus|mameswapRYMinus|mameswapHome|mameSwapATXT|mameSwapBTXT|mameSwapCTXT|mameSwapDTXT|mameSwapETXT|mameSwapFTXT|mameSwapGTXT|mameSwapHTXT|mameSwapITXT|mameSwapJTXT|mameSwapLTXT|mameSwapMTXT|mameSwapCGRP|mameSwapDGRP|mameSwapEGRP
 
+snes9xswaps= snes9xswapB|snes9xswapA|snes9xswapX|snes9xswapY|snes9xswapStart|snes9xswapSelect|snes9xswapDown|snes9xswapUp|snes9xswapLeft|snes9xswapRight|snes9xswapL|snes9xswapR|snes9xswapL2|snes9xswapR2|snes9xswapR3|snes9xswapL3|snes9xswapLXMinus|snes9xswapRXMinus|snes9xswapRXPlus|snes9xswapLXPlus|snes9xswapLYPlus|snes9xswapLYMinus|snes9xswapRYPlus|snes9xswapRYMinus|snes9xswapHome|snes9xSwapATXT|snes9xSwapBTXT|snes9xSwapCTXT|snes9xSwapDTXT|snes9xSwapETXT|snes9xSwapFTXT|snes9xSwapGTXT|snes9xSwapHTXT|snes9xSwapITXT|snes9xSwapJTXT|snes9xSwapLTXT|snes9xSwapMTXT|snes9xSwapCGRP|snes9xSwapDGRP|snes9xSwapEGRP
+
 metaimages= 3DBoxart|Marquee|4Mix|3Mix|Label|Cart|Backdrop|BoxArt|Logo|Video|Metadata|Snapshot
 
 viditerate= video_driver|video_black_frame_insertion|video_disable_composition|video_swap_interval|video_threaded|video_allow_rotate|video_aspect_ratio_auto|video_aspect_ratio|video_force_aspect|video_frame_delay|video_crop_overscan|video_fullscreen_x|video_fullscreen_y|video_fullscreen|current_resolution_id|custom_viewport_height|custom_viewport_width|custom_viewport_x|custom_viewport_y|video_monitor_index|video_rotation|video_scale_integer|video_scale|video_windowed_fullscreen|video_vsync|video_hard_sync_frames|video_hard_sync|video_max_swapchain_images|video_shader_enable|video_shared_context|video_smooth|video_max_swapchain_images|video_refresh_rate|fastforward_ratio
@@ -792,7 +794,7 @@ KBSET=a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|1|2|3|4|5|6|7|8|9|0|mi
 mednafsc= advance_frame|exit|fast_forward|insert_coin|insert_eject_disk|load_movie|load_state|power|reset|rotate_screen|run_normal|save_movie|save_state|select_disk|slow_forward|state_rewind|state_slot_dec|state_slot_inc|take_scaled_snapshot|take_snapshot|toggle_fps_view|toggle_fs|toggle_grab|toggle_state_rewind|togglecheatactive|togglecheatview|togglenetview
 mamescs= UI_ON_SCREEN_DISPLAY|UI_DEBUG_BREAK|UI_CONFIGURE|UI_PAUSE|UI_PAUSE_SINGLE|UI_SHOW_GFX|UI_FRAMESKIP_DEC|UI_FRAMESKIP_INC|UI_THROTTLE|UI_FAST_FORWARD|UI_REWIND_SINGLE|UI_RESET_MACHINE|TOGGLE_FULLSCREEN|UI_SOFT_RESET|UI_SHOW_FPS|UI_SNAPSHOT|UI_ROTATE|UI_TIMECODE|UI_RECORD_MNG|UI_RECORD_AVI|UI_SHOW_PROFILER|UI_PASTE|UI_TOGGLE_DEBUG|UI_SAVE_STATE|UI_LOAD_STATE|UITAPE_START|UI_TAPE_STOP|RENDER_SNAP|RENDER_AVI|POST_PROCESS
 
-supgui= mednafen|mame|flashplayer|retroarch
+supgui= mednafen|mame|retroarch|snes9x
 
 JSTSET= %JOYSET%
 RJSYSDN= Systems
@@ -864,9 +866,9 @@ cRegionW = 263
 cRegionH = 94
 
 dRegionX = 285
-dRegionY = 304
+dRegionY = 234
 dRegionW = 171
-dRegionH = 73
+dRegionH = 123
 
 eRegionX = 286
 eRegionY = 118
@@ -1616,6 +1618,8 @@ Menu, FERCLMENU, Add, Remove Selection, REMFESEL
 
 Menu, CLRROMLST, Add, Clear Assignments, CLRSYSLOC
 
+Menu, RMVSYSLST, Add, Remove Path, RMVFSYS
+
 Menu, RJRCLMENU, Add, Toggle Selection, TOGRJSEL
 
 Menu, RJRCLMENU, Add, Add Selection, ADDRJSEL
@@ -2244,10 +2248,10 @@ Gui, Add, Button, x408 y55 w51 h18 vCHEMUINST gChEmuInst, Browse
 Gui, Add, Text, x288 y58 h13 Center vEINSTTXT, Change Install Location
 Gui, Add, Edit, x286 y118 w171 h51 +ReadOnly vEINSTLOC,
 
-Gui, Add, Button, x382 y277 w75 h23 vROMDLOC gRomDLoc, ADD
-Gui, Add, Button, x382 y277 w75 h23 vMROMDLOC gMRomDLoc hidden, MULTI-SET
-Gui, Add, Text, x288 y282 h17 vROMDTXT, Set ROM Directory
-Gui, Add, Edit, x285 y304 w171 h53 vROMDEDT Multi ReadOnly,
+Gui, Add, Button, x382 y207 w75 h23 vROMDLOC gRomDLoc, ADD
+Gui, Add, Button, x382 y207 w75 h23 vMROMDLOC gMRomDLoc hidden, MULTI-SET
+Gui, Add, Text, x288 y212 h17 vROMDTXT,-=>ROM Directories
+Gui, Add, ListBox, x285 y234 w171 h123 vROMDEDT Multi +HScroll,
 
 ;;;;;;;;;;;;;;;;;;;;  RETROARCH UI  ;;;;;;;;;;;;;;;;;
 Gui, Add, Button, x473 y57 w43 h23 vSKRAEXE gRAEXEP hidden, SET
@@ -4917,6 +4921,11 @@ If A_GuiControlEvent RightClick
 			Menu, CLRROMLST, Show, %A_GuiX% %A_GuiY%
 			return
 		}
+	if A_GuiControl = ROMDEDT
+		{
+			Menu, RMVSYSLST, Show, %A_GuiX% %A_GuiY%
+			return
+		}
 	if A_GuiControl = UTLLVA
 		{
 			if (SelectedRow <> 0)
@@ -6936,28 +6945,28 @@ if ( (A_GuiX >= dRegionX) && (A_GuiX <= dRegionX+dRegionW) && (A_GuiY >= dRegion
 					{
 						return
 					}
+				if (semu = "")
+					{
+						SB_SetText(" Select a System First")
+						return
+					}
+				stringreplace,semrn,semu,|,`n,All
+				MsgBox,3,MultiLinkDrop,This will Link the following folders to:%semrn%`n"%A_GuiEvent%"`n
+				ifMsgBox, No
+					{
+						SB_SetText(" Cancelled ")
+						return
+					}
+				ifMsgBox, Cancel
+					{
+						SB_SetText(" Cancelled ")
+						return
+					}
 				Loop,Parse,A_GuiEvent,`n
 					{
 						sysapn= %A_LoopField%
 						if IsFolder(sysapn)
 							{
-								stringreplace,semrn,semu,|,`n,All
-								if (semu = "")
-									{
-										SB_SetText(" Select a System First")
-										return
-									}
-								MsgBox,3,MultiLinkDrop,This will Link the following folders to:`n       "%sysapn%"`n%semrn%
-								ifMsgBox, No
-									{
-										SB_SetText(" Cancelled ")
-										return
-									}
-								ifMsgBox, Cancel
-									{
-										SB_SetText(" Cancelled ")
-										return
-									}
 								ROMDFLDR= %sysapn%
 								gosub, MULTI_LINKLOOP
 							}
@@ -13040,16 +13049,8 @@ guicontrol,enable,EMBUTH
 guicontrol,enable,DSKMNTCHK
 gosub, EMRAD11B
 iniread,kfr,SystemLocations.ini,LOCATIONS,%semu%
-kfrt= 
-Loop,Parse,kfr,|
-	{
-		if (A_LoopField = "")
-			{
-				continue
-			}
-		kfrt.= A_LoopField . "`n"
-	}
-guicontrol,,ROMDEDT,%kfrt%
+
+guicontrol,,ROMDEDT,|%kfr%
 /*	
 ifexist, %RJSYSTEMS%\%semu%
 	{
@@ -14999,8 +15000,7 @@ ifinstring,kiv,%ROMDFLDR%|
 		return
 	}
 iniWrite,"%ROMDFLDR%|%kiv%",SystemLocations.ini,LOCATIONS,%semu%
-stringreplace,kivt,kiv,|,`n,All
-guicontrol,,ROMDEDT,%ROMDFLDR%`n%kivt%
+guicontrol,,ROMDEDT,|%ROMDFLDR%|%kiv%
 gosub, resetCoreAssets
 return
 
@@ -15071,7 +15071,7 @@ ifexist, dxt.ini
 		stringreplace,junct,dxtini,%semu%,,
 		StringSplit,junctv,junct,[, ] `"
 		;"
-		guicontrol,,ROMDEDT,%junctv2%
+		guicontrol,,ROMDEDT,|%junctv2%
 		JNKLNK= 1
 	}
 return
@@ -27548,9 +27548,6 @@ return
 sharpchip8_GUI:
 gosub, initEmuOpts
 return
-snes9x_GUI:
-gosub, initEmuOpts
-return
 softvms_GUI:
 gosub, initEmuOpts
 return
@@ -29875,50 +29872,6 @@ Loop, parse, MAMEGUIITEMS,|
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-LoadMameIniVal:
-;{;;;;;;;;;;;;  Load Mame Ini values ;;;;;;;;;;;;;;;
-Loop,20
-	{
-		stringreplace,mameopts,mameopts,%A_Space%%A_Space%,%A_Space%,All
-	}
-Loop,Parse,mameopts,`n`r
-	{
-		if (A_LoopField = "")
-			{
-				continue
-			}
-		stringleft,va,A_LoopField,1
-		if (va = "#")
-			{
-				continue
-			}
-		nmv1=	
-		nmv2=	
-		nmv3=	
-		nmv4=	
-		nmv5=	
-		nmv6=	
-		stringsplit,nmv,A_LoopField,%A_Space%
-		Loop,%nmv0%
-			{
-				if (A_index = 1)
-					{
-						MAME_%nmv1%= 
-						continue
-					}
-				MAME_%nmv1%.= nmv%A_Index%
-			}
-			
-	}
-emutog= enable
-Loop, parse, MAMEGUIITEMS,|
-	{
-		guicontrol,%emutog%,%A_LoopField%
-	}
-;;gosub, EmuGuiVisTog
-return
-;};;;;;;;;;;;;;;;;;;;;;;;;;
-
 
 ;{;;;;;;;;;;;;;  MAME BUTTON FUNCTIONS  ;;;;;;;;;;;;;;;;;;
 MameCTRLS:
@@ -30565,6 +30518,11 @@ return
 
 MAMEGUITOG:
 ;{;;;;;;;;;;;;  MAME SHOW HIDE GUI  ;;;;;;;;;;;;;;;
+Loop,Parse,MAMEGUIITEMS,|
+	{
+		guicontrol,%fndtog%,%A_LoopField%
+	}
+/*
 guicontrol, %fndtog%, emuBUTA
 guicontrol, %fndtog%, emuBUTB
 guicontrol, %fndtog%, emuBUTJ
@@ -30618,6 +30576,7 @@ guicontrol, %fndtog%, emuTXTJ
 guicontrol, %fndtog%, emuTXTL
 guicontrol, %fndtog%, emuTXTM
 guicontrol, %fndtog%, emuTXTO
+*/
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -42994,11 +42953,54 @@ LV_Modify(0,"+Select")
 return
 ;};;;;;;;;;;
 
+RMVFSYS:
+gui,submit,nohide
+guicontrolget,ROMDEDS,,ROMDEDT
+iniread,sijn,SystemLocations.ini,LOCATIONS,%semu%
+Loop,Parse,ROMDEDS,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		cursyrmv= %A_LoopField%	
+		Loop,parse,sijn,|
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				if (A_LoopField = cursyrmv)
+					{
+						stringreplace,sijn,sijn,%A_LoopField%|,,All
+					}
+			}
+	}
+if (sijn = "")
+	{
+		ifexist,%RJSYSTEMS%\%semu%\
+			{
+				iniwrite,"%RJSYSTEMS%\%semu%|",SystemLocations.ini,LOCATIONS,%semu%
+				guicontrol,,ROMDEDT,|%RJSYSTEMS%\%semu%
+				return
+			}
+	}
+iniwrite,"%sijn%",SystemLocations.ini,LOCATIONS,%semu%	
+guicontrol,,ROMDEDT,|%sijn%
+return	
+
 CLRSYSLOC:
 gui,submit,nohide
 iniwrite,"",SystemLocations.ini,LOCATIONS,%semu%
-SB_SetText(" " semu " System Location Cleared")
-guicontrol,,ROMDEDT,
+SB_SetText(" " semu " System Locations Cleared")
+ifexist,%RJSYSTEMS%\%semu%\
+	{
+		iniwrite,"%RJSYSTEMS%\%semu%|",SystemLocations.ini,LOCATIONS,%semu%
+		guicontrol,,ROMDEDT,|%RJSYSTEMS%\%semu%
+		return
+	}
+guicontrol,,ROMDEDT,|
+return
 ;{;;;;;;;;;;;  RJ RIGHTCLICK MENUS  ;;;;;;;;;;;;;;
 
 TOGRJSEL:
@@ -46116,7 +46118,7 @@ return
 ResetCoreOptions:
 gui, submit, nohide
 guicontrolget,currstcore,,COREDDLA
-gosub, %coreconc1%%coreconc2%%coreconc3%%coreconc4%RESET
+gosub, core_%coreconc1%%coreconc2%%coreconc3%%coreconc4%RESET
 guicontrol, ,COREDDLA,|Select_A_Core|%currstcore%||%corelist%
 return
 
@@ -47415,10 +47417,7 @@ guicontrol,hide,PICINV
 gosub, GetOptVars
 guicontrolget,ccav, ,COREDDLA
 stringreplace, ccv, ccav,_libretro.dll, ,All
-ifinstring,ccv,mame
-	{
-		ccv= mamecore
-	}
+
 coreconc1= 
 coreconc2= 
 coreconc3= 
@@ -47434,199 +47433,200 @@ if (optline <> "[OPTIONS]")
 	{
 		gosub, WriteCORETop
 	}
-gosub, %ccv%DDLA
+gosub, core_%ccv%DDLA
 return
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 CoreDDLB:
-gosub, %ccv%DDLB
+gosub, core_%ccv%DDLB
 return
 CoreDDLC:
-gosub, %ccv%DDLC
+gosub, core_%ccv%DDLC
 return
 CoreDDLD:
-gosub, %ccv%DDLD
+gosub, core_%ccv%DDLD
 return
 CoreDDLE:
-gosub, %ccv%DDLE
+gosub, core_%ccv%DDLE
 return
 CoreDDLF:
-gosub, %ccv%DDLF
+gosub, core_%ccv%DDLF
 return
 CoreDDLG:
-gosub, %ccv%DDLG
+gosub, core_%ccv%DDLG
 return
 CoreDDLH:
-gosub, %ccv%DDLH
+gosub, core_%ccv%DDLH
 return
 CoreDDLI:
-gosub, %ccv%DDLI
+gosub, core_%ccv%DDLI
 return
 CoreDDLJ:
-gosub, %ccv%DDLJ
+gosub, core_%ccv%DDLJ
 return
 CoreDDLK:
-gosub, %ccv%DDLK
+gosub, core_%ccv%DDLK
 return
 CoreDDLL:
-gosub, %ccv%DDLL
+gosub, core_%ccv%DDLL
 return
 CoreRadA:
-gosub, %ccv%RadA
+gosub, core_%ccv%RadA
 return
 CoreRadB:
-gosub, %ccv%RadB
+gosub, core_%ccv%RadB
 return
 CoreCMBA:
-gosub, %ccv%CMBA
+gosub, core_%ccv%CMBA
 return
 CoreRadC:
-gosub, %ccv%RadC
+gosub, core_%ccv%RadC
 return
 CoreRadD:
-gosub, %ccv%RadD
+gosub, core_%ccv%RadD
 return
 CoreRadE:
-gosub, %ccv%RadE
+gosub, core_%ccv%RadE
 return
 CoreRadF:
-gosub, %ccv%RadF
+gosub, core_%ccv%RadF
 return
 CoreCHKA:
-gosub, %ccv%CHKA
+gosub, core_%ccv%CHKA
 return
 CoreCHKB:
-gosub, %ccv%CHKB
+gosub, core_%ccv%CHKB
 return
 CoreCHKC:
-gosub, %ccv%CHKC
+gosub, core_%ccv%CHKC
 return
 CoreRadG:
-gosub, %ccv%RadG
+gosub, core_%ccv%RadG
 return
 CoreRadH:
-gosub, %ccv%RadH
+gosub, core_%ccv%RadH
 return
 CoreCHKD:
-gosub, %ccv%CHKD
+gosub, core_%ccv%CHKD
 return
 CoreCHKE:
-gosub, %ccv%CHKE
+gosub, core_%ccv%CHKE
 return
 CoreCMBB:
-gosub, %ccv%CMBB
+gosub, core_%ccv%CMBB
 return
 CoreSLDA:
-gosub, %ccv%SLDA
+gosub, core_%ccv%SLDA
 return
 CoreRadI:
-gosub, %ccv%RadI
+gosub, core_%ccv%RadI
 return
 CoreRadJ:
-gosub, %ccv%RadJ
+gosub, core_%ccv%RadJ
 return
 CoreRadK:
-gosub, %ccv%RadK
+gosub, core_%ccv%RadK
 return
 CoreRadL:
-gosub, %ccv%RadL
+gosub, core_%ccv%RadL
 return
 CoreCHKF:
-gosub, %ccv%CHKF
+gosub, core_%ccv%CHKF
 return
 CoreCHKG:
-gosub, %ccv%CHKG
+gosub, core_%ccv%CHKG
 return
 CoreCHKH:
-gosub, %ccv%CHKH
+gosub, core_%ccv%CHKH
 return
 CoreCHKI:
-gosub, %ccv%CHKI
+gosub, core_%ccv%CHKI
 return
 CoreRadM:
-gosub, %ccv%RadM
+gosub, core_%ccv%RadM
 return
 CoreRadN:
-gosub, %ccv%RadN
+gosub, core_%ccv%RadN
 return
 CoreRadO:
-gosub, %ccv%RadO
+gosub, core_%ccv%RadO
 return
 CoreRadP:
-gosub, %ccv%RadP
+gosub, core_%ccv%RadP
 return
 CoreRadQ:
-gosub, %ccv%RadQ
+gosub, core_%ccv%RadQ
 return
 CoreRadR:
-gosub, %ccv%RadR
+gosub, core_%ccv%RadR
 return
 CoreRadS:
-gosub, %ccv%RadS
+gosub, core_%ccv%RadS
 return
 CoreRadT:
-gosub, %ccv%RadT
+gosub, core_%ccv%RadT
 return
 CoreRadU:
-gosub, %ccv%RadU
+gosub, core_%ccv%RadU
 return
 CoreRadV:
-gosub, %ccv%RadV
+gosub, core_%ccv%RadV
 return
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Select_a_CoreDDLA:
-2048DDLA:
-3dengineDDLA:
-craftDDLA:
-thepowdertoyDDLA:
-cannonballDDLA:
-reminiscenceDDLA:
-vemulatorDDLA:
-openlaraDDLA:
-theodoreDDLA:
-nekop2DDLA:
-tryquakeDDLA:
-np2kaiDDLA:
-chailoveDDLA:
-dolphin_launcherDDLA:
-dolphinDDLA:
-gearboyDDLA:
-vice_xvicDDLA:
-vice_xplus4DDLA:
-melondsDDLA:
-mrboomDDLA:
-dinothawrDDLA:
-imageviewerDDLA:
-lutroDDLA:
-pcsx_rearmedDDLA:
-ffmpegDDLA:
-nxengineDDLA:
-meteorDDLA:
-remotejoyDDLA:
-pocketcdgDDLA:
-tyrquakeDDLA:
-pokeminiDDLA:
-MesenDDLA:
-ume2015DDLA:
-redreamDDLA:
-Atari800DDLA:
-kronosddla:
-sameboyDDLA:
-vice_x64DDLA:
-x64DDLA:
-xrickDDLA:
-citraDDLA:
-yabasanshiroDDLA:
-citra_CanaryDDLA:
-muDDLA:
-easyrpgDDLA:
-mednafen_snesDDLA:
+core_2048DDLA:
+core_3dengineDDLA:
+core_craftDDLA:
+core_thepowdertoyDDLA:
+core_cannonballDDLA:
+core_reminiscenceDDLA:
+core_vemulatorDDLA:
+core_openlaraDDLA:
+core_theodoreDDLA:
+core_nekop2DDLA:
+core_tryquakeDDLA:
+core_np2kaiDDLA:
+core_chailoveDDLA:
+core_dolphin_launcherDDLA:
+core_dolphinDDLA:
+core_gearboyDDLA:
+core_vice_xvicDDLA:
+core_vice_xplus4DDLA:
+core_melondsDDLA:
+core_mrboomDDLA:
+core_dinothawrDDLA:
+core_imageviewerDDLA:
+core_lutroDDLA:
+core_pcsx_rearmedDDLA:
+core_ffmpegDDLA:
+core_nxengineDDLA:
+core_meteorDDLA:
+core_remotejoyDDLA:
+core_pocketcdgDDLA:
+core_tyrquakeDDLA:
+core_pokeminiDDLA:
+core_MesenDDLA:
+core_ume2015DDLA:
+core_redreamDDLA:
+core_Atari800DDLA:
+core_kronosDDLA:
+core_sameboyDDLA:
+core_vice_x64DDLA:
+core_x64DDLA:
+core_xrickDDLA:
+core_citraDDLA:
+core_yabasanshiroDDLA:
+core_citra_CanaryDDLA:
+core_muDDLA:
+core_easyrpgDDLA:
+core_mednafen_snesDDLA:
 gosub, HideCoreUI
 return
+
 ;{;;;;;;;;   4DO CORE  ;;;;;;;;;;;
-4DODDLA:
+core_4DODDLA:
 gosub, HideCoreUI
 4doDDLBdef= |disabled||enabled
 if (4dohighresolution <> "enabled")
@@ -47639,7 +47639,7 @@ GuiControl, , COREDDLTXTB,High-Res
 GuiControl, ,COREDDLB, %4doDDLBdef%
 return
 
-4DODDLB:
+core_4DODDLB:
 gui,submit,nohide
 guicontrolget,4dohighresolution,,COREDDLB
 iniwrite, "%4dohighresolution%",%racoreopt%,OPTIONS,4do_high_resolution
@@ -47647,19 +47647,19 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;  CROCODS CORE  ;;
-crocodsDDLA:
+core_crocodsDDLA:
 
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;; 81 CORE  ;;;;;
-81DDLA:
+core_81DDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 ;{;;;;; bluemsx CORE  ;;;;;
-bluemsxDDLA:
+core_bluemsxDDLA:
 guicontrol,,COREDDLTXTB,System Type
 guicontrol,,COREDDLTXTC,Sync Type
 guicontrol,,COREDDLB,|%bluemsxmsxtype%||MSX|MSX2+|MSXturboR
@@ -47676,17 +47676,17 @@ guicontrol, show,COREDDLTXTC
 guicontrol, show,COREDDLC
 guicontrol, show,CORECHKA
 return
-bluemsxDDLB:
+core_bluemsxDDLB:
 gui,submit,nohide
 guicontrolget,bluemsxmsxtype,,COREDDLB
 iniwrite, "%bluemsxmsxtype%",%racoreopt%,OPTIONS,bluemsx_msx_type
 return
-bluemsxDDLC:
+core_bluemsxDDLC:
 gui,submit,nohide
 guicontrolget,bluemsxvdpsynctype,,COREDDLC
 iniwrite, "%bluemsxvdpsynctype%",%racoreopt%,OPTIONS,bluemsx_vdp_synctype
 return
-bluemsxCHKA:
+core_bluemsxCHKA:
 gui,submit,nohide
 guicontrolget,bluemsxym2413enable,,CORECHKA
 iniwrite, "%bluemsxym2413enable%",%racoreopt%,OPTIONS,bluemsx_ym2413_enable
@@ -47695,22 +47695,22 @@ return
 
 
 ;{;;;;; bnes CORE  ;;;;;
-bnesDDLA:
+core_bnesDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; bsnes CORE  ;;;;;
-bsnes_accuracyDDLA:
-bsnes_mercury_accuracyDDLA:
-bsnes_mercury_performanceDDLA:
-bsnes_performanceDDLA:
-higan_sfc_balancedDDLA:
-higan_sfcDDLA:
-bsnes_balancedDDLA:
-bsnes_mercury_balancedDDLA:
-bsnes_cplusplus98DDLA:
+core_bsnes_accuracyDDLA:
+core_bsnes_mercury_accuracyDDLA:
+core_bsnes_mercury_performanceDDLA:
+core_bsnes_performanceDDLA:
+core_higan_sfc_balancedDDLA:
+core_higan_sfcDDLA:
+core_bsnes_balancedDDLA:
+core_bsnes_mercury_balancedDDLA:
+core_bsnes_cplusplus98DDLA:
 stringsplit,bsnspl,ccv,_
 ccv= %bsnspl1%
 guicontrol,,CORECHKA,0
@@ -47732,13 +47732,13 @@ guicontrol,show,COREDDLC
 guicontrol,show,COREDDLTXTC
 return
 
-bsnesDDLB:
+core_bsnesDDLB:
 gui,submit,nohide
 bsneschiphle= %COREDDLB%
 iniwrite, "%bsneschiphle%",%racoreopt%,OPTIONS,bsnes_chip_hle
 return
 
-bsnesCHKA:
+core_bsnesCHKA:
 gui,submit,nohide
 bsnesviolateaccuracy= disabled
 if (CORECHKA = 1)
@@ -47748,7 +47748,7 @@ bsnesviolateaccuracy= enabled
 iniwrite, "%bsnesviolateaccuracy%",%racoreopt%,OPTIONS,bsnes_violate_accuracy
 return
 
-bsnesDDLC:
+core_bsnesDDLC:
 gui,submit,nohide
 bsnessuperfxoverclock= %COREDDLC%
 iniwrite, "%bsnessuperfxoverclock%",%racoreopt%,OPTIONS,bsnes_superfx_overclock
@@ -47758,14 +47758,14 @@ return
 
 
 ;{;;;;; bzsnes CORE  ;;;;;
-bzsnesDDLA:
+core_bzsnesDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; catsfc CORE  ;;;;;
-catsfcDDLA:
+core_catsfcDDLA:
 guicontrol,,CORECHKA,0
 if (catsfcswapjoypads = "enabled")
 {
@@ -47779,13 +47779,13 @@ guicontrol,show,CORECHKA
 guicontrol,show,COREDDLB
 guicontrol,show,COREDDLTXTB
 return
-catsfcDDLB:
+core_catsfcDDLB:
 gui,submit,nohide
 catsfcvideomode= %COREDDLB%
 iniwrite, "%catsfcvideomode%",%racoreopt%,OPTIONS,catsfc_videomode
 return
 
-catsfcCHKA:
+core_catsfcCHKA:
 gui,submit,nohide
 catsfswapjoypads= disabled
 if (CORECHKA = 1)
@@ -47799,8 +47799,8 @@ return
 
 
 ;{;;;;; desmume CORE  ;;;;;
-desmume2015DDLA:
-desmumeDDLA:
+core_desmume2015DDLA:
+core_desmumeDDLA:
 guicontrol,,COREDDLTXTB,CPU Cores
 guicontrol,,COREDDLTXTC,Layout
 guicontrol,,COREDDLTXTD,Pointer Color
@@ -47976,57 +47976,57 @@ if (desmumepointertype = "touch")
 	}
 return
 
-desmumeDDLB:
-desmume2015DDLB:
+core_desmumeDDLB:
+core_desmume2015DDLB:
 gui,submit,nohide
 guicontrolget,desmumenumcores,,COREDDLB
 iniwrite, "%desmumenumcores%",%racoreopt%,OPTIONS,desmume_num_cores
 return
-desmumeDDLC:
-desmume2015DDLC:
+core_desmumeDDLC:
+core_desmume2015DDLC:
 gui,submit,nohide
 guicontrolget,desmumescreenslayout,,COREDDLC
 iniwrite, "%desmumescreenslayout%",%racoreopt%,OPTIONS,desmume_screens_layout
 return
-desmumeDDLD:
-desmume2015DDLD:
+core_desmumeDDLD:
+core_desmume2015DDLD:
 gui,submit,nohide
 guicontrolget,desmumepointercolour,,COREDDLD
 iniwrite, "%desmumepointercolour%",%racoreopt%,OPTIONS,desmume_pointer_colour
 return
-desmumeDDLE:
-desmume2015DDLE:
+core_desmumeDDLE:
+core_desmume2015DDLE:
 gui,submit,nohide
 guicontrolget,desmumefirmwarelanguage,,COREDDLE
 iniwrite, "%desmumefirmwarelanguage%",%racoreopt%,OPTIONS,desmume_firmware_language
 return
-desmumeDDLF:
-desmume2015DDLF:
+core_desmumeDDLF:
+core_desmume2015DDLF:
 gui,submit,nohide
 guicontrolget,desmumeinternalresolution,,COREDDLF
 iniwrite, "%desmumeinternalresolution%",%racoreopt%,OPTIONS,desmume_internal_resolution
 return
-desmumeDDLG:
-desmume2015DDLG:
+core_desmumeDDLG:
+core_desmume2015DDLG:
 gui,submit,nohide
 guicontrolget,desmumeframeskip,,COREDDLG
 iniwrite, "%desmumeframeskip%",%racoreopt%,OPTIONS,desmume_frameskip
 return
-desmumeDDLI:
-desmume2015DDLI:
+core_desmumeDDLI:
+core_desmume2015DDLI:
 gui,submit,nohide
 guicontrolget,desmumepointerdevicedeadzone,,COREDDLI
 iniwrite, "%desmumepointerdevicedeadzone%",%racoreopt%,OPTIONS,desmume_pointer_device_deadzone
 return
-desmumeDDLK:
-desmume2015DDLK:
+core_desmumeDDLK:
+core_desmume2015DDLK:
 gui,submit,nohide
 guicontrolget,desmumemicmode,,COREDDLK
 iniwrite, "%desmumemicmode%",%racoreopt%,OPTIONS,desmume_mic_mode
 return
 
-desmumeCHKA:
-desmume2015CHKA:
+core_desmumeCHKA:
+core_desmume2015CHKA:
 gui,submit,nohide
 desmumeloadtomemory= disable
 if (CORECHKA = 1)
@@ -48035,8 +48035,8 @@ if (CORECHKA = 1)
 	}
 iniwrite, "%desmumeloadtomemory%",%racoreopt%,OPTIONS,desmume_load_to_memory
 return
-desmumeCHKB:
-desmume2015CHKB:
+core_desmumeCHKB:
+core_desmume2015CHKB:
 gui,submit,nohide
 desmumepointerstylusjitter= disable 
 if (CORECHKB = 1)
@@ -48045,8 +48045,8 @@ if (CORECHKB = 1)
 	}
 iniwrite, "%desmumepointerstylusjitter%",%racoreopt%,OPTIONS,desmume_pointer_stylus_jitter
 return
-desmumeCHKC:
-desmume2015CHKC:
+core_desmumeCHKC:
+core_desmume2015CHKC:
 gui,submit,nohide
 desmumeadvancedtiming= enable
 if (CORECHKC = 0)
@@ -48055,8 +48055,8 @@ if (CORECHKC = 0)
 	}
 iniwrite, "%desmumeadvancedtiming%",%racoreopt%,OPTIONS,desmume_advanced_timing
 return
-desmumeCHKD:
-desmume2015CHKD:
+core_desmumeCHKD:
+core_desmume2015CHKD:
 gui,submit,nohide
 desmumegfxedgemark= enable
 if (CORECHKD = 0)
@@ -48065,8 +48065,8 @@ if (CORECHKD = 0)
 	}
 iniwrite, "%desmumegfxedgemark%",%racoreopt%,OPTIONS,desmume_gfx_edgemark
 return
-desmumeCHKE:
-desmume2015CHKE:
+core_desmumeCHKE:
+core_desmume2015CHKE:
 gui,submit,nohide
 desmumegfxlinehack=  enable
 if (CORECHKE = 0)
@@ -48075,8 +48075,8 @@ if (CORECHKE = 0)
 	}
 iniwrite, "%desmumegfxlinehack%",%racoreopt%,OPTIONS,desmume_gfx_linehack
 return
-desmumeCHKF:
-desmume2015CHKF:
+core_desmumeCHKF:
+core_desmume2015CHKF:
 gui,submit,nohide
 desmumegfxtxthack=  disable
 if (CORECHKF = 1)
@@ -48085,8 +48085,8 @@ if (CORECHKF = 1)
 	}
 iniwrite, "%desmumegfxtxthack%",%racoreopt%,OPTIONS,desmume_gfx_txthack
 return
-desmumeCHKG:
-desmume2015CHKG:
+core_desmumeCHKG:
+core_desmume2015CHKG:
 gui,submit,nohide
 desmumePointerDeviceAccelerationMod=  disable
 if (CORECHKG = 1)
@@ -48095,8 +48095,8 @@ if (CORECHKG = 1)
 	}
 iniwrite, "%desmumePointerDeviceAccelerationMod%",%racoreopt%,OPTIONS,desmume_pointer_device_accelleration_mod
 return
-desmumeCHKI:
-desmume2015CHKI:
+core_desmumeCHKI:
+core_desmume2015CHKI:
 gui,submit,nohide
 desmumemicforceenable=  disable
 if (CORECHKI = 1)
@@ -48106,75 +48106,75 @@ if (CORECHKI = 1)
 iniwrite, "%desmumemicforceenable%",%racoreopt%,OPTIONS,desmume_mic_force_enable
 return
 
-desmumeCMBA:
-desmume2015CMBA:
+core_desmumeCMBA:
+core_desmume2015CMBA:
 gui,submit,nohide
 desmumescreensgap= %CORECMBA%
 iniwrite, "%desmumescreensgap%",%racoreopt%,OPTIONS,desmume_screens_gap
 return
-desmumeCMBB:
-desmume2015CMBB:
+core_desmumeCMBB:
+core_desmume2015CMBB:
 gui,submit,nohide
 desmumejitblocksize= %CORECMBB%
 iniwrite, "%desmumejitblocksize%",%racoreopt%,OPTIONS,desmume_jit_block_size
 return
 
-desmumeRADA:
-desmume2015RADA:
+core_desmumeRADA:
+core_desmume2015RADA:
 gui,submit,nohide
 desmumecpumode= jit
 iniwrite, "%desmumecpumode%",%racoreopt%,OPTIONS,desmume_cpu_mode
 return
-desmumeRADB:
-desmume2015RADB:
+core_desmumeRADB:
+core_desmume2015RADB:
 gui,submit,nohide
 desmumecpumode= interpreter
 iniwrite, "%desmumecpumode%",%racoreopt%,OPTIONS,desmume_cpu_mode
 return
-desmumeRADC:
-desmume2015RADC:
+core_desmumeRADC:
+core_desmume2015RADC:
 desmumehybridlayoutscale= 1
 iniwrite, "%desmumehybridlayoutscale%",%racoreopt%,OPTIONS,desmume_hybrid_layout_scale
 gui,submit,nohide
 return
-desmumeRADD:
-desmume2015RADD:
+core_desmumeRADD:
+core_desmume2015RADD:
 desmumehybridlayoutscale= 3
 iniwrite, "%desmumehybridlayoutscale%",%racoreopt%,OPTIONS,desmume_hybrid_layout_scale
 gui,submit,nohide
 return
-desmumeRADK:
-desmume2015RADK:
+core_desmumeRADK:
+core_desmume2015RADK:
 gui,submit,nohide
 desmumepointerdevice= none
 iniwrite, "%desmumepointerdevice%",%racoreopt%,OPTIONS,desmume_pointer_device
 return
-desmumeRADL:
-desmume2015RADL:
+core_desmumeRADL:
+core_desmume2015RADL:
 gui,submit,nohide
 desmumepointerdevice= l-stick
 iniwrite, "%desmumepointerdevice%",%racoreopt%,OPTIONS,desmume_pointer_device
 return
-desmumeRADP:
-desmume2015RADP:
+core_desmumeRADP:
+core_desmume2015RADP:
 gui,submit,nohide
 desmumepointerdevice= r-stick
 iniwrite, "%desmumepointerdevice%",%racoreopt%,OPTIONS,desmume_pointer_device
 return
-desmumeRADS:
-desmume2015RADS:
+core_desmumeRADS:
+core_desmume2015RADS:
 gui,submit,nohide
 desmumepointerdevicetype= touch
 iniwrite, "%desmumepointerdevicetype%",%racoreopt%,OPTIONS,desmume_pointer_device_type
 return
-desmumeRADT:
+core_desmumeRADT:
 gui,submit,nohide
 desmumepointerdevicetype= mouse
 iniwrite, "%desmumepointerdevicetype%",%racoreopt%,OPTIONS,desmume_pointer_device_type
 return
 
-desmumeSLDA:
-desmume2015SLDA:
+core_desmumeSLDA:
+core_desmume2015SLDA:
 gui,submit,nohide
 desmumepointerstyluspressure= %CORESLDA%
 iniwrite, "%desmumepointerstyluspressure%",%racoreopt%,OPTIONS,desmume_pointer_stylus_pressure
@@ -48184,7 +48184,7 @@ return
 
 
 ;{;;;;; px68k CORE  ;;;;;
-px68kDDLA:
+core_px68kDDLA:
 guicontrol,,CORECHKA,1
 if (px68kanalog = "OFF")
 {
@@ -48212,31 +48212,31 @@ guicontrol,show,COREDDLTXTC
 guicontrol,show,COREDDLTXTD
 return
 
-px68kDDLB:
+core_px68kDDLB:
 gui,submit,nohide
 px68kramsize= %COREDDLB%
 iniwrite, "%COREDDLB%",%racoreopt%,OPTIONS,px68k_ramsize
 return
 
-px68kDDLC:
+core_px68kDDLC:
 gui,submit,nohide
 px68kjoytype1= %COREDDLC%
 iniwrite, "%COREDDLC%",%racoreopt%,OPTIONS,px68k_joytype1
 return
 
-px68kDDLD:
+core_px68kDDLD:
 gui,submit,nohide
 px68kjoytype2= %COREDDLD%
 iniwrite, "%COREDDLD%",%racoreopt%,OPTIONS,px68k_joytype2
 return
 
-px68kDDLF:
+core_px68kDDLF:
 gui,submit,nohide
 px68kcpuspeed= %COREDDLF%
 iniwrite, "%COREDDLD%",%racoreopt%,OPTIONS,px68k_cpuspeed
 return
 
-px68kCHKA:
+core_px68kCHKA:
 gui,submit,nohide
 px68kanalog= OFF
 if (CORECHKA = 1)
@@ -48249,9 +48249,9 @@ return
 
 ;};;;;;;;;;;;
 ;{;;;;; dosbox CORE  ;;;;;
-dosbox_svnDDLA:
-dosbox_svn_glideDDLA:
-dosboxDDLA:
+core_dosbox_svnDDLA:
+core_dosbox_svn_glideDDLA:
+core_dosboxDDLA:
 guicontrol,,CORECHKA,1
 if (dosboxemulatedmouse = "disabled")
 {
@@ -48289,44 +48289,44 @@ guicontrol,show,COREDDLTXTG
 guicontrol,show,COREDDLTXTH
 return
 
-dosboxDDLB:
+core_dosboxDDLB:
 gui,submit,nohide
 dosboxcpucycles0= %COREDDLB%
 iniwrite, "%COREDDLB%",%racoreopt%,OPTIONS,dosbox_cpu_cycles_0
 return
 
-dosboxDDLC:
+core_dosboxDDLC:
 gui,submit,nohide
 dosboxcpucycles1= %COREDDLC%
 iniwrite, "%COREDDLC%",%racoreopt%,OPTIONS,dosbox_cpu_cycles_1
 return
 
-dosboxDDLD:
+core_dosboxDDLD:
 gui,submit,nohide
 dosboxcpucycles2= %COREDDLD%
 iniwrite, "%COREDDLD%",%racoreopt%,OPTIONS,dosbox_cpu_cycles_2
 return
 
-dosboxDDLE:
+core_dosboxDDLE:
 gui,submit,nohide
 dosboxcpucycles3= %COREDDLE%
 iniwrite, "%COREDDLE%",%racoreopt%,OPTIONS,dosbox_cpu_cycles_3
 return
 
-dosboxDDLG:
+core_dosboxDDLG:
 gui,submit,nohide
 dbjmp= % dosboxmapper%COREDDLG%
 guicontrol,,COREDDLH,|%dbjmp%||%KBSET%
 return
 
-dosboxDDLH:
+core_dosboxDDLH:
 gui,submit,nohide
 guicontrolget,rpad,,COREDDLG
 dosboxmapper%rpad%= %COREDDLH%
 iniwrite, "%COREDDLH%",%racoreopt%,OPTIONS,dosbox_mapper_%rpad%
 return
 
-dosboxCHKA:
+core_dosboxCHKA:
 gui,submit,nohide
 dosboxemulatedmouse= enabled
 if (CORECHKA = 0)
@@ -48341,50 +48341,50 @@ return
 
 
 ;{;;;;; emux_chip8 CORE  ;;;;;
-emux_chip8DDLA:
+core_emux_chip8DDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; emux_gb CORE  ;;;;;
-emux_gbDDLA:
+core_emux_gbDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; freeintv CORE  ;;;;;
-freeintvDDLA:
+core_freeintvDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 ;{;;;;; emux_nes CORE  ;;;;;
-emux_nesDDLA:
+core_emux_nesDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; emux_sms CORE  ;;;;;
-emux_smsDDLA:
+core_emux_smsDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; fbalpha CORE  ;;;;;
-fbalphaDDLA:
-fbaDDLA:
-fb_alphaDDLA:
-fbalpha2012DDLA:
-fb_alpha_neoDDLA:
-fbalpha2012_neogeoDDLA:
-fbalpha2012_cps1DDLA:
-fb_alpha_cps1DDLA:
-fbalpha2012_cps2DDLA:
-fb_alpha_cps2DDLA:
+core_fbalphaDDLA:
+core_fbaDDLA:
+core_fb_alphaDDLA:
+core_fbalpha2012DDLA:
+core_fb_alpha_neoDDLA:
+core_fbalpha2012_neogeoDDLA:
+core_fbalpha2012_cps1DDLA:
+core_fb_alpha_cps1DDLA:
+core_fbalpha2012_cps2DDLA:
+core_fb_alpha_cps2DDLA:
 stringleft,fbcc,ccv,2
 ccv= %fbcc%
 guicontrol,,COREDDLB,|%fbacpuspeedadjust%||100|110|120|130|140|150|160|170|180|190|200
@@ -48465,45 +48465,45 @@ guicontrol,,CORERADD,0
 }
 return
 
-fbDDLB:
+core_fbDDLB:
 gui,submit,nohide
 fbacpuspeedadjust= %COREDDLB%
 iniwrite, "%fbacpuspeedadjust%",%racoreopt%,OPTIONS,fba-cpu-speed-adjust
 iniwrite, "%fbacpuspeedadjust%",%racoreopt%,OPTIONS,cpu-speed-adjust
 return
 
-fbDDLC:
+core_fbDDLC:
 gui,submit,nohide
 fbash2mode= %COREDDLB%
 iniwrite, "%fbash2mode%",%racoreopt%,OPTIONS,fba-sh2-mode
 return
 
-fbDDLD:
+core_fbDDLD:
 gui,submit,nohide
 fbalrcontrolsp1= %COREDDLD%
 iniwrite, "%fbalrcontrolsp1%",%racoreopt%,OPTIONS,fba-lr-controls-p1
 iniwrite, "%fbacontrols%",%racoreopt%,OPTIONS,fba-controls
 return
 
-fbDDLE:
+core_fbDDLE:
 gui,submit,nohide
 fbalrcontrolsp2= %COREDDLE%
 iniwrite, "%fbalrcontrolsp2%",%racoreopt%,OPTIONS,fba-lr-controls-p2
 return
 
-fbDDLG:
+core_fbDDLG:
 gui,submit,nohide
 fbaneogeocontrolsp1= %COREDDLG%
 iniwrite, "%fbaneogeocontrolsp1%",%racoreopt%,OPTIONS,fba-neogeo_controls-p1
 return
 
-fbDDLH:
+core_fbDDLH:
 gui,submit,nohide
 fbaneogeocontrolsp2= %COREDDLH%
 iniwrite, "%fbaneogeocontrolsp2%",%racoreopt%,OPTIONS,fba-neogeo_controls-p2
 return
 
-fbCHKA:
+core_fbCHKA:
 gui,submit,nohide
 fbadiagnostics= disabled
 diagnostics= disabled
@@ -48516,7 +48516,7 @@ iniwrite, "%fbadiagnostics%",%racoreopt%,OPTIONS,fba-diagnostics
 iniwrite, "%diagnostics%",%racoreopt%,OPTIONS,diagnostics
 return
 
-fbCHKB:
+core_fbCHKB:
 fbaunibios= disabled
 if (CORECHKB = 1)
 {
@@ -48525,7 +48525,7 @@ fbaunibios= enabled
 iniwrite, "%fbaunibios%",%racoreopt%,OPTIONS,fba-unibios
 return
 
-fbCHKC:
+core_fbCHKC:
 fbahiscores= enabled
 if (CORECHKC = 0)
 {
@@ -48534,24 +48534,24 @@ fbahiscores= enabled
 iniwrite, "%fbahiscores%",%racoreopt%,OPTIONS,fba-hiscores
 return
 
-fbRADA:
+core_fbRADA:
 gui,submit,nohide
 fbaaspect=DAR
 iniwrite, "%fbaaspect%",%racoreopt%,OPTIONS,fba-aspect
 return
-fbRADB:
+core_fbRADB:
 gui,submit,nohide
 fbaaspect=PAR
 iniwrite, "%fbaaspect%",%racoreopt%,OPTIONS,fba-aspect
 return
 
-fbRADC:
+core_fbRADC:
 gui,submit,nohide
 fbaneogeomode=MVS
 iniwrite, "%fbaneogeomode%",%racoreopt%,OPTIONS,fba-neogeo-mode
 return
 
-fbRADD:
+core_fbRADD:
 gui,submit,nohide
 fbaneogeomode=AES
 iniwrite, "%fbaneogeomode%",%racoreopt%,OPTIONS,fba-neogeo-mode
@@ -48561,7 +48561,7 @@ return
 
 
 ;{;;;;; fceumm CORE  ;;;;;
-fceummDDLA:
+core_fceummDDLA:
 guicontrol,,COREDDLTXTB,Palette
 guicontrol,,COREDDLTXTC,Aspect
 guicontrol,,COREDDLB,|%fceummpalette%||asqrealc|loopy|quor|chris|matt|pasofami|crashman|mess|zphod-cv|zphod-smb|vs-drmar|vs-cv|vs-smb|nintendo-vc|yuv-v3|unsaturated-vc|sony-xa2025as-us|pal|bmf-final2|bmf-final3|raw
@@ -48594,19 +48594,19 @@ guicontrol,,CORECHKC,0
 }
 return
 
-fceummDDLB:
+core_fceummDDLB:
 gui,submit,nohide
 fceummpalette= %COREDDLB%
 iniwrite, "%fceummpalette%",%racoreopt%,OPTIONS,fceumm_palette
 return
 
-fceummDDLC:
+core_fceummDDLC:
 gui,submit,nohide
 fceummaspect= %COREDDLC%
 iniwrite, "%fceummaspect%",%racoreopt%,OPTIONS,fceumm_aspect
 return
 
-fceummCHKA:
+core_fceummCHKA:
 gui,submit,nohide
 fceummnospritelimit= disabled
 if (CORECHKA = 1)
@@ -48616,7 +48616,7 @@ fceummnospritelimit= enabled
 iniwrite, "%fceumm%",%racoreopt%,OPTIONS,fceumm_
 return
 
-fceummCHKB:
+core_fceummCHKB:
 gui,submit,nohide
 fceummoverclocking = disabled
 if (CORECHKB = 1)
@@ -48626,7 +48626,7 @@ fceummoverclocking = enabled
 iniwrite, "%fceummoverclocking%",%racoreopt%,OPTIONS,fceumm_overclocking 
 return
 
-fceummCHKC:
+core_fceummCHKC:
 gui,submit,nohide
 fceummoverscan= enabled
 if (CORECHKC = 0)
@@ -48642,14 +48642,14 @@ return
 
 
 ;{;;;;; fmsx CORE  ;;;;;
-fmsxDDLA:
+core_fmsxDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; fuse CORE  ;;;;;
-fuseDDLA:
+core_fuseDDLA:
 guicontrol,,COREDDLB,|%fusemachine%||Spectrum 48K|Spectrum 48K (NTSC)|Spectrum 128K|Spectrum +2|Spectrum +2A|Spectrum +3|Spectrum +3e|Spectrum SE|Timex TC2048|Timex TC2068|imex TS2068|Spectrum 16K|Pentagon 128K|Pentagon 512K|Pentagon 1024|Scorpion 256K
 guicontrol,,COREDDLC,|%fusespeakertype%||tv speaker|beeper|unfiltered
 guicontrol,,COREDDLD,|%fuseaystereoseparation%||none|abc|acb
@@ -48677,31 +48677,31 @@ guicontrol,show,CORECMBA
 guicontrol,show,CORECMBTXTA
 return
 
-fuseDDLB:
+core_fuseDDLB:
 gui,submit,nohide
 fusemachine= %COREDDLB%
 iniwrite, "%fusemachine%",%racoreopt%,OPTIONS,fuse_machine
 return
 
-fuseDDLC:
+core_fuseDDLC:
 gui,submit,nohide
 fusemachine= %COREDDLC%
 iniwrite, "%fusespeakertype%",%racoreopt%,OPTIONS,fuse_speaker_type
 return
 
-fuseDDLD:
+core_fuseDDLD:
 gui,submit,nohide
 fuseaystereoseparation= %COREDDLD%
 iniwrite, "%fuseaystereoseparation%",%racoreopt%,OPTIONS,fuse_ay_stereo_separation
 return
 
-fuseCMBA:
+core_fuseCMBA:
 gui,submit,NoHide
 fusekeyholdtime= %CORECMBA%
 iniwrite, "%fusekeyholdtime%",%racoreopt%,OPTIONS,fuse_key_hold_time
 return
 
-fuseCHKA:
+core_fuseCHKA:
 gui,submit,nohide
 fusehideborder= disabled
 if (CORECHKA = 1)
@@ -48711,7 +48711,7 @@ fusehideborder= enabled
 iniwrite, "%fusehideborder%",%racoreopt%,OPTIONS,fuse_hide_border
 return
 
-fuseCHKB:
+core_fuseCHKB:
 gui,submit,nohide
 fusefastload= enabled
 if (CORECHKB = 0)
@@ -48721,7 +48721,7 @@ fusefastload= disabled
 iniwrite, "%fusefastload%",%racoreopt%,OPTIONS,fuse_fast_load
 return
 
-fuseCHKC:
+core_fuseCHKC:
 gui,submit,nohide
 fuseloadsound= enabled
 if (CORECHKC = 0)
@@ -48731,7 +48731,7 @@ fuseloadsound= disabled
 iniwrite, "%fuseloadsound%",%racoreopt%,OPTIONS,fuse_load_sound
 return
 
-fuseCHKD:
+core_fuseCHKD:
 gui,submit,nohide
 fusekeyovrlaytransp= enabled
 if (CORECHKD = 0)
@@ -48745,9 +48745,9 @@ return
 
 
 ;{;;;;; gambatte CORE  ;;;;;
-gambatte_GBCDDLA:
+core_gambatte_GBCDDLA:
 stringtrimright,ccv,ccv,4
-gambatteDDLA:
+core_gambatteDDLA:
 guicontrol,,COREDDLB,|%gambattegbcolorization%||auto|internal|custom|off
 guicontrol,,COREDDLC,|%gambattegbinternalpalette%||GBC - Blue|GBC - Brown|GBC - Dark Blue|GBC - Dark Brown|GBC - Green|GBC - Dark Green|GBC - Greyscale|GBC - Inverted|GBC - Orange|GBC - Pastel Mix|GBC - Red|GBC - Yellow|Special 1|Special 2|Special 3
 guicontrol,,COREDDLD,|%gambattegbhwmode%||Auto|GB|GBA
@@ -48781,49 +48781,49 @@ guicontrol,show,CORECMBTXTB
 guicontrol,show,CORECHKA
 return
 
-gambatteDDLB:
+core_gambatteDDLB:
 gui,submit,nohide
 gambattegbcolorization= %COREDDLB%
 iniwrite, "%gambattegbcolorization%",%racoreopt%,OPTIONS,gambatte_gb_colorization
 return
 
-gambatteDDLC:
+core_gambatteDDLC:
 gui,submit,nohide
 gambattegbinternalpalette= %COREDDLC%
 iniwrite, "%gambattegbinternalpalette%",%racoreopt%,OPTIONS,gambatte_gb_internal_palette
 return
 
-gambatteDDLD:
+core_gambatteDDLD:
 gui,submit,nohide
 gambattegbhwmode= %COREDDLD%
 iniwrite, "%gambattegbhwmode%",%racoreopt%,OPTIONS,gambatte_gb_hwmode
 return
 
-gambatteDDLE:
+core_gambatteDDLE:
 gui,submit,nohide
 togboctet= % gambattegblinknetworkserverip%COREDDLE%
 guicontrol,,CORECMBA,|%togboctet%||0|255
 return
 
-gambatteDDLF:
+core_gambatteDDLF:
 gui,submit,nohide
 gambattegblinkmode= %COREDDLF%
 iniwrite, "%gambattegblinkmode%",%racoreopt%,OPTIONS,gambatte_gb_link_mode
 return
 
-gambatteCMBB:
+core_gambatteCMBB:
 gui,submit,nohide
 gambattegblinknetworkport= %CORECMBB%
 iniwrite, "%gambattegblinknetworkport%",%racoreopt%,OPTIONS,gambatte_gb_link_network_port
 return
 
-gambatteCMBA:
+core_gambatteCMBA:
 gui,submit,nohide
 gambattegblinknetworkserverip%COREDDLE%= %CORECMBA%
 iniwrite, "%CORECMBA%",%racoreopt%,OPTIONS,gambatte_gb_link_network_server_ip_%COREDDLE%
 return
 
-gambatteCHKA:
+core_gambatteCHKA:
 gui,submit,nohide
 gambattecolorcorrection= enabled
 if (CORECHKA = 0)
@@ -48836,12 +48836,12 @@ return
 
 
 ;{;;;;; genesis_plus_gx CORE  ;;;;;
-genesis_plus_gx_ggDDLA:
+core_genesis_plus_gx_ggDDLA:
 stringtrimright,ccv,ccv,3
-goto, genesis_plus_gxDDLA
-genesis_plus_gx_SMSDDLA:
+goto, core_genesis_plus_gxDDLA
+core_genesis_plus_gx_SMSDDLA:
 stringtrimright,ccv,ccv,4
-genesis_plus_gxDDLA:
+core_genesis_plus_gxDDLA:
 guicontrol,,COREDDLB,|%genesisplusgxsystemhw%||auto|sg-1000|sg-1000 II|Mark-III|master system|master system II|game gear|megadrive / genesis
 guicontrol,,COREDDLTXTB,System
 
@@ -48981,73 +48981,73 @@ guicontrol,show,CORERADO
 guicontrol,show,CORERADP
 return
 
-genesis_plus_gxDDLB:
+core_genesis_plus_gxDDLB:
 gui, submit, nohide
 genesisplusgxsystemhw= %COREDDLB%
 iniwrite, "%COREDDLB%",%racoreopt%,OPTIONS,genesis_plus_gx_system_hw
 return
 
-genesis_plus_gxDDLC:
+core_genesis_plus_gxDDLC:
 gui, submit, nohide
 genesisplusgxregiondetect= %COREDDLC%
 iniwrite, "%COREDDLC%",%racoreopt%,OPTIONS,genesis_plus_gx_region_detect
 return
 
-genesis_plus_gxDDLD:
+core_genesis_plus_gxDDLD:
 gui, submit, nohide
 genesisplusgxbram= %COREDDLD%
 iniwrite, "%COREDDLD%",%racoreopt%,OPTIONS,genesis_plus_gx_bram
 return
 
-genesis_plus_gxDDLE:
+core_genesis_plus_gxDDLE:
 gui, submit, nohide
 genesisplusgxrender= %COREDDLE%
 iniwrite, "%COREDDLE%",%racoreopt%,OPTIONS,genesis_plus_gx_render
 return
 
-genesis_plus_gxDDLF:
+core_genesis_plus_gxDDLF:
 gui, submit, nohide
 genesisplusgxym2413= %COREDDLF%
 iniwrite, "%COREDDLF%",%racoreopt%,OPTIONS,genesis_plus_gx_ym2413
 return
 
-genesis_plus_gxRADC:
+core_genesis_plus_gxRADC:
 gui, submit, nohide
 genesisplusgxblarggntscfilter= enable
 iniwrite, "enable",%racoreopt%,OPTIONS,genesis_plus_gx_blargg_ntsc_filter
 return
 
-genesis_plus_gxRADD:
+core_genesis_plus_gxRADD:
 gui, submit, nohide
 genesisplusgxblarggntscfilter= disable
 iniwrite, "disable",%racoreopt%,OPTIONS,genesis_plus_gx_blargg_ntsc_filter
 return
 
-genesis_plus_gxRADM:
+core_genesis_plus_gxRADM:
 gui, submit, nohide
 genesisplusgxguncursor= yes
 iniwrite, "yes",%racoreopt%,OPTIONS,genesis_plus_gx_gun_cursor
 return
 
-genesis_plus_gxRADN:
+core_genesis_plus_gxRADN:
 gui, submit, nohide
 genesisplusgxguncursor= no
 iniwrite, "no",%racoreopt%,OPTIONS,genesis_plus_gx_gun_cursor
 return
 
-genesis_plus_gxRADO:
+core_genesis_plus_gxRADO:
 gui, submit, nohide
 genesisplusgxinvertmouse= yes
 iniwrite, "yes",%racoreopt%,OPTIONS,genesis_plus_gx_invert_mouse
 return
 
-genesis_plus_gxRADP:
+core_genesis_plus_gxRADP:
 gui, submit, nohide
 genesisplusgxinvertmouse= no
 iniwrite, "no",%racoreopt%,OPTIONS,genesis_plus_gx_invert_mouse
 return
 
-genesis_plus_gxCHKA:
+core_genesis_plus_gxCHKA:
 gui, submit, nohide
 genesisplusgxforcedtack= disabled
 if (CORECHKA = 1)
@@ -49057,7 +49057,7 @@ if (CORECHKA = 1)
 iniwrite, "%genesisplusgxforcedtack%",%racoreopt%,OPTIONS,genesis_plus_gx_force_dtack
 return
 
-genesis_plus_gxCHKB:
+core_genesis_plus_gxCHKB:
 gui, submit, nohide
 genesisplusgxaddrerror= disabled
 if (CORECHKB = 1)
@@ -49067,7 +49067,7 @@ if (CORECHKB = 1)
 iniwrite, "%genesisplusgxaddrerror%",%racoreopt%,OPTIONS,genesis_plus_addr_error
 return
 
-genesis_plus_gxCHKC:
+core_genesis_plus_gxCHKC:
 gui, submit, nohide
 genesisplusgxlcdfilter= disabled
 if (CORECHKC = 1)
@@ -49077,7 +49077,7 @@ if (CORECHKC = 1)
 iniwrite, "%genesisplusgxlcdfilter%",%racoreopt%,OPTIONS,genesis_plus_lcd_filter
 return
 
-genesis_plus_gxCHKD:
+core_genesis_plus_gxCHKD:
 gui, submit, nohide
 genesisplusgxbios= disabled
 if (CORECHKD = 1)
@@ -49087,7 +49087,7 @@ if (CORECHKD = 1)
 iniwrite, "%genesisplusgxbios%",%racoreopt%,OPTIONS,genesis_plus_gx_bios
 return
 
-genesis_plus_gxCHKG:
+core_genesis_plus_gxCHKG:
 gui, submit, nohide
 genesisplusgxoverscan= disabled
 if (CORECHKG = 1)
@@ -49097,7 +49097,7 @@ if (CORECHKG = 1)
 iniwrite, "%genesisplusgxoverscan%",%racoreopt%,OPTIONS,genesis_plus_gx_overscan
 return
 
-genesis_plus_gxCHKF:
+core_genesis_plus_gxCHKF:
 gui, submit, nohide
 genesisplusgxggextra= disabled
 if (CORECHKF = 1)
@@ -49107,7 +49107,7 @@ if (CORECHKF = 1)
 iniwrite, "%genesisplusgxggextra%",%racoreopt%,OPTIONS,genesis_plus_gx_gg_extra
 return
 
-genesis_plus_gxCHKE:
+core_genesis_plus_gxCHKE:
 gui, submit, nohide
 genesisplusgxlockon= disabled
 if (CORECHKE = 1)
@@ -49117,7 +49117,7 @@ if (CORECHKE = 1)
 iniwrite, "%genesisplusgxlockon%",%racoreopt%,OPTIONS,genesis_plus_gx_lock_on
 return
 
-genesis_plus_gxCHKH:
+core_genesis_plus_gxCHKH:
 gui, submit, nohide
 genesisplusgxdacbits= disabled
 if (CORECHKH = 1)
@@ -49127,60 +49127,60 @@ if (CORECHKH = 1)
 iniwrite, "%genesisplusgxdacbits%",%racoreopt%,OPTIONS,genesis_plus_gx_dac_bits
 return
 
-genesis_plus_gxDDLG:
-genesis_plus_gxDDLH:
-genesis_plus_gxDDLI:
-genesis_plus_gxDDLJ:
-genesis_plus_gxDDLK:
-genesis_plus_gxDDLL:
-genesis_plus_gxRadA:
-genesis_plus_gxRadB:
-genesis_plus_gxCMBA:
-genesis_plus_gxRadE:
-genesis_plus_gxRadF:
-genesis_plus_gxRadG:
-genesis_plus_gxRadH:
-genesis_plus_gxCMBB:
-genesis_plus_gxSLDA:
-genesis_plus_gxRadI:
-genesis_plus_gxRadJ:
-genesis_plus_gxRadK:
-genesis_plus_gxRadL:
-genesis_plus_gxCHKI:
-genesis_plus_gxRadQ:
-genesis_plus_gxRadR:
-genesis_plus_gxRadS:
-genesis_plus_gxRadT:
-genesis_plus_gxRadU:
-genesis_plus_gxRadV:
+core_genesis_plus_gxDDLG:
+core_genesis_plus_gxDDLH:
+core_genesis_plus_gxDDLI:
+core_genesis_plus_gxDDLJ:
+core_genesis_plus_gxDDLK:
+core_genesis_plus_gxDDLL:
+core_genesis_plus_gxRadA:
+core_genesis_plus_gxRadB:
+core_genesis_plus_gxCMBA:
+core_genesis_plus_gxRadE:
+core_genesis_plus_gxRadF:
+core_genesis_plus_gxRadG:
+core_genesis_plus_gxRadH:
+core_genesis_plus_gxCMBB:
+core_genesis_plus_gxSLDA:
+core_genesis_plus_gxRadI:
+core_genesis_plus_gxRadJ:
+core_genesis_plus_gxRadK:
+core_genesis_plus_gxRadL:
+core_genesis_plus_gxCHKI:
+core_genesis_plus_gxRadQ:
+core_genesis_plus_gxRadR:
+core_genesis_plus_gxRadS:
+core_genesis_plus_gxRadT:
+core_genesis_plus_gxRadU:
+core_genesis_plus_gxRadV:
 return
 
 ;};;;;;;;;;;;
 
 
 ;{;;;;; gme CORE  ;;;;;
-gmeDDLA:
+core_gmeDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; gpsp CORE  ;;;;;
-gpspDDLA:
+core_gpspDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; gw CORE  ;;;;;
-gwDDLA:
+core_gwDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; handy CORE  ;;;;;
-handyDDLA:
+core_handyDDLA:
 guicontrol,,COREDDLB,|%handyrot%||None|90|240
 guicontrol,,COREDDLTXTB,Display Rotation
 gosub, HideCoreUI
@@ -49188,7 +49188,7 @@ guicontrol,show,COREDDLB
 guicontrol,show,COREDDLTXTB
 return
 
-handyDDLB:
+core_handyDDLB:
 gui,submit,nohide
 handyrot= %CORDDLB%
 iniwrite, "%COREDDLB%",%racoreopt%,OPTIONS,handy_rot
@@ -49197,35 +49197,35 @@ return
 
 
 ;{;;;;; hatari CORE  ;;;;;
-hatariDDLA:
+core_hatariDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; mame2000 CORE  ;;;;;
-mame2000DDLA:
+core_mame2000DDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; mame2003 CORE  ;;;;;
-mame2003DDLA:
+core_mame2003DDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; mame2010 CORE  ;;;;;
-mame2010DDLA:
+core_mame2010DDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; mame2014 CORE  ;;;;;
-mame2014DDLA:
+core_mame2014DDLA:
 guicontrol,,CORECHK,0
 if (mame2014= "enabled")
 {
@@ -49376,31 +49376,31 @@ guicontrol,show,COREDDLI
 guicontrol,show,COREDDLTXTI
 return
 
-mame2014DDLB:
+core_mame2014DDLB:
 gui,submit,nohide
 mame2014saves= %COREDDLB%
 iniwrite, "%mame2014saves%",%racoreopt%,OPTIONS,mame2014_saves
 return
 
-mame2014DDLC:
+core_mame2014DDLC:
 gui,submit,nohide
 mame2014mediatype= %COREDDLC%
 iniwrite, "%mame2014mediatype%",%racoreopt%,OPTIONS,mame2014_media_type
 return
 
-mame2014DDLD:
+core_mame2014DDLD:
 gui,submit,nohide
 mame2014alternaterenderer= %COREDDLD%
 iniwrite, "%mame2014alternaterenderer%",%racoreopt%,OPTIONS,mame2014_alternate_renderer
 return
 
-mame2014DDLI:
+core_mame2014DDLI:
 gui,submit,nohide
 mame2014softlistsautomedia= %COREDDLI%
 iniwrite, "%mame2014softlistsautomedia%",%racoreopt%,OPTIONS,mame2014_softlists_auto_media
 return
 
-mame2014CHKA:
+core_mame2014CHKA:
 gui,submit,nohide
 mame2014readconfig= disabled
 if (CORECHKA = 1)
@@ -49410,7 +49410,7 @@ mame2014readconfig= enabled
 iniwrite, "%mame2014readconfig%",%racoreopt%,OPTIONS,mame2014_read_config
 return
 
-mame2014CHKB:
+core_mame2014CHKB:
 gui,submit,nohide
 mame2014writeconfig= disabled
 if (CORECHKB = 1)
@@ -49420,7 +49420,7 @@ mame2014writeconfig= enabled
 iniwrite, "%mame2014writeconfig%",%racoreopt%,OPTIONS,mame2014_write_config
 return
 
-mame2014CHKC:
+core_mame2014CHKC:
 gui,submit,nohide
 mame2014autosave= disabled
 if (CORECHKC = 1)
@@ -49430,7 +49430,7 @@ mame2014autosave= enabled
 iniwrite, "%mame2014autosave%",%racoreopt%,OPTIONS,mame2014_auto_save
 return
 
-mame2014CHKD:
+core_mame2014CHKD:
 gui,submit,nohide
 mame2014hidenagscreen= disabled
 if (CORECHKD = 1)
@@ -49440,7 +49440,7 @@ mame2014hidenagscreen= enabled
 iniwrite, "%mame2014hidenagscreen%",%racoreopt%,OPTIONS,mame2014_hide_nagscreen
 return
 
-mame2014CHKE:
+core_mame2014CHKE:
 gui,submit,nohide
 mame2014hidewarnings= disabled
 if (CORECHKE = 1)
@@ -49450,7 +49450,7 @@ mame2014hidewarnings= enabled
 iniwrite, "%mame2014hidewarnings%",%racoreopt%,OPTIONS,mame2014_hide_warnings
 return
 
-mame2014CHKF:
+core_mame2014CHKF:
 gui,submit,nohide
 mame2014throttle= disabled
 if (CORECHKF = 1)
@@ -49460,7 +49460,7 @@ mame2014throttle= enabled
 iniwrite, "%mame2014throttle%",%racoreopt%,OPTIONS,mame2014_throttle
 return
 
-mame2014CHKG:
+core_mame2014CHKG:
 gui,submit,nohide
 mame2014hidegameinfo= disabled
 if (CORECHKG = 1)
@@ -49470,7 +49470,7 @@ mame2014hidegameinfo= enabled
 iniwrite, "%mame2014hidegameinfo%",%racoreopt%,OPTIONS,mame2014_hide_gameinfo
 return
 
-mame2014CHKH:
+core_mame2014CHKH:
 gui,submit,nohide
 mame2014softlistsenable= enabled
 if (CORECHKH = 0)
@@ -49480,7 +49480,7 @@ mame2014softlistsenable= disabled
 iniwrite, "%mame2014softlistsenable%",%racoreopt%,OPTIONS,mame2014_softlists_enable
 return
 
-mame2014CHKI:
+core_mame2014CHKI:
 gui,submit,nohide
 mame2014cheatsenable= disabled
 if (CORECHKI = 1)
@@ -49490,38 +49490,38 @@ mame2014cheatsenable= enabled
 iniwrite, "%mame2014cheatsenable%",%racoreopt%,OPTIONS,mame2014_cheats_enable
 return
 
-mame2014RADA:
+core_mame2014RADA:
 mame2014mouseenable= enabled
 iniwrite, "%mame2014mouseenable%",%racoreopt%,OPTIONS,mame2014_mouse_enable
 return
-mame2014RADB:
+core_mame2014RADB:
 mame2014mouseenable= disabled
 iniwrite, "%mame2014mouseenable%",%racoreopt%,OPTIONS,mame2014_mouse_enable
 return
 
-mame2014RADG:
+core_mame2014RADG:
 mame2014boottobios= disabled
 iniwrite, "%mame2014boottobios%",%racoreopt%,OPTIONS,mame2014_boot_to_bios
 return
-mame2014RADH:
+core_mame2014RADH:
 mame2014boottobios= enabled
 iniwrite, "%mame2014boottobios%",%racoreopt%,OPTIONS,mame2014_boot_to_bios
 return
 
-mame2014RADQ:
+core_mame2014RADQ:
 mame2014bootfromcli= disabled
 iniwrite, "%mame2014boottobios%",%racoreopt%,OPTIONS,mame2014_boot_from_cli
 return
-mame2014RADR:
+core_mame2014RADR:
 mame2014boottobios= enabled
 iniwrite, "%mame2014boottobios%",%racoreopt%,OPTIONS,mame2014_boot_from_cli
 return
 
-mame2014RADU:
+core_mame2014RADU:
 mame2014boottoosd= disabled
 iniwrite, "%mame2014boottobios%",%racoreopt%,OPTIONS,mame2014_boot_to_osd
 return
-mame2014RADV:
+core_mame2014RADV:
 mame2014boottoosd= enabled
 iniwrite, "%mame2014boottobios%",%racoreopt%,OPTIONS,mame2014_boot_to_osd
 return
@@ -49530,7 +49530,7 @@ return
 
 
 ;{;;;;; mame2016 CORE  ;;;;;
-mame2016DDLA:
+core_mame2016DDLA:
 guicontrol,,CORECHK,0
 if (mame2016= "enabled")
 {
@@ -49681,31 +49681,31 @@ guicontrol,show,COREDDLI
 guicontrol,show,COREDDLTXTI
 return
 
-mame2016DDLB:
+core_mame2016DDLB:
 gui,submit,nohide
 mame2016saves= %COREDDLB%
 iniwrite, "%mame2016saves%",%racoreopt%,OPTIONS,mame2016_saves
 return
 
-mame2016DDLC:
+core_mame2016DDLC:
 gui,submit,nohide
 mame2016mediatype= %COREDDLC%
 iniwrite, "%mame2016mediatype%",%racoreopt%,OPTIONS,mame2016_media_type
 return
 
-mame2016DDLD:
+core_mame2016DDLD:
 gui,submit,nohide
 mame2016alternaterenderer= %COREDDLD%
 iniwrite, "%mame2016alternaterenderer%",%racoreopt%,OPTIONS,mame2016_alternate_renderer
 return
 
-mame2016DDLI:
+core_mame2016DDLI:
 gui,submit,nohide
 mame2016softlistsautomedia= %COREDDLI%
 iniwrite, "%mame2016softlistsautomedia%",%racoreopt%,OPTIONS,mame2016_softlists_auto_media
 return
 
-mame2016CHKA:
+core_mame2016CHKA:
 gui,submit,nohide
 mame2016readconfig= disabled
 if (CORECHKA = 1)
@@ -49715,7 +49715,7 @@ mame2016readconfig= enabled
 iniwrite, "%mame2016readconfig%",%racoreopt%,OPTIONS,mame2016_read_config
 return
 
-mame2016CHKB:
+core_mame2016CHKB:
 gui,submit,nohide
 mame2016writeconfig= disabled
 if (CORECHKB = 1)
@@ -49725,7 +49725,7 @@ mame2016writeconfig= enabled
 iniwrite, "%mame2016writeconfig%",%racoreopt%,OPTIONS,mame2016_write_config
 return
 
-mame2016CHKC:
+core_mame2016CHKC:
 gui,submit,nohide
 mame2016autosave= disabled
 if (CORECHKC = 1)
@@ -49735,7 +49735,7 @@ mame2016autosave= enabled
 iniwrite, "%mame2016autosave%",%racoreopt%,OPTIONS,mame2016_auto_save
 return
 
-mame2016CHKD:
+core_mame2016CHKD:
 gui,submit,nohide
 mame2016hidenagscreen= disabled
 if (CORECHKD = 1)
@@ -49745,7 +49745,7 @@ mame2016hidenagscreen= enabled
 iniwrite, "%mame2016hidenagscreen%",%racoreopt%,OPTIONS,mame2016_hide_nagscreen
 return
 
-mame2016CHKE:
+core_mame2016CHKE:
 gui,submit,nohide
 mame2016hidewarnings= disabled
 if (CORECHKE = 1)
@@ -49755,7 +49755,7 @@ mame2016hidewarnings= enabled
 iniwrite, "%mame2016hidewarnings%",%racoreopt%,OPTIONS,mame2016_hide_warnings
 return
 
-mame2016CHKF:
+core_mame2016CHKF:
 gui,submit,nohide
 mame2016throttle= disabled
 if (CORECHKF = 1)
@@ -49765,7 +49765,7 @@ mame2016throttle= enabled
 iniwrite, "%mame2016throttle%",%racoreopt%,OPTIONS,mame2016_throttle
 return
 
-mame2016CHKG:
+core_mame2016CHKG:
 gui,submit,nohide
 mame2016hidegameinfo= disabled
 if (CORECHKG = 1)
@@ -49775,7 +49775,7 @@ mame2016hidegameinfo= enabled
 iniwrite, "%mame2016hidegameinfo%",%racoreopt%,OPTIONS,mame2016_hide_gameinfo
 return
 
-mame2016CHKH:
+core_mame2016CHKH:
 gui,submit,nohide
 mame2016softlistsenable= enabled
 if (CORECHKH = 0)
@@ -49785,7 +49785,7 @@ mame2016softlistsenable= disabled
 iniwrite, "%mame2016softlistsenable%",%racoreopt%,OPTIONS,mame2016_softlists_enable
 return
 
-mame2016CHKI:
+core_mame2016CHKI:
 gui,submit,nohide
 mame2016cheatsenable= disabled
 if (CORECHKI = 1)
@@ -49795,38 +49795,38 @@ mame2016cheatsenable= enabled
 iniwrite, "%mame2016cheatsenable%",%racoreopt%,OPTIONS,mame2016_cheats_enable
 return
 
-mame2016RADA:
+core_mame2016RADA:
 mame2016mouseenable= enabled
 iniwrite, "%mame2016mouseenable%",%racoreopt%,OPTIONS,mame2016_mouse_enable
 return
-mame2016RADB:
+core_mame2016RADB:
 mame2016mouseenable= disabled
 iniwrite, "%mame2016mouseenable%",%racoreopt%,OPTIONS,mame2016_mouse_enable
 return
 
-mame2016RADG:
+core_mame2016RADG:
 mame2016boottobios= disabled
 iniwrite, "%mame2016boottobios%",%racoreopt%,OPTIONS,mame2016_boot_to_bios
 return
-mame2016RADH:
+core_mame2016RADH:
 mame2016boottobios= enabled
 iniwrite, "%mame2016boottobios%",%racoreopt%,OPTIONS,mame2016_boot_to_bios
 return
 
-mame2016RADQ:
+core_mame2016RADQ:
 mame2016bootfromcli= disabled
 iniwrite, "%mame2016boottobios%",%racoreopt%,OPTIONS,mame2016_boot_from_cli
 return
-mame2016RADR:
+core_mame2016RADR:
 mame2016boottobios= enabled
 iniwrite, "%mame2016boottobios%",%racoreopt%,OPTIONS,mame2016_boot_from_cli
 return
 
-mame2016RADU:
+core_mame2016RADU:
 mame2016boottoosd= disabled
 iniwrite, "%mame2016boottobios%",%racoreopt%,OPTIONS,mame2016_boot_to_osd
 return
-mame2016RADV:
+core_mame2016RADV:
 mame2016boottoosd= enabled
 iniwrite, "%mame2016boottobios%",%racoreopt%,OPTIONS,mame2016_boot_to_osd
 return
@@ -49835,7 +49835,7 @@ return
 
 
 ;{;;;;; mame CORE  ;;;;;
-mamecoreDDLA:
+core_mameDDLA:
 guicontrol,,CORECHK,0
 if (mame= "enabled")
 	{
@@ -49988,31 +49988,31 @@ guicontrol,show,COREDDLI
 guicontrol,show,COREDDLTXTI
 return
 
-mamecoreDDLB:
+core_mameDDLB:
 gui,submit,nohide
 mamesaves= %COREDDLB%
 iniwrite, "%mamesaves%",%racoreopt%,OPTIONS,mame_saves
 return
 
-mamecoreDDLC:
+core_mameDDLC:
 gui,submit,nohide
 mamemediatype= %COREDDLC%
 iniwrite, "%mamemediatype%",%racoreopt%,OPTIONS,mame_media_type
 return
 
-mamecoreDDLD:
+core_mameDDLD:
 gui,submit,nohide
 mamealternaterenderer= %COREDDLD%
 iniwrite, "%mamealternaterenderer%",%racoreopt%,OPTIONS,mame_alternate_renderer
 return
 
-mamecoreDDLI:
+core_mameDDLI:
 gui,submit,nohide
 mamesoftlistsautomedia= %COREDDLI%
 iniwrite, "%mamesoftlistsautomedia%",%racoreopt%,OPTIONS,mame_softlists_auto_media
 return
 
-mamecoreCHKA:
+core_mameCHKA:
 gui,submit,nohide
 mamereadconfig= disabled
 if (CORECHKA = 1)
@@ -50022,7 +50022,7 @@ if (CORECHKA = 1)
 iniwrite, "%mamereadconfig%",%racoreopt%,OPTIONS,mame_read_config
 return
 
-mamecoreCHKB:
+core_mameCHKB:
 gui,submit,nohide
 mamewriteconfig= disabled
 if (CORECHKB = 1)
@@ -50032,7 +50032,7 @@ if (CORECHKB = 1)
 iniwrite, "%mamewriteconfig%",%racoreopt%,OPTIONS,mame_write_config
 return
 
-mamecoreCHKC:
+core_mameCHKC:
 gui,submit,nohide
 mameautosave= disabled
 if (CORECHKC = 1)
@@ -50042,7 +50042,7 @@ if (CORECHKC = 1)
 iniwrite, "%mameautosave%",%racoreopt%,OPTIONS,mame_auto_save
 return
 
-mamecoreCHKD:
+core_mameCHKD:
 gui,submit,nohide
 mamehidenagscreen= disabled
 if (CORECHKD = 1)
@@ -50052,7 +50052,7 @@ if (CORECHKD = 1)
 iniwrite, "%mamehidenagscreen%",%racoreopt%,OPTIONS,mame_hide_nagscreen
 return
 
-mamecoreCHKE:
+core_mameCHKE:
 gui,submit,nohide
 mamehidewarnings= disabled
 if (CORECHKE = 1)
@@ -50062,7 +50062,7 @@ if (CORECHKE = 1)
 iniwrite, "%mamehidewarnings%",%racoreopt%,OPTIONS,mame_hide_warnings
 return
 
-mamecoreCHKF:
+core_mameCHKF:
 gui,submit,nohide
 mamethrottle= disabled
 if (CORECHKF = 1)
@@ -50072,7 +50072,7 @@ if (CORECHKF = 1)
 iniwrite, "%mamethrottle%",%racoreopt%,OPTIONS,mame_throttle
 return
 
-mamecoreCHKG:
+core_mameCHKG:
 gui,submit,nohide
 mamehidegameinfo= disabled
 if (CORECHKG = 1)
@@ -50082,7 +50082,7 @@ if (CORECHKG = 1)
 iniwrite, "%mamehidegameinfo%",%racoreopt%,OPTIONS,mame_hide_gameinfo
 return
 
-mamecoreCHKH:
+core_mameCHKH:
 gui,submit,nohide
 mamesoftlistsenable= enabled
 if (CORECHKH = 0)
@@ -50092,7 +50092,7 @@ if (CORECHKH = 0)
 iniwrite, "%mamesoftlistsenable%",%racoreopt%,OPTIONS,mame_softlists_enable
 return
 
-mamecoreCHKI:
+core_mameCHKI:
 gui,submit,nohide
 mamecheatsenable= disabled
 if (CORECHKI = 1)
@@ -50102,38 +50102,38 @@ if (CORECHKI = 1)
 iniwrite, "%mamecheatsenable%",%racoreopt%,OPTIONS,mame_cheats_enable
 return
 
-mamecoreRADA:
+core_mameRADA:
 mamemouseenable= enabled
 iniwrite, "%mamemouseenable%",%racoreopt%,OPTIONS,mame_mouse_enable
 return
-mamecoreRADB:
+core_mameRADB:
 mamemouseenable= disabled
 iniwrite, "%mamemouseenable%",%racoreopt%,OPTIONS,mame_mouse_enable
 return
 
-mamecoreRADG:
+core_mameRADG:
 mameboottobios= disabled
 iniwrite, "%mameboottobios%",%racoreopt%,OPTIONS,mame_boot_to_bios
 return
-mamecoreRADH:
+core_mameRADH:
 mameboottobios= enabled
 iniwrite, "%mameboottobios%",%racoreopt%,OPTIONS,mame_boot_to_bios
 return
 
-mamecoreRADQ:
+core_mameRADQ:
 mamebootfromcli= disabled
 iniwrite, "%mameboottobios%",%racoreopt%,OPTIONS,mame_boot_from_cli
 return
-mamecoreRADR:
+core_mameRADR:
 mameboottobios= enabled
 iniwrite, "%mameboottobios%",%racoreopt%,OPTIONS,mame_boot_from_cli
 return
 
-mamecoreRADU:
+core_mameRADU:
 mameboottoosd= disabled
 iniwrite, "%mameboottobios%",%racoreopt%,OPTIONS,mame_boot_to_osd
 return
-mamecoreRADV:
+core_mameRADV:
 mameboottoosd= enabled
 iniwrite, "%mameboottobios%",%racoreopt%,OPTIONS,mame_boot_to_osd
 return
@@ -50143,21 +50143,21 @@ return
 
 
 ;{;;;;; mednafen_gba CORE  ;;;;;
-mednafen_gbaDDLA:
+core_mednafen_gbaDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; mednafen_lynx CORE  ;;;;;
-mednafen_lynxDDLA:
+core_mednafen_lynxDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; mednafen_ngp CORE  ;;;;;
-mednafen_ngpDDLA:
+core_mednafen_ngpDDLA:
 guicontrol,,COREDDLTXTB,Language
 guicontrol,,COREDDLB,|%ngplanguage%||english|spanish|german|french|japanese|korean
 gosub, HideCoreUI
@@ -50165,7 +50165,7 @@ guicontrol,show,COREDDLB
 guicontrol,show,COREDDLTXTB
 return
 
-mednafen_ngpDDLB:
+core_mednafen_ngpDDLB:
 gui,submit,nohide
 ngplanguage= %CORDDLB%
 iniwrite, "%COREDDLB%",%racoreopt%,OPTIONS,ngp_language
@@ -50174,8 +50174,8 @@ return
 
 
 ;{;;;;; mednafen_pce_fast CORE  ;;;;;
-mednafen_pce_fastDDLA:
-mednafen_supergrafxDDLA:
+core_mednafen_pce_fastDDLA:
+core_mednafen_supergrafxDDLA:
 guicontrol,,COREDDLB,|%pceocmultiplier%||1|2|3|4|5|6|7|8|9|10|20|30|40|50
 guicontrol,,COREDDLTXTB,Overclock
 guicontrol,,COREDDLTXTC,CD Speed
@@ -50240,37 +50240,37 @@ guicontrol,show,CORESLDA
 guicontrol,show,CORESLDTXTA
 return
 
-mednafen_pce_fastDDLB:
-mednafen_supergrafxDDLB:
+core_mednafen_pce_fastDDLB:
+core_mednafen_supergrafxDDLB:
 gui,submit,nohide
 pceocmultiplier= %COREDDLB%
 iniwrite, "%pceocmultiplier%",%racoreopt%,OPTIONS,pce_ocmultiplier
 return
 
-mednafen_pce_fastDDLC:
-mednafen_supergrafxDDLC:
+core_mednafen_pce_fastDDLC:
+core_mednafen_supergrafxDDLC:
 gui,submit,nohide
 pcecdspeed= %COREDDLC%
 iniwrite, "%pcecdspeed%",%racoreopt%,OPTIONS,pce_cdspeed
 return
 
-mednafen_pce_fastDDLD:
-mednafen_supergrafxDDLD:
+core_mednafen_pce_fastDDLD:
+core_mednafen_supergrafxDDLD:
 gui,submit,nohide
 pceturbodelay= %COREDDLD%
 iniwrite, "%pceturbodelay%",%racoreopt%,OPTIONS,Turbo_Delay
 return
 
-mednafen_pce_fastDDLF:
-mednafen_supergrafxDDLF:
+core_mednafen_pce_fastDDLF:
+core_mednafen_supergrafxDDLF:
 gui,submit,nohide
 guicontrol,,CORESLDA,% pce%COREDDLF%volume
 guicontrol,,CORESLDTXTA,%COREDDLF% Volume
 guicontrol,,COREDDLTXTF,%COREDDLF% Volume
 return
 
-mednafen_pce_fastCHKA:
-mednafen_supergrafxCHKA:
+core_mednafen_pce_fastCHKA:
+core_mednafen_supergrafxCHKA:
 gui,submit,nohide
 guicontrol,,CORECHKA,0
 if (pcefastimagecache = "enabled")
@@ -50279,8 +50279,8 @@ if (pcefastimagecache = "enabled")
 	}
 return
 
-mednafen_pce_fastCHKB:
-mednafen_supergrafxCHKB:
+core_mednafen_pce_fastCHKB:
+core_mednafen_supergrafxCHKB:
 gui,submit,nohide
 guicontrol,,CORECHKB,0
 if (pcenospritelimit = "enabled")
@@ -50289,8 +50289,8 @@ if (pcenospritelimit = "enabled")
 	}
 return
 
-mednafen_pce_fastCHKC:
-mednafen_supergrafxCHKC:
+core_mednafen_pce_fastCHKC:
+core_mednafen_supergrafxCHKC:
 gui,submit,nohide
 guicontrol,,CORECHKC,0
 if (pcehoverscan = "enabled")
@@ -50299,8 +50299,8 @@ if (pcehoverscan = "enabled")
 	}
 return
 
-mednafen_pce_fastDDLI:
-mednafen_supergrafxDDLI:
+core_mednafen_pce_fastDDLI:
+core_mednafen_supergrafxDDLI:
 gui,submit,nohide
 pcej1=
 pcej2=
@@ -50314,8 +50314,8 @@ if (pturb = "enabled")
 	}	
 return
 
-mednafen_pce_fastCHKH:
-mednafen_supergrafxCHKH:
+core_mednafen_pce_fastCHKH:
+core_mednafen_supergrafxCHKH:
 gui,submit,nohide
 %pcej1%%pcej2%%pcej3%enable= disabled
 if (CORECHKH = 1)
@@ -50327,23 +50327,23 @@ if (CORECHKH = 1)
 iniwrite, "%pturb%",%racoreopt%,OPTIONS,%COREDDLI%_enable
 return
 
-mednafen_pce_fastSLDA:
-mednafen_supergrafxSLDA:
+core_mednafen_pce_fastSLDA:
+core_mednafen_supergrafxSLDA:
 gui,submit,nohide
 guicontrolget,vollvl,,COREDDLF
 pce%vollvl%volume= %CORESLDA%
 iniwrite, "%CORESLDA%",%racoreopt%,OPTIONS,pce_%vollvl%volume
 return
 
-mednafen_pce_fastCMBA:
-mednafen_supergrafxCMBA:
+core_mednafen_pce_fastCMBA:
+core_mednafen_supergrafxCMBA:
 gui,submit,nohide
 pceinitialscanline= %CORECMBA%
 iniwrite, "%pceinitialscanline%",%racoreopt%,OPTIONS,pce_initial_scanline
 return
 
-mednafen_supergrafxCMBB:
-mednafen_pce_fastCMBB:
+core_mednafen_supergrafxCMBB:
+core_mednafen_pce_fastCMBB:
 gui,submit,nohide
 pcelastscanline= %CORECMBB%
 iniwrite, "%pcelastscanline%",%racoreopt%,OPTIONS,pce_last_scanline
@@ -50353,14 +50353,14 @@ return
 
 
 ;{;;;;; mednafen_pcfx CORE  ;;;;;
-mednafen_pcfxDDLA:
+core_mednafen_pcfxDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; mednafen_psx_hw CORE  ;;;;;
-mednafen_psx_hwDDLA:
+core_mednafen_psx_hwDDLA:
 guicontrol,,COREDDLB,|%beetlepsxdithermode%||internal resolution
 guicontrol,,COREDDLC,|%beetlepsxfilter%||nearest
 guicontrol,,COREDDLD,|%beetlepsxinternalcolordepth%||32bpp
@@ -50396,37 +50396,37 @@ guicontrol,show,CORECHKE
 guicontrol,show,CORECHKF
 return
 
-mednafen_psx_hwDDLB:
+core_mednafen_psx_hwDDLB:
 gui,submit,nohide
 beetlepsxdithermode= %COREDDLB%
 iniwrite, "%beetlepsxdithermode%",%racoreopt%,OPTIONS,beetle_psx_dither_mode
 return
 
-mednafen_psx_hwDDLC:
+core_mednafen_psx_hwDDLC:
 gui,submit,nohide
 beetle_psx_filter= %COREDDLC%
 iniwrite, "%beetle_psx_filter%",%racoreopt%,OPTIONS,beetle_psx_filter
 return
 
-mednafen_psx_hwDDLD:
+core_mednafen_psx_hwDDLD:
 gui,submit,nohide
 beetlepsxinternalcolordepth= %COREDDLD%
 iniwrite, "%beetlepsxinternalcolordepth%",%racoreopt%,OPTIONS,beetle_psx_internal_color_depth
 return
 
-mednafen_psx_hwDDLE:
+core_mednafen_psx_hwDDLE:
 gui,submit,nohide
 beetlepsxpgxpmode= %COREDDLE%
 iniwrite, "%beetlepsxpgxpmode%",%racoreopt%,OPTIONS,beetle_psx_pgxp_mode
 return
 
-mednafen_psx_hwDDLF:
+core_mednafen_psx_hwDDLF:
 gui,submit,nohide
 beetlepsxrenderer= %COREDDLE%
 iniwrite, "%beetle_psx_renderer%",%racoreopt%,OPTIONS,beetle_psx_renderer
 return
 
-mednafen_psx_hwCHKA:
+core_mednafen_psx_hwCHKA:
 gui,submit,nohide
 beetlepsxdisplayvram= disabled
 if (CORECHKA = 1)
@@ -50436,7 +50436,7 @@ if (CORECHKA = 1)
 iniwrite, "%beetlepsxdisplayvram%",%racoreopt%,OPTIONS,beetle_psx_display_vram
 return
 
-mednafen_psx_hwCHKB:
+core_mednafen_psx_hwCHKB:
 gui,submit,nohide
 beetlepsxpgxpcaching= enabled
 if (CORECHKB = 0)
@@ -50446,7 +50446,7 @@ if (CORECHKB = 0)
 iniwrite, "%beetlepsxpgxpcaching%",%racoreopt%,OPTIONS,beetle_psx_pgxp_caching
 return
 
-mednafen_psx_hwCHKC:
+core_mednafen_psx_hwCHKC:
 gui,submit,nohide
 beetlepsxpgxptexture= enabled
 if (CORECHKC = 0)
@@ -50456,7 +50456,7 @@ if (CORECHKC = 0)
 iniwrite, "%beetlepsxpgxptexture%",%racoreopt%,OPTIONS,beetle_psx_pgxp_texture
 return
 
-mednafen_psx_hwCHKD:
+core_mednafen_psx_hwCHKD:
 gui,submit,nohide
 beetlepsxrenderersoftwarefb= enabled
 if (CORECHKFD = 0)
@@ -50466,7 +50466,7 @@ if (CORECHKFD = 0)
 iniwrite, "%beetlepsxrenderersoftwarefb%",%racoreopt%,OPTIONS,beetle_psx_renderer_software_fb
 return
 
-mednafen_psx_hwCHKE:
+core_mednafen_psx_hwCHKE:
 gui,submit,nohide
 beetlepsxscaledither= enabled
 if (CORECHKE = 0)
@@ -50476,7 +50476,7 @@ if (CORECHKE = 0)
 iniwrite, "%beetlepsxscaledither%",%racoreopt%,OPTIONS,beetle_psx_scale_dither
 return
 
-mednafen_psx_hwCHKF:
+core_mednafen_psx_hwCHKF:
 gui,submit,nohide
 beetlepsxwireframe= disabled
 if (CORECHKF = 1)
@@ -50493,7 +50493,7 @@ return
 
 
 ;{;;;;; mednafen_psx CORE  ;;;;;
-mednafen_psxDDLA:
+core_mednafen_psxDDLA:
 guicontrol,,CORECHKA,0
 if (beetlepsxanalogtoggle = "enabled")
 	{
@@ -50641,29 +50641,29 @@ guicontrol,show,CORECMBB
 
 return
 
-mednafen_psxDDLB:
+core_mednafen_psxDDLB:
 gui,submit,nohide
 beetlepsxinternalresolution= %COREDDLB%
 iniwrite, "%beetlepsxinternalresolution%",%racoreopt%,OPTIONS,beetle_psx_internal_resolution
 return
-mednafen_psxDDLC:
+core_mednafen_psxDDLC:
 gui,submit,nohide
 beetlepsxenablememcad1= %COREDDLC%
 iniwrite, "%beetlepsxenablememcad1%",%racoreopt%,OPTIONS,beetle_psx_enable_memcard1
 return
-mednafen_psxCMBA:
+core_mednafen_psxCMBA:
 gui,submit,nohide
 beetlepsxinitialscanline= %CORECMBA%
 iniwrite, "%beetlepsxinitialscanline%",%racoreopt%,OPTIONS,beetle_psx_initial_scanline
 iniwrite, "%beetlepsxinitialscanline%",%racoreopt%,OPTIONS,beetle_psx_initial_scanline_pal
 return
-mednafen_psxCMBB:
+core_mednafen_psxCMBB:
 gui,submit,nohide
 beetlepsxlastscanline= %CORECMBB%
 iniwrite, "%beetlepsxlastscanline%",%racoreopt%,OPTIONS,beetle_psx_last_scanline
 iniwrite, "%beetlepsxlastscanline%",%racoreopt%,OPTIONS,beetle_psx_last_scanline_pal
 return
-mednafen_psxCHKA:
+core_mednafen_psxCHKA:
 gui,submit,nohide
 beetlepsxanalogtoggle= disabled
 if (CORECHKA = 1)
@@ -50672,7 +50672,7 @@ if (CORECHKA = 1)
 	}
 iniwrite, "%beetlepsxanalogtoggle%",%racoreopt%,OPTIONS,beetle_psx_analog_toggle
 return
-mednafen_psxCHKB:
+core_mednafen_psxCHKB:
 gui,submit,nohide
 beetlepsxcdimagecache= disabled
 if (CORECHKB = 1)
@@ -50681,7 +50681,7 @@ if (CORECHKB = 1)
 	}
 iniwrite, "%beetlepsxcdimagecache%",%racoreopt%,OPTIONS,beetle_psx_cd_imagecache
 return
-mednafen_psxCHKC:
+core_mednafen_psxCHKC:
 gui,submit,nohide
 beetlepsxcdimagecache= disabled
 if (CORECHKC = 1)
@@ -50690,7 +50690,7 @@ if (CORECHKC = 1)
 	}
 iniwrite, "%beetlepsxcpuoverclock%",%racoreopt%,OPTIONS,beetle_psx_cpu_overclock
 return
-mednafen_psxCHKD:
+core_mednafen_psxCHKD:
 gui,submit,nohide
 beetlepsxwidescreenhack= disabled
 if (CORECHKD = 1)
@@ -50699,7 +50699,7 @@ if (CORECHKD = 1)
 	}
 iniwrite, "%beetlepsxwidescreenhack%",%racoreopt%,OPTIONS,beetle_psx_widescreen_hack
 return
-mednafen_psxCHKE:
+core_mednafen_psxCHKE:
 gui,submit,nohide
 beetlepsxframedupingenable= disabled
 if (CORECHKE = 1)
@@ -50708,7 +50708,7 @@ if (CORECHKE = 1)
 	}
 iniwrite, "%beetlepsxframedupingenable%",%racoreopt%,OPTIONS,beetle_psx_frame_duping_enable
 return
-mednafen_psxCHKF:
+core_mednafen_psxCHKF:
 gui,submit,nohide
 beetlepsxskipbios= disabled
 if (CORECHKF = 0)
@@ -50717,7 +50717,7 @@ if (CORECHKF = 0)
 	}
 iniwrite, "%beetlepsxskipbios%",%racoreopt%,OPTIONS,beetle_psx_skip_bios
 return
-mednafen_psxCHKG:
+core_mednafen_psxCHKG:
 gui,submit,nohide
 beetlepsxenablememcard1= disabled
 if (CORECHKG = 0)
@@ -50726,7 +50726,7 @@ if (CORECHKG = 0)
 	}
 iniwrite, "%beetlepsxenablememcard1%",%racoreopt%,OPTIONS,beetle_enable_memcard1
 return
-mednafen_psxCHKH:
+core_mednafen_psxCHKH:
 gui,submit,nohide
 beetlepsxenablemultitapport1= disabled
 if (CORECHKH = 1)
@@ -50735,7 +50735,7 @@ if (CORECHKH = 1)
 	}
 iniwrite, "%beetlepsxenablemultitapport1%",%racoreopt%,OPTIONS,beetle_psx_enable_multitap_port1
 return
-mednafen_psxCHKI:
+core_mednafen_psxCHKI:
 beetlepsxenablemultitapport2= disabled
 if (CORECHKI = 1)
 	{
@@ -50744,42 +50744,42 @@ if (CORECHKI = 1)
 iniwrite, "%beetlepsxenablemultitapport2%",%racoreopt%,OPTIONS,beetle_psx_enable_multitap_port2
 gui,submit,nohide
 return
-mednafen_psxRADA:
+core_mednafen_psxRADA:
 gui,submit,nohide
 beetlepsxcropoverscan= enabled
 iniwrite, "%beetlepsxcropoverscan%",%racoreopt%,OPTIONS,beetle_psx_crop_overscan
 return
-mednafen_psxRADB:
+core_mednafen_psxRADB:
 gui,submit,nohide
 beetlepsxcropoverscan= disabled
 iniwrite, "%beetlepsxcropoverscan%",%racoreopt%,OPTIONS,beetle_psx_crop_overscan
 return
-mednafen_psxRADM:
+core_mednafen_psxRADM:
 gui,submit,nohide
 beetlepsxdisplayinternalframerate= enabled
 iniwrite, "%beetlepsxdisplayinternalframerate%",%racoreopt%,OPTIONS,beetle_psx_display_internal_framerate
 return
-mednafen_psxRADN:
+core_mednafen_psxRADN:
 beetlepsxdisplayinternalframerate= disabled
 iniwrite, "%beetlepsxdisplayinternalframerate%",%racoreopt%,OPTIONS,beetle_psx_display_internal_framerate
 gui,submit,nohide
 return
-mednafen_psxRADK:
+core_mednafen_psxRADK:
 gui,submit,nohide
 beetlepsximageoffset= enabled
 iniwrite, "%beetlepsximageoffset%",%racoreopt%,OPTIONS,beetle_psx_image_offset
 return
-mednafen_psxRADL:
+core_mednafen_psxRADL:
 gui,submit,nohide
 beetlepsximageoffset= disabled
 iniwrite, "%beetlepsximageoffset%",%racoreopt%,OPTIONS,beetle_psx_image_offset
 return
-mednafen_psxRADS:
+core_mednafen_psxRADS:
 gui,submit,nohide
 beetlepsxsharedmemorycards= enabled
 iniwrite, "%beetlepsxsharedmemorycards%",%racoreopt%,OPTIONS,beetle_psx_shared_memory_cards
 return
-mednafen_psxRADT:
+core_mednafen_psxRADT:
 gui,submit,nohide
 beetlepsxsharedmemorycards= disabled
 iniwrite, "%beetlepsxsharedmemorycards%",%racoreopt%,OPTIONS,beetle_psx_shared_memory_cards
@@ -50788,7 +50788,7 @@ return
 
 
 ;{;;;;; mednafen_saturn CORE  ;;;;;
-mednafen_saturnDDLA:
+core_mednafen_saturnDDLA:
 guicontrol,,CORECHKA,CD Imagecache
 guicontrol,,CORECMBTXTA,Start scanline
 guicontrol,,CORECMBTXTB,Last scanline
@@ -50801,17 +50801,17 @@ guicontrol,show,CORECMBTXTA
 guicontrol,show,CORECMBB
 guicontrol,show,CORECMBTXTB
 return
-mednafen_saturnCMBA:
+core_mednafen_saturnCMBA:
 gui,submit,nohide
 iniwrite, "%beetlesaturninitialscanline%",%racoreopt%,OPTIONS,beetle_saturn_initial_scanline
 iniwrite, "%beetlesaturninitialscanline%",%racoreopt%,OPTIONS,beetle_saturn_initial_scanline_pal
 return
-mednafen_saturnCMBB:
+core_mednafen_saturnCMBB:
 gui,submit,nohide
 iniwrite, "%beetlesaturnlastscanline%",%racoreopt%,OPTIONS,beetle_saturn_last_scanline
 iniwrite, "%beetlesaturnlastscanline%",%racoreopt%,OPTIONS,beetle_saturn_last_scanline_pal
 return
-mednafen_saturnCHKA:
+core_mednafen_saturnCHKA:
 gui,submit,nohide
 beetlesaturncdimagecache= disabled
 if (CORECHKA = 1)
@@ -50825,29 +50825,29 @@ return
 
 
 ;{;;;;; mednafen_vb CORE  ;;;;;
-mednafen_vbDDLA:
+core_mednafen_vbDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; mednafen_wswan CORE  ;;;;;
-mednafen_wswanDDLA:
+core_mednafen_wswanDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; mess2014 CORE  ;;;;;
-mess2015DDLA:
-mess2014DDLA:
+core_mess2015DDLA:
+core_mess2014DDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; mgba CORE  ;;;;;
-mgbaDDLA:
+core_mgbaDDLA:
 guicontrol,,COREDDLB,|%mgbasolarsensorlevel%||0|1|2|3|4|5|6|7|8|9|10
 guicontrol,,CORECHKA,0
 if (mgbaallowoppoingdirections = "ON")
@@ -50881,19 +50881,19 @@ guicontrol, show, COREDDLTXTC
 guicontrol,,COREDDLTXTB,Solar Lvl
 return
 
-mgbaDDLC:
+core_mgbaDDLC:
 gui,submit,nohide
 guicontrolget,mgbaidleoptimization,,COREDDLB
 iniwrite, "%mgbaidleoptimization%",%racoreopt%,OPTIONS,mgba_idle_optimization
 return
 
-mgbaDDLB:
+core_mgbaDDLB:
 gui,submit,nohide
 guicontrolget,mgbasolarsensorlevel,,COREDDLB
 iniwrite, "%mgbasolarsensorlevel%",%racoreopt%,OPTIONS,mgba_solar_sensor_level
 return
 
-mgbaCHKB:
+core_mgbaCHKB:
 gui, submit, nohide
 mgbaUSE= 0
 if (CORECHKB = 1)
@@ -50902,7 +50902,7 @@ if (CORECHKB = 1)
 }
 iniwrite, "%mgbaUSE%",%racoreopt%,OPTIONS,mgba_use_bios
 return
-mgbaCHKC:
+core_mgbaCHKC:
 gui, submit, nohide
 mgbaSKP= disabled
 if (CORECHKC = 1)
@@ -50912,7 +50912,7 @@ if (CORECHKC = 1)
 iniwrite, "%mgbaSKP%",%racoreopt%,OPTIONS,mgba_skip_bios
 
 return
-mgbaCHKA:
+core_mgbaCHKA:
 gui, submit, nohide
 mgbaDPADOP= disabled
 if (CORECHKA= 1)
@@ -50926,7 +50926,7 @@ return
 
 
 ;{;;;;;; glupen64 CORE ;;;;;;
-glupen64DDLA:
+core_glupen64DDLA:
 
 guicontrol,,CORECHKA,0
 if (glupen64aspect= "16:9")
@@ -51029,49 +51029,49 @@ guicontrol,show,CORERADE
 guicontrol,show,CORERADF
 return
 
-glupen64DDLB:
+core_glupen64DDLB:
 gui,submit,nohide
 glupen64pucore= %COREDDLB%
 iniwrite, "%COREDDLB%",%racoreopt%,OPTIONS,glupen64-cpucore
 return
 
-glupen64DDLC:
+core_glupen64DDLC:
 gui,submit,nohide
 glupen6443screensize= %COREDDLC%
 iniwrite, "%COREDDLC%",%racoreopt%,OPTIONS,glupen64-43screensize
 return
 
-glupen64DDLD:
+core_glupen64DDLD:
 gui,submit,nohide
 glupen64169screensize= %COREDDLD%
 iniwrite, "%COREDDLD%",%racoreopt%,OPTIONS,glupen64-169screensize
 return
 
-glupen64plusDDLE:
+core_glupen64plusDDLE:
 gui,submit,nohide
 glupen64astickdeadzone= %COREDDLE%
 iniwrite, "%COREDDLE%",%racoreopt%,OPTIONS,glupen64-astick-deadzone
 return
 
-glupen64DDLI:
+core_glupen64DDLI:
 gui,submit,nohide
 glupen64usenativeresolutionfactor= %COREDDLI%
 iniwrite, "%COREDDLI%",%racoreopt%,OPTIONS,glupen64-usenativeresolutionfactor
 return
 
-glupen64DDLG:
+core_glupen64DDLG:
 gui,submit,nohide
 glupen64EnableCopyColorToRDRAM= %COREDDLG%
 iniwrite, "%COREDDLG%",%racoreopt%,OPTIONS,glupen64-EnableCopyColorToRDRAM
 return
 
-glupen64DDLH:
+core_glupen64DDLH:
 gui,submit,nohide
 glupen64EnableCopyColorFromRDRAM= %COREDDLH%
 iniwrite, "%COREDDLH%",%racoreopt%,OPTIONS,glupen64-EnableCopyColorFromRDRAM
 return
 
-glupen64CHKA:
+core_glupen64CHKA:
 gui,submit,nohide
 glupen64aspect= 4:3
 if (CORECHKA = 1)
@@ -51081,7 +51081,7 @@ glupen64aspect= 16:9
 iniwrite, "%glupen64aspect%",%racoreopt%,OPTIONS,glupen64-aspect
 return
 
-glupen64CHKB:
+core_glupen64CHKB:
 gui,submit,nohide
 glupen64EnableFBEmulation= True
 if (CORECHKB = 0)
@@ -51091,7 +51091,7 @@ glupen64EnableFBEmulation= False
 iniwrite, "%glupen64EnableFBEmulation%",%racoreopt%,OPTIONS,glupen64-EnableFBEmulation
 return
 
-glupen64CHKC:
+core_glupen64CHKC:
 gui,submit,nohide
 glupen64BilinearMode= standard
 if (CORECHKC = 0)
@@ -51101,7 +51101,7 @@ glupen64BilinearMode= 3point
 iniwrite, "%glupen64BilinearMode%",%racoreopt%,OPTIONS,glupen64-BilinearMode
 return
 
-glupen64CHKE:
+core_glupen64CHKE:
 gui,submit,nohide
 glupen64EnableLegacyBlending= False
 if (CORECHKE = 1)
@@ -51111,7 +51111,7 @@ glupen64EnableLegacyBlending= True
 iniwrite, "%glupen64EnableLegacyBlending%",%racoreopt%,OPTIONS,glupen64-EnableLegacyBlending
 return
 
-glupen64CHKD:
+core_glupen64CHKD:
 gui,submit,nohide
 glupen64EnableHWLighting= True
 if (CORECHKD = 0)
@@ -51121,7 +51121,7 @@ glupen64EnableHWLighting= False
 iniwrite, "%glupen64EnableHWLighting%",%racoreopt%,OPTIONS,glupen64-EnableHWLighting
 return
 
-glupen64CHKF:
+core_glupen64CHKF:
 gui,submit,nohide
 glupen64rspmode= HLE
 if (CORECHKF = 1)
@@ -51131,7 +51131,7 @@ glupen64rspmode= LLE
 iniwrite, "%glupen64rspmode%",%racoreopt%,OPTIONS,glupen64-rspmode
 return
 
-glupen64CHKH:
+core_glupen64CHKH:
 gui,submit,nohide
 glupen64EnableNativeResTexrects= Off
 if (CORECHKG = 1)
@@ -51141,7 +51141,7 @@ glupen64EnableNativeResTexrects= On
 iniwrite, "%glupen64EnableNativeResTexrects%",%racoreopt%,OPTIONS,glupen64-EnableNativeResTexrects
 return
 
-glupen64plusCMBA:
+core_glupen64plusCMBA:
 gui,submit,nohide
 guicontrolget,paknum1,,CORERADC
 guicontrolget,paknum2,,CORERADD
@@ -51167,34 +51167,34 @@ glupen64pak%mupak%= %CORECMBA%
 iniwrite, "%CORECMBA%",%racoreopt%,OPTIONS,glupen64-pak%mupak%
 return
 
-glupen64RADA:
+core_glupen64RADA:
 gui,submit,nohide
 glupen64aspect= 4:3
 iniwrite, "%glupen64aspect%",%racoreopt%,OPTIONS,glupen64-aspect
 return
 
-glupen64RADB:
+core_glupen64RADB:
 gui,submit,nohide
 glupen64aspect= 16:9
 iniwrite, "%glupen64aspect%",%racoreopt%,OPTIONS,glupen64-aspect
 return
 
-glupen64RADC:
+core_glupen64RADC:
 gui,submit,nohide
 guicontrol,,CORECMBA,|%glupen64pak1%||none|memory|rumble
 return
 
-glupen64RADD:
+core_glupen64RADD:
 gui,submit,nohide
 guicontrol,,CORECMBA,|%glupen64pak2%||none|memory|rumble
 return
 
-glupen64RADE:
+core_glupen64RADE:
 gui,submit,nohide
 guicontrol,,CORECMBA,|%glupen64pak3%||none|memory|rumble
 return
 
-glupen64RADF:
+core_glupen64RADF:
 gui,submit,nohide
 guicontrol,,CORECMBA,|%glupen64pak4%||none|memory|rumble
 return
@@ -51203,7 +51203,7 @@ return
 
 
 ;{;;;;; mupen64plus CORE  ;;;;;
-mupen64plusDDLA:
+core_mupen64plusDDLA:
 guicontrol,,CORECHKA,0
 if (mupen64aspectratiohint= "widescreen")
 {
@@ -51326,49 +51326,49 @@ guicontrol,show,CORERADM
 guicontrol,show,CORERADN
 return
 
-mupen64plusDDLB:
+core_mupen64plusDDLB:
 gui,submit,nohide
 mupen64cpucore= %COREDDLB%
 iniwrite, "%COREDDLB%",%racoreopt%,OPTIONS,mupen64-cpucore
 return
 
-mupen64plusDDLC:
+core_mupen64plusDDLC:
 gui,submit,nohide
 mupen64gfxpluginaccuracy= %COREDDLC%
 iniwrite, "%COREDDLC%",%racoreopt%,OPTIONS,mupen64-gfxplugin-accuracy
 return
 
-mupen64plusDDLD:
+core_mupen64plusDDLD:
 gui,submit,nohide
 mupen64gfxplugin= %COREDDLD%
 iniwrite, "%COREDDLD%",%racoreopt%,OPTIONS,mupen64-gfxplugin
 return
 
-mupen64plusDDLE:
+core_mupen64plusDDLE:
 gui,submit,nohide
 mupen64astickdeadzone= %COREDDLE%
 iniwrite, "%COREDDLE%",%racoreopt%,OPTIONS,mupen64-astick-deadzone
 return
 
-mupen64plusDDLF:
+core_mupen64plusDDLF:
 gui,submit,nohide
 mupen64rspplugin= %COREDDLF%
 iniwrite, "%COREDDLF%",%racoreopt%,OPTIONS,mupen64-rspplugin
 return
 
-mupen64plusDDLG:
+core_mupen64plusDDLG:
 gui,submit,nohide
 mupen64screensize= %COREDDLG%
 iniwrite, "%COREDDLG%",%racoreopt%,OPTIONS,mupen64-screensize
 return
 
-mupen64plusDDLH:
+core_mupen64plusDDLH:
 gui,submit,nohide
 mupen64filtering= %COREDDLH%
 iniwrite, "%COREDDLH%",%racoreopt%,OPTIONS,mupen64-filtering
 return
 
-mupen64plusCMBA:
+core_mupen64plusCMBA:
 gui,submit,nohide
 guicontrolget,paknum1,,CORERADC
 guicontrolget,paknum2,,CORERADD
@@ -51394,7 +51394,7 @@ mupen64pak%mupak%= %CORECMBA%
 iniwrite, "%CORECMBA%",%racoreopt%,OPTIONS,mupen64-pak%mupak%
 return
 
-mupen64plusCHKA:
+core_mupen64plusCHKA:
 gui,submit,nohide
 mupen64apsectratiohint= normal 
 if (CORECHKA = 1)
@@ -51404,7 +51404,7 @@ mupen64apsectratiohint= widescreen
 iniwrite, "%mupen64apsectratiohint%",%racoreopt%,OPTIONS,mupen64-aspectratiohint
 return
 
-mupen64plusCHKB:
+core_mupen64plusCHKB:
 gui,submit,nohide
 mupen64bufferswap= "off"
 if (CORECHKB = 1)
@@ -51414,7 +51414,7 @@ mupen64bufferswap= "on"
 iniwrite, "%mupen64bufferswap%",%racoreopt%,OPTIONS,mupen64-bufferswap
 return
 
-mupen64plusCHKC:
+core_mupen64plusCHKC:
 gui,submit,nohide
 mupen64vcachevbo= "off"
 if (CORECHKC = 1)
@@ -51424,7 +51424,7 @@ mupen64vcachevbo= "on"
 iniwrite, "%mupen64vcachevbo%",%racoreopt%,OPTIONS,mupen64-vcache-vbo
 return
 
-mupen64plusCHKD:
+core_mupen64plusCHKD:
 gui,submit,nohide
 mupen6464ddhardware= "disabled"
 if (CORECHKD = 1)
@@ -51434,7 +51434,7 @@ mupen6464ddhardware= "enabled"
 iniwrite, "%mupen6464ddhardware%",%racoreopt%,OPTIONS,mupen64-64dd-hardware
 return
 
-mupen64plusCHKE:
+core_mupen64plusCHKE:
 gui,submit,nohide
 mupen64framerate= "fullspeed"
 if (CORECHKE = 0)
@@ -51444,7 +51444,7 @@ mupen64framerate= "original"
 iniwrite, "%mupen64framerate%",%racoreopt%,OPTIONS,mupen64-ramerate
 return
 
-mupen64plusCHKF:
+core_mupen64plusCHKF:
 gui,submit,nohide
 mupen64angrylionvioverlay= "disabled"
 if (CORECHKF = 1)
@@ -51454,7 +51454,7 @@ mupen64angrylionvioverlay= "enabled"
 iniwrite, "%mupen64angrylionvioverlay%",%racoreopt%,OPTIONS,mupen64-angrylion-vi-overlay
 return
 
-mupen64plusCHKG:
+core_mupen64plusCHKG:
 gui,submit,nohide
 mupen64disableexpmem= "disabled"
 if (CORECHKF = 1)
@@ -51464,42 +51464,42 @@ mupen64disableexpmem= "enabled"
 iniwrite, "%mupen64disableexpmem%",%racoreopt%,OPTIONS,mupen64-disable-expmem
 return
 
-mupen64plusRADC:
+core_mupen64plusRADC:
 gui,submit,nohide
 guicontrol,,CORECMBA,|%mupen64pak1%||none|memory|rumble
 return
 
-mupen64plusRADD:
+core_mupen64plusRADD:
 gui,submit,nohide
 guicontrol,,CORECMBA,|%mupen64pak2%||none|memory|rumble
 return
 
-mupen64plusRADE:
+core_mupen64plusRADE:
 gui,submit,nohide
 guicontrol,,CORECMBA,|%mupen64pak3%||none|memory|rumble
 return
 
-mupen64plusRADF:
+core_mupen64plusRADF:
 gui,submit,nohide
 guicontrol,,CORECMBA,|%mupen64pak4%||none|memory|rumble
 return
 
-mupen64plusRADS:
+core_mupen64plusRADS:
 gui,submit,nohide
 iniwrite, "1500",%racoreopt%,OPTIONS,mupen64-virefresh
 return
 
-mupen64plusRADT:
+core_mupen64plusRADT:
 gui,submit,nohide
 iniwrite, "2200",%racoreopt%,OPTIONS,mupen64-virefresh
 return
 
-mupen64plusRADM:
+core_mupen64plusRADM:
 gui,submit,nohide
 iniwrite, "1024",%racoreopt%,OPTIONS,mupen64-audio-buffer-size
 return
 
-mupen64plusRADN:
+core_mupen64plusRADN:
 gui,submit,nohide
 iniwrite, "2048",%racoreopt%,OPTIONS,mupen64-audio-buffer-size
 return
@@ -51509,7 +51509,7 @@ return
 
 
 ;{;;;;; paralleln64CORE  ;;;;;
-parallel_n64DDLA:
+core_parallel_n64DDLA:
 guicontrol,,CORECHKA,0
 
 if (paralleln64aspectratiohint= "widescreen")
@@ -51634,49 +51634,49 @@ guicontrol,show,CORERADN
 return
 
 
-parallel_n64DDLB:
+core_parallel_n64DDLB:
 gui,submit,nohide
 paralleln64cpucore= %COREDDLB%
 iniwrite, "%COREDDLB%",%racoreopt%,OPTIONS,parallel_n64-cpucore
 return
 
-parallel_n64DDLC:
+core_parallel_n64DDLC:
 gui,submit,nohide
 paralleln64gfxpluginaccuracy= %COREDDLC%
 iniwrite, "%COREDDLC%",%racoreopt%,OPTIONS,parallel_n64-gfxplugin-accuracy
 return
 
-parallel_n64DDLD:
+core_parallel_n64DDLD:
 gui,submit,nohide
 paralleln64gfxplugin= %COREDDLD%
 iniwrite, "%COREDDLD%",%racoreopt%,OPTIONS,parallel_n64-gfxplugin
 return
 
-parallel_n64DDLE:
+core_parallel_n64DDLE:
 gui,submit,nohide
 paralleln64astickdeadzone= %COREDDLE%
 iniwrite, "%COREDDLE%",%racoreopt%,OPTIONS,parallel_n64-astick-deadzone
 return
 
-parallel_n64DDLF:
+core_parallel_n64DDLF:
 gui,submit,nohide
 paralleln64rspplugin= %COREDDLF%
 iniwrite, "%COREDDLF%",%racoreopt%,OPTIONS,parallel_n64-rspplugin
 return
 
-parallel_n64DDLG:
+core_parallel_n64DDLG:
 gui,submit,nohide
 paralleln64screensize= %COREDDLG%
 iniwrite, "%COREDDLG%",%racoreopt%,OPTIONS,parallel_n64-screensize
 return
 
-parallel_n64DDLH:
+core_parallel_n64DDLH:
 gui,submit,nohide
 paralleln64filtering= %COREDDLH%
 iniwrite, "%COREDDLH%",%racoreopt%,OPTIONS,parallel_n64-filtering
 return
 
-parallel_n64CMBA:
+core_parallel_n64CMBA:
 gui,submit,nohide
 guicontrolget,paknum1,,CORERADC
 guicontrolget,paknum2,,CORERADD
@@ -51702,7 +51702,7 @@ paralleln64pak%mupak%= %CORECMBA%
 iniwrite, "%CORECMBA%",%racoreopt%,OPTIONS,parallel_n64-pak%mupak%
 return
 
-parallel_n64CHKA:
+core_parallel_n64CHKA:
 gui,submit,nohide
 paralleln64apsectratiohint= normal 
 if (CORECHKA = 1)
@@ -51712,7 +51712,7 @@ paralleln64apsectratiohint= widescreen
 iniwrite, "%paralleln64apsectratiohint%",%racoreopt%,OPTIONS,parallel_n64-aspectratiohint
 return
 
-parallel_n64CHKB:
+core_parallel_n64CHKB:
 gui,submit,nohide
 paralleln64bufferswap= "off"
 if (CORECHKB = 1)
@@ -51722,7 +51722,7 @@ paralleln64bufferswap= "on"
 iniwrite, "%paralleln64bufferswap%",%racoreopt%,OPTIONS,parallel_n64-bufferswap
 return
 
-parallel_n64CHKC:
+core_parallel_n64CHKC:
 gui,submit,nohide
 paralleln64vcachevbo= "off"
 if (CORECHKC = 1)
@@ -51732,7 +51732,7 @@ paralleln64vcachevbo= "on"
 iniwrite, "%paralleln64vcachevbo%",%racoreopt%,OPTIONS,parallel_n64-vcache-vbo
 return
 
-parallel_n64CHKD:
+core_parallel_n64CHKD:
 gui,submit,nohide
 paralleln6464ddhardware= "disabled"
 if (CORECHKD = 1)
@@ -51742,7 +51742,7 @@ paralleln6464ddhardware= "enabled"
 iniwrite, "%paralleln6464ddhardware%",%racoreopt%,OPTIONS,parallel_n64-64dd-hardware
 return
 
-parallel_n64CHKE:
+core_parallel_n64CHKE:
 gui,submit,nohide
 paralleln64framerate= "fullspeed"
 if (CORECHKE = 0)
@@ -51752,7 +51752,7 @@ paralleln64framerate= "original"
 iniwrite, "%paralleln64framerate%",%racoreopt%,OPTIONS,parallel_n64-ramerate
 return
 
-parallel_n64CHKF:
+core_parallel_n64CHKF:
 gui,submit,nohide
 paralleln64angrylionvioverlay= "disabled"
 if (CORECHKF = 1)
@@ -51762,7 +51762,7 @@ paralleln64angrylionvioverlay= "enabled"
 iniwrite, "%paralleln64angrylionvioverlay%",%racoreopt%,OPTIONS,parallel_n64-angrylion-vi-overlay
 return
 
-parallel_n64CHKG:
+core_parallel_n64CHKG:
 gui,submit,nohide
 paralleln64disableexpmem= "disabled"
 if (CORECHKF = 1)
@@ -51772,42 +51772,42 @@ paralleln64disableexpmem= "enabled"
 iniwrite, "%paralleln64disableexpmem%",%racoreopt%,OPTIONS,parallel_n64-disable-expmem
 return
 
-parallel_n64RADC:
+core_parallel_n64RADC:
 gui,submit,nohide
 guicontrol,,CORECMBA,|%mupen64pak1%||none|memory|rumble
 return
 
-parallel_n64RADD:
+core_parallel_n64RADD:
 gui,submit,nohide
 guicontrol,,CORECMBA,|%mupen64pak2%||none|memory|rumble
 return
 
-parallel_n64RADE:
+core_parallel_n64RADE:
 gui,submit,nohide
 guicontrol,,CORECMBA,|%mupen64pak3%||none|memory|rumble
 return
 
-parallel_n64RADF:
+core_parallel_n64RADF:
 gui,submit,nohide
 guicontrol,,CORECMBA,|%mupen64pak4%||none|memory|rumble
 return
 
-parallel_n64RADS:
+core_parallel_n64RADS:
 gui,submit,nohide
 iniwrite, "1500",%racoreopt%,OPTIONS,parallel_n64-virefresh
 return
 
-parallel_n64RADT:
+core_parallel_n64RADT:
 gui,submit,nohide
 iniwrite, "2200",%racoreopt%,OPTIONS,parallel_n64-virefresh
 return
 
-parallel_n64RADM:
+core_parallel_n64RADM:
 gui,submit,nohide
 iniwrite, "1024",%racoreopt%,OPTIONS,parallel_n64-audio-buffer-size
 return
 
-parallel_n64RADN:
+core_parallel_n64RADN:
 gui,submit,nohide
 iniwrite, "2048",%racoreopt%,OPTIONS,parallel_n64-audio-buffer-size
 return
@@ -51817,7 +51817,7 @@ return
 
 
 ;{;;;;; nestopia CORE  ;;;;;
-nestopiaDDLA:
+core_nestopiaDDLA:
 guicontrol,,CORECHKA,NTSC Filter
 guicontrol,,CORECHKB,Sprite Limit
 guicontrol,,CORECHKC,Auto Disk1
@@ -51849,29 +51849,29 @@ guicontrol,show,CORECHKE
 guicontrol,show,CORECHKF
 return
 
-nestopiaDDLB:
+core_nestopiaDDLB:
 gui,submit,nohide
 guicontrolget,nestopiapalette,,COREDDLB
 iniwrite, "%nestopiapalette%",%corecfg%,OPTIONS,nestopia_palette
 return
 
-nestopiaDDLC:
+core_nestopiaDDLC:
 gui,submit,nohide
 return
 
-nestopiaDDLD:
+core_nestopiaDDLD:
 gui,submit,nohide
 guicontrolget,nestopiafavoredsystem,,COREDDLB
 iniwrite, "%nestopiafavoredsystem%",%corecfg%,OPTIONS,nestopia_favored_system
 return
 
-nestopiaDDLE:
+core_nestopiaDDLE:
 gui,submit,nohide
 guicontrolget,nestopiarampowerstate,,COREDDLB
 iniwrite, "%nestopiarampowerstate%",%corecfg%,OPTIONS,nestopia_ram_power_state
 return
 
-nestopiaCHKA:
+core_nestopiaCHKA:
 gui,submit,nohide
 nestopiablarggntscfilter= disabled
 if (CORECHKA = 1)
@@ -51881,7 +51881,7 @@ if (CORECHKA = 1)
 iniwrite, "%nestopiablarggntscfilter%",%corecfg%,OPTIONS,nestopia_blargg_ntsc_filter
 return
 
-nestopiaCHKB:
+core_nestopiaCHKB:
 gui,submit,nohide
 nestopianospritelimit= disabled
 if (CORECHKB = 1)
@@ -51892,7 +51892,7 @@ iniwrite, "%nestopianospritelimit%",%corecfg%,OPTIONS,nestopia_nospritelimit
 return
 
 
-nestopiaCHKC:
+core_nestopiaCHKC:
 gui,submit,nohide
 nestopiafdsautoinsert= enabled
 if (CORECHKC = 0)
@@ -51902,7 +51902,7 @@ if (CORECHKC = 0)
 iniwrite, "%nestopiafdsautoinsert%",%corecfg%,OPTIONS,nestopia_fds_auto_insert
 return
 
-nestopiaCHKD:
+core_nestopiaCHKD:
 nestopiaoverscanv= enabled
 if (CORECHKD = 0)
 	{
@@ -51911,7 +51911,7 @@ if (CORECHKD = 0)
 iniwrite, "%nestopiaoverscanv%",%corecfg%,OPTIONS,nestopia_overscan_v
 return
 
-nestopiaCHKE:
+core_nestopiaCHKE:
 nestopiaoverscanh= disabled
 if (CORECHKE = 1)
 	{
@@ -51921,7 +51921,7 @@ iniwrite, "%nestopiaoverscanh%",%corecfg%,OPTIONS,nestopia_overscan_h
 
 return
 
-nestopiaCHKF:
+core_nestopiaCHKF:
 nestopiageniedistortion= disabled
 if (CORECHKF = 1)
 	{
@@ -51935,21 +51935,21 @@ return
 
 
 ;{;;;;; o2em CORE  ;;;;;
-o2emDDLA:
+core_o2emDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; parallel CORE  ;;;;;
-parallelDDLA:
+core_parallelDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; picodrive CORE  ;;;;;
-picodriveDDLA:
+core_picodriveDDLA:
 guicontrol,,COREDDLTXTB,P1 Joy-Type
 guicontrol,,COREDDLTXTC,P2 Joy-Type
 guicontrol,,COREDDLTXTD,Region
@@ -51977,37 +51977,37 @@ guicontrol,show,CORECHKA
 guicontrol,show,CORECHKB
 return
 
-picodriveDDLB:
+core_picodriveDDLB:
 gui,submit,nohide
 picodriveinput1= %COREDDLB%
 iniwrite, "%picodriveinput1%",%racoreopt%,OPTIONS,picodrive_input1
 return
 
-picodriveDDLC:
+core_picodriveDDLC:
 gui,submit,nohide
 picodriveinput2= %COREDDLC%
 iniwrite, "%picodriveinput2%",%racoreopt%,OPTIONS,picodrive_input2
 return
 
-picodriveDDLD:
+core_picodriveDDLD:
 gui,submit,nohide
 picodriveregion= %COREDDLD%
 iniwrite, "%picodriveregion%",%racoreopt%,OPTIONS,picodrive_region
 return
 
-picodriveDDLE:
+core_picodriveDDLE:
 gui,submit,nohide
 picodriveregionfps= %COREDDLE%
 iniwrite, "%picodriveregionfps%",%racoreopt%,OPTIONS,picodrive_region_fps
 return
 
-picodriveDDLF:
+core_picodriveDDLF:
 gui,submit,nohide
 picodriveaspect= %COREDDLF%
 iniwrite, "%picodriveaspect%",%racoreopt%,OPTIONS,picodrive_aspect
 return
 
-picodriveCHKA:
+core_picodriveCHKA:
 gui,submit,nohide
 picodrivesprlim= disabled
 if (CORECHKA = 1)
@@ -52017,7 +52017,7 @@ if (CORECHKA = 1)
 iniwrite, "%picodrivesprlim%",%racoreopt%,OPTIONS,picodrive_sprlim
 return
 
-picodriveCHKB:
+core_picodriveCHKB:
 gui,submit,nohide
 picodriveramcart= disabled
 if (CORECHKA = 1)
@@ -52032,7 +52032,7 @@ return
 
 
 ;{;;;;; ppsspp CORE  ;;;;;
-ppssppDDLA:
+core_ppssppDDLA:
 guicontrol,,COREDDLTXTB,CPU Speed
 guicontrol,,COREDDLB,|%ppsspplockedcpuspeed%||off|222|266|333
 guicontrol,,COREDDLC,|%ppsspprenderingmode%||buffered|nonbuffered|cpu|gpu
@@ -52238,138 +52238,138 @@ if (ppsspptexturedeposterize = "enabled")
 	}
 return
 
-ppssppDDLB:
+core_ppssppDDLB:
 gui,submit,nohide
 ppssppcpucore= %COREDDLB%
 iniwrite, "%ppssppcpucore%",%racoreopt%,OPTIONS,ppsspp_cpu_core	
 return
 
-ppssppDDLC:
+core_ppssppDDLC:
 gui,submit,nohide
 ppsspprenderingmode= %COREDDLC%
 iniwrite, "%ppsspprenderingmode%",%racoreopt%,OPTIONS,ppsspp_rendering_mode
 return
 
-ppssppDDLD:
+core_ppssppDDLD:
 gui,submit,nohide
 ppsspptextureanisotropicfiltering= %COREDDLD%
 iniwrite, "%ppsspptextureanisotropicfiltering%",%racoreopt%,OPTIONS,ppsspp_texture_anisotropic_filtering
 return
 
-ppssppDDLE:
+core_ppssppDDLE:
 gui,submit,nohide
 ppsspptexturescalingtype= %COREDDLE%
 iniwrite, "%ppsspptexturescalingtype%",%racoreopt%,OPTIONS,ppsspp_textures_caling_type
 return
 
-ppssppDDLF:
+core_ppssppDDLF:
 gui,submit,nohide
 ppssppinternalresolution= %COREDDLF%
 iniwrite, "%ppssppinternalresolution%",%racoreopt%,OPTIONS,ppsspp_internal_resolution
 return
 
-ppssppDDLG:
+core_ppssppDDLG:
 gui,submit,nohide
 ppssppoutputresolution= %COREDDLG%
 iniwrite, "%ppssppoutputresolution%",%racoreopt%,OPTIONS,ppsspp_output_resolution
 return
 
-ppssppDDLH:
+core_ppssppDDLH:
 gui,submit,nohide
 ppsspplanguage= %COREDDLH%
 iniwrite, "%ppsspplanguage%",%racoreopt%,OPTIONS,ppsspp_language
 return
 
 
-ppssppCMBA:
+core_ppssppCMBA:
 gui,submit,nohide
 ppsspptexturescalinglevel= %CORECMBA%
 iniwrite, "%ppsspptexturescalinglevel%",%racoreopt%,OPTIONS,ppsspp_texture_scaling_level
 return
 
-ppssppCMBB:
+core_ppssppCMBB:
 gui,submit,nohide
 ppssppframeskip= %CORECMBB%
 iniwrite, "%ppssppframeskip%",%racoreopt%,OPTIONS,ppsspp_frameskip
 return
 
-ppssppRadA:
+core_ppssppRadA:
 gui,submit,nohide
 ppsspplockedcpuspeed= jit
 iniwrite, "%ppsspplockedcpuspeed%",%racoreopt%,OPTIONS,ppsspp_locked_cpu_speed	
 return
-ppssppRadB:
+core_ppssppRadB:
 gui,submit,nohide
 ppsspplockedcpuspeed= interpreter
 iniwrite, "%ppsspplockedcpuspeed%",%racoreopt%,OPTIONS,ppsspp_locked_cpu_speed	
 return
-ppssppRadC:
+core_ppssppRadC:
 gui,submit,nohide
 ppssppaudiolatency= 0
 iniwrite, "%ppssppaudiolatency%",%racoreopt%,OPTIONS,ppsspp_audio_latency
 return
-ppssppRadD:
+core_ppssppRadD:
 gui,submit,nohide
 ppssppaudiolatency= 1
 iniwrite, "%ppssppaudiolatency%",%racoreopt%,OPTIONS,ppsspp_audio_latency
 return
-ppssppRadE:
+core_ppssppRadE:
 gui,submit,nohide
 ppssppaudiolatency= 2
 iniwrite, "%ppssppaudiolatency%",%racoreopt%,OPTIONS,ppsspp_audio_latency
 return
-ppssppRadG:
+core_ppssppRadG:
 gui,submit,nohide
 ppsspphardwaretransform= enabled
 iniwrite, "%ppsspphardwaretransform%",%racoreopt%,OPTIONS,ppsspp_gpu_hardware_transform
 return
-ppssppRadH:
+core_ppssppRadH:
 gui,submit,nohide
 ppsspphardwaretransform= disabled
 iniwrite, "%ppsspphardwaretransform%",%racoreopt%,OPTIONS,ppsspp_gpu_hardware_transform
 return
-ppssppRadI:
+core_ppssppRadI:
 gui,submit,nohide
 ppssppbuttonpreference= cross
 iniwrite, "%ppssppbuttonpreference%",%racoreopt%,OPTIONS,ppsspp_button_preference
 return
-ppssppRadJ:
+core_ppssppRadJ:
 gui,submit,nohide
 ppssppbuttonpreference= circle
 iniwrite, "%ppssppbuttonpreference%",%racoreopt%,OPTIONS,ppsspp_button_preference
 return
-ppssppRadM:
+core_ppssppRadM:
 gui,submit,nohide
 ppssppunsafefuncreplacements= enabled
 iniwrite, "%ppssppunsafefuncreplacements%",%racoreopt%,OPTIONS,ppsspp_unsafe_func_replacements
 return
-ppssppRadN:
+core_ppssppRadN:
 gui,submit,nohide
 ppssppunsafefuncreplacements= disabled
 iniwrite, "%ppssppunsafefuncreplacements%",%racoreopt%,OPTIONS,ppsspp_unsafe_func_replacements
 return
-ppssppRadO:
+core_ppssppRadO:
 gui,submit,nohide
 ppssppvertexcache= enabled
 iniwrite, "%ppssppvertexcache%",%racoreopt%,OPTIONS,ppsspp_vertex_cache
 return
-ppssppRadP:
+core_ppssppRadP:
 gui,submit,nohide
 ppssppvertexcache= disabled
 iniwrite, "%ppssppvertexcache%",%racoreopt%,OPTIONS,ppsspp_vertex_cache
 return
-ppssppRadQ:
+core_ppssppRadQ:
 gui,submit,nohide
 ppssppsoundspeedhack= enabled
 iniwrite, "%ppssppsoundspeedhack%",%racoreopt%,OPTIONS,ppsspp_sound_speedhack
 return
-ppssppRadR:
+core_ppssppRadR:
 gui,submit,nohide
 ppssppsoundspeedhack= disabled
 iniwrite, "%ppssppsoundspeedhack%",%racoreopt%,OPTIONS,ppsspp_sound_speedhack
 return
 
-ppssppCHKA:
+core_ppssppCHKA:
 gui,submit,nohide
 ppssppautoframeskip= disabled
 if (CORECHKA = 1)
@@ -52378,7 +52378,7 @@ if (CORECHKA = 1)
 }
 iniwrite, "%ppssppautoframeskip%",%racoreopt%,OPTIONS,ppsspp_auto_frameskip
 return
-ppssppCHKB:
+core_ppssppCHKB:
 gui,submit,nohide
 ppssppforcemaxfps= disabled
 if (CORECHKB = 1)
@@ -52387,7 +52387,7 @@ if (CORECHKB = 1)
 }
 iniwrite, "%ppssppforcemaxfps%",%racoreopt%,OPTIONS,ppsspp_force_max_fps
 return
-ppssppCHKC:
+core_ppssppCHKC:
 gui,submit,nohide
 ppssppfastmemory= enabled
 if (CORECHKC = 0)
@@ -52396,7 +52396,7 @@ if (CORECHKC = 0)
 }
 iniwrite, "%ppssppfastmemory%",%racoreopt%,OPTIONS,ppsspp_fast_memory
 return
-ppssppCHKD:
+core_ppssppCHKD:
 gui,submit,nohide
 ppssppsetroundingmode= enabled
 if (CORECHKD = 0)
@@ -52405,7 +52405,7 @@ if (CORECHKD = 0)
 }
 iniwrite, "%ppssppsetroundingmode%",%racoreopt%,OPTIONS,ppsspp_set_rounding_mode
 return
-ppssppCHKE:
+core_ppssppCHKE:
 gui,submit,nohide
 ppssppblocktransfergpu= enabled
 if (CORECHKE = 0)
@@ -52414,7 +52414,7 @@ if (CORECHKE = 0)
 }
 iniwrite, "%ppssppblocktransfergpu%",%racoreopt%,OPTIONS,ppsspp_block_transfer_gpu
 return
-ppssppCHKF:
+core_ppssppCHKF:
 gui,submit,nohide
 ppssppseparateiothread= disabled
 if (CORECHKF = 1)
@@ -52423,7 +52423,7 @@ if (CORECHKF = 1)
 }
 iniwrite, "%ppssppseparateiothread%",%racoreopt%,OPTIONS,ppsspp_separate_io_thread
 return
-ppssppCHKG:
+core_ppssppCHKG:
 gui,submit,nohide
 ppssppprescaleuv= disabled
 if (CORECHKG = 1)
@@ -52432,7 +52432,7 @@ if (CORECHKG = 1)
 }
 iniwrite, "%ppssppprescaleuv%",%racoreopt%,OPTIONS,ppsspp_prescale_uv
 return
-ppssppCHKH:
+core_ppssppCHKH:
 gui,submit,nohide
 ppssppthreadedinput= disabled
 if (CORECHKH = 1)
@@ -52441,7 +52441,7 @@ if (CORECHKH = 1)
 }
 iniwrite, "%ppssppthreadedinput%",%racoreopt%,OPTIONS,ppsspp_threaded_input
 return
-ppssppCHKI:
+core_ppssppCHKI:
 gui,submit,nohide
 ppsspptexturedeposterize= disabled
 if (CORECHKI = 1)
@@ -52451,7 +52451,7 @@ if (CORECHKI = 1)
 iniwrite, "%ppsspptexturedeposterize%",%racoreopt%,OPTIONS,ppsspp_texture_deposterize
 return
 
-ppssppSLDA:
+core_ppssppSLDA:
 gui,submit,nohide
 ppssppframeratelimit= %CORESLDA%
 iniwrite, "%ppssppframeratelimit%",%racoreopt%,OPTIONS,ppsspp_framerate_limit
@@ -52460,41 +52460,41 @@ return
 
 
 ;{;;;;; prboom CORE  ;;;;;
-prboomDDLA:
+core_prboomDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; prosystem CORE  ;;;;;
-prosystemDDLA:
+core_prosystemDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; puae CORE  ;;;;;
-puaeDDLA:
+core_puaeDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; quicknes CORE  ;;;;;
-quicknesDDLA:
+core_quicknesDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; reicast CORE  ;;;;;
-reicastDDLA:
+core_reicastDDLA:
 if (ccv = "reicast_OIT")
 	{
 		airv= reicast_OIT
 		ccv= reicast
 	}
-reicast_OITDDLA:
+core_reicast_OITDDLA:
 guicontrol,,CORERADA,dynamic-recompiler
 guicontrol,,CORERADB,generic-recompiler
 guicontrol,,CORECMBA,|%reicastaudiobuffersize%||1024|2048
@@ -52583,45 +52583,45 @@ guicontrol,show,COREDDLD
 guicontrol,show,COREDDLE
 guicontrol,show,COREDDLF
 return
-reicastDDLB:
+core_reicastDDLB:
 gui,submit,nohide
 reicastinternalresolution= %COREDDLB%
 iniwrite, "%reicastinternalresolution%",%racoreopt%,OPTIONS,reicast_internal_resolution
 return
 
-reicastRADA:
+core_reicastRADA:
 gui,submit,nohide
 reicastaudiobuffersize= %CORERADA%
 iniwrite, "%reicastaudiobuffersize%",%racoreopt%,OPTIONS,reicast_audio_buffer_size
 return
 
-reicastRADB:
+core_reicastRADB:
 gui,submit,nohide
 reicastaudiobuffersize= %CORERADB%
 iniwrite, "%reicastaudiobuffersize%",%racoreopt%,OPTIONS,reicast_audio_buffer_size
 return
 
-reicastDDLC:
+core_reicastDDLC:
 gui,submit,nohide
 reicastcabletype= %COREDDLC%
 return
 
-reicastDDLD:
+core_reicastDDLD:
 gui,submit,nohide
 reicastbroadcast= %COREDDLD%
 return
 
-reicastDDLF:
+core_reicastDDLF:
 gui,submit,nohide
 reicastframerate= %COREDDLF%
 return
 
-reicastDDLE:
+core_reicastDDLE:
 gui,submit,nohide
 reicastregion= %COREDDLE%
 return
 
-reicastCHKA:
+core_reicastCHKA:
 gui,submit,nohide
 reicastboottobios= disabled
 if (CORECHKA = 1)
@@ -52631,7 +52631,7 @@ if (CORECHKA = 1)
 iniwrite, "%reicastboottobios%",%racoreopt%,OPTIONS,reicast_boot_to_bios
 return
 
-reicastCHKB:
+core_reicastCHKB:
 gui,submit,nohide
 reicastmipmapping= enabled
 if (CORECHKB = 0)
@@ -52641,7 +52641,7 @@ if (CORECHKB = 0)
 iniwrite, "%reicastmipmapping%",%racoreopt%,OPTIONS,reicast_mipmapping
 return
 
-reicastCHKC:
+core_reicastCHKC:
 gui,submit,nohide
 reicastwidescreenhack= disabled
 if (CORECHKC = 1)
@@ -52651,7 +52651,7 @@ if (CORECHKC = 1)
 iniwrite, "%reicastwidescreenhack%",%racoreopt%,OPTIONS,reicast_widescreen_hack
 return
 
-reicastCHKF:
+core_reicastCHKF:
 gui,submit,nohide
 reicastvolumemodifiermode= disabled
 if (CORECHKF = 1)
@@ -52661,7 +52661,7 @@ if (CORECHKF = 1)
 iniwrite, "%reicastvolumemodifiermode%",%racoreopt%,OPTIONS,reicast_volume_modifier_mode
 return
 
-reicastCHKE:
+core_reicastCHKE:
 gui,submit,nohide
 reicastrendertotexture= enabled
 if (CORECHKE = 0)
@@ -52671,7 +52671,7 @@ if (CORECHKE = 0)
 iniwrite, "%reicastrendertotexture%",%racoreopt%,OPTIONS,reicast_render_to_texture
 return
 
-reicastCHKD:
+core_reicastCHKD:
 gui,submit,nohide
 reicastprecompileshaders= disabled
 if (CORECHKD = 1)
@@ -52681,7 +52681,7 @@ if (CORECHKD = 1)
 iniwrite, "%reicastprecompileshaders%",%racoreopt%,OPTIONS,reicast_precompile_shaders
 return
 
-reicastCHKG:
+core_reicastCHKG:
 gui,submit,nohide
 reicastenablepurupuru= disabled
 if (CORECHKG = 0)
@@ -52691,7 +52691,7 @@ if (CORECHKG = 0)
 iniwrite, "%reicastenablepurupuru%",%racoreopt%,OPTIONS,reicast_enable_purupuru
 return
 
-reicastCMBA:
+core_reicastCMBA:
 iniwrite, "%reicastaudiobuffersize%",%racoreopt%,OPTIONS,reicast_audio_buffer_size
 return
 
@@ -52699,19 +52699,19 @@ return
 
 
 ;{;;;;; scummvm CORE  ;;;;;
-scummvmDDLA:
+core_scummvmDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; snes9x CORE  ;;;;;
-snes9x2002DDLA:
-snes9x2005_plusDDLA:
-snes9x2005DDLA:
-snes9x2010DDLA:
-snes9xDDLA:
-snes9x_nextDDLA:
+core_snes9x2002DDLA:
+core_snes9x2005_plusDDLA:
+core_snes9x2005DDLA:
+core_snes9x2010DDLA:
+core_snes9xDDLA:
+core_snes9x_nextDDLA:
 stringright,sncc,ccv,6
 ccv= %sncc%
 guicontrol,,COREDDLTXTB,GFX Layer
@@ -52775,7 +52775,7 @@ guicontrol,,CORECHKE,0
 }
 return
 
-snes9xDDLD:
+core_snes9xDDLD:
 gui,submit,NoHide
 guicontrolget,COREDDLD,,COREDDLD
 snes9xOverclock= %COREDDLD%MHz
@@ -52792,7 +52792,7 @@ iniwrite, "%snes9xOverclock%",%racoreopt%,OPTIONS,snes9x_overclock
 iniwrite, "%snes9xNextOverclock%",%racoreopt%,OPTIONS,snes9x_next_overclock
 return
 
-snes9xDDLB:
+core_snes9xDDLB:
 gui,submit,NoHide
 guicontrolget,COREDDLB,,COREDDLB
 stringsplit,sncon,COREDDLB,_
@@ -52806,7 +52806,7 @@ if (snes9xlayerV = "enabled")
 snslyr= %snes9xlayerV%
 return
 
-snes9xDDLC:
+core_snes9xDDLC:
 gui,submit,NoHide
 guicontrol,,CORECHKB,0
 guicontrolget,COREDDLC,,COREDDLC
@@ -52819,7 +52819,7 @@ if (snssndl = "enabled")
 	}
 return
 
-snes9xCHKA:
+core_snes9xCHKA:
 COREDDLB= layer_1
 gui,submit,NoHide
 guicontrolget,COREDDLB,,COREDDLB
@@ -52831,12 +52831,12 @@ if (CORECHKA = 1)
 iniwrite, "%LYRSTAT%",%racoreopt%,OPTIONS,snes9x_%COREDDLB%
 return
 
-snes9xCHKB:
+core_snes9xCHKB:
 gui,submit,NoHide
 iniwrite, "%snssndl%",%racoreopt%,OPTIONS,snes9x_%COREDDLC%
 return
 
-snes9xCHKD:
+core_snes9xCHKD:
 gui,submit,NoHide
 snes9xgfxclip= Yes
 if (CORECHKD = 0)
@@ -52846,7 +52846,7 @@ snes9xgfxclip= Yes
 iniwrite, "%snes9xgfxclip%",%racoreopt%,OPTIONS,snes9x_gfx_clip
 return
 
-snes9xCHKE:
+core_snes9xCHKE:
 gui,submit,NoHide
 snes9xgfxtransp= Yes
 if (CORECHKE = 0)
@@ -52856,14 +52856,14 @@ snes9xgfxtransp= Yes
 iniwrite, "%snes9xgfxtransp%",%racoreopt%,OPTIONS,snes9x_gfx_transp
 return
 
-snes9xRADA:
+core_snes9xRADA:
 gui,submit,NoHide
 snes9xoverclock= disabled
 iniwrite, "%snes9xoverclock%",%racoreopt%,OPTIONS,snes9x_overclock
 iniwrite, "%snes9xoverclock%",%racoreopt%,OPTIONS,snes9x_next_overclock
 return
 
-snes9xRADB:
+core_snes9xRADB:
 gui,submit,NoHide
 snes9xoverclock= enabled
 iniwrite, "%snes9xoverclock%",%racoreopt%,OPTIONS,snes9x_next_overclock
@@ -52874,21 +52874,21 @@ return
 
 
 ;{;;;;; stella CORE  ;;;;;
-stellaDDLA:
+core_stellaDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; tgbdual CORE  ;;;;;
-tgbdualDDLA:
+core_tgbdualDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; ume2014 CORE  ;;;;;
-ume2014DDLA:
+core_ume2014DDLA:
 guicontrol,,CORECHK,0
 if (ume2014= "enabled")
 {
@@ -53041,31 +53041,31 @@ guicontrol,show,COREDDLI
 guicontrol,show,COREDDLTXTI
 return
 
-ume2014DDLB:
+core_ume2014DDLB:
 gui,submit,nohide
 ume2014saves= %COREDDLB%
 iniwrite, "%ume2014saves%",%racoreopt%,OPTIONS,ume2014_saves
 return
 
-ume2014DDLC:
+core_ume2014DDLC:
 gui,submit,nohide
 ume2014mediatype= %COREDDLC%
 iniwrite, "%ume2014mediatype%",%racoreopt%,OPTIONS,ume2014_media_type
 return
 
-ume2014DDLD:
+core_ume2014DDLD:
 gui,submit,nohide
 ume2014alternaterenderer= %COREDDLD%
 iniwrite, "%ume2014alternaterenderer%",%racoreopt%,OPTIONS,ume2014_alternate_renderer
 return
 
-ume2014DDLI:
+core_ume2014DDLI:
 gui,submit,nohide
 ume2014softlistsautomedia= %COREDDLI%
 iniwrite, "%ume2014softlistsautomedia%",%racoreopt%,OPTIONS,ume2014_softlists_auto_media
 return
 
-ume2014CHKA:
+core_ume2014CHKA:
 gui,submit,nohide
 ume2014readconfig= disabled
 if (CORECHKA = 1)
@@ -53075,7 +53075,7 @@ ume2014readconfig= enabled
 iniwrite, "%ume2014readconfig%",%racoreopt%,OPTIONS,ume2014_read_config
 return
 
-ume2014CHKB:
+core_ume2014CHKB:
 gui,submit,nohide
 ume2014writeconfig= disabled
 if (CORECHKB = 1)
@@ -53085,7 +53085,7 @@ ume2014writeconfig= enabled
 iniwrite, "%ume2014writeconfig%",%racoreopt%,OPTIONS,ume2014_write_config
 return
 
-ume2014CHKC:
+core_ume2014CHKC:
 gui,submit,nohide
 ume2014autosave= disabled
 if (CORECHKC = 1)
@@ -53095,7 +53095,7 @@ ume2014autosave= enabled
 iniwrite, "%ume2014autosave%",%racoreopt%,OPTIONS,ume2014_auto_save
 return
 
-ume2014CHKD:
+core_ume2014CHKD:
 gui,submit,nohide
 ume2014hidenagscreen= disabled
 if (CORECHKD = 1)
@@ -53105,7 +53105,7 @@ ume2014hidenagscreen= enabled
 iniwrite, "%ume2014hidenagscreen%",%racoreopt%,OPTIONS,ume2014_hide_nagscreen
 return
 
-ume2014CHKE:
+core_ume2014CHKE:
 gui,submit,nohide
 ume2014hidewarnings= disabled
 if (CORECHKE = 1)
@@ -53115,7 +53115,7 @@ ume2014hidewarnings= enabled
 iniwrite, "%ume2014hidewarnings%",%racoreopt%,OPTIONS,ume2014_hide_warnings
 return
 
-ume2014CHKF:
+core_ume2014CHKF:
 gui,submit,nohide
 ume2014throttle= disabled
 if (CORECHKF = 1)
@@ -53125,7 +53125,7 @@ ume2014throttle= enabled
 iniwrite, "%ume2014throttle%",%racoreopt%,OPTIONS,ume2014_throttle
 return
 
-ume2014CHKG:
+core_ume2014CHKG:
 gui,submit,nohide
 ume2014hidegameinfo= disabled
 if (CORECHKG = 1)
@@ -53135,7 +53135,7 @@ ume2014hidegameinfo= enabled
 iniwrite, "%ume2014hidegameinfo%",%racoreopt%,OPTIONS,ume2014_hide_gameinfo
 return
 
-ume2014CHKH:
+core_ume2014CHKH:
 gui,submit,nohide
 ume2014softlistsenable= enabled
 if (CORECHKH = 0)
@@ -53145,7 +53145,7 @@ ume2014softlistsenable= disabled
 iniwrite, "%ume2014softlistsenable%",%racoreopt%,OPTIONS,ume2014_softlists_enable
 return
 
-ume2014CHKI:
+core_ume2014CHKI:
 gui,submit,nohide
 ume2014cheatsenable= disabled
 if (CORECHKI = 1)
@@ -53155,38 +53155,38 @@ ume2014cheatsenable= enabled
 iniwrite, "%ume2014cheatsenable%",%racoreopt%,OPTIONS,ume2014_cheats_enable
 return
 
-ume2014RADA:
+core_ume2014RADA:
 ume2014mouseenable= enabled
 iniwrite, "%ume2014mouseenable%",%racoreopt%,OPTIONS,ume2014_mouse_enable
 return
-ume2014RADB:
+core_ume2014RADB:
 ume2014mouseenable= disabled
 iniwrite, "%ume2014mouseenable%",%racoreopt%,OPTIONS,ume2014_mouse_enable
 return
 
-ume2014RADG:
+core_ume2014RADG:
 ume2014boottobios= disabled
 iniwrite, "%ume2014boottobios%",%racoreopt%,OPTIONS,ume2014_boot_to_bios
 return
-ume2014RADH:
+core_ume2014RADH:
 ume2014boottobios= enabled
 iniwrite, "%ume2014boottobios%",%racoreopt%,OPTIONS,ume2014_boot_to_bios
 return
 
-ume2014RADQ:
+core_ume2014RADQ:
 ume2014bootfromcli= disabled
 iniwrite, "%ume2014boottobios%",%racoreopt%,OPTIONS,ume2014_boot_from_cli
 return
-ume2014RADR:
+core_ume2014RADR:
 ume2014boottobios= enabled
 iniwrite, "%ume2014boottobios%",%racoreopt%,OPTIONS,ume2014_boot_from_cli
 return
 
-ume2014RADU:
+core_ume2014RADU:
 ume2014boottoosd= disabled
 iniwrite, "%ume2014boottobios%",%racoreopt%,OPTIONS,ume2014_boot_to_osd
 return
-ume2014RADV:
+core_ume2014RADV:
 ume2014boottoosd= enabled
 iniwrite, "%ume2014boottobios%",%racoreopt%,OPTIONS,ume2014_boot_to_osd
 return
@@ -53195,35 +53195,35 @@ return
 
 
 ;{;;;;; vbam CORE  ;;;;;
-vbamDDLA:
+core_vbamDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; vba_next CORE  ;;;;;
-vba_nextDDLA:
+core_vba_nextDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; vecx CORE  ;;;;;
-vecxDDLA:
+core_vecxDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; virtualjaguar CORE  ;;;;;
-virtualjaguarDDLA:
+core_virtualjaguarDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
 
 ;{;;;;; yabause CORE  ;;;;;
-yabauseDDLA:
+core_yabauseDDLA:
 guicontrol,,COREDDLTXTB,Memory Cart
 guicontrol,,COREDDLB,|%yabauseaddoncart%||none|1M_ram|4M_ram
 guicontrol,,CORECHKA,Frameskip
@@ -53245,13 +53245,13 @@ guicontrol,,CORECHKB,1
 }
 return
 
-yabauseDDLB:
+core_yabauseDDLB:
 gui,submit,nohide
 yabauseaddoncart= %COREDDLB%
 iniwrite, "%COREDDLB%",%racoreopt%,OPTIONS,yabause_addon_cart
 return
 
-yabauseCHKA:
+core_yabauseCHKA:
 gui,submit,nohide
 yabauseframeskip= disabled
 if (CORECHKA = 1)
@@ -53261,7 +53261,7 @@ yabauseframeskip= enabled
 iniwrite, "%yabauseframeskip%",%racoreopt%,OPTIONS,yabause_frameskip
 return
 
-yabauseCHKB:
+core_yabauseCHKB:
 gui,submit,nohide
 yabauseforcehlebios= disabled
 if (CORECHKB = 1)
@@ -56086,6 +56086,20 @@ Medb8=joystick 00000000000%JoystickNumber%0000 00000004
 Medb9=joystick 00000000000%JoystickNumber%0000 00000006
 Medb0=joystick 00000000000%JoystickNumber%0000 00000007
 
+Snes9xbtn1=0
+Snes9xbtn2=1
+Snes9xbtn3=2
+Snes9xbtn4=3
+Snes9xbtn5=4
+Snes9xbtn6=5
+Snes9xbtn7=6
+Snes9xbtn8=7
+Snes9xbtn9=8
+Snes9xbtn10=9
+Snes9xbtn11=10
+Snes9xbtn12=11
+Snes9xbtn13=12
+
 Mamebtn1=1
 Mamebtn2=2
 Mamebtn3=3
@@ -56108,6 +56122,7 @@ if JoystickNumber <= 0
 			if JoyName <>
 			{
 				JoystickNumber = %A_Index%
+				MJoystickNumber:= A_Index-1
 				break
 			}
 		}
@@ -56162,14 +56177,16 @@ Loop
 	}
 if (setup = "")
 	{
-	gosub, SETUPJOYINPUT
+		gosub, SETUPJOYINPUT
 	}
 if (buttons_down <> "")
 	{
 		JOYCOLLECT:= buttons_down-1
 		MEDNAFENCOLLECT:= % Medb%buttons_down%
 		MAMEBUTDWN:= % Mamebtn%buttons_down%
+		SNES9XBUTDWN:= % Snes9xbtn%buttons_down%
 		MAMECOLLECT= JOYCODE_%JoystickNumber%_BUTTON%MAMEBUTDWN%
+		SNES9XCOLLECT= (J%MJoystickNumber%)Button %SNES9XBUTDWN%
 		break
 	}
 inputparse1=
@@ -56184,6 +56201,7 @@ if (inputparse1 > lstkxvarianceA)
 		JOYCOLLECT= +0
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00008000
 		MAMECOLLECT= JOYCODE_%JoystickNumber%_XAXIS_RIGHT_SWITCH
+		SNES9XCOLLECT= (J%MJoystickNumber%) POV Right
 		break
 	}
 	
@@ -56192,6 +56210,7 @@ if (inputparse1 <  lstkxvarianceB)
 		JOYCOLLECT= \-0
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 0000c000
 		MAMECOLLECT= JOYCODE_%JoystickNumber%_XAXIS_LEFT_SWITCH
+		SNES9XCOLLECT= (J%MJoystickNumber%) POV Left
 		break
 	}
 	
@@ -56200,14 +56219,16 @@ if (inputparse3 > lstkyvarianceA)
 		JOYCOLLECT= +1
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 0000c001
 		MAMECOLLECT= JOYCODE_%JoystickNumber%_YAXIS_UP_SWITCH
+		SNES9XCOLLECT= (J%MJoystickNumber%) POV Up
 		break
 	}
 	
-if (inputparse3 <  lstkyvarianceB)
+if (inputparse111113 <  lstkyvarianceB)
 	{
 		JOYCOLLECT= \-1
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00008001
 		MAMECOLLECT= JOYCODE_%JoystickNumber%_YAXIS_DOWN_SWITCH
+		SNES9XCOLLECT= (J%MJoystickNumber%) POV Down
 		break
 	}
 	
@@ -56216,6 +56237,7 @@ if (inputparse5 >  trigvarianceA)
 		JOYCOLLECT= +5
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00008004
 		MAMECOLLET=JOYCODE_%JoystickNumber%_RZAXIS_NEG_SWITCH
+		SNES9XCOLLECT= (J%MJoystickNumber%) Button 4
 		break
 	}
 	
@@ -56224,6 +56246,7 @@ if (inputparse5 <  trigvarianceB)
 		JOYCOLLECT= +4
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00008005
 		MAMECOLLECT= JOYCODE_%JoystickNumber%_ZAXIS_NEG_SWITCH
+		SNES9XCOLLECT= (J%MJoystickNumber%) Button 5
 		break
 	}
 	
@@ -56232,6 +56255,7 @@ if (inputparse7 > rstkxvarianceA)
 		JOYCOLLECT= +3
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 0000c003
 		MAMECOLLET=JOYCODE_%JoystickNumber%_RXAXIS_POS_SWITCH
+		SNES9XCOLLECT= (J%MJoystickNumber%) POV Right
 		break
 	}
 	
@@ -56240,6 +56264,7 @@ if (inputparse7 <  rstkxvarianceB)
 		JOYCOLLECT= \-3
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00008003
 		MAMECOLLECT= JOYCODE_%JoystickNumber%_RXAXIS_NEG_SWITCH
+		SNES9XCOLLECT= (J%MJoystickNumber%) POV Left
 		break
 	}
 	
@@ -56248,6 +56273,7 @@ if (inputparse9 > rstkyvarianceA)
 		JOYCOLLECT= +2
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00008002
 		MAMECOLLECT= JOYCODE_%JoystickNumber%_RYAXIS_NEG_SWITCH
+		SNES9XCOLLECT= (J%MJoystickNumber%) POV Down
 		break
 	}
 	
@@ -56256,6 +56282,7 @@ if (inputparse9 < rstkyvarianceB)
 		JOYCOLLECT= \-2
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 0000c002
 		MAMECOLLECT= JOYCODE_%JoystickNumber%_RYAXIS_POS_SWITCH
+		SNES9XCOLLECT= (J%MJoystickNumber%) POV Up
 		break
 	}
 	if (inputparse11 > 22501)
@@ -56263,6 +56290,7 @@ if (inputparse9 < rstkyvarianceB)
 		JOYCOLLECT= h0left
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00000002
 		MAMECOLLECT= JOYCODE_%JoystickNumber%_DPADLEFT
+		SNES9XCOLLECT= (J%MJoystickNumber%) POV Left
 		break
 	}
 	if (inputparse11 > 13501)
@@ -56270,6 +56298,7 @@ if (inputparse9 < rstkyvarianceB)
 		JOYCOLLECT= h0down
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00000001
 		MAMECOLLECT= JOYCODE_%JoystickNumber%_DPADDOWN
+		SNES9XCOLLECT= (J%MJoystickNumber%) POV Down
 		break
 	}
 	if (inputparse11 > 4499)
@@ -56277,6 +56306,7 @@ if (inputparse9 < rstkyvarianceB)
 		JOYCOLLECT= h0right
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00000003
 		MAMECOLLECT= JOYCODE_%JoystickNumber%_DPADRIGHT
+		SNES9XCOLLECT= (J%MJoystickNumber%) POV Right
 		break
 	}
 	if (inputparse11 > -1)
@@ -56284,6 +56314,7 @@ if (inputparse9 < rstkyvarianceB)
 		JOYCOLLECT= h0up
 		MEDNAFENCOLLECT= 00000000000%JoystickNumber%0000 00000000
 		MAMECOLLECT= JOYCODE_%JoystickNumber%_DPADUP
+		SNES9XCOLLECT= (J%MJoystickNumber%) POV Up
 		break
 	}
 	
@@ -60673,7 +60704,7 @@ JMameDDLA:
 gui, submit, nohide
 guicontrolget,emjDDLA,,emjDDLA
 guicontrol,,emjCHKX,0
-guicontrol,,emjCHKY,00
+guicontrol,,emjCHKY,0
 guicontrol,,emjCHKZ,0
 svi= 
 Loop, Parse, mamejglob,`n`r
@@ -64654,6 +64685,2579 @@ Loop, Parse, mameswaps,|
 return	
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+
+;{;;;;;;;;;;;;;;;;;;;;;    SNES9X GUI  ;;;;;;;;;;;;;;;;;;;;;;
+SNES9X_GUI:
+stringreplace,EXTRSYS,EXTRSYS,.lpl,,All
+gosub, ShowOnlyEmuGui
+emutog= show
+if (uuniv = "X")
+	{
+		srchtog= hide
+		gosub, TOGGLESEARCHBOX
+		guicontrol,move,FNDGUI, x720 y516 w42 h19
+		guicontrol,,FNDGUI,find
+	}
+
+snes9xcfg= snes9x.conf
+snes9xjcfg= snes9x.conf
+
+iniread,snes9xf,AppParams.ini,%LCORE%,per_game_configurations
+
+if (SK_MODE = "")
+	{
+		guicontrolget,ROMSYS,,RJSYSDD
+		ifnotexist,rj\syscfgs\%ROMSYS%\
+			{
+				filecreateDir,rj\syscfgs\%ROMSYS%
+			}
+		emucfgloc= rj\syscfgs\%ROMSYS%\snes9x.conf
+		snes9xjglbfile= rj\syscfgs\%ROMSYS%\snes9x.conf
+		iniread,snes9xRopts,%emucfgloc%,ROM
+		iniread,snes9xSopts,%emucfgloc%,Sound
+		iniread,snes9xSWopts,%emucfgloc%,Sound\Win
+		iniread,snes9xNopts,%emucfgloc%,Netplay
+		iniread,snes9xDopts,%emucfgloc%,Display
+		iniread,snes9xDWopts,%emucfgloc%,Display\Win
+		iniread,snes9xOopts,%emucfgloc%,Settings
+		iniread,snes9xOWopts,%emucfgloc%,Settings\Win
+		iniread,snes9xOWFopts,%emucfgloc%,Settings\Win\Files
+		iniread,snes9xCopts,%emucfgloc%,Controls
+		iniread,snes9xCWopts,%emucfgloc%,Controls\Win
+		iniread,snes9xCWHopts,%emucfgloc%,Controls\Win\Hotkeys
+		curjf= %ROMSYS%
+	}
+
+if (snes9xf = 0)
+	{
+		iniread,snes9xpth,Assignments.ini,ASSIGNMENTS,%LCORE%
+		splitpath,snes9xpth,,snes9xloc
+		emucfgloc= %snes9xloc%\%snes9xcfg%
+		snes9xjglbfile= %snes9xloc%\cfg\%snes9xjcfg%
+		indvcp= %emucfgloc%
+		ifnotexist,%emucfgloc%
+			{
+				filecopy,rj\emuCfgs\snes9x\snes9x.conf.ret,%emucfgloc%
+			}
+				iniread,snes9xRopts,%emucfgloc%,ROM
+		iniread,snes9xSopts,%emucfgloc%,Sound
+		iniread,snes9xSWopts,%emucfgloc%,Sound\Win
+		iniread,snes9xNopts,%emucfgloc%,Netplay
+		iniread,snes9xDopts,%emucfgloc%,Display
+		iniread,snes9xDWopts,%emucfgloc%,Display\Win
+		iniread,snes9xOopts,%emucfgloc%,Settings
+		iniread,snes9xOWopts,%emucfgloc%,Settings\Win
+		iniread,snes9xOWFopts,%emucfgloc%,Settings\Win\Files
+		iniread,snes9xCopts,%emucfgloc%,Controls
+		iniread,snes9xCWopts,%emucfgloc%,Controls\Win
+		iniread,snes9xCWHopts,%emucfgloc%,Controls\Win\Hotkeys
+	}
+	else
+		{
+			emucfgloc= cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%\%snes9xcfg%
+			snes9xloc= cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%
+			ifexist, %emucfgloc%
+				{
+					emucfgloc= cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%\%snes9xcfg%
+					fileread,snes9xopts,%emucfgloc%
+				}
+				else 
+					{
+						iniread,snes9xRopts,rj\emuCfgs\snes9x\snes9x.conf.ret,ROM
+						iniread,snes9xSopts,rj\emuCfgs\snes9x\snes9x.conf.ret,Sound
+						iniread,snes9xSWopts,rj\emuCfgs\snes9x\snes9x.conf.ret,Sound\Win
+						iniread,snes9xNopts,rj\emuCfgs\snes9x\snes9x.conf.ret,Netplay
+						iniread,snes9xDopts,rj\emuCfgs\snes9x\snes9x.conf.ret,Display
+						iniread,snes9xDWopts,rj\emuCfgs\snes9x\snes9x.conf.ret,Display\Win
+						iniread,snes9xOopts,rj\emuCfgs\snes9x\snes9x.conf.ret,Settings
+						iniread,snes9xOWopts,rj\emuCfgs\snes9x\snes9x.conf.ret,Settings\Win
+						iniread,snes9xOWFopts,rj\emuCfgs\snes9x\snes9x.conf.ret,Settings\Win\Files
+						iniread,snes9xCopts,rj\emuCfgs\snes9x\snes9x.conf.ret,Controls
+						iniread,snes9xCWopts,rj\emuCfgs\snes9x\snes9x.conf.ret,Controls\Win
+						iniread,snes9xCWHopts,rj\emuCfgs\snes9x\snes9x.conf.ret,Controls\Win\Hotkeys
+						filecreatedir,cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%
+						filecopy,rj\emuCfgs\snes9x\snes9x.conf.ret,%emucfgloc%
+						filecopy,rj\emuCfgs\snes9x\sysj\snes9x.conf.ret,%snes9xjglbfile%
+					}
+		}	
+if (ROMSYS = "")
+	{
+		guicontrolget,rmst,,RUNSYSDDL
+		ifinstring,rmst,.lpl
+			{
+				stringsplit,afj,rmst,.
+				rmst= %afj1%
+			}
+		if (rmst = "History")
+			{
+				guicontrolget,emst,,RUNROMCBX
+				Loop, parse, emst,\
+					{
+						ifinstring,A_Loopfield,%A_Space%-%A_Space%
+						rmst= %A_LoopField%
+						break
+					}
+				rmst= 	
+			}
+		Loop, parse,allsupport,|
+			{
+				if (A_Loopfield = "")
+					{
+						continue
+					}
+				if (A_Loopfield = rmst)
+					{
+						ROMSYS= %A_LoopField%
+						break
+					}
+			}
+		if (rmst = "")
+			{
+				guicontrolget,rmst,,ARCSYS
+				if (rmst = "Select a System")
+					{
+						ROMSYS= Nintendo - Super Nintendo Entertainment System
+					}
+			}
+		
+	}
+
+if (core_gui = "snes9x")
+	{
+		goto, LOADSNES9XOPTS
+	}
+InitSnes9xGui:
+SNES9XGUIITEMS=emuBUTJ|emuBUTA|emuBUTB|emuBUTC|emuCHKO|emuCHKD|emuCHKE|emuSLDA|emuCHKF|emuCHKG|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKP|emuCHKA|emuCHKB|emuCHKQ|emuCHKR|emuCHKS|emuCHKT|emuCHKC|emuCBXE|emuCBXA|emuCBXC|emuCBXB|emuCBXD|emuDDLE|emuDDLD|emuEDTA|emuDDLA|emuDDLB|emuDDLC|emuDDLG|emuEDTB|emuRad1A|emuRad1B
+;{;;;;;;;;;;;;;;;  create snes9x gui ;;;;;;;;;;;;;;;;
+guicontrol, %emutog%, emuBUTJ
+guicontrol, move, emuBUTJ,x694 y486 w66 h23
+guicontrol,,emuBUTJ,SAVE
+	
+guicontrol, %emutog%, emuGRPA
+guicontrol, move, emuGRPA,x22 y132 w207 h103
+guicontrol,,emuGRPA,Directories
+		
+guicontrol, %emutog%, emuTXTA
+guicontrol, move, emuTXTA,x29 y146 w48 h13
+guicontrol,,emuTXTA,Directories
+			
+guicontrol, %emutog%, emuGRPC
+guicontrol, move, emuGRPC,x238 y99 w317 h280
+guicontrol,,emuGRPC,Audio/Video
+				
+guicontrol, %emutog%, emuGRPD
+guicontrol, move, emuGRPD,x238 y380 w318 h120
+guicontrol,,emuGRPD,Options
+
+guicontrol, %emutog%, emuBUTA
+guicontrol, move, emuBUTA,x26 y162 w75 h23
+guicontrol,,emuBUTA,Assign
+
+guicontrol, %emutog%, emuCHKO
+guicontrol, move, emuCHKO,x244 y439 w70 h13
+guicontrol,,emuCHKO,Cheats
+
+guicontrol, %emutog%, emuCHKD
+guicontrol, move, emuCHKD,x349 y439 w66 h13
+guicontrol,,emuCHKD,Patch
+guicontrol,+0x200,emuCHKD
+
+guicontrol, %emutog%, emuCHKE
+guicontrol, move, emuCHKE,x349 y479 w66 h13
+guicontrol,,emuCHKE,Display Input
+
+guicontrol, %emutog%, emuTXTL ;dynamic num
+guicontrol, move, emuTXTL,x318 y400 w58 h13
+guicontrol,,emuTXTL,
+
+guicontrol, %emutog%, emuSLDA ;rewindslider
+guicontrol, move, emuSLDA,x244 y418 w120 h13
+guicontrol,+Range0-100,emuSLDA
+guicontrol,,emuSLDA,0
+
+guicontrol, %emutog%, emuCHKF
+guicontrol, move, emuCHKF,x244 y400 w68 h13
+guicontrol,,emuCHKF,Rewind
+
+guicontrol, %emutog%, emuCHKG
+guicontrol, move, emuCHKG,x459 y452 w90 h13
+guicontrol,,emuCHKG,Display Frame Count
+
+guicontrol, %emutog%, emuTXTO
+guicontrol, move, emuTXTO,x603 y140 w100 h16
+guicontrol,,emuTXTO,FILTER
+
+guicontrol, %emutog%, emuCHKH
+guicontrol, move, emuCHKH,x560 y107 w70 h13
+guicontrol,,emuCHKH,Blend Hi-Res
+
+guicontrol, %emutog%, emuCHKI
+guicontrol, move, emuCHKI,x320 y214 w73 h13
+guicontrol,,emuCHKI,Emulate Fullscreen
+
+guicontrol, %emutog%, emuCHKJ
+guicontrol, move, emuCHKJ,x246 y266 w105 h13
+guicontrol,,emuCHKJ,Hardware Stretch
+
+guicontrol, %emutog%, emuCHKK
+guicontrol, move, emuCHKK,x246 y249 w75 h13
+guicontrol,,emuCHKK,Double Buffered
+
+guicontrol, %emutog%, emuCHKL
+guicontrol, move, emuCHKL,x246 y354 w84 h13
+guicontrol,,emuCHKL,Bilinear Filter
+
+guicontrol, %emutog%, emuCHKM
+guicontrol, move, emuCHKM,x455 y121 w91 h13
+guicontrol,,emuCHKM,V-Sync
+
+guicontrol, %emutog%, emuCHKN
+guicontrol, move, emuCHKN,x455 y138 w90 h13
+guicontrol,,emuCHKN,Reduce Input Lag
+
+guicontrol, %emutog%, emuCHKP
+guicontrol, move, emuCHKP,x244 y478 w88 h13
+guicontrol,,emuCHKP,Frame Rate
+
+guicontrol, %emutog%, emuCHKA
+guicontrol, move, emuCHKA,x246 y123 w91 h13
+guicontrol,,emuCHKA,Auto-Frameskip
+
+guicontrol, %emutog%, emuCHKB
+guicontrol, move, emuCHKB,x246 y164 w69 h13
+guicontrol,,emuCHKB,Sound Sync
+
+guicontrol, %emutog%, emuCHKQ
+guicontrol, move, emuCHKQ,x246 y283 w120 h14
+guicontrol,,emuCHKQ,Maintain Aspect Ratio
+
+guicontrol, %emutog%, emuCHKR
+guicontrol, move, emuCHKR,x246 y302 w105 h13
+guicontrol,,emuCHKR,Filter
+
+guicontrol, %emutog%, emuCHKS
+guicontrol, move, emuCHKS,x246 y319 w105 h13
+guicontrol,,emuCHKS,Integer Scaling
+
+guicontrol, %emutog%, emuCHKT
+guicontrol, move, emuCHKT,x246 y337 w105 h13
+guicontrol,,emuCHKT,AutoStretch
+
+guicontrol, %emutog%, emuCHKC
+guicontrol, move, emuCHKC,x417 y310 w74 h13
+guicontrol,,emuCHKC,Sound ON
+
+guicontrol, %emutog%, emuTXTM  ;audiolatency
+guicontrol, move, emuTXTM,x422 y291 w72 h13
+guicontrol,,emuTXTM,Audio Latency
+
+guicontrol, %emutog%, emuCBXE  ;audiolatency
+guicontrol, move, emuCBXE,x497 y287 w50
+guicontrol,,emuCBXE,|none||1|2|3
+
+guicontrol, %emutog%, emuCBXA  ;frameskip
+guicontrol, move, emuCBXA,x303 y141 w37
+guicontrol,,emuCBXA,|200||250|300|350
+
+guicontrol, %emutog%, emuTXTE
+guicontrol, move, emuTXTE,x246 y145 w48 h13
+guicontrol,,emuTXTE,Frameskip
+
+guicontrol, %emutog%, emuCBXC  ;screennumber
+guicontrol, move, emuCBXC,x497 y263 w49
+guicontrol,,emuCBXC,|0||1|2|3
+
+guicontrol, %emutog%, emuTXTD
+guicontrol, move, emuTXTD,x412 y220 w75 h13
+guicontrol,,emuTXTD,Screen Number
+
+guicontrol, %emutog%, emuTXTC
+guicontrol, move, emuTXTC,x419 y246 w75 h13
+guicontrol,,emuTXTC,Sound Driver
+
+guicontrol, %emutog%, emuCBXB  ;sound buffer
+guicontrol, move, emuCBXB,x498 y240 w49
+guicontrol,,emuCBXB,|64||128|256|512|1024
+
+guicontrol, %emutog%, emuCBXD  ;RewindGranularity
+guicontrol, move, emuCBXD,x510 y427 w40
+guicontrol,,emuCBXD,||1|2|3|4|5|6|7|8
+
+guicontrol, %emutog%, emuTXTF
+guicontrol, move, emuTXTF,x448 y431 w60 h13
+guicontrol,,emuTXTF,Rewind Granularity
+
+guicontrol, %emutog%, emuDDLE  ;videodriver
+guicontrol, move, emuDDLE,x403 y188 w102
+guicontrol,,emuDDLE,|DirectDraw|Direct3D||OpenGL
+
+guicontrol, %emutog%, emuTXTG  ;videodriver
+guicontrol, move, emuTXTG,x419 y170 w59 h13
+guicontrol,,emuTXTG,Video-Driver
+
+guicontrol, %emutog%, emuTXTJ  ;rate
+guicontrol, move, emuTXTJ,x515 y331 w31 h13
+guicontrol,,emuTXTJ,Rate
+
+guicontrol, %emutog%, emuDDLD  ;soundrateddl
+guicontrol, move, emuDDLD,x415 y329 w99
+guicontrol,,emuDDLD,|480000||240000|80000
+
+guicontrol, %emutog%, emuEDTA  ;Directories-display
+guicontrol, move, emuEDTA,x24 y186 w201 h44
+guicontrol, +Wrap, emuEDTA,
+guicontrol,,emuEDTA,
+
+guicontrol, %emutog%, emuDDLA  ;Directories
+guicontrol, move, emuDDLA,x105 y162 w121
+guicontrol,,emuDDLA,||Dir:Roms|Dir:Screenshots|Dir:Movies|Dir:SPCs|Dir:Savestates|Dir:SRAM|Dir:Cheats|Dir:Patches|Dir:Bios|Dir:SatData
+
+guicontrol, %emutog%, emuDDLC  ;filter-type
+guicontrol, disable, emuDDLC  
+guicontrol, move, emuDDLC,x579 y159 w145
+guicontrol,,emuDDLC,|None||Forced1X|Simple2X|Scanlines|TVMode|Blargg'sNTSC(Composite)|Blargg'sNTSC(S-Video)|Blargg'sNTSC(RGB)|SuperEagle|Super2xSaI|2xSaI|hq2x|hq2xS|hq2xBold|EPXA|EPXB|EPXC|Simple3X|TVMode3X|DotMatrix3X|hq3x|hq3xS|hq3xBold|lq3xBold|EPX3|Simple4X|hq4x|2xBRZ|3xBRZ|4xBRZ|5xBRZ|6xBRZ
+
+guicontrol, %emutog%, emuDDLG  ;hires-presets
+guicontrol, move, emuDDLg,x589 y215 w125
+guicontrol,,emuDDLG,|None||Forced1X|Simple2X|Scanlines|TVMode|Blargg'sNTSC(Composite)|Blargg'sNTSC(S-Video)|Blargg'sNTSC(RGB)|Simple3X|Simple4X|hq4x|2xBRZ|3xBRZ|4xBRZ|5xBRZ|6xBRZ
+
+guicontrol, %emutog%, emuDDLB  ;ShaderType
+guicontrol, move, emuDDLB,x665 y297 w121
+guicontrol,,emuDDLB,|OpenGL||DirectX
+
+guicontrol, %emutog%, emuGRPB
+guicontrol, move, emuGRPB,x570 y264 w210 h109
+guicontrol,,emuGRPB,Directories
+			
+guicontrol, %emutog%, emuTXTB
+guicontrol, move, emuTXTB,x578 y281 w51 h13
+guicontrol,,emuTXTB,Shader Type
+
+guicontrol, %emutog%, emuBUTB
+guicontrol, move, emuBUTB,x574 y295 w75 h23
+guicontrol,,emuBUTB,Select
+
+guicontrol, %emutog%, emuTXTK  ;HIRES
+guicontrol, move, emuTXTK,x589 y195 w125 h14
+guicontrol,,emuTXTK,HIRES SHADERS
+
+guicontrol, %emutog%, emuRad1A  ;window
+guicontrol, move, emuRad1A,x246 y213 w73 h13
+guicontrol,,emuRad1A,Window
+guicontrol,,emuRad1A,1
+
+guicontrol, %emutog%, emuRad1B  ;fullscreen
+guicontrol, move, emuRad1B,x245 y230 w73 h13
+guicontrol,,emuRad1B,Fullscreen
+guicontrol,,emuRad1B,0
+Loop, Parse,SNES9XGUIITEMS,|
+	{
+		guicontrol,disable,%A_LoopField%
+	}
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+LOADSNES9XOPTS:
+core_gui= snes9x
+;{;;;;;;;;;;;;;;;  Populate SNES9X GUI with Values  ;;;;;;;;;;;;;;;;;;;
+abarb= |
+SB_SetText("Loading snes9x options")
+Loop, Parse, snes9xSopts,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+	}
+Loop, Parse, snes9xSWopts,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+	}
+Loop, Parse, snes9xNopts,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+	}
+Loop, Parse, snes9xDopts,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+	}
+Loop, Parse, snes9xDWopts,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,snvo,A_LoopField,=
+		vpt= 1
+		if (snvo1 = "Vsync")
+			{
+				if (snvol2 = "FALSE")
+					{
+						vpt= 0
+					}
+				guicontrol,,emuCHKM,%vpt%
+			}		
+	}
+Loop, Parse, snes9xOopts,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+	}
+Loop, Parse, snes9xOWopts,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+	}
+Loop, Parse, snes9xOWFopts,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+	}
+Loop, Parse, snes9xCopts,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+	}
+Loop, Parse, snes9xCWopts,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+	}
+Loop, Parse, snes9xCWHopts,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+	}
+SB_SetText("snes9x options loaded")	
+gosub, Snes9xCTRLS
+emutog= enable
+Loop, parse, SNES9XGUIITEMS,|
+	{
+		guicontrol,%emutog%,%A_LoopField%
+	}
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+Snes9xCTRLS:
+ejcex= 1
+if (emjDDLC = "")
+	{
+		emjDDLC= 1
+	}
+cursnes9xINPT= 
+if (loadedjoy = "snes9x")
+	{
+		goto, snes9xjoycreated
+	}	
+SB_SetText(" Loading snes9x Joystick config ")
+SNES9XJOYGUIITEMS=INDWRN|emjDDLD|emjDDLB|emjDDLA|emjCHKX|emjCHKY|emjCHKZ|emjCBA|emjBUTA|emjBUTB|emjDDLC|emjRAD3A|emjRAD3B|JOYCORE
+rajoytog= Hide
+gosub, RAJOYTOG
+;;emjtog= show
+;;gosub, EMJTOG
+emjtog= disable
+gosub, EMJTOG
+
+;{;;;;;;;;;;;;;;;;   Populate SNES9X Joy GUI   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+guicontrol,show,INDWRN
+guicontrol,move,INDWRN,x262 y180 w200 h200
+guicontrol,,INDWRN,
+guicontrol,show,emjDDLD
+guicontrol,move,emjDDLD,x34 y158 w55
+guicontrol,show,emjDDLA
+guicontrol,show,emjDDLB
+
+guicontrol,show,emjCHKX
+guicontrol,,emjCHKX,Shift
+guicontrol,show,emjCHKY
+guicontrol,,emjCHKY,Ctrl
+guicontrol,show,emjCHKZ
+guicontrol,,emjCHKZ,Alt
+
+guicontrol,show,emjCBA
+guicontrol,show,emjBUTA
+guicontrol,,emjBUTA,Load
+guicontrol,show,emjBUTB
+guicontrol,,emjBUTB,Reset
+guicontrol,show,emjQTXT
+guicontrol,,emjQTXT,Set
+guicontrol,move,emjQTXT,x200 y135 h23 w40
+guicontrol,show,emjDDLC
+guicontrol,,emjDDLC,|%emjDDLC%||1|2|3|4|5|6
+
+guicontrol,,emjJGRP,Mouse Sensitivity
+guicontrol,,emjUTXT,`%
+
+guicontrol,move,emjSTXT,x31 y132 h23 w70
+guicontrol,show,emjRAD3A
+guicontrol,,emjRAD3A,Keyboard
+guicontrol,move,emjRAD3A,x312 y32 w65 h13
+guicontrol,,emjRAD3A,0
+guicontrol,show,emjRAD3B
+guicontrol,,emjRAD3B,Joystick
+guicontrol,,emjRAD3B,0
+guicontrol,move,emjRAD3B,x383 y32 w65 h13
+guicontrol,show,emjSTXT
+guicontrol,,emjSTXT,System Type
+guicontrol,show,emjWTXT
+guicontrol,,emjWTXT,device
+guicontrol,show,emjFGRP
+guicontrol,,emjFGRP,Emulator
+guicontrol,show,emjHGRP
+guicontrol,,emjHGRP,Inputs
+guicontrol,show,emjPTXT
+guicontrol,,emjPTXT,Player
+guicontrol,move,emjPTXT,x368 y50 w34 h23
+guicontrol,show,emjGGRP
+guicontrol,,emjgGRP,Shortcuts
+guicontrol,,emjDDLA,|%snes9xscs%
+
+if (emjddlb = "")
+	{
+		emjddlb= 1
+	}
+guicontrol,,emjDDLB,|%emjddlb%||
+
+snes9xjoycreated:
+loadedjoy= snes9x
+snes9xjbuts= 
+FileRead, snes9xjbuts,rj\emuCfgs\snes9x\xinput.default.get
+stringreplace,snes9xjbuts,snes9xjbuts,[PLAYERNUM],1,All
+stringreplace,snes9xjbuts,snes9xjbuts,[JOYINDEX],1,All
+if (snes9xjbid = "")
+	{				
+		Loop, parse, snes9xjbuts,`n`r
+			{	
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				ae1=	
+				ae2=	
+				stringsplit,ae,A_LoopField,=
+				stringtrimleft,xfddz,ae2,4
+				stringtrimleft,xfddl,ae1,6
+				snes9xjbid.= xfddl . "|"
+				mrex_%xfddl%= %xfddz%
+			}
+	}
+snes9xkbctrls= 
+FileRead, snes9xkbctrls,rj\emuCfgs\snes9x\snes9xkb.get
+if (snes9xjname = "")
+	{
+		Loop, parse, snes9xkbctrls,`n`r
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				jnam1= 
+				jnam2=
+				stringsplit,jnam,A_LoopField,=
+				snes9xjname.= jnam1 . "|"
+			}
+	}
+if (emjRAD3A = 1)
+	{
+		gosub, Jsnes9xRAD3A
+	}
+guicontrol,,emjCBA,|%snes9xjname%%snes9xjbid%
+
+snv= 
+Loop, parse, snes9xCWOpts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+
+	}
+
+snes9xJPRELOAD:
+if (emjddlb = "n")
+	{
+		emjddlb= 1
+	}
+if (cursnes9xINPT = "")
+	{
+		guicontrol,,emjDDLF,|
+		cursnes9xINPT= Joypad
+	}
+guicontrol,,emjDDLB|%emjddlb%||1|2|3|4|5|6|7|8
+
+supinp= Joypad
+snes9xswapB= A
+snes9xswapA= B
+snes9xswapX= Y
+snes9xswapY= X
+snes9xswapStart= Start
+snes9xswapSelect= Select
+snes9xswapDown= Down
+snes9xswapUp= Up
+snes9xswapLeft= Left
+snes9xswapRight= Right
+snes9xswapL= L
+snes9xswapR= R
+snes9xswapL2= 
+snes9xswapR2= 
+snes9xswapR3= 
+snes9xswapL3= 
+snes9xswapLXMinus= 
+snes9xswapRXMinus= 
+snes9xswapRXPlus= 
+snes9xswapLXPlus= 
+snes9xswapLYPlus= 
+snes9xswapLYMinus= 
+snes9xswapRYPlus= 
+snes9xswapRYMinus= 
+snes9xswapHome= 
+
+Snes9xSwapATXT= a 
+Snes9xSwapBTXT= y
+Snes9xSwapCTXT= x
+Snes9xSwapDTXT= b
+Snes9xSwapETXT=
+Snes9xSwapFTXT=
+Snes9xSwapGTXT=
+Snes9xSwapHTXT=
+Snes9xSwapITXT= L
+Snes9xSwapJTXT= R
+Snes9xSwapLTXT= select
+Snes9xSwapMTXT= start
+
+Snes9xSwapCGRP= 
+Snes9xSwapDGRP= 
+gosub, Snes9xSwap
+return
+
+SB_SetText(" snes9x " playernum " joystick loading complete ")
+emjtog= enable
+gosub, EMJTOG
+return
+
+
+SNES9XDDLJ:
+gui,submit,nohide
+guicontrolget,emuDDLJ,,emuDDLJ
+return
+
+SNES9XBUTA:
+gui,submit,nohide
+FileSelectFolder,NWMPTH,,3,Select a Folder
+if (NWMPTH = "")
+	{
+		return
+	}
+guicontrolget,emuDDLA,,emuDDLA
+iniwrite,%NWMPTH%,%snes9xcfgloc%,$,Settings\Win\Files
+guicontrol,,emuedta,%nwmpth%
+return
+
+SNES9XBUTB:
+gui,submit,nohide
+guicontrolget,snshdtyp,,emuDDLB
+FileSelectFile,NWSHDRF,,3,Select A File
+if (NWSHDRF = "")
+	{
+		return
+	}
+iniwrite,%NWSHDRF%,%snes9xcfgloc%,Display\Win,%snshdtyp%
+guicontrol,,emuedtb,%nwshdrf%
+return
+
+SNES9XCHKD:
+gui,submit,nohide
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XCHKE:
+gui,submit,nohide
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XCHKF:
+gui,submit,nohide
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XCHKG:
+gui,submit,nohide
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XCHKH:
+gui,submit,nohide
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XCHKI:
+gui,submit,nohide
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XCHKJ:
+gui,submit,nohide
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XCHKK:
+gui,submit,nohide
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XCHKL:
+gui,submit,nohide
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XCHKM:
+gui,submit,nohide
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XCHKN:
+gui,submit,nohide
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XCHKO:
+gui,submit,nohide
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XCHKP:
+gui,submit,nohide
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XCHKQ:
+gui,submit,nohide
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XCHKR:
+gui,submit,nohide
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XCHKS:
+gui,submit,nohide
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XCHKT:
+gui,submit,nohide
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XCHKA:
+gui,submit,nohide
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XCHKB:
+gui,submit,nohide
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XCHKC:
+gui,submit,nohide
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XCBXE:
+gui,submit,nohide
+guicontrolget,SNES9XCBXE,,emuCBXE
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XCBXA:
+gui,submit,nohide
+guicontrolget,SNES9XCBXA,,emuCBXA
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XCBXB:
+gui,submit,nohide
+guicontrolget,SNES9XCBXB,,emuCBXB
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XCBXC:
+gui,submit,nohide
+guicontrolget,SNES9XCBXC,,emuCBXC
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XCBXD:
+gui,submit,nohide
+guicontrolget,SNES9XCBXD,,emuCBXD
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XDDLE:
+gui,submit,nohide
+guicontrolget,emuDDLE,,emuDDLE
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XDDLD:
+gui,submit,nohide
+guicontrolget,SNES9XDDLD,,emuDDLD
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XEDTA:
+gui,submit,nohide
+return
+
+SNES9XDDLA:
+gui,submit,nohide
+guicontrolget,emuDDLA,,emuDDLA
+iniread,ppfn,%snes9xcfgloc%,Settings\Win\Files,%emuddla%
+guicontrol,,emuEDTA,%ppfn%
+return
+
+SNES9XDDLG:
+gui,submit,nohide
+guicontrolget,emuddlg,,emuddlg
+return
+
+SNES9XDDLC:
+gui,submit,nohide
+guicontrolget,emuddlc,,emuddlc
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XDDLF:
+gui,submit,nohide
+guicontrolget,emuDDLB,,emuDDLB
+SNES9X_video= %emuDDLB%
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XDDLB:
+gui,submit,nohide
+guicontrolget,emuDDLB,,emuDDLB
+iniread,shdrv,%snes9xcfgloc%,Display\Win,%emuddlb%
+guicontrol,,emuEDTB,%shdrv%
+return
+
+SNES9XEDTB:
+gui,submit,nohide
+return
+
+SNES9XRad1A:
+gui,submit,nohide
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XRad1B:
+gui,submit,nohide
+iniwrite,<>%snes9xcfgloc%,$,@
+return
+
+SNES9XsldA:
+gui,submit,nohide
+guicontrolget,emuSLDA,,emuSLDA
+guicontrol,,emuTXTL,%emusldA% mb
+iniwrite,%emuSLDA%,%snes9xcfgloc%,Settings\Win,RewindBufferSize
+return
+
+SNES9XBUTJ:
+gui,submit,nohide
+Guicontrol,Choose,TABMENU,8
+SVTGTS= 1
+return
+
+
+
+Snes9xSwap:
+guicontrolget,emjDDLB,,emjDDLB
+guicontrolget,emjDDLC,,emjDDLC
+guicontrolget,emjDDLF,,emjDDLF
+FileRead,snes9CWopt,%snes9xcfg%
+snes9xlkup= 
+rbab= |
+mjnv= 
+snv= 
+gth= 
+sysgath= 
+Loop, Parse, snes9xCWopt,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		snv+= 1
+		stringsplit,plnx,A_LoopField,=
+		stringsplit,plnv,plnx1,:
+		snes9xnvl= %plnv2%
+		rmpbtnvl= 
+		if (snes9xnvl = snes9xswapB)
+			{
+				snes9xitbv= B
+			}
+		if (snes9xnvl = snes9xswapA)
+			{
+				snes9xitbv= A
+			}
+		if (snes9xnvl = snes9xswapX)
+			{
+				snes9xitbv= X
+			}
+		if (snes9xnvl = snes9xswapY)
+			{
+				snes9xitbv= Y
+			}
+		if (snes9xnvl = snes9xswapSelect)
+			{
+				snes9xitbv= select
+			}
+		if (snes9xnvl = snes9xswapStart)
+			{
+				snes9xitbv= start
+			}
+		if (snes9xnvl = snes9xswapR3)
+			{
+				snes9xitbv= r3
+			}
+		if (snes9xnvl = snes9xswapL3)
+			{
+				snes9xitbv= l3
+			}
+		if (snes9xnvl = snes9xswapR2)
+			{
+				snes9xitbv= r2
+			}
+		if (snes9xnvl = snes9xswapL2)
+			{
+				snes9xitbv= l2
+			}
+		if (snes9xnvl = snes9xswapUp)
+			{
+				snes9xitbv= up
+			}
+		if (snes9xnvl = snes9xswapDown)
+			{
+				snes9xitbv= down
+			}
+		if (snes9xnvl = snes9xswapLeft)
+			{
+				snes9xitbv= left
+			}
+		if (snes9xnvl = snes9xswapRight)
+			{
+				snes9xitbv= right
+			}
+		if (snes9xnvl = snes9xswapR)
+			{
+				snes9xitbv= r
+			}
+		if (snes9xnvl = snes9xswapL)
+			{
+				snes9xitbv= l
+			}
+		if (snes9xnvl = snes9xswapRXMinus)
+			{
+				snes9xitbv= rxminus
+			}
+		if (snes9xnvl = snes9xswapRXPlus)
+			{
+				snes9xitbv= rxplus
+			}
+		if (snes9xnvl = snes9xswapLXMinus)
+			{
+				snes9xitbv= lxminus
+			}
+		if (snes9xnvl = snes9xswapLXPlus)
+			{
+				snes9xitbv= lxplus
+			}
+		if (snes9xnvl = snes9xswapRYMinus)
+			{
+				snes9xitbv= ryminus
+			}
+		if (snes9xnvl = snes9xswapRYPlus)
+			{
+				snes9xitbv= ryplus
+			}
+		if (snes9xnvl = snes9xswapLYMinus)
+			{
+				snes9xitbv= lyminus
+			}
+		if (snes9xnvl = snes9xswapLYPlus)
+			{
+				snes9xitbv= lyplus
+			}
+		if (snes9xnvl = snes9xswapHome)
+			{
+				snes9xitbv= home
+			}
+		if (emjRAD3B = 1)  ;;joy
+			{
+				iniwrite,###NEWVALUE###,%snes9xcfg%,Controls\Win,Joypad%playernum%:%snes9xnvl%
+				kmj%snes9xitbv%= %snes9xnvl%	
+			}	
+		if (emjRAD3A = 1)  ;;KB
+			{
+				iniwrite,###NEWVALUE###,%snes9xcfg%,Controls\Win,Joypad%playernum%:%snes9xnvl%
+				kmj%snes9xitbv%= %snes9xnvl%	
+			}	
+		
+	}
+guicontrol,,INDWRN,%snes9xlkup%
+cursnes9xjoyset=
+Loop, Parse, snes9xswaps,|
+	{
+		fie= % %A_LoopField%
+		stringreplace,fin,A_LoopField,snes9xswap,,All
+		if (fie <> "")
+			{
+				cursnes9xjoyset.= "emj" . fin . "|"
+				cursnes9xjoyset.= "emj" . fin . "In" . "|"
+			}
+		ifinstring,fin,TXT
+			{
+				guicontrol,,emj%fin%,%fie%
+			}
+		ifinstring,fin,GRP
+			{
+				guicontrol,,emj%fin%,%fie%
+			}
+	}
+return
+
+Snes9xKBREV:
+snv=
+mjnv= 
+Loop, Parse, snes9xCWopts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		snv+= 1	
+		stringsplit,afek,A_LoopField,=
+		mdlnval= %afek2%
+		snes9xnvl=
+		if (btnk1 = vprm)
+			{
+				iniwrite,###NEWVALUE###,%snes9xcfg%,Controls\Win,(J%playernum%)%mlku_kprm%
+			}
+	}
+emjtog= enable
+gosub, emjbtog
+
+return
+
+Snes9xJREV:
+snv=
+mjnv= 
+sysrep= 
+Loop, Parse, snes9xCWopts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		snv+= 1	
+		stringsplit,afek,A_LoopField,=
+		mdlnval= %afek2%
+		snes9xnvl=
+		if (btnk1 = vprm)
+			{
+				iniwrite,###NEWVALUE###,%snes9xcfg%,Controls\Win,(J%playernum%)%mlku_kprm%
+			}
+	}
+emjtog= enable
+gosub, emjbtog
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;;;;  SNES9X INPUTS  ;;;;;;;;;;;;;;;;;;
+JSnes9xTURBOIN:
+gui, submit, nohide
+SB_SetText(" Waiting for input TURBO")
+gosub, GetJoystickInput
+Loop,Parse,snes9xjbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (SNES9XCOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				SNES9XCOLLECT= %avr%
+				break
+			}
+	}
+if (SNES9XCOLLECT <> "")
+	{
+		guicontrol,,emjTRBCMB,|%SNES9XCOLLECT%||%snes9xjbid%
+	}
+SB_SetText(" SNES9XCOLLECT ")
+gosub, emjTRBCMB
+return
+
+JSnes9xL2In:
+gui, submit, nohide
+SB_SetText(" Waiting for input L Trigger ")
+gosub, GetJoystickInput
+Loop,Parse,snes9xjbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (SNES9XCOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				SNES9XCOLLECT= %avr%
+				break
+			}
+	}
+if (SNES9XCOLLECT <> "")
+	{
+		guicontrol,,emjl2,|%SNES9XCOLLECT%||%snes9xjbid%
+	}
+SB_SetText(" SNES9XCOLLECT ")
+gosub, emjl2
+return
+
+JSnes9xLIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input L Bumper ")
+gosub, GetJoystickInput
+Loop,Parse,snes9xjbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (SNES9XCOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				SNES9XCOLLECT= %avr%
+				break
+			}
+	}
+if (SNES9XCOLLECT <> "")
+	{
+		guicontrol,,emjL,|%SNES9XCOLLECT%||%snes9xjbid%
+	}
+gosub, emjL
+SB_SetText(" SNES9XCOLLECT ")
+return
+
+JSnes9xR2In:
+gui, submit, nohide
+SB_SetText(" Waiting for input R Trigger ")
+gosub, GetJoystickInput
+Loop,Parse,snes9xjbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (SNES9XCOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				SNES9XCOLLECT= %avr%
+				break
+			}
+	}
+if (SNES9XCOLLECT <> "")
+	{
+		guicontrol,,emjr2,|%SNES9XCOLLECT%||%snes9xjbid%
+	}
+SB_SetText(" SNES9XCOLLECT ")
+gosub, emjr2
+return
+
+JSnes9xRIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input R Bumper ")
+gosub, GetJoystickInput
+Loop,Parse,snes9xjbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (SNES9XCOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				SNES9XCOLLECT= %avr%
+				break
+			}
+	}
+SB_SetText(" SNES9XCOLLECT ")
+if (SNES9XCOLLECT <> "")
+	{
+		guicontrol,,emjR,|%SNES9XCOLLECT%||%snes9xjbid%
+	}
+gosub, emjR
+return
+
+JSnes9xLYPlusIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input L-Stick Up ")
+gosub, GetJoystickInput
+Loop,Parse,snes9xjbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (SNES9XCOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				SNES9XCOLLECT= %avr%
+				break
+			}
+	}
+SB_SetText(" SNES9XCOLLECT ")
+if (SNES9XCOLLECT <> "")
+	{
+		guicontrol,,emjLYPlus,|%SNES9XCOLLECT%||%snes9xjbid%
+	}
+gosub, emjLYPlus
+return
+
+JSnes9xLXMinusIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input L-Stick Left ")
+gosub, GetJoystickInput
+Loop,Parse,snes9xjbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (SNES9XCOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				SNES9XCOLLECT= %avr%
+				break
+			}
+	}
+SB_SetText(" SNES9XCOLLECT ")
+if (SNES9XCOLLECT <> "")
+	{
+		guicontrol,,emjLYMinus,|%SNES9XCOLLECT%||%snes9xjbid%
+	}
+gosub, emjLYMinus
+return
+
+JSnes9xLXPlusIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input L-Stick Right ")
+gosub, GetJoystickInput
+Loop,Parse,snes9xjbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (SNES9XCOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				SNES9XCOLLECT= %avr%
+				break
+			}
+	}
+SB_SetText(" SNES9XCOLLECT ")
+if (SNES9XCOLLECT <> "")
+	{
+		guicontrol,,emjLXPlus,|%SNES9XCOLLECT%||%snes9xjbid%
+	}
+gosub, emjLXPlus
+return
+
+JSnes9xLYMinusIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input L-Stick Down ")
+gosub, GetJoystickInput
+Loop,Parse,snes9xjbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (SNES9XCOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				SNES9XCOLLECT= %avr%
+				break
+			}
+	}
+SB_SetText(" SNES9XCOLLECT ")
+if (SNES9XCOLLECT <> "")
+	{
+		guicontrol,,emjLXMinus,|%SNES9XCOLLECT%||%snes9xjbid%
+	}
+gosub, emjLXMinus
+return
+
+JSnes9xL3In:
+gui, submit, nohide
+SB_SetText(" Waiting for input L3 Button ")
+gosub, GetJoystickInput
+Loop,Parse,snes9xjbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (SNES9XCOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				SNES9XCOLLECT= %avr%
+				break
+			}
+	}
+SB_SetText(" SNES9XCOLLECT ")
+if (SNES9XCOLLECT <> "")
+	{
+		guicontrol,,emjL3,|%SNES9XCOLLECT%||%snes9xjbid%
+	}
+gosub, emjL3
+return
+
+JSnes9xRYPlusIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input R-Stick Up ")
+gosub, GetJoystickInput
+Loop,Parse,snes9xjbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (SNES9XCOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				SNES9XCOLLECT= %avr%
+				break
+			}
+	}
+SB_SetText(" SNES9XCOLLECT ")
+if (SNES9XCOLLECT <> "")
+	{
+		guicontrol,,emjRYPlus,|%SNES9XCOLLECT%||%snes9xjbid%
+	}
+gosub, emjRYPlus
+return
+
+JSnes9xRXMinusIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input R-Stick Left ")
+gosub, GetJoystickInput
+Loop,Parse,snes9xjbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (SNES9XCOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				SNES9XCOLLECT= %avr%
+				break
+			}
+	}
+SB_SetText(" SNES9XCOLLECT ")
+if (SNES9XCOLLECT <> "")
+	{
+		guicontrol,,emjRXMinus,|%SNES9XCOLLECT%||%snes9xjbid%
+	}
+gosub, emjRXMinus
+return
+
+JSnes9xRXPlusIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input R-Stick Right ")
+gosub, GetJoystickInput
+Loop,Parse,snes9xjbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (SNES9XCOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				SNES9XCOLLECT= %avr%
+				break
+			}
+	}
+if (SNES9XCOLLECT <> "")
+	{
+		guicontrol,,emjRXPlus,|%SNES9XCOLLECT%||%snes9xjbid%
+	}
+SB_SetText(" SNES9XCOLLECT ")
+gosub, emjRXPlus
+return
+
+JSnes9xRYMinusIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input R-Stick Down ")
+gosub, GetJoystickInput
+Loop,Parse,snes9xjbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (SNES9XCOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				SNES9XCOLLECT= %avr%
+				break
+			}
+	}
+if (SNES9XCOLLECT <> "")
+	{
+		guicontrol,,emjRYMinus,|%SNES9XCOLLECT%||%snes9xjbid%
+	}
+SB_SetText(" SNES9XCOLLECT ")
+gosub, emjRYMinus
+return
+
+JSnes9xR3In:
+gui, submit, nohide
+SB_SetText(" Waiting for input R3 Button ")
+gosub, GetJoystickInput
+Loop,Parse,snes9xjbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (SNES9XCOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				SNES9XCOLLECT= %avr%
+				break
+			}
+	}
+if (SNES9XCOLLECT <> "")
+	{
+		guicontrol,,emjR3,|%SNES9XCOLLECT%||%snes9xjbid%
+	}
+SB_SetText(" SNES9XCOLLECT ")
+gosub, emjR3
+return
+
+JSnes9xDownIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input DPad Down")
+gosub, GetJoystickInput
+Loop,Parse,snes9xjbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (SNES9XCOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				SNES9XCOLLECT= %avr%
+				break
+			}
+	}
+if (SNES9XCOLLECT <> "")
+	{
+		guicontrol,,emjdown,|%SNES9XCOLLECT%||%snes9xjbid%
+	}
+SB_SetText(" SNES9XCOLLECT ")
+gosub, emjdown
+return
+
+JSnes9xUpIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input DPad Up")
+gosub, GetJoystickInput
+Loop,Parse,snes9xjbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		ae1= 
+		ae2= 
+		stringsplit,ae,A_LoopField,=
+		if (SNES9XCOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				SNES9XCORRECT= %avr%
+				break
+			}
+	}
+if (SNES9XCOLLECT <> "")
+	{
+		guicontrol,,emjup,|%SNES9XCORRECT%||%snes9xjbid%
+	}
+SB_SetText(" SNES9XCOLLECT ")
+gosub, emjup
+return
+
+JSnes9xLeftIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input DPad Left")
+gosub, GetJoystickInput
+Loop,Parse,snes9xjbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (SNES9XCOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				SNES9XCOLLECT= %avr%
+				break
+			}
+	}
+if (SNES9XCOLLECT <> "")
+	{
+		guicontrol,,emjleft,|%SNES9XCOLLECT%||%snes9xjbid%
+	}
+SB_SetText(" SNES9XCOLLECT ")
+gosub, emjleft
+return
+
+JSnes9xRightIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input DPad Right")
+gosub, GetJoystickInput
+Loop,Parse,snes9xjbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (SNES9XCOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				SNES9XCOLLECT= %avr%
+				break
+			}
+	}
+if (SNES9XCOLLECT <> "")
+	{
+		guicontrol,,emjright,|%SNES9XCOLLECT%||%snes9xjbid%
+	}
+SB_SetText(" SNES9XCOLLECT ")
+gosub, emjright
+return
+
+JSnes9xSelectIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input Select Button")
+gosub, GetJoystickInput
+Loop,Parse,snes9xjbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (SNES9XCOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				SNES9XCOLLECT= %avr%
+				break
+			}
+	}
+if (SNES9XCOLLECT <> "")
+	{
+		guicontrol,,emjselect,|%SNES9XCOLLECT%||%snes9xjbid%
+	}
+SB_SetText(" SNES9XCOLLECT ")
+gosub, emjselect
+return
+
+JSnes9xStartIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input Start Button")
+gosub, GetJoystickInput
+Loop,Parse,snes9xjbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (SNES9XCOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				SNES9XCOLLECT= %avr%
+				break
+			}
+	}
+if (SNES9XCOLLECT <> "")
+	{
+		guicontrol,,emjstart,|%SNES9XCOLLECT%||%snes9xjbid%
+	}
+SB_SetText(" SNES9XCOLLECT ")
+gosub, emjstart
+return
+
+JSnes9xYIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input Y Button")
+gosub, GetJoystickInput
+Loop,Parse,snes9xjbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (SNES9XCOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				SNES9XCOLLECT= %avr%
+				break
+			}
+	}
+if (SNES9XCOLLECT <> "")
+	{
+		guicontrol,,emjY,|%SNES9XCOLLECT%||%snes9xjbid%
+	}
+SB_SetText(" SNES9XCOLLECT ")
+gosub, emjY
+return
+
+JSnes9xXIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input X Button")
+gosub, GetJoystickInput
+Loop,Parse,snes9xjbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (SNES9XCOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				SNES9XCOLLECT= %avr%
+				break
+			}
+	}
+	
+if (SNES9XCOLLECT <> "")
+	{
+		guicontrol,,emjX,|%SNES9XCOLLECT%||%snes9xjbid%
+	}
+SB_SetText(" SNES9XCOLLECT ")
+gosub, emjX
+return
+
+JSnes9xBIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input B Button")
+gosub, GetJoystickInput
+Loop,Parse,snes9xjbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (SNES9XCOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				SNES9XCOLLECT= %avr%
+				break
+			}
+	}
+if (SNES9XCOLLECT <> "")
+	{
+		guicontrol,,emjB,|%SNES9XCOLLECT%||%snes9xjbid%
+	}
+SB_SetText(" SNES9XCOLLECT ")
+gosub, emjB
+return
+
+JSnes9xAIn:
+gui, submit, nohide
+SB_SetText(" Waiting for input A Button")
+gosub, GetJoystickInput
+Loop,Parse,snes9xjbuts,`n`r
+	{
+		if (A_Loopfield = "")
+			{
+				continue
+			}
+		stringsplit,ae,A_LoopField,=
+		if (SNES9XCOLLECT = ae2)
+			{
+				stringtrimleft,avr,ae1,6
+				SNES9XCOLLECT= %avr%
+				break
+			}
+	}
+SB_SetText(" SNES9XCOLLECT ")
+if (SNES9XCOLLECT <> "")
+	{
+		guicontrol,,emjA,|%SNES9XCOLLECT%||%snes9xjbid%
+	}
+gosub, emjA
+return
+
+JSnes9xINPBUTIN:
+gui, submit, nohide
+SB_SetText(" Waiting for input")
+return
+
+JSnes9xTRBCMB:
+gui, submit, nohide
+return
+
+JSnes9xRXMinus:
+gui, submit, nohide
+guicontrolget,kprm,,emjRXMinus
+gosub, snes9xti
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjRXMinus%
+if (emjRAD3A = 1)
+	{
+		gosub, snes9xkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, snes9xjrev
+	}
+
+return
+
+JSnes9xRYPlus:
+gui, submit, nohide
+guicontrolget,kprm,,emjRYPlus
+gosub, snes9xti
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjryplus%
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjRYPlus%
+if (emjRAD3A = 1)
+	{
+		gosub, snes9xkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, snes9xjrev
+	}
+
+return
+
+JSnes9xR:
+gui, submit, nohide
+guicontrolget,kprm,,emjR
+gosub, snes9xti
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjR%
+if (emjRAD3A = 1)
+	{
+		gosub, snes9xkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, snes9xjrev
+	}
+
+return
+
+JSnes9xL:
+gui, submit, nohide
+guicontrolget,kprm,,emjL
+gosub, snes9xti
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjL%
+if (emjRAD3A = 1)
+	{
+		gosub, snes9xkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, snes9xjrev
+	}
+
+return
+
+JSnes9xRXPlus:
+gui, submit, nohide
+guicontrolget,kprm,,emjRXPlus
+gosub, snes9xti
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjRXPlus%
+if (emjRAD3A = 1)
+	{
+		gosub, snes9xkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, snes9xjrev
+	}
+
+return
+
+JSnes9xRYMinus:
+gui, submit, nohide
+guicontrolget,kprm,,emjRYMinus
+gosub, snes9xti
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjRYMinus%
+if (emjRAD3A = 1)
+	{
+		gosub, snes9xkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, snes9xjrev
+	}
+
+return
+
+JSnes9xR3:
+gui, submit, nohide
+guicontrolget,kprm,,emjR3
+gosub, snes9xti
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjR3%
+if (emjRAD3A = 1)
+	{
+		gosub, snes9xkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, snes9xjrev
+	}
+
+return
+
+JSnes9xL3:
+gui, submit, nohide
+guicontrolget,kprm,,emjL3
+gosub, snes9xti
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjR3%
+if (emjRAD3A = 1)
+	{
+		gosub, snes9xkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, snes9xjrev
+	}
+
+return
+
+JSnes9xLXMinus:
+gui, submit, nohide
+guicontrolget,kprm,,emjLXMinus
+gosub, snes9xti
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjLXMinus%
+if (emjRAD3A = 1)
+	{
+		gosub, snes9xkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, snes9xjrev
+	}
+
+return
+
+JSnes9xLYPlus:
+gui, submit, nohide
+guicontrolget,kprm,,emjLYPlus
+gosub, snes9xti
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjLYPlus%
+if (emjRAD3A = 1)
+	{
+		gosub, snes9xkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, snes9xjrev
+	}
+
+return
+
+JSnes9xLYMinus:
+gui, submit, nohide
+guicontrolget,kprm,,emjLYMinus
+gosub, snes9xti
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjLYMinus%
+if (emjRAD3A = 1)
+	{
+		gosub, snes9xkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, snes9xjrev
+	}
+
+return
+
+JSnes9xLXPlus:
+gui, submit, nohide
+guicontrolget,kprm,,emjLXPlus
+gosub, snes9xti
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjLXPlus%
+if (emjRAD3A = 1)
+	{
+		gosub, snes9xkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, snes9xjrev
+	}
+
+return
+
+JSnes9xselect:
+gui, submit, nohide
+guicontrolget,kprm,,emjselect
+gosub, snes9xti
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjselect%
+if (emjRAD3A = 1)
+	{
+		gosub, snes9xkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, snes9xjrev
+	}
+
+return
+
+JSnes9xstart:
+gui, submit, nohide
+guicontrolget,kprm,,emjstart
+gosub, snes9xti
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjstart%
+if (emjRAD3A = 1)
+	{
+		gosub, snes9xkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, snes9xjrev
+	}
+
+return
+
+JSnes9xup:
+gui, submit, nohide
+guicontrolget,kprm,,emjup
+gosub, snes9xti
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjup%
+if (emjRAD3A = 1)
+	{
+		gosub, snes9xkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, snes9xjrev
+	}
+
+return
+
+JSnes9xleft:
+gui, submit, nohide
+guicontrolget,kprm,,emjleft
+gosub, snes9xti
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjleft%
+if (emjRAD3A = 1)
+	{
+		gosub, snes9xkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, snes9xjrev
+	}
+
+return
+
+JSnes9xright:
+gui, submit, nohide
+guicontrolget,kprm,,emjright
+gosub, snes9xti
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjright%
+if (emjRAD3A = 1)
+	{
+		gosub, snes9xkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, snes9xjrev
+	}
+
+return
+
+JSnes9xdown:
+gui, submit, nohide
+guicontrolget,kprm,,emjdown
+gosub, snes9xti
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjdown%
+if (emjRAD3A = 1)
+	{
+		gosub, snes9xkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, snes9xjrev
+	}
+
+return
+
+JSnes9xY:
+gui, submit, nohide
+guicontrolget,kprm,,emjY
+gosub, snes9xti
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjY%
+if (emjRAD3A = 1)
+	{
+		gosub, snes9xkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, snes9xjrev
+	}
+
+return
+
+JSnes9xX:
+gui, submit, nohide
+guicontrolget,kprm,,emjX
+gosub, snes9xti
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjX%
+if (emjRAD3A = 1)
+	{
+		gosub, snes9xkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, snes9xjrev
+	}
+
+return
+
+JSnes9xB:
+gui, submit, nohide
+guicontrolget,kprm,,emjB
+gosub, snes9xti
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjB%
+if (emjRAD3A = 1)
+	{
+		gosub, snes9xkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, snes9xjrev
+	}
+
+return
+
+JSnes9xA:
+gui, submit, nohide
+guicontrolget,kprm,,emjA
+gosub, snes9xti
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjA%
+if (emjRAD3A = 1)
+	{
+		gosub, snes9xkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, snes9xjrev
+	}
+
+return
+
+JSnes9xl2:
+gui, submit, nohide
+guicontrolget,kprm,,emjL2
+gosub, snes9xti
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjL2%
+if (emjRAD3A = 1)
+	{
+		gosub, snes9xkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, snes9xjrev
+	}
+
+return
+
+JSnes9xr2:
+gui, submit, nohide
+guicontrolget,kprm,,emjR2
+gosub, snes9xti
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjR2%
+if (emjRAD3A = 1)
+	{
+		gosub, snes9xkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, snes9xjrev
+	}
+
+return
+
+JSnes9xHome:
+gui, submit, nohide
+guicontrolget,kprm,,emjHome
+gosub, snes9xti
+emjtog= disable
+gosub, emjbtog
+vprm= %kmjHome%
+if (emjRAD3A = 1)
+	{
+		gosub, snes9xkbrev
+	}
+if (emjRAD3B = 1)
+	{
+		gosub, snes9xjrev
+	}
+return
+
+snes9xti:
+if (emjRAD3A = 1)
+	{
+		mlku_kprm= % mrex_%kprm%
+		return
+	}
+	else {
+	Loop, Parse,snes9xkbctrls,`n`r
+		{
+			if (A_LoopField = "")
+				{
+					continue
+				}
+			stringsplit,aem,A_LoopField,=
+			if (kprm = aem1)
+				{
+					mlku_kprm= %aem2%
+					break
+				}
+		}
+	}
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;{;;;;;;;;   Snes9x Joy Option Functions   ;;;;;;;;;;;;;;;;;;;;;
+
+JSnes9xRAD1A:
+gui, submit, nohide
+
+return
+
+JSnes9xRAD1B:
+gui, submit, nohide
+return
+
+JSnes9xRAD1C:
+gui, submit, nohide
+
+return
+
+JSnes9xRAD1D:
+gui, submit, nohide
+
+return
+
+JSnes9xRAD2A:
+gui, submit, nohide
+
+return
+
+JSnes9xRAD2B:
+gui, submit, nohide
+
+return
+
+JSnes9xRAD2C:
+gui, submit, nohide
+
+return
+
+JSnes9xRAD3A:
+gui, submit, nohide
+Loop,Parse,EMUJOYBUTGUIITEMS,|
+	{
+		guicontrol,hide,%A_loopfield%
+	}
+
+Loop, parse,joyiterate,|
+	{
+			INPDBX= 
+			StringReplace,INPDBX,A_LoopField,_,,All
+			guicontrol,,emj%INPDBX%,|%snes9xjname%
+	}
+gosub, SNES9XJPRELOAD
+return
+
+JSnes9xRAD3B:
+gui, submit, nohide
+Loop,Parse,EMUJOYBUTGUIITEMS,|
+	{
+		ifinstring,cursnes9xjoyset,%A_LoopField%
+			{
+				guicontrol,show,%A_loopfield%
+			}
+	}
+
+guicontrol,,emjDDLA,|%snes9xscs%
+guicontrol,,emjCBA,|%snes9xjname%%snes9xjbid%
+Loop, parse,joyiterate,|
+	{
+			INPDBX= 
+			StringReplace,INPDBX,A_LoopField,_,,All
+			guicontrol,,emj%INPDBX%,|%snes9xjbid%
+	}
+gosub, SNES9XJPRELOAD	
+return
+
+JSnes9xBUTA:
+gui, submit, nohide
+FileSelectFile,nwsnes9xjoycfg,3, , Select a snes9x.cfg file, CFG (*.cfg)
+if (nwsnes9xjoycfg = "")
+	{
+		return
+	}
+iniread,nwj,%nwsnes9xjoycfg%,Controls\Win
+Loop,Parse,njw,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,aje,A_LoopField,=
+		iniwrite,%aje2%,%snes9xjsysloc%,Controls\Win,%aje1%
+	}
+gosub, SNES9XJPRELOAD
+return
+
+JSnes9xBUTB:
+gui, submit, nohide
+loadedjoy= 
+filecopy,rj\emuCfgs\snes9x\sysj\snes9x.confg.ret,%snes9xjsysloc%
+gosub, snes9xCTRLS
+return
+
+JSnes9xCBA:
+gui, submit, nohide
+guicontrolget,snes9xhks,,emjCBA
+guicontrolget,emjDDLA,,emjDDLA
+Loop,Parse,snes9xkbctrls,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,sae,A_LoopField,=
+		if (sae1 = snes9xhks)
+			{
+				snes9xhkw= %sae2%
+			}
+	}
+iniwrite,%snes9xhkw%,%snes9xcfgloc%,Controls\Win\Hotkeys,Keys:%emjDDLA%
+iniread,snes9xCWHopts,%snes9xcfgloc%,Controls\Win\Hotkeys
+return
+
+JSnes9xDDLA:
+gui, submit, nohide
+guicontrolget,emjDDLA,,emjDDLA
+guicontrol,,emjCHKX,0
+guicontrol,,emjCHKY,0
+guicontrol,,emjCHKZ,0
+snes9xgip= 
+Loop,Parse,snes9xCWHopts,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,sae,A_LoopField,=
+		stringsplit,sax,sae1,:
+		if (sax2 = emjDDLA)
+			{
+				snes9xhkw= %sae2%
+				snes9xgip= %sax2%
+				break
+			}
+	}
+iniread,tmpsk,%snes9xcfgloc%,Controls\Win\Hotkeys,Keys:%emjDDLA%
+iniread,tmpmds,%snes9xcfgloc%,Controls\Win\Hotkeys,Mods:%emjDDLA%
+guicontrol,,emjCBA,|%snes9xgip%||%snes9xjname%%snes9xjbid%
+iniread,snes9xCWHopts,%snes9xcfgloc%,Controls\Win\Hotkeys	
+SB_SetText(" " emjddla " = " snes9xhkw " ")
+if (tmpmds = "none")
+	{
+		return
+	}
+ifinstring,tmpmds,Shift
+	{
+		guicontrol,,emjCHKX,1
+	}
+ifinstring,tmpmds,Ctrl
+	{
+		guicontrol,,emjCHKY,1
+	}
+ifinstring,tmpmds,Alt
+	{
+		guicontrol,,emjCHKZ,1
+	}
+SB_SetText(" " emjddla " = " tmpmds " " snes9xhkw " ")
+return
+
+JSnes9xDDLB:
+gui, submit, nohide
+guicontrolget,emjDDLB,,emjDDLB
+cursnes9xINPT= 
+gosub, snes9xCTRLS
+return
+
+JSnes9xDDLC:
+gui, submit, nohide
+guicontrolget,emjDDLC,,emjDDLC
+cursnes9xINPT= 
+gosub, snes9xCTRLS
+
+return
+
+JSnes9xDDLD:
+gui, submit, nohide
+guicontrolget,emjDDLD,,emjDDLD
+return
+
+JSnes9xCHKA:
+gui, submit, nohide
+
+return
+
+JSnes9xCHKB:
+gui, submit, nohide
+
+return
+
+JSnes9xCHKC:
+gui, submit, nohide
+
+return
+
+JSnes9xCHKD:
+gui, submit, nohide
+
+return
+
+JSnes9xCHKE:
+gui, submit, nohide
+
+return
+
+JSnes9xCHKX:
+gui, submit, nohide
+guicontrolget,emjDDLA,,emjDDLA
+snes9xmod= 
+if (emjCHKX = 1)
+	{
+		snes9xmod.= "Shift "
+	}
+if (emjCHKY = 1)
+	{
+		snes9xmod.= "Ctrl "
+	}
+if (emjCHKZ = 1)
+	{
+		snes9xmod.= "Alt "
+	}
+iniwrite,%snes9xmod%,%snes9xcfgloc%,Controls\Win\Hotkeys,Mods:%emjDDLA%
+return
+
+JSnes9xCHKY:
+gui, submit, nohide
+guicontrolget,emjDDLA,,emjDDLA
+snes9xmod= 
+if (emjCHKX = 1)
+	{
+		snes9xmod.= "Shift "
+	}
+if (emjCHKY = 1)
+	{
+		snes9xmod.= "Ctrl "
+	}
+if (emjCHKZ = 1)
+	{
+		snes9xmod.= "Alt "
+	}
+iniwrite,%snes9xmod%,%snes9xcfgloc%,Controls\Win\Hotkeys,Mods:%emjDDLA%
+return
+
+JSnes9xCHKZ:
+gui, submit, nohide
+guicontrolget,emjDDLA,,emjDDLA
+snes9xmod= 
+if (emjCHKX = 1)
+	{
+		snes9xmod.= "Shift "
+	}
+if (emjCHKY = 1)
+	{
+		snes9xmod.= "Ctrl "
+	}
+if (emjCHKZ = 1)
+	{
+		snes9xmod.= "Alt "
+	}
+iniwrite,%snes9xmod%,%snes9xcfgloc%,Controls\Win\Hotkeys,Mods:%emjDDLA%
+return
+
+JSnes9xDDLE:
+gui, submit, nohide
+
+return
+
+JSnes9xSLDA:
+gui, submit, nohide
+
+return
+
+JSnes9xCHKF:
+gui, submit, nohide
+
+return
+
+JSnes9xDDLF:
+gui, submit, nohide
+guicontrolget,cursnes9xINPT,,emjDDLF
+return
+
+JSnes9xEDTA:
+gui, submit, nohide
+return
+
+JSnes9xUDA:
+gui, submit, nohide
+
+return
+
+JSnes9xEDTB:
+gui, submit, nohide
+
+return
+
+JSnes9xUDB:
+gui, submit, nohide
+
+return
+
+JSnes9xCHKG:
+gui, submit, nohide
+
+return
+
+JSnes9xCHKH:
+gui, submit, nohide
+
+return
+
+;};;;;;;;;;;;;;;;;;;;;;;;
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+
+
+
+
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;     EXTENSION TABLES     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ExtTables:
 opncor= 
@@ -68295,47 +70899,47 @@ gosub resetRunList
 return
 
 ;{;;;;; RESET NOOPTIONS ;;;;;;;;;;
-Select_a_CoreRESET:
-2048RESET:
-cannonballRESET:
-remeniscenceRESET:
-vemulatorRESET:
-MesenRESET:
-3dengineRESET:
-dinothawrRESET:
-dolphinLauncherRESET:
-dolphinRESET:
-citraRESET:
-mess2014RESET:
-mess2015RESET:
-ume2015RESET:
-yabasanshiroRESET:
-citra_CanaryRESET:
-citracanaryRESET:
-chailoveRESET:
-freeintvRESET:
-gearboyRESET:
-imageviewerRESET:
-crocodsRESET:
-lutroRESET:
-nxengineRESET:
-melondsRESET:
-meteorRESET:
-theodoreRESET:
-thepowdertoyRESET:
-vice_xvicRESET:
-vice_xplus4RESET:
-remotejoyRESET:
-tryquakeRESET:
-pokeminiRESET:
-openlaraRESET:
-nekop2RESET:
-np2kaiRESET:
-redreamRESET:
-Atari800RESET:
-sameboyRESET:
-xrickRESET:
-mednafen_snesRESET:
+core_Select_a_CoreRESET:
+core_2048RESET:
+core_cannonballRESET:
+core_remeniscenceRESET:
+core_vemulatorRESET:
+core_MesenRESET:
+core_3dengineRESET:
+core_dinothawrRESET:
+core_dolphinLauncherRESET:
+core_dolphinRESET:
+core_citraRESET:
+core_mess2014RESET:
+core_mess2015RESET:
+core_ume2015RESET:
+core_yabasanshiroRESET:
+core_citra_CanaryRESET:
+core_citracanaryRESET:
+core_chailoveRESET:
+core_freeintvRESET:
+core_gearboyRESET:
+core_imageviewerRESET:
+core_crocodsRESET:
+core_lutroRESET:
+core_nxengineRESET:
+core_melondsRESET:
+core_meteorRESET:
+core_theodoreRESET:
+core_thepowdertoyRESET:
+core_vice_xvicRESET:
+core_vice_xplus4RESET:
+core_remotejoyRESET:
+core_tryquakeRESET:
+core_pokeminiRESET:
+core_openlaraRESET:
+core_nekop2RESET:
+core_np2kaiRESET:
+core_redreamRESET:
+core_Atari800RESET:
+core_sameboyRESET:
+core_xrickRESET:
+core_mednafen_snesRESET:
 return
 ;};;;;;;;;;
 
@@ -68347,7 +70951,7 @@ return
 ;};;;;;;;;;
 
 ;{;;;; RESET CRAFT ;;;;;;;;;;;;
-craftRESET:
+core_craftRESET:
 iniwrite,"640x480",%racoreopt%,OPTIONS,craft_resolution
 iniwrite,"disabled",%racoreopt%,OPTIONS,craft_show_info_text
 iniwrite,"disabled",%racoreopt%,OPTIONS,craft_jumping_flash_mode
@@ -68360,8 +70964,8 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;; RESET VICE ;;;;;;;;;
-x64Reset:
-vicex64Reset:
+core_x64Reset:
+core_vicex64Reset:
 vice_Statusbar = "disabled"
 vice_Drive8Type = "1540"
 vice_DriveTrueEmulation = "disabled"
@@ -68371,15 +70975,15 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;; RESET BSNES ;;;;;;;
-bsnesRESET:
-bzsnesRESET:
-bsnesaccuracyRESET:
-bsnesperformanceRESET:
-bsnesbalancedRESET:
-bsnesmercuryaccuracyRESET:
-bsnesmercuryperformanceRESET:
-bsnesmercurybalancedRESET:
-bsnescplusplus98RESET:
+core_bsnesRESET:
+core_bzsnesRESET:
+core_bsnesaccuracyRESET:
+core_bsnesperformanceRESET:
+core_bsnesbalancedRESET:
+core_bsnesmercuryaccuracyRESET:
+core_bsnesmercuryperformanceRESET:
+core_bsnesmercurybalancedRESET:
+core_bsnescplusplus98RESET:
 bsnes_violate_accuracy= no
 bsnes_chip_hle= HLE
 bsnes_superfx_overclock= 100`%
@@ -68396,7 +71000,7 @@ return
 ;};;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; RESET MGBA ;;;;;;;;;;;;
-mgbaRESET:
+core_mgbaRESET:
 mgbaSolarSensorLevel= 1
 mgbaAllowOpposingDirections= OFF
 mgbaUseBios= ON
@@ -68417,7 +71021,7 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;; RESET GENESISPLUGSGX ;;;;;;;;;;;;;
-genesisplusgxRESET:
+core_genesisplusgxRESET:
 genesisPlusGxSystemHw= auto
 guicontrol,,COREDDLB,|auto||sg-1000|sg-1000 II|Mark-III|master system|master system II|game gear|megadrive / genesis
 genesisPlusGxRegionDetect= auto
@@ -68474,8 +71078,8 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;; RESET DESMUME ;;;;;;;;;;;;
-desmumeRESET:
-desmume2015RESET:
+core_desmumeRESET:
+core_desmume2015RESET:
 desmumeInternalResolution= 256x192
 guicontrol,,COREDDLF,|256x192||512x384|768x576|1024x768|1280x960|1536x1152|1792x1344|2048x1536|2304x1728|2560x1920
 desmumeNumCores= 1
@@ -68560,7 +71164,7 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;; RESET PPSSPP ;;;;;;;;;;;;;;;;
-ppssppRESET:
+core_ppssppRESET:
 ppssppCpuCore= jit
 ppssppLockedCpuSpeed= off
 ppssppLanguage= automatic
@@ -68658,7 +71262,7 @@ return
 ;};;;;;;;;;;;;;;;;
 
 ;{;;;;;;; RESET NESTOPIA ;;;;;;;;;;;;
-nestopiaRESET:
+core_nestopiaRESET:
 nestopiaBlarggNtscFilter= disabled
 nestopiaPalette= consumer
 nestopiaNospritelimit= disabled
@@ -68694,8 +71298,8 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;; RESET MEDNAFEN PCE/SGX ;;;;;;;;;;;;;;;;;;;
-mednafenpcefastRESET:
-mednafensupergraxRESET:
+core_mednafenpcefastRESET:
+core_mednafensupergraxRESET:
 pceFastCdimagecache= disabled
 pceNospritelimit= disabled
 pceOcmultiplier= 1
@@ -68754,7 +71358,7 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; RESET MEDNAFEN SATURN ;;;;;;;;;;;;;;;
-mednafensaturnRESET:
+core_mednafensaturnRESET:
 beetleSaturnCdimagecache= disabled
 guicontrol,,CORECHKA,0
 beetleSaturnInitialScanline= 0
@@ -68773,8 +71377,8 @@ return
 ;};;;;;;;;;;;
 
 ;{;;;;;;;; RESET REICAST ;;;;;;;;;;;;
-reicastRESET:
-reicast_OITRESET:
+core_reicastRESET:
+core_reicast_OITRESET:
 reicastCpuMode= dynamicRecompiler
 reicastBootToBios= disabled
 reicastInternalResolution= 640x480
@@ -68824,7 +71428,7 @@ return
 ;};;;;;;;;;;;;;
 
 ;{;;;;;;;; RESET BLUEMSX ;;;;;;;;;;;;;;;;
-bluemsxRESET:
+core_bluemsxRESET:
 bluemsxMsxtype= MSX2+
 bluemsxVdpSynctype= Auto
 bluemsxYm2413Enable= enabled
@@ -68840,7 +71444,7 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; RESET FMSX ;;;;;;;;;;;;;;;;
-fmsxRESET:
+core_fmsxRESET:
 fmsxmode= MSX2+
 fmsxvideomode= NTSC
 fmsxmappertypemode= Guess Mapper Type B
@@ -68852,7 +71456,7 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; RESET PUAE ;;;;;;;;;;;;;;;
-puaeRESET:
+core_puaeRESET:
 resolution= 640x480
 analog= OFF
 
@@ -68862,7 +71466,7 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;; RESET PICODRIVE ;;;;;;;;;;;;;;;
-picodriveRESET:
+core_picodriveRESET:
 picodriveInput1= 3 button pad
 picodriveInput2= 3 button pad
 picodriveSprlim= disabled
@@ -68890,7 +71494,7 @@ return
 ;};;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;; RESET MEDNAFEN PSX HW ;;;;;;;;;;;;
-mednafenpsxhwRESET:
+core_mednafenpsxhwRESET:
 beetle_psx_display_vram= disabled
 beetle_psx_dither_mode= internal resolution
 beetle_psx_filter= nearest
@@ -68929,7 +71533,7 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; RESET MEDNAFEN PSX ;;;;;;;;;;;;;;;;;;;;;;
-mednafenPsxRESET:
+core_mednafenPsxRESET:
 beetlePsxCdimagecache= disabled
 beetlePsxCpuOverclock= disabled
 beetlePsxSkipbios= enabled
@@ -69000,7 +71604,7 @@ return
 ;};;;;;
 
 ;{;;;;;;; RESET MEDNAFEN NGP ;;;;;;;;
-mednafenngpRESET:
+core_mednafenngpRESET:
 ngpLanguage= english
 guicontrol,,COREDDLB,|english||french|japanese|korean|spanish|german
 
@@ -69009,7 +71613,7 @@ return
 ;};;;;;;;;;;;;
 
 ;{;;;;;; RESET FCEUMM ;;;;;;;;;;;
-fceummRESET:
+core_fceummRESET:
 fceummPalette= asqrealc
 fceummNospritelimit= disabled
 fceummOverclocking= disabled
@@ -69029,7 +71633,7 @@ return
 ;};;;;;;;;;;;;;;;;
 
 ;{;;;;;;; RESET FUSE ;;;;;;;;;;;
-fuseRESET:
+core_fuseRESET:
 fuse_machine = "Spectrum 48K"
 fuse_hide_border = "disabled"
 fuse_fast_load = "enabled"
@@ -69058,7 +71662,7 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;; RESET 4DO ;;;;;;;;;;;
-4doRESET:
+core_4doRESET:
 4doHighResolution= disabled
 guicontrol,,COREDDLB,|enabled||disabled
 
@@ -69068,7 +71672,7 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;; RESET px68k ;;;;;;;;;
-px68kRESET:
+core_px68kRESET:
 px68kcpuspeed= 200Mhz (OC)
 px68kramsize= 12MB
 px68kanalog= OFF
@@ -69091,7 +71695,7 @@ return
 ;};;;;;
 
 ;{;;;;;; RESET DOSBOX ;;;;;;;;;
-dosboxRESET:
+core_dosboxRESET:
 dosboxMachineType= vgaonly
 dosboxEmulatedMouse= enable
 dosboxCpuCycles0= 0
@@ -69143,11 +71747,11 @@ return
 ;};;;;;
 
 ;{;;;;;; RESET SNES9X ;;;;;;;;;;;
-snes9x2005RESET:
-snes9x2005_plusRESET:
-snes9x2010RESET:
-snes9x2002RESET:
-snes9xRESET:
+core_snes9x2005RESET:
+core_snes9x2005_plusRESET:
+core_snes9x2010RESET:
+core_snes9x2002RESET:
+core_snes9xRESET:
 snes9xOverclock= 10mhz
 snes9xNextOverclock= Disabled(10mhz)
 snes9xLayer1= Yes
@@ -69194,10 +71798,10 @@ return
 ;};;;;;;;;;;;;
 
 ;{;;;;;; RESET FBA ;;;;;;;;;
-fbalpha2012CPS2RESET:
-fbalpha2012CPS1RESET:
-fbalpha2012RESET:
-fbalphaRESET:
+core_fbalpha2012CPS2RESET:
+core_fbalpha2012CPS1RESET:
+core_fbalpha2012RESET:
+core_fbalphaRESET:
 fbadiagnostics= disabled
 diagnostics= disabled
 fbaunibios= disabled
@@ -69235,8 +71839,8 @@ iniwrite,"normal",%racoreopt%,OPTIONS,fba-lr-controls-p1
 iniwrite,"normal",%racoreopt%,OPTIONS,fba-lr-controls-p2
 return
 
-fbaneogeoRESET:
-fbalpha2012neogeoRESET:
+core_fbaneogeoRESET:
+core_fbalpha2012neogeoRESET:
 fbaneogeomode= MVS
 fbaneogeocontrolsp1= classic
 fbaneogeocontrolsp2= classic
@@ -69248,7 +71852,7 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;; RESET PARALLELN64 ;;;;;;;;;;
-paralleln64RESET:
+core_paralleln64RESET:
 paralleln64cpucore= dynamicRecompiler
 paralleln64audiobuffersize= 2048
 paralleln64astickdeadzone= 15
@@ -69324,7 +71928,7 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;; RESET MUPEN64PLUS ;;;;;;;;;;
-mupen64plusRESET:
+core_mupen64plusRESET:
 mupen64cpucore= dynamicRecompiler
 mupen64audiobuffersize= 2048
 mupen64astickdeadzone= 15
@@ -69403,7 +72007,7 @@ return
 ;};;;;;;;;;;;;;;;
 
 ;{;;;;;; RESET GAMBATTE ;;;;;;;;;;;
-gambatteRESET:
+core_gambatteRESET:
 gambatteGbColorization= auto
 gambatteGbInternalPalette= GBC - Blue
 gambatteGbcColorCorrection= enabled
@@ -69436,7 +72040,7 @@ return
 ;};;;;;;;;;;;;;;;;;
 
 ;{;;;;;;; RESET GLUPEN64 ;;;;;;;;
-glupen64RESET:
+core_glupen64RESET:
 glupen64cpucore= dynamic_recompiler
 glupen64rspmode= HLE
 glupen6443screensize= 320x240
@@ -69504,7 +72108,7 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;; RESET MAME ;;;;;;;;;;;;
-mamecoreRESET:
+core_mamecoreRESET:
 mameReadConfig= disabled
 mameWriteConfig= disabled
 mameSaves= game
@@ -69564,7 +72168,7 @@ return
 ;};;;;;;;;;
 
 ;{;;;;;; RESET MAME2010 ;;;;;;;;;;;;
-mame2010RESET:
+core_mame2010RESET:
 mamecurrentmouseenable= enabled
 mamecurrentvideoapproach1enable= enabled
 mamecurrentskipnagscreen= enabled
@@ -69580,7 +72184,7 @@ return
 ;};;;;;;;;;
 
 ;{;;;;;; RESET MAME2003 ;;;;;;;;;;;;
-mame2003RESET:
+core_mame2003RESET:
 mame2003frameskip= 0
 mame2003dcsspeedhack= enabled
 mame2003skipdisclaimer= enabled
@@ -69605,7 +72209,7 @@ return
 ;};;;;;;;;;
 
 ;{;;;;;; RESET MAME2000 ;;;;;;;;;;;;
-mame2000RESET:
+core_mame2000RESET:
 mame2000skipdisclaimer= enabled
 mame2000showgameinfo= disabled
 iniwrite,"enabled",%racoreopt%,OPTIONS,mame2000-skip_disclaimer
@@ -69614,7 +72218,7 @@ return
 ;};;;;;;;;;
 
 ;{;;;;;; RESET MAME2014 ;;;;;;;;;;;;
-mame2014RESET:
+core_mame2014RESET:
 mame2014ReadConfig= disabled
 mame2014AutoSave= disabled
 mame2014MouseEnable= disabled
@@ -69669,7 +72273,7 @@ return
 ;};;;;;;;;;
 
 ;{;;;;;; RESET mame2016 ;;;;;;;;;;;;
-mame2016RESET:
+core_mame2016RESET:
 mame2016ReadConfig= disabled
 mame2016AutoSave= disabled
 mame2016MouseEnable= disabled
@@ -69724,7 +72328,7 @@ return
 ;};;;;;;;;;
 
 ;{;;;;;; RESET UME2014 ;;;;;;;;;;;;
-ume2014RESET:
+core_ume2014RESET:
 ume2014readconfig= disabled
 ume2014writeconfig= disabled
 ume2014saves= game
@@ -69784,7 +72388,7 @@ return
 ;};;;;;;;;;
 
 ;{;;;;; RESET VBAM ;;;;;;;;;;
-vbamRESET:
+core_vbamRESET:
 vbamlayer1= Yes
 vbamlayer2= Yes
 vbamlayer3= Yes
@@ -69805,14 +72409,14 @@ return
 ;};;;;;;;
 
 ;{;;;;; RESET VBANEXT ;;;;;;;;;
-vbanextRESET:
+core_vbanextRESET:
 vbanextbios= disabled
 iniwrite,"enabled",%racoreopt%,OPTIONS,vbanext_bios
 return
 ;};;;;;;;
 
 ;{;;;;;; RESET YABAUSE ;;;;;;;;;
-yabauseRESET:
+core_yabauseRESET:
 yabauseframeskip= disabled
 yabauseforcehlebios= disabled
 yabauseaddoncart= 4M_ram
@@ -69826,7 +72430,7 @@ return
 ;};;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;; RESET HANDY ;;;;;;;;;;
-handyRESET:
+core_handyRESET:
 handyrot= None
 guicontrol,,COREDDLB,|None||90|240
 iniwrite,"None",%racoreopt%,OPTIONS,handy_rot
@@ -69835,7 +72439,7 @@ return
 ;};;;;;;;;;;
 
 ;{;;;;;;; RESET MEDNAFEN VB ;;;;;;;;;;;;
-mednafenVBRESET:
+core_mednafenVBRESET:
 vbanaglyphpreset= disabled
 vbcolormode= black & red
 iniwrite,"disabled",%racoreopt%,OPTIONS,vb_anaglyph_preset
@@ -69844,7 +72448,7 @@ return
 ;};;;;;;;;;;
 
 ;{;;;;;; RESET CATSFC ;;;;;;;;;
-catsfcRESET:
+core_catsfcRESET:
 catsfcSwapJoypads= disabled
 catsfcVideoMode= NTSC
 guicontrol,,CORECHKA,0
@@ -69855,7 +72459,7 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;; RESET VJAG ;;;;;;;;;;;;
-virtualjaguarRESET:
+core_virtualjaguarRESET:
 virtualjaguarusefastblitter= disabled
 virtualjaguardoomreshack= disabled
 return
