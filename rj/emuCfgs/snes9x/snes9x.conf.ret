@@ -10,7 +10,7 @@ Sort = 1
 Lock = FALSE
 
 [Sound]
-Sync = 1
+Sync = 0
 Stereo = ON
 SixteenBitSound = TRUE
 Rate = 32000
@@ -24,7 +24,7 @@ BufferSize = 64
 MuteFrameAdvance = FALSE
 
 [Netplay]
-Port = [NETPORT]
+Port = 6064
 Server =
 SyncByReset = ON
 SendROMImageOnConnect = OFF
@@ -188,10 +188,10 @@ Joypad1:L = [P1SET1BUT5]
 Joypad1:R = [P1SET1BUT6]
 Joypad1:Start = [P1SET1BUT8]
 Joypad1:Select = [P1SET1BUT7]
-Joypad1:Left+Up = [P1SET1PADUPL]
-Joypad1:Right+Up = [P1SET1PADUPR]
-Joypad1:Right+Down = [P1SET1PADDOWNR]
-Joypad1:Left+Down = [P1SET1PADDOWNL]
+Joypad1:Left+Up = Unassigned
+Joypad1:Right+Up = Unassigned
+Joypad1:Right+Down = Unassigned
+Joypad1:Left+Down = Unassigned
 Joypad1Turbo:AutoFire = Unassigned
 Joypad1Turbo:AutoHold = Unassigned
 Joypad1Turbo:TempTurbo = Unassigned
@@ -209,10 +209,10 @@ Joypad2:L = [P2SET1BUT5]
 Joypad2:R = [P2SET1BUT6]
 Joypad2:Start = [P2SET1BUT8]
 Joypad2:Select = [P2SET1BUT7]
-Joypad2:Left+Up = [P2SET1PADUPL]
-Joypad2:Right+Up = [P2SET1PADUPR]
-Joypad2:Right+Down = [P2SET1PADDOWNR]
-Joypad2:Left+Down = [P2SET1PADDOWNL]
+Joypad2:Left+Up = Unassigned
+Joypad2:Right+Up = Unassigned
+Joypad2:Right+Down = Unassigned
+Joypad2:Left+Down = Unassigned
 Joypad2Turbo:AutoFire = Unassigned
 Joypad2Turbo:AutoHold = Unassigned
 Joypad2Turbo:TempTurbo = Unassigned

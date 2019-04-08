@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2019-04-05 5:51 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2019-04-08 4:48 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 GLBTOP:
-RELEASE= 2019-04-05 5:51 PM
-VERSION= 0.99.69.33
+RELEASE= 2019-04-08 4:48 PM
+VERSION= 0.99.69.34
 RASTABLE= 1.7.6
 
 #Include tf.ahk
@@ -299,6 +299,9 @@ If (historyloctmp <> "ERROR")
 					{
 						historyloctmp= %raexeloc%\content_history.lpl
 						historyloc= %historyloctmp%
+					}
+					else {
+							gosub, NoHistoryFile
 					}
 			}
 	}
@@ -794,22 +797,22 @@ stringreplace,joyitervars,joyiterate,_,,All
 hkiterate= input_Audio_Mute|input_Cheat_Index_Minus|input_Cheat_Index_Plus|input_Cheat_Toggle|input_Disk_Eject_Toggle|input_Disk_Next|input_Disk_Prev|input_Enable_Hotkey|input_Exit_Emulator|input_Frame_Advance|input_Toggle_Fullscreen|input_Game_Focus_Toggle|input_Grab_Mouse_Toggle|input_Hold_Fast_Forward|input_hold_slowmotion|input_Load_State|input_Menu_Toggle|input_Movie_Record_Toggle|input_netplay_game_watch|input_Osk_Toggle|input_Overlay_Next|input_Pause_Toggle|input_Reset|input_Rewind|input_Save_State|input_Screenshot|input_Shader_Next|input_Shader_Prev|input_Slowmotion|input_State_Slot_Decrease|input_State_Slot_Increase|input_Toggle_Fast_Forward|input_Toggle_Fullscreen|input_Volume_Down|input_Volume_Up|input_Turbo_Period|input_Duty_cycle
 
 KBSET=a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|1|2|3|4|5|6|7|8|9|0|minus|add|f1|f2|f3|f4|f5|f6|f7|f8|f9|f10|f11|f12|up|down|left|right|pageup|pagedown|home|end|tilde|semicolon|quote|comma|period|slash|backslash|leftbracket|rightbracket|rshift|lshift|numlock|kp_period|keypad1|keypad2|keypad3|keypad4|keypad5|keypad6|keypad7|keypad8|keypad9|keypad0|subtract|equals|multiply|alt|ctrl|tab|capslock|escape|nul
-SNES9XGUIITEMS=emuBUTA|emuBUTB|emuBUTC|emuBUTJ|emuCBXA|emuCBXB|emuCBXC|emuCBXD|emuCBXE|emuCHKA|emuCHKB|emuCHKC|emuCHKD|emuCHKE|emuCHKF|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKO|emuCHKP|emuCHKP|emuCHKQ|emuCHKQ|emuCHKS|emuCHKS|emuCHKT|emuDDLA|emuDDLB|emuDDLC|emuDDLD|emuDDLE|emuDDLF|emuDDLG|emuDDLH|emuEDTA|emuEDTC|emuEDTD|emuEDTF|emuEDTG|emuRad1A|emuRad1B|emuRad4A|emuRad4B|emuSLDA|emuCHKU
-SNES9XJOYGUIITEMS=INDWRN|emjDDLD|emjDDLB|emjDDLA|emjCHKX|emjCHKY|emjCHKZ|emjCBA|emjBUTA|emjBUTB|emjDDLC|emjRAD3A|emjRAD3B|JOYCORE
 RUNBOXGUIITEMS=LCORE|CUSTSWITCHS|RUNSYSDDL|RUNPLRAD|RUNFLRAD|RUNROMCBX|GROM|OPNCORE|LNCHBUT|RCLLNCH|CLRCUROM
 GUISRCHITEMS=SRCHGRP|SRCHLOCDDL|SRCHFLRAD|SRCHPLRAD|SRCHROMLBX|SRCHROMEDT|SRCHROMBUT|SRCHRCRSCHK
-EMUTABGUIITEMS=emuBUTA|emuBUTB|emuBUTC|emuBUTG|emuBUTD|emuBUTE|emuBUTF|emuBUTH|emuBUTI|emuBUTJ|emuCHKD|emuCHKE|emuCHKF|emuCHKG|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKO|emuCHKP|emuCHKQ|emuCHKR|emuCHKS|emuCHKT|emuCHKA|emuCHKB|emuCHKC|emuCBXE|emuCBXF|emuCBXG|emuCBXH|emuCBXI|emuCBXJ|emuCBXA|emuCBXB|emuCBXC|emuCBXD|emuDDLE|emuDDLF|emuDDLG|emuDDLH|emuDDLI|emuDDLJ|emuDDLC|emuDDLD|emuDDLA|emuDDLB|emuEDTA|emuEDTB|emuEDTC|emuEDTD|emuEDTE|emuEDTF|emuEDTG|emuEDTI|emuUPDA|emuEDTH|emuUPDB|emuLVA|emuUPDC|emuLBXA|emuLBXB|emuLVA|emuLVB|emuLVC|emuPRGB|emuPRGA|emuRad5B|emuRad5C|emuRad4A|emuRad4B|emuRad5A|emuRad6A|emuRad6B|emuRad6C|emuRad6D|emuRad7A|emuRad7B|emuRad8A|emuRad8B|emuRad9A|emuRad9B|emuRad9C|emuRad10A|emuRad10B|emuRad11A|emuRad11B|emuRad2A|emuRad2B|emuRad2C|emuRad1A|emuRad3A|emuRad3B|emuRad3C|emuRad3D|emuRad1B|emuSLDA|emuSLDB|emuSLDD|emuSLDE|emuSLDC|emuGRPA|emuGRPB|emuGRPC|emuGRPD|emuGRPE|emuGRPF|emuGRPG|emuTXTA|emuTXTB|emuTXTC|emuTXTD|emuTXTE|emuTXTF|emuTXTG|emuTXTS|emuTXTT|emuTXTR|emuTXTM|emuTXTH|emuTXTI|emuTXTN|emuTXTO|emuTXTP|emuTXTQ|emuTXTJ|emuTXTK|emuTXTL
+EMUTABGUIITEMS=emuBUTA|emuBUTB|emuBUTC|emuBUTG|emuBUTD|emuBUTE|emuBUTF|emuBUTH|emuBUTI|emuBUTJ|emuCHKD|emuCHKE|emuCHKF|emuCHKG|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKO|emuCHKP|emuCHKQ|emuCHKR|emuCHKS|emuCHKT|emuCHKU|emuCHKA|emuCHKB|emuCHKC|emuCBXE|emuCBXF|emuCBXG|emuCBXH|emuCBXI|emuCBXJ|emuCBXA|emuCBXB|emuCBXC|emuCBXD|emuDDLE|emuDDLF|emuDDLG|emuDDLH|emuDDLI|emuDDLJ|emuDDLC|emuDDLD|emuDDLA|emuDDLB|emuEDTA|emuEDTB|emuEDTC|emuEDTD|emuEDTE|emuEDTF|emuEDTG|emuEDTI|emuUPDA|emuEDTH|emuUPDB|emuLVA|emuUPDC|emuLBXA|emuLBXB|emuLVA|emuLVB|emuLVC|emuPRGB|emuPRGA|emuRad5B|emuRad5C|emuRad4A|emuRad4B|emuRad5A|emuRad6A|emuRad6B|emuRad6C|emuRad6D|emuRad7A|emuRad7B|emuRad8A|emuRad8B|emuRad9A|emuRad9B|emuRad9C|emuRad10A|emuRad10B|emuRad11A|emuRad11B|emuRad2A|emuRad2B|emuRad2C|emuRad1A|emuRad3A|emuRad3B|emuRad3C|emuRad3D|emuRad1B|emuSLDA|emuSLDB|emuSLDD|emuSLDE|emuSLDC|emuGRPA|emuGRPB|emuGRPC|emuGRPD|emuGRPE|emuGRPF|emuGRPG|emuTXTA|emuTXTB|emuTXTC|emuTXTD|emuTXTE|emuTXTF|emuTXTG|emuTXTS|emuTXTT|emuTXTR|emuTXTM|emuTXTH|emuTXTI|emuTXTN|emuTXTO|emuTXTP|emuTXTQ|emuTXTJ|emuTXTK|emuTXTL
 RAGUIMENUITEMS=ART|ARTXT|ASYNC|AUO|AUTOASPECT|AUTSHD|BFI|CGSHDVAR|CGSLCT|CROP|CSTCMD|CSTCRE|CSTRAOPTF|CSTRAARGF|D3DDRV|D3D11|D3D12|DDRVGRP|DIRSTXT|DLFRMTXT|DRCGRP|DSND|DTCOMP|DirBut|FILTSEL|FILTXT|FLICKF|FLK|FLTFILE|FORCEAR|FRMDL|FRMDLTXT|FSREZ|GDIDRV|GLBLAUDIO|GLSHDVAR|GLSLCT|GPUFRMTXT|GPUSS|GPUV|GPUVREC|DISPLDRV|RaSpdEdt|RaSpdSld|RASpdTxt|DISPDRVTXT|AUDDRVTXT|GUIDRV|AUDDRV|GUIDRVTXT|HSYNC|INTG|IntXres|IntYres|LATENCY|LOCDIR|LOCPTH|MAXSWPTXT|MONGTXT|MONRESTXT|MONUM|MONXREZ|MONXTXT|MONYREZ|MSWCHI|MUTE|OGLDRV|OPENAL|OPERGRP|OUTFS|OUTFW|OUTMGRP|OUTW|OVRIDGRP|PAUSEBG|PGM|POSYTXT|PTHSTXT|PthBut|REFRESH|REFSLD|REFTXT|REFUD|REWEN|REWGRAN|REZV|ROTATE|SAVDIVTXT|SAVEXIT|SAVGRP|SAVSECTXT|SAVSRT|SAVSTPTXT|SCLGRP|SCLTXT|SDL2|SDL2DRV|SHAREDV|SHDEN|SHDPTHTXT|SHDSEL|SLCT|SLSHDVAR|SMTHV|SNDGRP|SNDLATXT|STAI|STAL|STAS|STORT|STRCH|SVINT|SWHOST|SWPFRMTXT|SWPV|THRDV|VIDASPECT|VIDGTXT|VIDRESTXT|VIDRESTXT|VIDSCL|AVIDSYNC|VIDSYNC|VIDXTXT|VPOSTXT|VPOSXTXT|VROTXT|VidXLoc|VidYLoc|RUN2ND|RUNAHEAD|RUNAFRMS|SRCHGRP|ROMRPGRP|SRCHLOCDDL|SRCHFLRAD|SRCHPLRAD|SRCHROMLBX|SRCHROMEDT|SRCHROMBUT|SRCHRCRSCHK
 RAJOYINBUTITEMS=LTRIGIN|LBUMPIN|RTRIGIN|RBUMPIN|LSTICKUPIN|LSTICKLFTIN|LSTICKRTIN|LSTICKDWNIN|LSTICKBUTIN|RSTICKUPIN|RSTICKLFTIN|RSTICKRTIN|RSTICKDWNIN|RSTICKBUTIN|DPADDWNIN|DPADUPIN|DPADLFTIN|DPADRTIN|SLCTBUTIN|STRTBUTIN|YBUTIN|XBUTIN|BBUTIN|ABUTIN|INPBUTIN|TURBOIN
-RAJOYGUIITEMS=JOYPIC|JOYDRVGRP|JHIDDRV|JDINDRV|JXINDRV|JSDLDRV|INPDRVGRP|IDDINP|IDSDLINP|IDRAW|LASTKGRP|RASTKGRP|DPADGRP|CIREMAPGRP|BBUTTXT|YBUTTXT|XBUTTXT|ABUTTXT|L3BUTTXT|R3BUTTXT|LTRIGTXT|RTRIGTXT|LBUTTXT|RBUTTXT|HBTNTXT|SELECTBUTTXT|STARTBUTTXT|CFGPLGRP|INDWRN|CLRPLYR|RSTPLYR|DEFPLCTRLGRP|HOTKGRP|JSW|KSW|HKEYCB|HKEYDD|JYPLTXT|PLAYERN|MENBUTCMBTXT|DSPLGC|MGPC|MXUSRTXT|MXUSR|SWAPOKC|ADJS|REMPB|RMPLOAD|KBGP|AUM|JPINDX|MOUSEIND|JOYIND|MINXTXT|ANLDZGRP|ANLDZTXT|DEDZTXT|DEDZ|UNIFMENU|POLLING|POLTXT|JBLNKGRP|TRBPRD|TURBOP|TURBUD|DUTCTXT|DUTYCYCLE|DUTYUD|ANLDP|TRBTXT|TURBOIN|LTRIGIN|LBUMPIN|RTRIGIN|RBUMPIN|LSTICKUPIN|LSTICKLFTIN|LSTICKRTIN|LSTICKDWNIN|LSTICKBUTIN|RSTICKUPIN|RSTICKLFTIN|RSTICKRTIN|RSTICKDWNIN|RSTICKBUTIN|DPADDWNIN|DPADUPIN|DPADLFTIN|DPADRTIN|SLCTBUTIN|STRTBUTIN|YBUTIN|XBUTIN|BBUTIN|ABUTIN|INPBUTIN|TRBCMB|RXMinus|RYPlus|R|L|RXPlus|RYMinus|R3|L3|LXMinus|LYPlus|LYMinus|LXPlus|select|start|up|left|right|down|Y|X|B|A|l2|r2|Home
-EMUINPUTNULLITEMS=emjAGRP|emjCGRP|emjDGRP|emjEGRP|emjFGRP|emjATXT|emjBTXT|emjCTXT|emjDTXT|emjETXT|emjFTXT|emjGTXT|emjHTXT|emjITXT|emjJTXT|emjKTXT|emjLTXT|emjMTXT|emJHGRP|emjNTXT|emjOTXT|emjGGRP|emjPTXT|emjRTXT|emjSTXT|emjTTXT|emjJGRP|emjUTXT|emjVTXT|emjWTXT|emjIGRP|emjXTXT|emjYTXT|emjZTXT|emjQTXT
+RAJOYGUIITEMS=JOYPIC|JOYDRVGRP|JHIDDRV|JDINDRV|JXINDRV|JSDLDRV|INPDRVGRP|IDDINP|IDSDLINP|IDRAW|LASTKGRP|RASTKGRP|DPADGRP|CIREMAPGRP|BBUTTXT|YBUTTXT|XBUTTXT|ABUTTXT|L3BUTTXT|R3BUTTXT|LTRIGTXT|RTRIGTXT|LBUTTXT|RBUTTXT|HBTNTXT|SELECTBUTTXT|STARTBUTTXT|CFGPLGRP|INDWRN|CLRPLYR|RSTPLYR|DEFPLCTRLGRP|HOTKGRP|JSW|KSW|HKEYCB|HKEYDD|JYPLTXT|PLAYERN|MENBUTCMBTXT|DSPLGC|MGPC|MXUSRTXT|MXUSR|SWAPOKC|ADJS|REMPB|RMPLOAD|KBGP|AUM|JPINDX|MOUSEIND|JOYIND|MINXTXT|ANLDZGRP|ANLDZTXT|DEDZTXT|DEDZ|UNIFMENU|POLLING|POLTXT|JBLNKGRP|TRBPRD|TURBOP|TURBUD|DUTCTXT|DUTYCYCLE|DUTYUD|ANLDP|TRBTXT|TURBOIN|LTRIGIN|LBUMPIN|RTRIGIN|RBUMPIN|LSTICKUPIN|LSTICKLFTIN|LSTICKRTIN|LSTICKDWNIN|LSTICKBUTIN|RSTICKUPIN|RSTICKLFTIN|RSTICKRTIN|RSTICKDWNIN|RSTICKBUTIN|DPADDWNIN|DPADUPIN|DPADLFTIN|DPADRTIN|SLCTBUTIN|STRTBUTIN|YBUTIN|XBUTIN|BBUTIN|ABUTIN|INPBUTIN|TRBCMB|RA_RXMinus|RA_RYPlus|RA_R|RA_L|RA_RXPlus|RA_RYMinus|RA_R3|RA_L3|RA_LXMinus|RA_LYPlus|RA_LYMinus|RA_LXPlus|RA_select|RA_start|RA_up|RA_left|RA_right|RA_down|RA_Y|RA_X|RA_B|RA_A|RA_l2|RA_r2|RA_Home
+EMUINPUTNULLITEMS=emjAGRP|emjCGRP|emjDGRP|emjEGRP|emjFGRP|emjATXT|emjBTXT|emjCTXT|emjDTXT|emjETXT|emjFTXT|emjGTXT|emjHTXT|emjITXT|emjJTXT|emjKTXT|emjLTXT|emjMTXT|emJHGRP|emjNTXT|emjGGRP|emjPTXT|emjRTXT|emjSTXT|emjTTXT|emjJGRP|emjUTXT|emjVTXT|emjWTXT|emjIGRP|emjXTXT|emjYTXT|emjZTXT|emjQTXT
 EMUINPUTGUIITEMS=emjRAD1A|emjRAD1B|emjRAD1C|emjRAD1D|emjBGRP|emjRAD2A|emjRAD2B|emjRAD2C|emjBUTA|emjBUTB|emjRAD3A|emjRAD3B|emjCBA|emjDDLA|emjDDLB|emjDDLD|emjCHKA|emjCHKB|emjCHKC|emjCHKD|emjCHKE|emjCHKX|emjCHKY|emjCHKZ|emjCHKH|emjDDLE|emjSLDA|emjCHKF|emjDDLF|emjUDA|emjEDTA|emjEDTB|emjUDB|emjCHKG|emjDDLC
 EMUJOYBUTGUIITEMS=emjTURBOIN|emjL2In|emjLIn|emjR2In|emjRIn|emjLYPlusIn|emjLXMinusIn|emjLXPlusIn|emjLYMinusIn|emjL3In|emjRYPlusIn|emjRXMinusIn|emjRXPlusIn|emjRYMinusIn|emjR3In|emjDownIn|emjUpIn|emjLeftIn|emjRightIn|emjSelectIn|emjStartIn|emjYIn|emjXIn|emjBIn|emjAIn|emjINPBUTIN
 EMUJOYCBXGUIITEMS=emjTRBCMB|emjRXMinus|emjRYPlus|emjR|emjL|emjRXPlus|emjRYMinus|emjR3|emjL3|emjLXMinus|emjLYPlus|emjLYMinus|emjLXPlus|emjselect|emjstart|emjup|emjleft|emjright|emjdown|emjY|emjX|emjB|emjA|emjl2|emjr2|emjHome
 NETHOSTGUIITEMS=INETHOST|RELYSRV|ALSLV|SLVONLY|PRVTSV|IPORTNUM|NOSTATE|CHECKFRAMES|CHKFTXT|CHKFRSLD|MINLAT|MINLATTXT|MINLATSLD|LATRNG|LATRNGTXT|LATRNGSLD|NETHROM|HOSTBUTTON|PSTIP|HOSTIP|FSRVTXT|FILESERV|SERVPORT|GETIP|GETLAN|NETIPRAD|LANIPRAD|NETPW
 NETCLIENTGUIITEMS=NETROM|AUTOCORE|ROOMFILTER|FORCEROM|SRCHARCORG|AUTSYS|RETROM|IPA|IPB|IPC|IPD|NETSPECPW|NETCROM|CPORTNUM|PSTIP|NETCONNECT
 COREGUIITEMS=COREDDLB|COREDDLC|COREDDLD|COREDDLE|COREDDLTXTA|COREDDLTXTB|COREDDLTXTC|COREDDLTXTD|CORERADA|CORERADB|CORECMBA|CORECMBTXTA|CORERADC|CORERADD|CORERADE|CORERADF|CORECHKA|CORECHKB|CORECHKC|COREDDLH|CORERADG|CORERADH|CORECHKD|CORECHKD|CORECMBB|CORECMBTXTB|CORESLDA|CORESLDTXTA|CORERADI|CORERADJ|CORERADK|CORERADL|COREDDLTXTE|COREDDLF|COREDDLG|COREDDLH|COREDDLI|COREDDLJ|COREDDLK|COREDDLL|COREDDLTXTF|COREDDLTXTG|COREDDLTXTH|COREDDLTXTI|CORECHKE|CORECHKF|CORECHKG|CORECHKH|CORECHKI|CORERADM|CORERADN|CORERADO|CORERADP|CORERADQ|CORERADR|CORERADS|CORERADT|CORERADU|CORERADV
-MAMEGUIITEMS=emuBUTJ|emuBUTA|emuBUTB|emuCHKO|emuCHKD|emuCHKE|emuSLDA|emuCHKF|emuCHKG|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKP|emuCHKA|emuCHKB|emuCHKQ|emuCHKR|emuCHKS|emuCHKT|emuCHKC|emuCBXE|emuCBXA|emuCBXC|emuCBXB|emuCBXD|emuDDLE|emuDDLD|emuEDTA|emuDDLA|emuDDLB|emuDDLC|emuDDLG|emuEDTB|emuRad1A|emuRad1B
+SNES9XGUIITEMS=emuBUTA|emuBUTB|emuBUTC|emuBUTJ|emuBUTK|emuCBXA|emuCBXB|emuCBXC|emuCBXD|emuCBXE|emuCHKA|emuCHKB|emuCHKC|emuCHKD|emuCHKE|emuCHKF|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKO|emuCHKP|emuCHKP|emuCHKQ|emuCHKQ|emuCHKS|emuCHKS|emuCHKT|emuDDLA|emuDDLB|emuDDLC|emuDDLD|emuDDLE|emuDDLF|emuDDLG|emuDDLH|emuEDTA|emuEDTC|emuEDTD|emuEDTF|emuEDTG|emuRad1A|emuRad1B|emuRad4A|emuRad4B|emuSLDA|emuCHKU
+SNES9XJOYGUIITEMS=INDWRN|emjDDLD|emjDDLB|emjDDLA|emjCHKX|emjCHKY|emjCHKZ|emjCBA|emjBUTA|emjBUTB|emjDDLC|emjRAD3A|emjRAD3B|JOYCORE
+MAMEGUIITEMS=emuBUTJ|emuBUTK|emuBUTA|emuBUTB|emuCHKO|emuCHKD|emuCHKE|emuSLDA|emuCHKF|emuCHKG|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKP|emuCHKA|emuCHKB|emuCHKQ|emuCHKR|emuCHKS|emuCHKT|emuCHKC|emuCBXE|emuCBXA|emuCBXC|emuCBXB|emuCBXD|emuDDLE|emuDDLD|emuEDTA|emuDDLA|emuDDLB|emuDDLC|emuDDLG|emuEDTB|emuRad1A|emuRad1B
 MAMEJOYGUIITEMS=INDWRN|emjDDLD|emjDDLB|emjDDLA|emjCHKX|emjCHKY|emjCHKZ|emjCBA|emjBUTA|emjBUTB|emjDDLC|emjRAD3A|emjRAD3B|JOYCORE
 MEDNAFENGUIITEMS= emuBUTC|emuCHKD|emuCHKB|emuCHKC|emuCHKD|emuCHKE|emuCHKF|emuCHKG|emuCHKH|emuDDLA|emuDDLB|emuDDLC|emuDDLD|emuDDLE|emuDDLF|emuDDLJ|emuEDTA|emuEDTB|emuEDTC|emuEDTD|emuEDTE|emuEDTF|emuEDTG|emuEDTH|emuEDTI|emuCBXA|emuCBXB|emuRAD11A|emuRAD11B|emuRAD8A|emuRAD8B|emuRad5B|emuRad5C|emuRad5A|emuRad9A|emuRad9B|emuRad9C|emuRad3A|emuRad3B|emuRad3C|emuRad3D|emuSLDA|emuSLDB|emuSLDE|emuSLDC
 MEDNAFENJOYGUIITEMS=INDWRN|emjDDLD|emjDDLA|emjDDLF|emjCHKX|emjCHKY|emjCHKZ|emjCBA|emjBUTA|emjBUTB|emjDDLC|emjRAD3A|emjRAD3B|emjDDLB|JOYCORE|emjDDLC
@@ -2028,6 +2031,7 @@ Gui, Add, Button, x368 y96 w75 h23 vemuBUTF gemuBUTF %tmpvis%, emuBUTF
 Gui, Add, Button, x640 y120 w75 h23 vemuBUTH gemuBUTH %tmpvis%, emuBUTH
 Gui, Add, Button, x640 y144 w75 h23 vemuBUTI gemuBUTI %tmpvis%, emuBUTI
 Gui, Add, Button, x694 y503 w66 h23 vemuBUTJ gemuBUTJ %tmpvis%, emuBUTJ
+Gui, Add, Button, x32 y55 w66 h23 vemuBUTK gemuBUTK %tmpvis%, emuBUTK
 Gui, Add, CheckBox, x128 y120 vemuCHKD gemuCHKD %tmpvis%, emuCHKD
 Gui, Add, CheckBox, x128 y144 vemuCHKE gemuCHKE %tmpvis%, emuCHKE
 Gui, Add, CheckBox, x128 y168 vemuCHKF gemuCHKF %tmpvis%, emuCHKF
@@ -2045,6 +2049,7 @@ Gui, Add, CheckBox, x640 y216 vemuCHKQ gemuCHKQ %tmpvis%, emuCHKQ
 Gui, Add, CheckBox, x640 y216 vemuCHKR gemuCHKR %tmpvis%, emuCHKR
 Gui, Add, CheckBox, x640 y226 vemuCHKS gemuCHKS %tmpvis%, emuCHKS
 Gui, Add, CheckBox, x640 y236 vemuCHKT gemuCHKT %tmpvis%, emuCHKT
+Gui, Add, CheckBox, x640 y236 vemuCHKU gemuCHKU %tmpvis%, emuCHKU
 Gui, Add, CheckBox, x8 y440 vemuCHKA gemuCHKA %tmpvis%, emuCHKA
 Gui, Add, CheckBox, x8 y464 vemuCHKB gemuCHKB %tmpvis%, emuCHKB
 Gui, Add, CheckBox, x8 y490 vemuCHKC gemuCHKC %tmpvis%, emuCHKC
@@ -14354,71 +14359,6 @@ Loop,Parse,RAGUIMENUITEMS,|
 		guicontrol,%raoptgl%,%A_LoopField%
 	}
 gosub, initsearchbox
-
-return
-
-if (raoptgl = "show")
-	{
-		if (SK_MODE = "1")
-			{
-				guicontrol,%raoptgl%,RUNSYSDDL
-				guicontrol,%raoptgl%,RUNPLRAD
-				guicontrol,%raoptgl%,RUNFLRAD
-				guicontrol,%raoptgl%,RUNROMCBX
-				guicontrol,%raoptgl%,RUNROMCBX
-				guicontrol,%raoptgl%,CUSTSWITCHS
-				guicontrol,%raoptgl%,GROM
-				guicontrol,%raoptgl%,OPNCORE
-				guicontrol,%raoptgl%,LNCHBUT
-				guicontrol,%raoptgl%,RCLLNCH
-				guicontrol,%raoptgl%,CLRCUROM
-			}
-	}
-if (raoptgl = "hide")
-	{
-		if (SK_MODE = "")
-			{
-				guicontrol,%raoptgl%,RUNSYSDDL
-				guicontrol,%raoptgl%,RUNPLRAD
-				guicontrol,%raoptgl%,RUNFLRAD
-				guicontrol,%raoptgl%,RUNROMCBX
-				guicontrol,%raoptgl%,RUNROMCBX
-				guicontrol,%raoptgl%,CUSTSWITCHS
-				guicontrol,%raoptgl%,GROM
-				guicontrol,%raoptgl%,OPNCORE
-				guicontrol,%raoptgl%,LNCHBUT
-				guicontrol,%raoptgl%,RCLLNCH
-				guicontrol,%raoptgl%,CLRCUROM
-			}
-	}
-if (LCORE = "retroArch")
-	{
-		guicontrol,show,JCORE
-		guicontrol,hide, SWHOST
-		guicontrol,hide, CSTRAOPTF
-		guicontrol,hide, CSTRAARGF
-		guicontrol,hide, CSTCRE
-		guicontrol,hide, CSTCMD
-		if (SK_MODE = "")
-			{
-				guicontrol,hide,SRCHGRP
-				guicontrol,hide,SRCHROMLBX
-				guicontrol,hide,SRCHFLRAD
-				guicontrol,hide,SRCHPLRAD
-				guicontrol,hide,SRCHRCRSCHK
-				guicontrol,hide,SRCHROMEDT
-				guicontrol,hide,SRCHROMBUT
-				guicontrol,hide,SRCHLOCDDL
-				guicontrol,hide,ROMRPGRP
-				guicontrol,show,emuBUTJ
-				guicontrol,show,emuTXTA				
-				guicontrol,move,emuTXTA,x683 y26 w32 h17
-				guicontrol,,emuTXTA,core
-				guicontrol,move,emuBUTJ,x694 y486 w66 h23
-				guicontrol,,emuBUTJ,SAVE
-			}
-		return
-	}
 return
 
 ShowOnlyRAGUI:
@@ -40111,6 +40051,11 @@ gui,submit,nohide
 gosub, %EMUSN%BUTI
 return
 
+emuBUTK:
+gui,submit,nohide
+gosub, %EMUSN%BUTK
+return
+
 emuBUTJ:
 gui,submit,nohide
 guicontrolget, EMUSN,,RJEMUPRECFG
@@ -40209,6 +40154,11 @@ return
 emuCHKT:
 gui,submit,nohide
 gosub, %EMUSN%CHKT
+return
+
+emuCHKU:
+gui,submit,nohide
+gosub, %EMUSN%CHKU
 return
 
 emuCHKA:
@@ -40693,149 +40643,6 @@ return
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;     SHOW SKELETONKEY OPTIONS     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;};;;;;;;;;;;;;;;;;
-
-;{;;; ~~~~ OPTION-template items ~~~ ;;;
-
-EmuGuiVisTog:
-/*
-guicontrol,%emutog%,emuBUTA
-guicontrol,%emutog%,emuBUTB
-guicontrol,%emutog%,emuBUTC
-guicontrol,%emutog%,emuBUTG
-guicontrol,%emutog%,emuBUTD
-guicontrol,%emutog%,emuBUTE
-guicontrol,%emutog%,emuBUTF
-guicontrol,%emutog%,emuBUTH
-guicontrol,%emutog%,emuBUTI
-guicontrol,%emutog%,emuBUTJ
-guicontrol,%emutog%,emuCHKD
-guicontrol,%emutog%,emuCHKE
-guicontrol,%emutog%,emuCHKF
-guicontrol,%emutog%,emuCHKG
-guicontrol,%emutog%,emuCHKH
-guicontrol,%emutog%,emuCHKI
-guicontrol,%emutog%,emuCHKJ
-guicontrol,%emutog%,emuCHKK
-guicontrol,%emutog%,emuCHKL
-guicontrol,%emutog%,emuCHKM
-guicontrol,%emutog%,emuCHKN
-guicontrol,%emutog%,emuCHKO
-guicontrol,%emutog%,emuCHKP
-guicontrol,%emutog%,emuCHKQ
-guicontrol,%emutog%,emuCHKR
-guicontrol,%emutog%,emuCHKS
-guicontrol,%emutog%,emuCHKT
-guicontrol,%emutog%,emuCHKA
-guicontrol,%emutog%,emuCHKB
-guicontrol,%emutog%,emuCHKC
-guicontrol,%emutog%,emuCBXE
-guicontrol,%emutog%,emuCBXF
-guicontrol,%emutog%,emuCBXG
-guicontrol,%emutog%,emuCBXH
-guicontrol,%emutog%,emuCBXI
-guicontrol,%emutog%,emuCBXJ
-guicontrol,%emutog%,emuCBXA
-guicontrol,%emutog%,emuCBXB
-guicontrol,%emutog%,emuCBXC
-guicontrol,%emutog%,emuCBXD
-guicontrol,%emutog%,emuDDLE
-guicontrol,%emutog%,emuDDLF
-guicontrol,%emutog%,emuDDLG
-guicontrol,%emutog%,emuDDLH
-guicontrol,%emutog%,emuDDLI
-guicontrol,%emutog%,emuDDLJ
-guicontrol,%emutog%,emuDDLC
-guicontrol,%emutog%,emuDDLD
-guicontrol,%emutog%,emuDDLA
-guicontrol,%emutog%,emuDDLB
-guicontrol,%emutog%,emuEDTA
-guicontrol,%emutog%,emuEDTB
-guicontrol,%emutog%,emuEDTC
-guicontrol,%emutog%,emuEDTD
-guicontrol,%emutog%,emuEDTE
-guicontrol,%emutog%,emuEDTF
-guicontrol,%emutog%,emuEDTG
-guicontrol,%emutog%,emuEDTI
-guicontrol,%emutog%,emuUPDA
-guicontrol,%emutog%,emuEDTH
-guicontrol,%emutog%,emuUPDB
-guicontrol,%emutog%,emuLVA
-guicontrol,%emutog%,emuUPDC
-guicontrol,%emutog%,emuLBXA
-guicontrol,%emutog%,emuLBXB
-guicontrol,%emutog%,emuLVA
-guicontrol,%emutog%,emuLVB
-guicontrol,%emutog%,emuLVC
-guicontrol,%emutog%,emuPRGB
-guicontrol,%emutog%,emuPRGA
-guicontrol,%emutog%,emuRad5B
-guicontrol,%emutog%,emuRad5C
-guicontrol,%emutog%,emuRad4A
-guicontrol,%emutog%,emuRad4B
-guicontrol,%emutog%,emuRad5A
-guicontrol,%emutog%,emuRad6A
-guicontrol,%emutog%,emuRad6B
-guicontrol,%emutog%,emuRad6C
-guicontrol,%emutog%,emuRad6D
-guicontrol,%emutog%,emuRad7A
-guicontrol,%emutog%,emuRad7B
-guicontrol,%emutog%,emuRad8A
-guicontrol,%emutog%,emuRad8B
-guicontrol,%emutog%,emuRad9A
-guicontrol,%emutog%,emuRad9B
-guicontrol,%emutog%,emuRad9C
-guicontrol,%emutog%,emuRad10A
-guicontrol,%emutog%,emuRad10B
-guicontrol,%emutog%,emuRad11A
-guicontrol,%emutog%,emuRad11B
-guicontrol,%emutog%,emuRad2A
-guicontrol,%emutog%,emuRad2B
-guicontrol,%emutog%,emuRad2C
-guicontrol,%emutog%,emuRad1A
-guicontrol,%emutog%,emuRad3A
-guicontrol,%emutog%,emuRad3B
-guicontrol,%emutog%,emuRad3C
-guicontrol,%emutog%,emuRad3D
-guicontrol,%emutog%,emuRad1B
-guicontrol,%emutog%,emuSLDA
-guicontrol,%emutog%,emuSLDB
-guicontrol,%emutog%,emuSLDD
-guicontrol,%emutog%,emuSLDE
-guicontrol,%emutog%,emuSLDC
-guicontrol,%emutog%,emuGRPA
-guicontrol,%emutog%,emuGRPB
-guicontrol,%emutog%,emuGRPC
-guicontrol,%emutog%,emuGRPD
-guicontrol,%emutog%,emuGRPE
-guicontrol,%emutog%,emuGRPF
-guicontrol,%emutog%,emuGRPG
-guicontrol,%emutog%,emuTXTA
-guicontrol,%emutog%,emuTXTB
-guicontrol,%emutog%,emuTXTC
-guicontrol,%emutog%,emuTXTD
-guicontrol,%emutog%,emuTXTE
-guicontrol,%emutog%,emuTXTF
-guicontrol,%emutog%,emuTXTG
-guicontrol,%emutog%,emuTXTS
-guicontrol,%emutog%,emuTXTT
-guicontrol,%emutog%,emuTXTR
-guicontrol,%emutog%,emuTXTM
-guicontrol,%emutog%,emuTXTH
-guicontrol,%emutog%,emuTXTI
-guicontrol,%emutog%,emuTXTN
-guicontrol,%emutog%,emuTXTO
-guicontrol,%emutog%,emuTXTP
-guicontrol,%emutog%,emuTXTQ
-guicontrol,%emutog%,emuTXTJ
-guicontrol,%emutog%,emuTXTK
-guicontrol,%emutog%,emuTXTL
-*/
-return
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
-
-
 
 ;;; RESET OVERRIDE TOGGLE ;;;
 EMUCFGOVRTGL= 1
@@ -42188,7 +41995,7 @@ return
 
 ;{;;;;;;;;;;;;;;;;;;;;;;;;  SNES9X  ;;;;;;;;;;;;;;;;
 
-;{;;;;;;;;;;;;;;;;;;;;;    SNES9X GUI  ;;;;;;;;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;;;;;;;;    SNES9X MAIN GUI  ;;;;;;;;;;;;;;;;;;;;;;
 SNES9X_GUI:
 stringreplace,EXTRSYS,EXTRSYS,.lpl,,All
 gosub, ShowOnlyEmuGui
@@ -42201,8 +42008,8 @@ if (uuniv = "X")
 		guicontrol,,FNDGUI,find
 	}
 
+snes9xcfgloc= snes9x.conf
 snes9xcfg= snes9x.conf
-snes9xjcfg= snes9x.conf
 
 iniread,snes9xf,AppParams.ini,%LCORE%,per_game_configurations
 
@@ -42214,7 +42021,7 @@ if (SK_MODE = "")
 				filecreateDir,rj\syscfgs\%ROMSYS%
 			}
 		emucfgloc= rj\syscfgs\%ROMSYS%\snes9x.conf
-		snes9xjglbfile= rj\syscfgs\%ROMSYS%\snes9x.conf
+		snes9xcfgloc= rj\syscfgs\%ROMSYS%\snes9x.conf
 		iniread,snes9xHopts,%emucfgloc%,Hacks
 		iniread,snes9xRopts,%emucfgloc%,ROM
 		iniread,snes9xSopts,%emucfgloc%,Sound
@@ -42235,8 +42042,8 @@ if (snes9xf = 0)
 	{
 		iniread,snes9xpth,Assignments.ini,ASSIGNMENTS,%LCORE%
 		splitpath,snes9xpth,,snes9xloc
+		snes9xcfgloc= %snes9xloc%\%snes9xcfg%
 		emucfgloc= %snes9xloc%\%snes9xcfg%
-		snes9xjglbfile= %snes9xloc%\cfg\%snes9xjcfg%
 		indvcp= %emucfgloc%
 		ifnotexist,%emucfgloc%
 			{
@@ -42258,75 +42065,78 @@ if (snes9xf = 0)
 	}
 	else
 		{
+			snes9xcfgloc= cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%\%snes9xcfg%
 			emucfgloc= cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%\%snes9xcfg%
 			snes9xloc= cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%
 			ifexist, %emucfgloc%
 				{
 					emucfgloc= cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%\%snes9xcfg%
-					fileread,snes9xopts,%emucfgloc%
+					iniread,snes9xOWFopts,%emucfgloc%,Settings\Win\Files
 				}
 				else 
 					{
-						iniread,snes9xHopts,rj\emuCfgs\snes9x\snes9x.conf.ret,Hacks
-						iniread,snes9xRopts,rj\emuCfgs\snes9x\snes9x.conf.ret,ROM
-						iniread,snes9xSopts,rj\emuCfgs\snes9x\snes9x.conf.ret,Sound
-						iniread,snes9xSWopts,rj\emuCfgs\snes9x\snes9x.conf.ret,Sound\Win
-						iniread,snes9xNopts,rj\emuCfgs\snes9x\snes9x.conf.ret,Netplay
-						iniread,snes9xDopts,rj\emuCfgs\snes9x\snes9x.conf.ret,Display
-						iniread,snes9xDWopts,rj\emuCfgs\snes9x\snes9x.conf.ret,Display\Win
-						iniread,snes9xOopts,rj\emuCfgs\snes9x\snes9x.conf.ret,Settings
-						iniread,snes9xOWopts,rj\emuCfgs\snes9x\snes9x.conf.ret,Settings\Win
-						iniread,snes9xOWFopts,rj\emuCfgs\snes9x\snes9x.conf.ret,Settings\Win\Files
-						iniread,snes9xCopts,rj\emuCfgs\snes9x\snes9x.conf.ret,Controls
-						iniread,snes9xCWopts,rj\emuCfgs\snes9x\snes9x.conf.ret,Controls\Win
-						iniread,snes9xCWHopts,rj\emuCfgs\snes9x\snes9x.conf.ret,Controls\Win\Hotkeys
 						filecreatedir,cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%
-						filecopy,rj\emuCfgs\snes9x\snes9x.conf.ret,%emucfgloc%
-						filecopy,rj\emuCfgs\snes9x\sysj\snes9x.conf.ret,%snes9xjglbfile%
+						fileread,dfi,rj\emuCfgs\snes9x\snes9x.conf.ret
+						stringreplace,dfi,dfi,[ROMPATH],,All
+						stringreplace,dfi,dfi,[EMUPATH],,All
+						fileappend,%dfi%,%emucfgloc%
+						iniread,snes9xOWFopts,rj\emuCfgs\snes9x\snes9x.conf.ret,Settings\Win\Files
 					}
+			iniread,snes9xCopts,%emucfgloc%,Controls
+			iniread,snes9xCWopts,%emucfgloc%,Controls\Win
+			iniread,snes9xCWHopts,%emucfgloc%,Controls\Win\Hotkeys
+			iniread,snes9xHopts,%emucfgloc%,Hacks
+			iniread,snes9xRopts,%emucfgloc%,ROM
+			iniread,snes9xSopts,%emucfgloc%,Sound
+			iniread,snes9xSWopts,%emucfgloc%,Sound\Win
+			iniread,snes9xNopts,%emucfgloc%,Netplay
+			iniread,snes9xDopts,%emucfgloc%,Display
+			iniread,snes9xDWopts,%emucfgloc%,Display\Win
+			iniread,snes9xOopts,%emucfgloc%,Settings
+			iniread,snes9xOWopts,%emucfgloc%,Settings\Win
 		}	
-if (ROMSYS = "")
+if (snesxjbutv = "")
 	{
-		guicontrolget,rmst,,RUNSYSDDL
-		ifinstring,rmst,.lpl
+		FileRead, snes9xjbutv,rj\emuCfgs\snes9x\xinput.default.get
+	}
+
+snes9xkbctrls= 
+FileRead, snes9xkbctrls,rj\emuCfgs\snes9x\snes9xkb.get
+if (snes9xjname = "")
+	{
+		Loop, parse, snes9xkbctrls,`n`r
 			{
-				stringsplit,afj,rmst,.
-				rmst= %afj1%
-			}
-		if (rmst = "History")
-			{
-				guicontrolget,emst,,RUNROMCBX
-				Loop, parse, emst,\
-					{
-						ifinstring,A_Loopfield,%A_Space%-%A_Space%
-						rmst= %A_LoopField%
-						break
-					}
-				rmst= 	
-			}
-		Loop, parse,allsupport,|
-			{
-				if (A_Loopfield = "")
+				if (A_LoopField = "")
 					{
 						continue
 					}
-				if (A_Loopfield = rmst)
-					{
-						ROMSYS= %A_LoopField%
-						break
-					}
+				jnam1= 
+				jnam2=
+				stringsplit,jnam,A_LoopField,=
+				snes9xjname.= jnam1 . "|"
 			}
-		if (rmst = "")
-			{
-				guicontrolget,rmst,,ARCSYS
-				if (rmst = "Select a System")
-					{
-						ROMSYS= Nintendo - Super Nintendo Entertainment System
-					}
-			}
-		
 	}
-
+snv= 
+if (snes9xscs = "")
+	{
+		
+		Loop, Parse, snes9xCWHopts,`n`r
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				snvo1=	
+				snvo2=	
+				stringsplit,snvo,A_LoopField,=
+				stringsplit,vnd,snvo1,:
+				if (vnd1 <> "Key")
+					{
+						continue
+					}
+				snes9xscs.= vnd2 . "|"	
+			}
+	}	
 if (core_gui = "snes9x")
 	{
 		goto, LOADSNES9XOPTS
@@ -42336,12 +42146,16 @@ InitSnes9xGui:
 guicontrol, %emutog%, emuBUTJ
 guicontrol, move, emuBUTJ,x694 y486 w66 h23
 guicontrol,,emuBUTJ,SAVE
+
+guicontrol, %emutog%, emuBUTK
+guicontrol, move, emuBUTK,x32 y55 w66 h23
+guicontrol,,emuBUTK,RESET
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	
 guicontrol, %emutog%, emuGRPA
 guicontrol, move, emuGRPA,x22 y132 w207 h103
 guicontrol,,emuGRPA,Directories
-												
+
 guicontrol, %emutog%, emuDDLA  ;Directories
 guicontrol, move, emuDDLA,x105 y162 w121
 guicontrol,,emuDDLA,||Dir:Roms|Dir:Screenshots|Dir:Movies|Dir:SPCs|Dir:Savestates|Dir:SRAM|Dir:Cheats|Dir:Patches|Dir:Bios|Dir:SatData
@@ -42591,7 +42405,6 @@ guicontrol,,emuCHKO,Cheats
 guicontrol, %emutog%, emuCHKD
 guicontrol, move, emuCHKD,x244 y459 w66 h13
 guicontrol,,emuCHKD,Patch
-guicontrol,+0x200,emuCHKD
 
 guicontrol, %emutog%, emuCHKE
 guicontrol, move, emuCHKE,x244 y477 w87 h13
@@ -42606,27 +42419,27 @@ guicontrol, move, emuCBXD,x476 y396 w40
 guicontrol,,emuCBXD,|1||2|3|4|5|6|7|8
 
 guicontrol, %emutog%, emuTXTM  
-guicontrol, move, emuTXTM,x404 y437 w83 h19
+guicontrol, move, emuTXTM,x416 y422 w83 h13
 guicontrol,,emuTXTM,AutoFrameskip
 
 guicontrol, %emutog%, emuCBXC  ;afskip
-guicontrol, move, emuCBXC,x499 y435 w40
+guicontrol, move, emuCBXC,x511 y420 w40
 guicontrol,,emuCBXC,|0||1|2
 
 guicontrol, %emutog%, emuTXTQ
-guicontrol, move, emuTXTQ,x447 y467 w34 h13
+guicontrol, move, emuTXTQ,x459 y452 w34 h13
 guicontrol,,emuTXTQ,Fixed
 
 guicontrol, %emutog%, emuCBXA  ;frameskip
-guicontrol, move, emuCBXA,x486 y462 w54
+guicontrol, move, emuCBXA,x498 y447 w54
 guicontrol,,emuCBXA,|200||250|300|350
 
 guicontrol, %emutog%, emuCHKC
-guicontrol, move, emuCHKC,x344 y448 w126 h19
+guicontrol, move, emuCHKC,x380 y476 w113 h13
 guicontrol,,emuCHKC,SuperFX Overclock
 
 guicontrol, %emutog%, emuCBXB 
-guicontrol, move, emuCBXB,x366 y467 w50
+guicontrol, move, emuCBXB,x502 y474 w50
 guicontrol,,emuCBXB,|100||150|200
 
 Loop, Parse,SNES9XGUIITEMS,|
@@ -42635,9 +42448,9 @@ Loop, Parse,SNES9XGUIITEMS,|
 	}
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;{;;;;;;;;;;;;;;;  Populate SNES9X GUI with Values  ;;;;;;;;;;;;;;;;;;;
 LOADSNES9XOPTS:
 core_gui= snes9x
-;{;;;;;;;;;;;;;;;  Populate SNES9X GUI with Values  ;;;;;;;;;;;;;;;;;;;
 abarb= |
 SB_SetText("Loading snes9x options")
 Loop, Parse, snes9xHopts,`n`r
@@ -42653,6 +42466,34 @@ Loop, Parse, snes9xHopts,`n`r
 			{
 				guicontrol,,emuCHKC,1
 				guicontrol,,emuCBXB,%snvo2%
+			}
+	}
+Loop, Parse, snes9xRopts,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		snvo1=	
+		snvo2=	
+		stringsplit,snvo,A_LoopField,=
+		svi= 1
+		if (snvo1 = "Cheat")
+			{
+				if (snvo2 = "FALSE")
+					{
+						svi= 0
+					}
+				guicontrol,,emuCHKO,%svi%
+			}
+		svi= 1
+		if (snvo1 = "Patch")
+			{
+				if (snvo2 = "FALSE")
+					{
+						svi= 0
+					}
+				guicontrol,,emuCHKD,%svi%
 			}
 	}
 Loop, Parse, snes9xSopts,`n`r
@@ -42808,7 +42649,7 @@ Loop, Parse, snes9xDWopts,`n`r
 					{
 						vptx= OpenGL
 					}
-				guicontrol,,emuDDLE,|%vpt%||OpenGL|DirectDraw|Direct3D
+				guicontrol,,emuDDLE,|%vptx%||OpenGL|DirectDraw|Direct3D
 			}
 		vpt= 1	
 		if (snvo1 = "Vsync")
@@ -42837,13 +42678,14 @@ Loop, Parse, snes9xDWopts,`n`r
 					}
 				guicontrol,,emuCHKQ,%vpt%
 			}
+		vpt= 8:7	
 		if (snvo1 = "Stretch:AspectRatioBaseWidth")
 			{
-				if (snvo2 = "FALSE")
+				if (snvo2 = "299")
 					{
-						vpt= 0
+						vpt= 4:3
 					}
-				guicontrol,,emuDDLD,|%snvo2%||8:7|4:3
+				guicontrol,,emuDDLD,|%vpt%||8:7|4:3
 			}
 		vpt= 1	
 		if (snvo1 = "BlendHiRes")
@@ -42970,7 +42812,7 @@ Loop, Parse, snes9xDWopts,`n`r
 					{
 						if (snvo2 = A_Index)
 							{
-								guicontrol,,emuddlc,|%A_LoopField%||None|Forced1X|Simple2X|Scanlines|TVMode|Blargg'sNTSC(Composite)|Blargg'sNTSC(S-Video)|Blargg'sNTSC(RGB)|Simple3X|Simple4X|hq4x|2xBRZ|3xBRZ|4xBRZ|5xBRZ|6xBRZ
+								guicontrol,,emuddlg,|%A_LoopField%||None|Forced1X|Simple2X|Scanlines|TVMode|Blargg'sNTSC(Composite)|Blargg'sNTSC(S-Video)|Blargg'sNTSC(RGB)|Simple3X|Simple4X|hq4x|2xBRZ|3xBRZ|4xBRZ|5xBRZ|6xBRZ
 								break
 							}
 					}
@@ -43014,36 +42856,6 @@ Loop, Parse, snes9xOWopts,`n`r
 				guicontrol,,emuCBXD,|%snvo2%|1|2|3|4|5|6|7|8
 			}
 	}
-Loop, Parse, snes9xCopts,`n`r
-	{
-		if (A_LoopField = "")
-			{
-				continue
-			}
-		snvo1=	
-		snvo2=	
-		stringsplit,snvo,A_LoopField,=
-	}
-Loop, Parse, snes9xCWopts,`n`r
-	{
-		if (A_LoopField = "")
-			{
-				continue
-			}
-		snvo1=	
-		snvo2=	
-		stringsplit,snvo,A_LoopField,=
-	}
-Loop, Parse, snes9xCWHopts,`n`r
-	{
-		if (A_LoopField = "")
-			{
-				continue
-			}
-		snvo1=	
-		snvo2=	
-		stringsplit,snvo,A_LoopField,=
-	}
 SB_SetText("snes9x options loaded")	
 gosub, Snes9xCTRLS
 emutog= enable
@@ -43054,534 +42866,7 @@ Loop, parse, SNES9XGUIITEMS,|
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;{;;;;;;;;   SNES9X BUTTON ACTIONS   ;;;;;;;;;;;;;;;;;;;;;
-
-JSnes9xRAD1A:
-gui, submit, nohide
-
-return
-
-JSnes9xRAD1B:
-gui, submit, nohide
-return
-
-JSnes9xRAD1C:
-gui, submit, nohide
-
-return
-
-JSnes9xRAD1D:
-gui, submit, nohide
-
-return
-
-JSnes9xRAD2A:
-gui, submit, nohide
-
-return
-
-JSnes9xRAD2B:
-gui, submit, nohide
-
-return
-
-JSnes9xRAD2C:
-gui, submit, nohide
-
-return
-
-JSnes9xRAD3A:
-gui, submit, nohide
-Loop,Parse,EMUJOYBUTGUIITEMS,|
-	{
-		guicontrol,hide,%A_loopfield%
-	}
-
-Loop, parse,joyiterate,|
-	{
-			INPDBX= 
-			StringReplace,INPDBX,A_LoopField,_,,All
-			guicontrol,,emj%INPDBX%,|%snes9xjname%
-	}
-gosub, SNES9XJPRELOAD
-return
-
-JSnes9xRAD3B:
-gui, submit, nohide
-Loop,Parse,EMUJOYBUTGUIITEMS,|
-	{
-		ifinstring,cursnes9xjoyset,%A_LoopField%
-			{
-				guicontrol,show,%A_loopfield%
-			}
-	}
-
-guicontrol,,emjDDLA,|%snes9xscs%
-guicontrol,,emjCBA,|%snes9xjname%%snes9xjbid%
-Loop, parse,joyiterate,|
-	{
-			INPDBX= 
-			StringReplace,INPDBX,A_LoopField,_,,All
-			guicontrol,,emj%INPDBX%,|%snes9xjbid%
-	}
-gosub, SNES9XJPRELOAD	
-return
-
-JSnes9xBUTA:
-gui, submit, nohide
-FileSelectFile,nwsnes9xjoycfg,3, , Select a snes9x.cfg file, CFG (*.cfg)
-if (nwsnes9xjoycfg = "")
-	{
-		return
-	}
-iniread,nwj,%nwsnes9xjoycfg%,Controls\Win
-Loop,Parse,njw,`n`r
-	{
-		if (A_LoopField = "")
-			{
-				continue
-			}
-		stringsplit,aje,A_LoopField,=
-		iniwrite,%aje2%,%snes9xjsysloc%,Controls\Win,%aje1%
-	}
-gosub, SNES9XJPRELOAD
-return
-
-JSnes9xBUTB:
-gui, submit, nohide
-loadedjoy= 
-filecopy,rj\emuCfgs\snes9x\sysj\snes9x.confg.ret,%snes9xjsysloc%
-gosub, snes9xCTRLS
-return
-
-JSnes9xCBA:
-gui, submit, nohide
-guicontrolget,snes9xhks,,emjCBA
-guicontrolget,emjDDLA,,emjDDLA
-Loop,Parse,snes9xkbctrls,`n`r
-	{
-		if (A_LoopField = "")
-			{
-				continue
-			}
-		stringsplit,sae,A_LoopField,=
-		if (sae1 = snes9xhks)
-			{
-				snes9xhkw= %sae2%
-			}
-	}
-iniwrite,%snes9xhkw%,%snes9xcfgloc%,Controls\Win\Hotkeys,Keys:%emjDDLA%
-iniread,snes9xCWHopts,%snes9xcfgloc%,Controls\Win\Hotkeys
-return
-
-JSnes9xDDLA:
-gui, submit, nohide
-guicontrolget,emjDDLA,,emjDDLA
-guicontrol,,emjCHKX,0
-guicontrol,,emjCHKY,0
-guicontrol,,emjCHKZ,0
-snes9xgip= 
-Loop,Parse,snes9xCWHopts,`n`r
-	{
-		if (A_LoopField = "")
-			{
-				continue
-			}
-		stringsplit,sae,A_LoopField,=
-		stringsplit,sax,sae1,:
-		if (sax2 = emjDDLA)
-			{
-				snes9xhkw= %sae2%
-				snes9xgip= %sax2%
-				break
-			}
-	}
-iniread,tmpsk,%snes9xcfgloc%,Controls\Win\Hotkeys,Keys:%emjDDLA%
-iniread,tmpmds,%snes9xcfgloc%,Controls\Win\Hotkeys,Mods:%emjDDLA%
-guicontrol,,emjCBA,|%snes9xgip%||%snes9xjname%%snes9xjbid%
-iniread,snes9xCWHopts,%snes9xcfgloc%,Controls\Win\Hotkeys	
-SB_SetText(" " emjddla " = " snes9xhkw " ")
-if (tmpmds = "none")
-	{
-		return
-	}
-ifinstring,tmpmds,Shift
-	{
-		guicontrol,,emjCHKX,1
-	}
-ifinstring,tmpmds,Ctrl
-	{
-		guicontrol,,emjCHKY,1
-	}
-ifinstring,tmpmds,Alt
-	{
-		guicontrol,,emjCHKZ,1
-	}
-SB_SetText(" " emjddla " = " tmpmds " " snes9xhkw " ")
-return
-
-JSnes9xDDLB:
-gui, submit, nohide
-guicontrolget,emjDDLB,,emjDDLB
-cursnes9xINPT= 
-gosub, snes9xCTRLS
-return
-
-JSnes9xDDLC:
-gui, submit, nohide
-guicontrolget,emjDDLC,,emjDDLC
-cursnes9xINPT= 
-gosub, snes9xCTRLS
-
-return
-
-JSnes9xDDLD:
-gui, submit, nohide
-guicontrolget,emjDDLD,,emjDDLD
-return
-
-JSnes9xCHKA:
-gui, submit, nohide
-
-return
-
-JSnes9xCHKB:
-gui, submit, nohide
-
-return
-
-JSnes9xCHKC:
-gui, submit, nohide
-
-return
-
-JSnes9xCHKD:
-gui, submit, nohide
-
-return
-
-JSnes9xCHKE:
-gui, submit, nohide
-
-return
-
-JSnes9xCHKX:
-gui, submit, nohide
-guicontrolget,emjDDLA,,emjDDLA
-snes9xmod= 
-if (emjCHKX = 1)
-	{
-		snes9xmod.= "Shift "
-	}
-if (emjCHKY = 1)
-	{
-		snes9xmod.= "Ctrl "
-	}
-if (emjCHKZ = 1)
-	{
-		snes9xmod.= "Alt "
-	}
-iniwrite,%snes9xmod%,%snes9xcfgloc%,Controls\Win\Hotkeys,Mods:%emjDDLA%
-return
-
-JSnes9xCHKY:
-gui, submit, nohide
-guicontrolget,emjDDLA,,emjDDLA
-snes9xmod= 
-if (emjCHKX = 1)
-	{
-		snes9xmod.= "Shift "
-	}
-if (emjCHKY = 1)
-	{
-		snes9xmod.= "Ctrl "
-	}
-if (emjCHKZ = 1)
-	{
-		snes9xmod.= "Alt "
-	}
-iniwrite,%snes9xmod%,%snes9xcfgloc%,Controls\Win\Hotkeys,Mods:%emjDDLA%
-return
-
-JSnes9xCHKZ:
-gui, submit, nohide
-guicontrolget,emjDDLA,,emjDDLA
-snes9xmod= 
-if (emjCHKX = 1)
-	{
-		snes9xmod.= "Shift "
-	}
-if (emjCHKY = 1)
-	{
-		snes9xmod.= "Ctrl "
-	}
-if (emjCHKZ = 1)
-	{
-		snes9xmod.= "Alt "
-	}
-iniwrite,%snes9xmod%,%snes9xcfgloc%,Controls\Win\Hotkeys,Mods:%emjDDLA%
-return
-
-JSnes9xDDLE:
-gui, submit, nohide
-
-return
-
-JSnes9xSLDA:
-gui, submit, nohide
-
-return
-
-JSnes9xCHKF:
-gui, submit, nohide
-
-return
-
-JSnes9xDDLF:
-gui, submit, nohide
-guicontrolget,cursnes9xINPT,,emjDDLF
-return
-
-JSnes9xEDTA:
-gui, submit, nohide
-return
-
-JSnes9xUDA:
-gui, submit, nohide
-
-return
-
-JSnes9xEDTB:
-gui, submit, nohide
-
-return
-
-JSnes9xEDTC:
-gui, submit, nohide
-
-return
-
-JSnes9xEDTF:
-gui, submit, nohide
-
-return
-
-JSnes9xEDTG:
-gui, submit, nohide
-
-return
-
-JSnes9xUDB:
-gui, submit, nohide
-
-return
-
-JSnes9xCHKG:
-gui, submit, nohide
-
-return
-
-JSnes9xCHKH:
-gui, submit, nohide
-
-return
-
-
-;};;;;;;;;;;;;;;;;;;;;;;;
-
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;{;;;;;;;;;;;;;;;;;;; SNES9X JOYSTICK GUI  ;;;;;;;;;;;;;;;;;;;;;;;;
-Snes9xCTRLS:
-ejcex= 1
-if (emjDDLC = "")
-	{
-		emjDDLC= 1
-	}
-cursnes9xINPT= 
-if (loadedjoy = "snes9x")
-	{
-		goto, snes9xjoycreated
-	}	
-SB_SetText(" Loading snes9x Joystick config ")
-rajoytog= Hide
-gosub, RAJOYTOG
-;;emjtog= show
-;;gosub, EMJTOG
-emjtog= disable
-gosub, EMJTOG
-
-;{;;;;;;;;;;;;;;;;   Populate SNES9X Joy GUI   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-guicontrol,show,INDWRN
-guicontrol,move,INDWRN,x262 y180 w200 h200
-guicontrol,,INDWRN,
-guicontrol,show,emjDDLD
-guicontrol,move,emjDDLD,x34 y158 w55
-guicontrol,show,emjDDLA
-guicontrol,show,emjDDLB
-
-guicontrol,show,emjCHKX
-guicontrol,,emjCHKX,Shift
-guicontrol,show,emjCHKY
-guicontrol,,emjCHKY,Ctrl
-guicontrol,show,emjCHKZ
-guicontrol,,emjCHKZ,Alt
-
-guicontrol,show,emjCBA
-guicontrol,show,emjBUTA
-guicontrol,,emjBUTA,Load
-guicontrol,show,emjBUTB
-guicontrol,,emjBUTB,Reset
-guicontrol,show,emjQTXT
-guicontrol,,emjQTXT,Set
-guicontrol,move,emjQTXT,x200 y135 h23 w40
-guicontrol,show,emjDDLC
-guicontrol,,emjDDLC,|%emjDDLC%||1|2|3|4|5|6
-
-guicontrol,,emjJGRP,Mouse Sensitivity
-guicontrol,,emjUTXT,`%
-
-guicontrol,move,emjSTXT,x31 y132 h23 w70
-guicontrol,show,emjRAD3A
-guicontrol,,emjRAD3A,Keyboard
-guicontrol,move,emjRAD3A,x312 y32 w65 h13
-guicontrol,,emjRAD3A,0
-guicontrol,show,emjRAD3B
-guicontrol,,emjRAD3B,Joystick
-guicontrol,,emjRAD3B,0
-guicontrol,move,emjRAD3B,x383 y32 w65 h13
-guicontrol,show,emjSTXT
-guicontrol,,emjSTXT,System Type
-guicontrol,show,emjWTXT
-guicontrol,,emjWTXT,device
-guicontrol,show,emjFGRP
-guicontrol,,emjFGRP,Emulator
-guicontrol,show,emjHGRP
-guicontrol,,emjHGRP,Inputs
-guicontrol,show,emjPTXT
-guicontrol,,emjPTXT,Player
-guicontrol,move,emjPTXT,x368 y50 w34 h23
-guicontrol,show,emjGGRP
-guicontrol,,emjgGRP,Shortcuts
-guicontrol,,emjDDLA,|%snes9xscs%
-
-if (emjddlb = "")
-	{
-		emjddlb= 1
-	}
-guicontrol,,emjDDLB,|%emjddlb%||
-
-snes9xjoycreated:
-loadedjoy= snes9x
-snes9xjbuts= 
-FileRead, snes9xjbuts,rj\emuCfgs\snes9x\xinput.default.get
-stringreplace,snes9xjbuts,snes9xjbuts,[PLAYERNUM],1,All
-stringreplace,snes9xjbuts,snes9xjbuts,[JOYINDEX],1,All
-if (snes9xjbid = "")
-	{				
-		Loop, parse, snes9xjbuts,`n`r
-			{	
-				if (A_LoopField = "")
-					{
-						continue
-					}
-				ae1=	
-				ae2=	
-				stringsplit,ae,A_LoopField,=
-				stringtrimleft,xfddz,ae2,4
-				stringtrimleft,xfddl,ae1,6
-				snes9xjbid.= xfddl . "|"
-				mrex_%xfddl%= %xfddz%
-			}
-	}
-snes9xkbctrls= 
-FileRead, snes9xkbctrls,rj\emuCfgs\snes9x\snes9xkb.get
-if (snes9xjname = "")
-	{
-		Loop, parse, snes9xkbctrls,`n`r
-			{
-				if (A_LoopField = "")
-					{
-						continue
-					}
-				jnam1= 
-				jnam2=
-				stringsplit,jnam,A_LoopField,=
-				snes9xjname.= jnam1 . "|"
-			}
-	}
-if (emjRAD3A = 1)
-	{
-		gosub, Jsnes9xRAD3A
-	}
-guicontrol,,emjCBA,|%snes9xjname%%snes9xjbid%
-
-snv= 
-Loop, parse, snes9xCWOpts,`n`r
-	{
-		if (A_Loopfield = "")
-			{
-				continue
-			}
-
-	}
-
-snes9xJPRELOAD:
-if (emjddlb = "n")
-	{
-		emjddlb= 1
-	}
-if (cursnes9xINPT = "")
-	{
-		guicontrol,,emjDDLF,|
-		cursnes9xINPT= Joypad
-	}
-guicontrol,,emjDDLB|%emjddlb%||1|2|3|4|5|6|7|8
-
-supinp= Joypad
-snes9xswapB= A
-snes9xswapA= B
-snes9xswapX= Y
-snes9xswapY= X
-snes9xswapStart= Start
-snes9xswapSelect= Select
-snes9xswapDown= Down
-snes9xswapUp= Up
-snes9xswapLeft= Left
-snes9xswapRight= Right
-snes9xswapL= L
-snes9xswapR= R
-snes9xswapL2= 
-snes9xswapR2= 
-snes9xswapR3= 
-snes9xswapL3= 
-snes9xswapLXMinus= 
-snes9xswapRXMinus= 
-snes9xswapRXPlus= 
-snes9xswapLXPlus= 
-snes9xswapLYPlus= 
-snes9xswapLYMinus= 
-snes9xswapRYPlus= 
-snes9xswapRYMinus= 
-snes9xswapHome= 
-
-Snes9xSwapATXT= a 
-Snes9xSwapBTXT= y
-Snes9xSwapCTXT= x
-Snes9xSwapDTXT= b
-Snes9xSwapETXT=
-Snes9xSwapFTXT=
-Snes9xSwapGTXT=
-Snes9xSwapHTXT=
-Snes9xSwapITXT= L
-Snes9xSwapJTXT= R
-Snes9xSwapLTXT= select
-Snes9xSwapMTXT= start
-
-Snes9xSwapCGRP= 
-Snes9xSwapDGRP= 
-gosub, Snes9xSwap
-return
+;{;;;;;;;;;;;;;;;  SNES9x GUI BUTTON ACTIONS  ;;;;;;;;;;;;;;;;;;;;;;
 
 SB_SetText(" snes9x " playernum " joystick loading complete ")
 emjtog= enable
@@ -43596,13 +42881,14 @@ return
 
 SNES9XBUTA:
 gui,submit,nohide
+NWMPTH= 
 FileSelectFolder,NWMPTH,,3,Select a Folder
 if (NWMPTH = "")
 	{
 		return
 	}
 guicontrolget,emuDDLA,,emuDDLA
-iniwrite,%NWMPTH%,%snes9xcfgloc%,$,Settings\Win\Files
+iniwrite,%NWMPTH%,%snes9xcfgloc%,Settings\Win\Files,%emuddla%
 guicontrol,,emuedta,%nwmpth%
 return
 
@@ -43955,70 +43241,19 @@ SNES9XDDLG:
 gui,submit,nohide
 guicontrolget,emuddlg,,emuddlg
 emustx= 0
-if (emuddlg = "None")
-{
-emustx= 0
-}
-if (emuddlg = "Forced 1X")
-{
-emustx= 1
-}
-if (emuddlg = "Simple 2X")
-{
-emustx= 2
-}
-if (emuddlg = "Scanlines")
-{
-emustx= 3
-}
-if (emuddlg = "TV Mode")
-{
-emustx= 4
-}
-if (emuddlg = "Blargg's NTSC (Composite)")
-{
-emustx= 5
-}
-if (emuddlg = "Blargg's NTSC (S-Video)")
-{
-emustx= 6
-}
-if (emuddlg = "Blargg's NTSC (RGB)")
-{
-emustx= 7
-}
-if (emuddlg = "Simple 3X")
-{
-emustx= 17
-}
-if (emuddlg = "Simple 4X")
-{
-emustx= 25
-}
-if (emuddlg = "hq4x")
-{
-emustx= 26
-}
-if (emuddlg = "2xBRZ")
-{
-emustx= 27
-}
-if (emuddlg = "3xBRZ")
-{
-emustx= 28
-}
-if (emuddlg = "4xBRZ")
-{
-emustx= 29
-}
-if (emuddlg = "5xBRZ")
-{
-emustx= 30
-}
-if (emuddlg = "6xBRZ")
-{
-emustx= 31
-}
+s9xflt=Forced1X|Simple2X|Scanlines|TVMode|Blargg'sNTSC(Composite)|Blargg'sNTSC(S-Video)|Blargg'sNTSC(RGB)|SuperEagle|Super2xSaI|2xSaI|hq2x|hq2xS|hq2xBold|EPXA|EPXB|EPXC|Simple3X|TVMode3X|DotMatrix3X|hq3x|hq3xS|hq3xBold|lq3xBold|EPX3|Simple4X|hq4x|2xBRZ|3xBRZ|4xBRZ|5xBRZ|6xBRZ
+if (emuddlc = "None")
+	{
+		emustx= 0
+	}
+Loop, Parse,s9xflt,|
+	{
+		if (A_LoopField = emuddlg)
+			{
+				emustx= %A_Index%
+			}
+	}
+iniwrite,%emustx%,%snes9xcfgloc%,Display\Win,FilterHiRes
 return
 
 SNES9XDDLH:
@@ -44040,135 +43275,18 @@ SNES9XDDLC:
 gui,submit,nohide
 guicontrolget,emuddlc,,emuddlc
 emustx= 4
+s9xflt=Forced1X|Simple2X|Scanlines|TVMode|Blargg'sNTSC(Composite)|Blargg'sNTSC(S-Video)|Blargg'sNTSC(RGB)|SuperEagle|Super2xSaI|2xSaI|hq2x|hq2xS|hq2xBold|EPXA|EPXB|EPXC|Simple3X|TVMode3X|DotMatrix3X|hq3x|hq3xS|hq3xBold|lq3xBold|EPX3|Simple4X|hq4x|2xBRZ|3xBRZ|4xBRZ|5xBRZ|6xBRZ
 if (emuddlc = "None")
 	{
 		emustx= 0
 	}
-if (emuddlc = "Forced 1X")
-{
-emustx= 1
-}
-
-if (emuddlc = "Simple 2X")
-{
-emustx= 2
-}
-if (emuddlc = "Scanlines")
-{
-emustx= 3
-}
-if (emuddlc = "TV Mode")
-{
-emustx= 4
-}
-if (emuddlc = "Blargg's NTSC (Composite)")
-{
-emustx= 5
-}
-if (emuddlc = "Blargg's NTSC (S-Video)")
-{
-emustx= 6
-}
-if (emuddlc = "Blargg's NTSC (RGB)")
-{
-emustx= 7
-}
-if (emuddlc = "SuperEagle")
-{
-emustx= 8
-}
-if (emuddlc = "Super2xSaI")
-{
-emustx= 9
-}
-if (emuddlc = "2xSaI")
-{
-emustx= 10
-}
-if (emuddlc = "hq2x")
-{
-emustx= 11
-}
-if (emuddlc = "hq2xS")
-{
-emustx= 12
-}
-if (emuddlc = "hq2xBold")
-{
-emustx= 13
-}
-if (emuddlc = "EPX A")
-{
-emustx= 14
-}
-if (emuddlc = "EPX B")
-{
-emustx= 15
-}
-if (emuddlc = "EPX C")
-{
-emustx= 16
-}
-if (emuddlc = "Simple 3X")
-{
-emustx= 17
-}
-if (emuddlc = "TV Mode 3X")
-{
-emustx= 18
-}
-if (emuddlc = "Dot Matrix 3X")
-{
-emustx= 19
-}
-if (emuddlc = "hq3x")
-{
-emustx= 20
-}
-if (emuddlc = "hq3xS")
-{
-emustx= 21
-}
-if (emuddlc = "hq3xBold")
-{
-emustx= 22
-}
-if (emuddlc = "lq3xBold")
-{
-emustx= 23
-}
-if (emuddlc = "EPX3")
-{
-emustx= 24
-}
-if (emuddlc = "Simple 4X")
-{
-emustx= 25
-}
-if (emuddlc = "hq4x")
-{
-emustx= 26
-}
-if (emuddlc = "2xBRZ")
-{
-emustx= 27
-}
-if (emuddlc = "3xBRZ")
-{
-emustx= 28
-}
-if (emuddlc = "4xBRZ")
-{
-emustx= 29
-}
-if (emuddlc = "5xBRZ")
-{
-emustx= 30
-}
-if (emuddlc = "6xBRZ")
-{
-emustx= 31
-}
+Loop, Parse,s9xflt,|
+	{
+		if (A_LoopField = emuddlc)
+			{
+				emustx= %A_Index%
+			}
+	}
 iniwrite,%emustx%,%snes9xcfgloc%,Display\Win,FilterType
 return
 
@@ -44241,13 +43359,249 @@ Guicontrol,Choose,TABMENU,8
 SVTGTS= 1
 return
 
+SNES9XBUTK:
+gui,submit,nohide
+SB_SetText("Resetting snes9x options")
+tmploc= rj\emuCfgs\snes9x\snes9x.conf.ret
+vtps=Hacks
+iniread,vtpv,%tmploc%,%vtps%
+gosub, rsts9xiv
+vtps=ROM
+iniread,vtpv,%tmploc%,%vtps%
+gosub, rsts9xiv
+vtps=Sound
+iniread,vtpv,%tmploc%,%vtps%
+gosub, rsts9xiv
+vtps=Sound\Win
+iniread,vtpv,%tmploc%,%vtps%
+gosub, rsts9xiv
+vtps=Netplay
+iniread,vtpv,%tmploc%,%vtps%
+gosub, rsts9xiv
+vtps=Display
+iniread,vtpv,%tmploc%,%vtps%
+gosub, rsts9xiv
+vtps=Display\Win
+iniread,vtpv,%tmploc%,%vtps%
+gosub, rsts9xiv
+vtps=Settings
+iniread,vtpv,%tmploc%,%vtps%
+gosub, rsts9xiv
+vtps=Settings\Win
+iniread,vtpv,%tmploc%,%vtps%
+gosub, rsts9xiv
+vtps=Settings\Win\Files
+iniread,vtpv,%tmploc%,%vtps%
+gosub, rsts9xiv
+vtps=Controls
+iniread,vtpv,%tmploc%,%vtps%
+gosub, rsts9xiv
+vtps=Controls\Win
+iniread,vtpv,%tmploc%,%vtps%
+gosub, rsts9xiv
+vtps=Controls\Win\Hotkeys
+iniread,vtpv,%tmploc%,%vtps%
+gosub, rsts9xiv
+SB_SetText("snes9x options reset")
+coregui=
+loadedjoy=
+gosub, snes9x_gui
+return
 
+rsts9xiv:
+Loop,Parse,vtpv,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,arm,A_LoopField,=
+		iniwrite,%arm1%,%snes9xcfgloc%,%vtps%,%arm2%
+	}
+return
+
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;{;;;;;;;;;;;;;;;;;;; SNES9X JOYSTICK GUI  ;;;;;;;;;;;;;;;;;;;;;;;;
+Snes9xCTRLS:
+ejcex= 1
+if (emjDDLC = "")
+	{
+		emjDDLC= 1
+	}
+cursnes9xINPT= 
+if (loadedjoy = "snes9x")
+	{
+		goto, snes9xjoycreated
+	}	
+SB_SetText(" Loading snes9x Joystick config ")
+rajoytog= Hide
+gosub, RAJOYTOG
+emjtog= disable
+gosub, EMJTOG
+;{;;;;;;;;;;;;;;;;   Populate SNES9X Joy GUI   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+guicontrol,show,INDWRN
+guicontrol,move,INDWRN,x262 y180 w200 h200
+guicontrol,,INDWRN,
+guicontrol,show,emjDDLD
+guicontrol,move,emjDDLD,x34 y158 w55
+guicontrol,show,emjDDLA
+guicontrol,show,emjDDLB
+
+guicontrol,show,emjCHKX
+guicontrol,,emjCHKX,Shift
+guicontrol,show,emjCHKY
+guicontrol,,emjCHKY,Ctrl
+guicontrol,show,emjCHKZ
+guicontrol,,emjCHKZ,Alt
+
+guicontrol,show,emjCBA
+guicontrol,show,emjBUTA
+guicontrol,,emjBUTA,Load
+guicontrol,show,emjBUTB
+guicontrol,,emjBUTB,Reset
+guicontrol,show,emjQTXT
+guicontrol,,emjQTXT,Set
+guicontrol,move,emjQTXT,x200 y135 h23 w40
+guicontrol,show,emjDDLC
+guicontrol,,emjDDLC,|%emjDDLC%||1|2|3|4|5|6|7|8
+guicontrol,move,emjDDLC, x410 y86
+
+guicontrol,,emjJGRP,Mouse Sensitivity
+guicontrol,,emjUTXT,`%
+
+guicontrol,move,emjSTXT,x31 y132 h23 w70
+guicontrol,show,emjRAD3A
+guicontrol,,emjRAD3A,Keyboard
+guicontrol,move,emjRAD3A,x312 y32 w65 h13
+guicontrol,show,emjRAD3B
+guicontrol,,emjRAD3B,Joystick
+guicontrol,,emjRAD3B,0
+guicontrol,move,emjRAD3B,x383 y32 w65 h13
+guicontrol,show,emjSTXT
+guicontrol,,emjSTXT,Input Device
+guicontrol,move,emjSTXT,x325 y88
+guicontrol,show,emjWTXT
+guicontrol,,emjWTXT,port
+guicontrol,show,emjFGRP
+guicontrol,,emjFGRP,Emulator
+guicontrol,show,emjHGRP
+guicontrol,,emjHGRP,Inputs
+guicontrol,show,emjPTXT
+guicontrol,,emjPTXT,Player
+guicontrol,move,emjPTXT,x368 y50 w34 h23
+guicontrol,show,emjGGRP
+guicontrol,,emjgGRP,Shortcuts
+guicontrol,,emjDDLA,|%snes9xscs%
+
+if (emjddlb = "")
+	{
+		emjddlb= 1
+	}
+guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4|5|6|7|8
+
+emjRAD3A= 1
+guicontrol,,emjRAD3A,1
+
+snes9xjoycreated:
+guicontrolget,emjDDLC,,emjDDLC
+snes9xJID:= emjDDLC-1
+loadedjoy= snes9x
+snes9xjbuts= 
+if (snes9xjbid = "")
+	{				
+		Loop, parse, snes9xjbutv,`n`r
+			{	
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				ae1=	
+				ae2=	
+				stringsplit,ae,A_LoopField,=
+				stringtrimleft,xfddl,ae1,16
+				snes9xjbid.= xfddl . "|"
+				mrex_%xfddl%= %ae2%
+			}
+	}
+if (emjRAD3A = 1)
+	{
+		gosub, Jsnes9xRAD3A
+	}
+	else {
+		gosub, Jsnes9xRAD3B
+	}
+guicontrol,,emjCBA,|Unassigned|%snes9xjname%%snes9xjbid%
+guicontrol,,emjDDLA,|%snes9xscs%
+
+snes9xJPRELOAD:
+if ((emjddlb = "n") or (emjddlb = ""))
+	{
+		emjddlb= 1
+	}
+if (cursnes9xINPT = "")
+	{
+		cursnes9xINPT= Joypad
+		guicontrol,,emjDDLF,|Joypad||Mouse|Super Scope|Multi Tap|Justifier
+	}
+guicontrol,,emjDDLB,|%emjddlb%||1|2|3|4|5|6|7|8
+guicontrol,,emjDDLF,|Joypad||Mouse|Super Scope|Multi Tap|Justifier
+
+snes9xswapB= A
+snes9xswapA= B
+snes9xswapX= Y
+snes9xswapY= X
+snes9xswapStart= Start
+snes9xswapSelect= Select
+snes9xswapDown= Down
+snes9xswapUp= Up
+snes9xswapLeft= Left
+snes9xswapRight= Right
+snes9xswapL= L
+snes9xswapR= R
+snes9xswapL2= 
+snes9xswapR2= 
+snes9xswapR3= 
+snes9xswapL3= 
+snes9xswapLXMinus= 
+snes9xswapRXMinus= 
+snes9xswapRXPlus= 
+snes9xswapLXPlus= 
+snes9xswapLYPlus= 
+snes9xswapLYMinus= 
+snes9xswapRYPlus= 
+snes9xswapRYMinus= 
+snes9xswapHome= 
+
+Snes9xSwapATXT= a 
+Snes9xSwapBTXT= y
+Snes9xSwapCTXT= x
+Snes9xSwapDTXT= b
+Snes9xSwapETXT=
+Snes9xSwapFTXT=
+Snes9xSwapGTXT=
+Snes9xSwapHTXT=
+Snes9xSwapITXT= L
+Snes9xSwapJTXT= R
+Snes9xSwapLTXT= select
+Snes9xSwapMTXT= start
+
+Snes9xSwapCGRP= 
+Snes9xSwapDGRP= 
+gosub, Snes9xSwap
+
+emjtog= enable
+gosub, EMJTOG
+return
 
 Snes9xSwap:
 guicontrolget,emjDDLB,,emjDDLB
-guicontrolget,emjDDLC,,emjDDLC
+iniread,snes9xCWopt,%snes9xcfgloc%,Controls\Win
 guicontrolget,emjDDLF,,emjDDLF
-FileRead,snes9CWopt,%snes9xcfg%
+guicontrolget,emjDDLC,,emjDDLC
+snes9xJID:= emjddlc-1
 snes9xlkup= 
 rbab= |
 mjnv= 
@@ -44263,6 +43617,11 @@ Loop, Parse, snes9xCWopt,`n`r
 		snv+= 1
 		stringsplit,plnx,A_LoopField,=
 		stringsplit,plnv,plnx1,:
+		stringreplace,plnjn,plnv1,Joypad,,All
+		if (plnjn <> emjddlb)
+			{
+				continue
+			}
 		snes9xnvl= %plnv2%
 		rmpbtnvl= 
 		if (snes9xnvl = snes9xswapB)
@@ -44289,22 +43648,6 @@ Loop, Parse, snes9xCWopt,`n`r
 			{
 				snes9xitbv= start
 			}
-		if (snes9xnvl = snes9xswapR3)
-			{
-				snes9xitbv= r3
-			}
-		if (snes9xnvl = snes9xswapL3)
-			{
-				snes9xitbv= l3
-			}
-		if (snes9xnvl = snes9xswapR2)
-			{
-				snes9xitbv= r2
-			}
-		if (snes9xnvl = snes9xswapL2)
-			{
-				snes9xitbv= l2
-			}
 		if (snes9xnvl = snes9xswapUp)
 			{
 				snes9xitbv= up
@@ -44328,6 +43671,23 @@ Loop, Parse, snes9xCWopt,`n`r
 		if (snes9xnvl = snes9xswapL)
 			{
 				snes9xitbv= l
+			}
+			/*
+		if (snes9xnvl = snes9xswapR3)
+			{
+				snes9xitbv= r3
+			}
+		if (snes9xnvl = snes9xswapL3)
+			{
+				snes9xitbv= l3
+			}
+		if (snes9xnvl = snes9xswapR2)
+			{
+				snes9xitbv= r2
+			}
+		if (snes9xnvl = snes9xswapL2)
+			{
+				snes9xitbv= l2
 			}
 		if (snes9xnvl = snes9xswapRXMinus)
 			{
@@ -44365,14 +43725,47 @@ Loop, Parse, snes9xCWopt,`n`r
 			{
 				snes9xitbv= home
 			}
+		*/	
 		if (emjRAD3B = 1)  ;;joy
 			{
-				iniwrite,###NEWVALUE###,%snes9xcfg%,Controls\Win,Joypad%playernum%:%snes9xnvl%
-				kmj%snes9xitbv%= %snes9xnvl%	
+				guicontrol,show,emj%snes9xitbv%
+				guicontrol,show,emj%snes9xitbv%In
+				;;iniwrite,%plnx2%,%snes9xcfgloc%,Controls\Win,Joypad%emuddlb%:%snes9xnvl%
+				Loop,Parse,snes9xjbutv,`n`r
+					{
+						if (A_Loopfield = "")
+							{
+								continue
+							}
+						stringsplit,s9xspj,A_LoopField,=
+						stringreplace,ejc,s9xspj1,[PLAYERNUM],%emjddlb%,All
+						stringreplace,ejm,s9xspj2,[JOYINDEX],%snes9xJID%,All
+						stringtrimleft,jem,ejc,6
+						if (plnx2 =	ejm)
+							{
+								guicontrol,,emj%snes9xitbv%,|%jem%||%snes9xjbid%
+								break
+							}
+					}
+				kmj%snes9xitbv%= %snes9xnvl%
 			}	
 		if (emjRAD3A = 1)  ;;KB
 			{
-				iniwrite,###NEWVALUE###,%snes9xcfg%,Controls\Win,Joypad%playernum%:%snes9xnvl%
+				guicontrol,show,emj%snes9xitbv%
+				;;iniwrite,%plnx2%,%snes9xcfgloc%,Controls\Win,Joypad%emudlb%:%snes9xnvl%
+				Loop,Parse,snes9xkbctrls,`n`r
+					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						stringsplit,din,A_LOopField,=
+						if (plnx2 = din2)
+							{
+								guicontrol,,emj%snes9xitbv%,|%din1%||%snes9xjname%	
+								break
+							}
+					}
 				kmj%snes9xitbv%= %snes9xnvl%	
 			}	
 		
@@ -44390,39 +43783,18 @@ Loop, Parse, snes9xswaps,|
 			}
 		ifinstring,fin,TXT
 			{
+				guicontrol,show,emj%fin%
 				guicontrol,,emj%fin%,%fie%
 			}
 		ifinstring,fin,GRP
 			{
+				guicontrol,show,emj%fin%
 				guicontrol,,emj%fin%,%fie%
 			}
 	}
 return
 
-Snes9xKBREV:
-snv=
-mjnv= 
-Loop, Parse, snes9xCWopts,`n`r
-	{
-		if (A_Loopfield = "")
-			{
-				continue
-			}
-		snv+= 1	
-		stringsplit,afek,A_LoopField,=
-		mdlnval= %afek2%
-		snes9xnvl=
-		if (btnk1 = vprm)
-			{
-				iniwrite,###NEWVALUE###,%snes9xcfg%,Controls\Win,(J%playernum%)%mlku_kprm%
-			}
-	}
-emjtog= enable
-gosub, emjbtog
-
-return
-
-Snes9xJREV:
+Snes9xInRev:
 snv=
 mjnv= 
 sysrep= 
@@ -44438,13 +43810,419 @@ Loop, Parse, snes9xCWopts,`n`r
 		snes9xnvl=
 		if (btnk1 = vprm)
 			{
-				iniwrite,###NEWVALUE###,%snes9xcfg%,Controls\Win,(J%playernum%)%mlku_kprm%
+				iniwrite,%mlku_kprm%,%snes9xcfgloc%,Controls\Win,JoyPad%emjddlb%:%vprm%
 			}
 	}
 emjtog= enable
 gosub, emjbtog
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;{;;;;;;;;   SNES9X JOY BUTTON ACTIONS   ;;;;;;;;;;;;;;;;;;;;;
+
+JSnes9xRAD1A:
+gui, submit, nohide
+
+return
+
+JSnes9xRAD1B:
+gui, submit, nohide
+return
+
+JSnes9xRAD1C:
+gui, submit, nohide
+
+return
+
+JSnes9xRAD1D:
+gui, submit, nohide
+
+return
+
+JSnes9xRAD2A:
+gui, submit, nohide
+
+return
+
+JSnes9xRAD2B:
+gui, submit, nohide
+
+return
+
+JSnes9xRAD2C:
+gui, submit, nohide
+
+return
+
+JSnes9xRAD3A:
+gui, submit, nohide
+Loop,Parse,EMUJOYBUTGUIITEMS,|
+	{
+		guicontrol,hide,%A_loopfield%
+	}
+
+Loop, parse,joyiterate,|
+	{
+			INPDBX= 
+			StringReplace,INPDBX,A_LoopField,_,,All
+			guicontrol,,emj%INPDBX%,|%snes9xjname%
+	}
+gosub, SNES9XJPRELOAD
+return
+
+JSnes9xRAD3B:
+gui, submit, nohide
+Loop,Parse,EMUJOYBUTGUIITEMS,|
+	{
+		ifinstring,cursnes9xjoyset,%A_LoopField%
+			{
+				guicontrol,show,%A_loopfield%
+			}
+	}
+Loop, parse,joyiterate,|
+	{
+			INPDBX= 
+			StringReplace,INPDBX,A_LoopField,_,,All
+			guicontrol,,emj%INPDBX%,|%snes9xjbid%
+	}
+gosub, SNES9XJPRELOAD
+return
+
+JSnes9xBUTA:
+gui, submit, nohide
+FileSelectFile,nwsnes9xjoycfg,3, , Select a snes9x.cfg file, CFG (*.cfg)
+if (nwsnes9xjoycfg = "")
+	{
+		return
+	}
+iniread,nwj,%nwsnes9xjoycfg%,Controls\Win
+Loop,Parse,njw,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,aje,A_LoopField,=
+		iniwrite,%aje2%,%snes9xjsysloc%,Controls\Win,%aje1%
+	}
+gosub, SNES9XJPRELOAD
+return
+
+JSnes9xBUTB:
+gui, submit, nohide
+inipt= Keyboard
+if (emjrad3b = 1)
+	{
+		inipt= Joystick
+	}
+iniread,dfs9j,rj\emucfgs\snes9x\snes9x_defaults.set,Controls\%inipt%
+Loop,Parse,dfs9j,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,adi,A_LoopField,=
+		stringsplit,adj,adi1,:
+		stringreplace,adj1,adj1,Joypad
+		if (adj1 <> emjddlb)
+			{
+				continue
+			}
+		dcrt= %adi2%
+		if (emjRad3b = 1)
+			{
+				Loop,Parse,snes9xjbutv,`n`r
+					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						stringsplit,aif,A_LoopField,=
+						stringreplace,aif1,aif1,[PLAYERNUM],%emjddlb%,,All
+						kmtch= [%aif1%]
+						if (adi2 = kmtch)
+							{
+								stringtrimleft,aif1,aif1,6
+								dcrt= % mrex_%aif1%
+								stringreplace,dcrt,dcrt,[JOYINDEX],%snes9xJID%,,All
+								break
+							}
+					}
+			}
+		iniwrite,%dcrt%,%snes9xcfgloc%,Controls\Win,%adi1%
+	}
+if (emjddlb = 1)
+	{
+		iniread,dfs9s,rj\emucfgs\snes9x\snes9x.conf.ret,\Controls\Win\Hotkeys
+		Loop,Parse,dfs9s,`n`r
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				stringsplit,adi,A_LoopField,=
+				iniwrite,%adi2%,%snes9xcfgloc%,Controls\Win\Hotkeys,%adi1%
+			}
+	}
+iniread,snes9xCopts,%emucfgloc%,Controls
+iniread,snes9xCWopts,%emucfgloc%,Controls\Win
+iniread,snes9xCWHopts,%emucfgloc%,Controls\Win\Hotkeys	
+gosub, snes9xCTRLS
+return
+
+JSnes9xCBA:
+gui, submit, nohide
+guicontrolget,snes9xhks,,emjCBA
+guicontrolget,emjDDLA,,emjDDLA
+Loop,Parse,snes9xkbctrls,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,sae,A_LoopField,=
+		if (sae1 = snes9xhks)
+			{
+				snes9xhkw= %sae2%
+			}
+	}
+iniwrite,%snes9xhkw%,%snes9xcfgloc%,Controls\Win\Hotkeys,Keys:%emjDDLA%
+iniread,snes9xCWHopts,%snes9xcfgloc%,Controls\Win\Hotkeys
+return
+
+JSnes9xDDLA:
+gui, submit, nohide
+guicontrolget,emjDDLA,,emjDDLA
+guicontrol,,emjCHKX,0
+guicontrol,,emjCHKY,0
+guicontrol,,emjCHKZ,0
+snes9xgip= 
+Loop,Parse,snes9xCWHopts,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,sae,A_LoopField,=
+		stringsplit,sax,sae1,:
+		if (sax1 <> "Key")
+			{
+				continue
+			}
+		if (sax2 = emjDDLA)
+			{
+				snes9xhkw= %sae2%
+				snes9xgip= %sax2%
+				break
+			}
+	}
+iniread,tmpsk,%snes9xcfgloc%,Controls\Win\Hotkeys,Keys:%emjDDLA%
+iniread,tmpmds,%snes9xcfgloc%,Controls\Win\Hotkeys,Mods:%emjDDLA%
+guicontrol,,emjCBA,|%snes9xhkw%||%snes9xjname%%snes9xjbid%
+iniread,snes9xCWHopts,%snes9xcfgloc%,Controls\Win\Hotkeys	
+SB_SetText(" " emjddla " = " snes9xhkw " ")
+if (tmpmds = "none")
+	{
+		return
+	}
+ifinstring,tmpmds,Shift
+	{
+		guicontrol,,emjCHKX,1
+	}
+ifinstring,tmpmds,Ctrl
+	{
+		guicontrol,,emjCHKY,1
+	}
+ifinstring,tmpmds,Alt
+	{
+		guicontrol,,emjCHKZ,1
+	}
+SB_SetText(" " emjddla " = " tmpmds " " snes9xhkw " ")
+return
+
+JSnes9xDDLB:
+gui, submit, nohide
+guicontrolget,emjDDLB,,emjDDLB
+cursnes9xINPT= 
+gosub, snes9xCTRLS
+return
+
+JSnes9xDDLC:
+gui, submit, nohide
+guicontrolget,emjDDLC,,emjDDLC
+snes9xJID:= emjddlc-1
+stringreplace,snes9xjbuts,snes9xjbutv,[PLAYERNUM],%EMJDDLB%,All
+stringreplace,snes9xjbuts,snes9xjbuts,[JOYINDEX],%snes9xJID%,All
+gosub, snes9xCTRLS
+
+return
+
+JSnes9xDDLD:
+gui, submit, nohide
+guicontrolget,emjDDLD,,emjDDLD
+return
+
+JSnes9xCHKA:
+gui, submit, nohide
+
+return
+
+JSnes9xCHKB:
+gui, submit, nohide
+
+return
+
+JSnes9xCHKC:
+gui, submit, nohide
+
+return
+
+JSnes9xCHKD:
+gui, submit, nohide
+
+return
+
+JSnes9xCHKE:
+gui, submit, nohide
+
+return
+
+JSnes9xCHKX:
+gui, submit, nohide
+guicontrolget,emjDDLA,,emjDDLA
+snes9xmod= 
+if (emjCHKX = 1)
+	{
+		snes9xmod.= "Shift "
+	}
+if (emjCHKY = 1)
+	{
+		snes9xmod.= "Ctrl "
+	}
+if (emjCHKZ = 1)
+	{
+		snes9xmod.= "Alt "
+	}
+if (snes9xmod = "")
+	{
+		snes9xmod= none
+	}
+iniwrite,%snes9xmod%,%snes9xcfgloc%,Controls\Win\Hotkeys,Mods:%emjDDLA%
+return
+
+JSnes9xCHKY:
+gui, submit, nohide
+guicontrolget,emjDDLA,,emjDDLA
+snes9xmod= 
+if (emjCHKX = 1)
+	{
+		snes9xmod.= "Shift "
+	}
+if (emjCHKY = 1)
+	{
+		snes9xmod.= "Ctrl "
+	}
+if (emjCHKZ = 1)
+	{
+		snes9xmod.= "Alt "
+	}
+if (snes9xmod = "")
+	{
+		snes9xmod= none
+	}
+iniwrite,%snes9xmod%,%snes9xcfgloc%,Controls\Win\Hotkeys,Mods:%emjDDLA%
+return
+
+JSnes9xCHKZ:
+gui, submit, nohide
+guicontrolget,emjDDLA,,emjDDLA
+snes9xmod= 
+if (emjCHKX = 1)
+	{
+		snes9xmod.= "Shift "
+	}
+if (emjCHKY = 1)
+	{
+		snes9xmod.= "Ctrl "
+	}
+if (emjCHKZ = 1)
+	{
+		snes9xmod.= "Alt "
+	}
+if (snes9xmod = "")
+	{
+		snes9xmod= none
+	}
+iniwrite,%snes9xmod%,%snes9xcfgloc%,Controls\Win\Hotkeys,Mods:%emjDDLA%
+return
+
+JSnes9xDDLE:
+gui, submit, nohide
+
+return
+
+JSnes9xSLDA:
+gui, submit, nohide
+
+return
+
+JSnes9xCHKF:
+gui, submit, nohide
+
+return
+
+JSnes9xDDLF:
+gui, submit, nohide
+guicontrolget,cursnes9xINPT,,emjDDLF
+return
+
+JSnes9xEDTA:
+gui, submit, nohide
+return
+
+JSnes9xUDA:
+gui, submit, nohide
+
+return
+
+JSnes9xEDTB:
+gui, submit, nohide
+
+return
+
+JSnes9xEDTC:
+gui, submit, nohide
+
+return
+
+JSnes9xEDTF:
+gui, submit, nohide
+
+return
+
+JSnes9xEDTG:
+gui, submit, nohide
+
+return
+
+JSnes9xUDB:
+gui, submit, nohide
+
+return
+
+JSnes9xCHKG:
+gui, submit, nohide
+
+return
+
+JSnes9xCHKH:
+gui, submit, nohide
+
+return
+
+
+;};;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;;;;;;;;;;  SNES9X JOYSTICK INPUTS  ;;;;;;;;;;;;;;;;;;
 JSnes9xTURBOIN:
@@ -45116,15 +44894,7 @@ gosub, snes9xti
 emjtog= disable
 gosub, emjbtog
 vprm= %kmjRXMinus%
-if (emjRAD3A = 1)
-	{
-		gosub, snes9xkbrev
-	}
-if (emjRAD3B = 1)
-	{
-		gosub, snes9xjrev
-	}
-
+gosub, snes9xInRev
 return
 
 JSnes9xRYPlus:
@@ -45137,15 +44907,7 @@ vprm= %kmjryplus%
 emjtog= disable
 gosub, emjbtog
 vprm= %kmjRYPlus%
-if (emjRAD3A = 1)
-	{
-		gosub, snes9xkbrev
-	}
-if (emjRAD3B = 1)
-	{
-		gosub, snes9xjrev
-	}
-
+gosub, snes9xInRev
 return
 
 JSnes9xR:
@@ -45155,15 +44917,7 @@ gosub, snes9xti
 emjtog= disable
 gosub, emjbtog
 vprm= %kmjR%
-if (emjRAD3A = 1)
-	{
-		gosub, snes9xkbrev
-	}
-if (emjRAD3B = 1)
-	{
-		gosub, snes9xjrev
-	}
-
+gosub, snes9xInRev
 return
 
 JSnes9xL:
@@ -45173,15 +44927,7 @@ gosub, snes9xti
 emjtog= disable
 gosub, emjbtog
 vprm= %kmjL%
-if (emjRAD3A = 1)
-	{
-		gosub, snes9xkbrev
-	}
-if (emjRAD3B = 1)
-	{
-		gosub, snes9xjrev
-	}
-
+gosub, snes9xInRev
 return
 
 JSnes9xRXPlus:
@@ -45191,15 +44937,7 @@ gosub, snes9xti
 emjtog= disable
 gosub, emjbtog
 vprm= %kmjRXPlus%
-if (emjRAD3A = 1)
-	{
-		gosub, snes9xkbrev
-	}
-if (emjRAD3B = 1)
-	{
-		gosub, snes9xjrev
-	}
-
+gosub, snes9xInRev
 return
 
 JSnes9xRYMinus:
@@ -45209,15 +44947,7 @@ gosub, snes9xti
 emjtog= disable
 gosub, emjbtog
 vprm= %kmjRYMinus%
-if (emjRAD3A = 1)
-	{
-		gosub, snes9xkbrev
-	}
-if (emjRAD3B = 1)
-	{
-		gosub, snes9xjrev
-	}
-
+gosub, snes9xInRev
 return
 
 JSnes9xR3:
@@ -45227,15 +44957,7 @@ gosub, snes9xti
 emjtog= disable
 gosub, emjbtog
 vprm= %kmjR3%
-if (emjRAD3A = 1)
-	{
-		gosub, snes9xkbrev
-	}
-if (emjRAD3B = 1)
-	{
-		gosub, snes9xjrev
-	}
-
+gosub, snes9xInRev
 return
 
 JSnes9xL3:
@@ -45245,15 +44967,7 @@ gosub, snes9xti
 emjtog= disable
 gosub, emjbtog
 vprm= %kmjR3%
-if (emjRAD3A = 1)
-	{
-		gosub, snes9xkbrev
-	}
-if (emjRAD3B = 1)
-	{
-		gosub, snes9xjrev
-	}
-
+gosub, snes9xInRev
 return
 
 JSnes9xLXMinus:
@@ -45263,15 +44977,7 @@ gosub, snes9xti
 emjtog= disable
 gosub, emjbtog
 vprm= %kmjLXMinus%
-if (emjRAD3A = 1)
-	{
-		gosub, snes9xkbrev
-	}
-if (emjRAD3B = 1)
-	{
-		gosub, snes9xjrev
-	}
-
+gosub, snes9xInRev
 return
 
 JSnes9xLYPlus:
@@ -45281,15 +44987,7 @@ gosub, snes9xti
 emjtog= disable
 gosub, emjbtog
 vprm= %kmjLYPlus%
-if (emjRAD3A = 1)
-	{
-		gosub, snes9xkbrev
-	}
-if (emjRAD3B = 1)
-	{
-		gosub, snes9xjrev
-	}
-
+gosub, snes9xInRev
 return
 
 JSnes9xLYMinus:
@@ -45299,15 +44997,7 @@ gosub, snes9xti
 emjtog= disable
 gosub, emjbtog
 vprm= %kmjLYMinus%
-if (emjRAD3A = 1)
-	{
-		gosub, snes9xkbrev
-	}
-if (emjRAD3B = 1)
-	{
-		gosub, snes9xjrev
-	}
-
+gosub, snes9xInRev
 return
 
 JSnes9xLXPlus:
@@ -45317,15 +45007,7 @@ gosub, snes9xti
 emjtog= disable
 gosub, emjbtog
 vprm= %kmjLXPlus%
-if (emjRAD3A = 1)
-	{
-		gosub, snes9xkbrev
-	}
-if (emjRAD3B = 1)
-	{
-		gosub, snes9xjrev
-	}
-
+gosub, snes9xInRev
 return
 
 JSnes9xselect:
@@ -45335,15 +45017,7 @@ gosub, snes9xti
 emjtog= disable
 gosub, emjbtog
 vprm= %kmjselect%
-if (emjRAD3A = 1)
-	{
-		gosub, snes9xkbrev
-	}
-if (emjRAD3B = 1)
-	{
-		gosub, snes9xjrev
-	}
-
+gosub, snes9xInRev
 return
 
 JSnes9xstart:
@@ -45353,15 +45027,7 @@ gosub, snes9xti
 emjtog= disable
 gosub, emjbtog
 vprm= %kmjstart%
-if (emjRAD3A = 1)
-	{
-		gosub, snes9xkbrev
-	}
-if (emjRAD3B = 1)
-	{
-		gosub, snes9xjrev
-	}
-
+gosub, snes9xInRev
 return
 
 JSnes9xup:
@@ -45371,15 +45037,7 @@ gosub, snes9xti
 emjtog= disable
 gosub, emjbtog
 vprm= %kmjup%
-if (emjRAD3A = 1)
-	{
-		gosub, snes9xkbrev
-	}
-if (emjRAD3B = 1)
-	{
-		gosub, snes9xjrev
-	}
-
+gosub, snes9xInRev
 return
 
 JSnes9xleft:
@@ -45389,15 +45047,7 @@ gosub, snes9xti
 emjtog= disable
 gosub, emjbtog
 vprm= %kmjleft%
-if (emjRAD3A = 1)
-	{
-		gosub, snes9xkbrev
-	}
-if (emjRAD3B = 1)
-	{
-		gosub, snes9xjrev
-	}
-
+gosub, snes9xInRev
 return
 
 JSnes9xright:
@@ -45407,15 +45057,7 @@ gosub, snes9xti
 emjtog= disable
 gosub, emjbtog
 vprm= %kmjright%
-if (emjRAD3A = 1)
-	{
-		gosub, snes9xkbrev
-	}
-if (emjRAD3B = 1)
-	{
-		gosub, snes9xjrev
-	}
-
+gosub, snes9xInRev
 return
 
 JSnes9xdown:
@@ -45425,15 +45067,7 @@ gosub, snes9xti
 emjtog= disable
 gosub, emjbtog
 vprm= %kmjdown%
-if (emjRAD3A = 1)
-	{
-		gosub, snes9xkbrev
-	}
-if (emjRAD3B = 1)
-	{
-		gosub, snes9xjrev
-	}
-
+gosub, snes9xInRev
 return
 
 JSnes9xY:
@@ -45443,15 +45077,7 @@ gosub, snes9xti
 emjtog= disable
 gosub, emjbtog
 vprm= %kmjY%
-if (emjRAD3A = 1)
-	{
-		gosub, snes9xkbrev
-	}
-if (emjRAD3B = 1)
-	{
-		gosub, snes9xjrev
-	}
-
+gosub, snes9xInRev
 return
 
 JSnes9xX:
@@ -45461,15 +45087,7 @@ gosub, snes9xti
 emjtog= disable
 gosub, emjbtog
 vprm= %kmjX%
-if (emjRAD3A = 1)
-	{
-		gosub, snes9xkbrev
-	}
-if (emjRAD3B = 1)
-	{
-		gosub, snes9xjrev
-	}
-
+gosub, snes9xInRev
 return
 
 JSnes9xB:
@@ -45479,15 +45097,7 @@ gosub, snes9xti
 emjtog= disable
 gosub, emjbtog
 vprm= %kmjB%
-if (emjRAD3A = 1)
-	{
-		gosub, snes9xkbrev
-	}
-if (emjRAD3B = 1)
-	{
-		gosub, snes9xjrev
-	}
-
+gosub, snes9xInRev
 return
 
 JSnes9xA:
@@ -45497,15 +45107,7 @@ gosub, snes9xti
 emjtog= disable
 gosub, emjbtog
 vprm= %kmjA%
-if (emjRAD3A = 1)
-	{
-		gosub, snes9xkbrev
-	}
-if (emjRAD3B = 1)
-	{
-		gosub, snes9xjrev
-	}
-
+gosub, snes9xInRev
 return
 
 JSnes9xl2:
@@ -45515,15 +45117,7 @@ gosub, snes9xti
 emjtog= disable
 gosub, emjbtog
 vprm= %kmjL2%
-if (emjRAD3A = 1)
-	{
-		gosub, snes9xkbrev
-	}
-if (emjRAD3B = 1)
-	{
-		gosub, snes9xjrev
-	}
-
+gosub, snes9xInRev
 return
 
 JSnes9xr2:
@@ -45533,15 +45127,7 @@ gosub, snes9xti
 emjtog= disable
 gosub, emjbtog
 vprm= %kmjR2%
-if (emjRAD3A = 1)
-	{
-		gosub, snes9xkbrev
-	}
-if (emjRAD3B = 1)
-	{
-		gosub, snes9xjrev
-	}
-
+gosub, snes9xInRev
 return
 
 JSnes9xHome:
@@ -45551,20 +45137,14 @@ gosub, snes9xti
 emjtog= disable
 gosub, emjbtog
 vprm= %kmjHome%
-if (emjRAD3A = 1)
-	{
-		gosub, snes9xkbrev
-	}
-if (emjRAD3B = 1)
-	{
-		gosub, snes9xjrev
-	}
+gosub, snes9xInRev
 return
 
 snes9xti:
-if (emjRAD3A = 1)
+if (emjRAD3AB = 1)
 	{
 		mlku_kprm= % mrex_%kprm%
+		stringreplace,mlku_kprm,mlku_kprm,[JOYINDEX],%snes9xJID%,All
 		return
 	}
 	else {
@@ -45585,11 +45165,11 @@ if (emjRAD3A = 1)
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;{;;;;;;;;;;;;;;;;;;;;;;;  MEDNAFEN  ;;;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;;;;;;;;;;  MEDNAFEN  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;;;;;;;  MEDNAFEN GUI HIDE-SHOW TOGGLE  ;;;;;;;;;;;;;;;;;;;;;;;;
 MednafenGUITOG:
@@ -48378,8 +47958,8 @@ Loop, Parse, Medswaps,|
 		stringreplace,fin,A_LoopField,medswap,,All
 		if (fie <> "")
 			{
-				;;guicontrol,show,emj%fin%
-				;;guicontrol,show,emj%fin%In
+				guicontrol,show,emj%fin%
+				guicontrol,show,emj%fin%In
 				curmedjoyset.= "emj" . fin . "|"
 				curmedjoyset.= "emj" . fin . "In" . "|"
 			}
@@ -53470,8 +53050,8 @@ Loop, Parse, mameswaps,|
 		stringreplace,fin,A_LoopField,mameswap,,All
 		if (fie <> "")
 			{
-				;;guicontrol,show,emj%fin%
-				;;guicontrol,show,emj%fin%In
+				guicontrol,show,emj%fin%
+				guicontrol,show,emj%fin%In
 				curmamejoyset.= "emj" . fin . "|"
 				curmamejoyset.= "emj" . fin . "In" . "|"
 			}
