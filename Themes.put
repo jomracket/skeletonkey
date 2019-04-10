@@ -47,6 +47,9 @@ ESTHEME=[HOSTINGURL]/esthemes/raw/master/zoid.zip
 [snes-mini]
 ESTHEME=[HOSTINGURL]/esthemes/raw/master/snes-mini.zip
 
+[Rom-core]
+ESTHEME=[HOSTINGURL]/esthemes/raw/master/Rom-core.zip
+
 [nes-mini]
 ESTHEME=[HOSTINGURL]/esthemes/raw/master/nes-mini.zip
 

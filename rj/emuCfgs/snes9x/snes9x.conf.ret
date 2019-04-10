@@ -13,13 +13,13 @@ Lock = FALSE
 Sync = 0
 Stereo = ON
 SixteenBitSound = TRUE
-Rate = 32000
+Rate = 44100
 InputRate = 31900
 ReverseStereo = FALSE
 Mute = FALSE
 
 [Sound\Win]
-SoundDriver = 4
+SoundDriver = 0
 BufferSize = 64
 MuteFrameAdvance = FALSE
 
@@ -58,7 +58,7 @@ DisplayFrameCount = TRUE
 
 [Display\Win]
 OutputMethod = 1
-FilterType = 4
+FilterType = 0
 FilterHiRes = 0
 BlendHiRes = TRUE
 NTSCScanlines = TRUE

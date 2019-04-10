@@ -1237,9 +1237,11 @@ RJROMXT= .3ds,.3dsx,.elf,.axf,.cci,.cxi,.app
 RJMAMENM=3ds
 
 [Nintendo - Nintendo DS]
+RJROMXT= .zip,.nds,.ds,.7z,.gz,.rar,.gba,.srl
 RJEMUPRESET=Desmume
 
 [Nintendo - Nintendo DS Decrypted]
+RJROMXT= .zip,.nds,.ds,.7z,.gz,.rar,.gba,.srl
 RJEMUPRESET=Desmume
 
 [Nintendo - Nintendo Entertainment System]
@@ -1839,6 +1841,8 @@ RJROMINJ="%ROMFN%"
 RJEMUPRESET=MAME
 RJMAMENM=32xe
 MAME?RJEMUOPTS=<32xe -cart<
+RJROMXT=.bin,32x,.zip,.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr,.img
+
 
 RJZIPPEEK=0
 [Sega - 32X - JAP]
@@ -1846,6 +1850,7 @@ RJEMUPRESET=MAME
 RJMAMENM=32xj
 MAME?RJEMUOPTS=<32xj -cart<
 RJZIPPEEK=0
+RJROMXT=.bin,32x,.zip,.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr,.img
 
 [Atari - 2600 - PAL]
 RJEMUPRESET=MAME

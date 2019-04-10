@@ -776,7 +776,7 @@ netiterate= network_cmd_port|netplay_nickname|netplay_ip_address|netplay_ip_port
 mediaordert= theGamesDB|OpenVGDB|ScreenScraper|arcadeitalia|mamedb|IARL
 
 noinstallers= |Media|Mirrored_Links|IRAL|AdvancedLauncher|ROM_Collection_Browser|MediaBrowser|ICE|
-
+JUNCTOPT= 2
 INPKND= KB|J|AXIS
 PLAYERSET=1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16
 
@@ -799,7 +799,7 @@ hkiterate= input_Audio_Mute|input_Cheat_Index_Minus|input_Cheat_Index_Plus|input
 KBSET=a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|1|2|3|4|5|6|7|8|9|0|minus|add|f1|f2|f3|f4|f5|f6|f7|f8|f9|f10|f11|f12|up|down|left|right|pageup|pagedown|home|end|tilde|semicolon|quote|comma|period|slash|backslash|leftbracket|rightbracket|rshift|lshift|numlock|kp_period|keypad1|keypad2|keypad3|keypad4|keypad5|keypad6|keypad7|keypad8|keypad9|keypad0|subtract|equals|multiply|alt|ctrl|tab|capslock|escape|nul
 RUNBOXGUIITEMS=LCORE|CUSTSWITCHS|RUNSYSDDL|RUNPLRAD|RUNFLRAD|RUNROMCBX|GROM|OPNCORE|LNCHBUT|RCLLNCH|CLRCUROM
 GUISRCHITEMS=SRCHGRP|SRCHLOCDDL|SRCHFLRAD|SRCHPLRAD|SRCHROMLBX|SRCHROMEDT|SRCHROMBUT|SRCHRCRSCHK
-EMUTABGUIITEMS=emuBUTA|emuBUTB|emuBUTC|emuBUTG|emuBUTD|emuBUTE|emuBUTF|emuBUTH|emuBUTI|emuBUTJ|emuCHKD|emuCHKE|emuCHKF|emuCHKG|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKO|emuCHKP|emuCHKQ|emuCHKR|emuCHKS|emuCHKT|emuCHKU|emuCHKA|emuCHKB|emuCHKC|emuCBXE|emuCBXF|emuCBXG|emuCBXH|emuCBXI|emuCBXJ|emuCBXA|emuCBXB|emuCBXC|emuCBXD|emuDDLE|emuDDLF|emuDDLG|emuDDLH|emuDDLI|emuDDLJ|emuDDLC|emuDDLD|emuDDLA|emuDDLB|emuEDTA|emuEDTB|emuEDTC|emuEDTD|emuEDTE|emuEDTF|emuEDTG|emuEDTI|emuUPDA|emuEDTH|emuUPDB|emuLVA|emuUPDC|emuLBXA|emuLBXB|emuLVA|emuLVB|emuLVC|emuPRGB|emuPRGA|emuRad5B|emuRad5C|emuRad4A|emuRad4B|emuRad5A|emuRad6A|emuRad6B|emuRad6C|emuRad6D|emuRad7A|emuRad7B|emuRad8A|emuRad8B|emuRad9A|emuRad9B|emuRad9C|emuRad10A|emuRad10B|emuRad11A|emuRad11B|emuRad2A|emuRad2B|emuRad2C|emuRad1A|emuRad3A|emuRad3B|emuRad3C|emuRad3D|emuRad1B|emuSLDA|emuSLDB|emuSLDD|emuSLDE|emuSLDC|emuGRPA|emuGRPB|emuGRPC|emuGRPD|emuGRPE|emuGRPF|emuGRPG|emuTXTA|emuTXTB|emuTXTC|emuTXTD|emuTXTE|emuTXTF|emuTXTG|emuTXTS|emuTXTT|emuTXTR|emuTXTM|emuTXTH|emuTXTI|emuTXTN|emuTXTO|emuTXTP|emuTXTQ|emuTXTJ|emuTXTK|emuTXTL
+EMUTABGUIITEMS=emuBUTA|emuBUTB|emuBUTC|emuBUTG|emuBUTD|emuBUTE|emuBUTF|emuBUTH|emuBUTI|emuBUTJ|emuBUTK|emuCHKD|emuCHKE|emuCHKF|emuCHKG|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKO|emuCHKP|emuCHKQ|emuCHKR|emuCHKS|emuCHKT|emuCHKU|emuCHKA|emuCHKB|emuCHKC|emuCBXE|emuCBXF|emuCBXG|emuCBXH|emuCBXI|emuCBXJ|emuCBXA|emuCBXB|emuCBXC|emuCBXD|emuDDLE|emuDDLF|emuDDLG|emuDDLH|emuDDLI|emuDDLJ|emuDDLC|emuDDLD|emuDDLA|emuDDLB|emuEDTA|emuEDTB|emuEDTC|emuEDTD|emuEDTE|emuEDTF|emuEDTG|emuEDTI|emuUPDA|emuEDTH|emuUPDB|emuLVA|emuUPDC|emuLBXA|emuLBXB|emuLVA|emuLVB|emuLVC|emuPRGB|emuPRGA|emuRad5B|emuRad5C|emuRad4A|emuRad4B|emuRad5A|emuRad6A|emuRad6B|emuRad6C|emuRad6D|emuRad7A|emuRad7B|emuRad8A|emuRad8B|emuRad9A|emuRad9B|emuRad9C|emuRad10A|emuRad10B|emuRad11A|emuRad11B|emuRad2A|emuRad2B|emuRad2C|emuRad1A|emuRad3A|emuRad3B|emuRad3C|emuRad3D|emuRad1B|emuSLDA|emuSLDB|emuSLDD|emuSLDE|emuSLDC|emuGRPA|emuGRPB|emuGRPC|emuGRPD|emuGRPE|emuGRPF|emuGRPG|emuTXTA|emuTXTB|emuTXTC|emuTXTD|emuTXTE|emuTXTF|emuTXTG|emuTXTS|emuTXTT|emuTXTR|emuTXTM|emuTXTH|emuTXTI|emuTXTN|emuTXTO|emuTXTP|emuTXTQ|emuTXTJ|emuTXTK|emuTXTL
 RAGUIMENUITEMS=ART|ARTXT|ASYNC|AUO|AUTOASPECT|AUTSHD|BFI|CGSHDVAR|CGSLCT|CROP|CSTCMD|CSTCRE|CSTRAOPTF|CSTRAARGF|D3DDRV|D3D11|D3D12|DDRVGRP|DIRSTXT|DLFRMTXT|DRCGRP|DSND|DTCOMP|DirBut|FILTSEL|FILTXT|FLICKF|FLK|FLTFILE|FORCEAR|FRMDL|FRMDLTXT|FSREZ|GDIDRV|GLBLAUDIO|GLSHDVAR|GLSLCT|GPUFRMTXT|GPUSS|GPUV|GPUVREC|DISPLDRV|RaSpdEdt|RaSpdSld|RASpdTxt|DISPDRVTXT|AUDDRVTXT|GUIDRV|AUDDRV|GUIDRVTXT|HSYNC|INTG|IntXres|IntYres|LATENCY|LOCDIR|LOCPTH|MAXSWPTXT|MONGTXT|MONRESTXT|MONUM|MONXREZ|MONXTXT|MONYREZ|MSWCHI|MUTE|OGLDRV|OPENAL|OPERGRP|OUTFS|OUTFW|OUTMGRP|OUTW|OVRIDGRP|PAUSEBG|PGM|POSYTXT|PTHSTXT|PthBut|REFRESH|REFSLD|REFTXT|REFUD|REWEN|REWGRAN|REZV|ROTATE|SAVDIVTXT|SAVEXIT|SAVGRP|SAVSECTXT|SAVSRT|SAVSTPTXT|SCLGRP|SCLTXT|SDL2|SDL2DRV|SHAREDV|SHDEN|SHDPTHTXT|SHDSEL|SLCT|SLSHDVAR|SMTHV|SNDGRP|SNDLATXT|STAI|STAL|STAS|STORT|STRCH|SVINT|SWHOST|SWPFRMTXT|SWPV|THRDV|VIDASPECT|VIDGTXT|VIDRESTXT|VIDRESTXT|VIDSCL|AVIDSYNC|VIDSYNC|VIDXTXT|VPOSTXT|VPOSXTXT|VROTXT|VidXLoc|VidYLoc|RUN2ND|RUNAHEAD|RUNAFRMS|SRCHGRP|ROMRPGRP|SRCHLOCDDL|SRCHFLRAD|SRCHPLRAD|SRCHROMLBX|SRCHROMEDT|SRCHROMBUT|SRCHRCRSCHK
 RAJOYINBUTITEMS=LTRIGIN|LBUMPIN|RTRIGIN|RBUMPIN|LSTICKUPIN|LSTICKLFTIN|LSTICKRTIN|LSTICKDWNIN|LSTICKBUTIN|RSTICKUPIN|RSTICKLFTIN|RSTICKRTIN|RSTICKDWNIN|RSTICKBUTIN|DPADDWNIN|DPADUPIN|DPADLFTIN|DPADRTIN|SLCTBUTIN|STRTBUTIN|YBUTIN|XBUTIN|BBUTIN|ABUTIN|INPBUTIN|TURBOIN
 RAJOYGUIITEMS=JOYPIC|JOYDRVGRP|JHIDDRV|JDINDRV|JXINDRV|JSDLDRV|INPDRVGRP|IDDINP|IDSDLINP|IDRAW|LASTKGRP|RASTKGRP|DPADGRP|CIREMAPGRP|BBUTTXT|YBUTTXT|XBUTTXT|ABUTTXT|L3BUTTXT|R3BUTTXT|LTRIGTXT|RTRIGTXT|LBUTTXT|RBUTTXT|HBTNTXT|SELECTBUTTXT|STARTBUTTXT|CFGPLGRP|INDWRN|CLRPLYR|RSTPLYR|DEFPLCTRLGRP|HOTKGRP|JSW|KSW|HKEYCB|HKEYDD|JYPLTXT|PLAYERN|MENBUTCMBTXT|DSPLGC|MGPC|MXUSRTXT|MXUSR|SWAPOKC|ADJS|REMPB|RMPLOAD|KBGP|AUM|JPINDX|MOUSEIND|JOYIND|MINXTXT|ANLDZGRP|ANLDZTXT|DEDZTXT|DEDZ|UNIFMENU|POLLING|POLTXT|JBLNKGRP|TRBPRD|TURBOP|TURBUD|DUTCTXT|DUTYCYCLE|DUTYUD|ANLDP|TRBTXT|TURBOIN|LTRIGIN|LBUMPIN|RTRIGIN|RBUMPIN|LSTICKUPIN|LSTICKLFTIN|LSTICKRTIN|LSTICKDWNIN|LSTICKBUTIN|RSTICKUPIN|RSTICKLFTIN|RSTICKRTIN|RSTICKDWNIN|RSTICKBUTIN|DPADDWNIN|DPADUPIN|DPADLFTIN|DPADRTIN|SLCTBUTIN|STRTBUTIN|YBUTIN|XBUTIN|BBUTIN|ABUTIN|INPBUTIN|TRBCMB|RA_RXMinus|RA_RYPlus|RA_R|RA_L|RA_RXPlus|RA_RYMinus|RA_R3|RA_L3|RA_LXMinus|RA_LYPlus|RA_LYMinus|RA_LXPlus|RA_select|RA_start|RA_up|RA_left|RA_right|RA_down|RA_Y|RA_X|RA_B|RA_A|RA_l2|RA_r2|RA_Home
@@ -810,7 +810,7 @@ EMUJOYCBXGUIITEMS=emjTRBCMB|emjRXMinus|emjRYPlus|emjR|emjL|emjRXPlus|emjRYMinus|
 NETHOSTGUIITEMS=INETHOST|RELYSRV|ALSLV|SLVONLY|PRVTSV|IPORTNUM|NOSTATE|CHECKFRAMES|CHKFTXT|CHKFRSLD|MINLAT|MINLATTXT|MINLATSLD|LATRNG|LATRNGTXT|LATRNGSLD|NETHROM|HOSTBUTTON|PSTIP|HOSTIP|FSRVTXT|FILESERV|SERVPORT|GETIP|GETLAN|NETIPRAD|LANIPRAD|NETPW
 NETCLIENTGUIITEMS=NETROM|AUTOCORE|ROOMFILTER|FORCEROM|SRCHARCORG|AUTSYS|RETROM|IPA|IPB|IPC|IPD|NETSPECPW|NETCROM|CPORTNUM|PSTIP|NETCONNECT
 COREGUIITEMS=COREDDLB|COREDDLC|COREDDLD|COREDDLE|COREDDLTXTA|COREDDLTXTB|COREDDLTXTC|COREDDLTXTD|CORERADA|CORERADB|CORECMBA|CORECMBTXTA|CORERADC|CORERADD|CORERADE|CORERADF|CORECHKA|CORECHKB|CORECHKC|COREDDLH|CORERADG|CORERADH|CORECHKD|CORECHKD|CORECMBB|CORECMBTXTB|CORESLDA|CORESLDTXTA|CORERADI|CORERADJ|CORERADK|CORERADL|COREDDLTXTE|COREDDLF|COREDDLG|COREDDLH|COREDDLI|COREDDLJ|COREDDLK|COREDDLL|COREDDLTXTF|COREDDLTXTG|COREDDLTXTH|COREDDLTXTI|CORECHKE|CORECHKF|CORECHKG|CORECHKH|CORECHKI|CORERADM|CORERADN|CORERADO|CORERADP|CORERADQ|CORERADR|CORERADS|CORERADT|CORERADU|CORERADV
-SNES9XGUIITEMS=emuBUTA|emuBUTB|emuBUTC|emuBUTJ|emuBUTK|emuCBXA|emuCBXB|emuCBXC|emuCBXD|emuCBXE|emuCHKA|emuCHKB|emuCHKC|emuCHKD|emuCHKE|emuCHKF|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKO|emuCHKP|emuCHKP|emuCHKQ|emuCHKQ|emuCHKS|emuCHKS|emuCHKT|emuDDLA|emuDDLB|emuDDLC|emuDDLD|emuDDLE|emuDDLF|emuDDLG|emuDDLH|emuEDTA|emuEDTC|emuEDTD|emuEDTF|emuEDTG|emuRad1A|emuRad1B|emuRad4A|emuRad4B|emuSLDA|emuCHKU
+SNES9XGUIITEMS=emuBUTA|emuBUTB|emuBUTC|emuBUTJ|emuBUTK|emuCBXA|emuCBXB|emuCBXC|emuCBXD|emuCBXE|emuCHKA|emuCHKB|emuCHKC|emuCHKD|emuCHKE|emuCHKF|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKO|emuCHKP|emuCHKP|emuCHKQ|emuCHKQ|emuCHKS|emuCHKS|emuCHKT|emuDDLA|emuCBXF|emuDDLC|emuDDLD|emuDDLE|emuDDLF|emuDDLG|emuDDLH|emuEDTA|emuEDTC|emuEDTD|emuEDTF|emuEDTG|emuRad1A|emuRad1B|emuRad4A|emuRad4B|emuSLDA|emuCHKU
 SNES9XJOYGUIITEMS=INDWRN|emjDDLD|emjDDLB|emjDDLA|emjCHKX|emjCHKY|emjCHKZ|emjCBA|emjBUTA|emjBUTB|emjDDLC|emjRAD3A|emjRAD3B|JOYCORE
 MAMEGUIITEMS=emuBUTJ|emuBUTK|emuBUTA|emuBUTB|emuCHKO|emuCHKD|emuCHKE|emuSLDA|emuCHKF|emuCHKG|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKP|emuCHKA|emuCHKB|emuCHKQ|emuCHKR|emuCHKS|emuCHKT|emuCHKC|emuCBXE|emuCBXA|emuCBXC|emuCBXB|emuCBXD|emuDDLE|emuDDLD|emuEDTA|emuDDLA|emuDDLB|emuDDLC|emuDDLG|emuEDTB|emuRad1A|emuRad1B
 MAMEJOYGUIITEMS=INDWRN|emjDDLD|emjDDLB|emjDDLA|emjCHKX|emjCHKY|emjCHKZ|emjCBA|emjBUTA|emjBUTB|emjDDLC|emjRAD3A|emjRAD3B|JOYCORE
@@ -835,7 +835,7 @@ SUBDLST= .Mem||.snaps|.sstates|.Man|.patches|.cheats
 SUBDLSTR:= SUBDLST
 
 qres= 320x240|640x480|720x480|720x576|800x480|848x480|1024x600|800x600|1024x768|1152x864|1280x1024|1280x720|1280x800|1280x900|1280x960|1366x768|1360x1024|1440x900|1400x1050|1600x1024|1920x1080|1600x1024|1680x1050|1920x1200|2560x1440|3840x2160|5120x2880|7680x4320
-
+qresf= 320x240 32bits 60hz|640x480 32bits 60hz|720x480 32bits 60hz|720x576 32bits 60hz|800x480 32bits 60hz|848x480 32bits 60hz|1024x600 32bits 60hz|800x600 32bits 60hz|1024x768 32bits 60hz|1152x864 32bits 60hz|1280x1024 32bits 60hz|1280x720 32bits 60hz|1280x800 32bits 60hz|1280x900 32bits 60hz|1280x960 32bits 60hz|1366x768 32bits 60hz|1360x1024 32bits 60hz|1440x900 32bits 60hz|1400x1050 32bits 60hz|1600x1024 32bits 60hz|1920x1080 32bits 60hz|1600x1024 32bits 60hz|1680x1050 32bits 60hz|1920x1200 32bits 60hz|2560x1440 32bits 60hz|3840x2160 32bits 60hz|5120x2880 32bits 60hz|7680x4320 32bits 60hz
 sysposb= |Atari - 2600|Atari - 7800|Atari - 800|Atari - Jaguar|Atari - Lynx|Atari - ST|Bandai - WonderSwan|Bandai - WonderSwan Color|Casio - Loopy|Casio - PV-1000|Coleco - ColecoVision|Commodore - 64|Commodore - 64 (PP)|Commodore - 64 (Tapes)|Commodore - Amiga|Commodore - Amiga|Commodore - Plus-4|Commodore - VIC-20|Emerson - Arcadia|Entex - Adventure Vision|FB Alpha - Arcade Games|Fairchild - Channel F|Funtech - Super Acan|GCE - Vectrex|GCE - Vectrex|GamePark - GP32|Hartung - Game Master|Leapfrog - Leapster Learning Game System|MAME - Arcade|MAME2003|MAME2010|Magnavox - Odyssey2|Magnavox - Odyssey2|Magnavox - Odyssey2|Microsoft - DOS|Microsoft - MSX|Microsoft - MSX2|NEC - PC Engine - TurboGrafx 16|NEC - PC Engine CD - TurboGrafx CD|NEC - PC Engine SuperGrafx|NEC - PC-FX|NEC - PC98|Nintendo - Famicom Disk System|Nintendo - Famicom System|Nintendo - Game Boy|Nintendo - Game Boy Advance|Nintendo - Game Boy Advance(e-Cards)|Nintendo - Game Boy Color|Nintendo - Nintendo 3DS|Nintendo - Nintendo 64|Nintendo - Nintendo 64DD|Nintendo - Nintendo DS|Nintendo - Nintendo DS Decrypted|Nintendo - Nintendo Entertainment System|Nintendo - Pokemon Mini|Nintendo - Satellaview|Nintendo - Satellaview|Nintendo - Sufami Turbo|Nintendo - Super Nintendo Entertainment System|Nintendo - Virtual Boy|Nokia - N-Gage|RCA - Studio II|RCA - Studio II|SNK - Neo Geo|SNK - Neo Geo MVS|SNK - Neo Geo Pocket|ScummVM|Sega - 32X|Sega - Dreamcast|Sega - Game Gear|Sega - Master System - Mark III|Sega - Mega Drive - Genesis|Sega - Mega-CD - Sega CD|Sega - PICO|Sega - SG-1000|Sega - Saturn|Sharp - X68000|Sinclair - ZX 81|Sinclair - ZX Spectrum|Sony - Playstation|Sony - Playstation 2|Sony - Playstation Portable|The 3DO Company - 3DO|Tiger - Game com|VTech - CreatiVision|VTech - V.SmileTurboGrafx 16
 
 hkDDL= inputAudioMute|inputCheatIndexMinus|inputCheatIndexPlus|inputCheatToggle|inputDiskEjectToggle|inputDiskNext|inputDiskPrev|inputEnableHotkey|inputExitEmulator|inputFrameAdvance|inputToggleFullscreen|inputGrabMouseToggle|inputHoldFastForward|inputHoldSlowmotion|inputLoadState|inputMenuToggle|inputMovieRecordToggle|inputNetplayFlipPlayers|inputOskToggle|inputOverlayNext|inputPauseToggle|inputReset|inputRewind|inputSaveState|inputScreenshot|inputShaderNext|inputShaderPrev|inputSlowmotion|inputStateSlotDecrease|inputStateSlotIncrease|inputToggleFastForward|inputToggleFullscreen|inputVolumeDown|inputVolumeUp
@@ -1269,7 +1269,7 @@ netplayCoreAssetsDirectory= %RJSYSTEMS%
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 SUPRSRCH= 1
-AUTOFUZ= 1
+AUTOFUZ= 0
 FUZENB= Checked
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -1734,7 +1734,7 @@ Gui, Add, Button, x74 y136 w43 h23 vSETEMUD gSETEMUD, SET
 Gui, Add, Button, x74 y53 w43 h23 vSETJKD gSETJKD, SET
 Gui, Add, Text, x8 y81 vSKSYSTXT, Systems ROOT
 Gui, Add, Text, x8 y163 vSKEMUDTXT, Emulators Dir
-Gui, Add, CheckBox, x174 y105 vFILT_UNSUP gFILT_UNSUP %filtmrk%, Filter Unsupported
+Gui, Add, CheckBox, x174 y90 vFILT_UNSUP gFILT_UNSUP %filtmrk%, Filter Unsupported
 Gui,Font,Normal
 Gui, Add, Button, x579 y450 w55 h18 vUpdateSK gUpdateSK, UPDATE
 
@@ -1746,14 +1746,14 @@ Gui, Font, normal
 Gui Add, Edit, x77 y285 w439 h41 Right vplaylisttxt ReadOnly, %playlistloc%
 
 Gui, Font, Bold
-Gui Add, GroupBox, x72 y333 w445 h64 Right, History
-Gui Add, Button, x516 y361 w43 h23 vhistset ghistset,SET
-Gui, Add, Checkbox, x72 y402 vHISAPND gHISAPND %HISAPNDCHK%, Append All
+Gui Add, GroupBox, x116 y333 w445 h64, History
+Gui Add, Button, x70 y341 w43 h23 vhistset ghistset,SET
+Gui, Add, Checkbox, x29 y369 vHISAPND gHISAPND %HISAPNDCHK%, Append All
 Gui, Font, normal
-Gui Add, Edit, x77 y346 w438 h44 Right vhisttxt ReadOnly, %historyloc%
+Gui Add, Edit, x120 y346 w438 h44 vhisttxt ReadOnly, %historyloc%
 
 Gui, Add, Button, x124 y88 w45 h18 vSYSDETECT gSysDetect, Detect
-Gui, Add, CheckBox, x174 y86 w89 h18 vSYSAZ gSYSAZ %FUZENB%, fuzzy-Rename
+;;Gui, Add, CheckBox, x174 y86 w89 h18 vSYSAZ gSYSAZ %FUZENB%, fuzzy-Rename
 Gui, Add, Button, x120 y171 w45 h18 vEMUDETECT gEmuDetect, Detect
 Gui, Add, Text, x172 y173 vSKDSETXT, Detected Supported Emulators: %emunumtot%
 Gui, Add, Text, x331 y89 vSKDETSTXT, Detected Systems: %totsys% supported and %allsys% total
@@ -3177,7 +3177,7 @@ Gui, Add, Edit, x58 y61 w30 h21 Limit1 vRJEDTBN gRJEDTBN hidden, Z
 Gui, Add, Button, x91 y59 w31 h23 vRJFLTRLST gRJFLTRLST hidden, Filter
 Gui, Add, Edit, x122 y60 w118 h21 vRJEDTC gRJEDTC,
 Gui, Add, Button, x241 y59 w32 h23 vRJFNDINLST gRJFNDINLST, Find
-Gui, Add, ListView, x12 y86 w254 h414 -ReadOnly altsubmit Multi vRJLSTV gRJLSTV hwndRJLV checked, Jackets
+Gui, Add, ListView, x12 y86 w254 h414 -ReadOnly altsubmit Multi vRJLSTV gRJLSTV hwndRJLV checked,|
 
 RJRN1 := New LV_InCellEdit(RJLV)
 RJRN1.SetColumns(1)
@@ -6716,7 +6716,7 @@ return
 ;{;;;;;;;;;;;;;;;;;;;;;;;    MAINMENUTAB FUNCTIONS     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 SYSAZ:
 gui,submit,nohide
-AUTOFUZ= 
+AUTOFUZ= 0
 if (SYSAZ = 1)
 	{
 		AUTOFUZ= 1
@@ -6744,6 +6744,7 @@ Loop, Parse, SysLLst,`n`r
 				ifnotinstring,fik,%RJSYSTEMS%\%afe1%|
 					{
 						iniwrite,"%RJSYSTEMS%\%afe1%|%fik%",SystemLocations.ini,LOCATIONS,%afe1%
+						SB_SetText("added " afe " ")
 					}
 			}
 		pnsys.= afe1 . "|"
@@ -6768,10 +6769,12 @@ Loop, parse, fuzsys,`n`r
 		stringsplit,fuztst,A_LoopField,>
 		flsn= %fuztst2%
 		fsys= % %fuztst2%
+		/*
 		ifinstring,toinsj,|%fsys%|
 			{
 				continue
 			}
+		*/
 		Loop, Parse, fuztst1,|
 			{
 				aeg= 
@@ -6786,6 +6789,22 @@ Loop, parse, fuzsys,`n`r
 							{
 								stringreplace,nfiprm,nfiprm,%fsys%|,,All
 								splitpath,A_LoopFileFullPath,fdirnam,fdirpth
+								if (JUNCTOPT = 2)
+									{
+										iniread,fik,SystemLocations.ini,LOCATIONS,%fsys%
+										ifnotinstring,fik,%A_LoopfileFullPath%|
+											{
+												iniwrite,"%A_LoopFileFullPath%|%fik%",SystemLocations.ini,LOCATIONS,%fsys%
+												SB_SetText("added " A_LoopFileFullPath " ")
+											}
+										ifnotinstring,knownfldrs,%fsys%
+											{
+												knownfldrs.= A_LoopFileName . "|"
+											}
+										aeg=1
+										break
+									}
+								/*
 								if (JUNCTOPT = 1)
 									{
 										iniread,fik,SystemLocations.ini,LOCATIONS,%fsys%
@@ -6798,17 +6817,6 @@ Loop, parse, fuzsys,`n`r
 										RunWait, %comspec% cmd /c "mklink /J "%RJSYSTEMS%\%fsys%" "%A_LoopFileFullPath%" ",,hide
 										knownfldrs.= A_LoopFileName . "|"
 										aeg=2
-										break
-									}
-								if (JUNCTOPT = 2)
-									{
-										iniread,fik,SystemLocations.ini,LOCATIONS,%fsys%
-										ifnotinstring,fik,%A_LoopfileFullPath%|
-											{
-												iniwrite,"%A_LoopFileFullPath%|%fik%",SystemLocations.ini,LOCATIONS,%fsys%
-											}
-										knownfldrs.= A_LoopFileName . "|"
-										aeg=1
 										break
 									}
 								if (AUTOFUZ = 1)
@@ -6831,14 +6839,18 @@ Loop, parse, fuzsys,`n`r
 									}
 								aeg=1
 								break
+								*/
 							}
 					}
+				/*
 				if (aeg <> "")
 					{
 						break
 					}
+				*/
 			}
 	}
+SB_SetText("systems added")
 if (aeg = 2)
 	{
 		gosub, resetCoreAssets
@@ -6946,7 +6958,7 @@ if (pthnm = A_Username)
 			}
 	
 	}
-
+RESELSYSG:
 nask= 
 Loop,Parse,SysLLst,`n
 	{
@@ -6992,7 +7004,7 @@ if (nask = "")
 				goto, SETJKD
 			}
 		AUTOFUZ= 0
-		JUNCTOPT= 1
+		JUNCTOPT= 2
 		fileappend,k,%RJSYSTEMF%\sk
 		if (ERRORLEVEL <> 0)
 			{
@@ -7001,7 +7013,7 @@ if (nask = "")
 					{
 						goto,INRJSYSOK
 					}
-				return
+				goto, SETJKD
 			}
 		filedelete,%RJSYSTEMF%\sk
 		INRJSYSOK:
@@ -7029,11 +7041,11 @@ if (ERRORLEVEL <> 0)
 		MsgBox,1,NoWrite,skeletonKey cannot write to ''%RJSYSTEMF%''`nAre you sure you want to use this directory?
 		ifmsgbox,OK
 			{
-				goto,RJSYSTMWROK
+				goto,SJMPOT
 			}
-		return
+		goto, SETJKR
 	}
-
+/*
 RJSYSTMWROK:	
 Msgbox,8452,Fuzzy Rename,Would you like to rename identified system directories to supported names?`nSelecting 'no' will simply link these systems.
 ifmsgbox,cancel
@@ -7047,7 +7059,11 @@ ifmsgbox,no
 	}
 gosub,CORASMAT
 return
+*/
+
 SJMPOT:
+AUTOFUZ= 0
+JUNCTOPT= 2
 RJSYSTEMS= %RJSYSTEMF%
 nfemu= 1
 stringreplace,RJSYSTEMS,RJSYSTEMS,\\,\,All
@@ -8020,7 +8036,7 @@ if (historyloctmp <> "")
 historyloc= %A_WorkingDir%\content_history.lpl
 ifnotexist, %historyloc%
 	{
-		FileAppend,,%historyloc%
+		FileAppend,{%pspce%"version": "1.0"`,`n%pspce%"items": [`n%pspxe%{`n%pspxe%}`n%A_Space%%A_Space%]`n}`n,%historyloc%
 	}
 guicontrol,,histtxt,%A_WorkingDir%\content_history.lpl
 	iniwrite, "%A_WorkingDir%\content_history.lpl",Settings.ini,GLOBAL,history_location
@@ -42237,9 +42253,9 @@ guicontrol, %emutog%, emuTXTA
 guicontrol, move, emuTXTA,x454 y111 w94 h13
 guicontrol,,emuTXTA,Display Resolution
 
-guicontrol, %emutog%, emuDDLB  ;resolutions
-guicontrol, move, emuDDLB,x427 y134 w120
-guicontrol,,emuDDLB,|320x200 32bit 60hz|320x240 32bit 60hz|400x300 32bit 60hz|512x384 32bit 60hz|640x400 32bit 60hz|640x480 32bit 60hz|800x600 32bit 60hz||1024x768 32bit 60hz|1280x600 32bit 60hz|1280x720 32bit 60hz|1280x768 32bit 60hz|1360x768 32bit 60hz|1366x768 32bit 60hz
+guicontrol, %emutog%, emuCBXF  ;resolutions
+guicontrol, move, emuCBXF,x427 y134 w120
+guicontrol,,emuCBXF,|800x600 32bits 60hz||%qresf%
 
 guicontrol, %emutog%, emuTXTG  ;videodriver
 guicontrol, move, emuTXTG,x401 y231 w59 h13
@@ -42366,9 +42382,9 @@ guicontrol, move, emuEDTF, x33 y471 w35 h21
 guicontrol, +Number, emuEDTF,
 guicontrol,,emuEDTF,
 
-guicontrol, %emutog%, emuTXTM
-guicontrol, move, emuTXTM,x73 y472 w84 h20
-guicontrol,,emuTXTM,Max Skip Frames
+guicontrol, %emutog%, emuTXTP
+guicontrol, move, emuTXTP,x73 y472 w84 h20
+guicontrol,,emuTXTP,Max Skip Frames
 
 guicontrol, %emutog%, emuEDTG ;FLP
 guicontrol, move, emuEDTG, x33 y447 w35 h21
@@ -42508,7 +42524,7 @@ Loop, Parse, snes9xSopts,`n`r
 		kpv= 1
 		if (snvo1 = "Sync")
 			{
-				if (snvo2 = "FALSE")
+				if (snvo2 = 0)
 					{
 						kpv= 0
 					}
@@ -42567,7 +42583,7 @@ Loop, Parse, snes9xNopts,`n`r
 		emucxt= 1
 		if (snvo1 = "SendROMImageOnConnect")
 			{
-				if (snvo2 = "FALSE")
+				if (snvo2 = "OFF")
 					{
 						emucxt= 0
 					}
@@ -42576,7 +42592,7 @@ Loop, Parse, snes9xNopts,`n`r
 		emucxt= 1
 		if (snvo1 = "SyncByReset")
 			{
-				if (snvo2 = "FALSE")
+				if (snvo2 = "OFF")
 					{
 						emucxt= 0
 					}
@@ -42818,7 +42834,7 @@ Loop, Parse, snes9xDWopts,`n`r
 					}
 			}
 	}
-guicontrol,,emuDDLB,|%sn9xdr%||%displpos%	
+guicontrol,,emuCXBF,|%sn9xdr%||
 Loop, Parse, snes9xOopts,`n`r
 	{
 		if (A_LoopField = "")
@@ -42900,13 +42916,14 @@ if (snes9xchka = 0)
 	{
 		snshdtyp= OpenGL:OGLShader		
 	}
-FileSelectFile,NWSHDRF,,3,Select A File
+FileSelectFile,NWSHDRF,,3,Select A File,(*.glslp;*.glsl;*.cg)
 if (NWSHDRF = "")
 	{
 		return
 	}
 iniwrite,%NWSHDRF%,%snes9xcfgloc%,Display\Win,%snshdtyp%
 guicontrol,,emuedtb,%nwshdrf%
+gui,submit,nohide
 return
 
 SNES9XBUTC:
@@ -43309,10 +43326,10 @@ if (emuDDLE = "OpenGL")
 iniwrite,%emustx%,%snes9xcfgloc%,Display\Win,OutputMethod
 return
 
-SNES9XDDLB:
+SNES9XCBXF:
 gui,submit,nohide
-guicontrolget,emuDDLB,,emuDDLB
-stringsplit,resprts,emuDDLB,xbh%A_Space%,itz
+guicontrolget,emuCBXF,,emuCBXF
+stringsplit,resprts,emuCBXF,xbh%A_Space%,itz
 iniwrite,%resprts1%,%snes9xcfgloc%,Display\Win,Fullscreen:Width
 iniwrite,%resprts2%,%snes9xcfgloc%,Display\Win,Fullscreen:Height
 iniwrite,%resprts3%,%snes9xcfgloc%,Display\Win,Fullscreen:Depth
@@ -43327,6 +43344,9 @@ return
 SNES9XRad1A:
 gui,submit,nohide
 iniwrite,FALSE,%snes9xcfgloc%,Display\Win,Fullscreen:Enabled
+iniread,resprts1,%snes9xcfgloc%,Display\Win,Window:Width
+iniread,resprts2,%snes9xcfgloc%,Display\Win,Window:Height
+guicontrol,,emuCBXF,|%resprts1%x%resprts2%||%qres%
 return
 
 SNES9XRad1B:
@@ -66345,12 +66365,17 @@ return
 ;{;;;;;;;;;;;;;;;; RJ LISTVIEW  ;;;;;;;;;;;;;;;;;;;;;;;;;;
 RJLSTV:
 gui,submit,nohide
-guicontrolget,curselx,,RJLSTV
 if (A_GuiEvent = RightClick)
-		{
-			return
-		}
-if	(ErrorLevel == "C")
+	{
+		return
+	}
+if A_GuiEvent = DoubleClick
+	{
+		LV_Modify(A_EventInfo, "Vis")
+		LV_GetText(curselx, A_EventInfo)  ; Get the text from the row's first field.
+		sb_settext("current selection is " curselx "")
+	}		
+if (ErrorLevel == "C")
 		{
 			curselx= 
 			LV_Modify(A_EventInfo, "+Select")				
@@ -66388,13 +66413,21 @@ If (A_GuiEvent == "F") {
 	  fifi := O.txt
 	ifnotinstring,curselx,:
 		{
+		  sanm:= fifi
+		  gosub, sanitizeN
+		  fifi:= sanm
 		  FileMove,%RJSYSTEMS%\%oldtxt%,%RJSYSTEMS%\%fifi%,1
+		  gosub, RJRFRSHLST	
 		}
 	ifinstring,curselx,:
 		{
 		  stringreplace,rnmdir,fifi,:,,All
+		  sanm:= fifi
+		  gosub, sanitizeN
+		  fifi:= sanm
 		  stringreplace,oldtxt,curselx,:,,All
 		  FileMoveDir,%RJSYSTEMS%\%RJSYSDD%\%oldtxt%,%RJSYSTEMS%\%RJSYSDD%\%rnmdir%,1
+		  gosub, RJRFRSHLST		  
 		}
 	  }
 }
@@ -67151,7 +67184,7 @@ guicontrol,hide,RJEDTDN
 guicontrol,hide,RJEDTBN
 guicontrol,hide,RJEDTD
 guicontrol,hide,RJEDTB
-guicontrol,hide,RJFNDINLST
+guicontrol,,RJFNDINLST,Find
 guicontrol,,RJINCEXCL,|All||A-Z|#
 gosub,RJSYSDD
 return
@@ -68971,6 +69004,12 @@ return
 ;{;;;;  FIND IN LIST  ;;;;;
 RJFNDINLST:
 gui,submit,nohide
+guicontrolget,RJFNDINLST,,RJFNDINLST
+if (RJFNDINLST = "Clear")
+	{
+		guicontrol,,RJFNDINLST,Find
+		guicontrol,,RJEDTC,
+	}
 guicontrolget,RJEDTC,,RJEDTC
 if (RJEDTC = "")
 	{
@@ -68990,7 +69029,7 @@ guicontrol,hide,RJEDTDN
 guicontrol,hide,RJEDTBN
 guicontrol,hide,RJEDTD
 guicontrol,hide,RJEDTB
-guicontrol,hide,RJFNDINLST
+guicontrol,,RJFNDINLST,Clear
 guicontrol,,RJINCEXCL,|All||A-Z|#
 Loop, Parse, RJSYSDD_TDB,`n`r
 	{	
@@ -70580,6 +70619,7 @@ return
 RJINCEXCL:
 gui,submit,nohide
 guicontrolget,RJINCEXCL,,RJINCEXCL
+guicontrol,,RJFNDINLST,Find
 if (RJINCEXCL = "All")
 	{
 		

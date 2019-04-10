@@ -47,6 +47,9 @@ ESTHEME=https://github.com/romjacket/esthemes/raw/master/zoid.zip
 [snes-mini]
 ESTHEME=https://github.com/romjacket/esthemes/raw/master/snes-mini.zip
 
+[Rom-core]
+ESTHEME=https://github.com/romjacket/esthemes/raw/master/Rom-core.zip
+
 [nes-mini]
 ESTHEME=https://github.com/romjacket/esthemes/raw/master/nes-mini.zip
 
