@@ -1744,13 +1744,13 @@ Gui, Add, Button, x74 y136 w43 h23 vSETEMUD gSETEMUD, SET
 Gui, Add, Button, x74 y53 w43 h23 vSETJKD gSETJKD, SET
 Gui, Add, Text, x8 y81 vSKSYSTXT, Systems ROOT
 Gui, Add, Text, x8 y163 vSKEMUDTXT, Emulators Dir
-Gui, Add, CheckBox, x174 y90 vFILT_UNSUP gFILT_UNSUP %filtmrk%, Filter Unsupported
 Gui,Font,Normal
+Gui, Add, CheckBox, x174 y90 vFILT_UNSUP gFILT_UNSUP %filtmrk%, Filter Unsupported
 Gui, Add, Button, x579 y450 w55 h18 vUpdateSK gUpdateSK, UPDATE
 
 Gui, Font, Bold
 Gui Add, GroupBox, x72 y270 w445 h64 Right, Playlists
-Gui, Add, Text, x72 y469 w88 h27 vTMPDIRTXT, Temp Directory
+Gui, Add, Text, x8 y460 w108 h27 vTMPDIRTXT, Temp/Cache Dir
 Gui Add, Button, x516 y296 w43 h23 vplaylset gplaylset,SET
 Gui, Font, normal
 Gui Add, Edit, x77 y285 w439 h41 Right vplaylisttxt ReadOnly, %playlistloc%
@@ -1758,8 +1758,8 @@ Gui Add, Edit, x77 y285 w439 h41 Right vplaylisttxt ReadOnly, %playlistloc%
 Gui, Font, Bold
 Gui Add, GroupBox, x116 y333 w445 h64, History
 Gui Add, Button, x70 y341 w43 h23 vhistset ghistset,SET
-Gui, Add, Checkbox, x29 y369 vHISAPND gHISAPND %HISAPNDCHK%, Append All
 Gui, Font, normal
+Gui, Add, Checkbox, x29 y369 vHISAPND gHISAPND %HISAPNDCHK%, Append All
 Gui Add, Edit, x120 y346 w438 h44 vhisttxt ReadOnly, %historyloc%
 
 Gui, Add, Button, x124 y88 w45 h18 vSYSDETECT gSysDetect, Detect
@@ -4248,7 +4248,7 @@ STORT_TT :="Save states are saved in the specified save-state location"
 STRCH_TT :="Only scales video in integer steps.`nhe base size depends on system-reported geometry and aspect ratio.`nIf video_force_aspect is not set, X/Y will be integer scaled independently."
 SVAPLST_TT :="Allows you to define a template for per-ROM config files generated.`nIf this is not defined prior to creation, the current skeletonKey settings are used."
 SVNICK_TT :="Saves the current application settings with the nickname of the system identfier`nright-click to reset the nickname to the default options"
-SVNICK_TT :="Deletes current application settings with the nickname of the system identfier"
+DELNICK_TT :="Deletes the curent nickname-identfier"
 SVPLST_TT :="Saves the current playlist"
 SVTHMB_TT :="Save the currently selected thumbnail."
 SWPV_TT :="Sets the v-sync frame number to buffer" 
@@ -11969,6 +11969,9 @@ if (newsemu = "")
 	}
 iniwrite,"%EMPRLT%",Assignments.ini,OVERRIDES,%semu%
 iniwrite,"%newsemu%",Assignments.ini,ASSIGNMENTS,%semu%
+guicontrol,,ADDNSYS,|
+gosub,SvNick
+guicontrol,,ADDNSYS,|%allsupport%
 return
 
 DSKMNTCHK:
@@ -12469,6 +12472,11 @@ Loop,parse,sysnvp,`n`r
 			}
 		stringsplit,fei,A_LOopField,=
 		iniwrite,%fei2%,AppParams.ini,%SYSNICK%,%fei1%
+	}
+IniRead,ovrob,Assignments.set,OVERRIDES,%SYSNICK%
+if ((ovrob <> "ERROR") and (ovrob <> ""))
+	{
+		iniwrite,%ovrob%,Assignments.ini,OVERRIDES,%SYSNICK%
 	}
 gosub, SysNick
 return
@@ -31074,6 +31082,37 @@ if ((sysni = INSTEMUDDL) && (SALIST = "Systems"))
 				stringsplit,avw,A_LoopField,=
 				IniWrite,%avw2%,AppParams.ini,%sysni%,%avw1%
 			}
+		IniRead,ovrob,Assignments.set,OVERRIDES,%sysni%
+		if ((ovrob <> "ERROR") and (ovrob <> ""))
+			{
+				iniwrite,%ovrob%,Assignments.ini,OVERRIDES,%sysni%
+			}
+		iniread,tmprz,Assignments.ini,OVERRIDES
+		Loop,parse,tmprz,`n`r
+			{
+				vprse= 
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				stringsplit,afin,A_LoopField,=
+				Loop,Parse,afin2,|
+					{
+						if (A_LoopField = "")
+							{
+								continue			
+							}
+						if (A_LoopField = sysni)
+							{
+								continue
+							}
+						vprse.= A_LoopField . "|"	
+					}
+				if (vprse <> "")
+					{
+						iniwrite,"%vprse%",Assignments.ini,OVERRIDES,%afin1%
+					}
+			}
 	}
 guicontrol,,EXDISPL,
 guicontrol,,DCORE,1
@@ -42141,6 +42180,36 @@ return
 ;{;;;;;;;;;;;;;;;;;;;;;;;;   EMU GUI PARTS   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;;;;;;;;;;;;;;;;;  SNES9X  ;;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;  SNES9X GUI HIDE-SHOW TOGGLE  ;;;;;;;;;;;;;;;;;;;;;;;;
+Snes9XGUITOG:
+guicontrol, %fndtog%, emuGRPA
+guicontrol, %fndtog%, emuGRPC
+guicontrol, %fndtog%, emuTXTA
+guicontrol, %fndtog%, emuTXTG
+guicontrol, %fndtog%, emuTXTC
+guicontrol, %fndtog%, emuTXTJ
+guicontrol, %fndtog%, emuTXTD
+guicontrol, %fndtog%, emuTXTB
+guicontrol, %fndtog%, emuGRPB
+guicontrol, %fndtog%, emuTXTO
+guicontrol, %fndtog%, emuTXTK
+guicontrol, %fndtog%, emuGRPD
+guicontrol, %fndtog%, emuTXTH
+guicontrol, %fndtog%, emuEDTF
+guicontrol, %fndtog%, emuTXTP
+guicontrol, %fndtog%, emuTXTN
+guicontrol, %fndtog%, emuGRPD
+guicontrol, %fndtog%, emuTXTL
+guicontrol, %fndtog%, emuTXTE
+guicontrol, %fndtog%, emuTXTF
+guicontrol, %fndtog%, emuTXTM
+guicontrol, %fndtog%, emuTXTQ
+Loop, Parse, SNES9XGUIITEMS,|
+	{
+		guicontrol,%fndtog%,%A_LoopField%
+	}
+return
+;};;;;;;;;;;;;;;;
 
 ;{;;;;;;;;;;;;;;;;;;;;;    SNES9X MAIN GUI  ;;;;;;;;;;;;;;;;;;;;;;
 SNES9X_GUI:
@@ -43354,6 +43423,10 @@ gui,submit,nohide
 return
 
 SNES9XEDTC:
+gui,submit,nohide
+return
+
+SNES9XEDTE:
 gui,submit,nohide
 return
 
