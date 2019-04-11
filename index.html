@@ -202,6 +202,7 @@
 						 <code>-gituser=<strong>USERNAME</strong></code> your git username (must be the first argument).<br>
 						 <code>-gitpass=<strong>PASSWORD</strong></code> your git password (must be the 2nd argument).<br>
 						 <code>-gittoken=<strong>TOKEN-STRING</strong></code> your git authentication token (must be the 3rd argument).<br>
+                       
                         
 					</div>
 				</div>
@@ -216,9 +217,8 @@
 				<div class="tab">
 					<input id="tab-portable" name="tabs" type="checkbox"> <label for="tab-portable">Portable Details }&gt;</label>
 					<div class="tab-content">
-						<p>The Portable.bat file should be run from the portable device when first starting skeletonKey from a portable drive on a new computer or if the drive letter of the portable device has changed.<br>
 						Migration options for the portable utility include localization of items to the drive for playlists and simple search &amp; replace. Retroarch and skeletonKey's other supported emulators' per-game settings are updated to reflect the new portable skeletonKey location.</p>
-						<p>If you already have skeletonKey and retroArch intalled, copy the folders to your portable drive and run the Portable.bat in the skeletonKey folder on the portable drive.</p>
+						Typically, a skeletonkey installation is copied to a removable drive. The PortableUtil.exe (or Portable.bat) file should then be run from the portable device when first starting skeletonKey on a new computer or if the drive letter of the portable device has changed.<br>
 					</div>
 				</div>
 			</div>
@@ -226,7 +226,7 @@
 		<br>
 		<div id="inner">
 			<h3>Forking</h3>
-			<p>A GUI deployment tool is available for users who wish to publish a skeletonKey. SKey-Deploy.exe can be used to build, maintain and deploy a git-hub source-code versioning project, website and binaries.</p>
+			<p>A GUI deployment tool is available for users who wish to publish a skeletonKey. SKey-Deploy.exe can be used to build, maintain and deploy a github source-code versioning project, website and binaries. You must first create a skeletonKey and website project for your github account. The SKey-Deploy tool will download the required files to automatically deploy the current installation of skeletonKey to your github repository and this utility can overwrite the default website for your user, so be advised.</p>
 		</div>
 	</div>
 	<br>
@@ -263,7 +263,7 @@
 					<input id="tab-gbln" name="tabs" type="checkbox"> <label for="tab-gbln">Example }&gt;</label>
 					<div class="tab-content">
 						<p>The Launch menu items persist across emulator settings populated in the Main tab. These items are at the top of the window and are necessary to browse directories, navigate playlists and launch a ROM.</p>
-						<p><img alt="" height="223" src="Global-Launch-Menu.png" width="959"></p>
+						<p><img alt="" height="223" src="Global-Launch-Menu.png" width="469"></p>
 					</div>
 				</div>
 			</div>
@@ -445,7 +445,8 @@
 	<div id="outer" align="left">
 		<div id="inner">
 			<h4><a>Joystick Options</a></h4>
-			<p>Joystick options are dynamic and respond to the currently selected supported input-remap system and emulator.<br>Mednafen,MAME, &amp; retroArch are currently supported.</p>
+			<p>Joystick options are dynamic and respond to the currently selected supported input-remap system and emulator.<br>
+		    RetroArch, MAME, Snes9x &amp; Mednafen are currently supported.</p>
 		</div>
 	</div>
 	<br>

@@ -2920,6 +2920,7 @@ if (INITINCL = 1)
 			exprt.= "FileInstall, version.txt,version.txt,1" . "`n"	
 			exprt.= "FileInstall, working.ahk,working.ahk,1" . "`n"	
 			exprt.= "FileInstall, init.ahk,init.ahk,1" . "`n"	
+			exprt.= "FileInstall, PortableUtil.ahk,PortableUtil.ahk,1" . "`n"	
 			exprt.= "FileInstall, Update.ahk,Update.ahk,1" . "`n"	
 			exprt.= "FileInstall, skeletonKey.ahk,skeletonkey.ahk,1" . "`n"	
 			exprt.= "FileInstall, SKey-Deploy.ahk,SKey-Deploy.ahk,1" . "`n"	
@@ -2961,6 +2962,7 @@ FileAppend, "%SKELD%\BSL.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\AHKsock.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\lbex.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\init.ahk"`n,ltc.txt
+FileAppend, "%SKELD%\PortableUtil.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\LVA.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\emuexe.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\tf.ahk"`n,ltc.txt
@@ -3156,6 +3158,7 @@ if (GitPush = 1)
 		FileAppend, copy /y "LV_InCellEdit.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "emuexe.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "init.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, copy /y "Portable.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "BSL.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "lbex.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "LVA.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd

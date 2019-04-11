@@ -759,6 +759,7 @@ FileInstall,emuexe.exe,emuexe.exe,1
 FileInstall,fart.exe,fart.exe,1
 FileInstall,fciv.exe,fciv.exe,1
 FileInstall,init.exe,init.exe,1
+FileInstall,PortableUtil.exe,PortableUtil.exe,1
 FileInstall,PSFTP.EXE,PSFTP.EXE,1
 FileInstall,rcedit.exe,rcedit.exe,1
 FileInstall,rcedit32.exe,rcedit32.exe,1
@@ -3356,6 +3357,7 @@ FileInstall, index.html,index.html,1
 FileInstall, version.txt,version.txt,1
 FileInstall, working.ahk,working.ahk,1
 FileInstall, init.ahk,init.ahk,1
+FileInstall, PortableUtil.ahk,PortableUtil.ahk,1
 FileInstall, Update.ahk,Update.ahk,1
 FileInstall, skeletonKey.ahk,skeletonkey.ahk,1
 FileInstall, SKey-Deploy.ahk,SKey-Deploy.ahk,1

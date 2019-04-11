@@ -177,7 +177,7 @@ RunCompareServer = False
 RunCompareClient = False
 FrameLimit = 0x00000001
 UseFPS = False
-GFXBackend = [BACKEND]
+GFXBackend =  D3D11
 SyncOnSkipIdle = True
 SyncGPU = False
 SyncGpuMaxDistance = 200000
@@ -218,7 +218,7 @@ ShowInputDisplay = False
 [DSP]
 EnableJIT = [LLE]
 DumpAudio = False
-Backend = [AUDIO]
+Backend = XAudio2
 DumpUCode = False
 CaptureLog = False
 Volume = 100

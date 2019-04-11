@@ -369,6 +369,7 @@ RJLNCHP=0
 [snes9x]
 RJPRECFG=copy /y "snes9x.conf" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\snes9x.conf" "%GAMDIR%"
+RJEMUOPTS=<-fullscreen<
 RJLNCHP=0
 
 [decaf]
