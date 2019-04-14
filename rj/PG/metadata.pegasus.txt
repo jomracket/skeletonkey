@@ -1,0 +1,162 @@
+collection: Nintendo - Game Boy Advance
+shortname: gba
+extensions:  gba, gb, gbc, agb, bin, elf, mb, zip
+launch: "ERROR" "{file.path}" 
+directory: C:/~Console/Nintendo - Game Boy Advance
+
+collection: Sega - Mega Drive - Genesis
+shortname: megadrive
+extensions:  gen, md, smd, bin, zip
+launch: "ERROR" "{file.path}" 
+directory: C:/~Console/Sega - Mega Drive - Genesis
+
+collection: NEC - PC Engine - TurboGrafx 16
+shortname: pcengine
+extensions:  pce, zip
+launch: "C:\~Emulators\Mednafen\Mednafen.exe" "{file.path}" 
+directory: C:/~Console/NEC - PC Engine - TurboGrafx 16
+
+collection: Nintendo - Nintendo Entertainment System
+shortname: nes
+extensions:  nes, unif, unf, nsf, fam, fds, bin, zip
+launch: "ERROR" "{file.path}" 
+directory: C:/~Console/Nintendo - Nintendo Entertainment System
+
+collection: Nintendo - Nintendo DS
+shortname: nds
+extensions:  nds, zip, nd5
+launch: "C:\~Emulators\DesMume\DesMume-x64.exe" "{file.path}" 
+directory: C:/~Console/Nintendo - Nintendo DS
+
+collection: Nintendo - Game Boy Advance
+shortname: gba
+extensions:  gba, gb, gbc, agb, bin, elf, mb, zip
+launch: "C:\~Emulators\Mednafen\Mednafen.exe" "{file.path}" 
+directory: C:/~Console/Nintendo - Game Boy Advance
+
+collection: Sega - Mega Drive - Genesis
+shortname: megadrive
+extensions:  gen, md, smd, bin, zip
+launch: "ERROR" "{file.path}" 
+directory: C:/~Console/Sega - Mega Drive - Genesis
+
+collection: NEC - PC Engine - TurboGrafx 16
+shortname: pcengine
+extensions:  pce, zip
+launch: "C:\~Emulators\Mednafen\Mednafen.exe" "{file.path}" 
+directory: C:/~Console/NEC - PC Engine - TurboGrafx 16
+
+collection: Nintendo - Nintendo Entertainment System
+shortname: nes
+extensions:  nes, unif, unf, nsf, fam, fds, bin, zip
+launch: "ERROR" "{file.path}" 
+directory: C:/~Console/Nintendo - Nintendo Entertainment System
+
+collection: Nintendo - Nintendo DS
+shortname: nds
+extensions:  nds, zip, nd5
+launch: "C:\~Emulators\DesMume\DesMume-x64.exe" "{file.path}" 
+directory: C:/~Console/Nintendo - Nintendo DS
+
+collection: Nintendo - Game Boy Advance
+shortname: gba
+extensions:  gba, gb, gbc, agb, bin, elf, mb, zip
+launch: "C:\~Emulators\Mednafen\Mednafen.exe" "{file.path}" 
+directory: C:/~Console/Nintendo - Game Boy Advance
+
+collection: Sega - Mega Drive - Genesis
+shortname: megadrive
+extensions:  gen, md, smd, bin, zip
+launch: "ERROR" "{file.path}" 
+directory: C:/~Console/Sega - Mega Drive - Genesis
+
+collection: NEC - PC Engine - TurboGrafx 16
+shortname: pcengine
+extensions:  pce, zip
+launch: "C:\~Emulators\Mednafen\Mednafen.exe" "{file.path}" 
+directory: C:/~Console/NEC - PC Engine - TurboGrafx 16
+
+collection: Nintendo - Nintendo Entertainment System
+shortname: nes
+extensions:  nes, unif, unf, nsf, fam, fds, bin, zip
+launch: "ERROR" "{file.path}" 
+directory: C:/~Console/Nintendo - Nintendo Entertainment System
+
+collection: Nintendo - Nintendo DS
+shortname: nds
+extensions:  nds, zip, nd5
+launch: "C:\~Emulators\DesMume\DesMume-x64.exe" "{file.path}" 
+directory: C:/~Console/Nintendo - Nintendo DS
+
+collection: Nintendo - Game Boy Advance
+shortname: gba
+extensions:  gba, gb, gbc, agb, bin, elf, mb, zip
+launch: "C:\~Emulators\Mednafen\Mednafen.exe" "{file.path}" 
+directory: C:/~Console/Nintendo - Game Boy Advance
+
+collection: Sega - Mega Drive - Genesis
+shortname: megadrive
+extensions:  gen, md, smd, bin, zip
+launch: "ERROR" "{file.path}" 
+directory: C:/~Console/Sega - Mega Drive - Genesis
+
+collection: NEC - PC Engine - TurboGrafx 16
+shortname: pcengine
+extensions:  pce, zip
+launch: "C:\~Emulators\Mednafen\Mednafen.exe" "{file.path}" 
+directory: C:/~Console/NEC - PC Engine - TurboGrafx 16
+
+collection: Nintendo - Nintendo Entertainment System
+shortname: nes
+extensions:  nes, unif, unf, nsf, fam, fds, bin, zip
+launch: "ERROR" "{file.path}" 
+directory: C:/~Console/Nintendo - Nintendo Entertainment System
+
+collection: Nintendo - Nintendo DS
+shortname: nds
+extensions:  nds, zip, nd5
+launch: "C:\~Emulators\DesMume\DesMume-x64.exe" "{file.path}" 
+directory: C:/~Console/Nintendo - Nintendo DS
+
+collection: Nintendo - Game Boy Advance
+shortname: gba
+extensions:  gba, gb, gbc, agb, bin, elf, mb, zip
+launch: "C:\~Emulators\Mednafen\Mednafen.exe" "{file.path}" 
+directory: C:/~Console/Nintendo - Game Boy Advance
+
+collection: Sega - Mega Drive - Genesis
+shortname: megadrive
+extensions:  gen, md, smd, bin, zip
+launch: "ERROR" "{file.path}" 
+directory: C:/~Console/Sega - Mega Drive - Genesis
+
+collection: NEC - PC Engine - TurboGrafx 16
+shortname: pcengine
+extensions:  pce, zip
+launch: "C:\~Emulators\Mednafen\Mednafen.exe" "{file.path}" 
+directory: C:/~Console/NEC - PC Engine - TurboGrafx 16
+
+collection: Nintendo - Nintendo Entertainment System
+shortname: nes
+extensions:  nes, unif, unf, nsf, fam, fds, bin, zip
+launch: "ERROR" "{file.path}" 
+directory: C:/~Console/Nintendo - Nintendo Entertainment System
+
+collection: Nintendo - Nintendo DS
+shortname: nds
+extensions:  nds, zip, nd5
+launch: "C:\~Emulators\DesMume\DesMume-x64.exe" "{file.path}" 
+directory: C:/~Console/Nintendo - Nintendo DS
+
+collection: Nintendo - Nintendo 3DS
+shortname: 3ds
+extensions:  3ds, 3dsx, elf, axf, cci, cxi, app
+launch: "C:\~Emulators\Citra\citra-qt.exe" "{file.path}" 
+directory: C:/~Console/Nintendo - Nintendo 3DS
+
+collection: Nintendo - Virtual Boy
+shortname: virtualboy
+extensions:  vb, vboy, bin, zip
+launch: "C:\~Emulators\Mednafen\Mednafen.exe" "{file.path}" 
+directory: C:/~Console/Nintendo - Virtual Boy
+

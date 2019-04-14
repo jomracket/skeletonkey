@@ -390,6 +390,7 @@ genesis_plus_gx_libretro.dll|Sega - Game Gear
 genesis_plus_gx_libretro.dll|Sega - Master System - Mark III
 genesis_plus_gx_libretro.dll|Sega - Mega Drive - Genesis
 genesis_plus_gx_libretro.dll|Sega - Mega-CD - Sega CD
+blastem_libretro.dll|Sega - SG-1000
 genesis_plus_gx_libretro.dll|Sega - SG-1000
 nestopia_libretro.dll|Nintendo - Famicom Disk System
 nestopia_libretro.dll|Nintendo - Nintendo Entertainment System
@@ -463,10 +464,13 @@ nekop2_libretro.dll|NEC - PC98
 o2em_libretro.dll|Magnavox - Odyssey2
 picodrive_libretro.dll|Sega - 32X
 picodrive_libretro.dll|Sega - Game Gear
+blastem_libretro.dll|Sega - Game Gear
 gearsystem_libretro.dll|Sega - Game Gear
+blastem_libretro.dll|Sega - Master System - Mark III
 gearsystem_libretro.dll|Sega - Master System - Mark III
 picodrive_libretro.dll|Sega - Master System - Mark III
 picodrive_libretro.dll|Sega - Mega Drive - Genesis
+blastem_libretro.dll|Sega - Mega-CD - Sega CD
 picodrive_libretro.dll|Sega - Mega-CD - Sega CD
 ppsspp_libretro.dll|Sony - Playstation Portable
 prosystem_libretro.dll|Atari - 7800
@@ -495,3 +499,4 @@ vice_x64_libretro.dll|Commodore - VIC10
 vice_xvic_libretro.dll|Commodore - VIC-20
 yabause_libretro.dll|Sega - Saturn
 vemulator_libretro.dll|Sega - Visual Memory Unit
+blastem_libretro.dll|Sega - Mega Drive Genesis

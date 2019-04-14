@@ -1327,7 +1327,7 @@ if (GitSRCT = "")
 		GitSRCT= http://github.com/%GITUSER%/skeletonkey
 	}
 
-inputbox,GitSRC,Git Repo,Enter the url for the git repo,,345,140,,,,,%GitSRCT%
+inputbox,GitSRC,Git Repo,Enter the url for the skeletonKey git repo,,345,140,,,,,%GitSRCT%
 if (GitSRC = "")
 	{
 		GitSRCT= http://github.com/romjacket/skeletonkey
@@ -2740,11 +2740,14 @@ StringReplace,readme,readme,[VERSION],%date% %timestring%
 FileAppend,%readme%,%SKELD%\ReadMe.md
 
 arcorgv= 
-FileMove, %SKELD%\Themes.set, %SKELD%\Themes.bak,1
+FileMove, %SKELD%\EsThemes.set, %SKELD%\EsThemes.bak,1
+FileMove, %SKELD%\PgThemes.set, %SKELD%\PgThemes.bak,1
 FileMove, %SKELD%\arcorg.set, %SKELD%\arcorg.bak,1
-FIleRead,themes,%SKELD%\Themes.put
+FIleRead,esthemes,%SKELD%\EsThemes.put
+FIleRead,pgthemes,%SKELD%\pgThemes.put
 FIleRead,arcorgv,%SKELD%\arcorg.put
-StringReplace,themes,themes,[HOSTINGURL],%REPOURL%,All
+StringReplace,esthemes,esthemes,[HOSTINGURL],%REPOURL%,All
+StringReplace,pgthemes,pgthemes,[HOSTINGURL],%REPOURL%,All
 StringReplace,arcorgv,arcorgv,[UPDATEFILE],%UPDTFILE%,All
 StringReplace,arcorgv,arcorgv,[HOSTINGURL],%REPOURL%,All
 StringReplace,arcorgv,arcorgv,[LOBBY],%NLOB%,All
@@ -2752,7 +2755,8 @@ StringReplace,arcorgv,arcorgv,[SHADERHOST],%SHDRPURL%,All
 StringReplace,arcorgv,arcorgv,[SOURCEHOST],%UPDTURL%,All
 StringReplace,arcorgv,arcorgv,[IPLK],%GETIPADR%,All
 StringReplace,arcorgv,arcorgv,[CURV],%vernum%,All
-FileAppend,%themes%,%SKELD%\Themes.set
+FileAppend,%esthemes%,%SKELD%\EsThemes.set
+FileAppend,%pgthemes%,%SKELD%\PgThemes.set
 FileAppend,%arcorgv%,%SKELD%\arcorg.set
 FileDelete, %SKELD%\skeletonKey.exe
 FileDelete,%SKELD%\skeletonkey.tmp
@@ -3178,7 +3182,8 @@ if (GitPush = 1)
 		FileAppend, copy /y "ReadMe.md" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "version.txt" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, del /q "%GITD%\skeletonKey.exe"`n,%SKELD%\!gitupdate.cmd
-		FileAppend, copy /y "Themes.put" "%GITD%"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, copy /y "EsThemes.put" "%GITD%"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, copy /y "PgThemes.put" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "arcorg.put" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "7zsd32.sfx" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "7zsd64.sfx" "%GITD%"`n,%SKELD%\!gitupdate.cmd

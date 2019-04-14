@@ -395,6 +395,7 @@ bottlenose=bottlenose/bottlenose.7z=bottlenose.exe=
 emulationStation=emulationStation/emulationStation.7z=emulationstation.exe=
 Hyperspin=Hyperspin/Hyperspin.7z=Hyperspin.exe=
 ice=ice/ice.7z=ice.exe=
+pegasus/pegasus.7z=pegasus-fe.exe
 MediaBrowser=MediaBrowser/MediaBrowser.7z=Configurator.exe=
 retroFE=retroFE/retroFE.7z=core\retroFe.exe=
 SimpleTouchFE=SimpleTouchFE/SimpleTouchFE.7z=SimplTouchFE.exe=

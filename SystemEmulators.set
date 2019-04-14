@@ -323,16 +323,16 @@ Sega - 32X - JAP|Fusion|gensplus|gens|MAME|:picodrive_libretro.dll|mame_libretro
 Sega - 32X - PAL|Fusion|gensplus|gens|MAME|:picodrive_libretro.dll|mame_libretro.dll
 Sega - 32X|Fusion|gensplus|gens|MAME|:picodrive_libretro.dll
 Sega - Dreamcast|Demul|NullDC|chankast|reicast|redream|Makaron|:reicast_libretro.dll|reicast_oit_libretro.dll|redream_libretro.dll
-Sega - Game Gear - JAP|Fusion|mednafen|dega|emukon|twombit|gamegear|mesadx|xe|gensplus|osmose|gearsystem|cogwheel|meka|osmose|regen|emukon|MAME|:genesis_plus_gx_libretro.dll|gearboy_libretro.dll|mame_libretro.dll
-Sega - Game Gear|Fusion|mednafen|dega|emukon|twombit|gamegear|mesadx|gensplus|xe|osmose|gearsystem|meka|osmose|cogwheel|regen|emukon|MAME|:genesis_plus_gx_libretro.dll|gearboy_libretro.dll
+Sega - Game Gear - JAP|Fusion|mednafen|dega|emukon|twombit|gamegear|mesadx|xe|gensplus|osmose|gearsystem|cogwheel|meka|osmose|regen|emukon|MAME|:genesis_plus_gx_libretro.dll|gearboy_libretro.dll|blastem_libretro.dll|mame_libretro.dll
+Sega - Game Gear|Fusion|mednafen|dega|emukon|twombit|gamegear|mesadx|gensplus|xe|osmose|gearsystem|meka|osmose|cogwheel|regen|emukon|MAME|:genesis_plus_gx_libretro.dll|gearboy_libretro.dll|blastem_libretro.dll
 Sega - Hikaru|Demul|mame_arcade|MAME|:mame_libretro.dll
-Sega - Mark III - JPN|Fusion|mednafen|twombit|dega|emukon|gensplus|dsp|gearsystem|mesadx|kindred|xe|mastersystem|cogwheel|regen|meka|osmose|emukon|MAME|:genesis_plus_gx_libretro.dll|mame_libretro.dll
-Sega - Master System - Mark III|Fusion|mednafen|twombit|dega|dsp|emukon|gensplus|kindred|gearsystem|osmose|xe|mesadx|cogwheel|mastersystem|regen|meka|emukon|osmose|MAME|:genesis_plus_gx_libretro.dll
-Sega - Master System - PAL|Fusion|mednafen|twombit|dega|emukon|dsp|gensplus|gearsystem|kindred|mesadx|xe|osmose|mastersystem|cogwheel|regen|meka|osmose|emukon|MAME|:genesis_plus_gx_libretro.dll|mame_libretro.dll
-Sega - Mega Drive - Genesis|Fusion|blastem|mednafen|gens|gensgs|dgen|gensplus|regen|xe|exodus|genesisplus|MAME|:genesis_plus_gx_libretro.dll|picodrive_libretro.dll
-Sega - Mega Drive - PAL|Fusion|blastem|mednafen|gens|gensgs|dgen|gensplus|regen|genesisplus|exodus|xe|MAME|:genesis_plus_gx_libretro.dll|picodrive_libretro.dll|mame_libretro.dll
-Sega - Mega-CD - Sega CD|Fusion|gens|gensgs|gensplus|MAME|xe|mednafen|:genesis_plus_gx_libretro.dll|picodrive_libretro.dll
-Sega - MegaTech|Fusion|blastem|mednafen|gens|gensgs|dgen|gensplus|regen|genesisplus|MAME|:genesis_plus_gx_libretro.dll|picodrive_libretro.dll|mame_libretro.dll
+Sega - Mark III - JPN|Fusion|mednafen|twombit|dega|emukon|gensplus|dsp|gearsystem|mesadx|kindred|xe|mastersystem|cogwheel|regen|meka|osmose|emukon|MAME|:genesis_plus_gx_libretro.dll|blastem_libretro.dll|mame_libretro.dll
+Sega - Master System - Mark III|Fusion|mednafen|twombit|dega|dsp|emukon|gensplus|kindred|gearsystem|osmose|xe|mesadx|cogwheel|mastersystem|regen|meka|emukon|osmose|MAME|:genesis_plus_gx_libretro.dll|blastem_libretro.dll
+Sega - Master System - PAL|Fusion|mednafen|twombit|dega|emukon|dsp|gensplus|gearsystem|kindred|mesadx|xe|osmose|mastersystem|cogwheel|regen|meka|osmose|emukon|MAME|:genesis_plus_gx_libretro.dll|blastem_libretro.dll|mame_libretro.dll
+Sega - Mega Drive - Genesis|Fusion|blastem|mednafen|gens|gensgs|dgen|gensplus|regen|xe|exodus|genesisplus|MAME|:genesis_plus_gx_libretro.dll|blastem_libretro.dll|picodrive_libretro.dll
+Sega - Mega Drive - PAL|Fusion|blastem|mednafen|gens|gensgs|dgen|gensplus|regen|genesisplus|exodus|xe|MAME|:genesis_plus_gx_libretro.dll|picodrive_libretro.dll|blastem_libretro.dll|mame_libretro.dll
+Sega - Mega-CD - Sega CD|Fusion|gens|gensgs|gensplus|MAME|xe|mednafen|:genesis_plus_gx_libretro.dll|blastem_libretro.dll|picodrive_libretro.dll
+Sega - MegaTech|Fusion|blastem|mednafen|gens|gensgs|dgen|gensplus|regen|genesisplus|MAME|:genesis_plus_gx_libretro.dll|blastem_libretro.dll|picodrive_libretro.dll|mame_libretro.dll
 Sega - Model 1|modeller|MAME|:mame_libretro.dll
 Sega - Model 2|m2emulator|MAME|:mame_libretro.dlls
 Sega - Model 3|supermodel
