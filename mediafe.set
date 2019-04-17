@@ -30,4 +30,4 @@ Video_image_width=800
 Metadata_image_width=800
 Snapshot_image_width=800
 [ORDER]
-system_order=theGamesDB|OpenVGDB|ScreenScraper|arcadeitalia|mamedb|IARL
+system_order=theGamesDB|OpenVGDB|ScreenScraper|arcadeitalia|mamedb|IAGL

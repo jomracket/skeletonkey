@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2019-04-14 4:18 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2019-04-16 4:56 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 GLBTOP:
-RELEASE= 2019-04-14 4:18 PM
-VERSION= 0.99.69.40
+RELEASE= 2019-04-16 4:56 PM
+VERSION= 0.99.69.41
 RASTABLE= 1.7.6
 
 #Include tf.ahk
@@ -555,7 +555,13 @@ stringreplace, RepoLst,RepoLst,`n,|,All
 FileRead,LibMatSet,libmatch.set
 FileRead,ArcOrgSet,%ARCORG%
 FileRead,PgLkUp,Pglkup.set
-FileRead,EsLkUp,eslkup.set
+FileRead,feLkUp,felkup.set
+stringreplace,rfLkUp,feLkUp,[ROMPATH],`%ITEM_FILEPATH`%,All
+stringreplace,rfLkUp,rfLkUp,[ROMNAME],`%ITEM_NAME`%,All
+stringreplace,pgLkUp,feLkUp,[ROMPATH],{file.path},All
+stringreplace,pgLkUp,pgLkUp,[ROMNAME],{file.basename},All
+stringreplace,EsLkUp,feLkUp,[ROMPATH],`%ROM_RAW`%,All
+stringreplace,EsLkUp,EsLkUp,[ROMNAME],`%BASENAME`%,All
 FileRead,UrlIndex,Urls.set
 stringreplace,UrlIndex,UrlIndex,[ARCH],%ARCH%,All
 iniread,origasi,Assignments.set,ASSIGNMENTS,
@@ -778,7 +784,7 @@ Loop, rj\emuCfgs\*,2
 	}
 netiterate= network_cmd_port|netplay_nickname|netplay_ip_address|netplay_ip_port|netplay_check_frames|netplay_client_swap_input|netplay_password|netplay_spectate_password|netplay_stateless_mode|netplay_Input_Latency_Frames_Min|netplay_Input_Latency_Frames_Range|netplay_Nat_Traversal|netplay_Use_Mitm_Server|netplay_Mitm_Server|netplay_Allow_Slaves|netplay_Require_Slaves
 
-mediaordert= theGamesDB|OpenVGDB|ScreenScraper|arcadeitalia|mamedb|IARL
+mediaordert= theGamesDB|OpenVGDB|ScreenScraper|arcadeitalia|mamedb|IAGL
 
 noinstallers= |Media|Mirrored_Links|IRAL|AdvancedLauncher|ROM_Collection_Browser|MediaBrowser|ICE|
 JUNCTOPT= 2
@@ -790,7 +796,7 @@ mamefsc= default|32x|32xe|32xj|a1000n|a1200n|a2000n|a2600|a2600p|a3000|a3000n|a3
 
 JOYSET=0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|h0up|h0down|h0left|h0right|\-1|+1|\-0|+0|\-2|+2|\-3|+3|+4|+5|nul
 
-FELIST=XMB|Mirrored_Links|Media|retroFE|Hyperspin|EmulationStation|Pegasus|MediaBrowser|CairoFE|Kodi_AL|Kodi_RCB|Kodi_IARL|Steam
+FELIST=XMB|Mirrored_Links|Media|retroFE|Hyperspin|EmulationStation|Pegasus|MediaBrowser|CairoFE|Kodi_AL|Kodi_RCB|Kodi_IAGL|Steam
 
 dirlocations= assets_directory|audio_filter_dir|bundle_assets_dst_path_subdir|cache_directory|content_history_dir|cursor_directory|dynamic_wallpapers_directory|input_remapping_directory|joypad_autoconfig_dir|libretro_directory|osk_overlay_directory|overlay_directory|playlist_directory|recording_config_directory|recording_output_directory|resampler_directory|video_shader_dir|video_filter_dir|rgui_browser_directory|rgui_config_directory|savefile_directory|savestate_directory|screenshot_directory|libretro_info_path|system_directory|thumbnails_directory|core_assets_directory
 
@@ -826,12 +832,15 @@ FEGUIITEMS=feBUTA|feBUTB|feBUTC|feBUTG|feBUTD|feBUTE|feBUTF|feBUTH|feBUTI|feBUTJ
 JACKETGUIITEMS=RJSYSRADA|RJSYSRADB|RJSYSRADC|RJSYSLOAD|RJCHKL|RJCHKH|RJCHKM|RJCHKP|RJDELCOMP|RJSYSSAV|RJSYSSAVAS|RJENMAP|RJOVKM|RJMAPDD|RJMAPRET|RJMAPRETOPN|RJMAP1ROFTYPA|RJMAP1ROFTYPB|RJMAP1ROFTYPC|RJMAP1PL|RJMAP1PLOPN|RJMAP2ROFTYPA|RJMAP2ROFTYPB|RJMAP2ROFTYPC|RJMAP2PL|RJMAP2PLOPN|RJENLNCHR|RJLNCHOVR|RJRad4B|RJRad4A|RJEXEB|RJEMUPRECFG|RJEMUPRM|RJCHKQ|RJBUTM|RJCHKK|RJCHKA|RJADDSUBD|RJREMSUBD|RJSUBDCBX|RJSUBDH|RJCNSLDD|RJENCNSLD|RJENXTRARC|RJXTRARCA|RJXTRARCB|RJXTRARCDD|RJRad11A|RJRad11B|RJEDTO|RJDDLF|RJCHKW|RJBUTV|RJBUTG|RJCBXJ|RJDDLP|RJCBXH|RJBUTH|RJENDMNT|RJDMNTDD|RJDIMGET|RJRad8A|RJRad8B|RJENDMOV|RJCHKF|RJCHKO|RJPRECFGCBX|RJADDPRECFG|RJREMPRECFG|RJPOSTCFGCBX|RJADDPOSTCFG|RJREMPOSTCFG|RRJEARGSCBX|RJEMUXTCBX|RJRAD1A|RJRAD1B|RJZJP|RJCHKU|RJCHKT|RJCHKS|RJEOPTSCBX|RJCHKR|RJCHKJ
 UTLGUIITEMS=utlBUTB|utlBUTC|utlBUTG|utlBUTD|utlBUTE|utlBUTF|utlBUTH|utlBUTI|utlBUTJ|utlCHKD|utlCHKE|utlCHKF|utlCHKG|utlCHKH|utlCHKI|utlCHKJ|utlCHKK|utlCHKL|utlCHKM|utlCHKN|utlCHKO|utlCHKP|utlCHKQ|utlCHKA|utlCHKB|utlCHKC|utlCBXE|utlCBXF|utlCBXG|utlCBXH|utlCBXI|utlCBXJ|utlCBXA|utlCBXB|utlCBXC|utlCBXD|utlDDLE|utlDDLF|utlDDLG|utlDDLH|utlDDLI|utlDDLJ|utlDDLC|utlDDLD|utlDDLB|utlEDTA|utlEDTB|utlEDTC|utlEDTD|utlEDTE|utlEDTF|utlEDTG|utlEDTI|utlUPDA|utlEDTH|utlUPDB|utlLVA|utlUPDC|utlGRPA|utlGRPB|utlGRPC|utlGRPD|utlGRPE|utlGRPF|utlGRPG|utlLBXA|utlLBXB|utlLVA|utlLVB|utlLVC|utlPRGB|utlPRGA|utlRad5B|utlRad5C|utlRad4A|utlRad4B|utlRad5A|utlRad6A|utlRad6B|utlRad6C|utlRad6D|utlRad7A|utlRad7B|utlRad8A|utlRad8B|utlRad9A|utlRad9B|utlRad9C|utlRad10A|utlRad10B|utlRad11A|utlRad11B|utlRad2A|utlRad2B|utlRad2C|utlRad1A|utlRad3A|utlRad3B|utlRad3C|utlRad3D|utlRad1B|utlSLDA|utlSLDB|utlSLDD|utlSLDE|utlSLDC|utlTXTA|utlTXTC|utlTXTD|utlTXTE|utlTXTF|utlTXTG|utlTXTS|utlTXTT|utlTXTR|utlTXTM|utlTXTH|utlTXTI|utlTXTN|utlTXTO|utlTXTP|utlTXTQ|utlTXTJ|utlTXTK|utlTXTL
 XMBPLITEMS=DWNLPOS|RECURSE|RECURTX|PLALSYSBUT|PLLISTALL|PLLISTN|PLLISTSORT|RECURTX|RPOPDL|RPOPPL|ROMPOP|PLGBA|PLGBB|PLGBC|PLGBD|CURPLST|APNDTYPGRP|PLAPPND|PLOVR|CRCEnbl|ZIPSEEK|PLCORE|DETECTCORE|SVPLST|PLNAMEDT|OPNPLST|PGCONFG|SVAPLST|CPYPL|PLADPTXT|CLRPP|PLCLRPTXT|BRADD|FENWTXT|REMPL|PLRMVTXT|MVPLOU|MVPLOD|CLRPL|PLCLRTXT|PLINIT|PLDBTXT
-PGPLRI=PGBACKUP|PGSVPL|PGPLXMP|PGCPYSCR|PGUSESCR|PGRPOPDL|PGRPOPPL|PGPLCORE|PGRPOPROM|PGROMROOT|PGRRTXT|PGMIRSEL|PGDWNLPOS|PGBOXSRCHBUT|PGBOXCHK|PGMRQCHK|PGTHMBCHK|PGVIDCHK|PGMARQSRCHBUT|PGTHUMBSRCHBUT|PGVIDSRCHBUT
 ESPLRI=ESBACKUP|ESSVPL|ESPLXMP|ESCPYSCR|ESUSESCR|ESRPOPDL|ESRPOPPL|ESPLCORE|ESRPOPROM|ESROMROOT|ESRRTXT|ESMIRSEL|ESDWNLPOS|ESBOXSRCHBUT|ESBOXCHK|ESMRQCHK|ESTHMBCHK|ESVIDCHK|ESMARQSRCHBUT|ESTHUMBSRCHBUT|ESVIDSRCHBUT
 ESPLSWAP=ESNAMTXT|ESNAMEDT|ESPTHTXT|ESDESCTXT|ESDESCEDT|ESIMGBUT|ESIMGTXT|ESVIDPTHTXT|ESVIDTXT|ESVIDBUT|ESPTHEDT|ESSAVEOPL|ESMARQTXT|ESMARQBUT|ESMARQPTHTXT|ESOPNIMGPTHTXT|ESPUBTXT|ESPUBEDT|ESDEVTXT|ESDEVEDT|ESRATTXT|ESRATSLD|ESRLSDTXT|ESRLSDG|ESGENTXT|ESGENEDT|ESDDPLNUM|ESPLNUMTXT|ESROMPTHBUT|ESROMADDBUT|ESFLDADDBUT|ESKIDG|ESFAV|ESHIDDEN|ESTHMBTXT|ESTHUMBBUT|ESTHUMBP
-PGPLSWAP=PGNAMTXT|PGNAMEDT|PGPTHTXT|PGDESCTXT|PGDESCEDT|PGIMGBUT|PGIMGTXT|PGVIDPTHTXT|PGVIDTXT|PGVIDBUT|PGPTHEDT|PGSAVEOPL|PGMARQTXT|PGMARQBUT|PGMARQPTHTXT|PGOPNIMGPTHTXT|PGPUBTXT|PGPUBEDT|PGDEVTXT|PGDEVEDT|PGRATTXT|PGRATSLD|PGRLSDTXT|PGRLSDG|PGGENTXT|PGGENEDT|PGDDPLNUM|PGPLNUMTXT|PGROMPTHBUT|PGROMADDBUT|PGFLDADDBUT|PGKIDG|PGFAV|PGHIDDEN|PGTHMBTXT|PGTHUMBBUT|PGTHUMBP
 ESPLITEMS=ESPLCORE|ESBACKUP|ESSVPL|ESPLXMP|ESOPENPL|ESUSESCR|ESCPYSCR|ESDWNLPOS|ESRPOPDL|ESRPOPPL|ESRPOPROM|ESMIRSEL|ESROMROOT|ESRRTXT|ESBOXSRCHBUT|ESBOXCHK|ESMRQCHK|ESTHMBCHK|ESVIDCHK|ESMARQSRCHBUT|ESTHUMBSRCHBUT|ESVIDSRCHBUT|ESNAMTXT|ESNAMEDT|ESPTHTXT|ESDESCTXT|ESDESCEDT|ESIMGBUT|ESIMGTXT|ESOPNIMGPTHTXT|ESVIDPTHTXT|ESVIDTXT|ESVIDBUT|ESPTHEDT|ESMARQTXT|ESMARQBUT|ESMARQPTHTXT|ESPUBTXT|ESPUBEDT|ESDEVTXT|ESDEVEDT|ESRATTXT|ESRATSLD|ESRLSDTXT|ESRLSDG|ESGENTXT|ESGENEDT|ESDDPLNUM|ESPLNUMTXT|ESROMPTHBUT|ESROMADDBUT|ESFLDADDBUT|ESKIDG|ESFAV|ESHIDDEN|ESTHMBTXT|ESTHUMBBUT|ESTHUMBP
+PGPLRI=PGBACKUP|PGSVPL|PGPLXMP|PGCPYSCR|PGUSESCR|PGRPOPDL|PGRPOPPL|PGPLCORE|PGRPOPROM|PGROMROOT|PGRRTXT|PGMIRSEL|PGDWNLPOS|PGBOXSRCHBUT|PGBOXCHK|PGMRQCHK|PGTHMBCHK|PGVIDCHK|PGMARQSRCHBUT|PGTHUMBSRCHBUT|PGVIDSRCHBUT
+PGPLSWAP=PGNAMTXT|PGNAMEDT|PGPTHTXT|PGDESCTXT|PGDESCEDT|PGIMGBUT|PGIMGTXT|PGVIDPTHTXT|PGVIDTXT|PGVIDBUT|PGPTHEDT|PGSAVEOPL|PGMARQTXT|PGMARQBUT|PGMARQPTHTXT|PGOPNIMGPTHTXT|PGPUBTXT|PGPUBEDT|PGDEVTXT|PGDEVEDT|PGRATTXT|PGRATSLD|PGRLSDTXT|PGRLSDG|PGGENTXT|PGGENEDT|PGDDPLNUM|PGPLNUMTXT|PGROMPTHBUT|PGROMADDBUT|PGFLDADDBUT|PGKIDG|PGFAV|PGHIDDEN|PGTHMBTXT|PGTHUMBBUT|PGTHUMBP
 PGPLITEMS=PGPLCORE|PGBACKUP|PGSVPL|PGPLXMP|PGOPENPL|PGUSESCR|PGCPYSCR|PGDWNLPOS|PGRPOPDL|PGRPOPPL|PGRPOPROM|PGMIRSEL|PGROMROOT|PGRRTXT|PGBOXSRCHBUT|PGBOXCHK|PGMRQCHK|PGTHMBCHK|PGVIDCHK|PGMARQSRCHBUT|PGTHUMBSRCHBUT|PGVIDSRCHBUT|PGNAMTXT|PGNAMEDT|PGPTHTXT|PGDESCTXT|PGDESCEDT|PGIMGBUT|PGIMGTXT|PGOPNIMGPTHTXT|PGVIDPTHTXT|PGVIDTXT|PGVIDBUT|PGPTHEDT|PGMARQTXT|PGMARQBUT|PGMARQPTHTXT|PGPUBTXT|PGPUBEDT|PGDEVTXT|PGDEVEDT|PGRATTXT|PGRATSLD|PGRLSDTXT|PGRLSDG|PGGENTXT|PGGENEDT|PGDDPLNUM|PGPLNUMTXT|PGROMPTHBUT|PGROMADDBUT|PGFLDADDBUT|PGKIDG|PGFAV|PGHIDDEN|PGTHMBTXT|PGTHUMBBUT|PGTHUMBP
+RFPLRI=RFBACKUP|RFSVPL|RFPLXMP|RFCPYSCR|RFUSESCR|RFRPOPDL|RFRPOPPL|RFPLCORE|RFRPOPROM|RFROMROOT|RFRRTXT|RFMIRSEL|RFDWNLPOS|RFBOXSRCHBUT|RFBOXCHK|RFMRQCHK|RFTHMBCHK|RFVIDCHK|RFMARQSRCHBUT|RFTHUMBSRCHBUT|RFVIDSRCHBUT
+RFPLSWAP=RFNAMTXT|RFNAMEDT|RFPTHTXT|RFDESCTXT|RFDESCEDT|RFIMGBUT|RFIMGTXT|RFVIDPTHTXT|RFVIDTXT|RFVIDBUT|RFPTHEDT|RFSAVEOPL|RFMARQTXT|RFMARQBUT|RFMARQPTHTXT|RFOPNIMGPTHTXT|RFPUBTXT|RFPUBEDT|RFDEVTXT|RFDEVEDT|RFRATTXT|RFRATSLD|RFRLSDTXT|RFRLSDG|RFGENTXT|RFGENEDT|RFDDPLNUM|RFPLNUMTXT|RFROMPTHBUT|RFROMADDBUT|RFFLDADDBUT|RFKIDG|RFFAV|RFHIDDEN|RFTHMBTXT|RFTHUMBBUT|RFTHUMBP
+RFPLITEMS=RFPLCORE|RFBACKUP|RFSVPL|RFPLXMP|RFOPENPL|RFUSESCR|RFCPYSCR|RFDWNLPOS|RFRPOPDL|RFRPOPPL|RFRPOPROM|RFMIRSEL|RFROMROOT|RFRRTXT|RFBOXSRCHBUT|RFBOXCHK|RFMRQCHK|RFTHMBCHK|RFVIDCHK|RFMARQSRCHBUT|RFTHUMBSRCHBUT|RFVIDSRCHBUT|RFNAMTXT|RFNAMEDT|RFPTHTXT|RFDESCTXT|RFDESCEDT|RFIMGBUT|RFIMGTXT|RFOPNIMGPTHTXT|RFVIDPTHTXT|RFVIDTXT|RFVIDBUT|RFPTHEDT|RFMARQTXT|RFMARQBUT|RFMARQPTHTXT|RFPUBTXT|RFPUBEDT|RFDEVTXT|RFDEVEDT|RFRATTXT|RFRATSLD|RFRLSDTXT|RFRLSDG|RFGENTXT|RFGENEDT|RFDDPLNUM|RFPLNUMTXT|RFROMPTHBUT|RFROMADDBUT|RFFLDADDBUT|RFKIDG|RFFAV|RFHIDDEN|RFTHMBTXT|RFTHUMBBUT|RFTHUMBP
 UNIPLITEMS=ROMPOP|PLGBA|PLGBB|PLGBC|PLGBD|CURPLST|APNDTYPGRP|PLAPPND|PLOVR|CPYPL|PLADPTXT|CLRPP|PLCLRPTXT|BRADD|FENWTXT|REMPL|PLRMVTXT|MVPLOD|MVPLOU|CLRPL|PLCLRTXT
 mednafsc= advance_frame|exit|fast_forward|insert_coin|insert_eject_disk|load_movie|load_state|power|reset|rotate_screen|run_normal|save_movie|save_state|select_disk|slow_forward|state_rewind|state_slot_dec|state_slot_inc|take_scaled_snapshot|take_snapshot|toggle_fps_view|toggle_fs|toggle_grab|toggle_state_rewind|togglecheatactive|togglecheatview|togglenetview
 mamescs= UI_ON_SCREEN_DISPLAY|UI_DEBUG_BREAK|UI_CONFIGURE|UI_PAUSE|UI_PAUSE_SINGLE|UI_SHOW_GFX|UI_FRAMESKIP_DEC|UI_FRAMESKIP_INC|UI_THROTTLE|UI_FAST_FORWARD|UI_REWIND_SINGLE|UI_RESET_MACHINE|TOGGLE_FULLSCREEN|UI_SOFT_RESET|UI_SHOW_FPS|UI_SNAPSHOT|UI_ROTATE|UI_TIMECODE|UI_RECORD_MNG|UI_RECORD_AVI|UI_SHOW_PROFILER|UI_PASTE|UI_TOGGLE_DEBUG|UI_SAVE_STATE|UI_LOAD_STATE|UITAPE_START|UI_TAPE_STOP|RENDER_SNAP|RENDER_AVI|POST_PROCESS
@@ -1730,6 +1739,7 @@ Menu,RUNMENU,Add,Open Folder..., SQOWTH
 Menu, PLEDTMENU, Add,Swap:=->, PLEDITCORE
 
 Menu, ARCART, Add, Download Assets >>, ARCGSNP
+Menu, ARCART, Add, Open Download Folder, EXPLJK
 	
 Gui, Add, StatusBar, vSTATUS, Helpy Helperton
 Gui,Font,Bold
@@ -1794,7 +1804,7 @@ Gui, Add, Text, x627 y41 vSKCLRTXT, in the RoM-Jacket queue
 
 Gui, Add, Edit, x193 y433 w353 h44 vtmpdispl Multi ReadOnly, %cacheloc%
 Gui, Font, Bold
-Gui, Add, Text, x63 y463 w82 h18 vTMPDIRTXT, Temp/Cache Dir
+Gui, Add, Text, x53 y463 w102 h18 vTMPDIRTXT, Temp/Cache Dir
 Gui, Add, Button, x148 y442 w43 h23 vSETTMPD gSETTMPD, SET
 Gui, Font, normal
 
@@ -2711,7 +2721,7 @@ Gui, Add, CheckBox, x367 y60 h14 vCRCENBL gCRCEnbl checked, CRC-Index
 
 
 Gui,Font,%fontXmed% Bold
-Gui, Add, DropDownList, x457s y0 w120 vPLISTTYP gPLISTYP,XMB||EmulationStation  ;;to Add Pegasus
+Gui, Add, DropDownList, x457s y0 w120 vPLISTTYP gPLISTYP,XMB||EmulationStation|RetroFE  ;;to Add Pegasus
 Gui,Font,%fontXsm% Bold
 Gui, Add, GroupBox, x447 y0 w304 h500 Right vPLGBC, Frontend
 Gui, Add, GroupBox, x11 y4 w346 h493 +0x400000 vPLGBD, Drag and Drop ROMs here
@@ -2921,6 +2931,91 @@ Gui, Add, DropDownList, x342 y289 w35 vESDDPLNUM gESDDPLNUM hidden,1||2|3|4|5|6|
 ;;Gui, Add, DropDownList, x342 y289 w35 vPGDDPLNUM gPGDDPLNUM hidden,1||2|3|4|5|6|7|8
 ;};;;;;
 
+;{;  RETROFE  ;;
+Gui, Add, DropDownList, x451 y31 w90 vRFPLCORE gRFPOPCORE hidden,|Fuzzy-Match||Exact-Match|MAME-Match|
+Gui, Add, CheckBox, x373 y52 h13 vRFBACKUP gRFBackupPl Checked hidden, Backup
+Gui,Font,Bold
+Gui, Add, Button,x678 y27 w60 h25 vRFSVPL gRFSavePl hidden, CREATE
+Gui,Font,Normal
+Gui, Add, ComboBox, x450 y55 w252 vRFPLXMP gRFPlaylistNames hidden, %systmfldrs%|%escommon%
+;;Gui, Add, Button, x703 y54 w36 h23 vRFOPENPL gRFOpenPl hidden, Open
+Gui, Add, CheckBox, x547 y23 w125 h13 vRFUSESCR gRFUSESCR hidden, Use Scraped Assets
+Gui, Add, CheckBox, x572 y40 w97 h13 vRFCPYSCR gRFCPYSCR hidden disabled, `& copy to home
+
+Gui, Add, DropDownList,x24 y22 w283 vRFDWNLPOS gRFPopDownloads,%systmfldrs%
+
+Gui, Add, Radio, x22 y46 vRFRPOPDL gRFRPopJ checked hidden, Jackets
+Gui, Add, Radio, x85 y46 vRFRPOPPL gRFRPopMir hidden, Mirrors
+Gui, Add, Radio, x139 y46 vRFRPOPROM gRFRPopRom hidden, ROMs
+Gui, Add, DropDownList, x195 y44 vRFMIRSEL gRFMIRSEL hidden,|%CMIR1%||%MIRDDLOC%
+Gui, Add, Button, x197 y44 w25 h19 vRFROMROOT gRFROMROOT hidden, .Dir.
+Gui, Add, Text, x230 y46 w125 h19 vRFRRTXT hidden, NOT SET
+Gui, Add, Button, x450 y78 w46 h19 vRFBOXSRCHBUT gRFBOXSRCHBUT hidden, Boxarts
+Gui, Add, CheckBox, x497 y81 w14 h14 disabled hidden vRFBOXCHK
+Gui, Add, Button, x522 y78 w47 h19 vRFTHUMBSRCHBUT gRFTHUMBSRCHBUT hidden, Thumbs
+Gui, Add, CheckBox, x570 y81 w14 h14 disabled hidden vRFTHMBCHK
+Gui, Add, Button, x591 y78 w54 h19 vRFMARQSRCHBUT gRFMARQSRCHBUT hidden, Marquees
+Gui, Add, CheckBox, x645 y81 w14 h14 disabled hidden vRFMRQCHK
+Gui, Add, Button, x664 y78 w54 h19 vRFVIDSRCHBUT gRFVIDSRCHBUT hidden, Videos
+Gui, Add, CheckBox, x718 y81 w14 h14 disabled hidden vRFVIDCHK
+
+
+;;  OPEN PLAYLIST FILE
+
+
+Gui Add, CheckBox, x34 y320 w68 h23 vRFKIDG gRFKIDG hidden, Kid-Game
+Gui Add, CheckBox, x124 y320 w55 h23 vRFHIDDEN gRFHIDDEN hidden, Hidden
+Gui Add, CheckBox, x334 y225 w64 h20 vRFFAV gRFFAV hidden, Favorite
+
+Gui, Add, Button, x662 y26 w75 h23 vRFSAVEOPL gRFSAVEOPL hidden, SAVE
+
+Gui, Add, Text, x16 y27 w120 h13 vRFNAMTXT hidden,Name
+Gui, Add, Edit, x28 y41 w410 h21 vRFNAMEDT gRFNAMEDT hidden,
+
+Gui, Add, Text, x19 y64 w120 h13 vRFPTHTXT hidden,Path
+Gui, Add, Edit, x30 y79 w370 h21 vRFPTHEDT gRFPTHEDT hidden,
+Gui, Add, Button, x403 y79 w39 h20 vRFROMPTHBUT gRFROMPTHBUT hidden, . . .
+
+Gui, Add, Button, x457 y42 w59 h20 vRFROMADDBUT gRFROMADDBUT hidden, Add ROM
+Gui, Add, Button, x457 y65 w59 h20 vRFFLDADDBUT gRFFLDADDBUT hidden, Add PATH
+
+Gui, Add, Text, x20 y103 w120 h13 vRFDESCTXT hidden,Description
+Gui, Add, Edit, x18 y120 w421 h99 vRFDESCEDT gRFDESCEDT hidden,
+
+Gui, Add, Text, x307 y376 w40 h13 vRFIMGTXT hidden,Image
+Gui, Add, Button, x348 y389 w39 h19 vRFIMGBUT gRFIMGBUT hidden, . . .
+Gui, Add, Text, x16 y392 w332 h13 vRFOPNIMGPTHTXT hidden, ImagePath
+
+Gui, Add, Text, x295 y411 w53 h13 vRFTHMBTXT hidden, Thumbnail
+Gui, Add, Button, x348 y421 w39 h19 vRFTHUMBBUT gRFTHUMBBUT hidden, . . .
+Gui, Add, Text, x16 y425 w332 h13 vRFTHUMBP hidden, ThumbnailPath
+
+Gui, Add, Text, x311 y470 w37 h13 vRFVIDTXT hidden,Video
+Gui, Add, Button, x348 y480 w39 h19 vRFVIDBUT gRFVIDBUT hidden, . . .
+Gui, Add, Text, x16 y484 w332 h13 vRFVIDPTHTXT hidden, VideoPath
+
+Gui, Add, Text, x298 y442 w50 h13 vRFMARQTXT hidden,Marquee
+Gui, Add, Button, x348 y453 w39 h19 vRFMARQBUT gRFMARQBUT hidden, . . .
+Gui, Add, Text, x16 y456 w332 h13 vRFMARQPTHTXT hidden, MarqueePath
+
+Gui, Add, Text, x16 y229 w120 h13 vRFPUBTXT hidden,Publisher
+Gui, Add, Edit, x23 y245 w120 h21 vRFPUBEDT gRFPUBEDT hidden,
+Gui, Add, Text, x152 y229 w120 h13 vRFDEVTXT hidden,Developer
+Gui, Add, Edit, x158 y244 w120 h21 vRFDEVEDT gRFDEVEDT hidden,
+
+Gui, Add, Text, x290 y228 w40 h13 vRFRATTXT hidden, Rating
+Gui, Add, Slider, x284 y248 w120 h32 Range1-10 vRFRATSLD gRFRATSLD hidden, 0.5
+
+Gui, Add, Text, x17 y273 w120 h13 vRFRLSDTXT hidden, ReleaseDate
+Gui, Add, DateTime, x44 y289 w100 h24 vRFRLSDG gRFRLSDG  hidden,
+
+Gui, Add, Text, x161 y270 w49 h13 vRFGENTXT hidden,Genre
+Gui, Add, Edit, x161 y289 w120 h21 vRFGENEDT gRFGENEDT hidden,
+
+Gui, Add, Text, x287 y291 w49 h13 vRFPLNUMTXT hidden, Player#
+Gui, Add, DropDownList, x342 y289 w35 vRFDDPLNUM gRFDDPLNUM hidden,1||2|3|4|5|6|7|8
+;};;;;;
+
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;        [[FRONTENDS TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -3046,7 +3141,7 @@ Progress, 47,Loading Frontend Interface ......
 
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;        FRONTEND GUI         ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui,Font,%fontXmed% Bold
-Gui, Add, DropDownList, x265 y2 w150 vfeDDLJ gfeDDLJ, XMB||Media|Mirrored_Links|EmulationStation|Pegasus
+Gui, Add, DropDownList, x265 y2 w150 vfeDDLJ gfeDDLJ, XMB||Media|Mirrored_Links|EmulationStation|Pegasus|RetroFE
 ;Gui, Add, DropDownList, x15 y0 w150 vfeDDLJ gfeDDLJ , XMB||%FELIST%
 Gui,Font,%fontXsm% Normal
 
@@ -5029,7 +5124,7 @@ If A_GuiControlEvent RightClick
 		}
 	if A_GuiControl = FELVA
 		{
-			if ((FENAM = "EmulationStation") or (FENAM = "Pegasus"))
+			if ((FENAM = "EmulationStation") or (FENAM = "Pegasus") or (FENAM = "RetroFE"))
 				{
 					if (FERAD5C = 1)
 						{
@@ -5424,6 +5519,11 @@ Loop, Parse,curpllst,`n`r
 	}
 plswap= %runlist%
 pldelim= >
+if (PLISTTYP = "RetroFE")
+	{
+		plswap= %systmfldrs%
+		pldelim= :
+	}
 if (PLISTTYP = "Pegasus")
 	{
 		plswap= %systmfldrs%
@@ -6249,7 +6349,26 @@ if (multisel = 1)
 	}
 Menu,Emulator_Add,DeleteAll
 return
- 
+
+EXPLJK:
+gui,submit,nohide
+guicontrolget,fldtx,,RNMJACK
+guicontrolget,systx,,ARCSYS
+if (OVDCHK = 1)
+	{
+		guicontrolget,OVDTXT,,OVDTXT
+		JEXPLD= %OVDTXT%\%fldtx%
+	}
+	else {
+		JEXPLD= %RJSYSTEMS%\%systx%\%fldtx%
+	}
+ifnotexist, %JEXPLD%
+	{
+		filecreatedir,%JEXPLD%
+	}
+Run, explorer.exe %JEXPLD%,%JEXPLD%
+return
+
 Open_Add:
 gui,submit,nohide
 multisel= 
@@ -35402,6 +35521,10 @@ if (fenam = "EmulationStation")
 			{
 				guicontrol,%pltog%,%A_LoopField%
 			}
+		Loop,Parse,RFPLITEMS,|
+			{
+				guicontrol,%pltog%,%A_LoopField%
+			}
 		opntog= hide
 		gosub, ESOPNPL
 		ESPLPLST=  
@@ -35495,6 +35618,10 @@ if (fenam = "Pegasus")
 			{
 				guicontrol,%pltog%,%A_LoopField%
 			}
+		Loop,Parse,RFPLITEMS,|
+			{
+				guicontrol,%pltog%,%A_LoopField%
+			}
 		opntog= hide
 		gosub, PGOPNPL
 		PGPLPLST=  
@@ -35579,6 +35706,124 @@ if (fenam = "Pegasus")
 		guicontrol,%ofetog%,PGVIDSRCHBUT
 		return
 	}
+if (fenam = "RetroFE")
+	{
+		ofetog= show
+		pltog= hide		
+		Loop,Parse,XMBPLITEMS,|
+			{
+				guicontrol,%pltog%,%A_LoopField%
+			}
+		Loop,Parse,ESPLITEMS,|
+			{
+				guicontrol,%pltog%,%A_LoopField%
+			}
+		Loop,Parse,PGPLITEMS,|
+			{
+				guicontrol,%pltog%,%A_LoopField%
+			}
+		opntog= hide
+		gosub, RFOPNPL
+		RFPLPLST=  
+		RFPLPLSTA= 
+		guicontrol,,DETECTCORE,0
+		if (RFHOME = "")
+			{
+				RFHOME= %RJEMUD%\RetroFE
+			}
+		Loop, read, %RFHOME%\collections\Main\menu.txt
+			{
+				if (A_LoopReadline = "")
+					{
+			 			continue
+					}
+				FileRead,fij,%A_LoopReadLine%\###
+				stringreplace,fij,fij,/,\,All
+				Loop,Parse,fij,`n`r
+					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						stringsplit,aij,A_LoopField,:
+						if (aij1 = "game")
+							{
+								RFPLPLST.= aij2 . "|"
+								RFPLPLSTA.= aij2 . "," . A_LoopReadLine . ","
+							}
+						if (aij1 = "extensions")
+							{
+								RFPLPLSTA.= aij2 . "|"
+							}
+					}
+			}
+		rfcommon= 
+		Loop, Parse,RfLkUp,`n`r
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+			}
+		stringreplace,RFPLPLST,RFPLPLST,||,|,All
+		stringreplace,rfcommon,rfcommon,||,|,All
+		if (RFRPOPPL = 1)
+			{
+				guicontrol,%ofetog%,RFMIRSEL
+			}
+		guicontrol,,RFDWNLPOS,|%systmfldrs%
+		guicontrol,,RFPLXMP,|%RFPLPLST%|%systmfldrs%|%rfcommon%
+		if (RFRPOPROM = 1)
+			{
+				guicontrol,,RFPLXMP,|%RFPLPLST%|%rfcommon%				
+				guicontrol,%ofetog%,RFROMROOT
+				guicontrol,%ofetog%,RFRRTXT
+			}
+		;;Shared plstelements
+		Loop,Parse,UNIPLITEMS,|
+			{
+				guicontrol,%ofetog%,%A_LoopField%
+			}
+		;;;;;;;;;
+		guicontrol,%ofetog%,RFDWNLPOS
+		guicontrol,%ofetog%,RFRPOPDL
+		guicontrol,%ofetog%,RFRPOPPL
+		guicontrol,%ofetog%,RFRPOPROM
+		guicontrol,%ofetog%,RFPLCORE
+		guicontrol,%ofetog%,RFBACKUP
+		guicontrol,%ofetog%,RFSVPL
+		guicontrol,%ofetog%,RFPLXMP
+		guicontrol,%ofetog%,RFOPENPL
+		guicontrol,%ofetog%,RFUSERFCR
+		guicontrol,%ofetog%,RFCPYSCR
+		guicontrol,%ofetog%,RFBOXSRCHBUT
+		guicontrol,%ofetog%,RFBOXCHK
+		guicontrol,%ofetog%,RFMRQCHK
+		guicontrol,%ofetog%,RFTHMBCHK
+		guicontrol,%ofetog%,RFVIDCHK
+		guicontrol,%ofetog%,RFMARQSRCHBUT
+		guicontrol,%ofetog%,RFTHUMBSRCHBUT
+		guicontrol,%ofetog%,RFVIDSRCHBUT
+		return
+	}
+return
+
+HideOtherFEPL:
+guicontrol,,ESPLXMP,|%ESPLPLST%|%escommon%|%systmfldrs%
+Loop,Parse,ESPLITEMS,|
+	{
+		guicontrol,%opltog%,%A_LoopField%
+	}
+guicontrol,,PGPLXMP,|%PGPLPLST%|%pgcommon%|%systmfldrs%
+Loop,Parse,PGPLITEMS,|
+	{
+		guicontrol,%opltog%,%A_LoopField%
+	}
+guicontrol,,RFPLXMP,|%RFPLPLST%|%rfcommon%|%systmfldrs%
+Loop,Parse,RFPLITEMS,|
+	{
+		guicontrol,%opltog%,%A_LoopField%
+	}
 return
 
 CURPLST:
@@ -35588,6 +35833,11 @@ crpln=
 Loop, Parse, CURPLST,|
 	{
 		crpln+=1
+	}
+if (fenam = "RetroFE")
+	{					
+		gosub, RFEDTPOP
+		return
 	}
 if (fenam = "Pegasus")
 	{					
@@ -35715,6 +35965,10 @@ if (plopen = 1)
 		guicontrol,hide,SVASPLST
 		guicontrol,show,OPNPLST
 		guicontrol,enable,OPNPLST
+	}
+if (fenam = "RetroFE")
+	{
+		FileDelete,rj\RF\%syssub%\*.ini
 	}
 if (fenam = "Pegasus")
 	{
@@ -36590,6 +36844,13 @@ if (PLISTTYP = "Pegasus")
 		coreInJV= 
 		IDWNLPOS= %PGPLXMP%
 	}
+if (PLISTTYP = "RetroFE")
+	{
+		plswap= %systmfldrs%
+		pldelim= :
+		coreInJV= 
+		IDWNLPOS= %RFPLXMP%
+	}
 if (PLISTTYP = "EmulationStation")
 	{
 		plswap= %ESPLPLST%
@@ -36763,6 +37024,10 @@ Loop, Parse, existlst,|
 		taih1=
 		taih2=
 		splvar= >
+		if (PLISTTYP = "RetroFE")
+			{
+				splvar= :
+			}
 		if (PLISTTYP = "Pegasus")
 			{
 				splvar= :
@@ -37105,6 +37370,12 @@ if (PLISTTYP = "Pegasus")
 		plswap= %systmfldrs%
 		pldelim= :
 		coreInJV= %PGPLXMP%
+	}
+if (PLISTTYP = "RetroFE")
+	{
+		plswap= %systmfldrs%
+		pldelim= :
+		coreInJV= %RFPLXMP%
 	}
 if (PLISTTYP = "EmulationStation")
 	{
@@ -55043,39 +55314,6 @@ PegasusToggle:
 gosub, FEUNPOP
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;   PG INITIALIZE   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PGINIT:
-pgthemes=
-pgpth=  
-pgadini= 
-IniRead,pginitheme,PgThemes.set
-stringreplace,pgfndin,pginitheme,`n,|,All
-pgfndin:= "|" . pgfndin 
-Loop, %pghome%\themes,2
-	{
-		ifinstring,pgfndin,|%A_LoopFileName%|
-			{
-				continue
-			}
-		pgfndin.= A_LoopFileName . "|"	
-	}	
-pgadini:= pgfndin	
-Loop, Parse, pginitheme,`n`r
-	{
-		if (A_LoopField = "")
-			{
-				continue
-			}
-		pgpth.= A_LoopField . "|"
-	}	
-Loop, Parse, pgpth,|
-		{
-			iniread,gtesp,PgThemes.set,%A_LoopField%,PGTHEME
-			if (gtesp = "ERROR")
-				{
-					continue
-				}
-			pgthemes.= A_LoopField . "|"
-		}
-pgthemes.= pgadini		
 iniread,Pegasus,apps.ini,HTPC_FRONTENDS,Pegasus
 if (Pegasus = "ERROR")
 	{
@@ -55122,6 +55360,28 @@ ifnotexist,%PGHOME%\metafiles
 	{
 		FileCreateDir,%PGHOME%\metafiles
 	}
+pgthemes=
+IniRead,pginitheme,Themes.set
+Loop, Parse, pginitheme,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		iniread,pgt,Themes.set,%A_LoopField%,PGTHEME
+		if (pgt <> "ERROR")
+			{
+				pgthemes.= A_LoopField . "|"
+			}
+	}	
+Loop, %pghome%\themes\*,2
+	{
+		ifinstring,pgthemes,|%A_LoopFileName%|
+			{
+				continue
+			}
+		pgthemes.= A_LoopFileName . "|"	
+	}		
 if (PgNpts = "")
 	{
 		Loop,Parse,PgLkUp,`n`r
@@ -55513,7 +55773,12 @@ ifexist, %PGHOME%\themes\%FEDDLD%
 				pgteo= 
 			}
 	}
-iniRead,URLFILE,PgThemes.set,%FEDDLD%,PGTHEME
+iniRead,URLFILE,themes.set,%FEDDLD%,PGTHEME
+if (URLFILE = "ERROR")
+	{
+		SB_SetText("This theme is not avaiable from the skeletonKey repository")
+		return
+	}
 save= rj\PG\%FEDDLD%.7z
 extractpath= %PGHOME%\themes
 DownloadFile(URLFILE, save, dwnovr, true)
@@ -55846,7 +56111,6 @@ if (FERAD5A = 1)
 		PGCURPL= %sysordr%%SNFEITMS%
 		iniwrite,%PGCURPL%,PGcfg.ini,ORDER,system_order			
 		guicontrol,,FELBXA,|%PGCURPL%
-		Guicontrol,,FELBXA,|%PGCURPL%
 		LV_Modify(0, "-Check")
 		return
 	}	
@@ -55947,7 +56211,6 @@ if (FERAD5A = 1)
 				sysordr= 
 			}
 		PGCURPL= %sysordr%%SNFEITMS%
-		guicontrol,,FELBXA,|%PGCURPL%
 		iniwrite,%PGCURPL%,PGcfg.ini,ORDER,system_order			
 		Guicontrol,,FELBXA,|%PGCURPL%
 		LV_Modify(0, "-Check")
@@ -59078,43 +59341,4274 @@ return
 ;};;;
 ;};;;
 
-;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  EMULATIONSTATION  FRONTEND  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-EmulationStationToggle:
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  RETROFE FRONTEND  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;   RF INITIALIZE   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+RetroFEToggle:
 gosub, FEUNPOP
-ESINIT:
-;{;;;;;;;;;;;;;;;;;;;;;;;;;;;   ES INITIALIZE   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-esthemes=
-espth=  
-IniRead,esinitheme,EsThemes.set
-stringreplace,esfndin,esinitheme,`n,|,All
-esfndin:= "|" . esfndin 
-Loop, %eshome%\themes,2
+RFINIT:
+rfthemes=
+iniread,RetroFE,apps.ini,HTPC_FRONTENDS,RetroFE
+if (RetroFE = "ERROR")
 	{
-		ifinstring,esfndin,|%A_LoopFileName%|
-			{
-				continue
-			}
-		esfndin.= A_LoopFileName . "|"	
-	}	
-esadini:= esfndin	
-Loop, Parse, esinitheme,`n`r
+		SB_SetText("Use the Install tab to install RetroFE.")
+		guicontrol,choose,TABMENU,3
+		guicontrol,,SALIST,|Frontends||Systems|Emulators|RetroArch|Utilities
+		SALIST= Frontends
+		gosub, SALIST
+		Guicontrol,choose,UAVAIL,|5
+		guicontrol, ChooseString, UAVAIL,RetroFE
+		return
+	}
+filecreateDir,rj\RF	
+ifnotexist,RFcfg.ini
+	{
+		FileAppend,[GLOBAL]`n,RFcfg.ini
+		FileAppend,[CONFIG]`n,RFcfg.ini
+		FileAppend,[ORDER]`n,RFcfg.ini
+
+		IniWrite,stretch,RFcfg.ini,CONFIG,rfxrez
+		rfxrez= %A_ScreenWidth%
+		IniWrite,stretch,RFcfg.ini,CONFIG,rfyrez
+		rfyrez= %A_ScreenHeight%
+		IniWrite,yes,RFcfg.ini,CONFIG,rfvideoen
+		rfven= 1
+		IniWrite,no,RFcfg.ini,CONFIG,cleantitle
+		rfcleant= 1
+		IniWrite,yes,RFcfg.ini,CONFIG,Fullscreen
+		rffscr= 1
+		IniWrite,rj,RFcfg.ini,CONFIG,theme
+		rftheme= Aeon Nox
+
+	}
+splitpath,RetroFE,RFFEXE,RFPROGD
+splitpath,rfprogd,,rfprog
+iniread,RFHOME,rfcfg.ini,CONFIG,home_directory
+if (RFHOME = "ERROR")
+	{
+		RFHOME= %rfprog%
+		iniwrite,%RFHOME%,rfcfg.ini,CONFIG,home_directory
+	}
+IniRead,rfinitheme,themes.set
+Loop,Parse,rfinitheme,`n`r
 	{
 		if (A_LoopField = "")
 			{
 				continue
 			}
-		espth.= A_LoopField . "|"
+		iniread,rft,themes.set,%A_LoopField%,RFTHEME
+		if (rft <> "ERROR")
+			{
+				rfthemes.= A_LoopField . "|"
+			}
+	}
+Loop, %rfhome%\layouts\*,2
+	{
+		ifinstring,rfthemes,%A_LoopFileName%|
+			{
+				continue
+			}
+		rfthemes.= A_LoopFileName . "|"	
 	}	
-Loop, Parse, espth,|
+
+if (RfNpts = "")
+	{
+		Loop,Parse,RfLkUp,`n`r
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				stringsplit,syslk,A_LoopField,=
+				RfNpts.= syslk1 . "|"
+			}
+	}
+fetog= show
+RFCURPL= 
+guicontrol,,FELBXA,|
+Loop,Read,RFcfg.ini
+	{
+		ccpl1= 
+		ccpl2=
+		gotsy1= 
+		stringsplit,ccpl,A_LoopReadLine,=
+		stringsplit,gotsy,ccpl2,|
+		if (ccpl1 = "[GLOBAL]")
+			{
+				continue
+			}
+		if (ccpl1 = "[CONFIG]")
+			{
+				break
+			}
+		RFCURPL.= gotsy1 . "|"
+	}
+iniread,sysordr,RFcfg.ini,ORDER,system_order
+if (sysordr <> "ERROR")
+	{
+		RFCURPL= %sysordr%
+	}
+insttheme= 	
+Loop,%RFHOME%\layouts\*,2
+	{
+		insttheme= %A_LoopFileName%
+		ifexist,%RFHOME%\layouts\rj
+			{
+				insttheme= rj
+			}
+		break
+	}	
+cursysthemelist= %RfNpts%
+avblnk= 
+guicontrol,,FELBXA,%RFCURPL%
+IniRead, rfmirloc,RFcfg.ini,CONFIG,Mirrors
+if (rfmirloc = "ERROR")
+	{
+		rfmirloc= %MIRFEDDLA%
+	}
+IniRead, rftheme,RFcfg.ini,CONFIG,theme
+if (rftheme = "ERROR")
+	{
+		rftheme= Aeon Nox
+	}
+rfcleant= 1
+IniRead, rfcleantitle,RFcfg.ini,CONFIG,rfcleantitle
+if (rffullscreen = "ERROR")
+	{
+		rfcleant= 1
+		rfcleantitle= no
+	}
+rffscr= 1	
+IniRead, rffullscreen,RFcfg.ini,CONFIG,Fullscreen
+if (rffullscreen = "ERROR")
+	{
+		rffscr= 0
+		rffullscreen= no
+	}
+rfXREZ= %A_ScreenWidth%
+rfYREZ= %A_ScreenHeight%
+rfrez= %rfXREZ%x%rfYREZ%
+IniRead, rfXREZt,RFcfg.ini,CONFIG,rfXREZ
+if (rfXREZt = "ERROR")
+	{
+		rfXREZ= stretch
+		rfYREZ= stretch
+		rfrez= stretch
+	}
+IniRead, rfYREZt,RFcfg.ini,CONFIG,rfYREZ
+if (rfYREZt = "ERROR")
+	{
+		rfYREZ= stretch
+		rfXREZ= stretch
+		rfrez= stretch
+	}
+if ((rfYREZ = "stretch") or (rfXREZ = "stretch"))
+	{
+		rfrez= stretch
+	}
+rfven= 1	
+IniRead, rfvideoen,RFcfg.ini,CONFIG,rfvideoen
+if (rfvideoen = "ERROR")
+	{
+		rfven= 0
+		rfvideoen= no
+	}
+ifnotexist,%RFHOME%\settings.conf
+	{
+		filecopy,rfsettings.set,%RFHOME%\settings.conf
+	}
+rfsetcfg= %RFHOME%\settings.conf
+gosub, rfgpsetcfg
+;};;;;;;;;;;;;;;;;;;;;;;
+	
+;{;;;;;;;;;;;;;;;;;;;;;;;;;    RF CREATE GUI   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	
+guicontrol,%fetog%,FEBUTA
+guicontrol,enable,FEBUTA
+guicontrol,move,FEBUTA, x537 y33 w60 h19
+guicontrol,,FEBUTA,Download
+
+guicontrol,%fetog%,FEBUTB
+guicontrol,enable,FEBUTB
+guicontrol,move,FEBUTB,x659 y473 w93 h23
+guicontrol,,FEBUTB,CREATE
+
+guicontrol,%fetog%,FEBUTC
+guicontrol,enable,FEBUTC
+guicontrol,move,FEBUTC,x505 y456 w46 h17
+guicontrol,,FEBUTC,delete
+
+guicontrol,%fetog%,FEBUTD
+guicontrol,enable,FEBUTD
+guicontrol,move,FEBUTD,x355 y105 w37 h19
+guicontrol,,FEBUTD,. . .
+
+guicontrol,%fetog%,FEBUTE
+guicontrol,enable,FEBUTE
+guicontrol,move,FEBUTE,x262 y475 w52 h22
+guicontrol,,FEBUTE,Add
+
+guicontrol,%fetog%,FEBUTF
+guicontrol,enable,FEBUTF
+guicontrol,move,FEBUTF,x704 y451 w46 h17
+guicontrol,,FEBUTF,Load
+
+guicontrol,%fetog%,FEBUTH
+guicontrol,enable,FEBUTH
+guicontrol,move,FEBUTH,x261 y130 w62 h20
+guicontrol,,FEBUTH,Emulator
+
+guicontrol,%fetog%,FEBUTG
+guicontrol,enable,FEBUTG
+guicontrol,move,FEBUTG,x506 y477 w46 h17
+guicontrol,,FEBUTG,clear
+
+guicontrol,%fetog%,FEBUTI
+guicontrol,enable,FEBUTI
+guicontrol,move,FEBUTI,x508 y352 w18 h18
+guicontrol,,FEBUTI,v
+
+guicontrol,%fetog%,FEBUTJ
+guicontrol,enable,FEBUTJ
+guicontrol,move,FEBUTJ,x508 y334 w18 h18
+guicontrol,,FEBUTJ,^
+
+guicontrol,%fetog%,FEBUTK
+guicontrol,enable,FEBUTK
+guicontrol,move,FEBUTK,x419 y4 w18 h18
+gui, font, s11 bold
+guicontrol, font, FEBUTK
+guicontrol,,FEBUTK,>
+
+guicontrol,%fetog%,FECHKB
+guicontrol,enable,FECHKB
+guicontrol,move,FECHKB,x643 y424 w111 h13
+guicontrol,,FECHKB,Create Backups
+guicontrol,,FECHKB,1
+
+guicontrol,%fetog%,FECHKC
+guicontrol,enable,FECHKC
+guicontrol,move,FECHKC,x529 y55 w66 h13
+guicontrol,,FECHKC,Overwrite
+
+guicontrol,%fetog%,FECHKD
+guicontrol,enable,FECHKD
+guicontrol,move,FECHKD,x642 y357 w120 h23
+guicontrol,,FECHKD,Fullscreen
+guicontrol,,FECHKD,%rffscr%
+
+guicontrol,%fetog%,FECHKE
+guicontrol,enable,FECHKE
+guicontrol,move,FECHKE,x642 y378 w120 h23
+guicontrol,,FECHKE,Video Enabled
+guicontrol,,FECHKE,%rfven%
+
+;;guicontrol,%fetog%,FECHKF
+;;guicontrol,enable,FECHKF
+;;guicontrol,move,FECHKF,x642 y400 w120 h23
+;;guicontrol,,FECHKF,Navigation Sounds
+;;guicontrol,,FECHKF,%rfnavsnds%
+
+guicontrol,%fetog%,FEEDTA
+guicontrol,enable,FEEDTA
+guicontrol,move,FEEDTA,x428 y130 w145 h21
+guicontrol,,FEEDTA,
+
+guicontrol,%fetog%,FEEDTB
+guicontrol,enable,FEEDTB
+guicontrol,-password,FEEDTB
+guicontrol,move,FEEDTB,x578 y130 w120 h21
+guicontrol,,FEEDTB,
+
+guicontrol,%fetog%,FEDDLD
+guicontrol,enable,FEDDLD
+guicontrol,move,FEDDLD,x599 y32 w162
+guicontrol,,FEDDLD,|%rftheme%||%rfthemes%
+
+guicontrol,%fetog%,FEDDLA
+guicontrol,enable,FEDDLA
+guicontrol,move,FEDDLA,x9 y41 w249
+guicontrol,,FEDDLA,|Systems||
+
+;;guicontrol,%fetog%,FEDDLC
+;;guicontrol,enable,FEDDLC
+;;guicontrol,move,FEDDLC,x661 y259 w82
+;;guicontrol,,FEDDLC,|video||automatic|detailed|basic|
+
+guicontrol,%fetog%,FEDDLF
+guicontrol,enable,FEDDLF
+guicontrol,hide,FEDDLF
+guicontrol,move,FEDDLF,x324 y79 w100
+guicontrol,,FEDDLF,|%rfmirloc%||
+
+guicontrol,%fetog%,FEDDLG
+guicontrol,enable,FEDDLG
+guicontrol,move,FEDDLG,x325 y130 w100
+guicontrol,,FEDDLG,|other||%emuinstpop%
+
+;;fullname;;
+guicontrol,%fetog%,FECBXB
+guicontrol,enable,FECBXB
+guicontrol,move,FECBXB,x263 y153 w217
+guicontrol,,FECBXB,|%systmfldrs%
+
+;;platform;;
+guicontrol,%fetog%,FECBXC
+guicontrol,enable,FECBXC
+guicontrol,move,FECBXC,x263 y176 w217
+guicontrol,,FECBXC,|%avblnk%%RfNpts%%systmfldrs%
+
+;;name;;
+guicontrol,%fetog%,FECBXD
+guicontrol,enable,FECBXD
+guicontrol,move,FECBXD,x264 y199 w217
+guicontrol,,FECBXD,|%avblnk%%RfNpts%%systmfldrs%
+
+;;theme;;
+guicontrol,%fetog%,FECBXA
+guicontrol,enable,FECBXA
+guicontrol,move,FECBXA,x641 y266 w104
+guicontrol,,FECBXA,|%rfrez%||stretch|%qres%
+
+
+guicontrol,%fetog%,FELVA
+guicontrol,enable,FELVA
+guicontrol,,FELVA,Mirrors
+guicontrol,move,FELVA,x10 y64 w247 h433
+guicontrol,+altsubmit,FELVA
+guicontrol,+checked,FELVA
+guicontrol,+Multi,FELVA
+gui,ListView,FELVA
+LV_Delete()
+Loop, Parse, systmfldrs,|
+	{
+		LV_Add("",A_LoopField)
+	}
+LV_ModifyCol()
+
+guicontrol,%fetog%,FERAD5A
+guicontrol,enable,FERAD5A
+guicontrol,move,FERAD5A,x265 y64 w120 h15
+guicontrol,,FERAD5A, Jackets
+guicontrol,,FERAD5A, 1
+
+guicontrol,%fetog%,FERAD5B
+guicontrol,enable,FERAD5B
+guicontrol,move,FERAD5B,x265 y84 w53 h15
+guicontrol,,FERAD5B, Mirrors
+guicontrol,,FERAD5B, 0
+
+guicontrol,%fetog%,FERAD5C
+guicontrol,enable,FERAD5C
+guicontrol,move,FERAD5C,x265 y101 w53 h15
+guicontrol,,FERAD5C,ROMs
+guicontrol,,FERAD5C, 0
+
+guicontrol,%fetog%,FERAD2A
+guicontrol,enable,FERAD2A
+guicontrol,move,FERAD2A,x645 y241 w57 h13
+guicontrol,,FERAD2A,cleaned
+guicontrol,,FERAD2A, %rfcleant%
+
+guicontrol,%fetog%,FERAD2B
+guicontrol,enable,FERAD2B
+guicontrol,move,FERAD2B,x710 y242 w50 h13
+guicontrol,,FERAD2B,[]()
+
+;;guicontrol,%fetog%,FESLDA
+;;guicontrol,+Range100-1000,FESLDA
+;;guicontrol,enable,FESLDA
+;;guicontrol,move,FESLDA,x636 y316 w120 h32
+;;guicontrol,,FESLDA,%rfvideoram%
+
+guicontrol,%fetog%,FETXTA
+guicontrol,enable,FETXTA
+guicontrol,move,FETXTA,x643 y55 w110 h13
+guicontrol,,FETXTA,Global Theme
+
+guicontrol,%fetog%,FETXTB
+guicontrol,enable,FETXTB
+guicontrol,move,FETXTB,x508 y437 w120 h15
+guicontrol,,FETXTB,Remove
+
+guicontrol,%fetog%,FETXTK
+guicontrol,enable,FETXTK
+guicontrol,move,FETXTK,x660 y452 w45 h15
+guicontrol,,FETXTK,menu.txt
+
+guicontrol,%fetog%,FETXTC
+guicontrol,enable,FETXTC
+guicontrol,move,FETXTC,x14 y23 w512 h16
+guicontrol,,FETXTC,Mirror Location
+
+guicontrol,%fetog%,FETXTD
+guicontrol,enable,FETXTD
+guicontrol,move,FETXTD,x577 y242 w60 h13
+guicontrol,,FETXTD,Clean Titles
+
+guicontrol,%fetog%,FELBXA
+guicontrol,enable,FELBXA
+guicontrol,move,FELBXA,x263 y223 w240 h251
+
+;;guicontrol,%fetog%,FETXTE
+;;guicontrol,enable,FETXTE
+;;guicontrol,move,FETXTE,x652 y297 w93 h23
+;;guicontrol,,FETXTE,Fullscreen : %rfvideoram%
+
+;;guicontrol,%fetog%,FETXTF
+;;guicontrol,enable,FETXTF
+;;guicontrol,move,FETXTF,x583 y263 w71 h13
+;;guicontrol,,FETXTF, Gamelist Style
+
+guicontrol,%fetog%,FETXTG
+guicontrol,enable,FETXTG
+guicontrol,move,FETXTG,x424 y478 w80 h20
+guicontrol,,FETXTG, Added Systems
+
+guicontrol,%fetog%,FETXTH
+guicontrol,enable,FETXTH
+guicontrol,move,FETXTH, x316 y480 w85 h19
+guicontrol,,FETXTH, Add system
+
+guicontrol,%fetog%,FETXTN
+guicontrol,enable,FETXTN
+guicontrol,move,FETXTN,x587 y271 w50 h16
+guicontrol,,FETXTN,resolution
+
+guicontrol,%fetog%,FETXTI
+guicontrol,enable,FETXTI
+guicontrol,move,FETXTI,x588 y115 w146 h13
+guicontrol,,FETXTI, Extensions (comma sperated)
+
+guicontrol,%fetog%,FETXTJ
+guicontrol,enable,FETXTJ
+guicontrol,move,FETXTJ,x424 y82 w326 h31
+guicontrol,,FETXTJ,
+
+guicontrol,%fetog%,FETXTL
+guicontrol,enable,FETXTL
+guicontrol,move,FETXTL,x488 y155 w55 h13
+guicontrol,,FETXTL,Full-Name
+
+guicontrol,%fetog%,FETXTM
+guicontrol,enable,FETXTM
+guicontrol,move,FETXTM, x490 y178 w49 h13
+guicontrol,,FETXTM,Platform
+
+guicontrol,%fetog%,FETXTO
+guicontrol,enable,FETXTO
+guicontrol,move,FETXTO, x491 y201 w49 h13
+guicontrol,,FETXTO,Name
+
+guicontrol,%fetog%,FETXTP
+guicontrol,enable,FETXTP
+guicontrol,move,FETXTP, x441 y6 w47 h15
+guicontrol,,FETXTP,Launch
+
+guicontrol,%fetog%,FEPRGA
+guicontrol,enable, FEPRGA
+guicontrol,move,FEPRGA,x15 y500 w736 h7
+guicontrol,,FEPRGA,0
+return
+;};;;;;;;;;;;;;;;;;;;;;;
+
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;   RF DOWNLOAD THEMES  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+RetroFEFEBUTA:
+guicontrolget,FEDDLD,,FEDDLD
+if (FEDDLD = "")
+	{
+		SB_SetText("You need select a theme!")
+		return
+	}
+rfteo= 	
+dwnovr= false
+if (FECHKC = 1)
+	{
+		dwnovr= true
+	}
+ifexist, %RFHOME%\layouts\%FEDDLD%
+	{
+		rfteo= 1
+		if (FECHKC = 1)
+			{
+				rfteo= 
+			}
+	}
+iniRead,URLFILE,themes.set,%FEDDLD%,RFTHEME
+if (URLFILE = "ERROR")
+	{
+		SB_SetText("This theme is not available from the seletonKey repository")
+		return
+	}
+save= rj\RF\%FEDDLD%.7z
+extractpath= %RFHOME%\layouts
+DownloadFile(URLFILE, save, dwnovr, true)
+filegetsize,rftsz,%save%,K
+if (rftsz < 200)
+	{
+		SB_SetText("Download Failed")
+		return
+	}
+ifnotexist,%save%
+	{
+		SB_SetText("Download Failed")
+		return
+	}
+if (rfteo = "")
+	{
+		RunWait, %comspec% cmd /c "7za.exe x -y "%save%" -O"%extractpath%" ",,hide
+	}
+
+;;guicontrol,,FECBXA,|%RfNpts%	
+
+SB_SetText("Current theme is " RFTHEME " ")	
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;
+
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  RF CREATE CONFIG  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+RetroFEFEBUTB:
+guicontrolget,FEDDLF,,FEDDLF
+guicontrolget,FEDDLC,,FEDDLC
+guicontrolget,FEDDLD,,FEDDLD
+FileCopy,%rfsetcfg%,%rfsetcfg%.bak,1
+
+TCURPL= 
+IniRead,prsy,RFcfg.ini,ORDER,system_order
+FileDelete,rj\RF\cursys.cfg
+FileDelete,rj\RF\*.conf
+
+Loop, Parse, prsy,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		
+		sysfin= 
+		sysesc= %A_loopField%
+
+		iniread,tmpes,RFcfg.ini,GLOBAL
+		Loop, Parse, tmpes,`n`r
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				rjsp1= 	
+				rjsp2= 	
+				stringsplit,rjsp,A_LoopField,=	
+				apnd= 
+				ppnd= 
+				srnam= %rjsp1%
+				stringleft,rj,rjsp1,1
+				if (rj = "_")
+					{
+						ppnd= _
+						apnd= 
+						stringtrimleft,srnam,rjsp1,1
+					}
+				stringright,rj,rjsp1,1
+				if (rj = "_")
+					{
+						ppnd= 
+						apnd= _
+						stringtrimright,srnam,rjsp1,1
+					}
+				ffj1= 
+				ffj2=  
+				ans1=  
+				ans2=  
+				stringsplit,ans,A_LoopField,=
+				stringsplit,ffj,ans2,|				
+				typm= %ans1%
+				if ((apnd = ppnd) && (apnd <> "_"))
+					{
+						typm= %ffj1%
+					}
+				if (typm = sysesc)
+					{
+						iniread,sysvlz,RFcfg.ini,GLOBAL,%ans1%
+						injvar1= 
+						injvar2= 
+						injvar3= 
+						injvar4= 
+						injvar5= 
+						injvar6= 
+						injvar7= 
+						stringsplit,injvar,sysvlz,|
+						iniread,emucmd,apps.ini,EMULATORS,%injvar4%
+						emunmc= %injvar4%
+						ifinstring,injvar4,:
+							{
+								stringsplit,emunmc,emucmd
+								emunmc= 
+								emucmd= %injvar4%
+							}
+						stringreplace,injvnp,injvar6,\,/,All
+						FileAppend,list.path = %injvnp%`n,rj\RF\%injvar2%.settings.conf
+						FileAppend,list.includeMissingItems = true`n,rj\RF\%injvar2%.settings.conf
+						stringreplace,extn,injvar3,.,,All
+						FileAppend,list.extensions = %extn%`n,rj\RF\%injvar2%.settings.conf
+						FileAppend,list.menuSort = true`n,rj\RF\%injvar2%.settings.conf
+						FileAppend,list.romHierarchy = true`n,rj\RF\%injvar2%.settings.conf
+						FileAppend,launcher = %emunmc%`n,rj\RF\%injvar2%.settings.conf
+						FileAppend,executable = %emucmd%`n,rj\RF\%emunmc%.conf
+						FileAppend,arguments = %injvar5%`n,rj\RF\%emunmc%.conf
+						FileAppend,%ffj2%`n,rj\RF\menu.txt
+						RunWait,"core\retrofe.exe" -createcollection "%ffj2%",%rfprog%,hide
+						if (FECHKB = 1)
+							{
+								filecopy,%RFHOME%\launchers\%emunmc%.conf,%RFHOME%\launchers\%emunmc%.conf.bak,1
+							}
+						filemove,rj\RF\%emunmc%.conf,%RFHOME%\launchers\%emunmc%.conf,1
+						filemove,rj\RF\%injvar2%.settings.conf,%RFHOME%\collections\%ffj2%\settings.conf,1
+						/*	
+						FileAppend,collection: %injvar2%`n,rj\RF\metadata.retroFE.txt
+						FileAppend,shortname: %sysesc%`n,rj\RF\metadata.retroFE.txt
+						stringreplace,extn,injvar3,.,%A_Space%,All
+						FileAppend,extensions: %extn%`n,rj\RF\metadata.retroFE.txt
+						stringreplace,emucmd,emucmd,",,All
+						;"
+						FileAppend,launch: "%emucmd%" %injvar5% `n,rj\RF\metadata.retroFE.txt
+						;;filecopy,rj\RF\%sysesc%.retroFE.txt,%injvar6%\metadata.retroFE.txt,%FECHKB%
+						;;FileAppend,%injvnp%`n,rj\RF\GD.cfg
+						FileAppend,directory: %injvnp%`n,rj\RF\metadata.retroFE.txt
+						FileAppend,`n,rj\RF\metadata.retroFE.txt
+						*/
+						break
+					}
+			}
+	}
+
+FileRead,rfcfg,rfsettings.set
+stringreplace,rfcfg,rfcfg,[THEME],%FEDDLD%,All
+stringreplace,RJSYSTEMX,RJSYSTEMS,\,/,All
+stringreplace,rfcfg,rfcfg,[RJSYSTEMS],%RJSYSTEMX%,All
+stringreplace,rfcfg,rfcfg,[VIDEOEN],%rfvideoen%,All
+stringreplace,rfcfg,rfcfg,[RFFS],%rffullscreen%,All
+stringreplace,rfcfg,rfcfg,[CLEANTITLE],%rfcleantitle%,All
+stringreplace,rfcfg,rfcfg,[XREZ],%rfXREZ%,All
+stringreplace,rfcfg,rfcfg,[YREZ],%rfYREZ%,All
+
+if (FECHKB = 1)
+	{
+		Filecopy,rj\RF\menu.txt,rj\RF\menu.txt.bak,1
+		FileMove,%rfsetcfg%,%rfsetcfg%.bak,1
+	}
+FileDelete,	%rfsetcfg%
+fileappend,%rfcfg%,rj\RF\settings.conf
+filecopy,rj\RF\settings.conf,%RFHOME%,%FECHKB%
+filecopy,rj\RF\menu.txt,%RFHOME%\collections\Main,%FECHKB%
+	
+msgbox,,Complete,RF configuration created,5
+return
+
+RetroFEFEBUTC:
+if (sysfnd = "")
+	{
+		return
+	}
+TCURPL= 	
+Loop, Parse, RFCURPL,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		if (A_loopField = curtxt)
+			{
+				iniread,tmpes,RFcfg.ini,GLOBAL
+				Loop, Parse, tmpes,|
+					{
+						stringsplit,ffj,A_loopfield,|
+						stringsplit,ans,ffj1,=
+						if (ans2 = curtxt)
+							{
+								systdl= ans1
+							}
+					}
+				inidelete,RFcfg.ini,GLOBAL,%systdl%
+				continue
+			}
+		TCURPL.= A_LoopField . "|"
+	}
+RFCURPL= %TCURPL%	
+iniwrite,%RFCURPL%,RFcfg.ini,ORDER,system_order	
+RFCURPL= %TCURPL%	
+guicontrol,,FELBXA,|%RFCURPL%
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  RF SET ROM DIRECTORY  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+RetroFEFEBUTD:
+if (sysfnd = "")
+	{
+		return
+	}
+selctsystmp= 
+FileSelectFolder,selctsystmp,3,,Select a ROM Directory for %curtxt%
+if (selctsystmp = "")
+	{
+		return
+	}
+selctsys= %selctsystmp%
+guicontrol,,FETXTJ,%selctsys%
+extpop= 
+Loop, Read, RFcfg.ini
+	{
+		if (A_LoopReadLine = "[CONFIG]")
+			{
+				break
+			}
+		extpov1= 	
+		extpov2=
+		extpon1= 
+		extpon2= 
+		stringsplit,extpov,A_LoopReadLine,=
+		stringsplit,extpon,extpov2,|
+		if (extpon1 = curtxt)
+			{
+				extpop= %extpov1%
+				break
+			}
+	}
+ifinstring,curtxt,_
+	{
+		extpop= %curtxt%	
+	}
+iniread,rftv,RFcfg.ini,GLOBAL,%extpop%
+avi= 
+kkv= 
+Loop, Parse, rftv,|
+	{
+		avi+=1
+		if (avi = 6)
+			{
+				kkv= %A_LoopField%
+				stringreplace,rftv,rftv,%kkv%,%selctsys%,All
+				iniwrite,%rftv%,RFcfg.ini,GLOBAL,%extpop%
+			}			
+	}
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   RF ADD SYSTEMS  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+RetroFEFEBUTE:
+SNFEITMS= 
+NFEITMS= 
+FEItems= 
+FEItems:= LVGetCheckedItems("", "ahk_id" . FELSTVA)
+;;guicontrolget,SYSTHM,,FECBXA
+IniRead,syso,RFcfg.ini,ORDER,system_order
+if (syso = "ERROR")
+	{
+		syso= 
+	}
+if (FERAD5A = 1)
+	{
+	vmint= 
+	Loop, Parse, FEItems,`n`r
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				symnt= 
+				Loop, Read, RFcfg.ini
+					{
+						ivn1= 
+						ivn2= 
+						ivn3= 
+						ivn4= 
+						ivn5= 
+						ivn6= 
+						ivn7= 
+						stringsplit,ivn,A_LoopReadLine,=
+						if (ivn1 = "[CONFIG]")
+							{
+								break
+							}
+						if (ivn1 = "_%A_LoopField%")
+							{							
+								symnt= 1
+								break
+							}
+					}
+				if (symnt = "")
+					{
+						vmint.= A_LoopField . "|"
+					}
+			}
+		Loop, Parse, vmint,|
+			{
+				IMTSXT= 
+				sysfar= 
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				CHKITM= %A_LoopField%
+				Loop, Parse, RfLkUp,`n`r
+					{
+						sfi1= 
+						sfi2= 
+						sfi3= 
+						sfi4= 
+						sfi5= 
+						sfi6=  
+						stringsplit,sfi,A_LoopField,=
+						if (sfi3 = CHKITM)
+							{								
+								sysfar= 1
+								emks= %sfi1%
+								SLCTDEXT=.bat,.BAT
+								SLCTDEMU= BSL
+								SLCTDRW= "{file.path}"
+								selctsys= %RJSYSTEMS%\%CHKITM%
+								SLCTDSN= _%sfi3%
+								SNFEITMS.= "_" . sfi3 . "|"
+								break
+							}
+					}
+				if (sysfar = "")
+					{
+						stringreplace,ffr,CHKITM,=,,All
+						emks= %ffr%
+						SLCTDEXT=.bat .BAT
+						SLCTDEMU= BSL
+						SLCTDRW= "{file.path}"
+						selctsys= %RJSYSTEMS%\%CHKITM%
+						SLCTDSN= _%ffr%
+						SNFEITMS.= "_" . ffr . "|"
+					}
+				NFEITMS.= A_LoopField . "|"
+				IniWrite,%emks%|%CHKITM%|%SLCTDEXT%|%SLCTDEMU%|%SLCTDRW%|%selctsys%|%emks%,RFcfg.ini,GLOBAL,%SLCTDSN%
+			}
+		iniread,sysordr,RFcfg.ini,ORDER,system_order
+		if (sysordr = "ERROR")
+			{	
+				sysordr= 
+			}
+		RFCURPL= %sysordr%%SNFEITMS%
+		iniwrite,%RFCURPL%,RFcfg.ini,ORDER,system_order			
+		Guicontrol,,FELBXA,|%RFCURPL%
+		LV_Modify(0, "-Check")
+		return
+	}	
+	if (FERAD5B = 1)
+	{
+		guicontrolget,FEDDLF,,FEDDLF
+		iniread,rfmirror,Settings.ini,GLOBAL,%FEDDLF%
+		if (rfmirror = "ERROR")
+			{
+				SB_SetText("You Must define a mirror directory in the Mirrord_Links Frontend Dropdown.")
+				return
+			}
+		vmint= 
+		Loop, Parse, FEItems,`n`r
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				symnt= 
+				Loop, Read, RFcfg.ini
+					{
+						ivn1= 
+						ivn2= 
+						ivn3= 
+						ivn4= 
+						ivn5= 
+						ivn6= 
+						ivn7= 
+						stringsplit,ivn,A_LoopReadLine,=
+						if (ivn1 = "[CONFIG]")
+							{
+								break
+							}
+						if (ivn1 = "_%A_LoopField%")
+							{							
+								symnt= 1
+								break
+							}
+					}
+				if (symnt = "")
+					{
+						vmint.= A_LoopField . "|"
+					}
+			}
+		Loop, Parse, vmint,|
+			{
+				IMTSXT= 
+				sysfar= 
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				CHKITM= %A_LoopField%
+				Loop, Parse, RfLkUp,`n`r
+					{
+						sfi1= 
+						sfi2= 
+						sfi3= 
+						sfi4= 
+						sfi5= 
+						sfi6= 
+						sfi7= 
+						sfi8= 
+						stringsplit,sfi,A_LoopField,=
+						if (sfi3 = CHKITM)
+							{								
+								sysfar= 1
+								emks= %sfi1%
+								SLCTDEXT=.lnk,.LNK
+								SLCTDEMU= BSL
+								SLCTDRW= "{file.path}"
+								selctsys= %rfmirror%\%CHKITM%
+								SLCTDSN= %sfi3%_
+								SNFEITMS.= sfi3 . "_" . "|"
+								break
+							}
+					}
+				if (sysfar = "")
+					{
+						stringreplace,ffr,CHKITM,%A_Space%,,All
+						stringreplace,ffr,ffr,-,,All
+						stringLower,ffr,ffr				
+						emks= %ffr%
+						SLCTDEXT=.lnk .LNK
+						SLCTDEMU= BSL
+						SLCTDRW= "{file.path}"
+						selctsys= %rfmirror%\%CHKITM%
+						SLCTDSN= %ffr%_
+						SNFEITMS.= ffr . "_" . "|"
+					}
+				NFEITMS.= A_LoopField . "|"
+				IniWrite,%emks%|%CHKITM%|%SLCTDEXT%|%SLCTDEMU%|%SLCTDRW%|%selctsys%|%emks%,RFcfg.ini,GLOBAL,%SLCTDSN%
+			}
+		iniread,sysordr,RFcfg.ini,ORDER,system_order
+		if (sysordr = "ERROR")
+			{	
+				sysordr= 
+			}
+		RFCURPL= %sysordr%%SNFEITMS%
+		iniwrite,%RFCURPL%,RFcfg.ini,ORDER,system_order			
+		Guicontrol,,FELBXA,|%RFCURPL%
+		LV_Modify(0, "-Check")
+		return
+	}
+
+nvar= 
+if (FERAD5C = 1)
+	{
+		if (sysfnd = 1)
+			{
+				SB_SetText("Current system is already added")
+				return
+			}
+		RowNumber = 0  
+		Loop
+			{
+				RowNumber := LV_GetNext(RowNumber)  ; Resume the search at the row after that found by the previous iteration.
+				if not RowNumber  
+					{
+						break
+					}
+				LV_GetNext(RowNumber, Focused)
+				LV_GetText(curtxt, RowNumber)
+			}
+		Loop, Parse, RFCURPL,|
+			{
+				if (A_LoopField = curtxt)
+					{
+						SB_SetText("Current system is already in the playlist.")
+						return
+					}
+			}
+		RFCURPL.= curtxt . "|"	
+		guicontrolget,FECBXB,,FECBXB
+		if (FECBXB = "")
+			{
+				FECBXB= %curtxt%
+			}
+		guicontrolget,FECBXD,,FECBXD
+		if (FECBXD = "")
+			{
+				FECBXD= %curtxt%
+			}
+			/*
+		guicontrolget,FECBXA,,FECBXA
+		if (FECBXA = "")
+			{
+				FECBXA= %curtxt%
+			}
+		*/	
+		if (SLCTDSN = "")
+			{
+				SLCTDSN= other
+			}
+		guicontrolget,SLCTDEMU,,FEDDLG
+		if (SLCTDEMU = "other")
+			{
+				if (rfemu = "")
+					{
+						SB_SetText("You must assign an Emulator")
+						return
+					}
+				SLCTDEMU= %rfemu%	
+			}
+		guicontrolget,SLCTDEXT,,FEEDTB
+		if (SLCTDEXT = "")
+			{
+				SLCTDEXT= .*
+			}
+		guicontrolget,SLCTDRW,,FEEDTA
+		if (SLCTDRW = "")
+			{
+				SB_SetText("You must desgnate an execution paramater, eg: ''{file.path}''")
+				return
+			}
+		SLCTDRW=%A_SPACE%%SLCTDRW%
+	}
+IniWrite,%FECBXD%|%FECBXB%|%SLCTDEXT%|%SLCTDEMU%|%SLCTDRW%|%selctsys%|%FECBXB%,RFcfg.ini,GLOBAL,%emks%
+iniread,sysordr,RFcfg.ini,ORDER,system_order
+if (sysordr <> "ERROR")
+	{
+		RFCURPL= %sysordr%%curtxt%|		
+	}
+guicontrol,,FELBXA,|%RFCURPL%
+iniwrite,%RFCURPL%,RFcfg.ini,ORDER,system_order
+Gui,ListView,FELVA
+LV_Modify(0, "-Check")
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+	
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  RF FE SETTINGS FUNCTIONS  ;;;;;;;;;;;;;;;;;;;;;;;;;;;	
+RetroFEFECBXA:
+gui,submit,nohide
+guicontrolget,rfresp,,FECBXA
+if (rfresp = "stretch")
+	{
+		rfXREZ= stretch
+		rfYREZ= stretch
+		return
+	}
+stringsplit,rfpr,rfresp,x
+rfXREZ= %rfpr1%
+stringreplace,rfXREZ,rfXREZ,%A_Space%,,All
+rfYREZ= %rfpr2%
+stringreplace,rfYREZ,rfYREZ,%A_Space%,,All
+if rfXREZ is not digit
+	{
+		guicontrol,,FECBXA,|stretch||%qres%
+	}
+if rfYREZ is not digit
+	{
+		guicontrol,,FECBXA,|stretch||%qres%
+	}
+guicontrol,,FECBXA,|%rfXREZ%x%rfYREZ%||stretch|%qres%
+TF_replaceline("!"rfsetcfg,rf_YRNUM,rf_YRNUM,"vertical = " rfYREZ "")
+TF_replaceline("!"rfsetcfg,rf_XRNUM,rf_XRNUM,"horizontal = " rfXREZ "")
+iniwrite,%rfYREZ%,rfcfg.ini,CONFIG,rfYREZ
+iniwrite,%rfXREZ%,rfcfg.ini,CONFIG,rfXREZ
+return
+
+/*
+;{;;;;;;;;;;;;;;;  RF SYSTEM THEME DROPDOWN  ;;;;;;;;;;;;;;;;;;;;;;;
+if (sysfnd = "")
+	{
+		return
+	}
+guicontrolget,SYSTHM,,FECBXA
+guicontrolget,SYSNAM,,FECBXD
+extpop= 
+Loop, Read, RFcfg.ini
+	{
+		if (A_LoopReadLine = "[CONFIG]")
+			{
+				break
+			}
+		extpov1= 	
+		extpov2=
+		extpon1= 
+		extpon2= 
+		stringsplit,extpov,A_LoopReadLine,=
+		stringsplit,extpon,extpov2,|
+		if (extpon1 = curtxt)
+			{
+				extpop= %extpov1%
+				break
+			}
+	}
+ifinstring,curtxt,_
+	{
+		extpop= %curtxt%	
+	}
+iniread,rftv,RFcfg.ini,GLOBAL,%extpop%
+avi= 
+kkv= 
+pt1=
+pt2=
+pt3=
+pt4=
+pt5=
+pt6=
+pt7=
+pt8=
+Loop, Parse, rftv,|
+	{
+		pt%A_index%= %A_LoopField%
+	}
+rftv= %pt1%|%pt2%|%pt3%|%pt4%|%pt5%|%pt6%|%SYSTHM%
+iniwrite,%rftv%,RFcfg.ini,GLOBAL,%extpop%
+cursysthemelist= %RfNpts%
+;};;;;;;;;;;;;;;;;;;;;
+*/
+
+RetroFEFECBXC:
+if (sysfnd = "")
+	{
+		return
+	}
+guicontrolget,FECBXC,,FECBXC
+guicontrolget,FECBXD,,FECBXD
+iniread,rftv,RFcfg.ini,GLOBAL,%FECBXD%
+avi= 
+kkv= 
+Loop, Parse, rftv,|
+	{
+		avi+=1
+		if (avi = 1)
+			{
+				kkv.= FECBXC . "|"
+				continue
+			}
+		kkv.= A_LoopField . "|"
+	}
+iniwrite,%kkv%,RFcfg.ini,GLOBAL,%FECBXD%
+return
+
+
+RetroFEFECBXD:
+guicontrolget,SYSREORDER,,FELBXA
+guicontrolget,SYSNAMEREP,,FECBXD
+if (sysfnd = "")
+	{
+		return
+	}
+blockinput,on
+iniread,sysreplace,RFcfg.ini,GLOBAL,%SYSREORDER%
+inidelete,RFcfg.ini,GLOBAL,%FECBXD%
+blockinput,off
+FECBXD= %SYSNAMEREP%
+RFRELST= 
+IniRead, RFQLIST,RFcfg.ini,ORDER,system_order
+IniDelete,RFcfg.ini,GLOBAL,%SYSREORDER%
+IniWrite,%sysreplace%,RFcfg.ini,GLOBAL,%SYSNAMEREP%
+Loop, Parse, RFQLIST,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		if (A_LoopField = SYSREORDER)
+			{
+				RFRELST.= SYSNAMEREP . "|"
+			}
+		RFRELST.= A_LoopField . "|"
+	}
+guicontrolget,FECBXD,,FECBXD
+guicontrol,,FELBXA,|%RFRELST%
+return
+
+
+RetroFEFEDDLD:
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;  THEME SELECTION DROPDOWN  ;;;;;;;;;;;;;;;;;;;;;;;;;;
+guicontrolget,rftheme,,FEDDLD
+iniwrite,%rftheme%,RFcfg.ini,CONFIG,theme
+cursysthemelist= 
+TF_replaceline("!"rfsetcfg,rf_THNUM,rf_THNUM,"layout = "  rftheme "")
+;;guicontrol,,FECBXA,|%RfNpts%
+return
+
+
+RetroFEFECBXB:
+if (curtxt = "")
+	{
+		SB_SetText("You must select an added system to configure the ROM path")
+		return
+	}
+
+if (sysfnd = "")
+	{
+		return
+	}
+guicontrolget,FECBXB,,FECBXB
+extpop= 
+Loop, Read, RFcfg.ini
+	{
+		if (A_LoopReadLine = "[CONFIG]")
+			{
+				break
+			}
+		extpov1= 	
+		extpov2=
+		extpon1= 
+		extpon2= 
+		stringsplit,extpov,A_LoopReadLine,=
+		stringsplit,extpon,extpov2,|
+		if (extpon1 = curtxt)
+			{
+				extpop= %extpov1%
+				break
+			}
+	}
+ifinstring,curtxt,_
+	{
+		extpop= %curtxt%	
+	}
+
+iniread,rftv,RFcfg.ini,GLOBAL,%extpop%
+avi= 
+kkv= 
+Loop, Parse, rftv,|
+	{
+		avi+=1
+		if (avi = 2)
+			{
+				kkv= %A_LoopField%
+				continue
+			}			
+			kkv.= A_LoopField . "|"
+	}
+iniwrite,%kkv%,RFcfg.ini,GLOBAL,%extpop%
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+RetroFEFEDDLG:
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  RF EMULATOR SELECTION DROPDOWN   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+if (sysfnd = "")
+	{
+		return
+	}
+pto= 
+guicontrolget,FEDDLG,,FEDDLG
+if (FEDDLG = "other")
+	{
+		pto= 1
+		rfemu= other
+		gosub,FEBUTH		
+		guicontrol,,FEDDLG,|other||%emuinstpop%
+		return
+	}
+iniread,rfemt,apps.ini,EMULATORS,%FEDDLG%
+if (rfemt = "ERROR")
+	{
+		rfemu= 
+		gosub, FEBUTH
+		if (rfemu = "")
+			{
+				return
+			}
+		iniwrite, "%rfemu%",apps.ini,EMULATORS,%FEDDLG%
+	}
+iniread,rftv,RFcfg.ini,GLOBAL,%knti1%
+emuwr= %FEDDLG%
+if (pto = 1)
+	{
+		emuwr= %rfemu%
+	}
+avi= 
+kkv= 
+Loop, Parse, rftv,|
+	{
+		avi+=1
+		if (avi = 4)
+			{
+				kkv.= emuwr . "|"
+				continue
+			}
+		kkv.= A_LoopField . "|"	
+	}
+iniwrite,%kkv%,RFcfg.ini,GLOBAL,%knti1%
+pto= 	
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+RetroFEFEDDLF:
+;{;;;;;;;;;;;;;;;;;;;;;;;   RF MIRROR SELECTION DROPDOWN   ;;;;;;;;;;;;;;;;;;;;;;;;;;;
+guicontrolget,FEDDLF,,FEDDLF
+iniread,mirtmp,Settings.ini,GLOBAL,%FEDDLF%
+RFMIRROR= %mirtmp%
+Gui,ListView,FELVA
+LV_Delete()
+Loop, %RFMIRROR%\*,2
 		{
-			iniread,gtesp,EsThemes.set,%A_LoopField%,ESTHEME
-			if (gtesp = "ERROR")
-				{
-					continue
-				}
-			esthemes.= A_LoopField . "|"
+			LV_Add("",A_LoopFileName)
 		}
-esthemes.= esadini		
+LV_ModifyCol()
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;
+
+RetroFEFEBUTH:
+guicontrolget,sysfnd,,
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;   RF EMULATOR SELECTION   ;;;;;;;;;;;;;;;;;;;;;;;;;;
+if (sysfnd = "")
+	{
+		return
+	}
+FileSelectFile,rfemutmp,3,,Select an emulator for %addsystm%
+if (rfemutmp = "")
+	{
+		return
+	}
+rfemu= %rfemutmp%
+extpop= 
+Loop, Read, RFcfg.ini
+	{
+		if (A_LoopReadLine = "[CONFIG]")
+			{
+				break
+			}
+		extpov1= 	
+		extpov2=
+		extpon1= 
+		extpon2= 
+		stringsplit,extpov,A_LoopReadLine,=
+		stringsplit,extpon,extpov2,|
+		if (extpon1 = curtxt)
+			{
+				extpop= %extpov1%
+				break
+			}
+	}
+ifinstring,curtxt,_
+	{
+		extpop= %curtxt%	
+	}
+iniread,rftv,RFcfg.ini,GLOBAL,%extpop%
+avi= 
+kka= 
+kkb= 
+kkc= 
+kkd= 
+kke= 
+kkf= 
+Loop, Parse, rftv,|
+	{
+		avi+=1
+		if (avi = 1)
+			{
+				kka= %A_LoopField%
+			}
+		if (avi = 2)
+			{
+				kkb= %A_LoopField%
+			}
+		if (avi = 3)
+			{
+				kkc= %A_LoopField%
+			}
+		if (avi = 4)
+			{
+				kkd= %rfemu%
+			}
+		if (avi = 5)
+			{
+				kke= %A_LoopField%
+			}
+		if (avi = 6)
+			{
+				kkf= %A_LoopField%
+			}			
+		if (avi = 7)
+			{
+				kkg= %A_LoopField%
+			}			
+				iniwrite,%kka%|%kkb%|%kkc%|%kkd%|%kke%|%kkf%|%kkg%,RFcfg.ini,GLOBAL,%extpop%
+	}
+guicontrol,,FEDDLG,|other||%emuinstpop%
+return
+
+RetroFEFEDDLC:
+guicontrolget,FEDDLC,,FEDDLC
+iniwrite,%FEDDLC%,RFcfg.ini,CONFIG,GameList
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+RetroFEFEBUTK:
+RRFZRUN:= 
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   LAUNCH RF  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+SB_SetText(" " RetroFE "" RRFZRUN "")
+Run, %comspec% /c "%RetroFE%"%RRFZRUN%,,hide
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+RetroFEFEBUTJ:
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   RF MOVE ORDER UP  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+SB_SetText("")
+iniDelete,RFcfg.ini,ORDER,system_order
+newnum= 
+olnum= 
+Loop, Parse, RFCURPL,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		olnum+=1
+		systmv= A_LoopField
+		if (A_LoopField = curtxt)
+			{
+				newnum:= olnum-1
+			}
+	}
+if (newnum = 0)
+	{
+		sb_settext("Cannot move up")
+		return
+	}
+TRFCURPL=
+olnum=  
+Loop, Parse, RFCURPL,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		olnum+=1
+		if (A_LoopField = curtxt)
+			{
+				continue
+			}
+		if (olnum = newnum)
+			{
+				TRFCURPL.= curtxt . "|"
+			}
+		TRFCURPL.= A_LoopField . "|"
+	}
+RFCURPL= %TRFCURPL%	
+iniwrite,%TRFCURPL%,RFcfg.ini,ORDER,system_order
+guicontrol,,FELBXA,|%RFCURPL%
+return
+
+RetroFEFESLDA:
+guicontrolget,FESLDA,,FESLDA
+iniwrite,%FESLDA%,RFcfg.ini,CONFIG,VRAM
+rfvideoram= %FESLDA%
+guicontrol,,FETXTE,VRAM Limit : %FESLDA%
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+RetroFEFEBUTI:
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;    RF MOVE ORDER DOWN   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+SB_SetText("")
+iniDelete,RFcfg.ini,ORDER,system_order
+mvnum= 
+mvtm= 
+
+Loop, Parse, RFCURPL,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		mvnum+=1
+		if (A_loopField = curtxt)
+			{
+				mvtm:= mvnum+1
+			}
+	}
+totord:= mvnum	
+if (mvtm > totord)
+	{
+		SB_SetText("Cannot Move further down.")
+		return
+	}
+TRFCURPL=
+mvnum=  	
+Loop, Parse, RFCURPL,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		mvnum+=1
+		if (A_LoopField = curtxt)
+			{
+				continue
+			}
+		TRFCURPL.= A_LoopField . "|"
+		if (mvtm = mvnum)
+			{
+				TRFCURPL.= curtxt . "|"
+			}
+	}
+RFCURPL= %TRFCURPL%
+guicontrol,,FELBXA,|%RFCURPL%
+iniwrite,%TRFCURPL%,RFcfg.ini,ORDER,system_order
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   LOAD RF CONFIG   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+RetroFEFEBUTF:
+rfcfgtmp= 
+FileSelectFile,rfcfgtmp,3,,Select the menu.txt,
+if (rfcfgtmp = "")	
+	{
+		return
+	}
+gosub,loadrfcfg
+gosub, rfgpsetcfg
+return
+
+rfgpsetcfg:
+FileRead,rfsetmp,%rfsetcfg%
+Loop,Parse,rfsetmp,`n
+	{
+		stringsplit,jik,A_LoopField,=
+		stringreplace,jik1,jik1,%A_Space%,,All
+		if (jik1 = "fullscreen")
+			{
+				rf_FSNUM:= A_Index
+			}
+		if (jik1 = "horizontal")
+			{
+				rf_XRNUM:= A_Index
+			}
+		if (jik1 = "vertical")
+			{
+				rf_YRNUM:= A_Index
+			}
+		if (jik1 = "layout")
+			{
+				rf_THNUM:= A_Index
+			}
+		if (jik1 = "showParenthesis")
+			{
+				rf_PRNUM:= A_Index
+			}
+		if (jik1 = "showSquareBrackets")
+			{
+				rf_BRNUM:= A_Index
+			}
+		if (jik1 = "videoEnable")
+			{
+				rf_VENUM:= A_Index
+			}
+	}
+return
+
+loadrfcfg:
+RFLDPL= 
+LOADEDCFG= 
+RFTOPOP= 
+Loop, read, %rfcfgtmp%
+	{
+		if (A_LoopReadline = "")
+			{
+				continue
+			}
+		ldsy= 	
+		FileRead,ccfj,%RFHOME%\collections\%A_LoopReadLine%\settings.conf
+		Loop,parse,ccfj,`n`r
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				ldsy= %A_LoopReadLine%
+				loop,parse,rflkup,`n`r
+					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						stringreplace,ldsn,ldsy,%A_Space%,,All
+						stringreplace,ldsn,ldsn,-,,All
+						stringsplit,kkr,A_LoopField,=
+						if (kkr2 = ldsy)
+							{
+								ldsn= %kkr1%
+								break
+							}
+					}
+				stringsplit,arj,A_LoopField,=
+				ldpn= %RJSYSTEMS%\%ldsy%
+				if (arj1 = "list.path")
+					{
+						ldpn= %arj2%
+					}
+				ldxt= .zip,.bin	
+				if (arj1 = "list.extensions")
+					{
+						ldxt= %arj2%
+					}
+				if (arj1 = "launcher")
+					{
+						ldln= %arj2%
+						ifinstring,ldln,.exe
+							{
+								splitpath,ldln,,,ldlnn
+								ldln= %ldlnn%
+							}
+						ldqn= "%ITEM_FILEPATH%"
+						fileread,fin,%RFHOME%\launchers\%ldln%.conf
+						loop,parse,fin,`n`r
+							{
+								if (A_LoopField = "")
+									{
+										continue
+									}
+								stringsplit,fjf,A_LoopField,=
+								if (fjf1 = "arguments")
+									{
+										ldqn= %fjf2%
+									}
+							}
+					}
+			}
+		RFTOPOP.= fjf1 . "|"
+		LOADEDCFG.= ldsy . "=" . ldsn . "|" . ldsy . "|" . ldxt . "|" . ldln . "|" . ldqn . "|" . ldpn . "|" . ldsn . "`n"
+	}
+iniwrite, %LOADEDCFG%,rj\RF\loadsys.ini,GLOBAL	
+
+iniwrite,%rffullscreen%,rj\RF\loadsys.ini,CONFIG,FullScreen
+iniwrite,%rfvideoen%,rj\RF\loadsys.ini,CONFIG,rfvideoen
+iniwrite,%rftheme%,rj\RF\loadsys.ini,CONFIG,theme
+iniwrite,%RFHOME%,rj\RF\loadsys.ini,CONFIG,home_directory
+guicontrol,,FELBXA,|%RFTOPOP%
+
+iniwrite,%RFTOPOP%,rj\RF\loadsys.ini,ORDER,system_order
+RFCURPL= %RFTOPOP%
+fileCopy,RFcfg.ini,RFcfg.ini.bak,1
+fileMove,rj\RF\loadsys.ini,RFcfg.ini,1
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+RetroFEFEEDTA:
+;{;;;;;;;;;;;;;;;;;;;;;;;;  RF EDIT FIELDS   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+if (sysfnd = "")
+	{
+		return
+	}
+guicontrolget,FEEDTA,,FEEDTA
+extpop= 
+Loop, Read, RFcfg.ini
+	{
+		if (A_LoopReadLine = "[CONFIG]")
+			{
+				break
+			}
+		extpov1= 	
+		extpov2=
+		extpon1= 
+		extpon2= 
+		stringsplit,extpov,A_LoopReadLine,=
+		stringsplit,extpon,extpov2,|
+		if (extpon1 = curtxt)
+			{
+				extpop= %extpov1%
+				break
+			}
+	}
+ifinstring,curtxt,_
+	{
+		extpop= %curtxt%	
+	}
+iniread,rftv,RFcfg.ini,GLOBAL,%extpop%
+avi= 
+kkv= 
+Loop, Parse, rftv,|
+	{
+		avi+=1
+		if (avi = 5)
+			{
+				kkv.= FEEDTA . "|"
+				continue
+			}			
+		kkv.= A_LoopField . "|"	
+	}
+iniwrite,%kkv%,RFcfg.ini,GLOBAL,%extpop%
+return
+
+RetroFEFEEDTB:
+if (sysfnd = "")
+	{
+		return
+	}
+guicontrolget,FEEDTB,,FEEDTB
+extpop= 
+Loop, Read, RFcfg.ini
+	{
+		if (A_LoopReadLine = "[CONFIG]")
+			{
+				break
+			}
+		extpov1= 	
+		extpov2=
+		extpon1= 
+		extpon2= 
+		stringsplit,extpov,A_LoopReadLine,=
+		stringsplit,extpon,extpov2,|
+		if (extpon1 = curtxt)
+			{
+				extpop= %extpov1%
+				break
+			}
+	}
+ifinstring,curtxt,_
+	{
+		extpop= %curtxt%	
+	}
+iniread,rftv,RFcfg.ini,GLOBAL,%extpop%
+avi= 
+kkv= 
+Loop, Parse, rftv,|
+	{
+		avi+=1
+		if (avi = 3)
+			{
+				kkv= %A_LoopField%
+				stringreplace,rftv,rftv,%kkv%,%FEEDTB%,All
+				iniwrite,%rftv%,RFcfg.ini,GLOBAL,%extpop%
+			}			
+	}
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+RetroFEFERAD5A:
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  RF JACKET RADIO  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+guicontrol,hide,FEDDLF
+Gui,ListView,FELVA
+LV_Delete()
+Guicontrol,+checked,FELVA
+Guicontrol,+Multi,FELVA
+Loop, %RJSYSTEMS%\*,2
+	{
+		if A_LoopFileAttrib contains H
+			{
+				continue
+			}
+		LV_Add("",A_LoopFileName)
+	}
+LV_ModifyCol()
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+RetroFEFERAD5B:
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  RF MIRROR RADIO ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+guicontrol,show,FEDDLF
+guicontrolget,FEDDLF,,FEDDLF
+IniRead,mirsl,Settings.ini,%FEDDLF%
+Gui,ListView,FELVA
+Guicontrol,+checked,FELVA
+Guicontrol,+Multi,FELVA
+LV_Delete()
+Loop, %mirsl%\*,2
+	{
+		LV_Add("",A_LoopFileName)
+	}
+LV_ModifyCol()
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+RetroFEFERAD5C:
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  RF ROM RADIO   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Gui,ListView,FELVA
+Guicontrol,-checked,FELVA
+Guicontrol,-Multi,FELVA
+LV_Delete()
+Loop, Parse, RfNpts,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		LV_Add("",A_LoopField)
+	}
+LV_ModifyCol()
+guicontrol,hide,FEDDLF
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+RetroFEFELVA:
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   RF LISTVIEW  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+gui,listview,FELVA
+if (FERAD5C = 1)
+	{
+		curtxt= 
+		sysfnd= 
+		guicontrol,,FETXTJ,
+		RowNumber = 0  
+		Loop
+			{
+				RowNumber := LV_GetNext(RowNumber)  
+				if not RowNumber  
+					{
+						break
+					}
+				LV_GetNext(RowNumber, Focused)
+				LV_GetText(curtxt, RowNumber)
+			}
+		Loop, Parse, RFCURPL,|
+			{
+				if (A_LoopField = curtxt)
+					{
+						curtxt= 
+						SB_SetText("Current system is already in the playlist.")
+						LV_Modify(RowNumber, "-Select")
+						curtxt= 
+						return
+					}
+			}
+		if (curtxt = "other")
+			{
+				SB_SetText("Define OTHER")
+				curtxt= 
+				return
+			}
+		if (curtxt <> "")
+			{
+				gosub, poprfv
+			}
+		return	
+	}
+curtxt= 
+sysfnd= 
+guicontrol,,FETXTJ,
+RowNumber = 0  
+Loop
+	{
+		RowNumber := LV_GetNext(RowNumber)  
+		if not RowNumber  
+			{
+				break
+				}
+			LV_GetNext(RowNumber, Focused)
+			LV_GetText(curtxt, RowNumber)		
+	}
+	
+Loop, Parse, RfLkUp,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		matv1= 
+		matv2= 
+		matv3= 
+		matv4= 
+		matv5= 
+		kvmax= 
+		xfnd= 
+		stringsplit,matv,A_LoopField,=
+		if (matv3 = curtxt)
+			{
+				if (matv1 <> "")
+					{
+						ifexist,%RFHOME%\layouts\%rftheme%\%matv1%\
+							{
+								kvmax= %matv1%||
+							}
+					}
+				;;guicontrol,,FECBXA,|%kvmax%%RfNpts%
+				guicontrol,,FECBXB,|%matv3%||%systmfldrs%%RfNpts%
+				guicontrol,,FECBXD,|%matv1%||%RfNpts%%systmfldrs%
+				guicontrol,,FECBXC,|%matv1%||%RfNpts%%systmfldrs%
+				xfnd= 1
+				break
+			}
+	}	
+if (xfnd = "")
+	{
+		kvmax= 
+		curtIV= 
+		stringreplace,curtIV,curtxt,%A_Space%,,All
+		stringreplace,curtIV,curtIV,-,,All
+		stringreplace,curtIV,curtIV,=,,All
+		stringlower,curtIV,curtIV
+		if (curtIV <> "")
+			{
+				ifexist,%RFHOME%\layouts\%rftheme%\%curtIV%\
+					{
+						kvmax= %curtIV%||
+					}
+			}			
+		;;guicontrol,,FECBXA,|%kvmax%%RfNpts%
+		guicontrol,,FECBXB,|%curtxt%||%systmfldrs%%RfNpts%
+		guicontrol,,FECBXD,|%curtIV%||%RfNpts%%systmfldrs%
+		guicontrol,,FECBXC,|%curtIV%||%RfNpts%%systmfldrs%	
+		guicontrol,,FEEDTA,"{file.path}"	
+		guicontrol,,FEEDTB,.zip	
+		guicontrol,,FEDDLG,|MAME - System|%emuinstpop%	
+	}
+return
+
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+RetroFEFELBXA:
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   RF LISTBOX  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+gui,submit,nohide
+;;guicontrolget,fecbxa,,FECBXA
+guicontrolget,curtxt,,FELBXA
+sysfnd= 1
+gosub, poprfv
+return
+
+poprfv:
+if (FERAD5A = 1)
+	{
+		rflocor= %RJSYSTEMS%
+	}
+if (FERAD5B = 1)
+	{
+		rflocor= %rfmirror%
+	}
+if (FERAD5C = 1)
+	{
+		rflocor= %RJSYSTEMS%
+	}
+Loop, read, RFcfg.ini
+	{
+		ksivi1= 
+		ksivi2= 
+		ksivi3= 
+		ksivi4= 
+		ksivi5= 
+		ksivi6= 
+		ksivi7= 
+		knti1= 
+		knti2= 
+		if (A_LoopReadLine = "[CONFIG]")
+			{
+				break
+			}
+		stringsplit,knti,A_LoopReadLine,=
+		stringsplit,ksivi,knti2,|
+		if (knti2 = "")
+			{
+				continue
+			}
+		ifinstring,knti1,_
+			{
+				kmpex= 
+				if (knti1 = curtxt)
+					{
+						rfpopext= %knti1%
+						defthm= %ksivi1%
+						guicontrol,,FEEDTA,%ksivi5%
+						guicontrol,,FEEDTB,%ksivi3%
+						ifinstring,ksivi5,:
+							{
+								ksivi5= other
+							}
+						guicontrol,,FECBXD,|%knti1%||%systmfldrs%%RfNpts%
+						guicontrol,,FECBXC,|%ksivi1%||%RfNpts%%systmfldrs%
+						if (ksivi7 <> "")
+							{
+								ifexist,%RFHOME%\layouts\%ksivi7%\
+									{
+										kmpex= %ksivi7%||
+									}							
+							}
+						;;guicontrol,,FECBXA,|%kmpex%%RfNpts%
+						guicontrol,,FETXTJ,%ksivi6%
+						guicontrol,,FEDDLG,|other|%ksivi4%||%emuinstpop%
+						guicontrol,,FECBXB,|other|%ksivi2%||%systmfldrs%
+						return
+					}
+			}
+		if (ksivi1 = curtxt)
+			{
+				kmpex= 
+				rfpopext= %knti1%
+				defthm= %ksivi1%
+				guicontrol,,FEEDTA,%ksivi5%
+				guicontrol,,FEEDTB,%ksivi3%
+				ifinstring,ksivi5,:
+					{
+						ksivi5= other
+					}
+				guicontrol,,FECBXD,|%knti1%||%systmfldrs%%RfNpts%
+				guicontrol,,FECBXC,|%ksivi1%||%RfNpts%%systmfldrs%
+				if (ksivi7 <> "")
+					{
+						ifexist,%RFHOME%\layouts\%rftheme%\%ksivi7%\
+							{
+								kmpex= %ksivi7%||
+							}
+					}
+				;;guicontrol,,FECBXA,|%kmpex%%RfNpts%
+				guicontrol,,FETXTJ,%ksivi6%
+				guicontrol,,FEDDLG,|other|%ksivi4%||%emuinstpop%
+				guicontrol,,FECBXB,|other|%ksivi2%||%systmfldrs%
+				return
+			}
+	}
+if (sysfnd = "")
+	{
+		emks= 
+		emkr= 
+		emkx= 
+		Loop, Parse, RfLkUp,`n`r
+			{
+				kvi1= 
+				kvi2= 
+				kvi3= 
+				kvi4=
+				kvi5= 
+				stringsplit,kvi,A_LoopField,=
+				ifinstring,curtxt,_
+					{
+						stringreplace,snlk,cutxt,_,,All
+						if (kvi2 = snlk)
+							{
+								gosub, nwrflk
+								return
+							}
+					}
+				if (kvi1 = curtxt)
+					{
+						gosub, nwrflk
+						return
+					}
+			}		
+		
+	}
+return
+
+nwrflk:
+emke= %kvi5%
+SLCTDSN= %kvi2%
+iniread,emkce,apps.ini,EMULATORS,%kvi5%
+if (emkce = "ERROR")
+	{
+		SB_SetText(" " emkce " is not found")
+	}
+ifnotexist,%emkce%
+	{
+		SB_SetText(" " emkce " is not found")
+	}
+emks= %kvi3%
+emkx= %kvi4%
+emkr= %kvi6%
+emkt= %kvi1%
+emkn= %kvi7%
+if (emkx = ":")
+	{
+		emkx= .*
+	}
+guicontrol,,FECBXC,|%emks%||%systmfldrs%%RfNpts%
+guicontrol,,FECBXD,|%emkt%||%RfNpts%
+emky= 
+if (emkn <> "")
+	{
+		ifexist,%RFHOME%\layouts\%rftheme%\%emkn%\
+			{
+				emky= %emkn%
+			}
+	}
+
+;;guicontrol,,FECBXA,|%emky%%RfNpts%
+guicontrol,,FEDDLG,|other|%emke%||%emuinstpop%
+guicontrol,,FECBXB,|other|%emks%||%systmfldrs%
+guicontrol,,FEEDTB,%emkx%
+guicontrol,,FEEDTA,%emkr%
+guicontrol,,FETXTJ,%rflocor%\%emks%
+selctsys= %rflocor%\%emks%
+ifnotexist, %rflocor%\%emks%
+	{
+		selctsys= %RJSYSTEMS%\%emks%
+		guicontrol,,FETXTJ,NOT SET (defaulting to %RJSYSTEMS%\%emks%)
+	}
+guicontrol,,FEEDTA,%emkr%
+return
+
+
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+RetroFEFEBUTG:
+MsgBox, 260, Clear List, Are you sure you want to clear all systems from the configuration list?
+ifmsgbox, Yes
+	{
+		RFCURPL= 
+		RFTOPOP= 
+		;;guicontrol,,FELBXA,|
+		filedelete,RFcfg.ini
+		gosub,RFINIT
+	}
+return
+
+RetroFEFERAD2A:
+gui,submit,nohide
+rfcleant= %FERAD2A%
+rfcleantitle= no
+iniwrite,%rfcleantitle%,RfCfg.ini,CONFIG,rfcleantitle
+TF_replaceline("!"rfsetcfg,rf_PRNUM,rf_PRNUM,"showParenthesis = " rfcleantitle "")
+TF_replaceline("!"rfsetcfg,rf_BRNUM,rf_BRNUM,"showSquareBrackets = " rfcleantitle "")
+return
+
+RetroFEFERAD2B:
+rfcleant= 0
+rfcleantitle= yes
+iniwrite,%rfcleantitle%,RfCfg.ini,CONFIG,rfcleantitle
+TF_replaceline("!"rfsetcfg,rf_PRNUM,rf_PRNUM,"showParenthesis = " rfcleantitle "")
+TF_replaceline("!"rfsetcfg,rf_BRNUM,rf_BRNUM,"showSquareBrackets = " rfcleantitle "")
+return
+
+RetroFEFECHKB:
+return
+
+RetroFEFECHKE:
+gui,submit,nohide
+rfvideoen= no
+if (FECHKE = 1)
+	{
+		rfvideoen= yes
+	}
+iniwrite,%rfvideoen%,RFcfg.ini,CONFIG,rfvideoen
+TF_replaceline("!"rfsetcfg,rf_VENUM,rf_VENUM,"videoEnable = " rfvideoen "")
+return
+
+RetroFEFECHKD:
+gui,submit,nohide
+rffullscreen= false
+if (FECHKD = 1)
+	{
+		rffullscreen= true
+	}
+iniwrite,%rffullscreen%,RFcfg.ini,CONFIG,fullscreen
+TF_replaceline("!"rfsetcfg,rf_FSNUM,rf_FSNUM,"fullscreen = " rffullscreen "")
+return
+
+RetroFEFECHKF:
+return
+
+
+RetroFEFEDDLA:
+return
+
+RetroFEFECHKA:
+return
+
+RetroFEFECHKC:
+return
+
+RFOPNPL:
+Loop,Parse,RFPLSWAP,|
+	{
+		guicontrol,%opntog%,%A_loopField%
+	}
+return
+;};;;;;;;;
+
+;{;;;;;;;;;;;;;;;;;;;;;;;;;  RETROFE PLAYLIST FUNCTIONS  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+RFROMROOT:
+gui,submit,nohide
+RFROOTFLDTMP= 
+SB_SetText("Current ROM folder is set to " RFROOTFLD "")
+FileSelectFolder,RFROOTFLDTMP,3,Select the ROM folder
+if (RFROOTFLDTMP = "")
+	{
+		return
+	}
+RFROOTFLD= %RFROOTFLDTMP%
+SB_SetText("Current ROM folder is set to " RFROOTFLD "")
+guicontrol,,RFRRTXT, ROM Directory is SET
+RFROMLST= 
+Loop, %RFROOTFLD%\*.*
+	{
+		RFROMLST.= A_LoopFileFullPath . "|"
+	}
+guicontrol,,ROMPOP,|%RFROMLST%
+return
+
+RFPOPCORE:
+gui,submit,nohide
+return
+RFBackupPl:
+gui,submit,nohide
+return
+
+RFSavePl:
+gui,submit,nohide
+SB_SetText("Creating Playlist ... ")
+SYSNAME= 
+guicontrolget,SYSNAME,,RFPLXMP
+if (SYSNAME = "")
+	{
+		SB_SetText("You Must have a name for your playlist.")
+		return
+	}	
+;{;;;;;fold
+plsave= 
+if (plsave = "") 
+	{
+		plsave= %RFHOME%\collections
+	}
+plstdir= %plsave%\%SYSNAME%
+
+ifnotexist, %plstdir%
+	{
+		FileCreateDir,%plstdir%
+	}
+;};;;;;;;;;;;
+ControlGet,curpllst, List,,,ahk_id %insel%
+existlst= 
+Loop, Parse,curplLst,`n`r
+	{
+		if (A_LoopField <> ",")
+		{
+			taih1=
+			taih2=
+			stringsplit,taih,A_LoopField,>
+			existlst .= (A_Index == 1 ? "" : "|") . taih1
+		}
+	}
+plmatch= 
+plsep= 
+plsep1= 
+plsep2= 
+coretitle= 
+
+RFPlaylistSaving:
+guicontrol, disable, SVAPLST
+guicontrol, disable, SVPLST
+guicontrol,disable,RFPLCORE
+guicontrol,disable,ROMPOP
+guicontrol,disable,CURPLST
+guicontrol,disable,CLRPP
+guicontrol,disable,PLINIT
+guicontrol,disable,MVPLOD
+guicontrol,disable,MVPLOU
+guicontrol,disable,CLRPL
+guicontrol,disable,BRADD
+guicontrol,disable,CPYPL
+guicontrol,disable,REMPL
+guicontrol,disable,RFSVPL
+guicontrol,disable,RFOPENPL
+guicontrol,disable,RFTHUMBSRCHBUT
+guicontrol,disable,RFMARQSRCHBUT
+guicontrol,disable,RFVIDSRCHBUT
+
+ARCDTYP= 
+guicontrolget, RFPLCORE, ,RFPLCORE
+if (SYSNAME = "MAME")
+	{
+		ARCDTYP= 1
+	}
+if (SYSNAME = "MAME - Aracade")
+	{
+		ARCDTYP= 1
+	}
+if (SYSNAME = "arcade")
+	{
+		ARCDTYP= 1
+	}
+if (SYSNAME = "model2")
+	{
+		ARCDTYP= 1
+	}
+if (SYSNAME = "model3")
+	{
+		ARCDTYP= 1
+	}
+if (SYSNAME = "cps3")
+	{
+		ARCDTYP= 1
+	}
+if (SYSNAME = "cps2")
+	{
+		ARCDTYP= 1
+	}
+if (SYSNAME = "cps")
+	{
+		ARCDTYP= 1
+	}
+if (SYSNAME = "neogeo")
+	{
+		ARCDTYP= 1
+	}
+if (SYSNAME = "neocd")
+	{
+		ARCDTYP= 1
+	}
+if (SYSNAME = "naomi")
+	{
+		ARCDTYP= 1
+	}
+if (SYSNAME = "atomiswave")
+	{
+		ARCDTYP= 1
+	}
+if (SYSNAME = "fba")
+	{
+		ARCDTYP= 1
+	}
+FileDelete,rj\RF\tmp.txt
+FileDelete,rj\RF\include.txt
+FileDelete,rj\RF\story.txt
+
+if (RFCPYSCR = 1)
+	{
+		FileCreateDir, %RFHOME%\collections\%SYSNAME%\medium_artwork\artwork_front
+		FileCreateDir, %RFHOME%\collections\%SYSNAME%\medium_artwork\artwork_back
+		FileCreateDir, %RFHOME%\collections\%SYSNAME%\medium_artwork\artwork_front
+		FileCreateDir, %RFHOME%\collections\%SYSNAME%\medium_artwork\bezel
+		FileCreateDir, %RFHOME%\collections\%SYSNAME%\medium_artwork\fanart
+		FileCreateDir, %RFHOME%\collections\%SYSNAME%\medium_artwork\logo
+		FileCreateDir, %RFHOME%\collections\%SYSNAME%\medium_artwork\medium_back
+		FileCreateDir, %RFHOME%\collections\%SYSNAME%\medium_artwork\medium_front
+		FileCreateDir, %RFHOME%\collections\%SYSNAME%\medium_artwork\screenshot
+		FileCreateDir, %RFHOME%\collections\%SYSNAME%\medium_artwork\screentitle
+		FileCreateDir, %RFHOME%\collections\%SYSNAME%\medium_artwork\story
+		FileCreateDir, %RFHOME%\collections\%SYSNAME%\medium_artwork\video
+	}
+Loop, Parse, existlst,|
+	{		
+		TOTPTH= %RFROOTFLD%\%A_LoopField%
+/*
+		ifinstring,A_LoopField,:
+			{
+				RFABSOL= 1
+				TOTPTH= %A_LoopField%
+			}
+			*/
+		FileDelete,rj\RF\tmp.txt
+		FileDelete,rj\RF\story.txt	
+		FileDelete,rj\RF\include.txt	
+		splitpath,TOTPTH,romn,romind,romext,romname,romdd
+		imgetn= %romname%
+		if (RFPLCORE = "Fuzzy-Match")
+			{
+				stringsplit,romspl,romname,([
+				imgetn= %romspl1%*
+			}
+		RFK= 
+		imgetb= %imgetn%
+		if (RFUSESCR = 1)
+			{
+				RFBOXPATH= %ASSETS%\%SYSNAME%\%romname%\BoxArt
+				imgetb= %imgetn%
+			}
+		if (RFBOXPATH = "")
+			{
+				RFBOX= 1
+				RFBOXPATH= %RFHOME%\collections\%SYSNAME%\medium_artwork\artwork_front
+				imgetb= %imgetn%-image
+			}
+		ROMIMAGEMATCH= 
+		  Loop, %RFBOXPATH%\%imgetb%.*
+			{	
+				ROMIMAGEMATCH= %A_LoopFileFullPath%
+				newxt= 
+				splitpath,ROMIMAGEMATCH,,,newxt
+				if (RFCPYSCR = 1)
+					{
+						RFIMG= 1
+						FileCopy, %ROMIMAGEMATCH%, %RFHOME%\collections\%SYSNAME%\medium_artwork\artwork_front\%romname%-image.%newxt%
+					}
+				break
+			}
+		RFMARQ= 	
+		imgetm= %imgetn%
+		if (RFUSESCR = 1)
+			{
+				RFMARQUEEPATH= %ASSETS%\%SYSNAME%\%romname%\Marquees
+				imgetb= %imgetn%
+			}
+		if (RFMARQUEEPATH = "")
+			{
+				RFMARQ= 1
+				RFMARQUEEPATH= %RFHOME%\collections\%SYSNAME%\medium_artwork\bezel
+				imgetm= %imgetn%-marquee
+
+			}
+		ROMMARQUEEMATCH= 
+		Loop, %RFMARQUEEPATH%\%imgetm%.*
+			{	
+				ROMMARQUEEMATCH= %A_LoopFileFullPath%
+				newxt= 
+				splitpath,ROMMARQUEEMATCH,,,newxt
+				if (RFCPYSCR = 1)
+					{
+						RFMARQ= 1
+						FileCopy, %ROMMARQUEEMATCH%, %RFHOME%\collections\%SYSNAME%\medium_artwork\bezel\%romname%-marquee.%newxt%
+					}
+				break
+			}
+		RFTHU= 
+		imgett= %imgetn%
+		if (RFUSESCR = 1)
+			{
+				RFTHUMBNAILPATH= %ASSETS%\%SYSNAME%\%romname%\Snapshots
+				imgetb= %imgetn%
+			}
+		if (RFTHUMBNAILPATH = "")
+			{
+				RFTHU= 1
+				imgett= %imgetn%-thumb
+				RFTHUMBNAILPATH= %RFHOME%\collections\%SYSNAME%\medium_artwork\screenshot
+				
+			}
+		ROMTHUMBNAILMATCH= 
+		Loop, %RFTHUMBNAILPATH%\%imgett%.*
+			{	
+				ROMTHUMBNAILMATCH= %A_LoopFileFullPath%
+				newxt= 
+				splitpath,ROMTHUMBNAILMATCH,,,newxt
+				if (RFCPYSCR = 1)
+					{
+						RFTHU= 1
+						FileCopy, %ROMTHUMBNAILMATCH%, %RFHOME%\collections\%SYSNAME%\medium_artwork\screenshot\%romname%-thumb.%newxt%
+					}
+				break
+			}
+		RFVID= 
+		imgetv= %imgetn%
+		if (RFUSESCR = 1)
+			{
+				RFVIDEOPATH= %ASSETS%\%SYSNAME%\%romname%\Videos
+				imgetb= %imgetn%
+			}
+		if (RFVIDEOPATH = "")
+			{
+				RFVID= 1
+				RFVIDEOPATH= %RFHOME%\collections\%SYSNAME%\medium_artwork\video
+				imgetv= %imgetn%-video
+			}
+		ROMVIDEOMATCH= 
+		Loop, %RFVIDEOPATH%\%imgetv%.*
+			{	
+				ROMVIDEOEMATCH= %A_LoopFileFullPath%
+				newxt= 
+				splitpath,ROMVIDEOEMATCH,,,newxt
+				if (RFCPYSCR = 1)
+					{
+						RFVID= 1
+						FileCreateDir, %RFHOME%\collections\%SYSNAME%\medium_artwork\video
+						FileCopy, %ROMVIDEOEMATCH%, %RFHOME%\collections\%SYSNAME%\medium_artwork\video\%romname%-video.%newxt%
+					}
+				break
+			}
+		if (RFUSESCR = 1)
+			{
+				pulmeta= 
+				pulrate= 
+				puldate= 
+				pulhid= 
+				puldev= 
+				pulpub= 
+				pulgen= 
+				pulpl= 
+				pulkid= 
+				pulfav= 
+				metaspl1=
+				metaspl2=
+				metaspl3=
+				Loop, %ASSETS%\%SYSNAME%\%romname%\MetaData\*.xml
+					{
+						fndmet= 
+						FileRead,metadt,%A_loopfilefullpath%
+						Loop, Parse, metadt,`n`r
+							{
+								if (A_Loopfield = "")
+									{
+										continue
+									}
+								stringsplit,metaspl,A_LoopField,<>
+								if (metaspl2 = "released")
+									{
+										puldate= %metaspl3%
+									}
+								if (metaspl2 = "developer")
+									{
+										puldev= %metaspl3%
+									}
+								if (metaspl2 = "publisher")
+									{
+										pulpub= %metaspl3%
+									}
+								if (metaspl2 = "genre")
+									{
+										pulgen= %metaspl3%
+									}
+								if (metaspl2 = "players")
+									{
+										pulpl= %metaspl3%
+									}
+								if (metaspl2 = "rating")
+									{
+										pulrate= %metaspl3%
+									}
+								if (metaspl2 = "desc")
+									{
+										fndmet= 1
+										pulmeta.= metaspl3
+										if (metaspl4 = "/desc")
+											{
+												fndmet= 
+											}
+									}
+							if (metaspl2 = "plot")
+									{
+										fndmet= 1
+										pulmeta.= metaspl3
+										if (metaspl4 = "/")
+											{
+												fndmet= 
+											}
+									}
+							if (metaspl2 = "overview")
+									{
+										fndmet= 1
+										pulmeta.= metaspl3
+										if (metaspl4 = "/overview")
+											{
+												fndmet= 
+											}
+									}
+							if (metaspl2 = "notes")
+									{
+										fndmet= 1
+										pulmeta.= metaspl3
+										if (metaspl4 = "/notes")
+											{
+												fndmet= 
+											}
+									}
+								if (fndmet = 1)
+									{
+										pulmeta.= A_loopfield . "`n"
+										ifinstring, pulmeta,</desc>
+											{
+												fndmet= 
+											}
+									}
+							}
+				break	
+					}
+			}
+		pthrom= %A_LoopField%
+		if (RFVID = 1)
+			{
+				stringreplace,ROMVIDEOMATCH,ROMVIDEOMATCH,%RFVIDEOPATH%,`%BASE_MEDIA_PATH`%/`%ITEM_COLLECTION_NAME`%/medium_artwork/video,All
+			}
+		if (RFMARQ = 1)
+			{
+				stringreplace,ROMMARQUEEMATCH,ROMMARQUEEMATCH,%RFMARQUEEPATH%,`%BASE_MEDIA_PATH`%/`%ITEM_COLLECTION_NAME`%/medium_artwork/bezel,All
+			}
+		if (RFTHU = 1)
+			{
+				stringreplace,ROMTHUMBNAILMATCH,ROMTHUMBNAILMATCH,%RFTHUMBNAILPATH%,`%BASE_MEDIA_PATH`%/`%ITEM_COLLECTION_NAME`%/medium_artwork/screenshot,All
+			}
+		if (RFBOX = 1)
+			{
+				stringreplace,ROMIMAGEMATCH,ROMIMAGEMATCH,%RFBOXPATH%,`%BASE_MEDIA_PATH`%/`%ITEM_COLLECTION_NAME`%/medium_artwork/artwork_front,All
+			}
+		ifinstring,pthrom,:
+			{				
+				stringreplace,pthrom,pthrom,%RJSYSTEMS%\%SYSNAME%\,,All
+			}
+		stringreplace,pthrom,pthrom,\,/,All
+		romsfi= ./%romn%
+		if (pulfav = "")
+			{
+				pulfav= false
+			}
+		if (pulkid = "")
+			{
+				pulkid= false
+			}
+		if (pulhid = "")
+			{
+				pulhid= false
+			}
+		FileAppend,%romname%`n,rj\RF\include.txt		
+		/*	
+		FileAppend,files: %romn%`n,tmp.txt		
+		FileAppend,assets.boxfront: %ROMIMAGEMATCH%`n,tmp.txt
+		FileAppend,assets.screenshot: %ROMTHUMBNAILMATCH%`n,tmp.txt
+		FileAppend,assets.marquee: %ROMBANMATCH%`n,tmp.txt
+		FileAppend,assets.video: %ROMVIDMATCH%`n,tmp.txt
+		*/
+		FileAppend,rating = %pulrate%`n,rj\RF\tmp.txt
+		FileAppend,year = %puldate%`n,rj\RF\tmp.txt
+		FileAppend,developer = %puldev%`n,rj\RF\tmp.txt
+		FileAppend,publisher = %pulpub%`n,rj\RF\tmp.txt
+		FileAppend,genre = %pulgen%`n,rj\RF\tmp.txt
+		FileAppend,players = %pulpl%`n,rj\RF\tmp.txt
+		FileAppend,%pulmeta%`n,rj\RF\story.txt
+		filecopy,rj\RF\include.txt,%RFHOME%\collections\%SYSNAME%,1
+		filecopy,rj\RF\tmp.txt,%RFHOME%\collections\%SYSNAME%\info\%romname%.txt,1
+		filecopy,rj\RF\story.txt,%RFHOME%\collections\%SYSNAME%\medium_artwork\story\%romname%.txt,1
+	}
+if (RFBACKUP = 1)
+	{
+		FileCopy,%RFHOME%\collections\%SYSNAME%\include.txt,%RFHOME%\collections\%SYSNAME%\include.txt.bak,1
+	}	
+MsgBox,1,GameList Created,Created %plstdir%`nGamelist created.
+SB_SetText(" " plstdir " gamelist created")
+guicontrol, enable, SVAPLST
+guicontrol, enable, SVPLST
+guicontrol,enable,RFPLCORE
+guicontrol,enable,ROMPOP
+guicontrol,enable,CURPLST
+guicontrol,enable,CLRPP
+guicontrol,enable,PLINIT
+guicontrol,enable,MVPLOU
+guicontrol,enable,MVPLOD
+guicontrol,enable,CLRPL
+guicontrol,enable,BRADD
+guicontrol,enable,CPYPL
+guicontrol,enable,REMPL
+guicontrol,enable,RFSVPL
+guicontrol,enable,RFOPENPL
+guicontrol,enable,RFTHUMBSRCHBUT
+guicontrol,enable,RFMARQSRCHBUT
+guicontrol,enable,RFVIDSRCHBUT
+return
+
+RfPlaylistNames:
+gui,submit,nohide
+return
+
+
+RfOpenPl:
+gui,submit,nohide
+RFGAMLOTMP=
+guicontrolget,SYSNAME,,RFPLXMP
+FileSelectFile,RFGAMLOTMP,3,%rfhome%\collections\%SYSNAME%,Select a gamelist file, gamelist (*.txt)
+if (RFGAMLOTMP = "")
+	{
+		return
+	}
+
+splitpath,RFGAMLOTMP,RFGAMLOMN,RFGAMLOD,,RFGAMLODIR
+splitpath,RFGAMLOD,,,,syspfl
+ifnotexist,rj\RF\%syspfl%
+	{
+		FileCreateDir,rj\RF\%syspfl%
+	}
+
+splitpath,RFGSAMLOD,RfGamLstF,
+
+Loop, Parse, SysEmuSet,`n`r
+	{
+		gaminsl1= 
+		gaminsl2= 
+		stringsplit,gaminsl,A_LoopField,|
+		Loop, Parse, SysEmuSet,`n`r
+			{
+				stringsplit,gaminsl,A_LoopField,|
+				ifinstring,gaminsl1,%syspfl%
+					{
+						syssub= %gaminsl1%
+					}
+			}
+
+	}
+
+FileDelete,rj\RF\%syspfl%\*.ini
+FileDelete,rj\RF\n.txt
+
+RFGAMLO= %RFGAMLOTMP%
+RFGAMX= 
+FileRead, RFGAMX,%RFGAMLO%
+
+SB_SetText("POPULATING")
+
+RFINIPOP= 
+ngame= 
+ren= 
+agame= 
+Loop, Parse, RFGAMX,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		clut1= 
+		clut2= 
+		clut3= 
+		stringsplit,clut,A_LoopField,:
+		if (clut1 = "game")
+			{
+				Loop,%clut0%
+					{
+						if (A_index = 1)
+							{
+								continue
+							}
+						fprt= % clut%A_Index%	
+						ngame.= fprt . "`n"
+					}
+				ren= %ngame%
+				stringreplace,ren,ren,\,,All
+				stringreplace,ren,ren,/,,All
+				stringreplace,ren,ren,?,-,All
+				stringreplace,ren,ren,<,-,All
+				stringreplace,ren,ren,>,-,All
+				stringreplace,ren,ren,=,-,All
+				stringreplace,ren,ren,`%,-,All
+				stringreplace,ren,ren,*,-,All
+				stringreplace,ren,ren,:,-,All
+				stringreplace,ren,ren,&#39;,',All
+				stringreplace,ren,ren,&amp;,&,All
+				continue
+			}
+		if (clut1 = "assets.boxfront")
+			{
+				Loop,%clut0%
+					{
+						if (A_index = 1)
+							{
+								continue
+							}
+						fprt= % clut%A_Index%	
+						ngame.= fprt . "`n"
+					}
+				continue
+			}
+		if (clut1 = "assets.marquee")
+			{
+				Loop,%clut0%
+					{
+						if (A_index = 1)
+							{
+								continue
+							}
+						fprt= % clut%A_Index%	
+						ngame.= fprt
+					}
+				continue
+			}
+		if (clut1 = "assets.video")
+			{
+				Loop,%clut0%
+					{
+						if (A_index = 1)
+							{
+								continue
+							}
+						fprt= % clut%A_Index%	
+						ngame.= fprt . "`n"
+					}
+				continue
+			}
+		if (clut1 = "description")
+			{
+				Loop,%clut0%
+					{
+						if (A_index = 1)
+							{
+								continue
+							}
+						fprt= % clut%A_Index%	
+						ngame.= fprt . "`n"
+					}
+				continue
+			}
+		if (clut1 = "rating")
+			{
+				Loop,%clut0%
+					{
+						if (A_index = 1)
+							{
+								continue
+							}
+						fprt= % clut%A_Index%	
+						ngame.= fprt . "`n"
+					}
+				continue
+			}
+		if (clut1 = "release")
+			{
+
+				Loop,%clut0%
+					{
+						if (A_index = 1)
+							{
+								continue
+							}
+						fprt= % clut%A_Index%	
+						ngame.= fprt . "`n"
+					}
+				continue					
+			}
+		if (clut1 = "assets.screenshot")
+			{
+				Loop,%clut0%
+					{
+						if (A_index = 1)
+							{
+								continue
+							}
+						fprt= % clut%A_Index%	
+						ngame.= fprt . "`n"
+					}
+				continue					
+			}
+		if (clut1 = "developer")
+			{
+				Loop,%clut0%
+					{
+						if (A_index = 1)
+							{
+								continue
+							}
+						fprt= % clut%A_Index%	
+						ngame.= fprt . "`n"
+					}
+				continue
+			}
+		if (clut1 = "publisher")
+			{
+				Loop,%clut0%
+					{
+						if (A_index = 1)
+							{
+								continue
+							}
+						fprt= % clut%A_Index%	
+						ngame.= fprt . "`n"
+					}
+				continue
+			}
+		if (clut1 = "genre")
+			{
+				Loop,%clut0%
+					{
+						if (A_index = 1)
+							{
+								continue
+							}
+						fprt= % clut%A_Index%	
+						ngame.= fprt . "`n"
+					}
+				continue
+			}
+		if (clut1 = "players")
+			{
+				Loop,%clut0%
+					{
+						if (A_index = 1)
+							{
+								continue
+							}
+						fprt= % clut%A_Index%	
+						ngame.= fprt . "`n"
+					}
+				continue
+			}
+	}
+ngame.= "`n"
+if (ren = "")
+	{
+		stringreplace,rffpath,rffpath,/,\,All
+		splitpath,rffpath,,,,ren
+	}
+incv= 	
+inc= 	
+INCMOVRFEG:
+FileAppend,%ngame%`n,rj\RF\n.txt
+fileMove,rj\RF\n.txt,rj\RF\%syspfl%\%ren%%incv%.ini
+if (ERRORLEVEL > 0)
+	{
+		inc+=1
+		incv= _%inc%
+		if (inc < 10)
+			{
+				goto, INCMOVRFEG
+			}
+	}
+RFINIPOP.= ren . incv . ":" . syspfl . "|"
+ren= 
+rffpath= 
+guicontrol,,CURPLST,|%RFINIPOP%
+SB_SetText("COMPLETE")
+opltog= hide
+gosub, REMSYSTOG
+opntog= show
+gosub, RFOPNPL
+return
+
+RFCPYSCR:
+gui,submit,nohide
+return
+
+RFUSESCR:
+gui,submit,nohide
+guicontrol,disable,RFCPYSCR
+if (RFUSESCR = 1)
+{
+guicontrol,enable,RFCPYSCR
+return
+}
+guicontrol,,RFCPYSCR,0
+return
+
+RFMARQSRCHBUT:
+gui,submit,nohide
+RFMARQUEEPATHTMP= 
+FileSelectFolder,RFMARQUEEPATHTMP,3,,Select the path to banners for this system
+if (RFMARQUEEPATHTMP = "")
+	{
+		if (RFMARQUEEPATH <> "")
+			{
+				MsgBox,260,Reset Maquee Path,Would you like to clear the current banner path?
+				ifmsgbox,OK
+					{
+
+						RFMARQUEEPATH= 
+						SB_SetText("Marquee path cleared")
+						guicontrol,,RFMRQCHK,0
+
+					}
+			}
+		return
+	}
+RFMARQUEEPATH= %RFMARQUEEPATHTMP%
+SB_SetText("Marquee path set to " RFMARQUEEPATH " ")
+guicontrol,,RFMRQCHK,1
+return
+
+
+RFVIDSRCHBUT:
+gui,submit,nohide
+RFVIDEOPATHTMP= 
+FileSelectFolder,RFVIDEOPATHTMP,3,,Select the path to videos for this system
+if (RFVIDEOPATHTMP = "")
+	{
+		if (RFVIDEOPATH <> "")
+			{
+				MsgBox,260,Reset Video Path,Would you like to clear the current Video path?
+				ifmsgbox,OK
+					{
+
+						RFVIDEOPATH= 
+						SB_SetText("VIDEO path cleared")
+						guicontrol,,RFVIDCHK,0
+					}
+			}
+		return
+	}
+RFVIDEOPATH= %RFVIDEOPATHTMP%
+SB_SetText("VIDEO path set to " RFVIDEOPATH " ")
+guicontrol,,RFVIDCHK,1
+return
+
+RFTHUMBSRCHBUT:
+gui,submit,nohide
+RFTHUMBNAILPATHTMP= 
+FileSelectFolder,RFTHUMBNAILPATHTMP,3,,Select the path to thumbnails for this system
+if (RFTHUMBNAILPATHTMP = "")
+	{
+		if (RFTHUMBNAILPATH <> "")
+			{
+				MsgBox,260,Reset Thumnails Path,Would you like to clear the current thumbnail path?
+				ifmsgbox,OK
+					{
+
+						RFTHUMBNAILPATH= 
+						SB_SetText("thumbnail path cleared")
+						guicontrol,,RFTHMBCHK,0
+					}
+			}
+		return
+	}
+RFTHUMBNAILPATH= %RFTHUMBNAILPATHTMP%
+SB_SetText("Thumbnails path set to " RFTHUMBNAILPATH " ")
+guicontrol,,RFTHMBCHK,1
+return
+
+RFBOXSRCHBUT:
+gui,submit,nohide
+RFBOXPATHTMP= 
+FileSelectFolder,RFBOXPATHTMP,3,,Select the path to boxarts for this system
+if (RFBOXPATHTMP = "")
+	{
+		if (RFBOXPATH <> "")
+			{
+				MsgBox,260,Reset Box-Art Path,Would you like to clear the current Box-Art path?
+				ifmsgbox,OK
+					{
+
+						RFBOXPATH= 
+						SB_SetText("Box-Art path cleared")
+						guicontrol,,RFBOXCHK,0
+					}
+			}
+		return
+	}
+RFBOXPATH= %RFBOXPATHTMP%
+SB_SetText("Box-Art path set to " RFBOXPATH " ")
+guicontrol,,RFBOXCHK,1
+return
+
+RFPopDownloads:
+gui,submit,nohide
+LNKLSTP= 
+guicontrolget,RFDWNLPOS,,RFDWNLPOS
+guicontrol,,ROMPOP,|
+if (RFRPOPPL = 1)
+	{
+	
+		guicontrol,,RFPLXMP,|%RFDWNLPOS%||%RFPLPLST%%rfcommon%%systmfldrs%
+		Loop, %CMIRLOC%\%RFDWNLPOS%\*.lnk,,1
+			{
+				LNKLSTP.= A_LoopFileFullPath . "|"
+			}
+		RFROOTFLD= %CMIRLOC%\%RFDWNLPOS%
+		stringreplace,LNKLSTP,LNKLSTP,%RFROOTFLD%\,,All
+		guicontrol,,ROMPOP,|%LNKLSTP%
+		return
+	}
+if (RFRPOPDL = 1)
+	{
+		guicontrol,,RFPLXMP,|%RFDWNLPOS%||%RFPLPLST%%rfcommon%%systmfldrs%
+		Loop, %RJSYSTEMS%\%RFDWNLPOS%\*.bat,,1
+			{
+				LNKLSTP.= A_LoopFileFullPath . "|"
+			}
+		RFROOTFLD= %RJSYSTEMS%\%RFDWNLPOS%
+		stringreplace,LNKLSTP,LNKLSTP,%RFROOTFLD%\,,All
+		guicontrol,,ROMPOP,|%LNKLSTP%
+		return
+	}
+if (RFRPOPROM = 1)
+	{
+		/*
+		RFFND= 
+		Loop, Parse, RFPLPLST,|
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				mpth= %A_LoopField%
+				Loop, Parse, RFPLPLSTA,|
+					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						inn1= 
+						inn2= 
+						stringsplit,inn,A_LoopField,`,
+						if (inn1 = RFDWNLPOS)
+							{
+								RFROOTFLD= %inn2%
+								inx1= 
+								inx2= 
+								inx3= 
+								inx4= 
+								inx5= 
+								inx6= 
+								inx7= 
+								inx8= 
+								inx9= 
+								inx10= 
+								inx11= 
+								inx12= 
+								inx13= 
+								inx14= 
+								inx15= 
+								inx16= 
+								inx17= 
+								inx18= 
+								inx19= 
+								innr= %inn3%
+								stringreplace,innr,innr,.,,All
+								stringsplit,inx,innr,%A_Space%
+								guicontrol,,RFRRTXT,%RFROOTFLD%
+								RFFND= 1
+								break
+							}
+					}
+				if (RFFND = 1)
+					{
+						break
+					}
+			}
+		guicontrol,,RFPLXMP,|%RFRFLN%||%RFPLPLST%%rfcommon%%systmfldrs%
+		RFROMLST= 
+		if (RFROOTFLD <> "")
+			{
+				ar := Object()
+				Loop, %inx0%
+					{
+						new= % (inx%a_index%)
+						if (inx%a_index% <> "")
+							{
+								ar.insert(new)
+							}
+					}
+				Loop, %RFROOTFLD%\*.*,,1
+					{
+						ext= %A_LoopFileExt%
+						for k, v in ar
+							{
+								extm:= v
+								if (ext = extm)
+									{
+										RFROMLST.= A_LoopFileFullPath . "|"
+									}
+							}
+					}
+				stringreplace,RFROMLST,RFROMLST,%RFROOTFLD%\,,All
+				guicontrol,,ROMPOP,|%RFROMLST%
+			}
+		*/	
+		guicontrol,,RFPLXMP,|%RFDWNLPOS%||%RFPLPLST%%rfcommon%%systmfldrs%
+		IniRead,sysexlst,emuCfgPresets.set,%RFDWNLPOS%,RJROMXT
+		if (sysexlst = "ERROR")
+			{
+				sysexlst= .*
+			}
+		Loop,Parse,sysexlst,`,
+			{
+				Loop, %RJSYSTEMS%\%RFDWNLPOS%\*%a_loopfield%,,1
+					{
+						LNKLSTP.= A_LoopFileFullPath . "|"
+					}		
+			}
+		RFROOTFLD= %RJSYSTEMS%\%RFDWNLPOS%
+		stringreplace,LNKLSTP,LNKLSTP,%RFROOTFLD%\,,All
+		guicontrol,,ROMPOP,|%LNKLSTP%
+		return
+	}
+return
+
+RFRPopJ:
+gui,submit,nohide
+RPDND=
+guicontrol,hide,RFMIRSEL
+guicontrol,hide,RFRRTXT
+guicontrol,hide,RFROMROOT
+
+guicontrol,,RFPLXMP,|%RFPLPLST%|%rfcommon%%systmfldrs%
+guicontrol,,RFDWNLPOS,|%systmfldrs%
+guicontrol,,ROMPOP,|
+return
+
+RFRPopMir:
+gui,submit,nohide
+gosub, RFMIRSEL
+RPDND=
+guicontrol,show,RFMIRSEL
+guicontrol,hide,RFRRTXT
+guicontrol,hide,RFROMROOT
+guicontrol,,RFPLXMP,|%RFPLPLST%|%rfcommon%|%systmfldrs%
+guicontrol,,ROMPOP,|
+return
+
+RFRPopRom:
+gui,submit,nohide
+RPDND=
+guicontrol,,RFDWNLPOS,|
+guicontrol,show,RFRRTXT
+guicontrol,show,RFROMROOT
+guicontrol,hide,RFMIRSEL
+guicontrol,,RFDWNLPOS,|%systmfldrs%
+stringleft,rfptr,RFPLPLST,1
+if (rfptr = "|")
+	{
+		stringtrimleft,RFPLPLST,RFPLPLST,1
+	}
+
+guicontrol,,RFPLXMP,|%RFPLPLST%|%rfcommon%
+guicontrol,,ROMPOP,|
+
+if (RFROOTFLD = "")
+	{
+		SB_SetText("ROM FOLDER IS NOT SET")
+		return
+	}
+
+splitpath,RFROOTFLD,RFRFLN	
+SB_SetText("Current ROM folder is set to " RFROOTFLD "")
+RFROMLST= 
+Loop, %RFROOTFLD%\*.*
+	{
+		if (A_LoopFileName = "")
+			{
+				continue
+			}
+		RFROMLST.= A_LoopFileFullPath . "|"
+	}
+guicontrol,,ROMPOP,|%RFROMLST%
+return
+
+RFMIRSEL:
+gui,submit,nohide
+guicontrolget,RFMIRSEL,,RFMIRSEL
+iniread,CMIRLOC,Settings.ini,GLOBAL,%RFMIRSEL%
+if (CMIRLOC = "ERROR")
+	{
+		SB_SetText("Mirrors must be created using the ''Mirrored_links'' dropdown of the Frontends tab.")
+		return
+	}
+MIRLSTLOC= 
+Loop, %CMIRLOC%\*,2
+	{
+		if (A_LoopFileName = "")
+			{
+				continue
+			}
+		if (A_Index = 1)
+			{
+				GMIR= %A_LoopFileName%
+			}
+		MIRLSTLOC.= A_LoopFileName . "|"
+	}	
+guicontrol,,RFDWNLPOS,|%GMIR%||%MIRLSTLOC%
+return
+
+RFKIDG:
+;{;;;;;;;;;;;;;;  GAMELISTXML KIDGAME CHECKBOX  ;;;;;;;;;;;;;;;
+gui,submit,nohide
+rfpekidgame= false
+if (RFKIDG = 1)
+	{
+		rfpekidgame= true
+	}
+RFREPL= 	
+Loop, Parse, RFGAMP,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		clut1= 
+		clut2= 
+		clut3= 
+		stringsplit,clut,A_LoopField,<>
+		if (clut2 = "kidgame")
+			{
+				RFREPL.= "<kidgame>" . rfpekidgame . "</kidgame>" . "`n"
+				continue
+			}
+		RFREPL.= A_LoopField . "`n"
+	}
+RFGAMP= %RFREPL%
+FileDelete,rj\RF\%syssub%\%gamesel%.ini
+FileAppend,%RFGAMP%,rj\RF\%syssub%\%gamesel%.ini
+return
+;};;;;;;;;;;;;;
+
+RFHIDDEN:
+;{;;;;;;;;;;;;;;  GAMELISTXML HIDDEN CHECKBOX  ;;;;;;;;;;;;;;;
+gui,submit,nohide
+rfpehidden= false
+if (RFHIDDEN = 1)
+	{
+		rfpehidden= true
+	}
+RFREPL= 	
+Loop, Parse, RFGAMP,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		clut1= 
+		clut2= 
+		clut3= 
+		stringsplit,clut,A_LoopField,<>
+		if (clut2 = "hidden")
+			{
+				RFREPL.= "<hidden>" . rfpehidden . "</hidden>" . "`n"
+				continue
+			}
+		RFREPL.= A_LoopField . "`n"
+	}
+RFGAMP= %RFREPL%
+FileDelete,rj\RF\%syssub%\%gamesel%.ini
+FileAppend,%RFGAMP%,rj\RF\%syssub%\%gamesel%.ini
+return
+;};;;;;;;;;;;
+
+RFFAV:
+;{;;;;;;;;;;;;;;  GAMELISTXML FAVORITE CHECKBOX  ;;;;;;;;;;;;;;;
+gui,submit,nohide
+rfpefavorite= false
+if (RFFAV = 1)
+	{
+		rfpefavorite= true
+	}
+RFREPL= 	
+Loop, Parse, RFGAMP,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		clut1= 
+		clut2= 
+		clut3= 
+		stringsplit,clut,A_LoopField,<>
+		if (clut2 = "favorite")
+			{
+				RFREPL.= "<favorite>" . rfpefavorite . "</favorite>" . "`n"
+				continue
+			}
+		RFREPL.= A_LoopField . "`n"
+	}
+RFGAMP= %RFREPL%
+FileDelete,rj\RF\%syssub%\%gamesel%.ini
+FileAppend,%RFGAMP%,rj\RF\%syssub%\%gamesel%.ini
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+RFTHUMBBUT:
+;{;;;;;;;;;;;;;;  GAMELISTXML THUMBNAIL BUTTON  ;;;;;;;;;;;;;;;
+gui,submit,nohide
+RFTHTMP= 
+FileSelectFile,RFTHTMP,3,,Select a Thumbnail
+if (RFTHTMP = "")
+	{
+		return
+	}
+rfpethumbnail= %RFTHTMP%
+stringreplace,rfpethumbnailx,rfpethumbnail,\,/,All	
+RFREPL= 	
+Loop, Parse, RFGAMP,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		clut1= 
+		clut2= 
+		clut3= 
+		stringsplit,clut,A_LoopField,<>
+		if (clut2 = "thumbnail")
+			{
+				RFREPL.= "<thumbnail>" . rfpethumbnailx . "</thumbnail>" . "`n"
+				continue
+			}
+		RFREPL.= A_LoopField . "`n"
+	}
+RFGAMP= %RFREPL%
+FileDelete,rj\RF\%syssub%\%gamesel%.ini
+FileAppend,%RFGAMP%,rj\RF\%syssub%\%gamesel%.ini
+imgprev= %rfpethumbnail%
+guicontrol,,RFTHUMBP,%rfpethumbnail%
+return
+;};;;;;;;;;;;;;;;;;
+
+RFMARQBUT:
+;{;;;;;;;;;;;;;;  GAMELISTXML MARQUEE BUTTON  ;;;;;;;;;;;;;;;
+gui,submit,nohide
+RFTHTMP= 
+FileSelectFile,RFTHTMP,3,,Select a marquee
+if (RFTHTMP = "")
+	{
+		return
+	}
+rfpemarquee= %RFTHTMP%
+stringreplace,rfpemarqueex,rfpemarquee,\,/,All	
+RFREPL= 	
+Loop, Parse, RFGAMP,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		clut1= 
+		clut2= 
+		clut3= 
+		stringsplit,clut,A_LoopField,<>
+		if (clut2 = "marquee")
+			{
+				RFREPL.= "<marquee>" . rfpemarqueex . "</marquee>" . "`n"
+				continue
+			}
+		RFREPL.= A_LoopField . "`n"
+	}
+RFGAMP= %RFREPL%
+FileDelete,rj\RF\%syssub%\%gamesel%.ini
+FileAppend,%RFGAMP%,rj\RF\%syssub%\%gamesel%.ini
+imgprev= %rfpemarquee%
+guicontrol,,RFMARQPTHTXT,%rfpemarquee%
+return
+;};;;;;;;;;;;;;;;
+
+RFVIDBUT:
+;{;;;;;;;;;;;;;;  GAMELISTXML VIDEO BUTTON  ;;;;;;;;;;;;;;;
+gui,submit,nohide
+RFTHTMP= 
+FileSelectFile,RFTHTMP,3,,Select a video
+if (RFTHTMP = "")
+	{
+		return
+	}
+rfpevideo= %RFTHTMP%
+stringreplace,rfpevideo,rfpevideo,\,/,All
+RFREPL= 	
+Loop, Parse, RFGAMP,`n`r
+	{
+		clut1= 
+		clut2= 
+		clut3= 
+		stringsplit,clut,A_LoopField,<>
+		if (clut2 = "video")
+			{
+				RFREPL.= "<video>" . rfpevideo . "</video>" . "`n"
+				continue
+			}
+		RFREPL.= A_LoopField . "`n"
+	}
+RFGAMP= %RFREPL%
+FileDelete,rj\RF\%syssub%\%gamesel%.ini
+FileAppend,%RFGAMP%,rj\RF\%syssub%\%gamesel%.ini
+guicontrol,,RFVIDPTHTXT,%rfpevideo%
+return
+;};;;;;;;;;;;;;
+
+RFIMGBUT:
+;{;;;;;;;;;;;;;;  GAMELISTXML IMAGE BUTTON  ;;;;;;;;;;;;;;;
+gui,submit,nohide
+RFTHTMP= 
+FileSelectFile,RFTHTMP,3,Select a image
+if (RFTHTMP = "")
+	{
+		return
+	}
+rfpeimage= %RFTHTMP%	
+stringreplace,rfpeimagex,rfpeimage,\,/,All
+RFREPL= 	
+Loop, Parse, RFGAMP,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		clut1= 
+		clut2= 
+		clut3= 
+		stringsplit,clut,A_LoopField,<>
+		if (clut2 = "image")
+			{
+				RFREPL.= "<image>" . rfpeimagex . "</image>" . "`n"
+				continue
+			}
+		RFREPL.= A_LoopField . "`n"
+	}
+RFGAMP= %RFREPL%
+FileDelete,rj\RF\%syssub%\%gamesel%.ini
+FileAppend,%RFGAMP%,rj\RF\%syssub%\%gamesel%.ini
+imgprev= %rfpeimage%
+guicontrol,,RFOPNIMGPTHTXT,%rfpeimage%
+return
+;};;;;;;;;;;;;;;;;;;;
+
+RFDESCEDT:
+;{;;;;;;;;;;;;;;  GAMELISTXML DESCRIPTION EDIT  ;;;;;;;;;;;;;;;
+gui,submit,nohide
+guicontrolget,rfpedesc,,RFDESCEDT
+stringreplace,rfpedesc,rfpedesc,`n,[CR],All
+stringreplace,rfpedesc,rfpedesc,[CR][CR][CR],[CR],All
+stringreplace,rfpedesc,rfpedesc,[CR][CR],[CR],All
+RFREPL= 	
+Loop, Parse, RFGAMP,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		clut1= 
+		clut2= 
+		clut3= 
+		stringsplit,clut,A_LoopField,<>
+		if (clut2 = "desc")
+			{
+				RFREPL.= "<desc>" . rfpedesc . "</desc>" . "`n"
+				continue
+			}
+		if (clut2 = "plot")
+			{
+				RFREPL.= "<desc>" . rfpedesc . "</desc>" . "`n"
+				continue
+			}
+		if (clut2 = "overview")
+			{
+				RFREPL.= "<desc>" . rfpedesc . "</desc>" . "`n"
+				continue
+			}
+		if (clut2 = "notes")
+			{
+				RFREPL.= "<desc>" . rfpedesc . "</desc>" . "`n"
+				continue
+			}
+		RFREPL.= A_LoopField . "`n"
+	}
+RFGAMP= %RFREPL%
+FileDelete,rj\RF\%syssub%\%gamesel%.ini
+FileAppend,%RFGAMP%,rj\RF\%syssub%\%gamesel%.ini
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;
+
+RFNAMEDT:
+;{;;;;;;;;;;;;;;  GAMELISTXML NAME EDIT  ;;;;;;;;;;;;;;;
+gui,submit,nohide
+ControlGet,curpllst, List,,,ahk_id %insel%
+RFRNMCHK:
+guicontrolget,rfpename,,RFNAMEDT
+stringreplace,RFINIPOP,RFINIPOP,%gamesel%:,%rfpename%:
+RFREPL= 	
+Loop, Parse, RFGAMP,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		clut1= 
+		clut2= 
+		clut3= 
+		stringsplit,clut,A_LoopField,<>
+		if (clut2 = "name")
+				{
+				RFREPL.= "<name>" . rfpename . "</name>" . "`n"
+				continue
+			}
+		RFREPL.= A_LoopField . "`n"
+	}
+gui,submit,nohide	
+guicontrolget,rfrnmchk,,RFNAMEDT
+if (rfrnmchk <> rfpename)
+	{
+		goto, RFRNMCHK
+	}
+RFGAMP= %RFREPL%
+FileDelete,rj\RF\%syssub%\%gamesel%.ini
+gamesel:= rfpename
+FileAppend,%RFGAMP%,rj\RF\%syssub%\%rfpename%.ini
+guicontrol,,CURPLST,|%RFINIPOP%
+return
+;};;;;;;;;;;;;;;
+
+RFPTHEDT:
+;{;;;;;;;;;;;;;;  GAMELISTXML PATH EDIT  ;;;;;;;;;;;;;;;
+gui,submit,nohide
+guicontrolget,rfpepath,,RFPTHEDT
+RFREPL= 	
+Loop, Parse, RFGAMP,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		clut1= 
+		clut2= 
+		clut3= 
+		stringsplit,clut,A_LoopField,<>
+		if (clut2 = "path")
+			{
+				RFREPL.= "<path>" . rfpepath . "</path>" . "`n"
+				continue
+			}
+		RFREPL.= A_LoopField . "`n"
+	}
+RFGAMP= %RFREPL%
+FileDelete,rj\RF\%syssub%\%gamesel%.ini
+FileAppend,%RFGAMP%,rj\RF\%syssub%\%gamesel%.ini
+return
+;};;;;;;;;;;;
+
+RFPUBEDT:
+;{;;;;;;;;;;;;;;  GAMELISTXML PUBLISHER EDIT  ;;;;;;;;;;;;;;;
+gui,submit,nohide
+guicontrolget,rfpepublisher,,RFPUBEDT
+RFREPL= 	
+Loop, Parse, RFGAMP,`n`r
+	{
+		clut1= 
+		clut2= 
+		clut3= 
+		stringsplit,clut,A_LoopField,<>
+		if (clut2 = "publisher")
+			{
+				RFREPL.= "<publisher>" . rfpepublisher . "</publisher>" . "`n"
+				continue
+			}
+		RFREPL.= A_LoopField . "`n"
+	}
+RFGAMP= %RFREPL%
+FileDelete,rj\RF\%syssub%\%gamesel%.ini
+FileAppend,%RFGAMP%,rj\RF\%syssub%\%gamesel%.ini
+return
+;};;;;;;;;;;;;
+
+RFGENEDT:
+;{;;;;;;;;;;;;;;  GAMELISTXML GENRE EDIT  ;;;;;;;;;;;;;;;
+gui,submit,nohide
+guicontrolget,rfpegenre,,RFGENEDT
+RFREPL= 	
+Loop, Parse, RFGAMP,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		clut1= 
+		clut2= 
+		clut3= 
+		stringsplit,clut,A_LoopField,<>
+		if (clut2 = "genre")
+			{
+				RFREPL.= "<genre>" . rfpegenre . "</genre>" . "`n"
+				continue
+			}
+		RFREPL.= A_LoopField . "`n"
+	}
+RFGAMP= %RFREPL%
+FileDelete,rj\RF\%syssub%\%gamesel%.ini
+FileAppend,%RFGAMP%,rj\RF\%syssub%\%gamesel%.ini
+return
+;};;;;;;;;;;;;;;;;;;
+
+RFDEVEDT:
+;{;;;;;;;;;;;;;;;  GAMELISTXML DEVELOPER EDIT  ;;;;;;;;;;;;;;
+guicontrolget,rfpedeveloper,,RFDEVEDT
+gui,submit,nohide
+RFREPL= 	
+Loop, Parse, RFGAMP,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		clut1= 
+		clut2= 
+		clut3= 
+		stringsplit,clut,A_LoopField,<>
+		if (clut2 = "developer")
+			{
+				RFREPL.= "<developer>" . rfpedeveloper . "</developer>" . "`n"
+				continue
+			}
+		RFREPL.= A_LoopField . "`n"
+	}
+RFGAMP= %RFREPL%
+FileDelete,rj\RF\%syssub%\%gamesel%.ini
+FileAppend,%RFGAMP%,rj\RF\%syssub%\%gamesel%.ini
+return
+
+RFRLSDG:
+return
+
+RFDDPLNUM:
+gui,submit,nohide
+guicontrolget,RFDDPLNUM,,RFDDPLNUM
+RFREPL= 
+Loop, Parse, RFGAMP,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		clut1= 
+		clut2= 
+		clut3= 
+		stringsplit,clut,A_LoopField,<>
+		if (clut2 = "players")
+			{
+				RFREPL.= "<players>" . RFDDPLNUM . "</players>" . "`n"
+				continue
+			}
+		RFREPL.= A_LoopField . "`n"
+		}
+RFGAMP= %RFREPL%
+FileDelete,rj\RF\%syssub%\%gamesel%.ini
+FileAppend,%RFGAMP%,rj\RF\%syssub%\%gamesel%.ini
+guicontrol,,RFDDPLNUM,%RFDDPLNUM%
+return
+;};;;;;;;;;;;;
+
+RFRATSLD:
+gui,submit,nohide
+ERATTSLD= 
+RFREPL= 
+guicontrolget,RFRATSLD,,RFRATSLD
+RFRATSLD:= (RFRATSLD / 10)
+Loop, Parse, RFGAMP,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		clut1= 
+		clut2= 
+		clut3= 
+		stringsplit,clut,A_LoopField,<>
+		if (clut2 = "rating")
+			{
+				RFREPL.= "rating: " . RFRATSLD . "`n"
+				continue
+			}
+		RFREPL.= A_LoopField . "`n"
+	}
+RFGAMP= %RFREPL%
+FileDelete,rj\RF\%syssub%\%gamesel%.ini
+FileAppend,%RFGAMP%,rj\RF\%syssub%\%gamesel%.ini
+return
+
+RFEDTPOP:
+;{;;;;;;;;;;;;;;;;;  GAMELIST LOAD GAME-INI  ;;;;;;;;;;;;;;;
+vvi1= 
+vvi2= 
+stringsplit,vvi,CURPLST,:
+if (vvi1 = "")
+	{
+		return
+		gamesel= 
+	}
+syssub= %vvi2%
+if (gamesel <> vvi1)
+	{
+		if (vvi1 <> "")
+			{
+				if (gamesel <> "")
+					{
+						FileDelete,rj\RF\%syssub%\%gamesel%.ini
+						FileAppend,%RFGAMP%,rj\RF\%syssub%\%gamesel%.ini
+					}
+			}
+		gamesel= 
+	}
+if (crpln <> 1)
+	{
+		guicontrol,,RFFAV,0
+		guicontrol,,RFKIDG,0
+		guicontrol,,RFHIDDEN,0
+		guicontrol,,RFPUBEDT,
+		guicontrol,,RFDEVEDT,
+		guicontrol,,RFGENEDT,
+		guicontrol,,RFPTHEDT,
+		guicontrol,,RFNAMEDT,
+		guicontrol,,RFRATSLD,
+		guicontrol,,RFTHUMBP,
+		guicontrol,,RFOPNIMGPTHTXT,
+		guicontrol,,RFVIDPTHTXT,
+		guicontrol,,RFMARQPTHTXT,
+		guicontrol,,RFDDPLNUM,|1||2|3|4|5|6|7|8
+		guicontrol,,RFDESCEDT,
+		return
+	}
+
+gamesel:= vvi1
+
+FileRead,RFGAMP,rj\RF\%syssub%\%gamesel%.ini
+Loop, Parse, RFGAMP,`n`r 
+	{
+		cmpl= 
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		clut1= 
+		clut2= 
+		clut3= 
+		stringsplit,clut,A_LoopField,:
+		if (clut1 = "name")
+			{
+				rfpepublisher=
+				rfpedeveloper=
+				rfpegenre=
+				rfpepath=
+				rfpename=
+				rfperating=
+				rfpethumbnail=
+				rfpeimage=
+				rfpevideo=
+				rfpemarquee=
+				rfpelayers=
+				rfpedesc=
+				rfpekidg= 0
+				rfhide= 0
+				rfpefav= 0
+				Loop,%clut0%
+					{
+						if (A_index = 1)
+							{
+								continue
+							}
+						fprt= % clut%A_Index%	
+						ren.= fprt
+					}
+				stringreplace,ren,ren,&#39;,',All
+				stringreplace,ren,ren,&amp;,&,All
+				rfpename= %ren%
+				continue
+			}
+		if (clut1 = "assets.boxfront")
+			{
+				Loop,%clut0%
+					{
+						if (A_index = 1)
+							{
+								continue
+							}
+						fprt= % clut%A_Index%	
+						rfpeimage.= fprt
+					}
+				stringreplace,rfpeimagex,rfpeimage,/,\,All
+				continue					
+			}
+		if (clut1 = "assets.screenshot")
+			{
+				Loop,%clut0%
+					{
+						if (A_index = 1)
+							{
+								continue
+							}
+						fprt= % clut%A_Index%	
+						rfpethumbnail.= fprt
+					}
+				stringreplace,rfpethumbnailx,rfpethumbnail,/,\,All
+				continue						
+			}
+		if (clut1 = "assets.marquee")
+			{
+				Loop,%clut0%
+					{
+						if (A_index = 1)
+							{
+								continue
+							}
+						fprt= % clut%A_Index%	
+						rfpemarquee.= fprt
+					}
+				stringreplace,rfpemarqueex,rfpemarquee,/,\,All
+				continue
+			}
+		if (clut1 = "assets.video")
+			{
+				Loop,%clut0%
+					{
+						if (A_index = 1)
+							{
+								continue
+							}
+						fprt= % clut%A_Index%	
+						rfpevideo.= fprt
+					}
+				stringreplace,rfpevideox,rfpevideo,/,\,All
+				continue
+			}
+		if (clut1 = "description")
+			{
+				Loop,%clut0%
+					{
+						if (A_index = 1)
+							{
+								continue
+							}
+						fprt= % clut%A_Index%	
+						rfpedesc.= fprt
+					}
+				stringreplace,rfpedeedt,rfpedesc,&#39;,',All
+				stringreplace,rfpedeedt,rfpedeedt,&amp;,&,All
+				continue
+			}
+		if (clut1 = "rating")
+			{
+				Loop,%clut0%
+					{
+						if (A_index = 1)
+							{
+								continue
+							}
+						fprt= % clut%A_Index%	
+						rfperating.= fprt
+					}
+				rfperating= %clut3%
+				rfperatsld:= (rfperating * 10)
+				continue
+			}
+		if (clut1 = "release")
+			{
+				Loop,%clut0%
+					{
+						if (A_index = 1)
+							{
+								continue
+							}
+						fprt= % clut%A_Index%	
+						rfpereleasedate.= fprt
+					}
+				continue
+			}
+		if (clut1 = "developer")
+			{
+				Loop,%clut0%
+					{
+						if (A_index = 1)
+							{
+								continue
+							}
+						fprt= % clut%A_Index%	
+						rfpedeveloper.= fprt
+					}
+				continue
+			}
+		if (clut1 = "publisher")
+			{
+				Loop,%clut0%
+					{
+						if (A_index = 1)
+							{
+								continue
+							}
+						fprt= % clut%A_Index%	
+						rfpepublisher.= fprt
+					}
+				continue
+			}
+		if (clut1 = "genre")
+			{
+				Loop,%clut0%
+					{
+						if (A_index = 1)
+							{
+								continue
+							}
+						fprt= % clut%A_Index%	
+						rfpegenre.= fprt
+					}
+				continue
+			}
+		if (clut2 = "players")
+			{
+				Loop,%clut0%
+					{
+						if (A_index = 1)
+							{
+								continue
+							}
+						fprt= % clut%A_Index%	
+						rfpeplayers.= fprt
+					}
+				continue
+			}
+	}
+guicontrol,,RFPUBEDT,%rfpepublisher%
+guicontrol,,RFDEVEDT,%rfpedeveloper%
+guicontrol,,RFGENEDT,%rfpegenre%
+stringreplace,systid,syssub,_,,All
+rfperpath= %rfpepath%
+guicontrol,,RFNAMEDT,%ren%
+guicontrol,,RFRATSLD,%rfperatsld%
+guicontrol,,RFTHUMBP,%rfpethumbnailx%
+guicontrol,,RFOPNIMGPTHTXT,%rfpeimagex%
+guicontrol,,RFVIDPTHTXT,%rfpevideox%
+guicontrol,,RFMARQPTHTXT,%rfpemarqueex%
+guicontrol,,RFDDPLNUM,%rfpelayers%||1|2|3|4|5|6|7|8
+guicontrol,,RFDESCEDT,%rfpedeedt%
+if (rfpename = "")
+		{
+			stringreplace,rfptmp,rfpepath,/,\,All
+			splitpath,rfptmp,,,,rfpename
+		}
+splitpath,rfptmp,,,,rfpename
+RFGAMTMP= 
+RFGAMTMP.= "game: " . rfpename . "`n"	
+RFGAMTMP.= "files: " . rfpepath . "`n"	
+RFGAMTMP.= "boxfront: " . rfpeimage . "`n"
+RFGAMTMP.= "assets.marquee: " . rfpemarquee . "`n"	
+RFGAMTMP.= "assets.video: " . rfpevideo . "`n"	
+RFGAMTMP.= "description: " . rfpedesc . "`n"	
+RFGAMTMP.= "assets.boxfront: " . rfpethumbnail . "`n"	
+RFGAMTMP.= "developer: " . rfpedeveloper . "`n"	
+RFGAMTMP.= "publisher: " . rfpepublisher . "`n"	
+RFGAMTMP.= "genre: " . rfpegenre . "`n"	
+RFGAMTMP.= "release: " . rfpereleasedate . "`n"	
+RFGAMTMP.= "rating: " . rfperating . "`n"	
+RFGAMP= %RFGAMTMP%
+FileDelete,rj\RF\%syssub%\%gamesel%.ini
+FileAppend,%RFGAMP%,rj\RF\%syssub%\%gamesel%.ini
+return
+;};;;;;;;;;;;;;
+
+;{;;;;;;;;;;;;;;;;  GAMELISTXML SAVE BUTTON  ;;;;;;;;;;;;;;;;;;;;
+RFSAVEOPL:
+guicontrol,,CURPLST,|
+gamesel= 
+curtxt= 
+RFGAMP= 
+gosub, curplst
+gui,submit,nohide
+
+guicontrol,,RFFAV,0
+guicontrol,,RFKIDG,0
+guicontrol,,RFHIDDEN,0
+guicontrol,,RFPUBEDT,
+guicontrol,,RFDEVEDT,
+guicontrol,,RFGENEDT,
+guicontrol,,RFPTHEDT,
+guicontrol,,RFNAMEDT,
+guicontrol,,RFRATSLD,
+guicontrol,,RFTHUMBP,
+guicontrol,,RFOPNIMGPTHTXT,
+guicontrol,,RFVIDPTHTXT,
+guicontrol,,RFMARQPTHTXT,
+guicontrol,,RFDDPLNUM,|1||2|3|4|5|6|7|8
+guicontrol,,RFDESCEDT,
+FileMove,%RFHOME%\collections\%syssub%\gamelist.xml.txt,%RFHOME%\collections\%syssub%\gamelist.xml.bak,1
+FileDelete,rj\RF\%syssub%\gamelist.xml
+
+ControlGet,curpllst, List,,,ahk_id %insel%
+stringreplace,curpllst,curpllst,`n,|,All
+
+Loop, rj\RF\%syssub%\*.ini
+	{
+		splitpath,A_LoopField,,,,ftap1
+		fileread,ftap,%A_loopFileFullPath%
+		FileAppend,%ftap%,rj\RF\%syssub%\gamelist.xml
+	}
+
+FileAppend,`n,rj\RF\%syssub%\gamelist.xml
+FileMove,rj\RF\%syssub%\gamelist.xml,%RFHOME%\gamelists\%syssub%\gamelist.xml,1
+Msgbox,1,CREATED,%syssub% gamelist created.,5
+gamesel= 
+guicontrol,,CURPLST,|
+FileDelete,rj\RF\%syssub%\*.ini
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;{;;;;;;;;;;;;;;;;;  ADD NEW ROM BUTTON  ;;;;;;;;;;;;;;;
+RFROMADDBUT:
+gui,submit,nohide
+gamesel= 
+curtxt= 
+guicontrol,,RFNAMEDT,
+guicontrol,,RFPTHEDT,
+guicontrol,,RFDESCEDT,
+guicontrol,,RFPUBEDT,
+guicontrol,,RFDEVEDT,
+guicontrol,,RFGENEDT,
+presel= %RJSYSTEMS%\%syssub%
+RFROMRSEL:
+RFTHTMP=
+FileSelectFile,RFTHTMP,3,,Select a ROM
+if (RFTHTMP = "")
+	{
+			if ((presel = "") && (RFTHTMP = ""))
+			{
+				return
+			}
+		presel= 
+		goto, RFROMRSEL
+return
+	}
+rfpepath= %RFTHTMP%	
+splitpath,rfpepath,rfpefile,,,rfpepnam
+gamesel= %rfpepnam%
+if (syssub = "")
+	{
+		guicontrolget,syssub,,RFPLXMP
+	}
+RFINIPOP.= gamesel . ":" . syssub . "|"
+FileAppend,game: %rfpepnam%`n,rj\RF\%syssub%\%gamesel%.ini
+FileAppend,file: %rfpefile%`n,rj\RF\%syssub%\%gamesel%.ini
+rfperpath= %rfpepath%
+guicontrol,,RFPTHEDT,%rfpepath%
+stringreplace,systid,syssub,_
+stringreplace,rfperpath,rfpepath,%RJSYSTEMS%\%systid%,.,All						
+if (epserpath <> rfpepath)
+	{
+		stringreplace,rfperpath,rfperpath,\,/,All
+		guicontrol,,RFPTHEDT,%rfperpath%
+	}
+guicontrol,,RFNAMEDT,%rfpepnam%
+guicontrol,,CURPLST,|%RFINIPOP%
+gosub, CURPLST
+return
+
+;};;;;;;;;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;;;;  ADD NEW FOLDER BUTTON  ;;;;;;;;;;;;;;;
+RFFLDADDBUT:
+gui,submit,nohide
+gamesel= 
+curtxt= 
+guicontrol,,RFNAMEDT,
+guicontrol,,RFPTHEDT,
+guicontrol,,RFDESCEDT,
+guicontrol,,RFPUBEDT,
+guicontrol,,RFDEVEDT,
+guicontrol,,RFGENEDT,
+presel= %RJSYSTEMS%\%syssub%
+RFFLDRSEL:
+RFTHTMP= 
+FileSelectFolder,RFTHTMP,%presel%,3,Select a FOLDER
+sysrepth= %syssub%
+if (RFTHTMP = "")
+	{
+		if ((presel = "") && (RFTHTMP = ""))
+			{
+				return
+			}
+		presel= 
+		goto, RFFLDRSEL
+	}		
+rfperpath= %RFTHTMP%
+splitpath,rfperpath,,,,rfpepnam
+ifnotinstring,syssub,%rfperpnam%
+	{
+		sysrrepth= %rfperpnam%
+	}
+stringreplace,systid,syssub,_,,All
+stringreplace,rfperpath,rfperpath,%RJSYSTEMS%\%systid%,,All
+stringreplace,rfperpath,rfperpath,%RJSYSTEMS%\%sysrepth%,,All
+if (rfperpath <> RFTHTMP)
+	{
+		stringreplace,rfperpath,rfperpath,\,/,All
+		rfperpath= .%rfperpath%
+	}
+gamesel= %rfperpnam%
+if (syssub = "")
+	{
+		guicontrolget,syssub,,RFPLXMP
+	}
+RFINIPOP.= gamesel . ":" . syssub . "|"
+FileAppend,<folder>`n,rj\RF\%syssub%\%gamesel%.ini
+FileAppend,<name>%rfpepnam%</name>`n,rj\RF\%syssub%\%gamesel%.ini
+FileAppend,<path>%rfpepath%</path>`n,rj\RF\%syssub%\%gamesel%.ini
+FileAppend,</folder>`n,rj\RF\%syssub%\%gamesel%.ini
+stringreplace,systid,syssub,_,,All
+rfperpath= %rfpepath%
+guicontrol,,RFPTHEDT,.%rfpepath%						
+stringreplace,rfperpath,rfpepath,%RJSYSTEMS%\%systid%,.,All						
+if (rfperpath <> rfpepath)
+	{
+		stringreplace,rfperpath,rfperpath,\,/,All
+		guicontrol,,RFPTHEDT,%rfperpath%
+	}
+guicontrol,,RFNAMEDT,%rfpepnam%
+guicontrol,,CURPLST,|%RFINIPOP%
+gosub, CURPLST
+return
+
+;};;;;;;;;;;;;;;;;;;;;;;
+
+
+;{;;;;;;;;;;;;;;;;;  GAMELISTXML ROMPATH BUTTON  ;;;;;;;;;;;;;;;;
+RFROMPTHBUT:
+jtf=
+gui,submit,nohide
+
+Loop, Parse, RFGAMP,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		clut1= 
+		clut2= 
+		clut3= 
+		stringsplit,clut,A_LoopField,<>
+		if (clut2 = "folder")
+			{
+				jtf= 1
+			}
+	}
+RFTHTMP= 
+if (jtf = 1)
+	{
+		goto, RFFSFLD
+	}
+FileSelectFile,RFTHTMP,3,,Select a ROM
+if (RFTHTMP = "")
+	{
+		return
+	}
+rfpepath= %RFTHTMP%	
+RFREPL= 	
+Loop, Parse, RFGAMP,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		clut1= 
+		clut2= 
+		clut3= 
+		stringsplit,clut,A_LoopField,<>
+		if (clut2 = "path")
+			{
+				RFREPL.= "<path>" . rfpepath . "</path>" . "`n"
+				continue
+			}
+		RFREPL.= A_LoopField . "`n"
+	}
+RFGAMP= %RFREPL%
+FileDelete,rj\RF\%syssub%\%gamesel%.ini
+FileAppend,%RFGAMP%,rj\RF\%syssub%\%gamesel%.ini
+stringreplace,systid,syssub,_,,All
+rfperpath= %rfpepath%
+ifexist,%RJSYSTEMS%\%systid%\
+	{
+		stringreplace,rfperpath,rfpepath,%RJSYSTEMS%\%systid%,,All
+		stringreplace,rfperpath,rfperpath,\,/,All
+	}
+guicontrol,,RFPTHEDT,%rfperpath%
+return
+
+RFFSFLD:
+FileSelectFolder,RFTHTMP,3,,Select a path
+if (RFTHTMP = "")
+	{
+		return
+	}
+rfpepath= %RFTHTMP%	
+RFREPL= 	
+Loop, Parse, RFGAMP,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		clut1= 
+		clut2= 
+		clut3= 
+		stringsplit,clut,A_LoopField,<>
+		if (clut2 = "path")
+			{
+				RFREPL.= "<path>" . rfpepath . "</path>" . "`n"
+				continue
+			}
+		RFREPL.= A_LoopField . "`n"
+	}
+RFGAMP= %RFREPL%
+FileDelete,rj\RF\%syssub%\%gamesel%.ini
+FileAppend,%RFGAMP%,rj\RF\%syssub%\%gamesel%.ini
+previmg= %rfpepath%
+stringreplace,systid,syssub,_,,All
+rfperpath= %rfpepath%
+ifexist,%RJSYSTEMS%\%systid%\
+	{
+		stringreplace,rfperpath,rfpepath,%RJSYSTEMS%\%systid%,,All						
+		stringreplace,rfperpath,rfperpath,\,/,All
+	}
+guicontrol,,RFPTHEDT,.%rfperpath%
+return
+;};;;;;;;;;;;;
+
+;};;;
+
+;};;;
+
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  EMULATIONSTATION  FRONTEND  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+EmulationStationToggle:
+gosub, FEUNPOP
+ESINIT:
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;   ES INITIALIZE   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 iniread,EmulationStation,apps.ini,HTPC_FRONTENDS,EmulationStation
 if (EmulationStation = "ERROR")
 	{
@@ -59166,7 +63660,28 @@ ifnotexist,%ESHOME%
 		FileCreateDir,%ESHOME%\themes
 		FileCreateDir,%ESHOME%\tmp
 	}
-
+esthemes=
+IniRead,esinitheme,themes.set
+Loop, Parse, esinitheme,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		iniread,esth,Themes.set,%A_LoopField%,ESTHEME
+		if (esth <> "ERROR")
+			{
+				esthemes.= A_LoopFIeld . "|"
+			}
+	}	
+Loop, %eshome%\themes,2
+	{
+		ifinstring,esthemes,%A_LoopFileName%|
+			{
+				continue
+			}
+		esthemes.= A_LoopFileName . "|"	
+	}
 fetog= show
 ESCURPL= 
 guicontrol,,FELBXA,|
@@ -59601,7 +64116,12 @@ ifexist, %ESHOME%\themes\%FEDDLD%
 				esteo= 
 			}
 	}
-iniRead,URLFILE,EsThemes.set,%FEDDLD%,ESTHEME
+iniRead,URLFILE,themes.set,%FEDDLD%,ESTHEME
+if (URLFILE = "ERROR")
+	{
+		SB_SetText("This theme cannot be downloaded from the skeletonKey repository")
+		return
+	}
 save= rj\ES\%FEDDLD%.7z
 extractpath= %ESHOME%\themes
 DownloadFile(URLFILE, save, dwnovr, true)
@@ -59948,7 +64468,6 @@ if (FERAD5A = 1)
 			}
 		ESCURPL= %sysordr%%SNFEITMS%
 		iniwrite,%ESCURPL%,EScfg.ini,ORDER,system_order			
-		guicontrol,,FELBXA,|%ESCURPL%
 		Guicontrol,,FELBXA,|%ESCURPL%
 		LV_Modify(0, "-Check")
 		return
@@ -60050,7 +64569,6 @@ if (FERAD5A = 1)
 				sysordr= 
 			}
 		ESCURPL= %sysordr%%SNFEITMS%
-		guicontrol,,FELBXA,|%ESCURPL%
 		iniwrite,%ESCURPL%,EScfg.ini,ORDER,system_order			
 		Guicontrol,,FELBXA,|%ESCURPL%
 		LV_Modify(0, "-Check")
@@ -61288,20 +65806,11 @@ guicontrol,%opltog%,PLADPTXT
 guicontrol,%opltog%,CLRPP
 guicontrol,%opltog%,PLCLRPTXT
 ;;;
-Loop,Parse,PGPLRI,|
+Loop,Parse,ESPLRI,|
 	{
 		guicontrol,%opltog%,%A_LoopField%
 	}
-return
-
-HideOtherFEPL:
-guicontrol,,ESPLXMP,|%ESPLPLST%|%escommon%|%systmfldrs%
-Loop,Parse,ESPLITEMS,|
-	{
-		guicontrol,%opltog%,%A_LoopField%
-	}
-guicontrol,,PGPLXMP,|%PGPLPLST%|%pgcommon%|%systmfldrs%
-Loop,Parse,PGPLITEMS,|
+Loop,Parse,RFPLRI,|
 	{
 		guicontrol,%opltog%,%A_LoopField%
 	}
@@ -63562,11 +68071,6 @@ guicontrol,move,FEDDLC,x260 y457 w162
 guicontrol,,FEDDLC,|Jacket_Boxart||Scraped_Boxart|RetroArch_Boxart|Other
 guicontrol,disable,FEDDLC
 
-
-
-
-
-
 guicontrol,%fetog%,FERAD5A
 guicontrol,enable,FERAD5A
 guicontrol,move,FERAD5A,x275 y43 w108 h13
@@ -65637,16 +70141,16 @@ if (FECHKM = 1)
 guicontrolget,FECHKF,,FECHKF
 
 iniRead, mediaorder,mediafe.ini,ORDER,system_order
-IniRead, bckdrp,EsThemes.set,%FEDDLD%,Backdrop
-IniRead, bckdrpd,EsThemes.set,%FEDDLD%,Backdrop_Directory
-IniRead, icnl,EsThemes.set,%FEDDLD%,Icon
-IniRead, icnld,EsThemes.set,%FEDDLD%,Icon_Directory
-IniRead, logol,EsThemes.set,%FEDDLD%,Logo
-IniRead, logold,EsThemes.set,%FEDDLD%,Logo_Directory
-IniRead, videol,EsThemes.set,%FEDDLD%,Video
-IniRead, videold,EsThemes.set,%FEDDLD%,Video_Directory
-IniRead, metl,EsThemes.set,%FEDDLD%,Meta
-IniRead, metld,EsThemes.set,%FEDDLD%,Meta_Directory
+IniRead, bckdrp,themes.set,%FEDDLD%,Backdrop
+IniRead, bckdrpd,themes.set,%FEDDLD%,Backdrop_Directory
+IniRead, icnl,themes.set,%FEDDLD%,Icon
+IniRead, icnld,themes.set,%FEDDLD%,Icon_Directory
+IniRead, logol,themes.set,%FEDDLD%,Logo
+IniRead, logold,themes.set,%FEDDLD%,Logo_Directory
+IniRead, videol,themes.set,%FEDDLD%,Video
+IniRead, videold,themes.set,%FEDDLD%,Video_Directory
+IniRead, metl,themes.set,%FEDDLD%,Meta
+IniRead, metld,themes.set,%FEDDLD%,Meta_Directory
 
 DWNOVR= False
 if (FECHKF = 1)
@@ -66019,9 +70523,9 @@ Loop, Parse, metaimages,|
 						Loop, Parse, vix2,|
 							{
 								
-								if (A_LoopField = "IARL")
+								if (A_LoopField = "IAGL")
 									{
-										%vixs%order.= "IARL" . "|"
+										%vixs%order.= "IAGL" . "|"
 									}
 								if (A_LoopField = "ScreenScraper")
 									{
@@ -66504,7 +71008,7 @@ if (FERAD2C = 1)
 						iniread,scrord,mediafe.ini,ORDER,%arpi%
 						Loop, Parse, scrord, |
 							{
-								if (A_LoopField = "IARL")
+								if (A_LoopField = "IAGL")
 									{
 										continue
 									}
@@ -66740,7 +71244,7 @@ if (FERAD2B = 1)
 						iniread,scrord,mediafe.ini,ORDER,%arpi%
 						Loop, Parse, scrord, |
 							{
-								if (A_LoopField = "IARL")
+								if (A_LoopField = "IAGL")
 									{
 										continue
 									}
@@ -67095,7 +71599,7 @@ return
 
 DBSCRAPE:
 
-IfNotInString,mediaorder,IARL
+IfNotInString,mediaorder,IAGL
 	{
 		return
 	}
@@ -67547,7 +72051,7 @@ iniwrite,800,mediafe.ini,CONFIG,%FEDDLC%_image_width
 iniwrite,600,mediafe.ini,CONFIG,%FEDDLC%_image_height
 guicontrol,,FEEDTD, 600
 guicontrol,,FEEDTC, 800
-guicontrol,,FELBXA,|theGamesDB|OpenVGDB|ScreenScraper|arcadeitalia|mamedb|IARL
+guicontrol,,FELBXA,|theGamesDB|OpenVGDB|ScreenScraper|arcadeitalia|mamedb|IAGL
 iniwrite,%mediaorder%,mediafe.ini,ORDER,%FEDDLC%
 return
 
@@ -70740,14 +75244,14 @@ Loop, Parse,XMBGUIITEMS,|
 	}
 return
 
-RetroFEToggle:
+
 HyperspinToggle:
 MediaBrowserToggle:
 SteamToggle:
 CairoFEToggle:
 Kodi_ALToggle:
 Kodi_RCBToggle:
-Kodi_IARLToggle:
+Kodi_IAGLToggle:
 return
 
 retroArchBUTJ:

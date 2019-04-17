@@ -426,6 +426,11 @@ RJPRECFG=for /f "tokens=3 delims= " %%a in ('reg query HKEY_CURRENT_USER\SOFTWAR
 RJPOSTCFG=[XFG]move /Y "%EMUL%\Setting\Saturn\*.ini" "%GAMDIR%"|copy /Y "%EMUL%\*.ini" "%GAMDIR%"|move /Y "%EMUL%\SaveState\Saturn\*" "%GAMDIR%\.sstates"|move /Y "%EMUL%\Snapshot\*" "%GAMDIR%\.snaps"|move /Y "%EMUL%\Backup\InternalBackup\*.bin" "%GAMDIR%\.Mem"
 RJLNCHP=X
 
+[SSFLoader]
+RJPRECFG=for /f "delims=" %%a in ('dir /b/a-d-h "*.ini"') do copy /y "%%~a" "%EMUL%\Setting\Saturn"|attrib -h "%GAMDIR%\SSF.ini"|attrib -h "%GAMDIR%\Setting.ini"|copy /y "SSF.ini" "%EMUL%"|copy /y "Setting.ini" "%EMUL%"|copy /Y ".Mem\*.bin" "%EMUL%\Backup\InternalBackup"|copy /Y ".sstates\*" "%EMUL%\SaveState\Saturn"
+RJPOSTCFG=[XFG]move /Y "%EMUL%\Setting\Saturn\*.ini" "%GAMDIR%"|copy /Y "%EMUL%\*.ini" "%GAMDIR%"|move /Y "%EMUL%\SaveState\Saturn\*" "%GAMDIR%\.sstates"|move /Y "%EMUL%\Snapshot\*" "%GAMDIR%\.snaps"|move /Y "%EMUL%\Backup\InternalBackup\*.bin" "%GAMDIR%\.Mem"
+RJLNCHP=X
+
 [Steem]
 RJPRECFG=copy /y "steem.ini" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\steem.ini" "%GAMDIR%"
@@ -1682,6 +1687,7 @@ RJZIPPEEK=0
 [Sony - Playstation 2]
 RJEMUPRESET=pcsx2
 RJMULTIDISC=1
+RJEMUOPTS=<--no-gui<
 RJROMXT= .iso,.bin,.ccd,.nrg,.ccd,.mdf,.img
 
 [Sony - Playstation 3]

@@ -2740,14 +2740,11 @@ StringReplace,readme,readme,[VERSION],%date% %timestring%
 FileAppend,%readme%,%SKELD%\ReadMe.md
 
 arcorgv= 
-FileMove, %SKELD%\EsThemes.set, %SKELD%\EsThemes.bak,1
-FileMove, %SKELD%\PgThemes.set, %SKELD%\PgThemes.bak,1
+FileMove, %SKELD%\themes.set, %SKELD%\themes.bak,1
 FileMove, %SKELD%\arcorg.set, %SKELD%\arcorg.bak,1
-FIleRead,esthemes,%SKELD%\EsThemes.put
-FIleRead,pgthemes,%SKELD%\pgThemes.put
+FIleRead,skthemes,%SKELD%\Themes.put
 FIleRead,arcorgv,%SKELD%\arcorg.put
-StringReplace,esthemes,esthemes,[HOSTINGURL],%REPOURL%,All
-StringReplace,pgthemes,pgthemes,[HOSTINGURL],%REPOURL%,All
+StringReplace,skthemes,skthemes,[HOSTINGURL],%REPOURL%,All
 StringReplace,arcorgv,arcorgv,[UPDATEFILE],%UPDTFILE%,All
 StringReplace,arcorgv,arcorgv,[HOSTINGURL],%REPOURL%,All
 StringReplace,arcorgv,arcorgv,[LOBBY],%NLOB%,All
@@ -2755,8 +2752,7 @@ StringReplace,arcorgv,arcorgv,[SHADERHOST],%SHDRPURL%,All
 StringReplace,arcorgv,arcorgv,[SOURCEHOST],%UPDTURL%,All
 StringReplace,arcorgv,arcorgv,[IPLK],%GETIPADR%,All
 StringReplace,arcorgv,arcorgv,[CURV],%vernum%,All
-FileAppend,%esthemes%,%SKELD%\EsThemes.set
-FileAppend,%pgthemes%,%SKELD%\PgThemes.set
+FileAppend,%skthemes%,%SKELD%\themes.set
 FileAppend,%arcorgv%,%SKELD%\arcorg.set
 FileDelete, %SKELD%\skeletonKey.exe
 FileDelete,%SKELD%\skeletonkey.tmp
@@ -3182,8 +3178,7 @@ if (GitPush = 1)
 		FileAppend, copy /y "ReadMe.md" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "version.txt" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, del /q "%GITD%\skeletonKey.exe"`n,%SKELD%\!gitupdate.cmd
-		FileAppend, copy /y "EsThemes.put" "%GITD%"`n,%SKELD%\!gitupdate.cmd
-		FileAppend, copy /y "PgThemes.put" "%GITD%"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, copy /y "Themes.put" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "arcorg.put" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "7zsd32.sfx" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "7zsd64.sfx" "%GITD%"`n,%SKELD%\!gitupdate.cmd

@@ -1,5 +1,7 @@
 [RJ]
 ESTHEME=[HOSTINGURL]/esthemes/raw/master/rj.zip
+PGTHEME=[HOSTINGURL]/pgthemes/raw/master/rj.zip
+RFTHEME=[HOSTINGURL]/rfthemes/raw/master/rj.zip
 Backdrop=[HOSTINGURL]/ORIGINAL/raw/master/Backdrops.7z
 Backdrop_Directory=[HOSTINGURL]/ORIGINAL/raw/master/Backdrops
 Icon=[HOSTINGURL]/ORIGINAL/raw/master/Icons.7z
@@ -11,8 +13,23 @@ Video_Directory=[HOSTINGURL]/ORIGINAL/raw/master/Videos
 Meta=[HOSTINGURL]/ORIGINAL/raw/master/MetaData
 Meta_Directory=[HOSTINGURL]/ORIGINAL/raw/master/MetaData
 
+[RAW]
+RFTHEME=[HOSTINGURL]/rfthemes/raw/master/raw.zip
+
+[RetroSpin]
+RFTHEME=[HOSTINGURL]/rfthemes/raw/master/retrospin.zip
+
+[Aura]
+RFTHEME=[HOSTINGURL]/rfthemes/raw/master/aura.zip
+
+[Animatic]
+RFTHEME=[HOSTINGURL]/rfthemes/raw/master/animatic.zip
+
 [SpaceOddity]
 ESTHEME=[HOSTINGURL]/esthemes/raw/master/SpaceOddity.zip
+
+[gameOS]
+PGTHEME=[HOSTINGURL]/pgthemes/raw/master/gameOS.zip
 
 [carbon-centered]
 ESTHEME=[HOSTINGURL]/esthemes/raw/master/carbon-centered.zip

@@ -3,10 +3,12 @@ mednafen
 fusion
 mame
 retroarch
+snes9x
 
 [FRONTENDS]
 emulationstation
 pegasus
+retrofe
 xmb
 mirroredlinks
 media
