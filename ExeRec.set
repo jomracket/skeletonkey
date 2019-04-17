@@ -692,7 +692,6 @@ FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Windows - Games
 FileCreateDir,rj\KODI\ADVL
 FileCreateDir,rj\KODI\AEL
 FileCreateDir,rj\KODI\IAGL
-FileCreateDir,rj\KODI\IARL
 FileCreateDir,rj\KODI\RCB
 FileCreateDir,rj\KODI\ADVL\userdata
 FileCreateDir,rj\KODI\ADVL\userdata\addon_data
@@ -700,9 +699,6 @@ FileCreateDir,rj\KODI\ADVL\userdata\addon_data\plugin.program.advanced.launcher
 FileCreateDir,rj\KODI\IAGL\userdata
 FileCreateDir,rj\KODI\IAGL\userdata\addon_data
 FileCreateDir,rj\KODI\IAGL\userdata\addon_data\plugin.program.iagl
-FileCreateDir,rj\KODI\IARL\userdata
-FileCreateDir,rj\KODI\IARL\userdata\addon_data
-FileCreateDir,rj\KODI\IARL\userdata\addon_data\plugin.program.iarl
 FileCreateDir,rj\KODI\RCB\userdata
 FileCreateDir,rj\KODI\RCB\userdata\addon_data
 FileCreateDir,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser
@@ -948,7 +944,6 @@ FileInstall,rj\KODI\AEL\roms.set,rj\KODI\AEL\roms.set,1
 FileInstall,rj\KODI\AEL\roms.xml.End.set,rj\KODI\AEL\roms.xml.End.set,1
 FileInstall,rj\KODI\AEL\roms.xml.set,rj\KODI\AEL\roms.xml.set,1
 FileInstall,rj\KODI\IAGL\userdata\addon_data\plugin.program.iagl\settings.xml.set,rj\KODI\IAGL\userdata\addon_data\plugin.program.iagl\settings.xml.set,1
-FileInstall,rj\KODI\IARL\userdata\addon_data\plugin.program.iarl\settings.xml.set,rj\KODI\IARL\userdata\addon_data\plugin.program.iarl\settings.xml.set,1
 FileInstall,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emurom.set,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emurom.set,1
 FileInstall,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emuromend.set,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emuromend.set,1
 FileInstall,gam\Archive\MAME - Systems\- firmware -.gam,gam\Archive\MAME - Systems\- firmware -.gam,1

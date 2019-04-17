@@ -718,20 +718,22 @@ Gui, Tab, 2
 Gui Tab, Deploy
 Gui, Add, Edit, x8 y24 w469 h50 vPushNotes gPushNotes,%date% :%A_Space%
 Gui, Add, Edit, x161 y151 w115 h21 vVernum gVerNum +0x2, %vernum%
+Gui, Add, Button, x280 y154 w16 h16 vAddIncVer gAddIncVer,+
 gui,font,bold
 Gui, Add, Button, x408 y123 w75 h23 vCOMPILE gCOMPILE, DEPLOY
 gui,font,normal
 Gui, Add, Text, x8 y7, Git Push Description / changelog
+Gui, Add, Button, x170 y7 w25 h15 vLogView gLogView,log
 Gui, Add, CheckBox, x9 y75 h17 vGitPush gGitPush checked, Git Push
 Gui, Add, CheckBox, x9 y94 h17 vServerPush gServerPush checked, Server Push
 Gui, Add, CheckBox, x9 y112 h17 vSiteUpdate gSiteUpdate checked, Site Update
 gui,font,bold
 Gui, Add, Button, x408 y123 w75 h23 vCANCEL gCANCEL hidden, CANCEL
 gui,font,normal
-Gui, Add, Text, x280 y155, Version
-Gui, Add, CheckBox, x204 y76 w114 h13 vINITINCL gINITINCL, Initialize-Include
+Gui, Add, Text, x308 y155, Version
+Gui, Add, CheckBox, x204 y76 w114 h13 vINITINCL gINITINCL checked, Initialize-Include
 Gui, Add, CheckBox, x90 y95 w104 h13 vPortVer gPortVer checked %FIE%, Portable/Update
-Gui, Add, CheckBox, x90 y76 w104 h13 vOvrStable gOvrStable %FIE%,Stable
+Gui, Add, CheckBox, x90 y76 w104 h13 vOvrStable gOvrStable %FIE% checked,Stable
 Gui, Add, CheckBox, x90 y95 w154 h13 vDevlVer gDevlVer hidden, Development Version
 Gui, Add, CheckBox, x90 y113 w154 h13 vDATBLD gDatBld, Database Recompile
 
@@ -2539,6 +2541,15 @@ gui,submit,nohide
 guicontrolget,vernum,,vernum
 return
 
+AddIncVer:
+gui,submit,nohide
+guicontrolget,vernum,,vernum
+stringsplit,vernad,vernum,.
+nven:= vernad4+1
+vernum:= vernad1 . "." vernad2 . "." vernad3 . "." nven
+guicontrol,,VerNum,%vernum%
+return
+
 PortVer:
 gui,submit,nohide
 
@@ -2583,7 +2594,7 @@ return
 
 GitPush:
 gui,submit,nohide
-
+guicontrolget,GITPUSH,,GITPUSH
 return
 
 SiteUpdate:
@@ -2593,6 +2604,11 @@ return
 
 CANCEL:
 gui,submit,nohide
+msgbox,1,Cancel,Are you sure you wish to cancel your deployment?,10
+ifmsgbox,Cancel
+	{
+		return
+	}
 BCANC= 1
 guicontrol,enable,PushNotes
 guicontrol,enable,VerNum
@@ -2639,14 +2655,15 @@ StringReplace, nsiv, nsiv,[BUILD],%BUILDIR%,All
 StringReplace, nsiv, nsiv,[DBP],%DEPL%,All
 StringReplace, nsiv, nsiv,[CURV],%vernum%,All
 FileAppend, %nsiv%, %BUILDIR%\skdeploy.nsi
-
-RunWait, %comspec% cmd /c " "%NSIS%" "%BUILDIR%\skdeploy.nsi" >"%DEPL%\buildskeydeploy.log"", ,%rntp%
+RunWait, %comspec% cmd /c echo.###################  DEPLOYMENT LOG FOR %date%  ####################### >>"%DEPL%\deploy.log", ,%rntp%
+RunWait, %comspec% cmd /c " "%NSIS%" "%BUILDIR%\skdeploy.nsi" >>"%DEPL%\deploy.log"", ,%rntp%
+RunWait, %comspec% cmd /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%
 CrCFLN= %DEPL%\skeletonkey-installer.exe
 gosub, SHA1GET
 nchash:= ApndSHA
 ;;RunWait, %comspec% cmd /c " "%BUILDIR%\fciv.exe" -sha1 "%DEPL%\skeletonkey-installer.exe" > "%BUILDIR%\fcivINST.txt" ", %BUILDIR%,%rntp%
 ;;FileReadLine, nchash, %BUILDIR%\fcivINST.txt,4
-;;RunWait, %comspec% cmd /c " "%NSIS%" "%BUILDIR%\skdeploy.nsi" >"%DEPL%\buildskeydeploy.log"", ,%rntp%
+;;RunWait, %comspec% cmd /c " "%NSIS%" "%BUILDIR%\skdeploy.nsi" >"%DEPL%\deploy.log"", ,%rntp%
 BLDERROR= 
 ifnotexist, %DEPL%\skeletonKey-installer.exe
 	{
@@ -2682,7 +2699,9 @@ if (buildnum <> "")
 		buildnum= -%buildnum%
 	}	
 
-RunWait, %comspec% cmd /c " "%BUILDIR%\7za.exe" a "%DEPL%\skeletonK.zip" "%DEPL%\skeletonKey-installer.exe" >"%DEPL%\createinstallerzip.log"", %BUILDIR%,%rntp%
+RunWait, %comspec% cmd /c echo.##################  CREATE INSTALLER ######################## >>"%DEPL%\deploy.log", ,%rntp%
+RunWait, %comspec% cmd /c " "%BUILDIR%\7za.exe" a "%DEPL%\skeletonK.zip" "%DEPL%\skeletonKey-installer.exe" >>"%DEPL%\deploy.log"", %BUILDIR%,%rntp%
+RunWait, %comspec% cmd /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%
 if (DevlVer = 1)
 	{
 		if (DBOV <> 1)
@@ -2705,9 +2724,20 @@ if (OvrStable = 1)
 	}
 return
 
+LogView:
+ifexist,%DEPL%\deploy.log
+	{
+		Run,Notepad "%DEPL%\deploy.log"
+		return
+	}
+SB_SetText("Log Not Found")
+return
+
 COMPILE:
+filedelete,%DEPL%\deploy.log
 BCANC= 
 gui,submit,nohide
+compiling= 1
 guicontrol,disable,RESDD
 guicontrol,disable,OvrStable
 guicontrol,disable,ResB
@@ -2774,6 +2804,7 @@ if (BCANC = 1)
 		SB_SetText(" Cancelling Compile ")
 		guicontrol,,progb,0
 		;Sleep, 500
+		compiling= 
 		return
 	}
 	
@@ -2800,7 +2831,9 @@ if (INITINCL = 1)
 			exprt.= "IfNotExist, rj" . "`n" . "{" . "`n" . "FileCreateDir, rj" . "`n" . "FILEINS= 1" . "`n" . "}" . "`n"
 			exprt.= "If (INITIAL = 1)" . "`n" . "{" . "`n" . "FILEINS= 1" . "`n" . "}" . "`n"
 			exprt.= "If (FILEINS = 1)" . "`n" . "{" . "`n" 
-			runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\Skey-Deploy.ahk" /out "%SKELD%\Skey-Deploy.exe" /icon "%SKELD%\sysico\Sharp - X1.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" >"%DEPL%\compiledeployer.log"", %SKELD%,%rntp%
+			RunWait, %comspec% cmd /c echo.###################  COMPILE DEPLOYER  ####################### >>"%DEPL%\deploy.log", ,%rntp%
+			runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\Skey-Deploy.ahk" /out "%SKELD%\Skey-Deploy.exe" /icon "%SKELD%\sysico\Sharp - X1.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" >>"%DEPL%\deploy.log"", %SKELD%,%rntp%
+			RunWait, %comspec% cmd /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%
 			Loop, Files, %SKELD%\rj\emuCfgs\*,DR
 				{
 					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
@@ -2943,8 +2976,11 @@ if (OvrStable = 1)
 			{
 				SB_SetText("You should not compile this tool with the compiled skey-deploy.exe executable")
 			}
-		runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\Skey-Deploy.ahk" /out "%SKELD%\Skey-Deploy.exe" /icon "%SKELD%\sysico\Sharp - X1.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" >"%DEPL%\compiledeployer.log"", %SKELD%,%rntp%	
-		runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\skeletonkey.ahk" /out "%DEPL%\skeletonkey.exe" /icon "%SKELD%\key.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" >"%DEPL%\compile.log"", %SKELD%,%rntp%
+		RunWait, %comspec% cmd /c echo.##################  COMPILE DEPLOYER  ######################## >>"%DEPL%\deploy.log", ,%rntp%	
+		runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\Skey-Deploy.ahk" /out "%SKELD%\Skey-Deploy.exe" /icon "%SKELD%\sysico\Sharp - X1.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" >>"%DEPL%\deploy.log"", %SKELD%,%rntp%	
+		RunWait, %comspec% cmd /c echo.##################  COMPILE SKELETONKEY  ######################## >>"%DEPL%\deploy.log", ,%rntp%	
+		runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\skeletonkey.ahk" /out "%DEPL%\skeletonkey.exe" /icon "%SKELD%\key.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" >>"%DEPL%\deploy.log"", %SKELD%,%rntp%
+		RunWait, %comspec% cmd /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%	
 		FileCopy, %DEPL%\skeletonkey.exe,%SKELD%,1
 	}
 
@@ -3034,7 +3070,9 @@ if (DATBLD = 1)
 		FileDelete, %DEPL%\DATFILES.7z
 		Loop, %GITD%\rj\scrapeArt\*.7z
 			{
-				runwait, %comspec% cmd /c " "%BUILDIR%\7za.exe" a -t7z "DATFILES.7z" "%A_LoopFileFullPath%" >"%DEPL%\createmetadatazip.log"",%DEPL%,%rntp%
+				RunWait, %comspec% cmd /c echo.##################  CREATE METADATA  ######################## >>"%DEPL%\deploy.log", ,%rntp%	
+				runwait, %comspec% cmd /c " "%BUILDIR%\7za.exe" a -t7z "DATFILES.7z" "%A_LoopFileFullPath%" >>"%DEPL%\deploy.log"",%DEPL%,%rntp%
+				RunWait, %comspec% cmd /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%	
 			}
 	}
 
@@ -3050,7 +3088,9 @@ if (PortVer = 1)
 		if (PBOV <> 1)
 			{
 				FileDelete, %DEPL%\skeletonKey-portable.zip
-				runwait, %comspec% cmd /c " "%BUILDIR%\7za.exe" a "%DEPL%\skeletonKey-portable.zip" "%DEPL%\skeletonkey.exe" >"%DEPL%\createportablezip.log"", %SKELD%,%rntp%
+				RunWait, %comspec% cmd /c echo.##################  CREATE PORTABLE ZIP  ######################## >>"%DEPL%\deploy.log", ,%rntp%	
+				runwait, %comspec% cmd /c " "%BUILDIR%\7za.exe" a "%DEPL%\skeletonKey-portable.zip" "%DEPL%\skeletonkey.exe" >>"%DEPL%\deploy.log"", %SKELD%,%rntp%
+				RunWait, %comspec% cmd /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%	
 				sleep, 1000
 			}
 	}
@@ -3061,6 +3101,7 @@ if (BCANC = 1)
 		SB_SetText(" Cancelling Development Build ")
 		guicontrol,,progb,0
 		gosub, canclbld
+		compiling= 
 		return
 	}
 	
@@ -3076,6 +3117,7 @@ if (BCANC = 1)
 		SB_SetText(" Cancelling Git Push ")
 		guicontrol,,progb,0
 		gosub, canclbld
+		compiling= 
 		return
 	}
 
@@ -3185,7 +3227,9 @@ if (GitPush = 1)
 
 		FileSetAttrib, +h, %SKELD%\!gitupdate.cmd
 		SB_SetText(" Adding changes to git ")
-		RunWait, %comspec% cmd /c " "%SKELD%\!gitupdate.cmd" >"%DEPL%\gitupdate.log"",%SKELD%,%rntp%
+		RunWait, %comspec% cmd /c echo.###################  GIT UPDATE  ####################### >>"%DEPL%\deploy.log", ,%rntp%	
+		RunWait, %comspec% cmd /c " "%SKELD%\!gitupdate.cmd" >>"%DEPL%\deploy.log"",%SKELD%,%rntp%
+		RunWait, %comspec% cmd /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%	
 		SB_SetText(" committing changes to git ")
 		FileDelete, %BUILDIR%\gitcommit.bat
 			{
@@ -3195,20 +3239,24 @@ if (GitPush = 1)
 				FileAppend,"`%gitapp`%" commit -m `%1`%`n,%BUILDIR%\gitcommit.bat
 				if (GITPASS <> "")
 					{
-						FileAppend,"`%gitapp`%" push --repo http://%GITUSER%:%GITPASS%@github.com/%gituser%/skeletonKey`n,%BUILDIR%\gitcommit.bat
+						FileAppend,"`%gitapp`%" push -f --repo http://%GITUSER%:%GITPASS%@github.com/%gituser%/skeletonKey`n,%BUILDIR%\gitcommit.bat
 					}
 				if (GITPASS = "")
 					{
-						FileAppend,"`%gitapp`%" push origin master`n,%BUILDIR%\gitcommit.bat
+						FileAppend,"`%gitapp`%" push -f origin master`n,%BUILDIR%\gitcommit.bat
 					}
 			}
 			
 		FileAppend, "%PushNotes%`n",%DEPL%\changelog.txt
-		RunWait, %comspec% cmd /c " "%SKELD%\!gitupdate.cmd" >"%DEPL%\gitupdate.log"",%SKELD%,%rntp%
+		RunWait, %comspec% cmd /c echo.###################  GIT UPDATE  ####################### >>"%DEPL%\deploy.log", ,%rntp%
+		RunWait, %comspec% cmd /c " "%SKELD%\!gitupdate.cmd" >>"%DEPL%\deploy.log"",%SKELD%,%rntp%
+		RunWait, %comspec% cmd /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%
 		SB_SetText(" Source changes committed.  Files Copied to git.  Committing...")
 		StringReplace,PushNotes,PushNotes,",,All
 		;"
-		RunWait, %comspec% cmd /c " "%BUILDIR%\gitcommit.bat" "%PushNotes%" >"%DEPL%\gitcommit.log"",%GITD%,%rntp%
+		RunWait, %comspec% cmd /c echo.####################  GIT COMMIT  ###################### >>"%DEPL%\deploy.log", ,%rntp%
+		RunWait, %comspec% cmd /c " "%BUILDIR%\gitcommit.bat" "%PushNotes%" >>"%DEPL%\deploy.log"",%GITD%,%rntp%
+		RunWait, %comspec% cmd /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%
 		FileDelete, %BUILDIR%\gitcommit.bat
 		SB_SetText(" source changes pushed to master ")
 		guicontrol,,progb,65
@@ -3219,6 +3267,7 @@ if (BCANC = 1)
 		SB_SetText(" Cancelling Stable Overwrite ")
 		guicontrol,,progb,0
 		gosub, canclbld
+		compiling= 
 		return
 	}
 
@@ -3237,6 +3286,7 @@ if (BCANC = 1)
 		SB_SetText(" Cancelling Server Upload ")
 		guicontrol,,progb,0
 		gosub, canclbld
+		compiling= 
 		return
 	}
 
@@ -3295,7 +3345,9 @@ if (ServerPush = 1)
 		guicontrol,,progb,80
 		if (GitPush = 1)
 			{
-				RunWait, %comspec% cmd /c "%DEPL%\gpush.cmd">"%DEPL%\gitpush.log",%DEPL%,%rntp%
+				RunWait, %comspec% cmd /c echo.###################  GIT PUSH  ####################### >>"%DEPL%\deploy.log", ,%rntp%
+				RunWait, %comspec% cmd /c "%DEPL%\gpush.cmd">"%DEPL%\deploy.log",%DEPL%,%rntp%
+				RunWait, %comspec% cmd /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%
 			}
 	}
 	
@@ -3304,6 +3356,7 @@ if (BCANC = 1)
 		SB_SetText(" Cancelling Site Update ")
 		guicontrol,,progb,0
 		gosub, canclbld
+		compiling= 
 		return
 	}
 
@@ -3476,7 +3529,9 @@ if (uptoserv = 1)
 			{
 				FileAppend,"`%gitapp`%" push`n,%BUILDIR%\sitecommit.bat
 			}
-		RunWait, %comspec% cmd /c " "%BUILDIR%\sitecommit.bat" "site-commit" >"%DEPL%\sitecommit.log"",%BUILDIR%,%rntp%
+		RunWait, %comspec% cmd /c echo.##################  SITE COMMIT  ######################## >>"%DEPL%\deploy.log", ,%rntp%
+		RunWait, %comspec% cmd /c " "%BUILDIR%\sitecommit.bat" "site-commit" >>"%DEPL%\deploy.log"",%BUILDIR%,%rntp%
+		RunWait, %comspec% cmd /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%
 	}
 
 guicontrol,,progb,100
@@ -3501,6 +3556,7 @@ guicontrol,enable,DevlVer
 guicontrol,hide,CANCEL
 guicontrol,show,COMPILE
 guicontrol,,progb,0
+compiling= 
 return
 
 canclbld:
@@ -3520,6 +3576,10 @@ if (quitnum > 3)
 		goto, QUITOUT
 	}
 sleep,250
+if (compiling = 1)
+	{
+		goto, CANCEL
+	}
 msgbox,% FDME,Exiting, Would you like to close the publisher?
 ifmsgbox, yes
 	{

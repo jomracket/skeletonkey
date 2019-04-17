@@ -15,12 +15,13 @@ Gui, Add, Text, x14 y18 w44 h16, Systems
 Gui, Add, Text, x13 y89 w46 h18, Emulators
 Gui, Add, Edit, x13 y42 w247 h42 vintrmsys +readonly, %rjsyst%
 Gui, Add, Edit, x14 y110 w247 h42 vintrmemu +readonly, %rjemut%
-Gui, Add, Button, x60 y19 w62 h17 gSETJKR, BROWSE
-Gui, Add, Button, x61 y89 w62 h17 gSETEMUD, BROWSE
 Gui, Add, CheckBox, x139 y18 w112 h17 vRNMDIR checked, Rename Directories
 Gui,Font, Bold
+Gui, Add, Button, x60 y19 w62 h17 gSETJKR, BROWSE
+Gui, Add, Button, x61 y89 w62 h17 gSETEMUD, BROWSE
 Gui Add, Button, x190 y163 w80 h23 vCONTINUE gCONTINUE disabled, CONTINUE
 Gui,Font, Normal
+Gui Add, Text, x10 y168 w120 h13, Drag'n Drop supported
 Gui, Show, w274 h188, Window
 ifexist,%rjsyst%\
 	{
@@ -61,7 +62,7 @@ if (RJSYSTEMF = "")
 				goto, SETJKR
 			}
 	}
-
+SYSTEMSELECTED:
 stringright,efi,RJSYSTEMF,2	
 stringLeft,efix,RJSYSTEMF,2
 if (efi = ":\")
@@ -208,7 +209,7 @@ if (RJEMUF = "")
 				goto, SETEMUR
 			}
 	}
-
+emuselected:
 splitpath,RJEMUF,usremum
 stringright,efi,RJEMUF,2	
 if ((efi = ":\") or (usremum = A_Username))
@@ -273,6 +274,12 @@ return
 
 
 CONTINUE:
+if ((RJEMUF = "") or (RJSYSTEMS = ""))
+	{
+		msgbox,,Not Set,An Emulator Directory and a Systems Directory Must be set to continue
+		return
+	}
+
 IniWrite, "%RJEMUF%",Settings.ini,GLOBAL,emulators_directory
 IniWrite, "%RJSYSTEMS%",Settings.ini,GLOBAL,systems_directory
 exitapp
@@ -289,3 +296,27 @@ return
 GuiClose:
 FileDelete,Settings.ini
 ExitApp
+
+GuiDropFiles:
+if ( (A_GuiX >= 13) && (A_GuiX <= 13+247) && (A_GuiY >= 42) && (A_GuiY <= 42+42) )
+	{
+		ifnotexist,%A_GuiEvent%\
+			{
+				return
+			}
+		RJSYSTEMF= %A_GuiEvent%
+		gosub, systemselected
+		return
+	}
+
+if ( (A_GuiX >= 14) && (A_GuiX <= 14+247) && (A_GuiY >= 110) && (A_GuiY <= 110+42) )
+	{
+		ifnotexist,%A_GuiEvent%\
+			{
+				return
+			}
+		RJEMUF= %A_GuiEvent%
+		gosub, emuselected
+		return
+	}
+return

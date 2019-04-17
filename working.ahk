@@ -16,7 +16,9 @@ RASTABLE= 1.7.6
 #Include lbex.ahk
 #Include LVA.ahk
 #Include AHKsock.ahk
+/*  ;;[DEBUGOV]
 #Include LV_InCellEdit.ahk
+*/  ;;[DEBUGOV]
 DetectHiddenWindows, On
 IniRead,iniversion,Settings.ini,GLOBAL,version
 stringreplace,iniversion,iniversion,",,All
@@ -2940,7 +2942,7 @@ Gui,Font,Normal
 Gui, Add, ComboBox, x450 y55 w252 vRFPLXMP gRFPlaylistNames hidden, %systmfldrs%|%escommon%
 ;;Gui, Add, Button, x703 y54 w36 h23 vRFOPENPL gRFOpenPl hidden, Open
 Gui, Add, CheckBox, x547 y23 w125 h13 vRFUSESCR gRFUSESCR hidden, Use Scraped Assets
-Gui, Add, CheckBox, x572 y40 w97 h13 vRFCPYSCR gRFCPYSCR hidden disabled, `& copy to home
+Gui, Add, CheckBox, x572 y40 w97 h13 vRFCPYSCR gRFCPYSCR hidden, `& copy to home
 
 Gui, Add, DropDownList,x24 y22 w283 vRFDWNLPOS gRFPopDownloads,%systmfldrs%
 
@@ -3384,10 +3386,10 @@ Gui, Add, Button, x91 y59 w31 h23 vRJFLTRLST gRJFLTRLST hidden, Filter
 Gui, Add, Edit, x122 y60 w118 h21 vRJEDTC gRJEDTC,
 Gui, Add, Button, x241 y59 w32 h23 vRJFNDINLST gRJFNDINLST, Find
 Gui, Add, ListView, x12 y86 w254 h414 -ReadOnly altsubmit Multi vRJLSTV gRJLSTV hwndRJLV checked,|
-
+/*  ;;[DEBUGOV]
 RJRN1 := New LV_InCellEdit(RJLV)
 RJRN1.SetColumns(1)
-
+*/  ;;[DEBUGOV]
 Gui, Add, Button, x267 y119 w56 h24 vRJSALITMS gRJSALITMS, ALL 
 Gui, Add, Text, x267 y143 h14 vRJTXTN,Selects All items
 
@@ -35724,6 +35726,10 @@ if (fenam = "RetroFE")
 			}
 		opntog= hide
 		gosub, RFOPNPL
+		guicontrol,%opntog%,PLAPPND
+		guicontrol,%opntog%,PLOVR
+		guicontrol,%opntog%,RFBACKUP
+		guicontrol,show,RFUSESCR
 		RFPLPLST=  
 		RFPLPLSTA= 
 		guicontrol,,DETECTCORE,0
@@ -36827,6 +36833,7 @@ coreInJV= DETECT
 stringreplace,IDWNLPOS,DWNLPOS,.lpl,,All
 guicontrolget, ESPLXMP,,ESDWNLPOS
 guicontrolget, PGPLXMP,,PGDWNLPOS
+guicontrolget, RFPLXMP,,RFDWNLPOS
 /*
 guicontrol,,ESPLXMP,|%ESPLXMP%|%systmfldrs%|%escommon%
 guicontrol,,PGPLXMP,|%PGPLXMP%|%systmfldrs%|%pgcommon%
@@ -36840,14 +36847,14 @@ pldelim= >
 if (PLISTTYP = "Pegasus")
 	{
 		plswap= %systmfldrs%
-		pldelim= :
+		pldelim= 
 		coreInJV= 
 		IDWNLPOS= %PGPLXMP%
 	}
 if (PLISTTYP = "RetroFE")
 	{
 		plswap= %systmfldrs%
-		pldelim= :
+		pldelim= 
 		coreInJV= 
 		IDWNLPOS= %RFPLXMP%
 	}
@@ -61667,19 +61674,21 @@ if (RFCPYSCR = 1)
 		FileCreateDir, %RFHOME%\collections\%SYSNAME%\medium_artwork\story
 		FileCreateDir, %RFHOME%\collections\%SYSNAME%\medium_artwork\video
 	}
+filecreatedir,rj\RF\%SYSNAME%	
+FileDelete,rj\RF\%SYSNAME%\*.txt
+FileDelete,rj\RF\%SYSNAME%\*.cfg	
+FileDelete,rj\RF\%SYSNAME%\include.txt
 Loop, Parse, existlst,|
 	{		
 		TOTPTH= %RFROOTFLD%\%A_LoopField%
-/*
+			/*
 		ifinstring,A_LoopField,:
 			{
 				RFABSOL= 1
 				TOTPTH= %A_LoopField%
 			}
 			*/
-		FileDelete,rj\RF\tmp.txt
-		FileDelete,rj\RF\story.txt	
-		FileDelete,rj\RF\include.txt	
+	
 		splitpath,TOTPTH,romn,romind,romext,romname,romdd
 		imgetn= %romname%
 		if (RFPLCORE = "Fuzzy-Match")
@@ -61709,7 +61718,7 @@ Loop, Parse, existlst,|
 				if (RFCPYSCR = 1)
 					{
 						RFIMG= 1
-						FileCopy, %ROMIMAGEMATCH%, %RFHOME%\collections\%SYSNAME%\medium_artwork\artwork_front\%romname%-image.%newxt%
+						FileCopy, %ROMIMAGEMATCH%, %RFHOME%\collections\%SYSNAME%\medium_artwork\artwork_front\%romname%.%newxt%
 					}
 				break
 			}
@@ -61736,7 +61745,7 @@ Loop, Parse, existlst,|
 				if (RFCPYSCR = 1)
 					{
 						RFMARQ= 1
-						FileCopy, %ROMMARQUEEMATCH%, %RFHOME%\collections\%SYSNAME%\medium_artwork\bezel\%romname%-marquee.%newxt%
+						FileCopy, %ROMMARQUEEMATCH%, %RFHOME%\collections\%SYSNAME%\medium_artwork\bezel\%romname%.%newxt%
 					}
 				break
 			}
@@ -61752,7 +61761,6 @@ Loop, Parse, existlst,|
 				RFTHU= 1
 				imgett= %imgetn%-thumb
 				RFTHUMBNAILPATH= %RFHOME%\collections\%SYSNAME%\medium_artwork\screenshot
-				
 			}
 		ROMTHUMBNAILMATCH= 
 		Loop, %RFTHUMBNAILPATH%\%imgett%.*
@@ -61763,7 +61771,7 @@ Loop, Parse, existlst,|
 				if (RFCPYSCR = 1)
 					{
 						RFTHU= 1
-						FileCopy, %ROMTHUMBNAILMATCH%, %RFHOME%\collections\%SYSNAME%\medium_artwork\screenshot\%romname%-thumb.%newxt%
+						FileCopy, %ROMTHUMBNAILMATCH%, %RFHOME%\collections\%SYSNAME%\medium_artwork\screenshot\%romname%.%newxt%
 					}
 				break
 			}
@@ -61790,7 +61798,7 @@ Loop, Parse, existlst,|
 					{
 						RFVID= 1
 						FileCreateDir, %RFHOME%\collections\%SYSNAME%\medium_artwork\video
-						FileCopy, %ROMVIDEOEMATCH%, %RFHOME%\collections\%SYSNAME%\medium_artwork\video\%romname%-video.%newxt%
+						FileCopy, %ROMVIDEOEMATCH%, %RFHOME%\collections\%SYSNAME%\medium_artwork\video\%romname%.%newxt%
 					}
 				break
 			}
@@ -61853,33 +61861,33 @@ Loop, Parse, existlst,|
 												fndmet= 
 											}
 									}
-							if (metaspl2 = "plot")
-									{
-										fndmet= 1
-										pulmeta.= metaspl3
-										if (metaspl4 = "/")
-											{
-												fndmet= 
-											}
-									}
-							if (metaspl2 = "overview")
-									{
-										fndmet= 1
-										pulmeta.= metaspl3
-										if (metaspl4 = "/overview")
-											{
-												fndmet= 
-											}
-									}
-							if (metaspl2 = "notes")
-									{
-										fndmet= 1
-										pulmeta.= metaspl3
-										if (metaspl4 = "/notes")
-											{
-												fndmet= 
-											}
-									}
+								if (metaspl2 = "plot")
+										{
+											fndmet= 1
+											pulmeta.= metaspl3
+											if (metaspl4 = "/")
+												{
+													fndmet= 
+												}
+										}
+								if (metaspl2 = "overview")
+										{
+											fndmet= 1
+											pulmeta.= metaspl3
+											if (metaspl4 = "/overview")
+												{
+													fndmet= 
+												}
+										}
+								if (metaspl2 = "notes")
+										{
+											fndmet= 1
+											pulmeta.= metaspl3
+											if (metaspl4 = "/notes")
+												{
+													fndmet= 
+												}
+										}
 								if (fndmet = 1)
 									{
 										pulmeta.= A_loopfield . "`n"
@@ -61889,7 +61897,7 @@ Loop, Parse, existlst,|
 											}
 									}
 							}
-				break	
+						break	
 					}
 			}
 		pthrom= %A_LoopField%
@@ -61927,7 +61935,7 @@ Loop, Parse, existlst,|
 			{
 				pulhid= false
 			}
-		FileAppend,%romname%`n,rj\RF\include.txt		
+		FileAppend,%romname%`n,rj\RF\%SYSNAME%\include.txt		
 		/*	
 		FileAppend,files: %romn%`n,tmp.txt		
 		FileAppend,assets.boxfront: %ROMIMAGEMATCH%`n,tmp.txt
@@ -61935,21 +61943,25 @@ Loop, Parse, existlst,|
 		FileAppend,assets.marquee: %ROMBANMATCH%`n,tmp.txt
 		FileAppend,assets.video: %ROMVIDMATCH%`n,tmp.txt
 		*/
-		FileAppend,rating = %pulrate%`n,rj\RF\tmp.txt
-		FileAppend,year = %puldate%`n,rj\RF\tmp.txt
-		FileAppend,developer = %puldev%`n,rj\RF\tmp.txt
-		FileAppend,publisher = %pulpub%`n,rj\RF\tmp.txt
-		FileAppend,genre = %pulgen%`n,rj\RF\tmp.txt
-		FileAppend,players = %pulpl%`n,rj\RF\tmp.txt
-		FileAppend,%pulmeta%`n,rj\RF\story.txt
-		filecopy,rj\RF\include.txt,%RFHOME%\collections\%SYSNAME%,1
-		filecopy,rj\RF\tmp.txt,%RFHOME%\collections\%SYSNAME%\info\%romname%.txt,1
-		filecopy,rj\RF\story.txt,%RFHOME%\collections\%SYSNAME%\medium_artwork\story\%romname%.txt,1
+		FileAppend,rating = %pulrate%`n,rj\RF\%SYSNAME%\%romname%.txt
+		FileAppend,year = %puldate%`n,rj\RF\%SYSNAME%\%romname%.txt
+		FileAppend,developer = %puldev%`n,rj\RF\%SYSNAME%\%romname%.txt
+		FileAppend,publisher = %pulpub%`n,rj\RF\%SYSNAME%\%romname%.txt
+		FileAppend,genre = %pulgen%`n,rj\RF\%SYSNAME%\%romname%.txt
+		FileAppend,players = %pulpl%`n,rj\RF\%SYSNAME%\%romname%.txt
+		FileAppend,%pulmeta%`n,rj\RF\%SYSNAME%\%romname%_story.cfg
 	}
 if (RFBACKUP = 1)
 	{
 		FileCopy,%RFHOME%\collections\%SYSNAME%\include.txt,%RFHOME%\collections\%SYSNAME%\include.txt.bak,1
 	}	
+filecopy,rj\RF\%SYSNAME%\include.txt,%RFHOME%\collections\%SYSNAME%,1
+filecopy,rj\RF\%SYSNAME%\*.txt,%RFHOME%\collections\%SYSNAME%\info,1
+Loop,rj\RF\%SYSNAME%\*_story.cfg
+	{
+		stringtrimright,newrmn,A_LoopFileName,10
+		filecopy,rj\RF\%SYSNAME%\%A_LoopFileName%,%RFHOME%\collections\%SYSNAME%\medium_artwork\story\%newrmn%.txt,1
+	}
 MsgBox,1,GameList Created,Created %plstdir%`nGamelist created.
 SB_SetText(" " plstdir " gamelist created")
 guicontrol, enable, SVAPLST
@@ -69880,7 +69892,7 @@ guicontrol,hide,FEDDLE
 guicontrol,%fetog%,FEDDLA
 guicontrol,enable,FEDDLA
 guicontrol,move,FEDDLA,x9 y41 w249
-guicontrol,,FEDDLA,|Systems|
+guicontrol,,FEDDLA,|Systems||
 ;};;;;
 
 
