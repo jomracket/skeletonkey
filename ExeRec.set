@@ -705,6 +705,8 @@ FileCreateDir,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browse
 
 }
 FileCreateDir, rj\ES
+FileCreateDir, rj\PG
+FileCreateDir, rj\RF
 FileInstall,AppParams.set,AppParams.set,1
 FileInstall,arcorg.set,arcorg.set,1
 FileInstall,Assignments.set,Assignments.set,1

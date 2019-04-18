@@ -2851,6 +2851,8 @@ if (INITINCL = 1)
 				}	
 			exprt.= fcdxp . "`n" . "}" . "`n"
 			exprt.= "FileCreateDir, rj\ES" . "`n"
+			exprt.= "FileCreateDir, rj\PG" . "`n"
+			exprt.= "FileCreateDir, rj\RF" . "`n"
 			Loop, files, %SKELD%\*.ttf
 				{
 					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
@@ -3033,6 +3035,8 @@ Loop, %SKELD%\*
 		}
 FileAppend,:%SKELD%\sysico\*.ico`n,ltc.txt
 FileAppend,:%SKELD%\rj\ES\*.set`n,ltc.txt
+FileAppend,:%SKELD%\rj\PG\*.set`n,ltc.txt
+FileAppend,:%SKELD%\rj\RF\*.set`n,ltc.txt
 FileAppend,:%SKELD%\joyImg`n,ltc.txt
 FileAppend,:%SKELD%\rj\joycfgs`n,ltc.txt
 FileAppend,:%SKELD%\rj\KODI\*.set`n,ltc.txt
@@ -3174,10 +3178,12 @@ if (GitPush = 1)
 		FileDelete, %SKELD%\!gitupdate.cmd
 		FileAppend, mkdir "%GITD%\rj\scrapeArt"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, mkdir "%GITD%\rj\ES"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, mkdir "%GITD%\rj\PG"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, mkdir "%GITD%\rj\RF"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, mkdir "%GITD%\rj\emuCfgs"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, mkdir "%GITD%\rj\KODI\ADVL"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, mkdir "%GITD%\rj\KODI\AEL"`n,%SKELD%\!gitupdate.cmd
-		FileAppend, mkdir "%GITD%\rj\KODI\IARL"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, mkdir "%GITD%\rj\KODI\IAGL"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, mkdir "%GITD%\rj\KODI\RCB"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, mkdir "%GITD%\joyimg"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, mkdir "%GITD%\sysico"`n,%SKELD%\!gitupdate.cmd
@@ -3188,6 +3194,18 @@ if (GitPush = 1)
 		FileAppend, del /q "%GITD%\rj\*.tdb"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, del /q "%GITD%\rj\*.tmp"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, del /q "%GITD%\rj\*.ini"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, del /q "%GITD%\rj\ES\*.zip"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, del /q "%GITD%\rj\PG\*.zip"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, del /q "%GITD%\rj\RF\*.zip"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, del /q "%GITD%\rj\ES\*.cfg"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, del /q "%GITD%\rj\PG\*.cfg"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, del /q "%GITD%\rj\RF\*.cfg"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, del /q "%GITD%\rj\ES\*.txt"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, del /q "%GITD%\rj\PG\*.txt"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, del /q "%GITD%\rj\RF\*.txt"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, del /q "%GITD%\rj\ES\*.ini"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, del /q "%GITD%\rj\PG\*.ini"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, del /q "%GITD%\rj\RF\*.ini"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, robocopy rj "%GITD%\rj" /s /e /w:1 /r:1 /xf "*.ini" "*.tdb" "*.tmp" "*.jak" /xd "syscfgs"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, robocopy joyimg "%GITD%\joyimg" /s /e /w:1 /r:1`n,%SKELD%\!gitupdate.cmd
 		FileAppend, robocopy joyimg "%GITD%\rj\emuCfgs" /s /e /w:1 /r:1`n,%SKELD%\!gitupdate.cmd
@@ -3212,7 +3230,7 @@ if (GitPush = 1)
 		FileAppend, copy /y "working.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "rj\KODI\RCB\*.set" "%GITD%\rj\KODI\RCB"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "rj\KODI\AEL\*.set" "%GITD%\rj\KODI\AEL"`n,%SKELD%\!gitupdate.cmd
-		FileAppend, copy /y "rj\KODI\IARL\*.set" "%GITD%\rj\KODI\IARL"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, copy /y "rj\KODI\IAGL\*.set" "%GITD%\rj\KODI\IAGL"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "rj\KODI\AEL\*.set" "%GITD%\rj\KODI\AEL"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "sysico\*.ico" "%GITD%\sysico"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "*.ico" "%GITD%"`n,%SKELD%\!gitupdate.cmd
@@ -3346,7 +3364,7 @@ if (ServerPush = 1)
 		if (GitPush = 1)
 			{
 				RunWait, %comspec% cmd /c echo.###################  GIT PUSH  ####################### >>"%DEPL%\deploy.log", ,%rntp%
-				RunWait, %comspec% cmd /c "%DEPL%\gpush.cmd">"%DEPL%\deploy.log",%DEPL%,%rntp%
+				RunWait, %comspec% cmd /c "%DEPL%\gpush.cmd" >>"%DEPL%\deploy.log",%DEPL%,%rntp%
 				RunWait, %comspec% cmd /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%
 			}
 	}

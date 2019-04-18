@@ -4,12 +4,12 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2019-04-17 3:34 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2019-04-17 6:49 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;; INCLUDES ;;;;;;;;;
 GLBTOP:
-RELEASE= 2019-04-17 3:34 PM
-VERSION= 0.99.69.42
+RELEASE= 2019-04-17 6:49 PM
+VERSION= 0.99.69.43
 RASTABLE= 1.7.6
 
 #Include tf.ahk
@@ -70349,6 +70349,123 @@ if (FERAD2A = 1)
 			SB_SetText("Scraping Complete")
 			gosub, cleanprgb
 			}	
+	
+;;;;;;;;;;;;;;;;;;;;  ARTWORK SETS  ;;;;;;;;;;;;;	
+		if (FERAD5B = 1)
+			{
+				DWNFLD= 
+				if (FECHKA = 1)
+					{
+						URLFILE= %bckdrp%
+						save= rj\netArt\%FEDDLD%\Backdrops.zip
+						ifnotexist, rj\netArt\%FEDDLD%
+						FileCreateDir, rj\netArt\%FEDDLD%
+						DownloadFile(URLFILE,save, DWNOVR, True)
+						FileGetSize,imgsz,%save%,K
+						SB_SetText(" " A_LoopField " backdrops downloaded")
+						if (imgsz < 1)
+							{
+								DWNFLD= 1
+								FileDelete,%save%
+								SB_SetText(" " A_LoopField " backdrops was not downloaded")
+							}
+						ifNotExist, %save%
+							{
+								DWNFLD= 1
+								SB_SetText(" " A_LoopField " backdrops was not downloaded")
+							}
+					}								
+				if (FECHKB = 1)
+					{
+						URLFILE= %icnl%
+						save= rj\netArt\%FEDDLD%\Icons.zip
+						ifnotexist, rj\netArt\%FEDDLD%
+						FileCreateDir, rj\netArt\%FEDDLD%
+						DownloadFile(URLFILE,save, DWNOVR, True)
+						FileGetSize,imgsz,%save%,K
+						SB_SetText(" " A_LoopField " icons downloaded")
+						if (imgsz < 1)
+							{
+								DWNFLD= 1
+								FileDelete,%save%
+								SB_SetText(" " A_LoopField " icons was not downloaded")
+							}
+						ifNotExist, %save%
+							{
+								DWNFLD= 1
+								SB_SetText(" " A_LoopField " icons was not downloaded")
+							}
+					}								
+				if (FECHKC = 1)
+					{
+						URLFILE= %logol%
+						save= rj\netArt\%FEDDLD%\Logos.zip
+						ifnotexist, rj\netArt\%FEDDLD%
+						FileCreateDir, rj\netArt\%FEDDLD%
+						DownloadFile(URLFILE,save, DWNOVR, True)
+						FileGetSize,imgsz,%save%,K
+						SB_SetText(" " A_LoopField " logos downloaded")
+						if (imgsz < 1)
+							{
+								DWNFLD= 1
+								SB_SetText(" " A_LoopField " logos was not downloaded")
+							}
+						ifNotExist, %save%
+							{
+								DWNFLD= 1
+								SB_SetText(" " A_LoopField " logos was not downloaded")
+							}
+					}								
+				if (FECHKD = 1)
+					{
+						URLFILE= %videol%
+						save= rj\netArt\%FEDDLD%\Videos.zip
+						ifnotexist, rj\netArt\%FEDDLD%\Videos
+						FileCreateDir, rj\netArt\%FEDDLD%\Videos
+						DownloadFile(URLFILE,save, DWNOVR, True)
+						FileGetSize,imgsz,%save%,K
+						SB_SetText(" " A_LoopField " videos downloaded")
+						if (imgsz < 1)
+							{
+								DWNFLD= 1
+								FileDelete,%save%
+								SB_SetText(" " A_LoopField " videos was not downloaded")
+							}
+						ifNotExist, %save%
+							{
+								DWNFLD= 1
+								SB_SetText(" " A_LoopField " videos was not downloaded")
+							}
+					}								
+				if (FECHKE = 1)
+					{
+						URLFILE= %metl%
+						save= rj\netArt\%FEDDLD%\MetaData.zip
+						ifnotexist, rj\netArt\%FEDDLD%
+						FileCreateDir, rj\netArt\%FEDDLD%
+						DownloadFile(URLFILE,save, DWNOVR, True)
+						FileGetSize,imgsz,%save%,K
+						SB_SetText(" " A_LoopField " metadata downloaded")
+						if (imgsz < 1)
+							{
+								DWNFLD= 1
+								FileDelete,%save%
+								SB_SetText(" " A_LoopField " metadata was not downloaded")
+							}
+						ifNotExist, %save%
+							{
+								DWNFLD= 1
+								SB_SetText(" " A_LoopField " metadata was not downloaded")
+							}
+					}											
+				GuiControl,,FEPRGA,0
+				if (DWNFLD = 1)
+					{
+						SB_SetText("Some items could not be retrieved.")
+					}
+				return
+			}
+
 	}
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -71801,124 +71918,6 @@ guicontrol,%arpause%,FERAD5A
 guicontrol,%arpause%,FERAD5B
 return
 
-
-;{;;;;;;;;;;;;;;;;;;;  ARTWORK SETS  ;;;;;;;;;;;;;	
-if (FERAD5B = 1)
-	{
-		DWNFLD= 
-		if (FECHKA = 1)
-			{
-				URLFILE= %bckdrp%
-				save= rj\netArt\%FEDDLD%\Backdrops.zip
-				ifnotexist, rj\netArt\%FEDDLD%
-				FileCreateDir, rj\netArt\%FEDDLD%
-				DownloadFile(URLFILE,save, DWNOVR, True)
-				FileGetSize,imgsz,%save%,K
-				SB_SetText(" " A_LoopField " backdrops downloaded")
-				if (imgsz < 1)
-					{
-						DWNFLD= 1
-						FileDelete,%save%
-						SB_SetText(" " A_LoopField " backdrops was not downloaded")
-					}
-				ifNotExist, %save%
-					{
-						DWNFLD= 1
-						SB_SetText(" " A_LoopField " backdrops was not downloaded")
-					}
-			}								
-		if (FECHKB = 1)
-			{
-				URLFILE= %icnl%
-				save= rj\netArt\%FEDDLD%\Icons.zip
-				ifnotexist, rj\netArt\%FEDDLD%
-				FileCreateDir, rj\netArt\%FEDDLD%
-				DownloadFile(URLFILE,save, DWNOVR, True)
-				FileGetSize,imgsz,%save%,K
-				SB_SetText(" " A_LoopField " icons downloaded")
-				if (imgsz < 1)
-					{
-						DWNFLD= 1
-						FileDelete,%save%
-						SB_SetText(" " A_LoopField " icons was not downloaded")
-					}
-				ifNotExist, %save%
-					{
-						DWNFLD= 1
-						SB_SetText(" " A_LoopField " icons was not downloaded")
-					}
-			}								
-		if (FECHKC = 1)
-			{
-				URLFILE= %logol%
-				save= rj\netArt\%FEDDLD%\Logos.zip
-				ifnotexist, rj\netArt\%FEDDLD%
-				FileCreateDir, rj\netArt\%FEDDLD%
-				DownloadFile(URLFILE,save, DWNOVR, True)
-				FileGetSize,imgsz,%save%,K
-				SB_SetText(" " A_LoopField " logos downloaded")
-				if (imgsz < 1)
-					{
-						DWNFLD= 1
-						SB_SetText(" " A_LoopField " logos was not downloaded")
-					}
-				ifNotExist, %save%
-					{
-						DWNFLD= 1
-						SB_SetText(" " A_LoopField " logos was not downloaded")
-					}
-			}								
-		if (FECHKD = 1)
-			{
-				URLFILE= %videol%
-				save= rj\netArt\%FEDDLD%\Videos.zip
-				ifnotexist, rj\netArt\%FEDDLD%\Videos
-				FileCreateDir, rj\netArt\%FEDDLD%\Videos
-				DownloadFile(URLFILE,save, DWNOVR, True)
-				FileGetSize,imgsz,%save%,K
-				SB_SetText(" " A_LoopField " videos downloaded")
-				if (imgsz < 1)
-					{
-						DWNFLD= 1
-						FileDelete,%save%
-						SB_SetText(" " A_LoopField " videos was not downloaded")
-					}
-				ifNotExist, %save%
-					{
-						DWNFLD= 1
-						SB_SetText(" " A_LoopField " videos was not downloaded")
-					}
-			}								
-		if (FECHKE = 1)
-			{
-				URLFILE= %metl%
-				save= rj\netArt\%FEDDLD%\MetaData.zip
-				ifnotexist, rj\netArt\%FEDDLD%
-				FileCreateDir, rj\netArt\%FEDDLD%
-				DownloadFile(URLFILE,save, DWNOVR, True)
-				FileGetSize,imgsz,%save%,K
-				SB_SetText(" " A_LoopField " metadata downloaded")
-				if (imgsz < 1)
-					{
-						DWNFLD= 1
-						FileDelete,%save%
-						SB_SetText(" " A_LoopField " metadata was not downloaded")
-					}
-				ifNotExist, %save%
-					{
-						DWNFLD= 1
-						SB_SetText(" " A_LoopField " metadata was not downloaded")
-					}
-			}											
-	
-	}
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	
-GuiControl,,FEPRGA,0
-if (DWNFLD = 1)
-	{
-		SB_SetText("Some items could not be retrieved.")
-	}
-return
 
 ;{;;;;;;;;;  MOVE SCRAPE PRIORITY UP  ;;;;;;;;;
 MediaFEBUTB:

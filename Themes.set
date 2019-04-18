@@ -16,6 +16,15 @@ Meta_Directory=https://github.com/romjacket/ORIGINAL/raw/master/MetaData
 [RAW]
 RFTHEME=https://github.com/romjacket/rfthemes/raw/master/raw.zip
 
+[carousel]
+RFTHEME=https://github.com/romjacket/rfthemes/raw/master/carousel.zip
+
+[flatio]
+RFTHEME=https://github.com/romjacket/rfthemes/raw/master/flatio.zip
+
+[pandorasbox]
+RFTHEME=https://github.com/romjacket/rfthemes/raw/master/pandorasbox.zip
+
 [RetroSpin]
 RFTHEME=https://github.com/romjacket/rfthemes/raw/master/retrospin.zip
 
