@@ -1,0 +1,3375 @@
+[0]
+[READEND]
+RJLNCHP=0
+
+[ROMJACKETS]
+
+RJSYSCFG=1
+
+RJEMUOPTS=
+RJEMUARGS=
+RJQUOTES=1
+RJROMXT=.*
+RJPATH=1
+RJEXT=1
+RJRUNDIR=1
+ROMNAME=0
+NICEFLDR=0
+RJMULTIDISC=0
+RJDISCIDENT=$(Disk [INC]$
+ROMINLP=%ROMF%
+RJLNCHCFG=3
+RJEMUCFG=1
+RJEMUCFGOV=1
+RJMEDNM=0
+RJMAMENM=0
+RJEMULOC=0
+RJLNCHCFGOW=0
+RJLNCHP=0
+RJROMINJ="%ROMF%"
+RJABSOLROM=0
+RJPROPXE=0
+
+RJDISCMNT=0
+RJDISKMNTAPP=[VDRIVEAPP]
+RJDISCIMG=0
+PEREMUCFG=1
+
+SETLST=
+RJPRERUN=
+RJPREOPT=
+RJPOSTRUN=
+RJPOSTOPT=
+RJPREW=
+RJPOSTW=
+
+RJKEYMAPPER=0
+RJKEYON=1
+RJKEYOW=1
+RJMAP1ROFTYP=0
+RJMAP2ROFTYP=0
+RJMASTERPROF=
+RJPLYR1=
+RJPLYR2=
+
+RJACKET=1
+RJCONSOLID=Individuate
+RJSUBDS=.cheats:1|.patches:1|.snaps:1|.sstates:1|.Man:1|.Mem:1
+RJEXTRARC=2
+RJARCLOC=0
+RJZIPPEEK=1
+
+RJPRECFG=
+RJPOSTCFG=
+
+[*************************************************************************]
+[MAME]
+RJEMUARGS=<-rp "[EMUPATH]\roms"|<-rp "[ROMPATH]"|<-rp "[EMUPATH]\roms"
+RJPRECFG=copy /Y "mame.ini" "%EMUL%\mame.ini"|copy /y "default.cfg" "%EMUL%\ctrlr"
+RJPOSTCFG=copy /Y "%EMUL%\mame.ini" "%GAMDIR%"|copy /y "%EMUL%\ctrlr\default.cfg" "%GAMDIR%"
+RJQUOTES=1
+RJPATH=1
+RJRUNDIR=1
+RJEXT=1
+RJROMINJ=%ROMF%
+RJSUBDS=.cheats:1|.patches:1|.snaps:1|.sstates:1|.Man:1|.Mem:1|.cfg:1|.ctrl:1|.hi:1|.ini:1|.inp:1|
+RJEXTRARC=0
+PEREMUCFG=1
+RJZIPPEEK=1
+RJLNCHP=0
+
+[MAME - Arcade]
+RJEMUARGS=<-rp "[ROMPATH]"|<-rp "[EMUPATH]\roms"|<
+RJPRECFG=copy /Y "mame.ini" "%EMUL%\mame.ini"|copy /y "default.cfg" "%EMUL%\ctrlr"
+RJPOSTCFG=copy /Y "%EMUL%\mame.ini" "%GAMDIR%"|copy /y "%EMUL%\ctrlr\default.cfg" "%GAMDIR%"
+RJQUOTES=0
+NICEFLD=1
+RJPATH=0
+RJRUNDIR=0
+RJEXT=0
+RJEXTRARC=0
+RJARCLOC=0
+RJROMINJ=%ROM%
+RJCONSOLID=Individuate
+RJSUBDS=.cheats:1|.patches:1|.snaps:1|.sstates:1|.Man:1|.Mem:1|.cfg:1|.ctrl:1|.hi:1|.ini:1|.inp:1|
+PEREMUCFG=1
+RJZIPPEEK=0
+RJLNCHP=0
+
+
+[Arcade]
+RJEMUARGS=<-rp "[ROMPATH]"|<-rp "[EMUPATH]\roms"|<
+RJPRECFG=copy /Y "mame.ini" "%EMUL%\mame.ini"|copy /y "default.cfg" "%EMUL%\ctrlr"
+RJPOSTCFG=copy /Y "%EMUL%\mame.ini" "%GAMDIR%"|copy /y "%EMUL%\ctrlr\default.cfg" "%GAMDIR%"
+RJQUOTES=0
+NICEFLD=1
+RJPATH=0
+RJRUNDIR=0
+RJEXT=0
+RJEXTRARC=0
+RJARCLOC=0
+RJROMINJ=%ROM%
+RJCONSOLID=Individuate
+RJSUBDS=.cheats:1|.patches:1|.snaps:1|.sstates:1|.Man:1|.Mem:1|.cfg:1|.ctrl:1|.hi:1|.ini:1|.inp:1|
+PEREMUCFG=1
+RJZIPPEEK=0
+RJLNCHP=0
+
+
+[MAME - System]
+RJEMUARGS=<-rp "[EMUPATH]\roms"|<-rp "[ROMPATH]"|<-rp "[EMUPATH]\roms"|<
+RJPRECFG=copy /Y "mame.ini" "%EMUL%\mame.ini"|copy /y "default.cfg" "%EMUL%\ctrlr"
+RJPOSTCFG=copy /Y "%EMUL%\mame.ini" "%GAMDIR%"|copy /y "%EMUL%\ctrlr\default.cfg" "%GAMDIR%"
+RJQUOTES=1
+RJPATH=1
+RJRUNDIR=1
+RJEXT=1
+RJROMINJ=%ROMF%
+RJEMUOPTS=<[RJMAMESYS] -[RJRTYP]<
+RJSUBDS=.cheats:1|.patches:1|.snaps:1|.sstates:1|.Man:1|.Mem:1|.cfg:1|.ctrl:1|.hi:1|.ini:1|.inp:1|
+RJEXTRARC=0
+PEREMUCFG=1
+RJZIPPEEK=1
+RJLNCHP=0
+
+[1964]
+RJPRECFG=move /y "ROM_Properties.ini" "%EMUL%"|copy /Y "*.cfg" "%EMUL%\plugin"|copy /Y "*.ini" "%EMUL%\plugin"|copy /y ".sstates\*.*" "%EMUL%\savestate"|copy /y ".mem\*.eep" "%EMUL%\save"
+RJPOSTCFG=copy /y "%EMUL%\ROM_Properties.ini" "%GAMDIR%"|copy /Y "%EMUL%\plugin\*.ini" "%GAMDIR%"|move /y "%EMUL%\savestate\*.*" "%GAMDIR%\.sstates"|move /y "%EMUL%\save\*.eep" "%GAMDIR%\.mem"
+RJLNCHP=0
+
+[AdriPSX]
+RJPRECFG=copy /Y "AdriPSX.ini" "%EMUL%"|copy /y ".mem\*.mem" "%EMUL%\mems"
+RJPOSTCFG=copy /Y "%EMUL%\AdriPSX.ini" "%GAMDIR%"|move /y "%EMUL%\mems\*.mem" "%GAMDIR%\.mem"
+RJLNCHP=0
+
+[AdviEmulator]
+RJPRECFG=copy /Y "AdviEmulator.ini" "%EMUL%"
+RJPOSTCFG=copy /Y "%EMUL%\AdviEmulator.ini" "%GAMDIR%"
+RJLNCHP=0
+
+[WinApe]
+RJPRECFG=copy /Y "WinAPE.ini" "%EMUL%"
+RJPOSTCFG=copy /Y "%EMUL%\WinAPE.ini" "%GAMDIR%"
+RJLNCHP=0
+
+[jpcsp]
+RJPRECFG=copy /y "settings.properties" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\settings.properties" "%GAMDIR%"
+RJEMUOPTS=<-r --loadfile<
+RJLNCHP=0
+
+[yuzu]
+RJPRECFG=copy /y "qt-config.ini" "%EMUL%\user\config"
+RJPOSTCFG=copy /y "%EMUL%\user\config\qt-config.ini" "%GAMDIR%"
+RJLNCHP=0
+
+[einweggerat]
+RJPRECFG=copy /y "config.ini" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\config.ini" "%GAMDIR%"
+RJEMUOPTS=<-r<
+RJEMUARGS=<-c "[core]"<
+RJLNCHP=0
+
+[ElecEm]
+RJPRECFG=copy /Y "electrem.cfg" "%APPDATA%"
+RJPOSTCFG=copy /y "%APPDATA%\electrem.cfg" "%GAMDIR%"
+RJLNCHP=0
+
+[AppleWin]
+RJPRECFG=call PREPREF.cmd|REG ADD "HKEY_CURRENT_USER\Software\AppleWin\CurrentVersion\Configuration" /f /v "Save State Filename" /t REG_SZ /d "%GAMDIR%\.sstates\%GAMDNM%.aws"|REG ADD "HKEY_CURRENT_USER\Software\AppleWin\CurrentVersion\Preferences" /f /v "Starting Directory" /t REG_SZ /d "%GAMDIR%"|REG ADD "HKEY_CURRENT_USER\Software\AppleWin\CurrentVersion\Preferences" /f /v "HDV Starting Directory" /t REG_SZ /d "%GAMDIR%"
+RJPOSTCFG=REG ADD "HKEY_CURRENT_USER\Software\AppleWin\CurrentVersion\Preferences" /f /v "Last Disk Image 1" /t REG_SZ /d "[CMDLINELOC]"|REG ADD "HKEY_CURRENT_USER\Software\AppleWin\CurrentVersion\Preferences" /f /v "Last Disk Image 2" /t REG_SZ /d "%GAMDIR%\[DSK2]"
+RJMULTIDISC=1
+RJEMUOPTS=<-f -fs=best -d1<
+RJEMUARGS=<[-d2] [DSK2] -no-printscreen-dlg
+RJZIPPEEK=0
+RJLNCHP=0
+
+[Altirra]
+RJPRECFG=copy /y "Altirra.ini" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\Altirra.ini" "%GAMDIR%"
+RJRUNDIR=1
+RJLNCHP=0
+
+[SameBoy]
+RJRUNDIR=1
+RJLNCHP=0
+
+[StreetsOfRageRemake]
+RJRUNDIR=1
+RJLNCHP=0
+
+[WinVice]
+RJPRECFG=copy /y "vice.ini" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\vice.ini" "%GAMDIR%"
+RJLNCHP=0
+
+[Neko]
+RJPRECFG=copy /y "*.ini" "%EMUL%"|copy /y ".sstates\*.sav" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\*.ini" "%GAMDIR%"|move /y "%EMUL%\.sav" "%GAMDIR%\.sstates"
+RJEMUOPTS=<|<-fullscreen<|<-fullscreen "[DSK]" "[DSK2]"|<"[DSK]" "[DSK2]"|<
+RJLNCHP=0
+
+[Kegs32]
+RJPRECFG=copy /Y "config.kegs" "%EMUL%"
+RJPOSTCFG=copy /Y "%EMUL%\config.kegs" "%GAMDIR%"
+RJRUNDIR=1
+RJLNCHP=X
+
+[WinUAE]
+RJPRECFG=copy /y "winuae.ini" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\winuae.ini" "%GAMDIR%"
+RJEMUOPTS=<-s use_gui=no -s gfx_fullscreen_amiga=true -0<
+RJLNCHP=X
+
+[FS-UAE]
+RJPRECFG=copy /y "Config.fs-uae" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\Config.fs-uae" "%GAMDIR%"
+RJLNCHP=X
+
+[Stella]
+RJPRECFG=copy /y "stella.ini" "%EMUL%"|copy /y "Basedir.txt" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\stella.ini" "%GAMDIR%"
+RJLNCHP=0
+
+[ProSystem]
+RJPRECFG=copy /y "Prosystem.ini" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\Prosystem.ini" "%GAMDIR%"|copy /y "*.bmp" "%GAMDIR%\.snaps"
+RJLNCHP=0
+
+[VirtualJaguar]
+RJPRECFG=call PRE.cmd|REG ADD "HKEY_CURRENT_USER\Software\Underground Software\Virtual Jaguar" /f /v "EEPROMs" /t REG_DWORD /d "%GAMDIR%\.Mem\"|REG ADD "HKEY_CURRENT_USER\Software\Underground Software\Virtual Jaguar" /f /v "zoom" /t REG_DWORD /d 3|REG ADD "HKEY_CURRENT_USER\Software\Underground Software\Virtual Jaguar" /f /v "audioEnabled" /t REG_SZ /d true|REG ADD "HKEY_CURRENT_USER\Software\Underground Software\Virtual Jaguar" /f /v "DSPEnabled" /t REG_SZ /d true|REG ADD "HKEY_CURRENT_USER\Software\Underground Software\Virtual Jaguar" /f /v "showUnknownSoftware" /t REG_SZ /d true|REG ADD "HKEY_CURRENT_USER\Software\Underground Software\Virtual Jaguar" /f /v "ROMs" /t REG_SZ /d "%GAMDIR%/"|REG ADD "HKEY_CURRENT_USER\Software\Underground Software\Virtual Jaguar" /f /v "fullscreen" /t REG_SZ /d "true"
+RJPOSTCFG=call P1_POST.cmd|call P2_POST.cmd
+RJLNCHP=0
+
+[UNZ]
+RJPRECFG=copy /Y "*.ini" "%EMUL%"
+RJPOSTCFG=copy /Y "%EMUL%\unz.ini" "%GAMDIR%"
+RJLNCHP=X
+
+[mupen64plus]
+RJPRECFG=copy /y "*.cfg" "%EMUL%"|copy /y "*.ini" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\*.ini" "%GAMDIR%"|copy /y "%EMUL%\*.cfg" "%GAMDIR%"
+RJEMUOPTS=<--noosd --fullscreen --plugindir "%EMUL%" --nosaveoptions --datadir "%EMUL%" --configdir "%EMUL%"<|<--nogui<
+RJLNCHP=0
+[m2emulator]
+RJPRECFG=copy /Y "*.ini" "%EMUL%"|copy /Y "CFG\*.input" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\*.ini" "%GAMDIR%"|move /y "%EMUL%\%ROM%.input" "%GAMDIR%\CFG"
+RJQUOTES=0
+RJPATH=0
+NICEFLD=1
+RJRUNDIR=1
+RJEXT=0
+RJROMINJ=%ROM%
+RJLNCHP=0
+
+[WinArcadia]
+RJRUNDIR=1
+RJEMUOPTS=<MACHINE=ARCADIA SETTINGS="WA.CFG" FULLSCREEN=ON AUTOSAVE=ON TITLEBAR=OFF TOOLBAR=OFF STRETCH=ON FILE=
+RJPRECFG=copy /Y "WA.cfg" "%EMUL%\Configs"
+RJPOSTCFG=copy /Y "%EMUL%\Confgs\WA.cfg" "%GAMDIR%"
+RJLNCHP=0
+
+[BeebEm]
+RJPRECFG=copy /y "Preferences.cfg" "%EMUL%\UserData"
+RJPOSTCFG=copy /y "%EMUL%\Preferences.cfg" "%GAMDIR%"
+RJLNCHP=0
+
+[mgba]
+RJPRECFG=copy /y "*.ini" "%EMUL%"|copy /y ".Mem\*.*" "%EMUL%"|copy /y ".sstates\*.*" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\*.ini"|copy /y "%EMUL%\*.sav" "%GAMDIR%\.Mem"|copy /y "%EMUL%\*.ss" "%GAMDIR%\.sstates"
+RJLNCHP=0
+
+[easyrpg]
+RJLNCHP= 
+
+[Nox]
+RJLNCHP= 
+
+[Arculator]
+RJPRECFG=copy /y "arc.cfg" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\arc.cfg" "%GAMDIR%"
+RJLNCHP=0
+
+[BlueMSX]
+RJPRECFG=copy /y "%EMUZ%*.ini" "%EMUL%"|copy /y "%EMUZ%*.config" "%EMUL%\Keyboard Config"
+RJPOSTCFG=copy /y "%EMUL%\%EMUZ%.ini" "%GAMDIR%"|copy /y "%EMUL%\Keyboard Config\%EMUZ%*.config" "%GAMDIR%"
+RJRUNDIR=1
+RJLNCHP=0
+
+[ZXSpin]
+RJPRECFG=copy /Y "spin.ini" "%EMUL%"|copy /Y "Default.spincfg" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\spin.ini" "%GAMDIR%"|copy /y "%EMUL%\Default.spincfg" "%GAMDIR%"
+RJLNCHP=0
+
+[ParaJVE]
+RJPRECFG=copy /Y "configuration.xml" "%EMUL%\data"|copy /Y ".sstates\*.jvesav" "%EMUL%\data\saves\quick"
+RJPOSTCFG=copy /Y "%EMUL%\data\configuration.xml" "%GAMDIR%"|move /Y ""%EMUL%\data\saves\quick\*.jvesav" "%GAMDIR%\.sstates"
+RJEMUOPTS=<-Game=
+RJEMUARGS=<[CUSTMARG] -Menu=OFF -NoSplash
+RJRUNDIR=1
+RJLNCHP=0
+
+[epsxe]
+RJPRECFG=copy /Y "gpu.dat" "%EMUL%\Plugins"|copy /y ".sstates\*" "%EMUL%\sstates"|copy /y "gpuBladeSoft.ini" "%EMUL%"|call PRE.cmd|REG ADD "HKEY_CURRENT_USER\Software\epsxe\config" /f /v "Memcard1" /t REG_SZ /d "%GAMDIR%\.Mem\epsxe000.mcr"|REG ADD "HKEY_CURRENT_USER\Software\epsxe\config" /f /v "Memcard2" /t REG_SZ /d "%GAMDIR%\.Mem\epsxe001.mcr"
+RJPOSTCFG=call POST.cmd|copy /y "%EMUL%\gpuBladeSoft.ini" "%GAMDIR%"|move /y "%EMUL%\Patches\*" "%GAMDIR%\.patches"|move /y "%EMUL%\sstates\*" "%GAMDIR%\.sstates"|move /y "%EMUL%\snap\*" "%GAMDIR%\.snaps"|copy /Y ""%EMUL%\Plugins\gpu.dat" "%GAMDIR%"
+RJRUNDIR=1
+RJEMUOPTS=<-nogui -loadbin<
+RJLNCHP=0
+
+[rpcs3]
+RJPRECFG=copy /y "config*.yml" "%EMUL%"|mklink /J "%EMUL%\dev_hdd0" "%GAMDIR%\dev_hdd0" & mklink /J "%EMUL%\dev_hdd1" "%GAMDIR%\dev_hdd1"
+RJPOSTCFG=copy /y "%EMUL%\config*.yml" "%GAMDIR%"|fsutil reparsepoint delete "%EMUL%\dev_hdd0" & rd "%EMUL%\dev_hdd0" & fsutil reparsepoint delete "%EMUL%\dev_hdd1" & rd "%EMUL%\dev_hdd1"
+RJLNCHP=0
+
+[XM6]
+RJPRECFG=copy /Y "XM6.ini" "%EMUL%"|copy /Y ".sstates\STATE.XM6" "%EMUL%"
+RJPOSTCFG=copy /Y "%EMUL%\XM6.ini" "%GAMDIR%"|move /Y "%EMUL%\STATE.XM6" "%GAMDIR%\.sstates"
+RJEMUOPTS=<"[DSK1]" "[DSK2]"|<
+RJLNCHP=0
+
+[VisualBoyAdvance]
+RJPRECFG=copy /Y vba*.ini" "%EMUL%"
+#RJPRECFG=copy /Y "vba*.cfg" "%EMUL%"|copy /Y "vba*.ini" "%EMUL%"|copy /Y ".Mem\*.*" "%EMUL%"|copy /Y ".sstates\*.*" "%EMUL%"
+RJPOSTCFG=copy /Y "%EMUL%\vba*.ini" "%GAMDIR%"
+#RJPOSTCFG=copy /Y "%EMUL%\vba*.ini" "%GAMDIR%"|move /Y "%EMUL%\%ROM%*.sav" "%GAMDIR%\.Mem"|move /Y "%EMUL%\%ROM%*.sgm" "%GAMDIR%\.sstates"
+RJRUNDIR=1
+RJLNCHP=0
+
+[VisualBoyAdvance]
+RJPRECFG=copy /Y vba*.ini" "%EMUL%"|copy /Y visualboyadvance.cfg" "%EMUL%"
+#RJPRECFG=copy /Y "vba*.cfg" "%EMUL%"|copy /Y "vba*.ini" "%EMUL%"|copy /Y ".Mem\*.*" "%EMUL%"|copy /Y ".sstates\*.*" "%EMUL%"
+RJPOSTCFG=copy /Y "%EMUL%\vba*.ini" "%GAMDIR%"|copy /y "%EMUL%\visualboyadvance.cfg" "%GAMDIR%"
+#RJPOSTCFG=copy /Y "%EMUL%\vba*.ini" "%GAMDIR%"|move /Y "%EMUL%\%ROM%*.sav" "%GAMDIR%\.Mem"|move /Y "%EMUL%\%ROM%*.sgm" "%GAMDIR%\.sstates"
+RJRUNDIR=1
+
+[VisualBoyAdvance-M]
+RJPRECFG=copy /Y vba*.ini" "%EMUL%"
+#RJPRECFG=copy /Y "vba*.cfg" "%EMUL%"|copy /Y "vba*.ini" "%EMUL%"|copy /Y ".Mem\*.*" "%EMUL%"|copy /Y ".sstates\*.*" "%EMUL%"
+RJPOSTCFG=copy /Y "%EMUL%\vba*.ini" "%GAMDIR%"
+#RJPOSTCFG=copy /Y "%EMUL%\vba*.ini" "%GAMDIR%"|move /Y "%EMUL%\%ROM%*.sav" "%GAMDIR%\.Mem"|move /Y "%EMUL%\%ROM%*.sgm" "%GAMDIR%\.sstates"
+RJRUNDIR=1
+RJLNCHP=0
+
+[Dolphin]
+RJEMUOPTS=<--batch --exec<
+RJLNCHP=0
+
+[Citra]
+RJPRECFG=copy /y "qt-config.ini" "%EMUL%\user\config"|robocopy "%GAMDIR%\.Mem\sdmc" "%EMUL%\user\config\sdmc" /R:2 /W:2 /NP /E /IS
+RJPOSTCFG=move /y "%EMUL%\user\config\qt-config.ini" "%GAMDIR%"|robocopy "%EMUL%\user\config\sdmc" "%GAMDIR%\.Mem\sdmc" /R:2 /W:2 /NP /E /IS /MOVE
+RUNDIR=1
+RJLNCHP=0
+
+[PPSSPP]
+RJPRECFG=copy /Y "ppsspp.ini" "%EMUL%\memstick\PSP\SYSTEM"|copy /Y "controls.ini" "%EMUL%\memstick\PSP\SYSTEM"|robocopy ".mem" "%EMUL%\memstick\PSP\SAVEDATA" /R:2 /W:2 /NP /E /IS|robocopy ".mem" "%EMUL%\memstick\PSP\SAVEDATA" /R:2 /W:2 /NP /E /IS|robocopy ".sstates" "%EMUL%\memstick\PSP\PPSSPP_STATE" /R:2 /W:2 /NP /E /IS|copy /Y "*.properties" "%EMUL%"
+RJPOSTCFG=copy /Y "%EMUL%\memstick\PSP\SYSTEM\controls.ini" "%GAMDIR%"|copy /Y "%EMUL%\memstick\PSP\SYSTEM\ppsspp.ini" "%GAMDIR%"|robocopy "%EMUL%\memstick\PSP\SAVEDATA" "%GAMDIR%\.mem" /R:2 /W:2 /NP /E /IS /MOVE|robocopy "%EMUL%\memstick\PSP\PPSSPP_STATE" "%GAMDIR%\.sstates" /R:2 /W:2 /NP /E /IS /MOVE|copy /Y "%EMUL%\*.properties" "%GAMDIR%"|move /Y "%EMUL%\memstick\PSP\SCREENSHOT\*" "%GAMDIR%\.snaps"
+RJRUNDIR=1
+RJLNCHP=0
+
+[snes9x]
+RJPRECFG=copy /y "snes9x.conf" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\snes9x.conf" "%GAMDIR%"
+RJEMUOPTS=<-fullscreen<
+RJLNCHP=0
+
+[decaf]
+RJRUNDIR=1
+RJLNCHP=0
+
+[SimCoupe]
+RJPRECFG=copy /Y "%EMUZ%.cfg" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\%EMUZ%.cfg"
+RJLNCHP=0
+
+[bgb]
+RJPRECFG=copy /Y "%GAMDIR%\.sstates\*.sn*" "%EMUL%\.Mem"|copy /Y "bgb.ini" "%EMUL%"
+RJPOSTCFG=copy /Y "%EMUL%\bgb.ini" "%GAMDIR%"|copy /Y "%EMUL%\scrnshot\*.bmp" "%GAMDIR%\.snaps"|move /Y "%EMUL%\.Mem\*.sn*" "%GAMDIR%\.sstates"|move /Y "%EMUL%\*.avi*" "%GAMDIR%\.snaps"|move /Y "%EMUL%\*.wav*" "%GAMDIR%\.snaps"
+RJLNCHP=0
+
+[4DO]
+RJPRECFG=copy /Y "*Input*.xml" "%EMUL%\Settings\"|copy /Y "*.settings" "%EMUL%\Settings\"|copy /Y ".Mem\*.ram" "%EMUL%\Saves\"|copy /Y ".sstates\*.4dosav" "%EMUL%\Saves\"
+RJPOSTCFG=copy /Y "%EMUL%\Settings\*.Settings" "%GAMDIR%"|copy /Y "%EMUL%\Settings\*Input*.xml" "%GAMDIR%"|move /Y "%EMUL%\Screenshots\*.png" "%GAMDIR%\.snaps"|move /Y "%EMUL%\Saves\*.ram" "%GAMDIR%\.Mem"|move /Y "%EMUL%\Saves\*.4dosav" "%GAMDIR%\.sstates"
+RJEMUOPTS=<--StartLoadFile<
+RJEMUARGS=<[4DOFS]
+RJLNCHP=0
+
+[pcsx2]
+RJPRECFG=copy /Y "*.ini" "%EMUL%\inis"|copy /Y "*FX_Settings.ini" "%EMUL%\shaders"
+RJPOSTCFG=copy /Y "%EMUL%\inis\*.ini" "%GAMDIR%"|copy /Y "%EMUL%\shaders\*.ini" "%GAMDIR%"
+RJLNCHP=0
+
+[supermodel]
+RJPRECFG=copy /y "Supermodel.ini" "%EMUL%\Config"|robocopy ".Mem" "%EMUL%\NVRAM" /R:2 /W:2 /NP /E /IS|robocopy ".sstates" "%EMUL%\Saves" /R:2 /W:2 /NP /E /IS
+RJPOSTCFG=robocopy "%EMUL%\Saves" "%GAMDIR%\.sstates" /R:2 /W:2 /NP /E /IS /MOVE|robocopy "%EMUL%\NVRAM" "%GAMDIR%\.Mem" /R:2 /W:2 /NP /E /IS /MOVE|copy /y "%EMUL%\Config\Supermodel.ini" "%GAMDIR%"
+RJEMUARGS=<-fullscreen|<-res=[REZX],[REZY] -input-system=[INPUTTYPE] -fullscreen
+RJQUOTES=0
+RJPATH=0
+NICEFLD=1
+RJEXT=0
+RJRUNDIR=0
+RJROMINJ=%ROM%
+RJEXTRARC=0
+RJLNCHP=0
+
+[Anex86]
+RJPRECFG=call "preAnex.cmd"
+RJPOSTCFG=call "postAnex.cmd"
+RJLNCHP=0
+
+[X1turbo]
+RJPRECFG=copy /y "*.cfg" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\*.cfg" "%GAMDIR%"
+RJLNCHP=0
+
+[SSF]
+RJPRECFG=for /f "tokens=3 delims= " %%a in ('reg query HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer /v NoDriveTypeAutoRun') do SET NDAR=%%a|attrib +h "%GAMDIR%\SSF.ini"|attrib +h "%GAMDIR%\Setting.ini"|for /f "delims=" %%a in ('dir /b/a-d-h "*.ini"') do copy /y "%%~a" "%EMUL%\Setting\Saturn"|attrib -h "%GAMDIR%\SSF.ini"|attrib -h "%GAMDIR%\Setting.ini"|copy /y "SSF.ini" "%EMUL%"|copy /y "Setting.ini" "%EMUL%"|copy /Y ".Mem\*.bin" "%EMUL%\Backup\InternalBackup"|copy /Y ".sstates\*" "%EMUL%\SaveState\Saturn"
+RJPOSTCFG=[XFG]move /Y "%EMUL%\Setting\Saturn\*.ini" "%GAMDIR%"|copy /Y "%EMUL%\*.ini" "%GAMDIR%"|move /Y "%EMUL%\SaveState\Saturn\*" "%GAMDIR%\.sstates"|move /Y "%EMUL%\Snapshot\*" "%GAMDIR%\.snaps"|move /Y "%EMUL%\Backup\InternalBackup\*.bin" "%GAMDIR%\.Mem"
+RJLNCHP=X
+
+[SSFLoader]
+RJPRECFG=for /f "delims=" %%a in ('dir /b/a-d-h "*.ini"') do copy /y "%%~a" "%EMUL%\Setting\Saturn"|attrib -h "%GAMDIR%\SSF.ini"|attrib -h "%GAMDIR%\Setting.ini"|copy /y "SSF.ini" "%EMUL%"|copy /y "Setting.ini" "%EMUL%"|copy /Y ".Mem\*.bin" "%EMUL%\Backup\InternalBackup"|copy /Y ".sstates\*" "%EMUL%\SaveState\Saturn"
+RJPOSTCFG=[XFG]move /Y "%EMUL%\Setting\Saturn\*.ini" "%GAMDIR%"|copy /Y "%EMUL%\*.ini" "%GAMDIR%"|move /Y "%EMUL%\SaveState\Saturn\*" "%GAMDIR%\.sstates"|move /Y "%EMUL%\Snapshot\*" "%GAMDIR%\.snaps"|move /Y "%EMUL%\Backup\InternalBackup\*.bin" "%GAMDIR%\.Mem"
+RJLNCHP=X
+
+[Steem]
+RJPRECFG=copy /y "steem.ini" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\steem.ini" "%GAMDIR%"
+RJRUNDIR=1
+RJLNCHP=0
+
+[NullDc]
+RJPRECFG=copy /y "nulldc.cfg" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\nulldc.cfg" "%GAMDIR%"
+RJEMUOPTS=<-config  -config ImageReader:LoadDefaultImage=1 -config ImageReader:defaultImage=|<-config nullDC_GUI:Fullscreen=1  -config ImageReader:LoadDefaultImage=1 -config ImageReader:defaultImage=
+RJRUNDIR=0
+RJLNCHP=0
+
+[reicast]
+RJPRECFG=copy /y "*.cfg" "%EMUL%"|copy /y ".Mem\vmu_save*.bin" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\*.cfg" "%GAMDIR%"|move /y "%EMUL%\vmu_save*.bin" "%GAMDIR%\.Mem"
+RJRUNDIR=0
+RJLNCHP=0
+
+[Demul]
+RJPRECFG=copy /y "*.ini" "%EMUL%"|copy /y ".sstates\*" "%EMUL%\sstates"|copy /y ".scache\*" "%EMUL%\scache"
+RJPOSTCFG=copy /y "%EMUL%\*.ini" "%GAMDIR%"|move /y "%EMUL%\sstates\*" "%GAMDIR%\.sstates"|move /y "%EMUL%\snap\*" "%GAMDIR%\.snaps"|move /y "%EMUL%\scache\*" "%GAMDIR%\.scache"
+RJRUNDIR=0
+RJLNCHP=0
+
+[cps3emulator]
+RJPRECFG=copy /y "emulator.ini" "%EMUL%"|copy /y ".snaps\*.sta""%EMUL%\STATES"|copy /y Plugins.cfg "%EMUL%\Plugins"|copy /y ".Mem\*.DAT" "%EMUL%\NVDATA"|copy /y *.input "%EMUL%\CFG"
+RJPOSTCFG=copy /y "%EMUL%\emulator.ini" "%GAMDIR%"|copy /y "%EMUL%\Plugins.cfg" "%GAMDIR%"|move /y "%EMUL%\NVDATA\*.DAT" "%GAMDIR%\.Mem|move /y "%EMUL%\CFG\*.input" "%GAMDIR%"|move /Y "%EMUL%\STATES\*.sta" "%GAMDIR%\.sstates"|move /Y "%EMUL%\SHOTS\*.bmp" "%GAMDIR%\.snaps"
+RJQUOTES=0
+RJPATH=0
+NICEFLD=1
+RJRUNDIR=0
+RJEXT=0
+RJROMINJ=%ROM%
+RJEXTRARC=0
+RJZIPPEEK=0
+RJLNCHP=0
+
+[NeoRaine]
+RJPRECFG=copy /y "*.cfg" "%EMUL%\config"
+RJPOSTCFG=copy /y "%EMUL%\config.\*.cfg" "%GAMDIR%"
+RJEMUOPTS=<-nogui<
+RJEXTRARC=0
+RJZIPPEEK=0
+RJLNCHP=0
+
+[FinalBurnAlpha]
+RJPRECFG=attrib +h "fba*.ini"|copy /Y "%GAMDIR%\.Mem\*.nv" "%EMUL%\config\games"|copy /Y "%GAMDIR%\.sstates\*.fs" "%EMUL%\savestates"|copy /Y "*.ini" "%EMUL%\config\games"|attrib -h "fba*.ini"|copy /Y "fba*.ini" "%EMUL%\config"
+RJPOSTCFG=copy /Y "%EMUL%\config\fba*.ini" "%GAMDIR%"|move /Y "%EMUL%\config\games\*.ini" "%GAMDIR%"|move /Y "%EMUL%\savestates\%ROM%*.fs" "%GAMDIR%\.sstates"|move /Y "%EMUL%\config\games\%ROM%*.nv" "%GAMDIR%\.Mem"|move /Y "%EMUL%\screenshots\*.png" "%GAMDIR%\.snaps"
+RJQUOTES=0
+RJEMUARGS=<[XRES]x[YRES]x[BITDEPTH]|<
+RJPATH=0
+NICEFLD=1
+RJRUNDIR=0
+RJEXT=0
+RJROMINJ=%ROM%
+RJEXTRARC=0
+RJZIPPEEK=0
+RJLNCHP=0
+
+[Mednafen]
+RJEMUOPTS=<|<-fs 1<|<
+RJPRECFG=copy /y "mednafen*.cfg" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\mednafen*.cfg" "%GAMDIR%"
+RJRUNDIR=1
+PEREMUCFG=1
+RJLNCHP=0
+
+[Fusion]
+RJRUNDIR=1
+RJEMUOPTS=<|<-FullScreen<|<
+PEREMUCFG=1
+RJLNCHP=0
+
+[Nostalgia]
+RJPRECFG=copy /y "input.cfg" "%EMUL%"|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "Capture Folder" /t REG_SZ /d "%GAMDIR%\.snaps"|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "Hide on Run" /t REG_DWORD /d 1|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "Images Folder" /t REG_SZ /d "%GAMDIR%"|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "Manuals Folder" /t REG_SZ /d "%GAMDIR%"|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "SaveGame Folder" /t REG_SZ /d "%GAMDIR%\.sstates"
+RJPOSTCFG=copy /y "%EMUL%\input.cfg" "%GAMDIR%"
+RJRUNDIR=1
+RJEMUOPTS=<-f<|<
+RJLNCHP=0
+
+[XM7]
+RJPRECFG=copy /y "*.ini" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\*.ini" "%GAMDIR%"
+RJEMUOPTS=<"[DSK1]" "[DSK2]"
+RJLNCHP=X
+
+[retroArch]
+RJPRECFG=
+RJEMUOPTS=<-L [libretrodirectory]\[core]<|<
+RJEXTRARC=0
+RJRUNDIR=0
+RJLNCHP=0
+
+[bsnes]
+RJPRECFG=copy /y "*.bml" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\*.bml" "%GAMDIR%"
+RJEMUOPTS=<--fullscreen<
+RJLNCHP=0
+
+
+[WinBox]
+RJPRECFG=copy /y ".sstates\*.*" "%EMUL%\STATES"|copy /y "dosbox.conf" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\dosbox.conf" "%GAMDIR%"|move /y "%EMUL%\STATES\*.*" "%GAMDIR%\.sstates"
+RJLNCHP=0
+
+[DosBox]
+RJPRECFG=copy /y ".sstates\*.*" "%EMUL%\STATES"|copy /y "dosbox.conf" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\dosbox.conf" "%GAMDIR%"|move /y "%EMUL%\STATES\*.*" "%GAMDIR%\.sstates"
+RJLNCHP=0
+
+[Project64]
+RJPRECFG=copy /Y "Rice*.cfg" "%EMUL%\Plugin\GFX"|copy /Y "Rice*.ini" "%EMUL%\Plugin\GFX"|copy /Y "Glide64.ini" "%EMUL%\Plugin\1.6 Plugins"|copy /Y "MyGlide64.ini" "%EMUL%\Plugin\1.6 Plugins"|copy /Y "NRage.ini" "%EMUL%\Plugin\1.6 Plugins"|copy /Y "tr64_ogl.ini" "%EMUL%\Plugin\1.6 Plugins"|copy /Y "Project64.cfg" "%EMUL%\Config"
+RJPOSTCFG=copy /Y "%EMUL%\Plugin\GFX\*.ini" "%GAMDIR%"|copy /Y "%EMUL%\Plugin\GFX\*.cfg" "%GAMDIR%"|copy /Y "%EMUL%\Config\*.cfg" "%GAMDIR%"|copy /Y "%EMUL%\Plugin\1.6 Plugins\*.ini" "%GAMDIR%"
+RJLNCHP=0
+
+[Desmume]
+RJPRECFG=copy /y "*.ini" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\*.ini" "%GAMDIR%"
+RJEMUOPTS=<--windowed-fullscreen<
+RJLNCHP=0
+
+[Apollo]
+RJLNCHP=0
+
+[openbeatsofrage]
+RJEMUOPTS=
+RJPOSTCFG=
+RJLNCHP=0
+
+[SWFOpener]
+RJEMUOPTS=<-full -sa<
+RJLNCHP=0
+
+[M88]
+RJPRECFG=copy /y "*.ini" "%EMUL%"|copy /y ".sstates\*.sav" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\*.ini" "%GAMDIR%"|move /y "%EMUL%\.sav" "%GAMDIR%\.sstates"
+RJRUNDIR=1
+RJLNCHP=X
+RJEMUOPTS=<|<-F<|<
+
+[*************************************************************************]
+[APF - Imagination Machine]
+RJEMUPRESET=MAME
+RJMAMENM=apfimag
+RJROMXT=.wav,.cas,.cpf,.apt,.d77,.d88,.1dd,.dfi,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.zip
+MAME?RJEMUOPTS=<apfimage -cart<
+RJZIPPEEK=0
+
+[Acorn - Archimedes]
+RJEMUPRESET=Arculator
+RJMAMENM=a310
+RJMULTIDISC=1
+RJROMXT=.adf,.ads,.adm,.adl,.apd,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.fdi,.apd,.zip
+MAME?RJEMUOPTS=<a310 -flop<a7000 -flop
+RJZIPPEEK=0
+
+[Acorn - BBC]
+RJEMUPRESET=BeebEm
+RJMAMENM=bbca
+RJMULTIDISC=1
+RJROMXT=.ssd,.bbc,.img,.dsd,.fsd,.wav,.csw,.uef,.bin,.rom,.zip
+MAME?RJEMUOPTS=<bbca -[RJRTYP]<|<bbca -cass<|<bbca -cart1<
+
+[Acorn - Electron]
+RJEMUPRESET=ElecEM
+RJMAMENM=electron
+RJMULTIDISC=1
+RJROMXT=.ssd,.bbc,.img,.dsd,.adf,.ads,.adm,.adl,.wav,.csw,.uef,.bin,.zip
+MAME?RJEMUOPTS=<electron -[RJRTYP]<|<electron -cass<|<electron -cart<|<electron -flop<
+
+[Adobe - Flash]
+RJEMUPRESET=SWFOpener
+RJROMXT=.swf,.html,.htm
+
+[Amstrad - CPC]
+RJEMUPRESET=WinApe
+RJMAMENM=cpc6128p
+RJMULTIDISC=1
+RJROMXT=.dsc,.dsk,.arc,.cdt,.tzx,.czx,.voc,.wav,.cpr,.bin,.d77,.d88,.1dd,.dfi,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.zip
+RJEMUARGS=</A|<
+MAME?RJEMUARGS=<
+MAME?RJEMUOPTS=<cpc6128p -[RJRTYP]<|<cpc6128p -cass<|cpc6128p -flop<
+
+[Amstrad - GX4000]
+RJEMUPRESET=WinApe
+RJMAMENM=gx4000
+RJROMXT=.bin,.cpr,.crt,.zip
+RJEMUARGS= 
+MAME?RJEMUOPTS=<gx4000 -cart<
+RJZIPPEEK=0
+
+[Apple - IIe]
+RJEMUPRESET=AppleWin
+RJMAMENM=apple2e
+RJMULTIDISC=1
+RJROMXT=.bin,.dsk,.zip,.nib,.iie,.d,.po,.gz,.2img,.2mg,.hdv,.rti,.edd,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.wav
+MAME?RJEMUOPTS=<apple2e -[RJRTYP]<|<apple2e -cass<|<apple2e -flop1<
+
+[Apple - II]
+RJEMUPRESET=MAME
+RJMAMENM=apple2
+RJMULTIDISC=1
+RJROMXT=.bin,.dsk,.zip,.nib,.iie,.d,.po,.gz,.2img,.2mg,.hdv,.rti,.edd,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.wav
+MAME?RJEMUOPTS=<apple2 -[RJRTYP]<|<apple2 -cass<|<apple2 -flop1<
+
+[Apple - IIgs]
+RJEMUPRESET=Kegs32
+RJMAMENM=apple2gs
+RJMULTIDISC=1
+RJROMXT=.do,.dsk,.bin,.po,.nib,.fdi,.td0,.imd,.cqm,.d77,.d88,.1dd,.img,.image,.dc,.2img,.2mg,.zip
+MAME?RJEMUOPTS=<apple2gs -flop1<
+RJZIPPEEK=0
+
+[Apple - Macintosh]
+RJEMUPRESET=MAME
+RJMAMENM=mac128k
+MAME?RJEMUOPTS=<mac128k -flop1<
+RJMULTIDISC=1
+RJZIPPEEK=0
+
+[Atari - 2600]
+RJEMUPRESET=Stella
+RJMAMENM=a2600
+RJROMXT=.z26,.a26,.zip,.bin,.rom,.zip
+MAME?RJEMUOPTS=<a2600p -cart<|<a2600 -cart<
+
+[Atari - 5200]
+RJEMUPRESET=Altirra
+RJMAMENM=a5200
+RJROMXT=.bin,.rom,.car,.a52,.zip
+Altirra?RJEMUOPTS=</hardware:5200 /kernel:5200lle<|</f /hardware:5200 /kernel:5200lle<
+MAME?RJEMUOPTS=<a5200 -cart<
+RJZIPPEEK=0
+
+[Atari - 7800]
+RJEMUPRESET=prosystem
+RJMAMENM=a7800
+RJROMXT=.bin,.a78,.rom,.zip
+prosystem?RJEMUOPTS=<-Fullscreen 0 -MenuEnabled 1 -Region auto -Zoom 3<|<-Fullscreen 1 -MenuEnabled 0 -Region auto<
+MAME?RJEMUOPTS=<a7800p -cart<|<a7800 -cart<
+RJZIPPEEK=0
+
+[Atari - 800]
+RJEMUPRESET=Altirra
+RJMAMENM=a800xl
+RJMULTIDISC=1
+RJROMXT=.atr,.dsk,.xfd,.bin,.rom,.car,.xex,.wav,.bas,.cas,.bin,.zip,.atx,.pro,.obx,.com,.zip
+MAME?RJEMUOPTS=<a800xl -[RJRTYP]<|<a800xl -flop1<|<a800xl -cart<|<a800xlp -flop1<|<a800xlp -cart<|<a800 -flop1<|<a800 -cart<|<a800pal -flop1<|<a800pal -cart<|<a800xe -flop1<|<a800xe -cart<
+Altirra?RJEMUOPTS=</hardware:800xl</disk<|</hardware:800xl</tape<|</hardware:800xl</cart<
+
+[Atari - 8Bit]
+RJEMUPRESET=Altirra
+RJMAMENM=a800xl
+RJMULTIDISC=1
+RJROMXT=.atr,.dsk,.xfd,.bin,.rom,.car,.xex,.wav,.bas,.cas,.bin,.zip,.atx,.pro,.obx,.com,.zip
+MAME?RJEMUOPTS=<a800xl -[RJRTYP]<|<a800xl -flop1<|<a800xl -cart<|<a800xlp -flop1<|<a800xlp -cart<|<a800 -flop1<|<a800 -cart<|<a800pal -flop1<|<a800pal -cart<|<a800xe -flop1<|<a800xe -cart<
+Altirra?RJEMUOPTS=</hardware:800xl</disk<|</hardware:800xl</tape<|</hardware:800xl</cart<
+
+[Atari - Jaguar CD]
+RJEMUPRESET=ProjectTempest
+RJMAMENM=jaguarcd
+RJROMXT=.iso,.bin,.cue,.img,.ccd,.cdi,.bin,.rom,.abs,.jag,.j64,.prg,.cof,.zip
+MAME?RJEMUOPTS=<jaguarcd -cdrom<
+RJZIPPEEK=0
+
+[Atari - Jaguar]
+RJEMUPRESET=virtualJaguar
+RJMAMENM=jaguar
+RJROMXT=.bin,.rom,.abs,.jag,.j64,.prg,.cof,.zip
+MAME?RJEMUOPTS=<jaguar -cart<
+RJZIPPEEK=0
+
+[Atari - Lynx]
+RJEMUPRESET=Mednafen
+RJMEDNM=lynx
+RJMAMENM=lynx
+RJROMXT=.lnx,.lyx,.zip
+MAME?RJEMUOPTS=<lynx -cart<
+RJZIPPEEK=0
+
+[Atari - ST]
+RJEMUPRESET=STeem
+RJMULTIDISC=1
+RJMAMENM=st
+RJROMXT=.stx,.st,.msa,.zip,.ipf
+MAME?RJMAMEOPTS=<st -[RJRTYP]<|<st -cart<|<st -flop1<
+
+[Atari - XE]
+RJEMUPRESET=Altirra
+RJMAMENM=xegs
+RJMULTIDISC=1
+RJROMXT=.atr,.dsk,.xfd,.bin,.rom,.car,.zip
+MAME?RJEMUOPTS=<xegs -[RJRTYP]<|<a800xlp -flop1<|<a800xlp -cart<|<a800 -flop1<|<a800 -cart<|<a800pal -flop1<|<a800pal -cart<|<a800xe -flop1<|<a800xe -cart<|<a800xl -flop1<|<a800xl -cart<|<xegs -cass1<|<xegs -flop1<
+Altirra?RJEMUOPTS=</hardware:800xl</disk<|</hardware:800xl</tape<|</hardware:800xl</cart<
+
+[Bally - Astrocade]
+RJEMUPRESET=MAME
+RJMAMENM=astrocde
+RJROMXT=.bin,.zip
+MAME?RJEMUOPTS=<astrocde -cart<|<astrocdw -cart<|<astrocdl -cart<|<astrocde -cart<
+
+[Bandai - WonderSwan Color]
+RJEMUPRESET=Mednafen
+RJMEDNM=wswan
+RJMAMENM=wscolor
+RJROMXT=.bin,.zip,.ws,.wsc
+MAME?RJEMUOPTS=<wswan -cart<
+RJZIPPEEK=0
+
+[Bandai - WonderSwan]
+RJEMUPRESET=Mednafen
+RJMEDNM=wswan
+RJMAMENM=wswan
+RJROMXT=.bin,.zip,.ws
+MAME?RJEMUOPTS=<wswan -cart<
+RJZIPPEEK=0
+
+[BIOS - BIOS]
+RJEMUPRESET=MAME
+RJMEDNM=
+RJMAMENM=
+RJROMXT=
+MAME?RJEMUOPTS=
+RJZIPPEEK=0
+
+[Camputers - Lynx]
+RJEMUPRESET=MAME
+RJMAMENM=lynx128
+RJMULTIDISC=1
+RJROMXT=.wav,.tap,.ldf,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.zip
+MAME?RJEMUOPTS=<lynx128k -[RJRTYP]<|<lynx128k -cass<|<lynx128k -flop1<
+
+[Capcom Play System - CPS III]
+RJEMUPRESET=cps3emulator
+RJROMXT=.chd,.zip
+SETLST=
+NICEFLDR=1
+RJEXTRARC=0
+RJZIPPEEK=0
+
+[Capcom Play System - CPS II]
+RJEMUPRESET=FinalBurnAlpha
+RJROMXT=.zip
+SETLST=
+NICEFLDR=1
+RJEXTRARC=0
+RJZIPPEEK=0
+
+[Capcom Play System - CPS]
+RJEMUPRESET=FinalBurnAlpha
+RJROMXT=.zip
+SETLST=
+NICEFLDR=1
+RJEXTRARC=0
+PEREMUCFG=1
+RJZIPPEEK=0
+
+[Casio - Loopy]
+RJEMUPRESET=MAME
+RJMAMENM=casloopy
+RJMULTIDISC=1
+RJROMXT=.bin,.ic1,.zip
+MAME?RJEMUOPTS=<casloopy -cart<
+RJZIPPEEK=0
+
+[Casio - PV-1000]
+RJEMUPRESET=MAME
+RJMAMENM=pv1000
+RJMULTIDISC=1
+RJROMXT=.*
+MAME?RJEMUOPTS=<pv1000 -cart<
+RJZIPPEEK=0
+
+[Casio - PV-2000]
+RJEMUPRESET=MAME
+RJMAMENM=pv2000
+RJMULTIDISC=1
+MAME?RJEMUOPTS=<pv2000 -[RJRTYP]<|<pv2000 -cart<|<pv2000 -cass<
+
+[Cave Systems - Cave]
+RJEMUOPTS=<[RJMAMENM] -[MAMEMEDIA]<
+RJEMUARGS=<-rp "[RJMAMEROMPTH]"
+RJEMUPRESET=MAME - Arcade
+SETLST=
+RJROMXT=.zip
+RJRUNDIR=0
+NICEFLDR=1
+RJEXTRARC=0
+RJZIPPEEK=0
+
+[Coleco - ADAM]
+RJEMUPRESET=MAME
+RJMAMENM=adam
+MAME?RJEMUOPTS=<adam -[RJRTYP]<|<adam -flop1<|<adam -cass1<|<adam -cart1<
+
+[Coleco - ColecoVision]
+RJEMUPRESET=BlueMSX
+RJMAMENM=coleco
+BlueMSX?RJEMUOPTS=</fullscreen /machine "COL - Colecovision" /rom1<|</machine "COL - Colecovision" /rom1zip<|</fullscreen /machine "COL - Colecovision" /rom1zip<|</machine "COL - Colecovision" /rom1<
+MAME?RJEMUOPTS=<coleco -cart<|<colecp -cart<|<coleco -cart<
+RJZIPPEEK=0
+
+[Commodore - 64]
+RJEMUPRESET=WinVICE
+RJMAMENM=c64
+RJMULTIDISC=1
+WinVice?RJEMUOPTS=<-autostart<
+RJROMXT=.x64,.t64,.d64,.g64,.fdi,.p00,.prg,.tap,.wav,.80,.a0,.e0,.crt,.g41,.d77,.d88,.1dd,.dfi,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.zip
+MAME?RJEMUOPTS=<c64 -[RJRTYP]<|<c64 -cass<|<c64 -cart<|<c64 -flop<
+
+[Commodore - Amiga CD32]
+RJEMUPRESET=WinVICE
+RJMAMENM=cd32
+MAME?RJEMUOPTS=<cd32 -flop<|<cd32 -cdrom<
+RJZIPPEEK=0
+
+[Commodore - Amiga CDTV]
+RJEMUPRESET=FS-UAE
+RJMAMENM=cdtv
+MAME?RJEMUOPTS=<cdtv -[RJRTYP]<|<cdtv -cdrom<|<cdtv -flop<|<cdtvn -cdrom<|<cdtvn -flop<
+
+[Commodore - Amiga]
+RJEMUPRESET=FS-UAE
+RJMAMENM=a500n
+RJMULTIDISC=1
+MAME?RJEMUOPTS=<a500n -flop<|<a500 -flop<|<a500n -flop<|<a500pn -flop<|<a3000n -flop<|<a1200n -flop
+RJZIPPEEK=0
+
+[Commodore - Amiga 1000]
+RJEMUPRESET=FS-UAE
+RJMAMENM=a1000n
+RJMULTIDISC=1
+MAME?RJEMUOPTS=<a1000n -flop<|<a1000 -flop<|<a1000n -flop<
+RJZIPPEEK=0
+
+[Commodore - Amiga 1200]
+RJEMUPRESET=FS-UAE
+RJMAMENM=a1200n
+RJMULTIDISC=1
+MAME?RJEMUOPTS=<a1200 -flop<|<a1200n -flop1<
+RJZIPPEEK=0
+
+[Commodore - Amiga 2000]
+RJEMUPRESET=FS-UAE
+RJMAMENM=a2000n
+RJMULTIDISC=1
+MAME?RJEMUOPTS=<a2000 -flop<|<a2000n -flop<
+RJZIPPEEK=0
+
+[Commodore - Amiga 3000]
+RJEMUPRESET=FS-UAE
+RJMAMENM=a3000n
+RJMULTIDISC=1
+MAME?RJEMUOPTS=<a3000 -flop<|<a3000n -flop<
+RJZIPPEEK=0
+
+[Commodore - C16]
+RJEMUPRESET=WinVICE
+RJMAMENM=c16
+RJMULTIDISC=1
+MAME?RJEMUOPTS=<c16 -cart
+RJZIPPEEK=0
+
+[Commodore - MAX]
+RJEMUPRESET=MAME
+RJMAMENM=vic10
+RJMULTIDISC=1
+RJROMXT=.wav,.tap,.e0,.80,.zip
+MAME?RJEMUOPTS=<vic10 -[RJRTYP]<|<vic10 -cass<|<vic10 -cart<
+
+[Commodore - PET]
+RJEMUPRESET=MAME
+RJMAMENM=pet8032
+RJMULTIDISC=1
+RJROMXT=.d80,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.wav,.tap,.bin,.rom,.zip
+MAME?RJEMUOPTS=<pet8032 -[RJRTYP]<|<pet8032 -cart1<|<pet8032 -cass<|<pet8032 -flop1<
+
+[Commodore - VIC-20]
+RJEMUPRESET=WinVICE
+RJMAMENM=vic20
+RJMULTIDISC=1
+WinVice?RJEMUOPTS=<-ntsc +confirmexit -saveres +warp -fullscreen -cartgeneric<|<-ntsc +confirmexit -saveres +warp -cartgeneric<
+RJROMXT=.wav,.tap,.d64,.g64,.g41,.d77,.d88,.1dd,.dfi,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk .p00,.prg,.20,.40,.60,.70,.a0,.b0,.crt,.zip
+MAME?RJEMUOPTS=<vic20 -[RJRTYP]<|<vic20 -cass<|<vic20 -cart<|<vic20 -flop<
+
+[DGS - Dragon 32-64]
+RJEMUPRESET=MAME
+RJMAMENM=d64plus
+RJROMXT=.wav,.cas,.dmk,.jvc,.dsk,.vdk,.sdf,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.ccc,.rom,.zip
+MAME?RJEMUOPTS=<d64 -[RJRTYP]<|<d64 -cass<|<d64 -cart<|<d64 -flop1<
+
+[Microsoft - DOS]
+RJEMUPRESET=DOSBox
+RJMULTIDISC=1
+RJROMXT=.conf
+
+[Emerson - Arcadia 2001]
+RJEMUPRESET=WinArcadia
+RJMAMENM=arcadia
+
+[Enterprise - 128]
+RJEMUPRESET=MAME
+RJMAMENM=ep128
+RJMULTIDISC=1
+MAME?RJEMUOPTS=<ep128 -[RJRTYP]<|<ep128 -cass<|<ep128 -cart<
+RJROMXT=.wav,.bin,.rom,.zip
+
+[Enterprise - 64]
+RJEMUPRESET=MAME
+RJMAMENM=ep64
+RJMULTIDISC=1
+MAME?RJEMUOPTS=<ep64 -[RJRTYP]<|<ep64 -cass<|<ep64 -cart<
+RJROMXT=.wav,.bin,.rom,.zip
+
+[Entex - Adventure Vision]
+RJEMUPRESET=MAME
+RJMAMENM=advision
+RJMULTIDISC=1
+MAME?RJEMUOPTS=<advision -cart<
+RJROMXT=.bin,.zip
+RJZIPPEEK=0
+
+[Epoch - Super Cassette Vision]
+RJEMUPRESET=MAME
+RJMULTIDISC=1
+RJMAMENM=scv
+MAME?EMUOPTS=<scv -cart<
+RJROMXT=.bin,.zip
+RJZIPPEEK=0
+
+[Fairchild - Channel F]
+RJEMUPRESET=MAME
+RJMAMENM=channelf
+RJMULTIDISC=1
+MAME?RJEMUOPTS=<channelf -cart<
+RJROMXT=.bin,.chf,.zip
+RJZIPPEEK=0
+
+[Fujitsu - FM-7]
+RJEMUPRESET=XM7
+RJMAMENM=fm7
+RJMULTIDISC=1
+MAME?RJEMUOPTS=<fm7 -[RJRTYP]<|<fm7 -flop1<|<fm7 -flop1<|<fm7740sx -flop1<|<fm7740sx -flop1<|<fm7av -flop1<
+RJROMXT=.wav,.t77,.d77,.d88,.1dd,.dfi,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.zip
+
+[Funtech - Super A'can]
+RJEMUPRESET=MAME
+RJMAMENM=supracan
+RJROMXT=.bin,.zip
+MAME?RJEMUOPTS=<supracan -cart<
+RJZIPPEEK=0
+
+[GCE - Vectrex]
+RJEMUPRESET=ParaJVE
+RJMAMENM=vectrex
+RJROMXT=.bin,.gam,.vec,.zip
+MAME?RJEMUOPTS=<vectrex -cart<
+RJZIPPEEK=0
+
+[Galeco - Galeco]
+RJEMUPRESET=Demul
+RJROMXT=.zip
+SETLST=
+RJZIPPEEK=0
+
+[Hartung - Game Master]
+RJEMUPRESET=MAME
+RJMAMENM=gmaster
+RJROMXT=.bin,.zip
+MAME?RJEMUOPTS=<gmaster -cart<
+RJZIPPEEK=0
+
+[Sega - Hikaru]
+RJEMUPRESET=Demul
+RJROMXT=.zip
+SETLST=
+RJEXTRARC=0
+RJZIPPEEK=0
+
+[IBM - PC Jr]
+RJEMUPRESET=MAME
+RJMAMENM=ibmpcjr
+RJMULTIDISC=1
+RJROMXT=.dsk,.ima,.img,.ufi,.360,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.zip
+MAME?RJEMUOPTS=<ibmpcjr -[RJRTYP]<|<ibmpcjr -cart1<|<ibmpcjx -cass<|<ibmpcjx -cart1<|<ibmpcjx -flop1<|<ibmpcjr -cass<|<ibmpcjr -flop1<
+
+[Interon - VC4000]
+RJEMUPRESET=MAME
+RJMAMENM=vc4000
+RJROMXT=.bin,.rom,.zip
+MAME?RJEMUOPTS=<vc4000 -cart<
+RJZIPPEEK=0
+
+[Jupiter Cantab - Jupiter Ace]
+RJEMUPRESET=MAME
+RJMAMENM=jupace
+RJROMXT=.wav,.tap,.ace,.zip
+MAME?RJEMUOPTS=<jupace -[RJRTYP]<|=<jupace -dump<|<jupace -cass<
+
+[Konami]
+RJEMUPRESET=MAME - Arcade
+SETLST=
+NICEFLDR=1
+RJEXTRARC=0
+RJZIPPEEK=0
+
+[Leapfrog - Leapster Learning Game System]
+RJEMUPRESET=MAME
+RJZIPPEEK=0
+
+[MGT - Sam Coupe]
+RJEMUPRESET=MAME
+RJMAMENM=samcoupe
+RJMULTIDISC=1
+RJROMXT=.mgt,.dsk,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.wav,.tzx,.tap,.blk,
+MAME?RJEMUOPTS=<samcoupe -flop1[RJRTYP]<|<samcoupe -flop1<|<samcoupe -cass<
+
+[Magnavox - Odyssey 2]
+RJEMUPRESET=MAME
+RJMAMENM=odyssey2
+RJROMXT=.bin,.rom,.zip
+MAME?RJEMUOPTS=<odyssey2 -cart<
+RJZIPPEEK=0
+
+[Magnavox - Odyssey 3]
+RJEMUPRESET=MAME
+RJMAMENM=odyssey3
+RJROMXT=.bin,.rom,.zip
+MAME?RJEMUOPTS=<odyssey3 -cart<
+RJZIPPEEK=0
+
+[Magnavox - Odyssey]
+RJEMUPRESET=DOSBox
+
+[Mattel - Aquarius]
+RJEMUPRESET=MAME
+RJMAMENM=aquarius
+RJROMXT=.wav,.bin,.zip
+MAME?RJEMUOPTS=<aqaurius -[RJRTYP]<|<aqaurius -cass<|<aquarius -cart<
+
+[Mattel - Intellivision]
+RJEMUPRESET=Nostalgia
+RJMAMENM=intv
+RJROMXT=.bin,.int,.rom,.itv,.zip
+MAME?RJEMUOPTS=<intv2 -cart<|<intv -cart<
+RJZIPPEEK=0
+
+[Mega Duck]
+RJEMUPRESET=MAME
+RJMAMENM=megaduck
+RJROMXT=.bin,.zip
+MAME?RJEMUOPTS=<megaduck -cart<
+RJZIPPEEK=0
+
+[Memotech - MTX]
+RJEMUPRESET=MAME
+RJMAMENM=mtx512
+RJMULTIDISC=1
+MAME?RJEMUOPTS=<mtx512 -[RJRTYP]<|<mtx512 -cass<|<mtx512 -dump<
+RJROMXT=.mtx,.wav,.zip
+
+[Microsoft - MSX TurboR]
+RJEMUPRESET=BlueMSX
+RJMAMENM=fsa1st
+RJMULTIDISC=1
+BlueMSX?RJEMUOPTS=</fullscreen /machine "MSXturboR" /[RJRTYP]<</fullscreen /machine "MSXturboR" /rom1<|</machine "MSXturboR" /rom1zip<|</fullscreen /machine "MSXturboR" /rom1zip<|</machine "MSXturboR" /diskA<|</fullscreen /machine "MSXturboR" /diskA<|</machine "MSXturboR" /cas<|</fullscreen /machine "MSXturboR" /cas<|</machine "MSXturboR" /caszip<|</fullscreen /machine "MSXturboR" /caszip<|</machine "MSXturboR" /rom1<
+RJROMXT=.dsk,.dmk,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.mx1,.bin,.rom,.wav,.tap,.cas.zip
+MAME?RJEMUOPTS=<fsa1st -[RJRTYP]<|<fsa1st -cart1<|<fsa1st -cass<|<fsa1st -flop<
+
+[Microsoft - MSX2]
+RJEMUPRESET=BlueMSX
+RJMAMENM=canonv30f
+RJMULTIDISC=1
+BlueMSX?RJEMUOPTS=</fullscreen /machine "MSX2+" /[RJRTYP]<|</fullscreen /machine "MSX2+" /rom1<|</machine "MSX2+" /rom1zip<|</fullscreen /machine "MSX2+" /rom1zip<|</machine "MSX2+" /diskA<|</fullscreen /machine "MSX2+" /diskA<|</machine "MSX2+" /caszip<|</fullscreen /machine "MSX2+" /caszip<|</machine "MSX2+" /cas<|</fullscreen /machine "MSX2+" /cas<|</machine "MSX2+" /rom1<
+RJROMXT=.dsk,.dmk,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.mx1,.bin,.rom,.wav,.tap,.cas.zip
+MAME?RJEMUOPTS=<canonv30f -[RJRTYP]<|<canonv30f -cart1<|<canonv30f -cass<|<canonv30f -flop1<
+
+[Microsoft - MSX2+]
+RJEMUPRESET=BlueMSX
+RJMAMENM=hbf9sp
+RJMULTIDISC=1
+BlueMSX?RJEMUOPTS=</fullscreen /machine "MSX2+" /[RJRTYP]<|</fullscreen /machine "MSX2+" /rom1<|</machine "MSX2+" /rom1zip<|</fullscreen /machine "MSX2+" /rom1zip<|</machine "MSX2+" /diskA<|</fullscreen /machine "MSX2+" /diskA<|</machine "MSX2+" /caszip<|</fullscreen /machine "MSX2+" /caszip<|</machine "MSX2+" /cas<|</fullscreen /machine "MSX2+" /cas<|</machine "MSX2+" /rom1<
+RJROMXT=.dsk,.dmk,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.mx1,.bin,.rom,.wav,.tap,.cas.zip
+MAME?RJEMUOPTS=<hbf9sp -flop<
+RJZIPPEEK=0
+
+[Microsoft - MSX]
+RJEMUPRESET=BlueMSX
+RJMAMENM=canonv10
+RJMULTIDISC=1
+BlueMSX?RJEMUOPTS=</machine "MSX" /[RJRTYP]<|</fullscreen /machine "MSX" /diskA<|</machine "MSX" /cas<|</fullscreen /machine "MSX" /cas<|</machine "MSX" /caszip<|</fullscreen /machine "MSX" /caszip<|</machine "MSX" /rom1<|</fullscreen /machine "MSX" /rom1<|</machine "MSX" /rom1zip<|</fullscreen /machine "MSX" /rom1zip<|</machine "MSX" /diskA<
+RJROMXT=.dsk,.dmk,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.mx1,.bin,.rom,.wav,.tap,.cas.zip
+MAME?RJEMUOPTS=<canonv10 -[RJRTYP]<|<canonv10 -cart1<|<canonv10 -cass<|<canonv10 -flop1<
+
+[Microsoft - XBOX 360]
+RJEMUPRESET=Xenia
+RJMULTIDISC=1
+
+[Microsoft - XBOX]
+RJEMUPRESET=Cxbx
+RJMULTIDISC=1
+
+[Fujitsu - FM Towns]
+RJEMUPRESET=UNZ
+RJMAMENM=fmtowns
+RJMULTIDISC=1
+RJDISCMNT=1
+RJROMXT=.bin,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr,.chd,.hd,.icm,.zip,.img
+MAME?RJEMUOPTS=<fmtownsux -[RJRTYP]<|<fmtownsux -cdrm<|<fmtownsux -hard1<|<fmtownsux -memcard<|<fmtownsa -flop1<|<fmtownsa -cdrm<|<fmtownsa -hard1<|<fmtownsa -memcard<|<fmtownsmx -flop1<|<fmtownsmx -cdrm<|<fmtownsmx -hard1<|<fmtownsmx -memcard<|<fmtownssj -flop1<|<fmtownssj -cdrm<|<fmtownssj -hard1<|<fmtownssj -memcard<|<fmtownshr -flop1<|<fmtownshr -cdrm<|<fmtownshr -hard1<|<fmtownshr -memcard<|<fmtownsftv -flop1<|<fmtownsftv -cdrm<|<fmtownsftv -hard1<|<fmtownsftv -memcard<|<fmtmarty -flop1<|<fmtmarty -cdrm<|<fmtmarty -hard1<|<fmtmarty -memcard<|<fmtmarty2 -flop1<|<fmtmarty2 -cdrm<|<fmtmarty2 -hard1<|<fmtmarty2 -memcard<|<fmtownsux -flop1<
+
+[NEC - PC Engine SuperGrafx]
+RJEMUPRESET=Mednafen
+RJMEDNM=pce
+RJMAMENM=sgx
+RJROMXT=.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr.sgx,.pce,.bin,.zip,.img
+MAME?RJEMUOPTS=<sgx -[RJRTYP]<|<sgx -cdrm<|<sgx -cart<
+
+[NEC - PC Engine - TurboGrafx 16]
+RJEMUPRESET=Mednafen
+RJMEDNM=pce
+RJMAMENM=tg16
+RJROMXT= .pce,.zip
+MAME?RJEMUOPTS=<tg16 -cart<|<pce -cart<
+RJROMXT=.bin,.pce,.zip
+RJZIPPEEK=0
+
+[NEC - PC Engine - JAP]
+RJEMUPRESET=Mednafen
+RJMEDNM=pce
+RJMAMENM=pce
+RJROMXT= .pce,.zip
+MAME?RJEMUOPTS=<pce -cart<
+RJROMXT=.bin,.pce,.zip
+
+[NEC - PC Engine CD - TurboGrafx CD]
+RJEMUPRESET=Mednafen
+RJMEDNM=pce
+RJMAMENM=tg16
+RJMULTIDISC=1
+RJROMXT=.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr,.ccd,.img
+MAME?RJEMUOPTS=<pce -cdrm<|<tg16 -cdrm<
+RJZIPPEEK=0
+
+[NEC - PC-6001]
+RJEMUPRESET=MAME
+RJMAMENM=pc6001
+RJMULTIDISC=1
+RJROMXT=.cas,.p6,.zip,.bin
+MAME?RJEMUOPTS=<pc6001a -cart1<|<pc6001mk2 -cart1<|<pc6001sr -cart1<|<pc6001 -cart1<|<pc6601 -cart1<
+RJZIPPEEK=0
+
+[NEC - PC-FX]
+RJEMUPRESET=Mednafen
+RJMEDNM=pcfx
+RJMAMENM=pcfx
+RJROMXT=.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr,.ccd,.img
+MAME?RJEMUOPTS=<pcfxga -cdrm<|<pcfx -cdrm<
+RJZIPPEEK=0
+
+[NEC - PC88]
+RJEMUPRESET=m88
+RJMAMENM=pc88va
+RJMULTIDISC=1
+RJPRECFG=copy /y "%GAMDIR%\vaeg.ini" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\vaeg.ini" "%GAMDIR%"
+RJROMXT=.wav,.xdf,.hdm,.2hd,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.zip
+MAME?RJEMUOPTS=<pc88va2 -[RJRTYP]<|<pc88va2 -cart<|<pc88va2 -flop1<|<pc88va -cart<|<pc88va -flop1<|<pc8801 -cart<|<pc8801 -flop1<|<pc8801mc -cart<|<pc8801mc -flop1<|<pc8801mh -cart<|<pc8801mh -flop1<|<pc8801mk2fr -cart<|<pc8801mk2fr -flop1<|<pc8801mk2mr -cart<|<pc8801mk2mr -flop1<|<pc8801mk2sr -cart<|<pc8801mk2sr -flop1<|<pc8801mk2 -cart<|<pc8801mk2 -flop1<|<pc8801fa -cart<|<pc8801fa -flop1<|<pc8801ma -cart<|<pc8801ma -flop1<|<pc8801ma2 -cart<|<pc8801ma2 -flop1<
+
+[NEC - PC88-VA]
+RJEMUPRESET=m88
+RJMAMENM=pc88va
+RJMULTIDISC=1
+RJPRECFG=copy /y "%GAMDIR%\vaeg.ini" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\vaeg.ini" "%GAMDIR%"
+RJROMXT=.wav,.xdf,.hdm,.2hd,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.zip
+MAME?RJEMUOPTS=<pc88va2 -[RJRTYP]<|<pc88va2 -cart<|<pc88va2 -flop1<|<pc88va -cart<|<pc88va -flop1<|<pc8801 -cart<|<pc8801 -flop1<|<pc8801mc -cart<|<pc8801mc -flop1<|<pc8801mh -cart<|<pc8801mh -flop1<|<pc8801mk2fr -cart<|<pc8801mk2fr -flop1<|<pc8801mk2mr -cart<|<pc8801mk2mr -flop1<|<pc8801mk2sr -cart<|<pc8801mk2sr -flop1<|<pc8801mk2 -cart<|<pc8801mk2 -flop1<|<pc8801fa -cart<|<pc8801fa -flop1<|<pc8801ma -cart<|<pc8801ma -flop1<|<pc8801ma2 -cart<|<pc8801ma2 -flop1<
+
+[NEC - PC8801]
+RJEMUPRESET=m88
+RJMAMENM=pc8801
+RJMULTIDISC=1
+RJROMXT=.wav,.xdf,.hdm,.2hd,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.zip
+MAME?RJEMUOPTS=<pc8801 -[RJRTYP]<|<pc8801 -cart<|<pc8801 -flop1<|<pc8801mc -cart<|<pc8801mc -flop1<|<pc8801mh -cart<|<pc8801mh -flop1<|<pc8801mk2fr -cart<|<pc8801mk2fr -flop1<|<pc8801mk2mr -cart<|<pc8801mk2mr -flop1<|<pc8801mk2sr -cart<|<pc8801mk2sr -flop1<|<pc8801mk2 -cart<|<pc8801mk2 -flop1<|<pc8801fa -cart<|<pc8801fa -flop1<|<pc8801ma -cart<|<pc8801ma -flop1<|<pc8801ma2 -cart<|<pc8801ma2 -flop1<|<pc88va2 -cart<|<pc88va2 -flop1<|<pc88va -cart<|<pc88va -flop1<
+
+
+[NEC - PC98]
+RJEMUPRESET=Neko
+RJMAMENM=pc9821xs
+RJMULTIDISC=1
+RJROMXT=dsk,.ima,.img,.ufi,.360,.hdm,.fdi,.fdd,.dcp,.dcu,.dip,.nfd,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.zip
+MAME?RJEMUOPTS=<pc9821xs -[RJRTYP]<|<pc9821xs -hard<|<pc9821xs -cdrm<|<pc9821ne -flop1<|<pc9821ne -hard<|<pc9821ne -cdrm<|<pc9821ce2 -flop1<|<pc9821ce2 -hard<|<pc9821ce2 -cdrm<|<pc9821as -flop1<|<pc9821as -hard<|<pc9821as -cdrm<|<pc9821ap2 -flop1<|<pc9821ap2 -hard<|<pc9821ap2 -cdrm<|<pc9821 -flop1<|<pc9821 -hard<|<pc9821 -cdrm<|<pc9801vm -flop1<|<pc9801vm -hard<|<pc9801vm -cdrm<|<pc9801ux -flop1<|<pc9801ux -hard<|<pc9801ux -cdrm<|<pc9801rs -flop1<|<pc9801rs -hard<|<pc9801rs -cdrm<|<pc9801f -flop1<|<pc9801f -hard<|<pc9801bx2 -flop1<|<pc9801bx2 -hard<|<pc9801bx2 -cdrm<|<pc9821xs -flop1<
+
+[Nintendo - Nintendo 64DD]
+RJEMUPRESET=Project64
+RJMAMENM=n64dd
+RJROMXT=.n64,.d64,.z64,.zip,.usa,.rom,.pal,.chd,.hd
+MAME?RJEMUOPTS=<n64dd -[RJRTYP]<|<n64dd -cart<|<n64dd -disk<
+
+[Nintendo - Nintendo 64]
+RJEMUPRESET=Project64
+RJMAMENM=n64
+RJROMXT=.n64,.d64,.z64,.zip,.usa,.rom,.pal,.chd,.hd
+MAME?RJEMUOPTS=<n64 -cart<
+RJZIPPEEK=0
+
+[Nintendo - Nintendo 3DS]
+RJEMUPRESET=Citra
+RJROMXT= .3ds,.3dsx,.elf,.axf,.cci,.cxi,.app
+RJMAMENM=3ds
+
+[Nintendo - Nintendo DS]
+RJROMXT= .zip,.nds,.ds,.7z,.gz,.rar,.gba,.srl
+RJEMUPRESET=Desmume
+
+[Nintendo - Nintendo DS Decrypted]
+RJROMXT= .zip,.nds,.ds,.7z,.gz,.rar,.gba,.srl
+RJEMUPRESET=Desmume
+
+[Nintendo - Nintendo Entertainment System]
+RJEMUPRESET=nestopia
+RJMEDNM=nes
+RJMAMENM=nes
+RJROMXT=.nes,.unif,.unf,.nsf,.fam,.fds,.bin,.zip
+MAME?RJEMUOPTS=<nes -cart<|<nespal -cart<|<nes -cart<
+RJZIPPEEK=0
+
+[Nintendo - Famicom]
+RJEMUPRESET=nestopia
+RJMAMENM=famicom
+RJMEDNM=nes
+RJMULTIDISC=1
+RJROMXT=.nes,.unif,.unf,.nsf,.fam,.fds,.bin,.zip
+MAME?RJEMUOPTS=<famicom -cart<
+RJZIPPEEK=0
+
+[Nintendo - Famicom Disk System]
+RJEMUPRESET=nestopia
+RJMEDNM=nes
+RJMAMENM=famitwin
+RJMULTIDISC=1
+RJROMXT=.nes,.unif,.unf,.nsf,.fam,.fds,.bin,.zip
+MAME?RJEMUOPTS=<famitwin -[RJRTYP]<|<fds -flop<|<fds -flop<|<famitwin -cart<
+
+[Nintendo - Game Boy Advance (e-Cards)]
+RJEMUPRESET=VisualBoyAdvance-M
+RJMEDNM=gba
+RJMAMENM=gba
+RJROMXT=.gba,.gb,.gbc,.agb,.bin,.elf,.mb,.zip
+MAME?RJEMUOPTS=<gba -cart<
+RJZIPPEEK=0
+
+[Nintendo - Game Boy Advance]
+RJEMUPRESET=VisualBoyAdvance-M
+RJMEDNM=gba
+RJMAMENM=gba
+RJROMXT=.gba,.gb,.gbc,.agb,.bin,.elf,.mb,.zip
+MAME?RJEMUOPTS=<gba -cart<
+RJZIPPEEK=0
+
+[Nintendo - Game Boy Color]
+RJEMUPRESET=bgb
+RJMEDNM=gb
+RJMAMENM=gbcolor
+RJROMXT=.gbc,.gb,.dmg,.sgb,.cgb,.zip
+MAME?RJEMUOPTS=<supergb -cart<|<supergb2 -cart<|<gbcolor -cart<
+RJZIPPEEK=0
+
+[Nintendo - Game Boy]
+RJEMUPRESET=bgb
+RJMAMENM=gameboy
+RJMEDNM=gb
+RJROMXT=.gbc,.gb,.dmg,.sgb,.cgb,.zip
+MAME?RJEMUOPTS=<gbcolor -cart<|<supergb -cart<|<supergb2 -cart<|<gameboy -cart<
+RJZIPPEEK=0
+
+[Nintendo - GameCube]
+RJEMUPRESET=Dolphin
+RJPRECFG=copy /Y "GCPadNew.ini" "%EMUL%\User\Config"|copy /Y "Dolphin.ini" "%EMUL%\User\Config"|copy /Y "gfx*.ini" "%EMUL%\User\Config"|copy /Y "Hotkeys.ini" "%EMUL%\User\Config"|for /f "delims=" %%a in ('type "shad.ini"') do copy /y "%%~a" "%EMUL%\user\load\ShaderPresets"|copy /Y ".sstates\*.*" "%EMUL%\User\StateSaves"
+RJPOSTCFG=copy /Y "%EMUL%\User\Config\GCPadNew.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\Hotkeys.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\gfx*.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\Dolphin.ini" "%GAMDIR%"|for /f "delims=" %%a in ('type "shad.ini"') do move /Y "%EMUL%\User\load\ShaderPresets\%%~a" "%GAMDIR%"|move /Y "%EMUL%\User\StateSaves\*.*" "%GAMDIR%\.sstates"
+RJROMXT=.iso,.gcm,elf,.gcz,.tgc,.csiso
+
+[Nintendo - Satellaview]
+RJEMUPRESET=snes9x
+RJMAMENM=snes
+RJROMXT=.sfc,.zip,.smc
+MAME?RJEMUOPTS=<snes -cart<|<snespal -cart<|<snes -cart<
+RJZIPPEEK=0
+
+[Nintendo - Virtual Boy]
+RJEMUPRESET=Mednafen
+RJMAMENM=vboy
+RJMEDNM=vb
+RJROMXT=.vb,.vboy,.bin,.zip
+MAME?RJEMUOPTS=<vboy -cart<
+RJZIPPEEK=0
+
+[Nintendo - WiiU]
+RJEMUPRESET=CEMU
+RJMAMENM=wiiu
+
+[Nintendo - WiiWare]
+RJEMUPRESET=Dolphin
+RJPRECFG=copy /Y "gfx*.ini" "%EMUL%\User\Config"|copy /Y "Dolphin.ini" "%EMUL%\User\Config"|copy /Y "Hotkeys.ini" "%EMUL%\User\Config"|copy /Y "*New.ini" "%EMUL%\User\Config"|for /f "delims=" %%a in ('type "shad.ini"') do copy /y "%%~a" "%EMUL%\user\load\ShaderPresets"|move /Y ".sstates\*.*" "%EMUL%\User\StateSaves"|copy /Y ".Mem\*.*" "%EMUL%\User\Wii"
+RJPOSTCFG=copy /Y "%EMUL%\User\Config\*New.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\Hotkeys.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\GCPad.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\gfx*.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\Dolphin.ini" "%GAMDIR%"|move /Y "%EMUL%\User\StateSaves\*.*" "%GAMDIR%\.sstates"|move /Y "%EMUL%\User\Wii\*.*" "%GAMDIR%\.Mem"|for /f "delims=" %%a in ('type "shad.ini"') do move /Y "%EMUL%\User\load\ShaderPresets\%%~a" "%GAMDIR%"
+RJROMXT=.dol,.iso,.gcm,.ciso,.wad,.elf,.wbfs,.tgc
+RJMAMENM=wii
+
+[Nintendo - Wii]
+RJEMUPRESET=Dolphin
+RJPRECFG=copy /Y "gfx*.ini" "%EMUL%\User\Config"|copy /Y "Dolphin.ini" "%EMUL%\User\Config"|copy /Y "Hotkeys.ini" "%EMUL%\User\Config"|copy /Y "*New.ini" "%EMUL%\User\Config"|for /f "delims=" %%a in ('type "shad.ini"') do copy /y "%%~a" "%EMUL%\user\load\ShaderPresets"|move /Y ".sstates\*.*" "%EMUL%\User\StateSaves"|copy /Y ".Mem\*.*" "%EMUL%\User\Wii"
+RJPOSTCFG=copy /Y "%EMUL%\User\Config\*New.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\Hotkeys.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\GCPad.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\gfx*.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\Dolphin.ini" "%GAMDIR%"|move /Y "%EMUL%\User\StateSaves\*.*" "%GAMDIR%\.sstates"|move /Y "%EMUL%\User\Wii\*.*" "%GAMDIR%\.Mem"|for /f "delims=" %%a in ('type "shad.ini"') do move /Y "%EMUL%\User\load\ShaderPresets\%%~a" "%GAMDIR%"
+RJROMXT=.dol,.iso,.gcm,.ciso,.wad,.elf,.wbfs,.tgc
+RJMAMENM=wii
+
+[Nintendo - Pokemon Mini]
+RJEMUPRESET=MAME
+RJMAMENM=pokemini
+RJROMXT=.bin,.min,.zip
+MAME?RJEMUOPTS=<pokemini -cart<
+RJZIPPEEK=0
+
+[Nintendo - Super Famicom]
+RJEMUPRESET=snes9x
+RJMEDNM=snes
+RJMAMENM=snes
+RJROMXT=.sfc,.bml,.smc,.zip
+MAME?RJEMUOPTS=<snes -cart<|<snespal -cart<|<snes -cart<
+
+[Nintendo - Super Game Boy]
+RJEMUPRESET=bgb
+RJMAMENM=supergb
+RJMEDNM=gb
+RJROMXT=.gbc,.gb,.dmg,.sgb,.cgb,.zip
+MAME?RJEMUOPTS=<supergb2 -cart<|<supergb -cart<
+RJZIPPEEK=0
+
+[Nintendo - Super Nintendo Entertainment System]
+RJEMUPRESET=snes9x
+RJMEDNM=snes
+RJMAMENM=snes
+RJROMXT=.sfc,.bml,.smc,.zip
+MAME?RJEMUOPTS=<snes -cart<|<snespal -cart<|<snes -cart<
+RJZIPPEEK=0
+
+[Nokia - N-Gage]
+RJEMUPRESET=MAME
+
+[Philips - CD-I]
+RJEMUPRESET=MAME
+RJMAMENM=cdi910
+RJROMXT=.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr,.img
+MAME?RJEMUOPTS=<cd910 -cdrm<|<cd490a -cdrm<
+RJZIPPEEK=0
+
+[Philips - P2000]
+RJEMUPRESET=MAME
+RJMAMENM=pc2000
+RJMULTIDISC=1
+RJROMXT=.bin,.zip
+MAME?RJEMUOPTS=<pc2000 -cart<
+RJZIPPEEK=0
+
+[Philips - VG-5000]
+RJEMUPRESET=MAME
+RJMAMENM=vg5k
+RJMULTIDISC=1
+RJROMXT=.wav,.k7,.zip
+MAME?RJEMUOPTS=<vg5k -cart<
+RJZIPPEEK=0
+
+[Philips - Videopac]
+RJEMUPRESET=MAME
+RJMAMENM=videopac
+RJMULTIDISC=1
+RJROMXT=.bin,.rom,zip
+MAME?RJEMUOPTS=<videopac -cart<
+RJZIPPEEK=0
+
+[PopCap - PopCap]
+RJEMUPRESET=BSL
+RJROMXT=.lnk,.exe,.bat,.cmd,.jar
+
+[RCA - Studio II]
+RJEMUPRESET=MAME
+RJMAMENM=studio2
+RJMULTIDISC=1
+MAME?RJEMUOPTS=<studio2 -cart<
+RJROMXT=.st2,.bin,.rom,.zip
+RJZIPPEEK=0
+
+[SNK - Neo Geo CD]
+RJEMUPRESET=NeoRaine
+RJMAMENM=neocd
+MAME?RJEMUOPTS=<neocd -cdrm<
+RJROMXT=.zip,.chd,.cue,.iso,.bin
+RJMULTIDISC=1
+RJZIPPEEK=0
+
+[SNK - Neo Geo MVS]
+RJEMUPRESET=FinalBurnAlpha
+RJMAMENM=neogeo
+RJROMXT=.zip,.chd
+SETLST=
+NICEFLDR=1
+RJEXTRARC=0
+RJZIPPEEK=0
+
+[SNK - Neo Geo Pocket Color]
+RJEMUPRESET=Mednafen
+RJMAMENM=ngpc
+RJMEDNM=ngp
+RJROMXT=.bin,.ngp,.npc,.ngc,.zip
+MAME?RJEMUOPTS=<ngpc -cart<
+RJZIPPEEK=0
+
+[SNK - Neo Geo Pocket]
+RJEMUPRESET=Mednafen
+RJMAMENM=ngp
+RJMEDNM=ngp
+RJROMXT=.bin,.ngp,.npc,.ngc,.zip
+MAME?RJEMUOPTS=<ngp -cart<
+MEDNAFEN?RJEMUOPTS=<-fs 1<
+RJZIPPEEK=0
+
+[Sammy - Atomiswave]
+RJEMUPRESET=Demul
+RJROMXT=.zip
+Demul?RJEMUOPTS=<-run=awave -rom=
+SETLST=
+NICEFLDR=1
+RJRUNDIR=0
+RJPATH=0
+RJEXT=0
+ROMNAME=0
+RJQUOTES=0
+RJEXTRARC=0
+RJZIPPEEK=0
+
+[ScummVM - ScummVM]
+RJEMUPRESET=ScummVM
+
+[Sega - SC-3000]
+RJEMUPRESET=MAME
+RJMAMENM=sc3000
+RJMULTIDISC=1
+MAME?RJEMUOPTS=<sc3000 -[RJRTYP]<|<sc3000 -cass<|<sc3000h -cart<|<sc3000h -cass<|<sf7000 -flop<|<sf7000 -cass<|<sc3000 -cart<
+RJROMXT=.bin,.sg,.sc,.wav,.bit,.zip
+
+[Sega - SF-7000]
+RJEMUPRESET=MAME
+RJMAMENM=sf7000
+RJMULTIDISC=1
+MAME?RJEMUOPTS=<sf7000 -[RJRTYP]<|<sf7000 -cass<|<sc3000 -cart<|<sc3000 -cass<|<sc3000h -cart<|<sc3000h -cass<|<sf7000 -flop<
+RJROMXT=.sf7,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.wav,.bit,.zip
+
+[Sega - SG-1000]
+RJEMUPRESET=Fusion
+RJMAMENM=sg1000
+Fusion?RJEMUOPTS=<-FullScreen<|<
+BlueMSX?RJEMUOPTS=</fullscreen /machine "SEGA -SG-1000" /rom1<|</machine "SEGA -SG-1000" /rom1zip<|</fullscreen /machine "SEGA -SG-1000" /rom1zip<|</machine "SEGA -SG-1000" /rom1<
+RJROMXT=.bin,.sg,.zip,.wav,.bit,.sms
+MAME?RJEMUOPTS=<sg1000m2 -cart<|<sg1000m2 -cass<|<sg1000m3 -cart<|<sg1000m3 -card<|<sg1000 -cart<
+RJZIPPEEK=0
+
+[Android - Android]
+RJEMUPRESET=Nox
+RJROMXT=.apk
+
+[EasyRPG - EasyRPG]
+RJEMUPRESET=easyrpg
+RJROMXT=.lmt,.ini
+
+[Sega - STV]
+RJEMUPRESET=SSF
+
+[Streets Of Rage - Remake]
+RJEMUPRESET=StreetsOfRageRemake
+RJROMXT=.sor
+
+[Sega - Saturn]
+RJEMUPRESET=SSF
+RJMAMENM=saturnu
+RJMEDNM=ss
+RJMULTIDISC=1
+RJDISCMNT=1
+RJRUNDIR=0
+MEDNAFEN?RJEMUOPTS=<-fs 1<|<
+RJROMXT=.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr,.md5,.cdi,.img
+MAME?RJEMUOPTS=<saturn -[RJRTYP]<|<saturn -cart<|<saturneu -cdrm<|<saturneu -cart<|<saturnjp -cdrm<|<saturnjp -cart<|<saturn -cdrm<
+
+[Sega - 32X]
+RJEMUPRESET=Fusion
+RJMAMENM=32x
+Fusion?RJEMUOPTS=<-FullScreen -32X<|<-32X<
+MAME?RJEMUOPTS=<32x -cart<|<32xe -cart<|<32xj -cart<|<32x_mcd -cart<|<32x_mcd -cdrm<|<32x_mcdj -cdrm<|<32x_mcdj -cart<|<32x_scd -cdrm<|<32x_scd -cart<|<32x -cart<
+RJROMXT=.bin,32x,.zip,.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr,.img
+RJZIPPEEK=0
+
+[Sega - Dreamcast]
+RJEMUPRESET=Demul
+RJMAMENM=dc
+RJRUNDIR=0
+RJMULTIDISC=1
+Demul?RJEMUOPTS=<-run=dc -image="[CMDLINELOC]"
+RJROMXT=.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr,.img 
+MAME?RJEMUOPTS=<dc -cdrm<|<dcjp -cdrm<|<dceu -cdrm<|<dc -cdrm<
+RJZIPPEEK=0
+
+[Sega - Game Gear]
+RJEMUPRESET=Fusion
+RJMAMENM=gamegear
+RJMEDNM=gg
+Fusion?RJEMUOPTS=<-FullScreen -gg<|<-gg<
+RJROMXT= .gg,.bin,.zip
+MAME?RJEMUOPTS=<gamegeaj -cart<|<gamegear -cart<
+RJZIPPEEK=0
+
+[Sega - Master System - Mark III]
+RJEMUPRESET=Fusion
+RJMAMENM=sms
+RJMEDNM=sms
+Fusion?RJEMUOPTS=<-FullScreen -sms<|<-sms<
+RJROMXT=.sms,.bin,.zip
+MAME?RJEMUOPTS=<sms -cart<|<sms1br -cart<|<sms1pal -cart<|<sms1paln -cart<|<sg1000m3 -cart<|<smsj -cart<|<smspal -cart<|<sms1 -cart<
+RJZIPPEEK=0
+
+[Sega - Mega Drive - Genesis]
+RJEMUPRESET=Fusion
+RJMAMENM=genesis
+RJMEDNM=md
+Fusion?RJEMUOPTS=<-FullScreen -gen<|<-gen<
+RJROMXT=.bin,.zip,.smd,.md,.gen
+MAME?RJEMUOPTS=<genesis -cart<| <genesis_tmss -cart<|<genesisp -cart<|<genesispf -cart<|<genesispg -cart<|<megadriv -cart<|<megadrij -cart<|<genesis -cart<
+RJZIPPEEK=0
+
+[Sega - Mega-CD - Sega CD]
+RJEMUPRESET=Fusion
+RJMAMENM=segacd
+RJMEDNM=md
+Fusion?RJEMUOPTS=<-FullScreen -gen<|<-gen<
+MAME?RJEMUOPTS=<32x_scd -cdrm<|<megacd -cdrm<|<megacda -cdrm<|<megacdj -cdrm<|<megacd2 -cdrm<|<megacd2j -cdrm<|<32x_mcd -cdrm<|<32x_mcdj -cdrm<|<segacd -cdrm<
+RJROMXT=.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr,.img
+RJZIPPEEK=0
+
+[Sega - Model 2]
+RJEMUPRESET=m2emulator
+SETLST=
+NICEFLDR=1
+RJEXTRARC=0
+RJROMXT=.zip
+MAME?RJEMUOPTS=<segamod2 -cart<
+RJZIPPEEK=0
+
+[Sega - Model 3]
+RJEMUPRESET=supermodel
+RJMAMENM=supmodel
+SETLST=
+NICEFLDR=1
+RJEXTRARC=0
+RJROMXT=.zip
+MAME?RJEMUOPTS=<segamod3 -cart<
+RJZIPPEEK=0
+
+[Sega - NAOMI]
+RJEMUPRESET=Demul
+RJMAMENM=naomi
+RJROMXT=.zip
+Demul?RJEMUOPTS=<-run=naomi -rom=
+SETLST=
+NICEFLDR=1
+RJRUNDIR=0
+RJPATH=0
+RJEXT=0
+ROMNAME=0
+RJQUOTES=0
+RJEXTRARC=0
+MAME?RJEMUOPTS=<naomi -[RJRTYP]<|<naomi -cdrm<|<naomi2 -cdrm<|<naomigd -gdrm<
+
+[Sega - PICO]
+RJEMUPRESET=fusion
+RJMAMENM=picou
+Fusion?RJEMUOPTS=<-FullScreen -gen<|<-gen<
+RJROMXT=.pco,.pic,.zip,.bin,.md
+MAME?RJEMUOPTS=<picoj -cart<|<picou -cart<|<pico -cart<
+RJZIPPEEK=0
+
+[Sega - Super Control Station]
+RJEMUPRESET=MAME
+RJMULTIDISC=1
+MAME?RJEMUOPTS=<sf7000 -[RJRTYP]<|<sf7000 -cass<|<sc3000 -cart<|<sc3000 -cass<|<sc3000h -cart<|<sc3000h -cass<|<sf7000 -flop<
+RJROMXT=.sf7,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.wav,.bit,.zip
+
+[Sharp - MZ-700]
+RJEMUPRESET=MAME
+RJMAMENM=mz700
+RJMULTIDISC=1
+MAME?RJEMUOPTS=<mz700j -cass<|<mz700 -cass<
+RJROMXT=.wav,.m12,.mzf,.mzt,.zip
+RJZIPPEEK=0
+
+[Sharp - MZ-800]
+RJEMUPRESET=MAME
+RJMAMENM=mz800
+RJMULTIDISC=1
+MAME?RJEMUOPTS=<mz800 -cass<
+RJROMXT=.wav,.m12,.mzf,.mzt,.zip
+RJZIPPEEK=0
+
+[Sharp - X1]
+RJEMUPRESET=X1turbo
+RJMAMENM=x1
+RJMULTIDISC=1
+RJROMXT=.2d,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.bin,.rom,.wav,.tap,.zip
+MAME?RJEMUOPTS=<x1twin -[RJRTYP]<|<x1twin -cart<|<x1twin -cass<|<x1turbo -flop1<|<x1 -flop1<|<x1 -cart<|<x1 -cass<|<x1turbo -flop1<|<x1turbo -cass<|<x1turbo -cart<|<x1turbo40 -flop1<|<x1turbo40 -cass<|<x1turbo40 -cart<|<x1twin -flop1<
+
+[Sharp - X68000]
+RJEMUPRESET=XM6
+RJMAMENM=x68000
+RJMULTIDISC=1
+RJROMXT=.xdf,.hdm,.2hd,.dim,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.bin,.zip,.hdf,.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr,.hdi,.hd
+MAME?RJEMUOPTS=<x68ksupr -[RJRTYP]<|<x68ksupr -hard1<|<x68ksupr -cdrm<|<x68kvi -flop1<|<x68kvi -hard1<|<x68kvi -cdrm<|<x68030 -flop1<|<x68030 -hard1<|<x68030 -cdrm<|<x68000 -flop1<|<x68000 -hard1<|<x68000 -cdrm<|<x68k -flop1<|<x68k -hard1<|<x68k -cdrm<|<x68ksupr -flop1<
+
+[Sinclair - QL]
+RJEMUPRESET=MAME
+RJMAMENM=ql
+RJMULTIDISC=1
+RJROMXT=.mdv,.zip,.rom,.bin
+MAME?RJEMUOPTS=<ql -[RJRTYP]<|<ql -cass<|<ql_us -cart<|<ql_us -cass<|<ql_de -cart<|<ql_de -cass<|<ql_dk -cart<|<ql_dk -cass<|<ql_es -cart<|<ql_es -cass<|<ql_fr -cart<|<ql_fr -cass<|<ql_gr -cart<|<ql_se -cass<|<ql_se -cart<|<ql_it -cass<|<ql_gr -cass<|<ql_it -cart<|<ql_it -cass<
+
+[Sinclair - ZX Spectrum]
+RJEMUPRESET=ZXSpin
+RJMAMENM=spec128
+RJMULTIDISC=1
+MAME?RJEMUOPTS=<spec128 -[RJRTYP]<|spec128 -cass<|<spec128 -dump<|<spec128 -cart<|<specpls3 -flop1<
+RJROMXT=.bin,.rom,.ach,.frz,.plusd.prg,.sem,.sit,.sna,.snp,.snx,.sp,.z80,.zx,.wav,.tzx,.tap,.blk,.zip
+
+[Sinclair - ZX80]
+RJEMUPRESET=ZXSpin
+RJMAMENM=zx80
+RJMULTIDISC=1
+RJROMXT=.wav,.p,.80,.tzx,.zip
+MAME?RJEMUOPTS=<zx80 -cass1<
+RJZIPPEEK=0
+
+[Sinclair - ZX81]
+RJEMUPRESET=ZXSpin
+RJMAMENM=zx81
+RJMULTIDISC=1
+RJROMXT=.wav,.p,.81,.tzx,.zip
+MAME?RJEMUOPTS=<zx81 -cass1<
+RJZIPPEEK=0
+
+[Sony - Playstation 2]
+RJEMUPRESET=pcsx2
+RJMULTIDISC=1
+RJEMUOPTS=<--no-gui<
+RJROMXT= .iso,.bin,.ccd,.nrg,.ccd,.mdf,.img
+
+[Sony - Playstation 3]
+RJEMUPRESET=rcps3
+RJMULTIDISC=1
+RJROMXT= .elf,.bin
+
+[Sony - Playstation Portable]
+RJEMUPRESET=PPSSPP
+RJROMXT=.iso,.cso,.jso,.pbp,.img
+
+[Sony - Playstation Vita]
+RJEMUPRESET=BSL
+
+[Sony - Playstation]
+RJEMUPRESET=epsxe
+RJMEDNM=psx
+RJMAMENM=psu
+RJMULTIDISC=1
+RJROMXT=.cue,.iso,.bin,.nrg,.mdf,.img,.pbp,.elf,.gcm
+MAME?RJEMUOPTS=<pse -[RJRTYP]<|<pse -cdrm<|<psj -cdrm<|<psa -cdrm<|<psu -memc1<|<pse -memc1<|<psj -memc1<|<psa -memc1<|<psu -cdrm<
+
+[Sony - Pocketstation]
+RJEMUPRESET=MAME
+RJMAMENM=pockstat
+RJROMXT=.gme,.zip
+MAME?RJEMUOPTS=<pockstat -cart<
+
+[Sord - M5]
+RJEMUPRESET=MAME
+RJMAMENM=m5
+RJMULTIDISC=1
+RJROMXT=.bin,.rom,.wav,.cas,.dsk,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.zip
+MAME?RJEMUOPTS=<m5 -[RJRTYP]<|<m5 -cass<|<m5 -flop1<|<m5p -cart<|<m5p -cass<|<m5p -flop1<|<m5 -cart<
+
+[SpectraVision - Spectravideo]
+RJEMUPRESET=MAME
+
+[Taito - Taito Type X]
+RJEMUPRESET=BSL
+RJROMXT=.lnk,.exe,.bat,.cmd,.jar
+
+[Tangerine - Microtan 65]
+RJEMUPRESET=MAME
+RJMAMENM=microtan
+RJMULTIDISC=1
+MAME?RJEMUOPTS=<microtan -[RJRTYP]<|<microtan -cass<|<microtan -dump<|<microtan -cart<
+RJROMXT=.m65,.wav,.bin,.zip
+
+[Tangerine - Oric Atmos]
+RJEMUPRESET=MAME
+RJMAMENM=orica
+RJMULTIDISC=1
+RJROMXT=.wav,.tap,.zip
+MAME?RJEMUOPTS=<oric1 -cass<|<orica -cass<
+RJZIPPEEK=0
+
+[The 3DO Company - 3DO]
+RJEMUPRESET=4DO
+RJMAMENM=3do
+RJROMXT=.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr,.img,.cdi
+MAME?RJEMUOPTS=<3do_m2 -cdrm<|<3do_pal -cdrm<|<3do -cdrm<
+RJZIPPEEK=0
+
+[Thomson - M05]
+RJEMUPRESET=MAME
+RJMAMENM=mo5
+RJMULTIDISC=1
+RJROMXT=.wav,.k5,.k7,.fd,.sap,.qd,.fdi,.td0,.imd,.cqm,.dsk,.d77,.d88,.1dd,.m5,.rom,.zip
+MAME?RJEMUOPTS=<mo5 -[RJRTYP]<|<mo5 -cart<|<mo5 -cass<|<mo5e -flop1<|<mo5e -cart<|<mo5e -cass<|<mo5nr -flop1<|<mo5nr -cart<|<mo5nr -cass<|<mo6 -flop1<|<mo6 -cart<|<mo6 -cass<|<mo5 -flop1<
+
+[Thomson - To7]
+RJEMUPRESET=MAME
+RJMAMENM=to7
+RJMULTIDISC=1
+MAME?RJEMUOPTS=<to7 -[RJRTYP]<|<to7 -flop1<|<to7 -cass<|<to7 -cart<|<to770 -flop1<|<to770 -cass<|<to770 -cart<|<to7 -flop1<
+RJROMXT=.m7,.rom,.wav,.k7,.fd,.sap,.qd,.fdi,.td0,.imd,.cqm,.dsk,.d77,.d88,.1dd,.zip
+
+[Thomson - To8]
+RJEMUPRESET=MAME
+RJMAMENM=to8
+RJMULTIDISC=1
+RJROMXT=.m7,.rom,.wav,.k7,.fd,.sap,.qd,.fdi,.td0,.imd,.cqm,.dsk,.d77,.d88,.1dd,.zip
+MAME?RJEMUOPTS=<to8 -[RJRTYP]<|<to8 -flop1<|<to8 -cass<|<to8d -flop1<|<to8d -cass<|<to8d -cart<|<to8 -cart<
+
+[Tiger - Game-com]
+RJEMUPRESET=MAME
+RJMAMENM=gamecom
+MAME?RJEMUOPTS=<gamecom -cart<
+RJZIPPEEK=0
+
+[Tomy - Tutor]
+RJEMUPRESET=MAME
+RJMAMENM=tutor
+RJROMXT=.wav,.bin,.zip
+MAME?RJEMUOPTS=<tutor -[RJRTYP]<|<tutor -cass<|<tutor -cart<
+
+[NEC - PC98 - Touhou]
+RJEMUPRESET=Anex86
+RJMAMENM=pc9821xs
+RJROMXT=dsk,.ima,.img,.ufi,.360,.hdm,.fdi,.fdd,.dcp,.dcu,.dip,.nfd,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.zip
+MAME?RJEMUOPTS=<pc9821xs -[RJRTYP]<|<pc9821xs -hard<|<pc9821xs -cdrm<|<pc9821ne -flop1<|<pc9821ne -hard<|<pc9821ne -cdrm<|<pc9821ce2 -flop1<|<pc9821ce2 -hard<|<pc9821ce2 -cdrm<|<pc9821as -flop1<|<pc9821as -hard<|<pc9821as -cdrm<|<pc9821ap2 -flop1<|<pc9821ap2 -hard<|<pc9821ap2 -cdrm<|<pc9821 -flop1<|<pc9821 -hard<|<pc9821 -cdrm<|<pc9801vm -flop1<|<pc9801vm -hard<|<pc9801vm -cdrm<|<pc9801ux -flop1<|<pc9801ux -hard<|<pc9801ux -cdrm<|<pc9801rs -flop1<|<pc9801rs -hard<|<pc9801rs -cdrm<|<pc9801f -flop1<|<pc9801f -hard<|<pc9801bx2 -flop1<|<pc9801bx2 -hard<|<pc9801bx2 -cdrm<|<pc9821xs -flop1<
+
+[VTech - CreatiVision]
+RJEMUPRESET=MAME
+RJMAMENM=crvision
+RJROMXT=.wav,.bin,.rom,.zip
+MAME?RJEMUOPTS=<crvision -[RJRTYP]<|<crvision -cass<|<crvision -cart<
+
+[VTech - Laser 200]
+RJEMUPRESET=MAME
+RJMAMENM=laser200
+RJMULTIDISC=
+RJROMXT=.vz,.rom,.cas,.zip
+MAME?RJEMUOPTS=<laser210 -[RJRTYP]<|<laser210 -dump<|<laser200 -cass<|<laser200 -dump<|<laser210 -cass<
+
+[VTech - Laser 310]
+RJEMUPRESET=MAME
+RJMAMENM=laser310
+RJMULTIDISC=1
+RJROMXT=.vz,.rom,.cas,.zip
+MAME?RJEMUOPTS=<laser310 -[RJRTYP]<|<laser310 -dump<|<laser310 -cass<
+
+[VTech - V-Smile]
+RJEMUPRESET=MAME
+RJMAMENM=vsmile
+MAME?RJEMUOPTS=<vsmilepro -[RJRTYP]<|<vsmilepro -cdrm<|<vsmile -cart<|<vsmileb -cart<|<vsmilef -cart<|<vsmileg -cart<|<vsmilepro -cart<
+RJROMXT=.bin,.zip,.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr
+
+[VideoBrain - Interact Family Computer]
+RJEMUPRESET=MAME
+RJMAMENM=vidbrain
+RJROMXT=.bin,.zip
+MAME?RJEMUOPTS=<vidbrain -cart<
+
+[Watara - SuperVision]
+RJEMUPRESET=MAME
+RJMAMENM=svision
+RJROMXT=.bin,.ws,.sv,.zip
+MAME?RJEMUOPTS=<svisionn -[RJRTYP]<|<svisionn -cart<|<svisionp -cart<|<svisions -cart<|<svision -cart<
+
+[Open - Beats of Rage]
+RJEMUPRESET=openbeatsofrage
+RJROMXT=.bor,.pak
+
+[Microsoft - Windows 3x]
+RJEMUPRESET=WinBox
+RJROMXT=.conf,.lnk,.exe,.bat,.cmd
+
+[Windows - Games]
+RJEMUPRESET=BSL
+RJROMXT=.lnk,.exe,.bat,.cmd,.jar
+
+[WRITENAMETOBAT]
+RJROMINJ="%ROMFN%"
+
+[Sega - 32X - PAL]
+RJEMUPRESET=MAME
+RJMAMENM=32xe
+MAME?RJEMUOPTS=<32xe -cart<
+RJROMXT=.bin,32x,.zip,.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr,.img
+
+
+RJZIPPEEK=0
+[Sega - 32X - JAP]
+RJEMUPRESET=MAME
+RJMAMENM=32xj
+MAME?RJEMUOPTS=<32xj -cart<
+RJZIPPEEK=0
+RJROMXT=.bin,32x,.zip,.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr,.img
+
+[Atari - 2600 - PAL]
+RJEMUPRESET=MAME
+RJMAMENM=a2600p
+MAME?RJEMUOPTS=<a2600p -cart<
+RJZIPPEEK=0
+
+Atari - 7800 - PAL]
+RJEMUPRESET=MAME
+RJMAMENM=a7800p
+MAME?RJEMUOPTS=<a7800p -cart<
+RJZIPPEEK=0
+
+[Atari - 800]
+RJEMUPRESET=MAME
+RJMAMENM=a800
+MAME?RJEMUOPTS=<a800 -flop<
+RJZIPPEEK=0
+
+[Atari - 800 - PAL]
+RJEMUPRESET=MAME
+RJMAMENM=a800pal
+MAME?RJEMUOPTS=<a800pal -flop<
+RJZIPPEEK=0
+
+[Luxor - ABC 80]
+RJEMUPRESET=MAME
+RJMAMENM=abc80
+MAME?RJEMUOPTS=<abc80 -flop<
+RJZIPPEEK=0
+
+[Luxor - ABC 1600]
+RJEMUPRESET=MAME
+RJMAMENM=abc1600
+MAME?RJEMUOPTS=<abc1600 -flop<
+RJZIPPEEK=0
+
+[Coleco - ADAM]
+RJEMUPRESET=MAME
+RJMAMENM=adam
+MAME?RJEMUOPTS=<adam -flop<
+RJZIPPEEK=0
+
+[Northstar - Advantage]
+RJEMUPRESET=MAME
+RJMAMENM=advantage
+MAME?RJEMUOPTS=<advantage -flop<
+RJZIPPEEK=0
+
+[Entex - Adventure Vision]
+RJEMUPRESET=MAME
+RJMAMENM=advision
+MAME?RJEMUOPTS=<advision -flop<
+RJZIPPEEK=0
+
+[Rockwell - AIM 65]
+RJEMUPRESET=MAME
+RJMAMENM=aim65
+MAME?RJEMUOPTS=<aim65 -flop<
+RJZIPPEEK=0
+
+[Patisonic - Aleste 520EX]
+RJEMUPRESET=MAME
+RJMAMENM=aleste
+MAME?RJEMUOPTS=<aleste -flop<
+RJZIPPEEK=0
+
+[Matra - Alice 32]
+RJEMUPRESET=MAME
+RJMAMENM=alice32
+MAME?RJEMUOPTS=<alice32 -flop<
+RJZIPPEEK=0
+
+[Matra - Alice 90]
+RJEMUPRESET=MAME
+RJMAMENM=alice90
+MAME?RJEMUOPTS=<alice90 -flop<
+RJZIPPEEK=0
+
+[Triumph-Adler - Alphatronic PC]
+RJEMUPRESET=MAME
+RJMAMENM=alphatro
+MAME?RJEMUOPTS=<alphatro -flop<
+RJZIPPEEK=0
+
+[Altos - Series 5]
+RJEMUPRESET=MAME
+RJMAMENM=altos5
+MAME?RJEMUOPTS=<altos5 -flop<
+RJZIPPEEK=0
+
+[Ampro - Little Z80 Board]
+RJEMUPRESET=MAME
+RJMAMENM=ampro
+MAME?RJEMUOPTS=<ampro -flop<
+RJZIPPEEK=0
+
+[NEC - Advanced Personal Computer]
+RJEMUPRESET=MAME
+RJMAMENM=apc
+MAME?RJEMUOPTS=<apc -flop<
+RJZIPPEEK=0
+
+[APF - Imagination Machine]
+RJEMUPRESET=MAME
+RJMAMENM=apfimag
+MAME?RJEMUOPTS=<apfimag -flop<
+RJZIPPEEK=0
+
+[APF - M-1000]
+RJEMUPRESET=MAME
+RJMAMENM=apfm1000
+MAME?RJEMUOPTS=<apfm1000 -flop<
+RJZIPPEEK=0
+
+[Apogee - BK-01]
+RJEMUPRESET=MAME
+RJMAMENM=apogee
+MAME?RJEMUOPTS=<apogee -flop<
+RJZIPPEEK=0
+
+[Apollo - Apollo]
+RJEMUPRESET=MAME
+RJMAMENM=apollo
+MAME?RJEMUOPTS=<apollo -flop<
+RJZIPPEEK=0
+
+[Apple - I]
+RJEMUPRESET=MAME
+RJMAMENM=apple1
+MAME?RJEMUOPTS=<apple1 -flop<
+RJZIPPEEK=0
+
+[Apple - III]
+RJEMUPRESET=MAME
+RJMAMENM=apple3
+MAME?RJEMUOPTS=<apple3 -flop<
+RJZIPPEEK=0
+
+[ACT - Apricot PC-Xi]
+RJEMUPRESET=MAME
+RJMAMENM=apricot
+MAME?RJEMUOPTS=<apricot -flop<
+RJZIPPEEK=0
+
+[Acorn - Atom]
+RJEMUPRESET=MAME
+RJMAMENM=atom
+MAME?RJEMUOPTS=<atom -flop<
+RJZIPPEEK=0
+
+[Otrona - Attache]
+RJEMUPRESET=MAME
+RJMAMENM=attache
+MAME?RJEMUOPTS=<attache -flop<
+RJZIPPEEK=0
+
+[BNPO - Bashkiria-2M]
+RJEMUPRESET=MAME
+RJMAMENM=b2m
+MAME?RJEMUOPTS=<b2m -flop<
+RJZIPPEEK=0
+
+[BBC - Micro Model A]
+RJEMUPRESET=MAME
+RJMAMENM=bbca
+MAME?RJEMUOPTS=<bbca -flop<
+RJZIPPEEK=0
+
+[BBC - Micro Model B]
+RJEMUPRESET=MAME
+RJMAMENM=bbcb
+MAME?RJEMUOPTS=<bbcb -flop<
+RJZIPPEEK=0
+
+[BBC - Bridge Companion]
+RJEMUPRESET=MAME
+RJMAMENM=bbcbc
+MAME?RJEMUOPTS=<bbcbc -flop<
+RJZIPPEEK=0
+
+[BBC - Master]
+RJEMUPRESET=MAME
+RJMAMENM=bbcm
+MAME?RJEMUOPTS=<bbcm -flop<
+RJZIPPEEK=0
+
+[BBC - Master Compact]
+RJEMUPRESET=MAME
+RJMAMENM=bbcmc
+MAME?RJEMUOPTS=<bbcmc -flop<
+RJZIPPEEK=0
+
+[Elektronika - BK-0010]
+RJEMUPRESET=MAME
+RJMAMENM=bk0010
+MAME?RJEMUOPTS=<bk0010 -flop<
+RJZIPPEEK=0
+
+[Bondwell - Bondwell 12]
+RJEMUPRESET=MAME
+RJMAMENM=bw12
+MAME?RJEMUOPTS=<bw12 -flop<
+RJZIPPEEK=0
+
+[Bondwell - Bondwell 14]
+RJEMUPRESET=MAME
+RJMAMENM=bw14
+MAME?RJEMUOPTS=<bw14 -flop<
+RJZIPPEEK=0
+
+[Bondwell - Bondwell 2]
+RJEMUPRESET=MAME
+RJMAMENM=bw2
+MAME?RJEMUOPTS=<bw2 -flop<
+RJZIPPEEK=0
+
+[Commodore BX256-80HP]
+RJEMUPRESET=MAME
+RJMAMENM=bx256hp
+MAME?RJEMUOPTS=<bx256hp -flop<
+RJZIPPEEK=0
+
+[Commodore - VIC-10]
+RJEMUPRESET=MAME
+RJMAMENM=c128
+MAME?RJEMUOPTS=<c128 -flop<
+RJZIPPEEK=0
+
+[Commodore - 65]
+RJEMUPRESET=MAME
+RJMAMENM=c65
+MAME?RJEMUOPTS=<c65 -flop<
+RJZIPPEEK=0
+
+[Commodore - CBM-II]
+RJEMUPRESET=MAME
+RJMAMENM=cbm2
+MAME?RJEMUOPTS=<cbm2 -flop<
+RJZIPPEEK=0
+
+[Commodore - PET - 8096]
+RJEMUPRESET=MAME
+RJMAMENM=cbm8096
+MAME?RJEMUOPTS=<cbm8096 -flop<
+RJZIPPEEK=0
+
+[Commodore - PET - 8296]
+RJEMUPRESET=MAME
+RJMAMENM=cbm8296
+MAME?RJEMUOPTS=<cbm8296 -flop<
+RJZIPPEEK=0
+
+[Texas Instruments - Compact Computer 40]
+RJEMUPRESET=MAME
+RJMAMENM=cc40
+MAME?RJEMUOPTS=<cc40 -flop<
+RJZIPPEEK=0
+
+[EACA - Colour Genie EG2000]
+RJEMUPRESET=MAME
+RJMAMENM=cgenie
+MAME?RJEMUOPTS=<cgenie -flop<
+RJZIPPEEK=0
+
+[Chess-Master - Diamond Modules]
+RJEMUPRESET=MAME
+RJMAMENM=chessmstdm
+MAME?RJEMUOPTS=<chessmstdm -flop<
+RJZIPPEEK=0
+
+[Tandy - Radio Shack - Color Computer]
+RJEMUPRESET=MAME
+RJMAMENM=coco
+MAME?RJEMUOPTS=<coco -flop<
+RJZIPPEEK=0
+
+[Coleco - Colecovision - PAL]
+RJEMUPRESET=MAME
+RJMAMENM=colecop
+MAME?RJEMUOPTS=<colecop -flop<
+RJZIPPEEK=0
+
+[Compucolor - Compucolor II]
+RJEMUPRESET=MAME
+RJMAMENM=compclr2
+MAME?RJEMUOPTS=<compclr2 -flop<
+
+[Telenova - Compis]
+RJEMUPRESET=MAME
+RJMAMENM=compis
+MAME?RJEMUOPTS=<compis -flop<
+RJZIPPEEK=0
+
+[COMX - 35]
+RJEMUPRESET=MAME
+RJMAMENM=comx35
+MAME?RJEMUOPTS=<comx35 -flop<
+RJZIPPEEK=0
+
+[Yamaha - Sega - Copera]
+RJEMUPRESET=MAME
+RJMAMENM=copera
+MAME?RJEMUOPTS=<copera -flop<
+RJZIPPEEK=0
+
+[Palson - CX 3000 Tele Computer]
+RJEMUPRESET=MAME
+RJMAMENM=cx3000tc
+MAME?RJEMUOPTS=<cx3000tc -flop<
+RJZIPPEEK=0
+
+[DAI - Personal Computer]
+RJEMUPRESET=MAME
+RJMAMENM=dai
+MAME?RJEMUOPTS=<dai -flop<
+RJZIPPEEK=0
+
+[Voltmace - Database]
+RJEMUPRESET=MAME
+RJMAMENM=database
+MAME?RJEMUOPTS=<database -flop<
+RJZIPPEEK=0
+
+[Dragon - Alpha]
+RJEMUPRESET=MAME
+RJMAMENM=dgnalpha
+MAME?RJEMUOPTS=<dgnalpha -flop<
+RJZIPPEEK=0
+
+[Dragon - Beta]
+RJEMUPRESET=MAME
+RJMAMENM=dgnbeta
+MAME?RJEMUOPTS=<dgnbeta -flop<
+RJZIPPEEK=0
+
+[Dimension - 68000]
+RJEMUPRESET=MAME
+RJMAMENM=dim68k
+MAME?RJEMUOPTS=<dim68k -flop<
+RJZIPPEEK=0
+
+[NCR - Decision Mate V]
+RJEMUPRESET=MAME
+RJMAMENM=dmv
+MAME?RJEMUOPTS=<dmv -flop<
+RJZIPPEEK=0
+
+[Ithaca InterSystems - DPS-1]
+RJEMUPRESET=MAME
+RJMAMENM=dps1
+MAME?RJEMUOPTS=<dps1 -flop<
+RJZIPPEEK=0
+
+[DGS - Dragon]
+RJEMUPRESET=MAME
+RJMAMENM=dragon
+MAME?RJEMUOPTS=<dragon -flop<
+RJZIPPEEK=0
+
+[Acorn - FileStore]
+RJEMUPRESET=MAME
+RJMAMENM=e01
+MAME?RJEMUOPTS=<e01 -flop<
+RJZIPPEEK=0
+
+[ES PEVM - EC 1841]
+RJEMUPRESET=MAME
+RJMAMENM=ec1841
+MAME?RJEMUOPTS=<ec1841 -flop<
+RJZIPPEEK=0
+
+[Tatung - Einstein TC-01]
+RJEMUPRESET=MAME
+RJMAMENM=einstein
+MAME?RJEMUOPTS=<einstein -flop<
+RJZIPPEEK=0
+
+[Epson - CPM Systems]
+RJEMUPRESET=MAME
+RJMAMENM=epson
+MAME?RJEMUOPTS=<epson -flop<
+RJZIPPEEK=0
+
+[Exelvision - EXL 100]
+RJEMUPRESET=MAME
+RJMAMENM=exl100
+RJMULTIDISC=1
+RJROMXT=.bin,.rom,.zip
+MAME?RJEMUOPTS=<exl100 -cart<
+RJZIPPEEK=0
+
+[Fidelity - Fidelity SCC]
+RJEMUPRESET=MAME
+RJMAMENM=fidel
+MAME?RJEMUOPTS=<fidel -cart<
+RJZIPPEEK=0
+
+[Fujitsu - FM-77AV]
+RJEMUPRESET=MAME
+RJMAMENM=fm77av
+MAME?RJEMUOPTS=<fm77av -flop<
+RJZIPPEEK=0
+
+[Philips - Videopac Plus G7400]
+RJEMUPRESET=MAME
+RJMAMENM=g7400
+MAME?RJEMUOPTS=<g7400 -cart<
+RJZIPPEEK=0
+
+[Galaksija - Galaksija Plus]
+RJEMUPRESET=MAME
+RJMAMENM=galaxy
+MAME?RJEMUOPTS=<galaxy -cass<
+RJZIPPEEK=0
+
+[Bit Corp - Gamate]
+RJEMUPRESET=MAME
+RJMAMENM=gamate
+MAME?RJEMUOPTS=<gamate -cart<
+RJZIPPEEK=0
+
+[Sega - Game Gear - JAP]
+RJEMUPRESET=MAME
+RJMAMENM=gamegearj
+MAME?RJEMUOPTS=<gamegearj -cart<
+RJZIPPEEK=0
+
+[TimeTop - GameKing]
+RJEMUPRESET=MAME
+RJMAMENM=gameking
+MAME?RJEMUOPTS=<gameking -cart<
+RJZIPPEEK=0
+
+[TimeTop - GameKing 3]
+RJEMUPRESET=MAME
+RJMAMENM=gameking3
+MAME?RJEMUOPTS=<gameking3 -cart<
+RJZIPPEEK=0
+
+[Epoch - Game Pocket Computer]
+RJEMUPRESET=MAME
+RJMAMENM=gamepock
+MAME?RJEMUOPTS=<gamepock -cart<
+RJZIPPEEK=0
+
+[VTech - Genius 6]
+RJEMUPRESET=MAME
+RJMAMENM=genius6
+MAME?RJEMUOPTS=<genius<
+RJZIPPEEK=0
+
+[Gimix - 6809 System]
+RJEMUPRESET=MAME
+RJMAMENM=gimix
+MAME?RJEMUOPTS=<gimix -flop1<
+RJZIPPEEK=0
+
+[VTech - Genius Junior Movie]
+RJEMUPRESET=MAME
+RJMAMENM=gjmovie
+MAME?RJEMUOPTS=<gjmovie<
+RJZIPPEEK=0
+
+[VTech - PreComputer 1000]
+RJEMUPRESET=MAME
+RJMAMENM=gl2000
+MAME?RJEMUOPTS=<gl2000<
+RJZIPPEEK=0
+
+[VTech - Genius Leader 6000SL]
+RJEMUPRESET=MAME
+RJMAMENM=gl6000sl
+MAME?RJEMUOPTS=<gl6000sl -cart<
+RJZIPPEEK=0
+
+[VTech - Genius Leader Color]
+RJEMUPRESET=MAME
+RJMAMENM=glcolor
+MAME?RJEMUOPTS=<glcolor<
+RJZIPPEEK=0
+
+[GamePark - GP32]
+RJEMUPRESET=MAME
+RJMAMENM=gp32
+MAME?RJEMUOPTS=<gp32 -cart<
+RJZIPPEEK=0
+
+[JPM - Give Us A Break]
+RJEMUPRESET=MAME
+RJMAMENM=guab
+MAME?RJEMUOPTS=<guab<
+RJZIPPEEK=0
+
+[TRQ - Video Computer H-21]
+RJEMUPRESET=MAME
+RJMAMENM=h21
+MAME?RJEMUOPTS=<h21 -cart<
+RJZIPPEEK=0
+
+[Northstar - Horizon]
+RJEMUPRESET=MAME
+RJMAMENM=horizon
+MAME?RJEMUOPTS=<horizon -flop1<
+RJZIPPEEK=0
+
+[HP - Integral PC]
+RJEMUPRESET=MAME
+RJMAMENM=hp
+MAME?RJEMUOPTS=<hp -flop1<
+RJZIPPEEK=0
+
+[HP - HP-85 Option]
+RJEMUPRESET=MAME
+RJMAMENM=hp85
+MAME?RJEMUOPTS=<hp85<
+RJZIPPEEK=0
+
+[HP - HP 9835A-B Option]
+RJEMUPRESET=MAME
+RJMAMENM=hp9835a
+MAME?RJEMUOPTS=<hp9835a<
+RJZIPPEEK=0
+
+[HP - HP 9845A-S Option]
+RJEMUPRESET=MAME
+RJMAMENM=hp9845a
+MAME?RJEMUOPTS=<hp9845a<
+RJZIPPEEK=0
+
+[HP - HP 9845B-T-C Option]
+RJEMUPRESET=MAME
+RJMAMENM=hp9845b
+MAME?RJEMUOPTS=<hp9845b<
+RJZIPPEEK=0
+
+[Hawthorne Technology - TinyGiant HT68k]
+RJEMUPRESET=MAME
+RJMAMENM=ht68k
+MAME?RJEMUOPTS=<ht68k -flop1<
+RJZIPPEEK=0
+
+[Itautec - I-7000]
+RJEMUPRESET=MAME
+RJMAMENM=i7000
+MAME?RJEMUOPTS=<i7000 -card<
+RJZIPPEEK=0
+
+[IBM - PC 5140]
+RJEMUPRESET=MAME
+RJMAMENM=ibm5140
+MAME?RJEMUOPTS=<ibm5140 -flop<
+RJZIPPEEK=0
+
+[IBM - PC 5150]
+RJEMUPRESET=MAME
+RJMAMENM=ibm5150
+MAME?RJEMUOPTS=<ibm5150 -flop<
+RJZIPPEEK=0
+
+[IBM - PC 5170]
+RJEMUPRESET=MAME
+RJMAMENM=ibm5170
+MAME?RJEMUOPTS=<ibm5170 -flop<
+RJZIPPEEK=0
+
+[IBM - Displaywriter]
+RJEMUPRESET=MAME
+RJMAMENM=ibm6580
+MAME?RJEMUOPTS=<ibm6580 -flop1<
+RJZIPPEEK=0
+
+[IBM - PC Jr]
+RJEMUPRESET=MAME
+RJMAMENM=ibmpcjr
+MAME?RJEMUOPTS=<ibmpcjr -[RJRTYP]<|<ibmpcjr -cart<|<ibmpcjr -flop<
+
+[Interact - Family Computer]
+RJEMUPRESET=MAME
+RJMAMENM=interact
+MAME?RJEMUOPTS=<interact -cass<
+RJZIPPEEK=0
+
+[Mattel - Intellivision ECS]
+RJEMUPRESET=MAME
+RJMAMENM=intvecs
+MAME?RJEMUOPTS=<intvecs -cart<
+RJZIPPEEK=0
+
+[ZPA Novy Bor - IQ 151]
+RJEMUPRESET=MAME
+RJMAMENM=iq151
+MAME?RJEMUOPTS=<iq151 -[RJRTYP]<|<iq151 -flop<|<iq151 -cart<
+
+[Mattel - Juice Box]
+RJEMUPRESET=MAME
+RJMAMENM=juicebox
+MAME?RJEMUOPTS=<juicebox<
+RJZIPPEEK=0
+
+[Tiger - K28 7-232]
+RJEMUPRESET=MAME
+RJMAMENM=k28m2
+MAME?RJEMUOPTS=<k28m2 -cart<
+RJZIPPEEK=0
+
+[Kaypro - Kaypro II]
+RJEMUPRESET=MAME
+RJMAMENM=kayproii
+MAME?RJEMUOPTS=<kayproii -flop1<
+RJZIPPEEK=0
+
+[VEB Mikroelektronik - KC 85]
+RJEMUPRESET=MAME
+RJMAMENM=kc
+MAME?RJEMUOPTS=<kc -[RJRTYP]<|<kc -flop<|<kc -cart<|<kc -cass<
+
+[MOS Technology - KIM-1]
+RJEMUPRESET=MAME
+RJMAMENM=kim1
+MAME?RJEMUOPTS=<kim1 -cass<
+RJZIPPEEK=0
+
+[Korvet - PK8020 Korvet]
+RJEMUPRESET=MAME
+RJMAMENM=korvet
+MAME?RJEMUOPTS=<korvet -flop1<
+RJZIPPEEK=0
+
+[Texas Instruments - Language Tutor]
+RJEMUPRESET=MAME
+RJMAMENM=lantutor
+MAME?RJEMUOPTS=<lantutor -cart<
+RJZIPPEEK=0
+
+[V-Tech - Laser 2001]
+RJEMUPRESET=MAME
+RJMAMENM=laser2001
+MAME?RJEMUOPTS=<laser2001 -cart<
+RJZIPPEEK=0
+
+[LeapFrog - Leapster]
+RJEMUPRESET=MAME
+RJMAMENM=leapster
+MAME?RJEMUOPTS=<leapster -cart<
+RJZIPPEEK=0
+
+[Apple - Lisa]
+RJEMUPRESET=MAME
+RJMAMENM=lisa
+MAME?RJEMUOPTS=<lisa -flop1<|<lisa -flop2<
+RJZIPPEEK=0
+
+[Apple - Lisa 2]
+RJEMUPRESET=MAME
+RJMAMENM=lisa2
+MAME?RJEMUOPTS=<lisa2 -flop1<|<lisa2 -flop2<
+RJZIPPEEK=0
+
+[V. I. Lenin - PK-01 Lviv]
+RJEMUPRESET=MAME
+RJMAMENM=lviv
+MAME?RJEMUOPTS=<lviv -cass1<|<lviv -cass2<|<lviv -cass<
+RJZIPPEEK=0
+
+[Sord - M5]
+RJEMUPRESET=MAME
+RJMAMENM=m5
+MAME?RJEMUOPTS=<m5 -[RJRTYP]<|<m5 -cart<|<m5 -cass<|<m5 -flop<
+
+[Olivetti - M20]
+RJEMUPRESET=MAME
+RJMAMENM=m20
+MAME?RJEMUOPTS=<m20 -flop1<|<m20 -flop2<
+RJZIPPEEK=0
+
+[Apple - Macintosh]
+RJEMUPRESET=MAME
+RJMAMENM=mac
+MAME?RJEMUOPTS=<mac -[RJRTYP]<|<mac -flop<|mac -hdd<
+
+[Sanyo - MBC-200 - 1200]
+RJEMUPRESET=MAME
+RJMAMENM=mbc200
+MAME?RJEMUOPTS=<mbc200 -flop1<
+RJZIPPEEK=0
+
+[Sanyo - MBC-55x]
+RJEMUPRESET=MAME
+RJMAMENM=mbc55x
+MAME?RJEMUOPTS=<mbc55x -flop1<
+RJZIPPEEK=0
+
+[Tandy - MC-10]
+RJEMUPRESET=MAME
+RJMAMENM=mc10
+MAME?RJEMUOPTS=<mc10 -cass1<
+RJZIPPEEK=0
+
+[NPO - Elektronika MS 1502]
+RJEMUPRESET=MAME
+RJMAMENM=mc1502
+MAME?RJEMUOPTS=<mc1502 -flop1<
+RJZIPPEEK=0
+
+[Morrow Designs - Micro Decision MD-2]
+RJEMUPRESET=MAME
+RJMAMENM=md2
+MAME?RJEMUOPTS=<md2 -flop1<
+RJZIPPEEK=0
+
+[Sega - Mega Drive - PAL]
+RJEMUPRESET=MAME
+RJMAMENM=megadriv
+MAME?RJEMUOPTS=<megadriv -cart<
+RJZIPPEEK=0
+
+[Amstrad - Mega PC]
+RJEMUPRESET=MAME
+RJMAMENM=megapc
+MAME?RJEMUOPTS=<megapc -flop1<
+RJZIPPEEK=0
+
+[Sega - MegaTech]
+RJEMUPRESET=MAME
+RJMAMENM=megatech
+MAME?RJEMUOPTS=<megatech -cart<
+RJZIPPEEK=0
+
+[Milton Bradley - MicroVision]
+RJEMUPRESET=MAME
+RJMAMENM=microvision
+MAME?RJEMUOPTS=<microvision -cart<
+RJZIPPEEK=0
+
+[Mikro - Mikro-80]
+RJEMUPRESET=MAME
+RJMAMENM=mikro80
+MAME?RJEMUOPTS=<mikro80 -cass1<
+RJZIPPEEK=0
+
+[Lianozovo Electromechanical Factory - Mikrosha]
+RJEMUPRESET=MAME
+RJMAMENM=mikrosha
+MAME?RJEMUOPTS=<mikrosha -[RJRTYP]<|<mikrosha -cart<|<mikrosha -cass<
+
+[VTech - PreComputer 1000]
+RJEMUPRESET=MAME
+RJMAMENM=misterx
+MAME?RJEMUOPTS=<misterx<
+RJZIPPEEK=0
+
+[MikroMikko - MikroMikko 1]
+RJEMUPRESET=MAME
+RJMAMENM=mm1
+MAME?RJEMUOPTS=<mm1 -flop1<
+RJZIPPEEK=0
+
+[Thomson - M05]
+RJEMUPRESET=MAME
+RJMAMENM=mo5
+MAME?RJEMUOPTS=<mo5 -[RJRTYP]<|<mo5 -flop1<|<mo5 -cass<|<mo5 -cart<|<mo5 -qd<
+
+[Thomson - MO6]
+RJEMUPRESET=MAME
+RJMAMENM=mo6
+MAME?RJEMUOPTS=<mo6 -[RJRTYP]<|<mo6 -flop1<|<mo6 -cass<
+
+[Acetronic - MPU-1000]
+RJEMUPRESET=MAME
+RJMAMENM=mpu1000
+MAME?RJEMUOPTS=<mpu1000 -cart<
+RJZIPPEEK=0
+
+[Morrow Designs - Morrow MPZ80]
+RJEMUPRESET=MAME
+RJMAMENM=mpz80
+MAME?RJEMUOPTS=<mpz80 -flop<
+RJZIPPEEK=0
+
+[Nichibutsu - My Vision]
+RJEMUPRESET=MAME
+RJMAMENM=myvision
+MAME?RJEMUOPTS=<myvision -cart<
+RJZIPPEEK=0
+
+[Sharp - MZ-2000]
+RJEMUPRESET=MAME
+RJMAMENM=mz2000
+MAME?RJEMUOPTS=<mz2000 -[RJRTYP]<|<mz2000 -flop1<|<mz2000 -cass1<
+
+[Sharp - MZ-2500]
+RJEMUPRESET=MAME
+RJMAMENM=mz2500
+MAME?RJEMUOPTS=<mz2500 -flop1<
+RJZIPPEEK=0
+
+[Sharp - MZ-700]
+RJEMUPRESET=MAME
+RJMAMENM=mz700
+MAME?RJEMUOPTS=<mz700 -cass<
+RJZIPPEEK=0
+
+[Sharp - MZ-800]
+RJEMUPRESET=MAME
+RJMAMENM=mz800
+MAME?RJEMUOPTS=<mz800 -cass<
+RJZIPPEEK=0
+
+[Nascom Microcomputers - Nascom 1 - 2]
+RJEMUPRESET=MAME
+RJMAMENM=nascom
+MAME?RJEMUOPTS=<nascom2 -[RJRTYP]<|<nascom2 -flop1<|<nascom2 -socket<
+
+[Nintendo - Nintendo Entertainment System - PAL]
+RJEMUPRESET=MAME
+RJMAMENM=nespal
+MAME?RJEMUOPTS=<nespal -cart<
+RJZIPPEEK=0
+
+[NeXT - NeXTStation]
+RJEMUPRESET=MAME
+RJMAMENM=next
+MAME?RJEMUOPTS=<nextstc -flop1<|<nextstc -flop2<
+RJZIPPEEK=0
+
+[Research Machines - Nimbus]
+RJEMUPRESET=MAME
+RJMAMENM=nimbus
+MAME?RJEMUOPTS=<nimbus -flop1<
+RJZIPPEEK=0
+
+[LSI - Octopus]
+RJEMUPRESET=MAME
+RJMAMENM=octopus
+MAME?RJEMUOPTS=<octopus -flop1<
+RJZIPPEEK=0
+
+[Ondra - Ondra ViLi]
+RJEMUPRESET=MAME
+RJMAMENM=ondra
+MAME?RJEMUOPTS=<ondra -cass<
+RJZIPPEEK=0
+
+[PEL Varazdin - Orao]
+RJEMUPRESET=MAME
+RJMAMENM=orao
+MAME?RJEMUOPTS=<orao -cass1<
+RJZIPPEEK=0
+
+[Orion - Orion Pro]
+RJEMUPRESET=MAME
+RJMAMENM=orionpro
+MAME?RJEMUOPTS=<orionpro -disk<
+RJZIPPEEK=0
+
+[Orion - Orion 128]
+RJEMUPRESET=MAME
+RJMAMENM=orionide
+MAME?RJEMUOPTS=<orionide -flop<|<orionide -cass<|<orionide -cart<
+RJZIPPEEK=0
+
+[Osborne - Osborne-1]
+RJEMUPRESET=MAME
+RJMAMENM=osborne1
+MAME?RJEMUOPTS=<osborne1 -flop1<
+RJZIPPEEK=0
+
+[Osborne - Osborne-2]
+RJEMUPRESET=MAME
+RJMAMENM=osborne2
+MAME?RJEMUOPTS=<osborne2 -flop1<
+RJZIPPEEK=0
+
+[SAM SKB VM - Partner-01.01]
+RJEMUPRESET=MAME
+RJMAMENM=partner
+MAME?RJEMUOPTS=<partner -[RJRTYP]<|<partner -cass<|<partner -flop<
+
+[Koei - PasoGo]
+RJEMUPRESET=MAME
+RJMAMENM=pasogo
+MAME?RJEMUOPTS=<pasogo -cart<
+RJZIPPEEK=0
+
+[Casio - PB-2000C]
+RJEMUPRESET=MAME
+RJMAMENM=pb2000c
+MAME?RJEMUOPTS=<pb2000c -cart<
+RJZIPPEEK=0
+
+[Amstrad - PC1512 SD]
+RJEMUPRESET=MAME
+RJMAMENM=pc1512
+MAME?RJEMUOPTS=<pc1512 -flop<
+RJZIPPEEK=0
+
+[Amstrad - PC1640 SD]
+RJEMUPRESET=MAME
+RJMAMENM=pc1640
+MAME?RJEMUOPTS=<pc1640 -flop<
+RJZIPPEEK=0
+
+[NEC - PC-8201(A) Option]
+RJEMUPRESET=MAME
+RJMAMENM=pc8201
+MAME?RJEMUOPTS=<pc8201 -cart<
+RJZIPPEEK=0
+
+[Amstrad - PcW]
+RJEMUPRESET=MAME
+RJMAMENM=pcw
+MAME?RJEMUOPTS=<pcw -flop1<
+RJZIPPEEK=0
+
+[Amstrad - PcW16]
+RJEMUPRESET=MAME
+RJMAMENM=pcw16
+MAME?RJEMUOPTS=<pcw16 -flop<
+RJZIPPEEK=0
+
+[Ei Nis - PeCom 32]
+RJEMUPRESET=MAME
+RJMAMENM=pecom32
+MAME?RJEMUOPTS=<pecom32 -cass<
+RJZIPPEEK=0
+
+[Ei Nis - PeCom 64]
+RJEMUPRESET=MAME
+RJMAMENM=pecom64
+MAME?RJEMUOPTS=<pecom64 -cass<
+RJZIPPEEK=0
+
+[Technosys - Aamber Pegasus]
+RJEMUPRESET=MAME
+RJMAMENM=pegasus
+MAME?RJEMUOPTS=<pegasus -cart<
+RJZIPPEEK=0
+
+[Hanimex - Pencil II]
+RJEMUPRESET=MAME
+RJMAMENM=pencil2
+MAME?RJEMUOPTS=<pencil2 -cart<
+RJZIPPEEK=0
+
+[Sanyo - PHC-25]
+RJEMUPRESET=MAME
+RJMAMENM=phc25
+MAME?RJEMUOPTS=<phc25 -cass<
+RJZIPPEEK=0
+
+[Konami - Picno]
+RJEMUPRESET=MAME
+RJMAMENM=picno
+MAME?RJEMUOPTS=<picno -cart<
+RJZIPPEEK=0
+
+[Commodore - PET]
+RJEMUPRESET=MAME
+RJMAMENM=pet64
+MAME?RJEMUOPTS=<pet64 -[RJRTYP]<|<pet64 -cass<|<pet64 -flop<|<pet64 -quik<|<pet64 -cart<
+
+[Apple - Bandai - Pippin]
+RJEMUPRESET=MAME
+RJMAMENM=pippin
+MAME?RJEMUOPTS=<pippin -cdrom<
+RJZIPPEEK=0
+
+[Commodore - Plus4]
+RJEMUPRESET=MAME
+RJMAMENM=plus4
+MAME?RJEMUOPTS=<plus4 -[RJRTYP]<|<plus4 -cart<|<plus4 -cass<|<plus4 -flop<
+
+[Tesla - PMD-85]
+RJEMUPRESET=MAME
+RJMAMENM=pmd853
+MAME?RJEMUOPTS=<pmd853 -cass<
+RJZIPPEEK=0
+
+[Benesse Corporation - Pocket Challenge V2]
+RJEMUPRESET=MAME
+RJMAMENM=pockchalv2
+MAME?RJEMUOPTS=<pockchalv2 -cart<
+RJZIPPEEK=0
+
+[Benesse Corporation - Pocket Challenge W]
+RJEMUPRESET=MAME
+RJMAMENM=pockchalw
+MAME?RJEMUOPTS=<pockchalw -cart<
+RJZIPPEEK=0
+
+[Atari - Portfolio]
+RJEMUPRESET=MAME
+RJMAMENM=pofo
+MAME?RJEMUOPTS=<pofo -card<
+RJZIPPEEK=0
+
+[Electronmash - Poisk-1]
+RJEMUPRESET=MAME
+RJMAMENM=poisk1
+MAME?RJEMUOPTS=<poisk1 -flop1<
+RJZIPPEEK=0
+
+[Tomy - Prin-C]
+RJEMUPRESET=MAME
+RJMAMENM=princ
+MAME?RJEMUOPTS=<princ<
+RJZIPPEEK=0
+
+[Olivetti - Prodest PC 128]
+RJEMUPRESET=MAME
+RJMAMENM=pro128
+MAME?RJEMUOPTS=<pro128 -[RJRTYP]<|<pro128 -flop1<|<pro128 -cass<|<pro128 -cart<
+
+[Olivetti - Prodest PC 128S]
+RJEMUPRESET=MAME
+RJMAMENM=pro128s
+MAME?RJEMUOPTS=<pro128s -flop1<
+RJZIPPEEK=0
+
+[Conitec - PROF-80]
+RJEMUPRESET=MAME
+RJMAMENM=prof80
+RJZIPPEEK=0
+MAME?RJEMUOPTS=<prof80 -flop1<|<prof80 -flop2<
+
+[Conitec - PROF-180]
+RJEMUPRESET=MAME
+RJMAMENM=prof180
+MAME?RJEMUOPTS=<prof180 -flop1<|<prof180 -flop2<
+RJZIPPEEK=0
+
+[Kontron - PSI98]
+RJEMUPRESET=MAME
+RJMAMENM=psi98
+MAME?RJEMUOPTS=<psi98 -flop1<
+RJZIPPEEK=0
+
+[Psion - Organiser I]
+RJEMUPRESET=MAME
+RJMAMENM=psion1
+MAME?RJEMUOPTS=<psion1 -cart<
+RJZIPPEEK=0
+
+[Psion - Organiser II]
+RJEMUPRESET=MAME
+RJMAMENM=psion2
+MAME?RJEMUOPTS=<psion2 -cart<
+RJZIPPEEK=0
+
+[Peripheral Technology - PT68K2]
+RJEMUPRESET=MAME
+RJMAMENM=pt68k2
+MAME?RJEMUOPTS=<pt68k2 -flop1<
+RJZIPPEEK=0
+
+[EPSON - PX-4]
+RJEMUPRESET=MAME
+RJMAMENM=px4
+MAME?RJEMUOPTS=<px4 -cart<
+RJZIPPEEK=0
+
+[EPSON - PX-8]
+RJEMUPRESET=MAME
+RJMAMENM=px8
+MAME?RJEMUOPTS=<px8 -cart<
+RJZIPPEEK=0
+
+[Mikroelektronika - Pyldin-601]
+RJEMUPRESET=MAME
+RJMAMENM=pyl601
+MAME?RJEMUOPTS=<pyl601 -disk<
+RJZIPPEEK=0
+
+[Epson - QX-10]
+RJEMUPRESET=MAME
+RJMAMENM=qx10
+MAME?RJEMUOPTS=<qx10 -flop1<
+RJZIPPEEK=0
+
+[ROLM - CBX 9751]
+RJEMUPRESET=MAME
+RJMAMENM=r9751
+MAME?RJEMUOPTS=<r9751 -flop<
+RJZIPPEEK=0
+
+[Soviet - Radio-86RK]
+RJEMUPRESET=MAME
+RJMAMENM=radio86
+MAME?RJEMUOPTS=<radio86 -cass<
+RJZIPPEEK=0
+
+[DEC - Rainbow 100]
+RJEMUPRESET=MAME
+RJMAMENM=rainbow
+MAME?RJEMUOPTS=<rainbow -flop1<|<rainbow -flop2<
+RJZIPPEEK=0
+
+[Rowtron - Television Computer System]
+RJEMUPRESET=MAME
+RJMAMENM=rwtrntcs
+MAME?RJEMUOPTS=<rwtrntcs -cart<
+RJZIPPEEK=0
+
+[Bandai - Gundam RX-78]
+RJEMUPRESET=MAME
+RJMAMENM=rx78
+MAME?RJEMUOPTS=<rx78 -cart<
+RJZIPPEEK=0
+
+[Sage Technology - Sage II]
+RJEMUPRESET=MAME
+RJMAMENM=sage2
+MAME?RJEMUOPTS=<sage2 -flop1<|<sage2 -flop2<
+RJZIPPEEK=0
+
+[San Bergmans - Izabella Malcolm - SITCOM]
+RJEMUPRESET=MAME
+RJMAMENM=sitcom
+MAME?RJEMUOPTS=<sitcom -flash1<
+RJZIPPEEK=0
+
+[Sony - SMC777]
+RJEMUPRESET=MAME
+RJMAMENM=smc777
+MAME?RJEMUOPTS=<smc777 -flop1<
+RJZIPPEEK=0
+
+[Mephisto - Super Mondial II]
+RJEMUPRESET=MAME
+RJMAMENM=smondial2
+MAME?RJEMUOPTS=<smondial2 -cart<
+RJZIPPEEK=0
+
+[Sega - Mark III - JPN]
+RJEMUPRESET=MAME
+RJMAMENM=smsj
+MAME?RJEMUOPTS=<smsj -cart<
+RJZIPPEEK=0
+
+[Sega - Master System - PAL]
+RJEMUPRESET=MAME
+RJMAMENM=smspal
+MAME?RJEMUOPTS=<smspal -cart<
+RJZIPPEEK=0
+
+[Nintendo - Super Nintendo Entertainment System - PAL]
+RJEMUPRESET=MAME
+RJMAMENM=snespal
+MAME?RJEMUOPTS=<snespal -cart<
+RJZIPPEEK=0
+
+[Bandai - Super Note Club]
+RJEMUPRESET=MAME
+RJMAMENM=snotec
+MAME?RJEMUOPTS=<snotec<
+RJZIPPEEK=0
+
+[Texas Instruments - Speak and Read]
+RJEMUPRESET=MAME
+RJMAMENM=snread
+MAME?RJEMUOPTS=<snread -cart<
+RJZIPPEEK=0
+
+[Texas Instruments - Speak and Spell]
+RJEMUPRESET=MAME
+RJMAMENM=snspell
+MAME?RJEMUOPTS=<snspell -cart<
+RJZIPPEEK=0
+
+[Video Technology - Socrates]
+RJEMUPRESET=MAME
+RJMAMENM=socrates
+MAME?RJEMUOPTS=<socrates -cart<
+RJZIPPEEK=0
+
+[Small Systems Engineering - SSE Softbox]
+RJEMUPRESET=MAME
+RJMAMENM=softbox
+MAME?RJEMUOPTS=<softbox -flop1<
+RJZIPPEEK=0
+
+[Processor Technology Corporation - SOL-20]
+RJEMUPRESET=MAME
+RJMAMENM=sol20
+MAME?RJEMUOPTS=<sol20 -cass<
+RJZIPPEEK=0
+
+[Exidy - Sorcerer]
+RJEMUPRESET=MAME
+RJMAMENM=sorcerer
+MAME?RJEMUOPTS=<sorcerer -[RJRTYP]<|<sorcerer -flop<|<sorcerer -cart<|<sorcerer -cass<
+
+[Samsung - SPC-1000]
+RJEMUPRESET=MAME
+RJMAMENM=spc1000
+MAME?RJEMUOPTS=<spc1000 -cass<
+RJZIPPEEK=0
+
+[Samsung - SPC-1500]
+RJEMUPRESET=MAME
+RJMAMENM=spc1500
+MAME?RJEMUOPTS=<spc1500 -cass<
+RJZIPPEEK=0
+
+[Soviet - Specialist]
+RJEMUPRESET=MAME
+RJMAMENM=special
+MAME?RJEMUOPTS=<special -[RJRTYP]<|<special -flop<|<special -cass<
+
+[RCA Studio II - Victory MPT-02]
+RJEMUPRESET=MAME
+RJMAMENM=studio2
+MAME?RJEMUOPTS=<studio2 -cart<
+RJZIPPEEK=0
+
+[Sega - Titan Video]
+RJEMUPRESET=SSF
+RJMAMENM=stv
+MAME?RJEMUOPTS=<stv -cart<
+RJZIPPEEK=0
+
+[ADC - Super Six]
+RJEMUPRESET=MAME
+RJMAMENM=super6
+MAME?RJEMUOPTS=<super6 -flop<
+RJZIPPEEK=0
+
+[Dick Smith Electronics - Super-80]
+RJEMUPRESET=MAME
+RJMAMENM=super80
+MAME?RJEMUOPTS=<super80 -cass<
+RJZIPPEEK=0
+
+[Bandai - Super Vision 8000]
+RJEMUPRESET=MAME
+RJMAMENM=sv8000
+MAME?RJEMUOPTS=<sv8000 -cart<
+RJZIPPEEK=0
+
+[Spectravision - SVI-318]
+RJEMUPRESET=MAME
+RJMAMENM=svi318
+MAME?RJEMUOPTS=<svi318 -[RJRTYP]<|<svi318 -cass1<|<svi318 -cart<|<svi318 -flop<
+
+[Sega - Visual Memory Unit]
+RJEMUPRESET=directvms
+RJMAMENM=svmu
+MAME?RJEMUOPTS=<svmu -quik<
+RJZIPPEEK=0
+
+[Tandy - 1000]
+RJEMUPRESET=MAME
+RJMAMENM=t1000
+MAME?RJEMUOPTS=<t1000 -flop1<
+RJZIPPEEK=0
+
+[Tandy - 200 Option]
+RJEMUPRESET=MAME
+RJMAMENM=tandy200
+MAME?RJEMUOPTS=<tandy200 -cart<
+RJZIPPEEK=0
+
+[Tandy - 2000]
+RJEMUPRESET=MAME
+RJMAMENM=tandy2k
+MAME?RJEMUOPTS=<tandy2k -flop1<
+RJZIPPEEK=0
+
+[Tandy - 6000]
+RJEMUPRESET=MAME
+RJMAMENM=tandy6k
+MAME?RJEMUOPTS=<tandy6k -flop<
+RJZIPPEEK=0
+
+[Tandberg - TDV 2324]
+RJEMUPRESET=MAME
+RJMAMENM=tdv2324
+MAME?RJEMUOPTS=<tdv2324 -flop<
+RJZIPPEEK=0
+
+[Tektronix - Tektronix 4052]
+RJEMUPRESET=MAME
+RJMAMENM=tek4052
+MAME?RJEMUOPTS=<tek4052 -cart<
+RJZIPPEEK=0
+
+[Texas Instruments - TI-74]
+RJEMUPRESET=MAME
+RJMAMENM=ti74
+MAME?RJEMUOPTS=<ti74 -cart<
+RJZIPPEEK=0
+
+[Texas Instruments - TI-95]
+RJEMUPRESET=MAME
+RJMAMENM=ti95
+MAME?RJEMUOPTS=<ti95 -cart<
+RJZIPPEEK=0
+
+[Texas Instruments - TI-99]
+RJEMUPRESET=MAME
+RJMAMENM=ti99
+MAME?RJEMUOPTS=<ti99 -cart<
+RJZIPPEEK=0
+
+[Tiki Data A-S - TIKI 100]
+RJEMUPRESET=MAME
+RJMAMENM=tiki100
+MAME?RJEMUOPTS=<tiki100 -flop1<
+RJZIPPEEK=0
+
+[Timex - Sinclair TS-2068 DOCK]
+RJEMUPRESET=MAME
+RJMAMENM=timex
+MAME?RJEMUOPTS=<timex -cart<
+RJZIPPEEK=0
+
+[Texas Instruments - Touch and Tell]
+RJEMUPRESET=MAME
+RJMAMENM=tntell
+MAME?RJEMUOPTS=<tntell -cart<
+RJZIPPEEK=0
+
+[Thomson - TO7]
+RJEMUPRESET=MAME
+RJMAMENM=to7
+MAME?RJEMUOPTS=<to7 -[RJRTYP]<|<to7 -cass<|<to7 -cart<|<to7 -flop1<
+
+[Thomson - TO7 - TO7-70]
+RJEMUPRESET=MAME
+RJMAMENM=to770
+MAME?RJEMUOPTS=<to770 -[RJRTYP]<|<to770 -cart<|<to770 -cass<|<to770 -flop1<
+
+[Thomson - TO7 - TO7-70A]
+RJEMUPRESET=MAME
+RJMAMENM=to770a
+MAME?RJEMUOPTS=<to770a -[RJRTYP]<|<to770a -cass<|<to770a -flop1<|<to770a -cart<
+
+[Thomson - TO8]
+RJEMUPRESET=MAME
+RJMAMENM=to8
+MAME?RJEMUOPTS=<to8 -[RJRTYP]<|<to8 -flop1<|<to8 -cass<
+
+[Tandy - TRS-80 Model II]
+RJEMUPRESET=MAME
+RJMAMENM=trs80m2
+MAME?RJEMUOPTS=<trs80m2 -flop1<
+RJZIPPEEK=0
+
+[Tandy - TRS-80 Model 100 Option]
+RJEMUPRESET=MAME
+RJMAMENM=trsm100
+MAME?RJEMUOPTS=<trsm100 -cart<
+RJZIPPEEK=0
+
+[Tomy - Tutor - Pyuuta]
+RJEMUPRESET=MAME
+RJMAMENM=tutor
+MAME?RJEMUOPTS=<tutor -cart<
+RJZIPPEEK=0
+
+[Videoton - TVC 64]
+RJEMUPRESET=MAME
+RJMAMENM=tvc
+MAME?RJEMUOPTS=<tvc -[RJRTYP]<|<tvc -cass1<|<tvc -flop1<|<tvc<
+
+[Unisonic - Champion 2711]
+RJEMUPRESET=MAME
+RJMAMENM=unichamp
+MAME?RJEMUOPTS=<unichamp -cart<
+RJZIPPEEK=0
+
+[Soviet - UT-88]
+RJEMUPRESET=MAME
+RJMAMENM=ut88
+MAME?RJEMUOPTS=<ut88 -cass<
+RJZIPPEEK=0
+
+[Belogic - Uzebox]
+RJEMUPRESET=MAME
+RJMAMENM=uzebox
+MAME?RJEMUOPTS=<uzebox -cart<
+RJZIPPEEK=0
+
+[Visual Technology - Visual 1050]
+RJEMUPRESET=MAME
+RJMAMENM=v1050
+MAME?RJEMUOPTS=<v1050 -flop1<
+RJZIPPEEK=0
+
+[Soviet - Vector 06c]
+RJEMUPRESET=MAME
+RJMAMENM=vector06
+MAME?RJEMUOPTS=<vector06 -flop<
+RJZIPPEEK=0
+
+[Philips - VG-5000]
+RJEMUPRESET=MAME
+RJMAMENM=vg5k
+MAME?RJEMUOPTS=<vg5k -cass<
+RJZIPPEEK=0
+
+[Commodore - VIC-10 - Max Machine - UltiMax]
+RJEMUPRESET=MAME
+RJMAMENM=vic10
+MAME?RJEMUOPTS=<vic10 -flop<
+RJZIPPEEK=0
+
+[Commodore - VIC-1001]
+RJEMUPRESET=MAME
+RJMAMENM=vic1001
+MAME?RJEMUOPTS=<vic1001 -[RJRTYP]<|<vic1001 -cass1<|<vic1001 -flop1<|<vic1001 -cart<|
+
+[Victor Business Products - Victor 9000 - ACT Sirius 1]
+RJEMUPRESET=MAME
+RJMAMENM=victor9k
+MAME?RJEMUOPTS=<victor9k -flop1<
+RJZIPPEEK=0
+
+[VideoBrain Computer Company - VideoBrain Family Computer]
+RJEMUPRESET=MAME
+RJMAMENM=vidbrain
+MAME?RJEMUOPTS=<vidbrain -cart<
+RJZIPPEEK=0
+
+[JungleTac Sport - Vii]
+RJEMUPRESET=MAME
+RJMAMENM=vii
+MAME?RJEMUOPTS=<vii -cart<
+RJZIPPEEK=0
+
+[RCA - VIP]
+RJEMUPRESET=MAME
+RJMAMENM=vip
+MAME?RJEMUOPTS=<vip -cass<
+RJZIPPEEK=0
+
+[Toshiba - Visicom]
+RJEMUPRESET=MAME
+RJMAMENM=visicom
+MAME?RJEMUOPTS=<visicom -cart<
+RJZIPPEEK=0
+
+[Osborne 4 - Vixen]
+RJEMUPRESET=MAME
+RJMAMENM=vixen
+MAME?RJEMUOPTS=<vixen -flop1<
+RJZIPPEEK=0
+
+[VTech - V-Smile]
+RJEMUPRESET=MAME
+RJMAMENM=vsmile
+MAME?RJEMUOPTS=<vsmile -cart<
+RJZIPPEEK=0
+
+[Dick Smith Electronics - VZ-200-300]
+RJEMUPRESET=MAME
+RJMAMENM=vz
+MAME?RJEMUOPTS=<vz -cass1<
+RJZIPPEEK=0
+
+[Wang Laboratories - Wang PC]
+RJEMUPRESET=MAME
+RJMAMENM=wangpc
+MAME?RJEMUOPTS=<wangpc -flop1<
+RJZIPPEEK=0
+
+[PPG - Waveterm A]
+RJEMUPRESET=MAME
+RJMAMENM=waveterm
+MAME?RJEMUOPTS=<waveterm -flop1<
+RJZIPPEEK=0
+
+[Millennium Systems - Wicat]
+RJEMUPRESET=MAME
+RJMAMENM=wicat
+MAME?RJEMUOPTS=<wicat -flop1<
+RJZIPPEEK=0
+
+[WaveMate - Bullet]
+RJEMUPRESET=MAME
+RJMAMENM=wmbullet
+MAME?RJEMUOPTS=<wmbullet -flop1<
+RJZIPPEEK=0
+
+[Canon - X-07]
+RJEMUPRESET=MAME
+RJMAMENM=x07
+MAME?RJEMUOPTS=<x07 -card<|<x07 -cass1<
+RJZIPPEEK=0
+
+[Xerox - 820]
+RJEMUPRESET=MAME
+RJMAMENM=x820ii
+MAME?RJEMUOPTS=<x820ii -flop<
+RJZIPPEEK=0
+
+[Nuova Elettronica - Z80NE]
+RJEMUPRESET=MAME
+RJMAMENM=z80ne
+MAME?RJEMUOPTS=<z80ne -cass1<
+RJZIPPEEK=0
+
+[Cambridge Computers - Z88]
+RJEMUPRESET=MAME
+RJMAMENM=z88
+MAME?RJEMUOPTS=<z88 -cart1<
+RJZIPPEEK=0
+
+[Telcon - Zorba]
+RJEMUPRESET=MAME
+RJMAMENM=zorba
+MAME?RJEMUOPTS=<zorba -flop1<
+RJZIPPEEK=0
+
