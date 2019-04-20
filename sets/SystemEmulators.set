@@ -99,11 +99,10 @@ Commodore - PET - 8096|WinVICE|MAME|:mame_libretro.dll
 Commodore - PET - 8296|WinVICE|MAME|:mame_libretro.dll
 Commodore - PET|WinVICE|MAME|:mame_libretro.dll
 Commodore - Plus-4|WinVICE|MAME|:vice_xplus_libretro.dll|mame_libretro.dll
-Commodore - Plus4|WinVICE|MAME|:mame_libretro.dll
 Commodore - VIC-10 - Max Machine - UltiMax|WinVICE|MAME|:mame_libretro.dll
 Commodore - VIC-1001|WinVICE|MAME|:mame_libretro.dll
 Commodore - VIC-10|WinVICE|MAME|:mame_libretro.dll
-Commodore - VIC20|WinVICE|aipc|MAME|:vice_xvic_libretro.dll
+Commodore - VIC-20|WinVICE|aipc|MAME|:vice_xvic_libretro.dll
 Commodore - BX256-80HP|MAME|:mame_libretro.dll
 Compucolor - Compucolor II|xroar|MAME|:mame_libretro.dll
 Conitec - PROF-180|MAME|:mame_libretro.dll
@@ -234,7 +233,6 @@ NEC - PC88|Neko|vaeg|m88|mx88|xm8|W88|MAME|:mame_libretro.dll
 NEC - PC98|Neko|vaeg|Anex86|SL9821|pc98do|pc98ha|pc98lt|pc9801|MAME|:np2kai_libretro.dll|nekop2_libretro.dll|mame_libretro.dll
 NEC - PC9821|Neko|vaeg|Anex86|SL9821|pc98do|pc98ha|pc98lt|pc9801|MAME|:np2kai_libretro.dll|nekop2_libretro.dll|mame_libretro.dll
 NPO - Elektronika MS 1502|MAME|:mame_libretro.dll
-Nascom Microcomputers - Nascom 1 - 2|MAME|:mame_libretro.dll
 NeXT - NeXTStation|MAME|:mame_libretro.dll
 Nichibutsu - My Vision|MAME|:mame_libretro.dll
 Nintendo - Famicom Disk System|nestopia|virtuanes|xe|virtuanesplus|Mesen|BizHawk|no$nes|dsp|fceux|vdmgr|Mednafen|MAME|:fceumm_libretro.dll|nestopia_libretro.dll|quicknes_libretro.dll|bnes_libretro.dll|mesen_libretro.dll|mame_libretro.dll
@@ -250,7 +248,7 @@ Nintendo - Nintendo 64|Project64|Project64k|Apollo|1964|Mupen64Plus|Mupen64PlusP
 Nintendo - Nintendo DS Decrypted|Desmume|medusa|melonds|gbeplus|No$GBA|:desmume_libretro.dll|desmume2012_libtro.dll|melonds_libretro.dll
 Nintendo - Nintendo DS|Desmume|ideas|No$GBA|medusa|melonds|:desmume_libretro.dll|desmume2012_libtro.dll|melonds_libretro.dll
 Nintendo - Nintendo Entertainment System - PAL|nestopia|virtuanes|virtuanesplus|dsp|xe|aprnes|BizHawk|kindred|Mesen|no$nes|vdmgr|fceux|Mednafen|MAME|:nestopia_libretro.dll|fceumm_libretro.dll|mesen_libretro.dll|bnes_libretro.dll|quicknes_libretro.dll
-Nintendo - Nintendo Entertainment System|nestopia|virtuanes|virtuanesplus|Mesen|dsp|xe|aprnes|BizHawk|kindred|no$nes|fceux|vdmgr|Mednafen|MAME|:nestopia_libretro.dll|fceumm_libretro.dll|mesen_libretro.dll|bnes_libretro.dll|quicknes_libretro.dll||mame_libretro.dll
+Nintendo - Nintendo Entertainment System|nestopia|virtuanes|virtuanesplus|Mesen|Mednafen|dsp|xe|aprnes|BizHawk|kindred|no$nes|fceux|vdmgr|MAME|:nestopia_libretro.dll|fceumm_libretro.dll|mesen_libretro.dll|bnes_libretro.dll|quicknes_libretro.dll||mame_libretro.dll
 Nintendo - Pokemon Mini|minimon|pokemini|MAME|:pokemini_libretro.dll
 Nintendo - Satellaview|snes9x|MAME|:bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|bsnes_balanced_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_accuracy_libretro.dll
 Nintendo - Super Famicom|snes9x|bsnes|Mednafen|xe|MAME|BizHawk|kindred|neusnem|zmz|zsnes|:snes9x_libretro.dll|snes9x2002_libretro.dll|snes9x2005_libretro.dll|snes9x2010_libretro.dll||bsnes_accuracy_libretro.dll|bsnes_balanced_libretro.dll|bsnes_cplusplus98_libretro.dll|bsnes_mercury_accuracy_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll|mame_libretro.dll

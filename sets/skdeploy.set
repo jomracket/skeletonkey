@@ -82,7 +82,7 @@ SectionEnd
 
 Section "Desktop Shortcuts"
 
-  CreateShortCut "$DESKTOP\skeletonKey.lnk" "$INSTDIR\skeletonKey.exe" "" "$INSTDIR\key.ico"
+  CreateShortCut "$DESKTOP\skeletonKey.lnk" "$INSTDIR\skeletonKey.exe" "" "$INSTDIR\site\key.ico"
 
 SectionEnd
 

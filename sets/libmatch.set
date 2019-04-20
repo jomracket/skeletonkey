@@ -235,7 +235,7 @@ mame_libretro.dll|Sharp - MZ-2000
 mame_libretro.dll|Sharp - MZ-2500
 mame_libretro.dll|Sharp - MZ-700
 mame_libretro.dll|Sharp - MZ-800
-mame_libretro.dll|Nascom Microcomputers - Nascom 1 - 2
+mame_libretro.dll|Nascom - I-II
 mame_libretro.dll|Nintendo - Nintendo Entertainment System - PAL
 mame_libretro.dll|NeXT - NeXTStation
 mame_libretro.dll|Research Machines - Nimbus
@@ -494,7 +494,7 @@ vbam_libretro.dll|Nintendo - Game Boy Advance
 vecx_libretro.dll|GCE - Vectrex
 virtualjaguar_libretro.dll|Atari - Jaguar
 vice_x64_libretro.dll|Commodore - 64
-vice_xplus_libretro.dll|Commodore - Plus4
+vice_xplus_libretro.dll|Commodore - Plus-4
 vice_x64_libretro.dll|Commodore - VIC10
 vice_xvic_libretro.dll|Commodore - VIC-20
 yabause_libretro.dll|Sega - Saturn

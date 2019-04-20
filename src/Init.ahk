@@ -19,7 +19,7 @@ Gui, Add, CheckBox, x139 y18 w112 h17 vRNMDIR checked, Rename Directories
 Gui,Font, Bold
 Gui, Add, Button, x60 y19 w62 h17 gSETJKR, BROWSE
 Gui, Add, Button, x61 y89 w62 h17 gSETEMUD, BROWSE
-Gui Add, Button, x190 y163 w80 h23 vCONTINUE gCONTINUE disabled, CONTINUE
+Gui Add, Button, x190 y163 w80 h23 vCONTINUE gCONTINUE, CONTINUE
 Gui,Font, Normal
 Gui Add, Text, x10 y168 w120 h13, Drag'n Drop supported
 Gui, Show, w274 h188, Window
@@ -279,7 +279,14 @@ if ((RJEMUF = "") or (RJSYSTEMS = ""))
 		msgbox,,Not Set,An Emulator Directory and a Systems Directory Must be set to continue
 		return
 	}
-
+ifnotexist,%RJEMUF%
+	{
+		filecreatedir,%RJEMUF%
+	}
+ifnotexist,%RJSYSTEMS%
+	{
+		filecreatedir,%RJSYSTEMS%
+	}
 IniWrite, "%RJEMUF%",Settings.ini,GLOBAL,emulators_directory
 IniWrite, "%RJSYSTEMS%",Settings.ini,GLOBAL,systems_directory
 exitapp
