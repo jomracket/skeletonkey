@@ -709,11 +709,11 @@ Gui Add, DropDownList,x331 y2 w92 vResDD gResDD, All||Dev-Build|Portable-Build|S
 Gui Add, Button, x425 y2 w52 h21 vResB gResB, Reset
 
 Gui Add, Text,x4 y125, %ARCH%-bit
-Gui Add, Picture, x4 y58 w155 h67, ins.png
-Gui Add, Picture, x160 y58 w70 h60, cor.png
-Gui Add, Picture, x241 y58 w70 h60, emu.png
-Gui Add, Picture, x322 y58 w70 h60, net.png
-Gui Add, Picture, x404 y58 w70 h60, opt.png
+Gui Add, Picture, x4 y58 w155 h67, img\ins.png
+Gui Add, Picture, x160 y58 w70 h60, img\cor.png
+Gui Add, Picture, x241 y58 w70 h60, img\emu.png
+Gui Add, Picture, x322 y58 w70 h60, img\net.png
+Gui Add, Picture, x404 y58 w70 h60, img\opt.png
 
 Gui, Tab, 2
 Gui Tab, Deploy
@@ -3656,7 +3656,7 @@ if (ServerPush = 1)
 		if (GitPush = 1)
 			{
 				RunWait, %comspec% cmd /c echo.###################  GIT DEPLOYMENT PUSH  ####################### >>"%DEPL%\deploy.log", ,%rntp%
-				RunWait, %comspec% "%DEPL%\gpush.cmd" >>"%DEPL%\deploy.log",%DEPL%,%rntp%
+				RunWait, %comspec% cmd /c " "gpush.cmd" >>"%DEPL%\deploy.log"",%DEPL%,%rntp%
 				RunWait, %comspec% cmd /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%
 			}
 	}
