@@ -83690,7 +83690,6 @@ guicontrol, Enable, LNCHBUT
 guicontrol, Enable, RCLLNCH
 guicontrol, Enable, CNCTBUT
 guicontrol, Enable, HostButton
-msgbox,,,k
 if (HISAPND = 1)
 	{
 		hisapl= %pspxe%{`n%pspce%"path": %RUNROM%`,`n%pspce%"label": "%ROMNAME%"`,`n%pspce%"core_path": "%OvrExtAs%"`,`n%pspce%"core_name": "%coreselv%"`,`n%pspce%"crc32": ""`,`n%pspce%"db_name": ""`,`n%pspxe%}`n%A_Space%%A_Space%]`n
