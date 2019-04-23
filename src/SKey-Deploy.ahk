@@ -2805,6 +2805,18 @@ gui,submit,nohide
 guicontrolget,vernum,,vernum
 stringsplit,vernad,vernum,.
 nven:= vernad4+1
+if (vernad4 = 99)
+	{
+		nven= 00
+		if (vernad3 = 99)
+			{
+				nven= x
+			}
+			else {
+				vernad3+=1
+			}
+	}
+	
 vernum:= vernad1 . "." vernad2 . "." vernad3 . "." nven
 guicontrol,,VerNum,%vernum%
 return
@@ -3452,6 +3464,7 @@ if (GitPush = 1)
 				donation= 00.00				
 			}			
 		FileDelete, %SKELD%\!gitupdate.cmd
+		FileAppend, mkdir "%GITD%\bin"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, mkdir "%GITD%\rj\scrapeArt"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, mkdir "%GITD%\rj\ES"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, mkdir "%GITD%\rj\PG"`n,%SKELD%\!gitupdate.cmd
@@ -3643,7 +3656,7 @@ if (ServerPush = 1)
 		if (GitPush = 1)
 			{
 				RunWait, %comspec% cmd /c echo.###################  GIT PUSH  ####################### >>"%DEPL%\deploy.log", ,%rntp%
-				RunWait, %comspec% cmd /c "%DEPL%\gpush.cmd" >>"%DEPL%\deploy.log",%DEPL%,%rntp%
+				RunWait, %comspec% "%DEPL%\gpush.cmd" >>"%DEPL%\deploy.log",%DEPL%,%rntp%
 				RunWait, %comspec% cmd /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%
 			}
 	}

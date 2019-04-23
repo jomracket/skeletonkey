@@ -296,15 +296,7 @@ If (historyloctmp <> "ERROR")
 		historyloc= %historyloctmp%
 		ifnotexist, %historyloctmp%
 			{
-				historyloctmp= ERROR
-				ifexist,%raexeloc%\content_history.lpl
-					{
-						historyloctmp= %raexeloc%\content_history.lpl
-						historyloc= %historyloctmp%
-					}
-					else {
-							gosub, NoHistoryFile
-					}
+				FileAppend,{`n%pspce%"version": "1.0"`,`n%pspce%"items": [`n%pspxe%{`n%pspxe%}`n%A_Space%%A_Space%]`n}`n,%historyloctmp%
 			}
 	}
 	
@@ -1580,7 +1572,8 @@ if (INITIAL = 1)
 			{	
 				FileCreateDir, rj\sysCfgs\%syscfgfld1%
 			}
-		fileread,EmuPartSet,sets\EmuParts.set	
+		fileread,EmuPartSet,sets\EmuParts.set
+		stringreplace,emupartset,emupartset,[ARCH],%ARCH%,All
 		FileRead,FELst,sets\Frontends.set
 		gosub, EmuDetect
 		gosub, INITIALASIGN
@@ -7618,7 +7611,8 @@ IniWrite, "%RJEMUD%",Settings.ini,GLOBAL,emulators_directory
 SB_SetText("Use the ''Detect'' button to add emulators to the available index.")
 if (INITIAL = 1)
 	{
-		fileread,EmuPartSet,sets\EmuParts.set	
+		fileread,EmuPartSet,sets\EmuParts.set
+		stringreplace,emupartset,emupartset,[ARCH],%ARCH%,All
 		FileRead,FELst,sets\Frontends.set
 	}
 gosub, emuDetect
@@ -8324,7 +8318,7 @@ if historyloctmp = "ERROR")
 		guicontrol,,histtxt,%A_WorkingDir%\content_history.lpl
 		ifnotexist, %historyloc%
 			{
-				FileAppend,{%pspce%"version": "1.0"`,`n%pspce%"items": [`n%pspxe%{`n%pspxe%}`n%A_Space%%A_Space%]`n}`n,%historyloc%
+				FileAppend,{`n%pspce%"version": "1.0"`,`n%pspce%"items": [`n%pspxe%{`n%pspxe%}`n%A_Space%%A_Space%]`n}`n,%historyloc%
 			}
 		iniwrite, "%A_WorkingDir%\content_history.lpl",Settings.ini,GLOBAL,history_location
 		return
@@ -8342,10 +8336,10 @@ if (historyloctmp <> "")
 historyloc= %A_WorkingDir%\content_history.lpl
 ifnotexist, %historyloc%
 	{
-		FileAppend,{%pspce%"version": "1.0"`,`n%pspce%"items": [`n%pspxe%{`n%pspxe%}`n%A_Space%%A_Space%]`n}`n,%historyloc%
+		FileAppend,{`n%pspce%"version": "1.0"`,`n%pspce%"items": [`n%pspxe%{`n%pspxe%}`n%A_Space%%A_Space%]`n}`n,%historyloc%
 	}
 guicontrol,,histtxt,%A_WorkingDir%\content_history.lpl
-	iniwrite, "%A_WorkingDir%\content_history.lpl",Settings.ini,GLOBAL,history_location
+iniwrite, "%A_WorkingDir%\content_history.lpl",Settings.ini,GLOBAL,history_location
 return
 
 NoFNDPL:
@@ -83274,7 +83268,6 @@ if (CSTINJOPT <> "")
 		stringreplace,RunOptions,RunOptions,[CUSTMOPT],%A_Space%%CUSTMOPT%%A_Space%,All
 		CSTINJOPT= 
 	}
-	
 
 stringreplace,RunOptions,RunOptions,[CUSTMOPT],%A_SPACE%%CUSTMOPT%,All
 stringreplace,RunArgs,RunArgs,[CUSTMARG],%A_SPACE%%CUSTMARG%,All
@@ -83565,9 +83558,10 @@ guicontrol, Enable, LNCHBUT
 guicontrol, Enable, RCLLNCH
 guicontrol, Enable, CNCTBUT
 guicontrol, Enable, HostButton
+msgbox,,,k
 if (HISAPND = 1)
 	{
-		hisapl= %pspxe%{`n%pspce%"path": "%RUNROM%"`,`n%pspce%"label": "%ROMNAME%"`,`n%pspce%"core_path": "%OvrExtAs%"`,`n%pspce%"core_name": "%coreselv%"`,`n%pspce%"crc32": ""`,`n%pspce%"db_name": ""`,`n%pspxe%}`n%A_Space%%A_Space%]`n
+		hisapl= %pspxe%{`n%pspce%"path": %RUNROM%`,`n%pspce%"label": "%ROMNAME%"`,`n%pspce%"core_path": "%OvrExtAs%"`,`n%pspce%"core_name": "%coreselv%"`,`n%pspce%"crc32": ""`,`n%pspce%"db_name": ""`,`n%pspxe%}`n%A_Space%%A_Space%]`n
 		stringreplace,hisapl,hisapl,\,\\,All
 		hiscnt:=TF_CountLines(TF(historyloc))
 		replinea:= hiscnt - 3
