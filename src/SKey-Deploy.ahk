@@ -3365,8 +3365,6 @@ if (PortVer = 1)
 	{		
 		SB_SetText(" Building portable ")
 		COMPLIST= 
-		;;runwait, %comspec% cmd /c "bin\fart.exe ltc.txt "\"" --remove ", %BUILDIR%,%rntp%
-		;;;"
 		if (PBOV <> 1)
 			{
 				FileDelete, %DEPL%\skeletonKey-portable.zip
@@ -3520,8 +3518,8 @@ if (GitPush = 1)
 		FileAppend, del /q "%GITD%\skeletonKey.exe"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "sets\Themes.put" "%GITD%\sets"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "sets\arcorg.put" "%GITD%\sets"`n,%SKELD%\!gitupdate.cmd
-		FileAppend, copy /y "bin\7zsd32.sfx" "%GITD%\sets"`n,%SKELD%\!gitupdate.cmd
-		FileAppend, copy /y "bin\7zsd64.sfx" "%GITD%\sets"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, copy /y "bin\7zsd32.sfx" "%GITD%\bin"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, copy /y "bin\7zsd64.sfx" "%GITD%\bin"`n,%SKELD%\!gitupdate.cmd
 
 		FileSetAttrib, +h, %SKELD%\!gitupdate.cmd
 		SB_SetText(" Adding changes to git ")

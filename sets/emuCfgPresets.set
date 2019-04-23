@@ -3660,7 +3660,7 @@ MAME?RJEMUOPTS=<pc9821xs -[RJRTYP]<|<pc9821xs -hard<|<pc9821xs -cdrm<|<pc9821ne 
 SHORTNM=NPC98
 SUPEMU=Neko|vaeg|Anex86|SL9821|pc98do|pc98ha|pc98lt|pc9801|MAME
 SUPCORE=np2kai_libretro.dll|nekop2_libretro.dll|mame_libretro.dll
-
+SHORTNM=NPC9821
 
 [NEC - PC98]
 RJEMUPRESET=Neko
@@ -3766,6 +3766,7 @@ FENAM=nfds
 RJEMUPRESET=VisualBoyAdvance-M
 RJMEDNM=gba
 RJMAMENM=gba
+SHORTNM=NGBAEC
 RJROMXT=.gba,.gb,.gbc,.agb,.bin,.elf,.mb,.zip
 MAME?RJEMUOPTS=<gba -cart<
 RJZIPPEEK=0
@@ -4184,7 +4185,7 @@ RJROMXT=.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr,.md5,.cdi,.img
 MAME?RJEMUOPTS=<saturn -[RJRTYP]<|<saturn -cart<|<saturneu -cdrm<|<saturneu -cart<|<saturnjp -cdrm<|<saturnjp -cart<|<saturn -cdrm<
 SHORTNM=SEGSAT
 SUPEMU=SSF|Mednafen|Yabause|nova|BizHawk|MAME
-SUPCORE=mednafen_saturn_libretro.dll|yabause_libretro.dll|mame_libretro.dll
+SUPCORE=mednafen_saturn_libretro.dll|yabause_libretro.dll|yabasanshiro_libretro.dll|mame_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=saturn
 
@@ -4706,6 +4707,7 @@ RJEMUPRESET=WinBox
 RJROMXT=.conf,.lnk,.exe,.bat,.cmd
 SUPEMU=WinBox
 SUPCORE=
+SHORTNM=MSWIN3X
 
 [Windows - Games]
 RJEMUPRESET=BSL
@@ -7207,14 +7209,17 @@ LNCHPRM=$|1|1|0|1|0
 [Agat - 7]
 SUPEMU=MAME|EMU
 SUPCORE=mame_libretro.dll
+SHORTNM=AGAT7
 
 [Atari - Falcon]
 SUPEMU=Hatari|MAME
 SUPCORE=mame_libretro.dll
+SHORTNM=ATFAL
 
 [Commodore - Amiga a500]
 SUPEMU=FS-UAE|WinUAE|winfellow|MAME
 SUPCORE=mame_libretro.dll
+SHORTNM=CAM5H
 
 [Commodore - BX256-80HP]
 SHORTNM=COMBX256
@@ -7231,10 +7236,12 @@ LNCHPRM=$|1|1|0|1|0
 [DEC - PDP-1]
 SUPEMU=SIMH|MAME
 SUPCORE=mame_libretro.dll
+SHORTNM=DPDP1
 
 [DEC - PDP-7]
 SUPEMU=SIMH|MAME
 SUPCORE=mame_libretro.dll
+SHORTNM=DPDP7
 
 [Fujitsu - FM-8]
 SHORTNM=FM8
@@ -7245,6 +7252,7 @@ LNCHPRM=$|1|1|0|1|0
 [Infocom - Z-Machine]
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
+SHORTNM=INFZM
 
 [Luxor - Video Entertainment System]
 SHORTNM=LUXVES
@@ -7261,6 +7269,7 @@ LNCHPRM=$|1|1|0|1|0
 [MCA - Laserdisc Arcade]
 SUPEMU=daphne
 SUPCORE=mame_libretro.dll
+SHORTNM=MCALD
 
 [Microkey - Primo]
 SHORTNM=MICPRI
@@ -7280,6 +7289,7 @@ LNCHPRM=$|1|1|0|1|0
 [Nintendo - Sufami Turbo]
 SUPEMU=snes9x|bsnes|Mednafen|no$sns|MAME|zsnes|kindred|BizHawk|xe|zmz|snesgt
 SUPCORE=snes9x_libretro.dll|snes9x2002_libretro.dll|snes9x2005_libretro.dll|snes9x2010_libretro.dll||bsnes_accuracy_libretro.dll|bsnes_balanced_libretro.dll|bsnes_cplusplus98_libretro.dll|bsnes_mercury_accuracy_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll|mame_libretro.dll
+SHORTNM=NSUFM
 
 [Nintendo - Switch]
 SHORTNM=NSWTCH

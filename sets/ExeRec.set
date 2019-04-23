@@ -740,7 +740,6 @@ FileInstall,sets\ExeRec.set,sets\ExeRec.set,1
 FileInstall,sets\felkup.set,sets\felkup.set,1
 FileInstall,sets\Frontends.set,sets\Frontends.set,1
 FileInstall,sets\fuzSysLk.set,sets\fuzSysLk.set,1
-FileInstall,sets\jacketSys.set,sets\jacketSys.set,1
 FileInstall,sets\Keymappers.set,sets\Keymappers.set,1
 FileInstall,sets\launchparams.set,sets\launchparams.set,1
 FileInstall,sets\libmatch.set,sets\libmatch.set,1
@@ -763,7 +762,6 @@ FileInstall,sets\supported.set,sets\supported.set,1
 FileInstall,sets\SystemEmulators.set,sets\SystemEmulators.set,1
 FileInstall,sets\SystemLocations.set,sets\SystemLocations.set,1
 FileInstall,sets\themes.set,sets\themes.set,1
-FileInstall,sets\UnSupportedEmulators.set,sets\UnSupportedEmulators.set,1
 FileInstall,sets\urls.set,sets\urls.set,1
 FileInstall,sets\Utilities.set,sets\Utilities.set,1
 FileInstall,sets\arcorg.put,sets\arcorg.put,1
@@ -776,7 +774,6 @@ FileInstall,bin\any2ico.exe,bin\any2ico.exe,1
 FileInstall,bin\BSL.exe,bin\BSL.exe,1
 FileInstall,bin\chdman.exe,bin\chdman.exe,1
 FileInstall,bin\emuexe.exe,bin\emuexe.exe,1
-FileInstall,bin\fart.exe,bin\fart.exe,1
 FileInstall,bin\PortableUtil.exe,bin\PortableUtil.exe,1
 FileInstall,bin\rcedit.exe,bin\rcedit.exe,1
 FileInstall,bin\rcedit32.exe,bin\rcedit32.exe,1

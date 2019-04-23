@@ -118,7 +118,6 @@ DGS - Dragon|MAME|:mame_libretro.dll
 Dick Smith Electronics - VZ-200-300|MAME|:mame_libretro.dll
 Dick Smith Electronics - Super-80|MAME|:mame_libretro.dll
 Dimension - 68000|MAME|:mame_libretro.dll
-Dragon - 32-64|MAME|:mame_libretro.dll
 Dragon - Alpha|MAME|:mame_libretro.dll
 Dragon - Beta|MAME|:mame_libretro.dll
 EACA - Colour Genie EG2000|genious|MAME|:mame_libretro.dll
@@ -186,7 +185,7 @@ Luxor - ABC 1600|MAME|:mame_libretro.dll
 Luxor - ABC 80|MAME|:mame_libretro.dll
 Luxor - Video Entertainment System|MAME|:mame_libretro.dll
 MAME - Arcade|mame_arcade|MAME|FinalBurnalpha|calice|ace|zinc|:mame2014_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
-MGT - Sam Coupe|simcoupe|speccy|zesaurux|Ascd|MAME|:mame_libretro.dll
+MGT - Sam Coupe|simcoupe|speccy|zesarux|Ascd|MAME|:mame_libretro.dll
 MITS - Altair8800|MAME|:mame_libretro.dll
 MOS Technology - KIM-1|MAME|:mame_libretro.dll
 Magnavox - Odyssey2|MAME|o2em|:o2em_libretro.dll|mame_libretro.dll
@@ -305,6 +304,7 @@ Rockwell - AIM 65|MAME|:mame_libretro.dll
 Rowtron - Television Computer System|MAME|:mame_libretro.dll
 SAM SKB VM - Partner-01.01|MAME|:mame_libretro.dll
 SNK - Neo Geo CD|NeoRaine|neosdl|ncdz|xe|mame_arcade|MAME|:mame_libretro.dll
+SNK - Neo Geo AES|FinalBurnAlpha|xe|WinKawaks|aes4all|nebula|ngae|mame_arcade|MAME|:fbalpha2012_neogeo_libretro.dll|fbalpha2012_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|fbalpha_libretro.dll|mame2014_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
 SNK - Neo Geo MVS|FinalBurnAlpha|xe|WinKawaks|aes4all|nebula|ngae|mame_arcade|MAME|:fbalpha2012_neogeo_libretro.dll|fbalpha2012_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|fbalpha_libretro.dll|mame2014_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
 SNK - Neo Geo Pocket Color|Mednafen|koyote|race|neopopcott|neopop|MAME|:mednafen_ngp_libretro.dll
 SNK - Neo Geo Pocket|Mednafen|neopop|koyote|neopopcott|xe|vdmgr|MAME|:mednafen_ngp_libretro.dll
@@ -422,8 +422,8 @@ Toshiba - Visicom|MAME|:mame_libretro.dll
 NEC - PC98 - Touhou|Anex86|Winx68k|:nekop2_libretro.dll|np2kai_libretro.dll|mame_libretro.dll
 Triumph-Adler - Alphatronic PC|MAME|:mame_libretro.dll
 Unisonic - Champion 2711|MAME|:mame_libretro.dll
-V-Tech - Laser 2001|MAME|:mame_libretro.dll
 V. I. Lenin - PK-01 Lviv|MAME|:mame_libretro.dll
+VTech - Laser 2001|MAME|:mame_libretro.dll
 VEB Mikroelektronik - KC 85|MAME|:mame_libretro.dll
 Videoton - TV-Computer|winTVC|MAME|:mame_libretro.dll
 V. I. Lenin - L'vov-Lviv|emu|:mame_libretro.dll
