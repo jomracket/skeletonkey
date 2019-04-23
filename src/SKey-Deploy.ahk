@@ -3655,7 +3655,7 @@ if (ServerPush = 1)
 		guicontrol,,progb,80
 		if (GitPush = 1)
 			{
-				RunWait, %comspec% cmd /c echo.###################  GIT PUSH  ####################### >>"%DEPL%\deploy.log", ,%rntp%
+				RunWait, %comspec% cmd /c echo.###################  GIT DEPLOYMENT PUSH  ####################### >>"%DEPL%\deploy.log", ,%rntp%
 				RunWait, %comspec% "%DEPL%\gpush.cmd" >>"%DEPL%\deploy.log",%DEPL%,%rntp%
 				RunWait, %comspec% cmd /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%
 			}
