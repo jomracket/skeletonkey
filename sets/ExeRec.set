@@ -713,10 +713,9 @@ FileInstall,site\version.txt,site\version.txt,1
 FileInstall,site\ReadMe.md,site\ReadMe.md,1
 FileInstall,site\key.ico,site\key.ico,1
 FileInstall,site\Global-Launch-Menu.png,site\Global-Launch-Menu.png,1
+FileInstall,site\invaders.png,site\invaders.png,1
 FileInstall,site\key.png,site\key.png,1
-FileInstall,site\logo.png,site\logo.png,1
 FileInstall,site\paradigm.png,site\paradigm.png,1
-FileInstall,site\splash.png,site\splash.png,1
 FileInstall,site\tip.png,site\tip.png,1
 FileInstall,site\index.html,site\index.html,1
 FileInstall,site\Monoton-Regular.ttf,site\Monoton-Regular.ttf,1
@@ -833,6 +832,7 @@ FileInstall,img\SNK - Neo Geo Pocket Color.png,img\SNK - Neo Geo Pocket Color.pn
 FileInstall,img\SNK - Neo Geo Pocket.png,img\SNK - Neo Geo Pocket.png,1
 FileInstall,img\Sony - Playstation Portable.png,img\Sony - Playstation Portable.png,1
 FileInstall,img\Sony - Playstation.png,img\Sony - Playstation.png,1
+FileInstall,img\splash.png,img\splash.png,1
 FileInstall,img\The 3DO Company - 3DO.png,img\The 3DO Company - 3DO.png,1
 FileInstall,img\xbox360joystick.png,img\xbox360joystick.png,1
 FileInstall,img\Acorn - Archimedes.ico,img\Acorn - Archimedes.ico,1

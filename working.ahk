@@ -1604,7 +1604,7 @@ if (TGLPBL = 1)
 	}
 Gui,Font,%fontXsm%, %fontName%
 gosub, DestroySplashGUI
-SplashImage = site\logo.png
+SplashImage = img\splash.png
 SplashImageGUI(SplashImage, "Center", "Center", true)
 
 Progress, 8,Loading Menu Interface.
