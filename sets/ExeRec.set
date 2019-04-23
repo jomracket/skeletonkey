@@ -714,6 +714,7 @@ FileInstall,site\ReadMe.md,site\ReadMe.md,1
 FileInstall,site\key.ico,site\key.ico,1
 FileInstall,site\Global-Launch-Menu.png,site\Global-Launch-Menu.png,1
 FileInstall,site\key.png,site\key.png,1
+FileInstall,site\logo.png,site\logo.png,1
 FileInstall,site\paradigm.png,site\paradigm.png,1
 FileInstall,site\splash.png,site\splash.png,1
 FileInstall,site\tip.png,site\tip.png,1

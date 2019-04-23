@@ -170,7 +170,7 @@
 			<div class="wrapper">
 				<div class="tab">
 					<input id="tab-basic" name="tabs" type="checkbox"> <label for="tab-basic">RetroArch Details }&gt;</label>
-					<div class="tab-content">
+					<div class="tab-content" id="detailsdiv">
 						<p>RetroArch is tightly integrated into skeletonKey with an <em>exhaustive</em> set of options and exclusive features for netplay. By default the most compatible core is selected as the skeletonkey's primary association for most of retroarch's supported systems. The GUI interface for retroArch is dynamic, responding after any changes made during gameplay.<br>
 						RetroArch's "core_assets_directory" should be assigned to the [Systems ROOT] folder.<br>
 						The <code>playlist_directory</code> and <code>content_history_path</code> (history file) should also be shared with skeletonKey.</p>
@@ -186,7 +186,7 @@
 			<div class="wrapper">
 				<div class="tab">
 					<input id="tab-cli" name="tabs" type="checkbox"> <label for="tab-cli">CLI Details }&gt;</label>
-					<div class="tab-content">
+					<div class="tab-content" id="detailsdiv">
 						<p>SkeletonKey launched from the command line <em>without</em> this option functions identically to drag'n drop.
                         </p>
 						<p><em>...nkey&gt;</em> <code>skeletonKey.exe -run=NickName &quot;C:\Library\Console Name\Rom Name\rom file.rom&quot;</code><br>
@@ -217,7 +217,7 @@
 			<div class="wrapper">
 				<div class="tab">
 					<input id="tab-portable" name="tabs" type="checkbox"> <label for="tab-portable">Portable Details }&gt;</label>
-					<div class="tab-content">
+					<div class="tab-content" id="detailsdiv">
 						Migration options for the portable utility include localization of items to the drive for playlists and simple search &amp; replace. Retroarch and skeletonKey's other supported emulators' per-game settings are updated to reflect the new portable skeletonKey location.</p>
 						Typically, a skeletonkey installation is copied to a removable drive. The PortableUtil.exe file should then be run from the portable device when first starting skeletonKey on a new computer or if the drive letter of the portable device has changed.<br>
 					</div>
@@ -262,7 +262,7 @@
 			<div class="wrapper">
 				<div class="tab">
 					<input id="tab-gbln" name="tabs" type="checkbox"> <label for="tab-gbln">Example }&gt;</label>
-					<div class="tab-content">
+					<div class="tab-content" id="detailsdiv">
 						<p>The Launch menu items persist across emulator settings populated in the Main tab. These items are at the top of the window and are necessary to browse directories, navigate playlists and launch a ROM.</p>
 						<p><img alt="" height="223" src="Global-Launch-Menu.png" width="469"></p>
 					</div>
@@ -363,7 +363,7 @@
 			<div class="wrapper">
 				<div class="tab">
 					<input id="tab-opt" name="tabs" type="checkbox"> <label for="tab-opt">Option Details }&gt;</label>
-					<div class="tab-content">
+					<div class="tab-content" id="detailsdiv">
 						<p>Spaces are observed for options, arguments and command-lines.<br>
 						The charachter must be escaped or it will be converted to a space.<br>
 						<strong><code>[CUSTMOPT]</code></strong> &amp; <strong><code>[CUSTMARG]</code></strong> are special tags assigned to MAME and other emulators which allow the passing of overriding options and arguments at runtime via the &quot;switches&quot; checkbox in the Global-Launch-Menu or Repository-Systems-Menu.<br>
@@ -377,7 +377,7 @@
 			<div class="wrapper">
 				<div class="tab">
 					<input id="tab-pgdt" name="tabs" type="checkbox"> <label for="tab-pgdt">Per-Game Details }&gt;</label>
-					<div class="tab-content">
+					<div class="tab-content" id="detailsdiv">
 						<p><strong>Operational Details:</strong><br>
 						SkeletonKey copies and moves these configuration files back and forth between the emulator's folder and the per-game configuration folder before and after the emulator runs.<br>
 						Configuration files are stored inside a folder of the ROM's name. A folder for each system can be located in the skeletonKey installation folder under the "cfg" directory. EG:<br>
@@ -415,7 +415,7 @@
 			<div class="wrapper">
 				<div class="tab">
 					<input id="tab-dam" name="tabs" type="checkbox"> <label for="tab-bsl">Daemon Tools Details }&gt;</label>
-					<div class="tab-content">
+					<div class="tab-content" id="detailsdiv">
 						<p>!!!!IMPORTANT!!!!<br>
 						Open the Daemon Tools program.<br>
 						If you do not have a SCSI drive in the list, add a SCSI drive.<br>
@@ -479,19 +479,18 @@
 			<div class="wrapper">
 				<div class="tab">
 					<input id="tab-esex" name="tabs" type="checkbox"> <label for="tab-esex">EmulationStation Layout }&gt;</label>
-					<div class="tab-content">
-						<div class="wrapper"></div>
+					<div class="tab-content" id="detailsdiv">
 						<p>Like emulationStation's es_systems.cfg, emulationStation gamelists are xml files which contain standard metadata tags. Absolute paths to assets such as images and video files are accepted, however relative paths are also accepted, making the entire frontend portable across platforms (*nix/apple/windows). Assets can be arranged &amp; named uniquely, however skeletonKey propagates assets to an emulationStation deployment which follows a local-layout.</p>
 						<p>Box-Art files: ~/downloaded_images/[ROM_TITLE]-image.png<br>
 						Marquee images: ~/downloaded_images/[ROM_TITLE]-marquee.png<br>
 						Thumbnail images: ~/downloaded_images/[ROM_TITLE]-thumb.png<br>
 						Marquee images: ~/downloaded_images/[ROM_TITLE]-marquee.png<br>
 						Video snaps: ~/downloaded_images/[ROM_TITLE]-video.mp4<br></p>
-					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 	<br>
 	<div id="grad1" align="left">
 		<h2 class='button button4'>Repository</h2>
@@ -536,7 +535,7 @@
 			<div class="wrapper">
 				<div class="tab">
 					<input id="tab-esopr" name="tabs" type="checkbox"> <label for="tab-esopr">Operational Details }&gt;</label>
-					<div class="tab-content">
+					<div class="tab-content" id="detailsdiv">
 						The Paradigm: Like Media Browser, emulationStation automatically adds any ROMs found in a directory to its database, however skeletonkey can edit and create gamelist.xml playlist-files to explicitly parse.
 						<p>Caveats:<br></p>
 					</div>
@@ -551,8 +550,8 @@
 			<p>SkeletonKey can configure Pegasus to use Jackets (batchscript launchers), mirrors (shortcuts), ROM files or any combination of these types of elements. Additionally, skeletonKey can load existing configuration files (metadata.pegasus.txt) to add, remove, edit and reorder systems.</p>
 			<div class="wrapper">
 				<div class="tab">
-					<input id="tab-esopr" name="tabs" type="checkbox"> <label for="tab-esopr">Operational Details }&gt;</label>
-					<div class="tab-content">
+					<input id="tab-pgopr" name="tabs" type="checkbox"> <label for="tab-pgopr">Operational Details }&gt;</label>
+					<div class="tab-content" id="detailsdiv">
 						The Paradigm: Like Media Browser, Pegasus automatically adds any ROMs found in a directory to its database.
 						<p>Caveats:<br></p>
 					</div>
@@ -566,8 +565,8 @@
 			<p>SkeletonKey can configure RetroFE to use Jackets (batchscript launchers), mirrors (shortcuts) and ROM files. Additionally, skeletonKey can load existing configuration files to add, remove, edit and reorder systems.</p>
 			<div class="wrapper">
 				<div class="tab">
-					<input id="tab-esopr" name="tabs" type="checkbox"> <label for="tab-esopr">Operational Details }&gt;</label>
-					<div class="tab-content">
+					<input id="tab-rfopr" name="tabs" type="checkbox"> <label for="tab-rfopr">Operational Details }&gt;</label>
+					<div class="tab-content" id="detailsdiv">
 						RetroFE automatically adds any ROMs found in a directory to its database.
 						<p>Caveats:<br></p>
 					</div>
@@ -584,7 +583,7 @@
 			<div class="wrapper">
 				<div class="tab">
 					<input id="tab-fes" name="tabs" type="checkbox"> <label for="tab-fes">In Development }&gt;</label>
-					<div class="tab-content">
+					<div class="tab-content" id="detailsdiv">
 						<h3>Media Browser</h3>Media Browser for Windows Media Center
 						<h3>Hyperspin</h3><a>Hyperspin</a>
 						<h3>retroFE</h3><a>retro-FE</a>
@@ -641,7 +640,7 @@
 			<div class="wrapper">
 				<div class="tab">
 					<input id="tab-netplt" name="tabs" type="checkbox"> <label for="tab-netplt">Netplay Details }&gt;</label>
-					<div class="tab-content">
+					<div class="tab-content" id="detailsdiv">
 						SkeletonKey employs unique matching methods which enable users to connect dynamically however, selecting "All_Playlists" from the drop-down menu will allow skeletonKey to find a matching hash or ROM name from all of your playlists<br>
 						In the Main tab, uncheck "Pause In Background" &amp; in the Frontends tab, select &quot;XMB&quot; and uncheck "Pause In Menu" to keep gameplay active and will help maintain a synced connection while adjusting settings.<br>
 						Selecting a host will allow skeletonKey to look in the currently selected ROM directory or playlist file for a matching ROM.<br>
@@ -678,7 +677,7 @@
 			<div class="wrapper">
 				<div class="tab">
 					<input id="tab-devm" name="tabs" type="checkbox"> <label for="tab-devm">Operational Details }&gt;</label>
-					<div class="tab-content">
+					<div class="tab-content" id="detailsdiv">
 					 <p><img alt="" height="216" src="paradigm.png" width="144"></p>
 						Each jacket's batch-script-launcher copies its emulator-configuration files to the emulator directory before launching and any changes made to the emulator during gameplay will back to the jacket after exiting the emulator.
 						<p>For those interested in developing for the RoM-Jacket spec, a few principles should be observed:</p>
@@ -706,7 +705,7 @@
 			<div class="wrapper">
 				<div class="tab">
 					<input id="tab-consolid" name="tabs" type="checkbox"> <label for="tab-consolid">Consolidation Example }&gt;</label>
-					<div class="tab-content">
+					<div class="tab-content" id="detailsdiv">
 						<p>eg: region, disk-number, rom-revision, &amp; any other superflous information is pruned to the game title.</p>
 						<p><code>Folder: <strong>Game Title</strong>\</code></p>
 						<blockquote>
@@ -731,7 +730,7 @@
 			<div class="wrapper">
 				<div class="tab">
 					<input id="tab-indv" name="tabs" type="checkbox"> <label for="tab-indv">Individuate Example }&gt;</label>
-					<div class="tab-content">
+					<div class="tab-content" id="detailsdiv">
 						<p>eg:</p>
 						<p><code>Folder: <strong>Game Title (USA)[v-1]</strong>\</code></p>
 						<blockquote>
@@ -782,7 +781,7 @@
 			<div class="wrapper">
 				<div class="tab">
 					<input id="tab-lnchop" name="tabs" type="checkbox"> <label for="tab-lnchop">Operational Details }&gt;</label>
-					<div class="tab-content">
+					<div class="tab-content" id="detailsdiv">
 						<p>Unless explicitly specified at creation-time, the launcher will launch the first alphabetically named ROM in the Jacket.<br>
 						Drag'n'drop and the command-line may usually be used to specify and override an alternative.<br>
 						<code>&gt;C:\Games\console\System - Name\Game\Game(name).bat "Z:\NetworkDrive\Sample\ROM.bin"</code></p>
@@ -795,7 +794,7 @@
 			<div class="wrapper">
 				<div class="tab">
 					<input id="tab-pgcad" name="tabs" type="checkbox"> <label for="tab-pgcad">Per-Game Details }&gt;</label>
-					<div class="tab-content">
+					<div class="tab-content" id="detailsdiv">
 						<p>Paradigm:<br>
 						All settings, quick-saves, save-files &amp; snapshots for the emulator are saved in the ROM-directory.<br>
 						The ROM's configuration for the emulator is copied to the proper location upon execution of the launcher.<br>
@@ -814,7 +813,7 @@
 			<div class="wrapper">
 				<div class="tab">
 					<input id="tab-gblcav" name="tabs" type="checkbox"> <label for="tab-gblcav">Global Details }&gt;</label>
-					<div class="tab-content">
+					<div class="tab-content" id="detailsdiv">
 						<p><em>Caveats</em>:<br>
 						Any and all changes made to the emulator's settings will affect all other games.</p>
 					</div>
@@ -827,7 +826,7 @@
 			<div class="wrapper">
 				<div class="tab">
 					<input id="tab-locab" name="tabs" type="checkbox"> <label for="tab-locab">Local/Absolute Details }&gt;</label>
-					<div class="tab-content">
+					<div class="tab-content" id="detailsdiv">
 						<p>Applications can be designated to run both before the emulator is launched and after the emulator exits. An option exists to allow the launcher to wait for the command to complete until proceeding, or continue to execute immedietlely after it is launched.<br>
 						Command line options can be set for any command. Additionally, keywords can be entered which will be parsed by the launcher at runtime. These include:<br></p><code>[ROMPATH]</code>: This will designate the directory path of the ROM.<br>
 						<code>[ROMF]</code>: This will designate the ROM filename.<br>
@@ -850,7 +849,7 @@
 			<div class="wrapper">
 				<div class="tab">
 					<input id="tab-ppr" name="tabs" type="checkbox"> <label for="tab-ppr">Pre/Post Details }&gt;</label>
-					<div class="tab-content">
+					<div class="tab-content" id="detailsdiv">
 						<p>ROM-Jackets can be deployed to suit the needs of a particular system which include requirements such as Disk-Grouping, however standardized naming has generally fit a modality allowing for simple identifiers to disregard and group (regional) and [developer-version] titles so that a library may be navigated using universal conventions.</p>
 						<p>Many systems and emulators require unique and proprietary directory structures, naming schemes and locations and in such cases junction-linked files are jacketized.</p>
 					</div>
@@ -865,7 +864,7 @@
 			<div class="wrapper">
 				<div class="tab">
 					<input id="tab-bsl" name="tabs" type="checkbox"> <label for="tab-bsl">BSL Details }&gt;</label>
-					<div class="tab-content">
+					<div class="tab-content" id="detailsdiv">
 						<p>Typically, a frontend will assign an emluator to a directory containing a set of ROMs with a list of supported extensions. (eg: nestopia.exe will open all .nes, .zip, and .fds files in the NES folder)<br>
 						In this case the BSL.exe is used as the &quot;emulator&quot; where &quot;.bat&quot; or &quot;.lnk&quot; is the extension for any ROM-Jacket library.<br>
 						<br></p>
@@ -910,7 +909,7 @@
 						<div class="tab1">
 						  <input id="tab-romExe" name="tab-romExe" type="checkbox">
 						  <label for="tab-romExe">Executable Details }&gt;</label>
-						  <div class="tab-content">
+						  <div class="tab-content" id="detailsdiv">
 						    <p>Creating one requires an emulator executable and at least one ROM file.<br>
 						      Selecting an emulator preset will download the emulator and extract it to the <code>...skeletonKey\executable\emu</code> directory<br>
 						      Add ROMs to your executable by dragging and dropping ROM files to the list on the left. Alternatively, you may use the &quot;Add&quot; button which will allow you to select them via skeletonKey's file-browser. ROM files are copied to the <code>...skeletonKey\executable\roms</code> directory.<br>
@@ -922,8 +921,8 @@
 					        </p>
 					      </div>
 		  </div>
-						<p><br>
-		  </p>
+						<br>
+		  
 				<div class="wrapper"></div>
 		</div>
 		<br>
@@ -1523,5 +1522,18 @@ ul.topnav li.icon {display: none;}
 .show {
 	display: block;
 }	
+	#detailsdiv {
+	background-color: #515151;
+	color: white;
+	font-family: Muli;
+	-moz-border-radius: 4px 4px 4px 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px 4px 4px 4px;
+	margin-right: 5px;
+	padding-left: 3%;
+		padding-right: 3%;
+	text-shadow: -1px -1px 1px rgba(0,0,0,0.53);
+}
+	}	
 </style>																													
 </html>

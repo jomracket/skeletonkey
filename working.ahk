@@ -1321,7 +1321,7 @@ if (INITIAL = "")
 		Progress, ZX0 ZY0 B w300 CBFF00FF CWFFFFFF CTFF00FF  WS900 FS11,.Loading skeletonKey.,,skelprg,Fixedsys
 		WinSet, TransColor, White,skelprg
 		WinGetPos,,, Width, Height, skelprg
-		WinMove, skelprg,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)+230
+		WinMove, skelprg,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)+70
 	}
 IniRead, HOVPREV, Settings.ini,GLOBAL,hover_preview
 hovvalue= 
@@ -1604,7 +1604,7 @@ if (TGLPBL = 1)
 	}
 Gui,Font,%fontXsm%, %fontName%
 gosub, DestroySplashGUI
-SplashImage = site\splash.png
+SplashImage = site\logo.png
 SplashImageGUI(SplashImage, "Center", "Center", true)
 
 Progress, 8,Loading Menu Interface.
@@ -12408,6 +12408,7 @@ stringreplace,smuemu,smuemu,",,All
 ;"
 smuemu:= "|" . smuemu
 SB_SetText(" Prioritizing " LNCHPRDDL " ")
+/*
 if (LNCHPRDDL = "retroarch")
 	{
 		if ((RaExeFile = "NOT-FOUND.exe") or (RaExeFile = ""))
@@ -12484,10 +12485,11 @@ if (LNCHPRDDL = "retroarch")
 			}
 		
 	}
-
+*/
 INITIALASIGN:
-if (LNCHPRDDL <> "retroarch")
+if (LNCHPRDDL = "Emulators")
 	{
+		repw= 
 		Loop, Parse, origsys,`n`r
 			{
 				if (A_LoopField = "")
@@ -12498,81 +12500,211 @@ if (LNCHPRDDL <> "retroarch")
 				fei2=
 				stringsplit,fei,A_LoopField,=,"
 				;"
-				Loop, Parse, SysEmuSet,`n`r
+				iniread,aik,Assignments.ini,OVERRIDES,%fei1%
+				iniread,aij,sets\EmuCfgPresets.set,%fei1%,SUPEMU
+				iniread,aic,sets\EmuCfgPresets.set,%fei1%,SUPCORE
+				if (aij = "ERROR")
 					{
-						if (A_LoopField = "")
+						continue
+					}
+				inix= 
+				nwv= 
+				repx= 
+				repw= 
+				Loop,Parse,aij,|
+					{
+						nwv= %A_LoopField%
+						iniread,emx,Apps.ini,EMULATORS,%A_LoopField%
+						if (emx = "ERROR")
 							{
 								continue
 							}
-						sdspl1= 
-						sdspl2= 
-						stringsplit,sdspl,A_LoopField,:
-						StringSplit,sysplit,sdspl1,|
-						if (sysplit1 = fei1)
+						if (inix = "")
 							{
-								sysfnd= 
-								reaptot=
-								repaden= 
-								reapri= 
-								Loop, Parse, sdspl1,|
+								inix= %A_LoopField%|
+							}
+						repw= 
+						Loop,Parse,aik,|
+							{
+								if (A_LoopField = nwv)
 									{
-										if (A_LoopField = "")
-											{
-												continue
-											}
-										if (A_Index = 1)
-											{
-												continue
-											}
-										if ((LNCHPRDDL <> "Emulators") && (A_LoopField <> LNCHPRDDL))
-											{
-												continue
-											}
-										repwith= %A_LoopField%
-										iniread,fej,Assignments.ini,OVERRIDES,%fei1%
-										if (fej = "")
-											{
-												fej= 
-											}
-										ifinstring,fej,%repwith%
-											{
-												continue
-											}
-										ifinstring,smuemu,|%repwith%|
-											{							
-												sysfnd+= 1
-												if reapwith=
-												if (sysfnd = 1)
-													{
-														reapri= %repwith%|
-														continue
-													}
-												repaden.= repwith . "|"	
-											}
+										continue
 									}
-								if (sysfnd > 0)	
-									{
-										repaden.= fej
-										reaptot:= reapri . repaden
-										ifinstring,fei1,%A_Space%-%A_Space%
-											{
-												iniwrite, "%reaptot%",Assignments.ini,OVERRIDES,%fei1%									
-											}
-									}
+								repx.= A_LoopField . "|"	
 							}
 					}
+				repw.= inix . repx	
+				if ((raexefile <> "NOT-FOUND.exe") && (raexefile <> ""))
+					{
+						Loop,Parse,aic,|
+							{
+								ifnotexist,%libretrodirectory%\%A_LoopField%
+									{
+										continue
+									}
+								ifinstring,repw,%A_LoopField%
+									{
+										continue
+									}
+								repw.= A_LoopField . "|"
+							}
+					}
+				iniwrite,"%repw%",Assignments.ini,OVERRIDES,%fei1%
 			}
 		iniwrite, 1,Settings.ini,GLOBAL,Launcher_Priority
+		goto, LNCHPTFIN
 	}
+if (LNCHPRDDL = "retroarch")
+	{
+		if ((RaExeFile = "NOT-FOUND.exe") or (RaExeFile = ""))
+				{
+					SB_SetText("Retroarch is not present")
+					guicontrol,,SALIST,|Systems|Emulators|RetroArch||Utilities|Frontends
+					gosub, SaList
+					guicontrol,enable,LNCHPT
+					guicontrol,enable,SaList
+					guicontrol,enable,AVAIL
+					guicontrol,enable,EAVAIL
+					guicontrol,enable,UAVAIL
+					guicontrol,,ExeList,1
+					gosub, ExeList
+					return
+				}
+		LNCHPT= 0		
+		repw= 
+		Loop, Parse, origsys,`n`r
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				fei1=
+				fei2=
+				stringsplit,fei,A_LoopField,=,"
+				;"
+				iniread,aik,Assignments.ini,OVERRIDES,%fei1%
+				iniread,aij,sets\EmuCfgPresets.set,%fei1%,SUPEMU
+				iniread,aic,sets\EmuCfgPresets.set,%fei1%,SUPCORE
+				if (aic = "ERROR")
+					{
+						continue
+					}
+				repw= 
+				repx= 
+				inix=
+				Loop,Parse,aic,|
+					{
+						ifnotexist,%libretrodirectory%\%A_LoopField%
+							{
+								continue
+							}
+						if (inix = "")
+							{
+								inix= %A_LoopField%|
+							}
+						nwv= %A_LoopField%
+						Loop,Parse,aik,|
+							{
+								if (A_LoopField = nwv)
+									{
+										continue
+									}
+								repx.= A_LoopField . "|"	
+							}
+					}
+				repw.= inix . repx	
+				Loop,Parse,aij,|
+					{
+						nwv= %A_LoopField%|
+						iniread,emx,Apps.ini,EMULATORS,%A_LoopField%
+						if (emx = "ERROR")
+							{
+								continue
+							}
+						Loop,Parse,aik,|
+							{
+								if (A_LoopField = nwv)
+									{
+										continue
+									}
+								repw.= A_LoopField . "|"	
+							}
+					}
+				iniwrite,"%repw%",Assignments.ini,OVERRIDES,%fei1%
+			}
+		iniwrite, 1,Settings.ini,GLOBAL,Launcher_Priority
+		goto,LNCHPTFIN
+	}
+
 if (INITIAL = 1)
 	{
-		if (raexefile <> "NOT-FOUND.exe")
+		if ((raexefile <> "NOT-FOUND.exe")&&(raexefile <> ""))
 			{
 				locfnd= 
 				gosub, RETROARCHINIT
 			}
 		return
 	}
+Loop, Parse, origsys,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		fei1=
+		fei2=
+		stringsplit,fei,A_LoopField,=,"
+		;"
+		iniread,aik,Assignments.ini,OVERRIDES,%fei1%
+		iniread,aij,sets\EmuCfgPresets.set,%fei1%,SUPEMU
+		iniread,aic,sets\EmuCfgPresets.set,%fei1%,SUPCORE
+		ifnotinstring,aic,%LNCHPRDDL%
+			{
+				continue
+			}
+		inix= 
+		nwv= 
+		repx= 
+		repw= 
+		Loop,Parse,aij,|
+			{
+				nwv= %A_LoopField%
+				iniread,emx,Apps.ini,EMULATORS,%A_LoopField%
+				if (emx = "ERROR")
+					{
+						continue
+					}
+				inix= %LNCHPRDDL%|
+				repw= 
+				Loop,Parse,aik,|
+					{
+						if (A_LoopField = nwv)
+							{
+								continue
+							}
+						repx.= A_LoopField . "|"	
+					}
+			}
+		repw.= inix . repx	
+		if ((raexefile <> "NOT-FOUND.exe") && (raexefile <> ""))
+			{
+				Loop,Parse,aic,|
+					{
+						ifnotexist,%libretrodirectory%\%A_LoopField%
+							{
+								continue
+							}
+						ifinstring,repw,%A_LoopField%
+							{
+								continue
+							}
+						repw.= A_LoopField . "|"
+					}
+			}
+		iniwrite,"%repw%",Assignments.ini,OVERRIDES,%fei1%
+	}	
+
+LNCHPTFIN:	
 SB_SetText("Systems now assigned to " LNCHPRDDL " where possible.")
 guicontrol,,SaList,|Systems||Emulators|RetroArch|Utilities|Frontends
 gosub, SaList
