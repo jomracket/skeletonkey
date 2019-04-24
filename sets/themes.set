@@ -1,7 +1,8 @@
 [RJ]
 ESTHEME=https://github.com/romjacket/esthemes/raw/master/rj.zip
 PGTHEME=https://github.com/romjacket/pgthemes/raw/master/rj.zip
-RFTHEME=https://github.com/romjacket/rfthemes/raw/master/rj.zip
+RFTHEME=http://archive.org/download/RJ_retroFE_theme/RJ.7z
+RFEXPTH=
 Backdrop=https://github.com/romjacket/ORIGINAL/raw/master/Backdrops.7z
 Backdrop_Directory=https://github.com/romjacket/ORIGINAL/raw/master/Backdrops
 Icon=https://github.com/romjacket/ORIGINAL/raw/master/Icons.7z
@@ -15,24 +16,31 @@ Meta_Directory=https://github.com/romjacket/ORIGINAL/raw/master/MetaData
 
 [RAW]
 RFTHEME=https://github.com/romjacket/rfthemes/raw/master/raw.zip
+RFEXPTH=layouts
 
 [carousel]
 RFTHEME=https://github.com/romjacket/rfthemes/raw/master/carousel.zip
+RFEXPTH=layouts
 
 [flatio]
 RFTHEME=https://github.com/romjacket/rfthemes/raw/master/flatio.zip
+RFEXPTH=layouts
 
 [pandorasbox]
 RFTHEME=https://github.com/romjacket/rfthemes/raw/master/pandorasbox.zip
+RFEXPTH=layouts
 
 [RetroSpin]
 RFTHEME=https://github.com/romjacket/rfthemes/raw/master/retrospin.zip
+RFEXPTH=layouts
 
 [Aura]
 RFTHEME=https://github.com/romjacket/rfthemes/raw/master/aura.zip
+RFEXPTH=
 
 [Animatic]
 RFTHEME=https://github.com/romjacket/rfthemes/raw/master/animatic.zip
+RFEXPTH=
 
 [SpaceOddity]
 ESTHEME=https://github.com/romjacket/esthemes/raw/master/SpaceOddity.zip

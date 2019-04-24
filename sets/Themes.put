@@ -1,7 +1,8 @@
 [RJ]
 ESTHEME=[HOSTINGURL]/esthemes/raw/master/rj.zip
 PGTHEME=[HOSTINGURL]/pgthemes/raw/master/rj.zip
-RFTHEME=[HOSTINGURL]/rfthemes/raw/master/rj.zip
+RFTHEME=http://archive.org/download/RJ_retroFE_theme/RJ.7z
+RFEXPTH=
 Backdrop=[HOSTINGURL]/ORIGINAL/raw/master/Backdrops.7z
 Backdrop_Directory=[HOSTINGURL]/ORIGINAL/raw/master/Backdrops
 Icon=[HOSTINGURL]/ORIGINAL/raw/master/Icons.7z
@@ -15,24 +16,31 @@ Meta_Directory=[HOSTINGURL]/ORIGINAL/raw/master/MetaData
 
 [RAW]
 RFTHEME=[HOSTINGURL]/rfthemes/raw/master/raw.zip
+RFEXPTH=layouts
 
 [carousel]
 RFTHEME=[HOSTINGURL]/rfthemes/raw/master/carousel.zip
+RFEXPTH=layouts
 
 [flatio]
 RFTHEME=[HOSTINGURL]/rfthemes/raw/master/flatio.zip
+RFEXPTH=layouts
 
 [pandorasbox]
 RFTHEME=[HOSTINGURL]/rfthemes/raw/master/pandorasbox.zip
+RFEXPTH=layouts
 
 [RetroSpin]
 RFTHEME=[HOSTINGURL]/rfthemes/raw/master/retrospin.zip
+RFEXPTH=layouts
 
 [Aura]
 RFTHEME=[HOSTINGURL]/rfthemes/raw/master/aura.zip
+RFEXPTH=
 
 [Animatic]
 RFTHEME=[HOSTINGURL]/rfthemes/raw/master/animatic.zip
+RFEXPTH=
 
 [SpaceOddity]
 ESTHEME=[HOSTINGURL]/esthemes/raw/master/SpaceOddity.zip

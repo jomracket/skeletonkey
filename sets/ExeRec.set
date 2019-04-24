@@ -751,6 +751,7 @@ FileInstall,sets\pg_input.cfg.set,sets\pg_input.cfg.set,1
 FileInstall,sets\Programs.set,sets\Programs.set,1
 FileInstall,sets\racoreopt.set,sets\racoreopt.set,1
 FileInstall,sets\ReadMe.set,sets\ReadMe.set,1
+FileInstall,sets\rfcontrols.set,sets\rfcontrols.set,1
 FileInstall,sets\rfsettings.set,sets\rfsettings.set,1
 FileInstall,sets\rjcmd_header.set,sets\rjcmd_header.set,1
 FileInstall,sets\rjcmd_postjoy.set,sets\rjcmd_postjoy.set,1

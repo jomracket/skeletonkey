@@ -59450,6 +59450,11 @@ if (rfvideoen = "ERROR")
 		rfven= 0
 		rfvideoen= no
 	}
+ifnotexist,%RFHOME%\controls.conf
+	{
+		filecopy,sets\rfsettings.set,%RFHOME%\controls.conf
+	}
+	
 ifnotexist,%RFHOME%\settings.conf
 	{
 		filecopy,sets\rfsettings.set,%RFHOME%\settings.conf
@@ -59771,13 +59776,14 @@ ifexist, %RFHOME%\layouts\%FEDDLD%
 			}
 	}
 iniRead,URLFILE,sets\themes.set,%FEDDLD%,RFTHEME
+iniRead,extractpthadd,sets\themes.set,%FEDDLD%,RFEXPTH
 if (URLFILE = "ERROR")
 	{
 		SB_SetText("This theme is not available from the seletonKey repository")
 		return
 	}
 save= rj\RF\%FEDDLD%.7z
-extractpath= %RFHOME%\layouts
+extractpath= %RFHOME%\%extractpthadd%
 DownloadFile(URLFILE, save, dwnovr, true)
 filegetsize,rftsz,%save%,K
 if (rftsz < 200)
@@ -59789,6 +59795,11 @@ ifnotexist,%save%
 	{
 		SB_SetText("Download Failed")
 		return
+	}
+ovextinj=	
+if (FECHKC = 1)
+	{
+		ovextinj= -y
 	}
 if (rfteo = "")
 	{
