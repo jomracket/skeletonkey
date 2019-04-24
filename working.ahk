@@ -1321,7 +1321,7 @@ if (INITIAL = "")
 		Progress, ZX0 ZY0 B w300 CBFF00FF CWFFFFFF CTFF00FF  WS900 FS11,.Loading skeletonKey.,,skelprg,Fixedsys
 		WinSet, TransColor, White,skelprg
 		WinGetPos,,, Width, Height, skelprg
-		WinMove, skelprg,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)+70
+		WinMove, skelprg,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)+110
 	}
 IniRead, HOVPREV, Settings.ini,GLOBAL,hover_preview
 hovvalue= 
@@ -38127,6 +38127,7 @@ gui,submit,nohide
 guicontrol,,ARCDET,
 guicontrol,enable,ARCSYS
 guicontrol,enable,MAMESWCHK
+return
 
 MAMESWCHK:
 gui,submit,nohide						  
@@ -40001,6 +40002,7 @@ post_site:="https://archive.org/account/login.php"
 post_data:="username=" username_str "&password=" password_str "&remember=CHECKED&referer=https://archive.org&action=login&submit=Log in"
 Loop,
 	{
+		arcfinz= 
 		WebRequest := ComObjCreate("WinHttp.WinHttpRequest.5.1")
 		WebRequest.Open("POST", post_site)
 		WebRequest.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded")
@@ -40015,7 +40017,6 @@ Loop,
 		WebRequest.WaitForResponse(5)
 		ADODBObj := ComObjCreate( "ADODB.Stream" )
 		ADODBObj.Type := 1
-		;;ADODBObj.Mode := 3
 		ADODBObj.Open()
 		ADODBObj.Position := 0
 		ADODBObj.Write( WebRequest.ResponseBody )
@@ -40028,7 +40029,7 @@ Loop,
 					if (dnd <> arcfz)
 						{
 							filegetsize,fmtmp,%savetmp%\tmp.tmp
-							if ((fmtmp < 20000)&&(finv > 20000))
+							if ((fmtmp < 20000)&&(finv > 20000)) 
 								{
 									msgbox,1,too small,filesize is %fmtmp%
 									goto, logindwnfail
@@ -40037,15 +40038,20 @@ Loop,
 							dnd+=5000000
 							if (dnd > arcfz)
 								{
+									arcfinz= 1
 									dnd:= arcfz
 								}
 							finv:= dnd - bgn
-				}
+						}
 					if FileExist(savetmp "\old.del")
 						{
 							RunWait,%comspec% cmd /c copy /b "%savetmp%\old.del"+"%filetmp%" "%save%",,hide
 							filedelete, "%filetmp%"
 							filedelete, "%savetmp%\old.del"
+							if (arcfinz = 2)
+								{
+									break
+								}
 							filemove,%save%,%savetmp%\old.del,1
 							filegetsize,oldtmp,%savetmp%\old.del							
 							mvmult:= dnd / arcfz
@@ -40060,15 +40066,13 @@ Loop,
 						else 
 							{
 								filemove, %filetmp%,%savetmp%\old.del,1
-								filegetsize,oldtmp,%savetmp%\old.del
 							}
-					continue
 				}
-			else{
-					SB_SetText("File Not Downloaded")
-					MsgBox,1,Not Found,%save%`nnot found
-					goto, logindwnfail
-				}
+				else{
+						SB_SetText("File Not Downloaded")
+						MsgBox,1,Not Found,%save%`nnot found
+						goto, logindwnfail
+					}
 		filegetsize,oldtmp,%savetmp%\old.del
 		if (fmtmp < 20000)
 			{
@@ -40088,6 +40092,14 @@ Loop,
 		Guicontrol, ,DWNPRGRS, %PercentDone%
 		Guicontrol, ,FEPRGA, %PercentDone%
 		SB_SetText(" " PercentDone "`% completed. " dnd " bytes downloaded ")
+		if ((PercentDone >= 100) or (arcfinz = 1))
+			{
+				break
+			}
+		if (arcfinz <> "")
+			{
+				arcfinz+=1
+			}
 	}
 SB_SetText(" Download Complete ")
 filegetsize,oldtmp,%savetmp%\old.del

@@ -3836,7 +3836,7 @@ if (uptoserv = 1)
 		FileAppend,"`%gitapp`%" commit -m siteupdate`n,%BUILDIR%\sitecommit.bat
 		if (GITPASS <> "")
 			{
-				FileAppend,"`%gitapp`%" push --repo http://%GITUSER%:%GITPASS%@github.com/%GITUSER%/%GITUSER%.github.io`n,%BUILDIR%\sitecommit.bat
+				FileAppend,"`%gitapp`%" push -f --repo http://%GITUSER%:%GITPASS%@github.com/%GITUSER%/%GITUSER%.github.io`n,%BUILDIR%\sitecommit.bat
 			}
 		if (GITPASS = "")
 			{

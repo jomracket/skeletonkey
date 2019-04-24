@@ -394,6 +394,7 @@ blastem_libretro.dll|Sega - SG-1000
 genesis_plus_gx_libretro.dll|Sega - SG-1000
 nestopia_libretro.dll|Nintendo - Famicom Disk System
 nestopia_libretro.dll|Nintendo - Nintendo Entertainment System
+mednafen_psx_libretro.dll|Sony - Playstation - PAL
 mednafen_psx_libretro.dll|Sony - Playstation
 mednafen_saturn_libretro.dll|Sega - Saturn
 4do_libretro.dll|The 3DO Company - 3DO
