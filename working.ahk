@@ -1,5 +1,6 @@
 #NoEnv
 #SingleInstance Force
+setworkingdir= %A_ScriptDir%
 ;{#	########              FOLD                #############
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -1318,11 +1319,16 @@ if (INITIAL > 1)
 
 if (INITIAL = "")
 	{
-		Progress, ZX0 ZY0 B w300 CBFF00FF CWFFFFFF CTFF00FF  WS900 FS11,.Loading skeletonKey.,,skelprg,Fixedsys
+		Gui,Font,%fontXsm%, %fontName%
+		gosub, DestroySplashGUI
+		SplashImage = img\splash.png
+		SplashImageGUI(SplashImage, "Center", "Center", true)
+		Progress, ZX0 ZY0 B w300 CB808080 CWFFFFFF CT808080  WS900 FS11,.Loading skeletonKey.,,skelprg,BebasNeue
 		WinSet, TransColor, White,skelprg
 		WinGetPos,,, Width, Height, skelprg
-		WinMove, skelprg,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)+110
+		WinMove, skelprg,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)-70
 	}
+	
 IniRead, HOVPREV, Settings.ini,GLOBAL,hover_preview
 hovvalue= 
 if (HOVPREV = 1)
@@ -1602,12 +1608,14 @@ if (TGLPBL = 1)
 	{
 		;
 	}
-Gui,Font,%fontXsm%, %fontName%
-gosub, DestroySplashGUI
-SplashImage = img\splash.png
-SplashImageGUI(SplashImage, "Center", "Center", true)
-
-Progress, 8,Loading Menu Interface.
+if (INITIAL = 1)
+	{
+		Gui,Font,%fontXsm%, %fontName%
+		gosub, DestroySplashGUI
+		SplashImage = img\splash.png
+		SplashImageGUI(SplashImage, "Center", "Center", true)
+	}
+Progress, 8,.......Loading Menu Interface.......
 
 ;{;;;;;;;;;;;;;;;;;;;;;   -[x]-        MENU  SYSTEM       -[x]-    ;;;;;;;;;;;;;;;;;;
 
@@ -1812,7 +1820,7 @@ Gui, Font, normal
 
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[MAIN TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-Progress, 16,Loading Options ..
+Progress, 16,......Loading Options......
 
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   ~~~RUN OPTIONS MENU GROUP~~~   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui, Tab, 2
@@ -2366,7 +2374,7 @@ Gui, Add, DropDownList, x564 y103 w163 vSKFROVDD gSKFROVDD disabled hidden, FRON
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;;;;;;;;;;;;;;;;;        [[JOYSTICK TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Progress, 24,Loading Joystick Interface ...
+Progress, 24,.....Loading Joystick Interface.....
 Gui, Tab, 4 
 Gui, Tab, Joysticks
 Gui,Font,, %fontName%
@@ -2687,7 +2695,7 @@ Gui, Add, DropDownList, x523 y202 w75 vemjr2 gemjr2 Hidden,
 
 ;{;;;;;;;;;;;;;;;;;;;;;;;;        [[PLAYLISTS TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-Progress, 30,Loading Playlist Interface ....
+Progress, 30,....Loading Playlist Interface....
 
 Gui, Tab, 5
 Gui, Tab, Playlists
@@ -3021,7 +3029,7 @@ Gui, Add, DropDownList, x342 y289 w35 vRFDDPLNUM gRFDDPLNUM hidden,1||2|3|4|5|6|
 
 
 ;SplashTextOn, ,skeletonKey,Loading Frontend Interface .....,
-Progress, 40,Loading Frontend Interface .....
+Progress, 40,...Loading Frontend Interface...
 Gui,Tab,6
 Gui,Tab,Frontends
 
@@ -3136,7 +3144,7 @@ Gui, Add, Button, x419 y4 h18 w18 vRETALFE gRETAL,>
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;SplashTextOn, ,skeletonKey,Loading Frontend Interface ......,
-Progress, 47,Loading Frontend Interface ......
+Progress, 47,..Loading Frontend Interface..
 
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;        FRONTEND GUI         ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui,Font,%fontXmed% Bold
@@ -3295,7 +3303,7 @@ Gui, Add, Text, x505 y400 vfeTXTR %fevis%,
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;        [[ARCHIVE TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-Progress, 53,Loading Repository Interface .......
+Progress, 53,.Loading Repository Interface.
 Gui, Tab, 7
 Gui, Tab, Repository
 Gui,Font,%fontXsm% Bold
@@ -3361,7 +3369,7 @@ gui, font,%fontXsm% Normal
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[JACKETIZE TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-Progress,70,Loading Jacketizing Interface .........
+Progress,70,..Loading Jacketizing Interface..
 Gui, Tab, 8
 Gui, Tab, Jackets
 
@@ -3549,7 +3557,7 @@ if (RJQNUM > 0)
 Gui, Add, Button, x407 y460 w91 h40 vRJPROCQ gRJPROCQ %CNFRMT%, CONFIRM %RJQNUM%
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[UTILITIES TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Progress, 78,Loading Utilities ........
+Progress, 78,...Loading Utilities...
 
 Gui, Tab, 9
 Gui, Tab, Util
@@ -3687,7 +3695,7 @@ Gui, Add, Text, x696 y368 vutlTXTK %utlvis%, utlTXTK
 Gui, Add, Text, x624 y488 vutltTXTL %utlvis%, utltTXTL
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[NETPLAY TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Progress, 83,Loading Netplay Interface ..........
+Progress, 83,....Loading Netplay Interface....
 Gui, Tab, 10
 Gui, Tab, Netplay
 Gui, Add, Picture,x83 y238 w128 h113 vINVADERPIC,
@@ -3772,7 +3780,7 @@ Gui, Add, Radio, x570 y432 vLANIPRAD gLanSET hidden, LAN
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;        [[CORE OPTIONS TAB]]        ;;;;;;;;;;;;;;;;;;;;;
 
-Progress, 88,Loading Emulator Options ...........
+Progress, 88,.....Loading Emulator Options.....
 
 Gui, Tab, 11
 Gui, Tab, Cores
@@ -3865,7 +3873,7 @@ Gui, Add, Button, x731 y426 w13 h19 vDELCORECFG gDeleteCoreCfg, X
 
 Gui, Add, ListBox, x488 y330 w50 h50 vDropHideLBX gGuiDropFiles Hidden, Drop ROM here 
 
-Progress, 94,GUI is initializing............
+Progress, 94,......GUI is initializing......
 gosub, NetSET
 gosub, HideCoreUI
 gosub, ShowBB
@@ -4585,7 +4593,7 @@ SplashImageGUI(Picture, X, Y, Transparent = false)
 		Gui, XPT99:Margin , 0, 0
 		Gui, XPT99:Add, Picture,, %Picture%
 		Gui, XPT99:Color, 00000
-		Gui, XPT99:+LastFound -Caption +AlwaysOnTop +ToolWindow -Border
+		Gui, XPT99:+LastFound -Caption +ToolWindow -Border
 		If Transparent
 			{
 				Winset, TransColor, 00000
@@ -9338,7 +9346,7 @@ return
 DownloadFile(UrlToFile, _SaveFileAs, Overwrite := True, UseProgressBar := True) 
 	{
 		FinalSize= 
-		
+		guicontrol,,CLRNETP,x
 		If (!Overwrite && FileExist(_SaveFileAs))
 		  {
 			FileSelectFile, _SaveFileAs,S, %_SaveFileAs%
@@ -9400,11 +9408,29 @@ DownloadFile(UrlToFile, _SaveFileAs, Overwrite := True, UseProgressBar := True)
 		Guicontrol, ,FEPRGA, %PercentDone%
 		return
 	}
+guicontrol,,CLRNETP,-
 Guicontrol, ,utlPRGA, 0
 Guicontrol, ,ARCDPRGRS, 0
 Guicontrol, ,DWNPRGRS, 0
 Guicontrol, ,FEPRGA, 0
 return
+CheckStatus:
+if (INTERRUPTDWN = 1)
+	{
+		FileGetSize, FSize, %_SaveFileAs%
+		If (FSize >= Size) 
+			{
+				Critical
+				SetTimer, CheckStatus, off 
+				FileRead, FileData, %_SaveFileAs%
+				MsgBox,,Aborted,Download Aborted,5
+				SetTimer, DownloadFileFunction_UpdateProgressBar, off
+				filedelete,%_SaveFileAs%
+				SB_SetText("Download interrupted") 	
+				INTERRUPTDWN=
+			}
+   }
+Return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;;;;;;    RETROARCH FUNCTIONS     ;;;;;;;;;;;;;;;;
@@ -38127,6 +38153,7 @@ gui,submit,nohide
 guicontrol,,ARCDET,
 guicontrol,enable,ARCSYS
 guicontrol,enable,MAMESWCHK
+INTERRUPTDWN= 1
 return
 
 MAMESWCHK:
@@ -39489,8 +39516,10 @@ ifnotexist, %save%
 					}
 			}
 		RETRYTHR:
-		Sleep, %RETRYTHR%	
+		Sleep, %RETRYTHR%
+		
 		DownloadFile(URLFILE,save, True, True)
+
 		DWNLOADTST:
 		filereadline,doct,%save%,1
 		if (doct = "<html>")
@@ -69625,7 +69654,7 @@ Loop, Parse, esmlist,|
 	
 guicontrol,enable,FEPICA
 guicontrol,move,FEPICA,x590 y70 w169 h138
-guicontrol,,FEPICA,site\Key.png
+guicontrol,,FEPICA,
 
 
 guicontrol,%fetog%,FEBUTA
@@ -70423,7 +70452,6 @@ if (FERAD2B = 1)
 			}
 		goto, JACKETSCRAPE
 	}
-
 if (FERAD2C = 1)
 	{
 		Loop, Parse, FEItems,`n`r
@@ -70432,6 +70460,9 @@ if (FERAD2C = 1)
 					{
 						continue
 					}
+				rmfnpth= %A_LoopField%	
+				splitpath,A_LoopField,romfnam,,,jaktit
+				realname= %jaktit%
 				SYSROMD= %FEDDLA%
 				SYSLKLOC= %RJSYSTEMS%\%SYSROMD%
 				REALSYS= %SYSROMD%
@@ -70876,15 +70907,50 @@ if (FERAD2B = 1)
 			}
 			SB_SetText("Scraping Complete")
 	}
-	
+
+stringsplit,omitxtn,omitxt,= | ""
+ar := Object()
+Loop, %omitxtn0%
+	{
+		new= % (omitxtn%a_index%)
+		if (omitxtn%a_index% <> "")
+			{
+				ar.insert(new)
+			}
+	}	
 if (FERAD2C = 1)
 	{
-		gosub, SCRSCRAPE
-		Loop, %SYSLKLOC%\*.*
+		if (rmfnpth = "")
 			{
-				splitpath,A_LoopFileFullPath,,,,justrom
+				rmfnpth= *.*
+			}
+		Loop, %SYSLKLOC%\%rmfnpth%,0,1
+			{
+				if A_LoopFileAttrib contains H
+						{
+							continue
+						}
+				ext= %A_LoopFileExt%
+				if (ext = "")
+					{
+						continue
+					}
+				noapl= 
+				for k, v in ar
+					{
+						extm:= v
+						if (ext = extm)
+							{
+								noapl= 1
+							}
+					}
+				if (noapl = 1)
+					{
+						continue		
+					}
+				splitpath,A_LoopFileFullPath,repnm,sysfrd,,justrom
 				jaktit= %justrom%	
-				realname= %justrom%	
+				realname= %justrom%
 				stringReplace,nsjak,jaktit,%A_Space%,,All
 				stringReplace,nsjak,nsjak,',,All
 				stringReplace,nsjak,nsjak,.,,All
@@ -70893,8 +70959,10 @@ if (FERAD2C = 1)
 				ccnt1=
 				ccnt2=
 				stringsplit,ccnt,nsjak,([
+				gosub, SCRSCRAPE
 				ifnotexist, rj\scrapeArt\%SYSLKUP%
 					{
+						filecreatedir,rj\scrapeArt\%SYSLKUP%
 						ifnotexist,rj\scrapeArt\%SYSLKUP%.7z
 							{
 								IniRead,dlprfx,%ARCORG%,GLOBAL,HOSTINGURL
@@ -70948,7 +71016,7 @@ if (FERAD2C = 1)
 								gosub, DBSCRAPE								
 								if (CNCLKUP = 1)
 										{
-											SB_SetText("Process Interrupted")
+									 		SB_SetText("Process Interrupted")
 											gosub, cleanprgb
 											break
 										}					
@@ -71005,6 +71073,7 @@ if (mameget = 1)
 						if (realj1 = jaktit)
 							{
 								realname= %realn2%
+								break
 							}
 					}
 			}
@@ -71137,7 +71206,7 @@ RRDboxart:
 		if (getboxart = 1)
 				{
 					SB_SetText("Downloading " SYSROMD " Boxart ")
-					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Boxartimgtall% -max_width=%Boxartimgsize% -%Boxartimgtyp%_src=%BoxArtscrapeorder%  -append=false -retries=5 -download_images=true -console_img=b -img_format=%Boxartimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Boxart" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
+					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Boxartimgtall% -max_width=%Boxartimgsize% -%Boxartimgtyp%_src=%BoxArtscrapeorder%  -append=false -retries=5 -download_images=true -console_img=b -img_format=%Boxartimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Boxart" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 					if (FECHKN = 1)
 						{
 							return
@@ -71147,7 +71216,7 @@ RRDsnapshot:
 		if (getsnapshot = 1)
 				{
 					SB_SetText("Downloading " SYSROMD " Snapshots ")
-					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Snapshotsimgtall% -max_width=%Snapshotsimgsize% -%Snapshotimgtyp%_src=%Snapshotscrapeorder%  -append=false -retries=5 -download_images=true -console_img=s -img_format=%Snapshotimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Snapshots" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
+					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Snapshotsimgtall% -max_width=%Snapshotsimgsize% -%Snapshotimgtyp%_src=%Snapshotscrapeorder%  -append=false -retries=5 -download_images=true -console_img=s -img_format=%Snapshotimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Snapshots" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 					if (FECHKN = 1)
 						{
 							return
@@ -71162,7 +71231,7 @@ RRDbackdrop:
 							artx=fly
 						}		
 					SB_SetText("Downloading " SYSROMD " Backdrops ")
-					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%imgtall% -max_width=%Backdropimgsize% -%Backdropimgtyp%_src=%Backdropscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Backdropimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Backdrops" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
+					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%imgtall% -max_width=%Backdropimgsize% -%Backdropimgtyp%_src=%Backdropscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Backdropimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Backdrops" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 					if (FECHKN = 1)
 						{
 							return
@@ -71177,7 +71246,7 @@ RRDlogo:
 							artx=t
 						}
 					SB_SetText("Downloading " SYSROMD " Logos ")
-					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Logoimgtall% -max_width=%Logoimgsize% -%imgtyp%_src=%Logoscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Logoimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Logos" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
+					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Logoimgtall% -max_width=%Logoimgsize% -%imgtyp%_src=%Logoscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Logoimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Logos" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 					if (FECHKN = 1)
 						{
 							return
@@ -71187,7 +71256,7 @@ RRD3dboxart:
 		if (get3dboxart = 1)
 				{
 					SB_SetText("Downloading " SYSROMD " 3D-Boxart ")
-					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3dboximgtall% -max_width=%3dboximgsize% -%imgtyp%_src=%3DBoxscrapeorder%  -append=false -retries=5 -download_images=true -console_img=3b -img_format=%3dboxartimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\3D-Boxart" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
+					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3dboximgtall% -max_width=%3dboximgsize% -%imgtyp%_src=%3DBoxscrapeorder%  -append=false -retries=5 -download_images=true -console_img=3b -img_format=%3dboxartimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\3D-Boxart" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 					if (FECHKN = 1)
 						{
 							return
@@ -71202,7 +71271,7 @@ RRDcart:
 							artx=c
 						}
 					SB_SetText("Downloading " SYSROMD " Carts ")
-					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Cartimgtall% -max_width=%Cartimgsize% -%imgtyp%_src=%Cartscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Cartimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Carts" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
+					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Cartimgtall% -max_width=%Cartimgsize% -%imgtyp%_src=%Cartscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Cartimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Carts" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 					if (FECHKN = 1)
 						{
 							return
@@ -71214,7 +71283,7 @@ RRDlabel:
 					if (mameget = "")
 						{
 							SB_SetText("Downloading " SYSROMD " Labels ")
-							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Labelimgtall% -max_width=%Labelimgsize% -%imgtyp%_src=%Labelscrapeorder%  -append=false -retries=5 -download_images=true -console_img=clabel -img_format=%Labelimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Labels" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
+							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Labelimgtall% -max_width=%Labelimgsize% -%imgtyp%_src=%Labelscrapeorder%  -append=false -retries=5 -download_images=true -console_img=clabel -img_format=%Labelimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Labels" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 						}
 					if (FECHKN = 1)
 						{
@@ -71227,7 +71296,7 @@ RRDbanner:
 					if (mameget = "")
 						{
 							SB_SetText("Downloading " SYSROMD " Marquees ")
-							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -retries=5 -download_images=true -console_img=a -img_format=%Marqueeimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Marquees" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
+							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -retries=5 -download_images=true -console_img=a -img_format=%Marqueeimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Marquees" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 						}
 					if (FECHKN = 1)
 						{
@@ -71240,7 +71309,7 @@ RRD3mix:
 					if (mameget = "")
 						{
 							SB_SetText("Downloading " SYSROMD " 3Mix ")
-							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3Miximgtall% -max_width=%3Miximgsize% -%imgtyp%_src=%3Mixscrapeorder%  -append=false -retries=5 -download_images=true -console_img=mix3 -img_format=%3miximagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\3Mix" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
+							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3Miximgtall% -max_width=%3Miximgsize% -%imgtyp%_src=%3Mixscrapeorder%  -append=false -retries=5 -download_images=true -console_img=mix3 -img_format=%3miximagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\3Mix" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 					}
 					if (FECHKN = 1)
 						{
@@ -71253,7 +71322,7 @@ RRD4mix:
 					if (mameget = "")
 						{
 							SB_SetText("Downloading " SYSROMD " 4Mix ")
-							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%4Mixscrapeorder% -max_height=%4Miximgtall% -max_width=%4Miximgsize% -append=false -retries=5 -download_images=true -console_img=mix4 -img_format=%4miximagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\4Mix" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
+							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%4Mixscrapeorder% -max_height=%4Miximgtall% -max_width=%4Miximgsize% -append=false -retries=5 -download_images=true -console_img=mix4 -img_format=%4miximagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\4Mix" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 						}
 					if (FECHKN = 1)
 						{
@@ -71266,12 +71335,12 @@ RRDmarquee:
 					if (mameget = "")
 						{
 							SB_SetText("Downloading " SYSROMD " Marquees ")
-							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -retries=5 -download_images=false -marquee_suffix="" -marquee_format=%Marqueeimagefrmt% -use_filename=true -marquee_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Marquees" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
+							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -retries=5 -download_images=false -marquee_suffix="" -marquee_format=%Marqueeimagefrmt% -use_filename=true -marquee_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Marquees" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 						}
 					if (mameget = 1)
 						{
 							SB_SetText("Downloading " SYSROMD " Marquees ")
-							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -%imgtyp%_src=%Marqueescrapeorder% -append=false -retries=5 -download_images=true -console_img=m -img_format=%Marqueeimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Marquees" -image_suffix="%scrsufx%" -output_file="" ",%SYSLKLOC%,hide
+							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -%imgtyp%_src=%Marqueescrapeorder% -append=false -retries=5 -download_images=true -console_img=m -img_format=%Marqueeimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Marquees" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 						}
 					if (FECHKN = 1)
 						{
@@ -71283,7 +71352,7 @@ RRDvid:
 		if (getvideo = 1)
 				{
 					SB_SetText("Downloading " SYSROMD " Video ")
-					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Videoscrapeorder%  -append=false -retries=5 -download_images=false -video_suffix="%scrsufx%" -use_filename=true -video_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Video" -output_file="" ",%SYSLKLOC%,hide
+					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Videoscrapeorder%  -append=false -retries=5 -download_images=false -video_suffix="%scrsufx%" -use_filename=true -video_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Video" -output_file="" ",%sysfrd%,hide
 					if (FECHKN = 1)
 						{
 							return
@@ -71293,7 +71362,7 @@ RRDmetadata:
 		if (getmetadata = 1)
 				{
 					SB_SetText("Downloading " SYSROMD " MetaData ")
-					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Metadatascrapeorder%  -append=true -retries=5 -download_images=false -use_filename=true -output_file="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\MetaData\%SYSROMD%%scrsufx%.xml" ",%SYSLKLOC%,hide
+					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Metadatascrapeorder%  -append=true -retries=5 -download_images=false -use_filename=true -output_file="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\MetaData\%SYSROMD%%scrsufx%.xml" ",%sysfrd%,hide
 					if (FECHKN = 1)
 						{
 							return
@@ -72261,14 +72330,42 @@ if (FERAD2A = 1)
 	}
 if (FERAD2C = 1)
 	{
+		stringsplit,omitxtn,omitxt,= | ""
+		ar := Object()
+		Loop, %omitxtn0%
+			{
+				new= % (omitxtn%a_index%)
+				if (omitxtn%a_index% <> "")
+					{
+						ar.insert(new)
+					}
+			}
 		LV_Delete()
-		Loop, %RJSYSTEMS%\%FEDDLA%\*.*
+		Loop, %RJSYSTEMS%\%FEDDLA%\*.*,0,1
 			{
 				if A_LoopFileAttrib contains H
 					{
 						continue
 					}
-				LV_Add("",A_LoopFileName)				
+				ext= %A_LoopFileExt%
+					if (ext = "")
+						{
+							continue
+						}
+					noapl= 
+					for k, v in ar
+						{
+							extm:= v
+							if (ext = extm)
+								{
+									noapl= 1
+								}
+						}
+					if (noapl = "")
+						{
+							stringreplace,lving,A_LoopFileFullPath,%RJSYSTEMS%\%FEDDLA%\,,All	
+							LV_Add("",A_LoopFileName)				
+						}
 			}
 		LV_ModifyCol()
 	}	
@@ -79165,7 +79262,7 @@ guicontrol,,RJINCEXCL,|All||A-Z|#
 guicontrolget,RJCHKF,,RJCHKF
 if (RJCHKF = 1)
 	{
-		guicontrolget,rjtmpemu,,RJEMUPRECFG
+					guicontrolget,rjtmpemu,,RJEMUPRECFG
 		gosub, EMUCFGCOPY
 	}
 if (PXSTCFG = "")
@@ -85034,7 +85131,6 @@ return
 QUITOUT:
 AHKsock_Close()
 Process, close, Invader.exe
-;DllCall( "GDI32.DLL\RemoveFontResourceEx",Str,"DroidSans.ttf",UInt,(FR_PRIVATE:=0x10),Int,0)
 ExitApp
 Process, close, skeletonKey.exe
 GuiEscape:
