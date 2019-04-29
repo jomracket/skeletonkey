@@ -1,0 +1,16 @@
+<Game>
+	<Name>Shogi Shoshinsha Muyou</Name>
+	<ReleaseDate>1991-11-29T00:00:00-08:00</ReleaseDate>
+	<Plot>Shogi Shoshinsha Muyou is a shogi game for the PC Engine. It was published by Home Data (which later became Magical Company) and an unknown developer. Like Morita Shogi PC, which was released two months prior, the game makes use of an expanded horizontal resolution to encompass the entire board and a side area where eliminated pieces are kept.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxart1>http://images.launchbox-app.com/005e093e-cdac-4ce4-8c32-d449a408eb91.jpg</boxart1>
+	<media1>http://images.launchbox-app.com/5dfcc49e-7e44-4eee-b139-4ab60f510a7e.JPG</media1>
+	<clearlogo1>http://images.launchbox-app.com/803318ef-cfae-4d8f-af0b-1db1c04ffd1d.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/2f788cc1-2021-4ff3-bdeb-4267c1c61148.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/393742ce-568e-460f-8114-2028da5caf47.png</snapshot2>
+	<WikipediaURL>http://www.pcengine.co.uk/HTML_Games/Shogi_Shoshinsha_Muyo.htm</WikipediaURL>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Board Game</Genre>
+	<Developer>Home Data</Developer>
+	<Publisher>Home Data</Publisher>
+</game>

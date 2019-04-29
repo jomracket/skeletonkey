@@ -1,0 +1,21 @@
+<Game>
+	<Name>Hit The Ice</Name>
+	<ReleaseDate>1991-09-20T00:00:00-07:00</ReleaseDate>
+	<Plot>If you've ever heard the joke, "The other night I went to a fight, and a hockey game broke out," then you already know what Hit the Ice is all about. This is rough and tumble, no holds barred hockey action that will challenge your stick-handling skills as well as your head-bashing abilities. While the traditional rules of hockey apply, that doesn't mean you can't throw an elbow or a high stick when the ref isn't looking. And since this is two-on-two hockey, the action is fast and furious as you try to outscore and outslug your opponent in four-player hockey action.</Plot>
+	<nPlayers>4</nPlayers>
+	<boxback1>http://images.launchbox-app.com/1b92f962-ce20-416a-98cc-d7e7a9407f6d.JPG</boxback1>
+	<boxback2>http://images.launchbox-app.com/79b7501d-bea1-492a-8d67-ca7a515228d3.JPG</boxback2>
+	<boxart1>http://images.launchbox-app.com/2b4bc498-2bb6-4890-ab45-34fe0170be73.JPG</boxart1>
+	<boxart2>http://images.launchbox-app.com/0a23d4d4-ce11-49ca-b929-5fdc38dc3728.JPG</boxart2>
+	<media1>http://images.launchbox-app.com/23974455-641b-4633-b361-357f46de0a81.JPG</media1>
+	<clearlogo1>http://images.launchbox-app.com/a86083b7-368b-4266-9790-ad1a2c40a6fc.png</clearlogo1>
+	<clearlogo2>http://images.launchbox-app.com/9736923e-0912-42d4-8262-62d5c5dac067.png</clearlogo2>
+	<fanart1>http://images.launchbox-app.com/df96b6a8-17a1-4e29-a6b4-24025b6921ca.png</fanart1>
+	<snapshot1>http://images.launchbox-app.com/8d0d16a0-0e3a-4d49-bafa-bd782f7ec5ed.PNG</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/31f71b8c-f650-4c73-9fea-cb2458bfbbb1.PNG</snapshot2>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Hit_the_Ice</WikipediaURL>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Sports</Genre>
+	<Developer>Taito</Developer>
+	<Publisher>Taito</Publisher>
+</game>

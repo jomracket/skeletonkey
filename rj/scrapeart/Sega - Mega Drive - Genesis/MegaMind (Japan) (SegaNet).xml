@@ -1,0 +1,29 @@
+<Game>
+	<Name>MegaMind (Japan) (SegaNet)</Name>
+	<plot>MegaMind is a computer version of the classic code-breaking board game Mastermind for one player. The player must guess a four-digit sequence of pieces within a set number of turns; the only feedback given is an indication of how many correct pieces are present and how many correct pieces are both present and in the correct place. There are four difficulty levels, with higher difficulties increasing the number of pieces to choose from as well as allowing the computer to outright lie once during the game. There are four different themed sets of pieces to play with.</plot>
+	<releasedate>23/12/1991</releasedate>
+	<Developer>SEGA Enterprises Ltd.</Developer>
+	<nplayers>1</nplayers>
+	<gamefaqs_url>http://www.gamefaqs.com/genesis/951918-megamind</gamefaqs_url>
+	<mobygames_url>http://www.mobygames.com/game/genesis/megamind</mobygames_url>
+	<snapshot1>http://www.mobygames.com/images/shots/l/419972-megamind-genesis-screenshot-title-screen.jpg</snapshot1>
+	<snapshot2>http://www.mobygames.com/images/shots/l/419973-megamind-genesis-screenshot-choose-a-difficulty-level.jpg</snapshot2>
+	<snapshot3>http://www.mobygames.com/images/shots/l/419974-megamind-genesis-screenshot-choose-a-theme.jpg</snapshot3>
+	<snapshot4>http://www.mobygames.com/images/shots/l/419975-megamind-genesis-screenshot-game-explanation.jpg</snapshot4>
+	<snapshot5>http://www.mobygames.com/images/shots/l/419976-megamind-genesis-screenshot-an-empty-board.jpg</snapshot5>
+	<snapshot6>http://www.mobygames.com/images/shots/l/419977-megamind-genesis-screenshot-placing-tiles-down.jpg</snapshot6>
+	<snapshot7>http://www.mobygames.com/images/shots/l/419978-megamind-genesis-screenshot-each-theme-has-its-own-signifiers.jpg</snapshot7>
+	<snapshot8>http://www.mobygames.com/images/shots/l/419979-megamind-genesis-screenshot-the-traffic-light-post-symbols.jpg</snapshot8>
+	<snapshot9>http://www.mobygames.com/images/shots/l/419980-megamind-genesis-screenshot-the-traffic-light-symbol-shows.jpg</snapshot9>
+	<snapshot10>http://www.mobygames.com/images/shots/l/419981-megamind-genesis-screenshot-the-goal-is-to-try-to-figure-out.jpg</snapshot10>
+	<Notes>MegaMind (メガマインド) is a game for the Sega Mega Drive, released exclusively in Japan via the Sega Game Toshokan service. The game consists to guess what is the right following.</Notes>
+	<boxart1>http://images.launchbox-app.com/550cd8f3-bbc4-46fc-bee9-cf63cfe3e8ca.png</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/acfd74a0-ed6a-4a43-a3d7-62dd6819c8fa.png</clearlogo1>
+	<snapshot11>http://images.launchbox-app.com/0074bac6-0cc1-467c-ab7e-87e13a841495.jpg</snapshot11>
+	<snapshot12>http://images.launchbox-app.com/2b4dce3b-f273-4731-a49a-afd6a3599165.jpg</snapshot12>
+	<snapshot13>http://images.launchbox-app.com/8d07947a-0300-4d41-9a90-d82e65fd6c35.jpg</snapshot13>
+	<snapshot14>http://images.launchbox-app.com/0ef9677e-f0bf-4a19-b0db-4f3d2c634515.jpg</snapshot14>
+	<snapshot15>http://images.launchbox-app.com/fabfbb46-7b65-4c0a-b755-ea0344c43754.jpg</snapshot15>
+	<genre>Puzzle</genre>
+	<Publisher>Sega</Publisher>
+</game>

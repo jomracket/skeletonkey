@@ -819,6 +819,7 @@ COREGUIITEMS=COREDDLB|COREDDLC|COREDDLD|COREDDLE|COREDDLTXTA|COREDDLTXTB|COREDDL
 SNES9XGUIITEMS=emuBUTA|emuBUTB|emuBUTC|emuBUTJ|emuBUTK|emuCBXA|emuCBXB|emuCBXC|emuCBXD|emuCBXE|emuCHKA|emuCHKB|emuCHKC|emuCHKD|emuCHKE|emuCHKF|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKO|emuCHKP|emuCHKP|emuCHKQ|emuCHKR|emuCHKG|emuCHKS|emuCHKT|emuDDLA|emuCBXF|emuDDLC|emuDDLD|emuDDLE|emuDDLF|emuDDLG|emuDDLH|emuEDTA|emuEDTC|emuEDTD|emuEDTF|emuEDTG|emuRad1A|emuRad1B|emuRad4A|emuRad4B|emuSLDA|emuCHKU
 SNES9XJOYGUIITEMS=INDWRN|emjDDLD|emjDDLB|emjDDLA|emjCHKX|emjCHKY|emjCHKZ|emjCBA|emjBUTA|emjBUTB|emjDDLC|emjRAD3A|emjRAD3B|JOYCORE
 MAMEGUIITEMS=emuBUTJ|emuBUTK|emuBUTA|emuBUTB|emuCHKO|emuCHKD|emuCHKE|emuSLDA|emuCHKF|emuCHKG|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKP|emuCHKA|emuCHKB|emuCHKQ|emuCHKR|emuCHKS|emuCHKT|emuCHKC|emuCBXE|emuCBXA|emuCBXC|emuCBXB|emuCBXD|emuDDLE|emuDDLD|emuEDTA|emuDDLA|emuDDLB|emuDDLC|emuDDLG|emuEDTB|emuRad1A|emuRad1B
+MEDIAFEITEMS=FEBUTL|FEBUTG|FEBUTH|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEEDTA|FEEDTB|FELBXA|FELBXB|FEDDLE|FELNKA|FECHKG|FECHKH|FECHKI|FECHKJ|FECHKK|FEDDLC|FECHKL|FECHKM|FECHKN|FETXTG|FERAD7B|FERAD7A|FETXTI|FETXTJ|FETXTM|FEEDTD|FETXTL|FEEDTC|FEGRPA|FEPICA|FERAD4A|FERAD4B
 MAMEJOYGUIITEMS=INDWRN|emjDDLD|emjDDLB|emjDDLA|emjCHKX|emjCHKY|emjCHKZ|emjCBA|emjBUTA|emjBUTB|emjDDLC|emjRAD3A|emjRAD3B|JOYCORE
 MEDNAFENGUIITEMS= emuBUTC|emuCHKD|emuCHKB|emuCHKC|emuCHKD|emuCHKE|emuCHKF|emuCHKG|emuCHKH|emuDDLA|emuDDLB|emuDDLC|emuDDLD|emuDDLE|emuDDLF|emuDDLJ|emuEDTA|emuEDTB|emuEDTC|emuEDTD|emuEDTE|emuEDTF|emuEDTG|emuEDTH|emuEDTI|emuCBXA|emuCBXB|emuRAD11A|emuRAD11B|emuRAD8A|emuRAD8B|emuRad5B|emuRad5C|emuRad5A|emuRad9A|emuRad9B|emuRad9C|emuRad3A|emuRad3B|emuRad3C|emuRad3D|emuSLDA|emuSLDB|emuSLDE|emuSLDC
 MEDNAFENJOYGUIITEMS=INDWRN|emjDDLD|emjDDLA|emjDDLF|emjCHKX|emjCHKY|emjCHKZ|emjCBA|emjBUTA|emjBUTB|emjDDLC|emjRAD3A|emjRAD3B|emjDDLB|JOYCORE|emjDDLC
@@ -1744,6 +1745,7 @@ Gui,Font,Normal
 Menu,RUNMENU,Add,Open Folder..., SQOWTH
 
 Menu, PLEDTMENU, Add,Swap:=->, PLEDITCORE
+Menu, PLEDTMENU, Add, Download Assets >>, ARCGSNP
 
 Menu, ARCART, Add, Download Assets >>, ARCGSNP
 Menu, ARCART, Add, Open Download Folder, EXPLJK
@@ -2727,11 +2729,11 @@ Gui, Add, CheckBox, x367 y45 h14 vZIPSEEK gZipSeek checked, Zip-Search
 Gui, Add, CheckBox, x367 y60 h14 vCRCENBL gCRCEnbl checked, CRC-Index
 
 
-Gui,Font,%fontXmed% Bold
-Gui, Add, DropDownList, x457s y0 w120 vPLISTTYP gPLISTYP,XMB||EmulationStation|RetroFE  ;;to Add Pegasus
 Gui,Font,%fontXsm% Bold
 Gui, Add, GroupBox, x447 y0 w304 h500 Right vPLGBC, Frontend
 Gui, Add, GroupBox, x11 y4 w346 h493 +0x400000 vPLGBD, Drag and Drop ROMs here
+Gui,Font,%fontXmed% Bold
+Gui, Add, DropDownList, x457s y0 w120 vPLISTTYP gPLISTYP,XMB||EmulationStation|RetroFE  ;;to Add Pegasus
 Gui,Font,%fontXsm% Norm
 Gui, Add, ComboBox, x449 y31 w252 vPLNAMEDT gPlaylistEdit, %sysposb%
 Gui, Add, ComboBox, x449 y53 w166 vPLCORE gPopulateCore disabled,||%runlist%
@@ -2773,7 +2775,7 @@ Gui, Add, CheckBox, x373 y52 h13 vESBACKUP gESBackupPl Checked hidden, Backup
 Gui,Font,Bold
 Gui, Add, Button,x678 y27 w60 h25 vESSVPL gESSavePl hidden, CREATE
 Gui,Font,Normal
-Gui, Add, ComboBox, x450 y55 w252 vESPLXMP gEsPlaylistNames hidden, %systmfldrs%|%escommon%
+Gui, Add, ComboBox, x450 y55 w252 vESPLXMP gEsPlaylistNames hidden, %systmfldrs%%escommon%
 Gui, Add, Button, x703 y54 w36 h23 vESOPENPL gEsOpenPl hidden, Open
 Gui, Add, CheckBox, x547 y23 w125 h13 vESUSESCR gESUSESCR hidden, Use Scraped Assets
 Gui, Add, CheckBox, x572 y40 w97 h13 vESCPYSCR gESCPYSCR hidden disabled, `& copy to home
@@ -2784,8 +2786,8 @@ Gui, Add, Radio, x22 y46 vESRPOPDL gESRPopJ checked hidden, Jackets
 Gui, Add, Radio, x85 y46 vESRPOPPL gESRPopMir hidden, Mirrors
 Gui, Add, Radio, x139 y46 vESRPOPROM gESRPopRom hidden, ROMs
 Gui, Add, DropDownList, x195 y44 vESMIRSEL gESMIRSEL hidden,|%CMIR1%||%MIRDDLOC%
-Gui, Add, Button, x197 y44 w25 h19 vESROMROOT gESROMROOT hidden, .Dir.
-Gui, Add, Text, x230 y46 w125 h19 vESRRTXT hidden, NOT SET
+Gui, Add, Button, x197 y44 w25 h19 vESROMROOT gESROMROOT hidden, ...
+Gui, Add, Text, x230 y46 w125 h13 vESRRTXT hidden, NOT SET
 Gui, Add, Button, x450 y78 w46 h19 vESBOXSRCHBUT gESBOXSRCHBUT hidden, Boxarts
 Gui, Add, CheckBox, x497 y81 w14 h14 disabled hidden vESBOXCHK
 Gui, Add, Button, x522 y78 w47 h19 vESTHUMBSRCHBUT gESTHUMBSRCHBUT hidden, Thumbs
@@ -2944,7 +2946,7 @@ Gui, Add, CheckBox, x373 y52 h13 vRFBACKUP gRFBackupPl Checked hidden, Backup
 Gui,Font,Bold
 Gui, Add, Button,x678 y27 w60 h25 vRFSVPL gRFSavePl hidden, CREATE
 Gui,Font,Normal
-Gui, Add, ComboBox, x450 y55 w252 vRFPLXMP gRFPlaylistNames hidden, %systmfldrs%|%escommon%
+Gui, Add, ComboBox, x450 y55 w252 vRFPLXMP gRFPlaylistNames hidden, %systmfldrs%%escommon%
 ;;Gui, Add, Button, x703 y54 w36 h23 vRFOPENPL gRFOpenPl hidden, Open
 Gui, Add, CheckBox, x547 y23 w125 h13 vRFUSESCR gRFUSESCR hidden, Use Scraped Assets
 Gui, Add, CheckBox, x572 y40 w97 h13 vRFCPYSCR gRFCPYSCR hidden, `& copy to home
@@ -5047,9 +5049,24 @@ If A_GuiControlEvent RightClick
 		}
 	if A_GuiControl = CURPLST
 		{
+			if (fenam = "retroFE")
+				{
+					guicontrolget,GFERYP,,RFRPOPROM
+					guicontrolget,SYSLKUP,,RFDWNLPOS
+				}			
+			if (fenam = "EmulationStation")
+				{
+					guicontrolget,GFERYP,,ESRPOPROM
+					guicontrolget,SYSLKUP,,ESDWNLPOS
+				}			
+			if (fenam = "XMB")
+				{
+					SYSLKUP= %SYSNAME%
+				}			
 			Menu, PLEDTMENU, Show, %A_GuiX% %A_GuiY%
 			return
 		}
+		
 	if A_GuiControl = LCORE
 		{
 			guicontrolget,RUNSYSDDL,,RUNSYSDDL
@@ -5137,7 +5154,7 @@ If A_GuiControlEvent RightClick
 		}
 	if A_GuiControl = FELVA
 		{
-			if ((FENAM = "EmulationStation") or (FENAM = "Pegasus") or (FENAM = "RetroFE"))
+			if ((FETYP = "EmulationStation") or (FETYP = "Pegasus") or (FETYP = "RetroFE"))
 				{
 					if (FERAD5C = 1)
 						{
@@ -6754,13 +6771,8 @@ if ( (A_GuiX >= bRegionX) && (A_GuiX <= bRegionX+bRegionW) && (A_GuiY >= bRegion
 				RPDND= 1
 				SB_SetText("Loading items")
 				RomPlst= 
-				FileDelete, plst.ini
-				FileAppend, `n,plst.ini
-				FileAppend, %A_GuiEvent%, plst.ini
-				Loop,Read,plst.ini
-					{
-						RomPLst .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
-					}
+				controlget,exstrpl,List,,,ahk_id %LFTLSTBX%
+				stringreplace,RomPLst,A_GuiEvent,`n,|,All
 				if (TABMENU = "Util")
 					{
 						gui,ListView,UTLLVA
@@ -6779,7 +6791,7 @@ if ( (A_GuiX >= bRegionX) && (A_GuiX <= bRegionX+bRegionW) && (A_GuiY >= bRegion
 					}
 		if (TABMENU = "Playlists")
 			{
-				GuiControl,,ROMPOP,|%RomPLst%
+				GuiControl,,ROMPOP,%exstrpl%%RomPLst%
 			}
 	}
 if ( (A_GuiX >= cRegionX) && (A_GuiX <= cRegionX+cRegionW) && (A_GuiY >= cRegionY) && (A_GuiY <= cRegionY+cRegionH) )
@@ -35438,6 +35450,7 @@ return
 PLISTYP:
 gui, submit, nohide
 guicontrolget,fenam,,PLISTTYP
+INPLAYL= 
 if (fenam = "XMB")
 	{
 		xmbtog= show
@@ -35518,10 +35531,10 @@ if (fenam = "EmulationStation")
 				guicontrol,%ofetog%,ESMIRSEL
 			}
 		guicontrol,,ESDWNLPOS,|%systmfldrs%
-		guicontrol,,ESPLXMP,|%ESPLPLST%|%systmfldrs%|%escommon%
+		guicontrol,,ESPLXMP,|%ESPLPLST%|%systmfldrs%%escommon%
 		if (ESRPOPROM = 1)
 			{
-				guicontrol,,ESPLXMP,|%ESPLPLST%|%escommon%				
+				guicontrol,,ESPLXMP,|%ESPLPLST%%escommon%				
 				guicontrol,%ofetog%,ESROMROOT
 				guicontrol,%ofetog%,ESRRTXT
 			}
@@ -35618,10 +35631,10 @@ if (fenam = "Pegasus")
 				guicontrol,%ofetog%,PGMIRSEL
 			}
 		guicontrol,,PGDWNLPOS,|%systmfldrs%
-		guicontrol,,PGPLXMP,|%PGPLPLST%|%systmfldrs%|%pgcommon%
+		guicontrol,,PGPLXMP,|%PGPLPLST%|%systmfldrs%%pgcommon%
 		if (PGRPOPROM = 1)
 			{
-				guicontrol,,PGPLXMP,|%PGPLPLST%|%pgcommon%				
+				guicontrol,,PGPLXMP,|%PGPLPLST%%pgcommon%				
 				guicontrol,%ofetog%,PGROMROOT
 				guicontrol,%ofetog%,PGRRTXT
 			}
@@ -35722,10 +35735,10 @@ if (fenam = "RetroFE")
 				guicontrol,%ofetog%,RFMIRSEL
 			}
 		guicontrol,,RFDWNLPOS,|%systmfldrs%
-		guicontrol,,RFPLXMP,|%RFPLPLST%|%systmfldrs%|%rfcommon%
+		guicontrol,,RFPLXMP,|%RFPLPLST%|%systmfldrs%%rfcommon%
 		if (RFRPOPROM = 1)
 			{
-				guicontrol,,RFPLXMP,|%RFPLPLST%|%rfcommon%				
+				guicontrol,,RFPLXMP,|%RFPLPLST%%rfcommon%				
 				guicontrol,%ofetog%,RFROMROOT
 				guicontrol,%ofetog%,RFRRTXT
 			}
@@ -35759,17 +35772,17 @@ if (fenam = "RetroFE")
 return
 
 HideOtherFEPL:
-guicontrol,,ESPLXMP,|%ESPLPLST%|%escommon%|%systmfldrs%
+guicontrol,,ESPLXMP,|%ESPLPLST%%escommon%%systmfldrs%
 Loop,Parse,ESPLITEMS,|
 	{
 		guicontrol,%opltog%,%A_LoopField%
 	}
-guicontrol,,PGPLXMP,|%PGPLPLST%|%pgcommon%|%systmfldrs%
+guicontrol,,PGPLXMP,|%PGPLPLST%%pgcommon%%systmfldrs%
 Loop,Parse,PGPLITEMS,|
 	{
 		guicontrol,%opltog%,%A_LoopField%
 	}
-guicontrol,,RFPLXMP,|%RFPLPLST%|%rfcommon%|%systmfldrs%
+guicontrol,,RFPLXMP,|%RFPLPLST%%rfcommon%%systmfldrs%
 Loop,Parse,RFPLITEMS,|
 	{
 		guicontrol,%opltog%,%A_LoopField%
@@ -35779,24 +35792,36 @@ return
 CURPLST:
 gui,submit,nohide
 guicontrolget,CURPLST,,CURPLST
+bltoh= %CURPLST%
 crpln= 
 Loop, Parse, CURPLST,|
 	{
 		crpln+=1
 	}
 if (fenam = "RetroFE")
-	{					
+	{
+		stringsplit,irjv,CURPLST,|
+		plsfi= %irjv1%					
 		gosub, RFEDTPOP
 		return
 	}
 if (fenam = "Pegasus")
 	{					
-		gosub, PGEDTPOP
+		;;gosub, PGEDTPOP
 		return
 	}
 if (fenam = "EmulationStation")
 	{					
-		gosub, ESEDTPOP
+		stringsplit,irjv,CURPLST,|
+		plsfi= %irjv1%
+		if ((crpln > 1)&&(INPLAYL = 1))		
+			{
+				SB_SetText("Select a single item to populate the editor.")
+			}
+		if (INPLAYL = 1)
+			{
+				gosub, ESEDTPOP
+			}
 		return
 	}
 if (crpln = 1)
@@ -35956,7 +35981,7 @@ if (plopen = 1)
 		guicontrol,show,OPNPLST
 		guicontrol,enable,OPNPLST
 	}
-guicontrol,,ROMPOP,|,
+guicontrol,,ROMPOP,|
 existingpop= 
 POPLDWN= 
 noadpl= 
@@ -36125,7 +36150,7 @@ stringsplit,fltselc,splfilt,|
 StringReplace, xtnprs, fltselc1,`,,|,All
 stringsplit,omitxtn,xtnprs,|
 omitxtv= 
-guicontrol,,ROMPOP,
+guicontrol,,ROMPOP,|
 POPLDWN= 
 if (EXCLBOOL = 1)
 	{
@@ -36780,7 +36805,7 @@ guicontrolget, PGPLXMP,,PGDWNLPOS
 guicontrolget, RFPLXMP,,RFDWNLPOS
 /*
 guicontrol,,ESPLXMP,|%ESPLXMP%|%systmfldrs%|%escommon%
-guicontrol,,PGPLXMP,|%PGPLXMP%|%systmfldrs%|%pgcommon%
+guicontrol,,PGPLXMP,|%PGPLXMP%|%systmfldrs%%pgcommon%
 */
 guicontrolget, coreInJV,,plcore
 if (coreInJV = "")
@@ -40168,18 +40193,60 @@ ARCGBOX:
 gui,submit,nohide
 guicontrol,,feDDLJ,|Media||XMB|Mirrored_Links|EmulationStation|Pegasus
 gosub, feDDLJ
-guicontrol,,FERAD2B,1
+if (GFERYP = 1)
+	{
+		guicontrol,,FERAD2C,1	
+	}
+	else {
+		guicontrol,,FERAD2B,1
+	}
 gosub, ferad2b
 fromcfg= 1
 GuiControl,Choose,TABMENU,6
 guicontrol,,feDDLA,|%SYSLKUP%||Systems|%dispsup%
-
+FEDDLA= %SYSLKUP%
+gui,ListView,FELVA
+arcgsa= +Check
+LV_Delete()
+Loop, Parse, bltoh,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringreplace,din,A_LoopField,%RJSYSTEMS%\%SYSLKUP%\,,All			
+		stringsplit,rivn,din,:
+		bltox= %rivn1%
+		splitpath,bltox,blton
+		splitpath,blton,,,,bltoa
+		if (GFERYP = 1)
+			{
+				bltoa= %blton%
+			}
+		LV_Add(arcgsa,bltoa)	
+	}
+LV_ModifyCol()
+guicontrol,,FECHKA,0
+guicontrol,,FECHKB,1
+guicontrol,,FECHKC,0
+guicontrol,,FECHKD,0
+guicontrol,,FECHKE,0
+guicontrol,,FECHKG,0
+guicontrol,,FECHKH,0
+guicontrol,,FECHKI,0
+guicontrol,,FECHKJ,0
+guicontrol,,FECHKK,0
+guicontrol,,FECHKL,0
+guicontrol,,FECHKM,0
 getboxart= 1
 getbackdrop= 
 getsnapshot= 
 getvideo= 
 getmetadata= 
 getlogo= 
+goto, ARCARTDWN
+return
+
 
 ARCARTDWN:
 if (ROMTRUN = "")
@@ -40289,13 +40356,13 @@ ifExist, rj\scrapeArt\%SYSLKUP%\
 			{
 				SB_SetText("Some items could not be retrieved.")
 			}
-			DWNFLD= 
-			getboxart= 
-			getbackdrop= 
-			getsnapshot= 
-			getvideo= 
-			getmetadata= 
-			getlogo= 
+		DWNFLD= 
+		getboxart= 
+		getbackdrop= 
+		getsnapshot= 
+		getvideo= 
+		getmetadata= 
+		getlogo= 
 	}
 return
 
@@ -40318,9 +40385,9 @@ ifinstring,SYSLKUP,.lpl
 			}
 		return	
 	}
-	
 ContAddAssets:	
 gosub, AddAssetType
+
 mousegetpos,Ngx,Ngy
 Menu,ARCGSNP, Show, %Ngx% %Ngy%
 Menu,ARCGSNP,DeleteAll
@@ -40341,8 +40408,74 @@ return
 ARCGALL:
 guicontrol,,feDDLJ,|Media||XMB|Mirrored_Links|EmulationStation|Pegasus
 gosub, feDDLJ
-guicontrol,,FERAD2B,1
-gosub, ferad2b
+if (GFERYP = 1)
+	{
+		guicontrol,,FERAD2C,1	
+		gosub, ferad2c
+	}
+	else {
+		guicontrol,,FERAD2B,1
+		gosub, ferad2b
+	}
+fromcfg= 1
+GuiControl,Choose,TABMENU,6
+guicontrol,,feDDLA,|%SYSLKUP%||Systems|%dispsup%
+FEDDLA= %SYSLKUP%
+gui,ListView,FELVA
+arcgsa= +Check
+LV_Delete()	
+Loop, Parse, bltoh,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringreplace,din,A_LoopField,%RJSYSTEMS%\%SYSLKUP%\,,All
+		stringsplit,rivn,din,:
+		bltox= %rivn1%
+		splitpath,bltox,blton
+		splitpath,blton,,,,bltoa
+		if (GFERYP = 1)
+			{
+				bltoa= %blton%
+			}
+		LV_Add(arcgsa,bltoa)
+	}
+LV_ModifyCol()	
+guicontrol,,FECHKA,1
+guicontrol,,FECHKB,1
+guicontrol,,FECHKC,1
+guicontrol,,FECHKD,1
+guicontrol,,FECHKE,1
+guicontrol,,FECHKG,1
+guicontrol,,FECHKH,1
+guicontrol,,FECHKI,1
+guicontrol,,FECHKJ,1
+guicontrol,,FECHKK,1
+guicontrol,,FECHKL,1
+guicontrol,,FECHKM,1
+SB_SetText("Use the checkboxes to add items to your scrape.")
+ifnotinstring,scrsup,/%FEDDLA%/
+	{
+		SB_SetText("Scraping MetaData Not Available for that system.  Select one from the dropdown.")
+		;;Control, ShowDropDown, , %FEDDLA%, skeletonKey
+		;;ControlFocus, %FEDDLA%,skeletonKey
+	}
+return
+
+ARCGFAN:
+gui,submit,nohide
+guicontrol,,feDDLJ,|Media||XMB|Mirrored_Links|EmulationStation|Pegasus
+gosub, feDDLJ
+if (GFERYP = 1)
+	{
+		guicontrol,,FERAD2C,1	
+		gosub, ferad2c
+	}
+	else {
+		guicontrol,,FERAD2B,1
+		gosub, ferad2b
+	}
 fromcfg= 1
 GuiControl,Choose,TABMENU,6
 guicontrol,,feDDLA,|%SYSLKUP%||Systems|%dispsup%
@@ -40356,79 +40489,162 @@ Loop, Parse, bltoh,|
 			{
 				continue
 			}
-		LV_Add(arcgsa,A_LoopField)	
+		stringreplace,din,A_LoopField,%RJSYSTEMS%\%SYSLKUP%\,,All			
+		stringsplit,rivn,din,:
+		bltox= %rivn1%
+		splitpath,bltox,blton
+		splitpath,blton,,,,bltoa
+		if (GFERYP = 1)
+			{
+				bltoa= %blton%
+			}
+		LV_Add(arcgsa,bltoa)	
 	}
+
 LV_ModifyCol()	
-guicontrol,,FECHKB,1
-guicontrol,,FECHKE,1
-SB_SetText("Use the checkboxes to add items to your scrape.")
-ifnotinstring,scrsup,/%FEDDLA%/
-	{
-		SB_SetText("Scraping MetaData Not Available for that system.  Select one from the dropdown.")
-		Control, ShowDropDown, , %FEDDLA%, skeletonKey
-		ControlFocus, %FEDDLA%,skeletonKey
-	}
-return
-
-ARCGFAN:
-gui,submit,nohide
-guicontrol,,feDDLJ,|Media||XMB|Mirrored_Links|EmulationStation|Pegasus
-gosub, feDDLJ
-guicontrol,,FERAD2B,1
-gosub, ferad2b
-fromcfg= 1
-GuiControl,Choose,TABMENU,6
-guicontrol,,feDDLA,|%SYSLKUP%||Systems|%dispsup%
-
+guicontrol,,FECHKA,1
+guicontrol,,FECHKB,0
+guicontrol,,FECHKC,0
+guicontrol,,FECHKD,0
+guicontrol,,FECHKE,0
+guicontrol,,FECHKG,0
+guicontrol,,FECHKH,0
+guicontrol,,FECHKI,0
+guicontrol,,FECHKJ,0
+guicontrol,,FECHKK,0
+guicontrol,,FECHKL,0
+guicontrol,,FECHKM,0
 getboxart= 
 getbackdrop= 1
 getsnapshot= 
 getvideo= 
 getmetadata= 
 getlogo= 
-gosub, ARCARTDWN
+goto, ARCARTDWN
 return
 
 ARCGLOG:
 gui,submit,nohide
 guicontrol,,feDDLJ,|Media||XMB|Mirrored_Links|EmulationStation|Pegasus
 gosub, feDDLJ
-guicontrol,,FERAD2B,1
-gosub, ferad2b
+if (GFERYP = 1)
+	{
+		guicontrol,,FERAD2C,1	
+		gosub, ferad2c
+	}
+	else {
+		guicontrol,,FERAD2B,1
+		gosub, ferad2b
+	}
 fromcfg= 1
 GuiControl,Choose,TABMENU,6
 guicontrol,,feDDLA,|%SYSLKUP%||Systems|%dispsup%
+FEDDLA= %SYSLKUP%
+gui,ListView,FELVA
+arcgsa= +Check
+LV_Delete()
+Loop, Parse, bltoh,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringreplace,din,A_LoopField,%RJSYSTEMS%\%SYSLKUP%\,,All		
+		stringsplit,rivn,din,:
+		bltox= %rivn1%
+		splitpath,bltox,blton
+		splitpath,blton,,,,bltoa
+		if (GFERYP = 1)
+			{
+				bltoa= %blton%
+			}
+		LV_Add(arcgsa,bltoa)	
+	}
 
+LV_ModifyCol()	
+guicontrol,,FECHKA,0
+guicontrol,,FECHKB,0
+guicontrol,,FECHKC,1
+guicontrol,,FECHKD,0
+guicontrol,,FECHKE,0
+guicontrol,,FECHKG,0
+guicontrol,,FECHKH,0
+guicontrol,,FECHKI,0
+guicontrol,,FECHKJ,0
+guicontrol,,FECHKK,0
+guicontrol,,FECHKL,0
+guicontrol,,FECHKM,0
 getboxart= 
 getbackdrop= 
 getsnapshot= 
 getvideo= 
 getmetadata= 
 getlogo= 1
-gosub, ARCARTDWN
+goto, ARCARTDWN
 return
 
 ARCGVID:
 gui,submit,nohide
 guicontrol,,feDDLJ,|Media||XMB|Mirrored_Links|EmulationStation|Pegasus
 gosub, feDDLJ
-guicontrol,,FERAD2C,1
-gosub, ferad2c
+if (GFERYP = 1)
+	{
+		guicontrol,,FERAD2C,1	
+		gosub, ferad2c
+	}
+	else {
+		guicontrol,,FERAD2B,1
+		gosub, ferad2b
+	}
 fromcfg= 1
 GuiControl,Choose,TABMENU,6
 guicontrol,,feDDLA,|%SYSLKUP%||Systems|%dispsup%
+FEDDLA= %SYSLKUP%
+gui,ListView,FELVA
+arcgsa= +Check
+LV_Delete()
+Loop, Parse, bltoh,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringreplace,din,A_LoopField,%RJSYSTEMS%\%SYSLKUP%\,,All				
+		stringsplit,rivn,din,:
+		bltox= %rivn1%
+		splitpath,bltox,blton
+		splitpath,blton,,,,bltoa
+		if (GFERYP = 1)
+			{
+				bltoa= %blton%
+			}
+		LV_Add(arcgsa,bltoa)	
+	}
 
+LV_ModifyCol()	
+guicontrol,,FECHKA,0
+guicontrol,,FECHKB,0
+guicontrol,,FECHKC,0
+guicontrol,,FECHKD,1
+guicontrol,,FECHKE,0
+guicontrol,,FECHKG,0
+guicontrol,,FECHKH,0
+guicontrol,,FECHKI,0
+guicontrol,,FECHKJ,0
+guicontrol,,FECHKK,0
+guicontrol,,FECHKL,0
+guicontrol,,FECHKM,0
 getboxart= 
 getbackdrop= 
 getsnapshot= 
 getvideo= 1
 getmetadata= 
 getlogo= 
-gosub, ARCARTDWN
+goto, ARCARTDWN
 return
 
-
 ;};;;;;;;;;;;;;;;;;;;;;;;;
+
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;;;;;;;;;;;;;;     EMU-OPTION FUNCTIONS     ;;;;;;;;;;;;;;;;;;;;;
@@ -58289,7 +58505,7 @@ guicontrol,hide,PGMIRSEL
 guicontrol,hide,PGRRTXT
 guicontrol,hide,PGROMROOT
 
-guicontrol,,PGPLXMP,|%PGPLPLST%|%pgcommon%%systmfldrs%
+guicontrol,,PGPLXMP,|%PGPLPLST%%pgcommon%%systmfldrs%
 guicontrol,,PGDWNLPOS,|%systmfldrs%
 guicontrol,,ROMPOP,|
 return
@@ -58301,7 +58517,7 @@ RPDND=
 guicontrol,show,PGMIRSEL
 guicontrol,hide,PGRRTXT
 guicontrol,hide,PGROMROOT
-guicontrol,,PGPLXMP,|%PGPLPLST%|%pgcommon%|%systmfldrs%
+guicontrol,,PGPLXMP,|%PGPLPLST%%pgcommon%%systmfldrs%
 guicontrol,,ROMPOP,|
 return
 
@@ -58319,7 +58535,7 @@ if (pgptr = "|")
 		stringtrimleft,PGPLPLST,PGPLPLST,1
 	}
 
-guicontrol,,PGPLXMP,|%PGPLPLST%|%pgcommon%
+guicontrol,,PGPLXMP,|%PGPLPLST%%pgcommon%
 guicontrol,,ROMPOP,|
 
 if (PGROOTFLD = "")
@@ -62472,7 +62688,7 @@ guicontrol,hide,RFMIRSEL
 guicontrol,hide,RFRRTXT
 guicontrol,hide,RFROMROOT
 
-guicontrol,,RFPLXMP,|%RFPLPLST%|%rfcommon%%systmfldrs%
+guicontrol,,RFPLXMP,|%RFPLPLST%%rfcommon%%systmfldrs%
 guicontrol,,RFDWNLPOS,|%systmfldrs%
 guicontrol,,ROMPOP,|
 return
@@ -62484,7 +62700,7 @@ RPDND=
 guicontrol,show,RFMIRSEL
 guicontrol,hide,RFRRTXT
 guicontrol,hide,RFROMROOT
-guicontrol,,RFPLXMP,|%RFPLPLST%|%rfcommon%|%systmfldrs%
+guicontrol,,RFPLXMP,|%RFPLPLST%%rfcommon%%systmfldrs%
 guicontrol,,ROMPOP,|
 return
 
@@ -62502,7 +62718,7 @@ if (rfptr = "|")
 		stringtrimleft,RFPLPLST,RFPLPLST,1
 	}
 
-guicontrol,,RFPLXMP,|%RFPLPLST%|%rfcommon%
+guicontrol,,RFPLXMP,|%RFPLPLST%%rfcommon%
 guicontrol,,ROMPOP,|
 
 if (RFROOTFLD = "")
@@ -66196,19 +66412,19 @@ Loop, Parse, existlst,|
 		pthrom= %A_LoopField%
 		if (ESVID = 1)
 			{
-				stringreplace,ROMVIDEOMATCH,ROMVIDEOMATCH,%ESVIDEOPATH%,/.emulationstation/downloaded_videos/%SYSNAME%,All
+				stringreplace,ROMVIDEOMATCH,ROMVIDEOMATCH,%ESVIDEOPATH%,~/.emulationstation/downloaded_videos/%SYSNAME%,All
 			}
 		if (ESMARQ = 1)
 			{
-				stringreplace,ROMMARQUEEMATCH,ROMMARQUEEMATCH,%ESMARQUEEPATH%,/.emulationstation/downloaded_images/%SYSNAME%,All
+				stringreplace,ROMMARQUEEMATCH,ROMMARQUEEMATCH,%ESMARQUEEPATH%,~/.emulationstation/downloaded_images/%SYSNAME%,All
 			}
 		if (ESTHU = 1)
 			{
-				stringreplace,ROMTHUMBNAILMATCH,ROMTHUMBNAILMATCH,%ESTHUMBNAILPATH%,/.emulationstation/downloaded_images/%SYSNAME%,All
+				stringreplace,ROMTHUMBNAILMATCH,ROMTHUMBNAILMATCH,%ESTHUMBNAILPATH%,~/.emulationstation/downloaded_images/%SYSNAME%,All
 			}
 		if (ESBOX = 1)
 			{
-				stringreplace,ROMIMAGEMATCH,ROMIMAGEMATCH,%ESBOXPATH%,/.emulationstation/downloaded_images/%SYSNAME%,All
+				stringreplace,ROMIMAGEMATCH,ROMIMAGEMATCH,%ESBOXPATH%,~/.emulationstation/downloaded_images/%SYSNAME%,All
 			}
 		ifinstring,pthrom,:
 			{				
@@ -66291,6 +66507,7 @@ if (ESGAMLOTMP = "")
 	{
 		return
 	}
+INPLAYL= 1
 
 splitpath,ESGAMLOTMP,ESGAMLOMN,ESGAMLOD,,ESGAMLODIR
 splitpath,ESGAMLOD,,,,syspfl
@@ -66706,25 +66923,10 @@ if (ESRPOPROM = 1)
 						if (inn1 = ESDWNLPOS)
 							{
 								ESROOTFLD= %inn2%
-								inx1= 
-								inx2= 
-								inx3= 
-								inx4= 
-								inx5= 
-								inx6= 
-								inx7= 
-								inx8= 
-								inx9= 
-								inx10= 
-								inx11= 
-								inx12= 
-								inx13= 
-								inx14= 
-								inx15= 
-								inx16= 
-								inx17= 
-								inx18= 
-								inx19= 
+								Loop,19
+									{
+										inx%A_Index%= 
+									}
 								innr= %inn3%
 								stringreplace,innr,innr,.,,All
 								stringsplit,inx,innr,%A_Space%
@@ -66739,7 +66941,7 @@ if (ESRPOPROM = 1)
 					}
 			}
 		
-		guicontrol,,ESPLXMP,|%ESRFLN%||%ESPLPLST%%escommon%%systmfldrs%
+		guicontrol,,ESPLXMP,|%ESDWNLPOS%||%ESPLPLST%%escommon%%systmfldrs%
 		ESROMLST= 
 		if (ESROOTFLD <> "")
 			{
@@ -66777,7 +66979,7 @@ guicontrol,hide,ESMIRSEL
 guicontrol,hide,ESRRTXT
 guicontrol,hide,ESROMROOT
 
-guicontrol,,ESPLXMP,|%ESPLPLST%|%escommon%%systmfldrs%
+guicontrol,,ESPLXMP,|%ESPLPLST%%escommon%%systmfldrs%
 guicontrol,,ESDWNLPOS,|%systmfldrs%
 guicontrol,,ROMPOP,|
 return
@@ -66789,7 +66991,7 @@ RPDND=
 guicontrol,show,ESMIRSEL
 guicontrol,hide,ESRRTXT
 guicontrol,hide,ESROMROOT
-guicontrol,,ESPLXMP,|%ESPLPLST%|%escommon%|%systmfldrs%
+guicontrol,,ESPLXMP,|%ESPLPLST%%escommon%|%systmfldrs%
 guicontrol,,ROMPOP,|
 return
 
@@ -66807,7 +67009,7 @@ if (esptr = "|")
 		stringtrimleft,ESPLPLST,ESPLPLST,1
 	}
 
-guicontrol,,ESPLXMP,|%ESPLPLST%|%escommon%
+guicontrol,,ESPLXMP,|%ESPLPLST%%escommon%
 guicontrol,,ROMPOP,|
 
 if (ESROOTFLD = "")
@@ -68005,7 +68207,7 @@ guicontrol,disable,FELBXA
 guicontrol,move,FELBXA,x279 y207 w279 h186
 guicontrol,,FELBXA,|%FEItems%
 
-guicontrol,%fetog%,FECHKA
+g---------------------------------------------uicontrol,%fetog%,FECHKA
 guicontrol,enable,FECHKA
 guicontrol,move,FECHKA,x270 y402 w132 h13
 guicontrol,,FECHKA,Enable Boxart Icons
@@ -69234,7 +69436,7 @@ Mirrored_LinksfeRAD5A:
 Gui,ListView,FELVA
 LV_Delete()
 guicontrol,,FEDDLA,|Systems||%systmfldrs%
-gosub, %FENAM%FEDDLA
+gosub, %FETYP%FEDDLA
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -69266,7 +69468,7 @@ if (CMIR1 <> "Mirrored")
 		IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
 		CMIR1= %FEDDLB%
 		GUICONTROL,,FEDDLA,|%CMIR1%||%MIRDDLOC%
-		gosub, %FENAM%FEDDLA
+		gosub, %FETYP%FEDDLA
 		return
 	}
 GUICONTROL,,FEDDLA,|%CMIR1%||%MIRDDLOC%	
@@ -69424,15 +69626,15 @@ return
 ;{;;;;;;;;;;;;;;;; FE RIGHTCLICK ;;;;;;;;;;;;;;;;;
 
 TOGFESEL:
-gosub, %FENAM%TOGFESEL
+gosub, %FETYP%TOGFESEL
 return
 
 ADDFESEL:
-gosub, %FENAM%ADDFESEL
+gosub, %FETYP%ADDFESEL
 return
 
 REMFESEL:
-gosub, %FENAM%REMFESEL
+gosub, %FETYP%REMFESEL
 return
 
 PegasusTOGFESEL:
@@ -70450,6 +70652,14 @@ if (FERAD2B = 1)
 			{
 				FEItems:= LVGetCheckedItems("", "ahk_id" . FELSTVA)
 			}
+		if (FEDDLA = "")
+			{
+				guicontrolget,SYSROMD,,ESDWNLPOS
+				SYSLKLOC= %RJSYSTEMS%\%SYSROMD%
+				REALSYS= %SYSROMD%
+				SCRPDIR= %SYSLKLOC%
+				SYSLKUP= %SYSROMD%
+			}
 		goto, JACKETSCRAPE
 	}
 if (FERAD2C = 1)
@@ -70708,9 +70918,9 @@ if (FERAD2B = 1)
 		supsysr=
 		supsysi=
 		supsys=
-		ifnotexist,%RJSYSTEMS%\%FEDDLA%\%curtxt%\.snaps\
+		ifnotexist,%RJSYSTEMS%\%SYSLKUP%\%curtxt%\.snaps\
 			{
-				filecreatedir,%RJSYSTEMS%\%FEDDLA%\%curtxt%\.snaps
+				filecreatedir,%RJSYSTEMS%\%SYSLKUP%\%curtxt%\.snaps
 			}
 		Loop, Parse, scrsup,/
 			{
@@ -70735,6 +70945,7 @@ if (FERAD2B = 1)
 				SB_SetText(" " SYSLKUP " is not supported")			
 				return
 			}
+		SYSLKLOC= %RJSYSTEMS%\%REALSYS%	
 		Loop, Parse, FEItems,`n`r
 			{
 				if (A_LoopField = "")
@@ -70742,6 +70953,31 @@ if (FERAD2B = 1)
 						continue
 					}
 				jaktit= %A_LoopField%
+				ifinstring,A_LoopField,:
+					{
+						stringreplace,jaktit,A_LoopField,%RJSYSTEMS%\%SYSLKUP%\,,All
+					}
+				ifinstring,jaktit,:
+					{
+						njk= 
+						ptspl=
+						Loop,Parse,jaktit,\
+							{
+								if ((njk = 1)&&(ptspl <> ""))
+									{
+										ptspl.= "\"
+									}
+								if (A_LoopField = SYSLKUP)
+									{
+										njk= 1
+									}
+								if (njk = 1)
+									{
+										ptspl.= A_LoopField
+									}
+							}
+						splitpath,ptspl,,,,jaktit	
+					}
 				realname= %jaktit%
 				ifnotexist,%RJSYSTEMS%\%REALSYS%\%realname%\.snaps\
 					{
@@ -70800,7 +71036,7 @@ if (FERAD2B = 1)
 					{
 						filecreatedir,rj\scrapeArt
 					}
-				ifnotexist, rj\scrapeArt\%SYSLKUP%
+				ifnotexist, rj\scrapeArt\%SYSLKUP%\
 					{
 						ifnotexist,rj\scrapeArt\%SYSLKUP%.7z
 							{
@@ -72471,42 +72707,10 @@ guicontrol,,FECHKK,0
 guicontrol,,FECHKL,0
 guicontrol,,FECHKM,0
 
-guicontrol,hide,FETXTK
-guicontrol,hide,FEBUTL
-guicontrol,hide,FEBUTG
-guicontrol,hide,FEBUTH
-guicontrol,hide,FEBUTB
-guicontrol,hide,FEBUTC
-guicontrol,hide,FEBUTD
-guicontrol,hide,FEBUTE
-guicontrol,hide,FEEDTA
-guicontrol,hide,FEEDTB
-guicontrol,hide,FELBXA
-guicontrol,hide,FELBXB
-guicontrol,hide,FEDDLE
-guicontrol,hide,FELNKA
-guicontrol,hide,FECHKG
-guicontrol,hide,FECHKH
-guicontrol,hide,FECHKI
-guicontrol,hide,FECHKJ
-guicontrol,hide,FECHKK
-guicontrol,hide,FEDDLC
-guicontrol,hide,FECHKL
-guicontrol,hide,FECHKM
-guicontrol,hide,FECHKN
-guicontrol,hide,FETXTG
-guicontrol,hide,FERAD7B
-guicontrol,hide,FERAD7A
-guicontrol,hide,FETXTI
-guicontrol,hide,FETXTJ
-guicontrol,hide,FETXTM
-guicontrol,hide,FEEDTD
-guicontrol,hide,FETXTL
-guicontrol,hide,FEEDTC
-guicontrol,hide,FEGRPA
-guicontrol,hide,FEPICA
-guicontrol,hide,FERAD4A
-guicontrol,hide,FERAD4B
+Loop,Parse,MEDIAFEITEMS,|
+	{
+		guicontrol,hide,%A_LoopField%
+	}
 guicontrol,,FECHKG,0
 guicontrol,enable,FECHKD
 guicontrol,,FERAD5A,1
@@ -72546,49 +72750,17 @@ guicontrol,,FECHKJ,0
 guicontrol,,FECHKK,0
 guicontrol,,FECHKL,0
 guicontrol,,FECHKM,0
-
-
+Loop,Parse,MEDIAFEITEMS,
+	{
+		guicontrol,show,%A_LoopField%
+	}
 guicontrol,hide,FETXTB
-guicontrol,show,FEBUTL
 guicontrol,hide,FETXTC
 guicontrol,hide,FETXTD
 guicontrol,hide,FETXTE
-guicontrol,hide,FETXTK
 guicontrol,hide,FEBUTG
 guicontrol,hide,FEBUTH
-guicontrol,hide,FEBUTF
-guicontrol,show,FEBUTB
-guicontrol,show,FEBUTC
-guicontrol,show,FEBUTD
-guicontrol,show,FEBUTE
-guicontrol,show,FEEDTA
-guicontrol,show,FEEDTB
-guicontrol,show,FELBXA
-guicontrol,show,FELBXB
-guicontrol,show,FEDDLE
-guicontrol,show,FELNKA
-guicontrol,show,FECHKG
-guicontrol,show,FECHKH
-guicontrol,show,FECHKI
-guicontrol,show,FECHKJ
-guicontrol,show,FECHKK
-guicontrol,show,FEDDLC
-guicontrol,show,FECHKL
-guicontrol,show,FECHKM
-guicontrol,show,FECHKN
-guicontrol,show,FETXTG
-guicontrol,show,FERAD7B
-guicontrol,show,FERAD7A
-guicontrol,show,FETXTI
-guicontrol,show,FETXTJ
-guicontrol,show,FETXTM
-guicontrol,show,FEEDTD
-guicontrol,show,FETXTL
-guicontrol,show,FEEDTC
-guicontrol,show,FEGRPA
-guicontrol,show,FEPICA
-guicontrol,show,FERAD4A
-guicontrol,show,FERAD4B
+
 guicontrol,enable,FECHKD
 guicontrol,,FERAD5A,1
 guicontrol,enable,FELVA
@@ -72655,43 +72827,10 @@ guicontrol,,FECHKK,0
 guicontrol,,FECHKL,0
 guicontrol,,FECHKM,0
 
-guicontrol,show,FEBUTF
-guicontrol,show,FETXTK
-guicontrol,show,FEBUTG
-guicontrol,show,FEBUTH
-guicontrol,show,FEBUTB
-guicontrol,show,FEBUTC
-guicontrol,show,FEBUTL
-guicontrol,show,FEBUTD
-guicontrol,show,FEBUTE
-guicontrol,show,FEEDTA
-guicontrol,show,FEEDTB
-guicontrol,show,FELBXA
-guicontrol,show,FELBXB	
-guicontrol,show,FEDDLE	
-guicontrol,show,FELNKA
-guicontrol,show,FECHKG
-guicontrol,show,FECHKH
-guicontrol,show,FECHKI
-guicontrol,show,FECHKJ
-guicontrol,show,FECHKK
-guicontrol,show,FEDDLC
-guicontrol,show,FECHKL
-guicontrol,show,FECHKM
-guicontrol,show,FECHKN
-guicontrol,show,FETXTG
-guicontrol,show,FERAD7B
-guicontrol,show,FERAD7A
-guicontrol,show,FETXTI
-guicontrol,show,FETXTJ
-guicontrol,show,FETXTM
-guicontrol,show,FEEDTD
-guicontrol,show,FETXTL
-guicontrol,show,FEEDTC
-guicontrol,show,FEGRPA
-guicontrol,show,FEPICA
-guicontrol,show,FERAD4A
-guicontrol,show,FERAD4B
+Loop,Parse,MEDIAFEITEMS,|
+	{
+		guicontrol,show,%A_LoopField%
+	}
 guicontrol,enable,FECHKD
 guicontrol,,FERAD5A,1
 guicontrol,enable,FELVA
@@ -72943,7 +73082,7 @@ guicontrol,disable,FELVA
 return
 
 MediaFELVA:
-
+gui,submit,nohie
 curtxt= 
 if	(ErrorLevel == "C")
 		{
@@ -72959,6 +73098,7 @@ if	(ErrorLevel == "C")
 			LV_GetText(curtxt, A_EventInfo)
 			stringreplace,FE_TDB,FE_TDB,%curtxt%|1,%curtxt%|0,All
 	   }
+/*	   
 Loop, Parse, cursysthl,|
 		{
 			siin1=
@@ -72969,6 +73109,7 @@ Loop, Parse, cursysthl,|
 					guicontrol,,FETXTK,%siin2%
 				}				
 		}
+*/
 curtxt= 
 RowNumber = 0  
 Loop
@@ -74709,569 +74850,569 @@ return
 feBUTA:
 gui,submit,nohide
 
-gosub,%FENAM%feBUTA
+gosub,%FETYP%feBUTA
 
 return
 
 feBUTB:
 gui,submit,nohide
-gosub,%FENAM%feBUTB
+gosub,%FETYP%feBUTB
 return
 
 feBUTC:
 gui,submit,nohide
-gosub,%FENAM%feBUTC
+gosub,%FETYP%feBUTC
 return
 
 feBUTG:
 gui,submit,nohide
-gosub,%FENAM%feBUTG
+gosub,%FETYP%feBUTG
 return
 
 feBUTD:
 gui,submit,nohide
-gosub,%FENAM%feBUTD
+gosub,%FETYP%feBUTD
 return
 
 feBUTE:
 gui,submit,nohide
-gosub,%FENAM%feBUTE
+gosub,%FETYP%feBUTE
 return
 
 feBUTF:
 gui,submit,nohide
-gosub,%FENAM%feBUTF
+gosub,%FETYP%feBUTF
 return
 
 feBUTH:
 gui,submit,nohide
-gosub,%FENAM%feBUTH
+gosub,%FETYP%feBUTH
 return
 
 feBUTI:
 gui,submit,nohide
-gosub,%FENAM%feBUTI
+gosub,%FETYP%feBUTI
 return
 
 feBUTJ:
 gui,submit,nohide
-gosub,%FENAM%feBUTJ
+gosub,%FETYP%feBUTJ
 return
 
 feBUTK:
 gui,submit,nohide
-gosub,%FENAM%feBUTK
+gosub,%FETYP%feBUTK
 return
 
 feBUTL:
 gui,submit,nohide
-gosub,%FENAM%feBUTL
+gosub,%FETYP%feBUTL
 return
 
 feBUTM:
 gui,submit,nohide
-gosub,%FENAM%feBUTM
+gosub,%FETYP%feBUTM
 return
 
 fePICA:
 gui,submit,nohide
-gosub,%FENAM%fePICA
+gosub,%FETYP%fePICA
 return
 
 fePICB:
 gui,submit,nohide
-gosub,%FENAM%fePICB
+gosub,%FETYP%fePICB
 return
 
 fePICC:
 gui,submit,nohide
-gosub,%FENAM%fePICC
+gosub,%FETYP%fePICC
 return
 
 fePICD:
 gui,submit,nohide
-gosub,%FENAM%fePICD
+gosub,%FETYP%fePICD
 return
 
 fePICE:
 gui,submit,nohide
-gosub,%FENAM%fePICE
+gosub,%FETYP%fePICE
 return
 
 fePICF:
 gui,submit,nohide
-gosub,%FENAM%fePICF
+gosub,%FETYP%fePICF
 return
 
 fePICG:
 gui,submit,nohide
-gosub,%FENAM%fePICG
+gosub,%FETYP%fePICG
 return
 
 feLNKA:
 gui,submit,nohide
-gosub,%FENAM%feLNKA
+gosub,%FETYP%feLNKA
 return
 
 feLNKB:
 gui,submit,nohide
-gosub,%FENAM%feLNKB
+gosub,%FETYP%feLNKB
 return
 
 feCHKD:
 gui,submit,nohide
-gosub,%FENAM%feCHKD
+gosub,%FETYP%feCHKD
 return
 
 feCHKE:
 gui,submit,nohide
-gosub,%FENAM%feCHKE
+gosub,%FETYP%feCHKE
 return
 
 feCHKF:
 gui,submit,nohide
-gosub,%FENAM%feCHKF
+gosub,%FETYP%feCHKF
 return
 
 feCHKG:
 gui,submit,nohide
-gosub,%FENAM%feCHKG
+gosub,%FETYP%feCHKG
 return
 
 feCHKH:
 gui,submit,nohide
-gosub,%FENAM%feCHKH
+gosub,%FETYP%feCHKH
 return
 
 feCHKI:
 gui,submit,nohide
-gosub,%FENAM%feCHKI
+gosub,%FETYP%feCHKI
 return
 
 feCHKJ:
 gui,submit,nohide
-gosub,%FENAM%feCHKJ
+gosub,%FETYP%feCHKJ
 return
 
 feCHKK:
 gui,submit,nohide
-gosub,%FENAM%feCHKK
+gosub,%FETYP%feCHKK
 return
 
 feCHKL:
 gui,submit,nohide
-gosub,%FENAM%feCHKL
+gosub,%FETYP%feCHKL
 return
 
 feCHKM:
 gui,submit,nohide
-gosub,%FENAM%feCHKM
+gosub,%FETYP%feCHKM
 return
 
 feCHKN:
 gui,submit,nohide
-gosub,%FENAM%feCHKN
+gosub,%FETYP%feCHKN
 return
 
 feCHKO:
 gui,submit,nohide
-gosub,%FENAM%feCHKO
+gosub,%FETYP%feCHKO
 return
 
 feCHKP:
 gui,submit,nohide
-gosub,%FENAM%feCHKP
+gosub,%FETYP%feCHKP
 return
 
 feCHKQ:
 gui,submit,nohide
-gosub,%FENAM%feCHKQ
+gosub,%FETYP%feCHKQ
 return
 
 feCHKA:
 gui,submit,nohide
-gosub,%FENAM%feCHKA
+gosub,%FETYP%feCHKA
 return
 
 feCHKB:
 gui,submit,nohide
-gosub,%FENAM%feCHKB
+gosub,%FETYP%feCHKB
 return
 
 feCHKC:
 gui,submit,nohide
-gosub,%FENAM%feCHKC
+gosub,%FETYP%feCHKC
 return
 
 feCBXE:
 gui,submit,nohide
-gosub,%FENAM%feCBXE
+gosub,%FETYP%feCBXE
 return
 
 feCBXF:
 gui,submit,nohide
-gosub,%FENAM%feCBXF
+gosub,%FETYP%feCBXF
 return
 
 feCBXG:
 gui,submit,nohide
-gosub,%FENAM%feCBXG
+gosub,%FETYP%feCBXG
 return
 
 feCBXH:
 gui,submit,nohide
-gosub,%FENAM%feCBXH
+gosub,%FETYP%feCBXH
 return
 
 feCBXI:
 gui,submit,nohide
-gosub,%FENAM%feCBXI
+gosub,%FETYP%feCBXI
 return
 
 feCBXJ:
 gui,submit,nohide
-gosub,%FENAM%feCBXJ
+gosub,%FETYP%feCBXJ
 return
 
 feCBXA:
 gui,submit,nohide
-gosub,%FENAM%feCBXA
+gosub,%FETYP%feCBXA
 return
 
 feCBXB:
 gui,submit,nohide
-gosub,%FENAM%feCBXB
+gosub,%FETYP%feCBXB
 return
 
 feCBXC:
 gui,submit,nohide
-gosub,%FENAM%feCBXC
+gosub,%FETYP%feCBXC
 return
 
 feCBXD:
 gui,submit,nohide
-gosub,%FENAM%feCBXD
+gosub,%FETYP%feCBXD
 return
 
 feDDLE:
 gui,submit,nohide
-gosub,%FENAM%feDDLE
+gosub,%FETYP%feDDLE
 return
 
 feDDLF:
 gui,submit,nohide
-gosub,%FENAM%feDDLF
+gosub,%FETYP%feDDLF
 return
 
 feDDLG:
 gui,submit,nohide
-gosub,%FENAM%feDDLG
+gosub,%FETYP%feDDLG
 return
 
 feDDLH:
 gui,submit,nohide
-gosub,%FENAM%feDDLH
+gosub,%FETYP%feDDLH
 return
 
 feDDLI:
 gui,submit,nohide
-gosub,%FENAM%feDDLI
+gosub,%FETYP%feDDLI
 return
 
 feDDLJ:
 gui,submit,nohide
 fetog= Hide
 fromcfg= 
-guicontrolget,FENAM,,feDDLJ
+guicontrolget,FETYP,,feDDLJ
 xmbtog= Hide
 Loop, Parse, FELIST, |
 	{
-		if (FENAM = "XMB")
+		if (FETYP = "XMB")
 			{
 				xmbtog= Show
-				gosub, %FENAM%TOGGLE
+				gosub, %FETYP%TOGGLE
 				gosub, FEUNPOP
 				return
 			}
 	}
 gosub, XMBTOGGLE
 gosub, FEUNPOP
-gosub, %FENAM%TOGGLE
+gosub, %FETYP%TOGGLE
 return
 
 feDDLC:
 gui,submit,nohide
-gosub,%FENAM%feDDLC
+gosub,%FETYP%feDDLC
 return
 
 feDDLD:
 gui,submit,nohide
-gosub,%FENAM%feDDLD
+gosub,%FETYP%feDDLD
 return
 
 feDDLA:
 gui,submit,nohide
-gosub,%FENAM%feDDLA
+gosub,%FETYP%feDDLA
 return
 
 feDDLB:
 gui,submit,nohide
-gosub,%FENAM%feDDLB
+gosub,%FETYP%feDDLB
 return
 
 feEDTA:
 gui,submit,nohide
-gosub,%FENAM%feEDTA
+gosub,%FETYP%feEDTA
 return
 
 feEDTB:
 gui,submit,nohide
-gosub,%FENAM%feEDTB
+gosub,%FETYP%feEDTB
 return
 
 feEDTC:
 gui,submit,nohide
-gosub,%FENAM%feEDTC
+gosub,%FETYP%feEDTC
 return
 
 feEDTD:
 gui,submit,nohide
-gosub,%FENAM%feEDTD
+gosub,%FETYP%feEDTD
 return
 
 feEDTE:
 gui,submit,nohide
-gosub,%FENAM%feEDTE
+gosub,%FETYP%feEDTE
 return
 
 feEDTF:
 gui,submit,nohide
-gosub,%FENAM%feEDTF
+gosub,%FETYP%feEDTF
 return
 
 feEDTG:
 gui,submit,nohide
-gosub,%FENAM%feEDTG
+gosub,%FETYP%feEDTG
 return
 
 feUPDA:
 gui,submit,nohide
-gosub,%FENAM%feUPDA
+gosub,%FETYP%feUPDA
 return
 
 feEDTH:
 gui,submit,nohide
-gosub,%FENAM%feEDTH
+gosub,%FETYP%feEDTH
 return
 
 feEDTI:
 gui,submit,nohide
-gosub,%FENAM%feEDTI
+gosub,%FETYP%feEDTI
 return
 
 feUPDB:
 gui,submit,nohide
-gosub,%FENAM%feUPDB
+gosub,%FETYP%feUPDB
 return
 
 feUPDC:
 gui,submit,nohide
-gosub,%FENAM%feUPDC
+gosub,%FETYP%feUPDC
 return
 
 feLBXA:
 gui,submit,nohide
-gosub,%FENAM%feLBXA
+gosub,%FETYP%feLBXA
 return
 
 feLBXB:
 gui,submit,nohide
-gosub,%FENAM%feLBXB
+gosub,%FETYP%feLBXB
 return
 
 feLVA:
 gui,submit,nohide
-gosub,%FENAM%feLVA
+gosub,%FETYP%feLVA
 return
 
 feLVB:
 gui,submit,nohide
-gosub,%FENAM%feLVB
+gosub,%FETYP%feLVB
 return
 
 feLVC:
 gui,submit,nohide
-gosub,%FENAM%feLVC
+gosub,%FETYP%feLVC
 return
 
 feRad5B:
 gui,submit,nohide
-gosub,%FENAM%feRad5B
+gosub,%FETYP%feRad5B
 return
 
 feRad5C:
 gui,submit,nohide
-gosub,%FENAM%feRad5C
+gosub,%FETYP%feRad5C
 return
 
 feRad4A:
 gui,submit,nohide
-gosub,%FENAM%feRad4A
+gosub,%FETYP%feRad4A
 return
 
 feRad4B:
 gui,submit,nohide
-gosub,%FENAM%feRad4B
+gosub,%FETYP%feRad4B
 return
 
 feRad5A:
 gui,submit,nohide
-gosub,%FENAM%feRad5A
+gosub,%FETYP%feRad5A
 return
 
 feRad6A:
 gui,submit,nohide
-gosub,%FENAM%feRad6A
+gosub,%FETYP%feRad6A
 return
 
 feRad6B:
 gui,submit,nohide
-gosub,%FENAM%feRad6B
+gosub,%FETYP%feRad6B
 return
 
 feRad6C:
 gui,submit,nohide
-gosub,%FENAM%feRad6C
+gosub,%FETYP%feRad6C
 return
 
 feRad6D:
 gui,submit,nohide
-gosub,%FENAM%feRad6D
+gosub,%FETYP%feRad6D
 return
 
 feRad7A:
 gui,submit,nohide
-gosub,%FENAM%feRad7A
+gosub,%FETYP%feRad7A
 return
 
 feRad7B:
 gui,submit,nohide
-gosub,%FENAM%feRad7B
+gosub,%FETYP%feRad7B
 return
 
 feRad8A:
 gui,submit,nohide
-gosub,%FENAM%feRad8A
+gosub,%FETYP%feRad8A
 return
 
 feRad8B:
 gui,submit,nohide
-gosub,%FENAM%feRad8B
+gosub,%FETYP%feRad8B
 return
 
 feRad9A:
 gui,submit,nohide
-gosub,%FENAM%feRad9A
+gosub,%FETYP%feRad9A
 return
 
 feRad9B:
 gui,submit,nohide
-gosub,%FENAM%feRad9B
+gosub,%FETYP%feRad9B
 return
 
 feRad9C:
 gui,submit,nohide
-gosub,%FENAM%feRad9C
+gosub,%FETYP%feRad9C
 return
 
 feRad10A:
 gui,submit,nohide
-gosub,%FENAM%feRad10A
+gosub,%FETYP%feRad10A
 return
 
 feRad10B:
 gui,submit,nohide
-gosub,%FENAM%feRad10B
+gosub,%FETYP%feRad10B
 return
 
 feRad11A:
 gui,submit,nohide
-gosub,%FENAM%feRad11A
+gosub,%FETYP%feRad11A
 return
 
 feRad11B:
 gui,submit,nohide
-gosub,%FENAM%feRad11B
+gosub,%FETYP%feRad11B
 return
 
 feRad2A:
 gui,submit,nohide
-gosub,%FENAM%feRad2A
+gosub,%FETYP%feRad2A
 return
 
 feRad2B:
 gui,submit,nohide
-gosub,%FENAM%feRad2B
+gosub,%FETYP%feRad2B
 return
 
 feRad2C:
 gui,submit,nohide
-gosub,%FENAM%feRad2C
+gosub,%FETYP%feRad2C
 return
 
 feRad1A:
 gui,submit,nohide
-gosub,%FENAM%feRad1A
+gosub,%FETYP%feRad1A
 return
 
 feRad3A:
 gui,submit,nohide
-gosub,%FENAM%feRad3A
+gosub,%FETYP%feRad3A
 return
 
 feRad3B:
 gui,submit,nohide
-gosub,%FENAM%feRad3B
+gosub,%FETYP%feRad3B
 return
 
 feRad3C:
 gui,submit,nohide
-gosub,%FENAM%feRad3C
+gosub,%FETYP%feRad3C
 return
 
 feRad3D:
 gui,submit,nohide
-gosub,%FENAM%feRad3D
+gosub,%FETYP%feRad3D
 return
 
 feRad1B:
 gui,submit,nohide
-gosub,%FENAM%feRad1B
+gosub,%FETYP%feRad1B
 return
 
 feSLDA:
 gui,submit,nohide
-gosub,%FENAM%feSLDA
+gosub,%FETYP%feSLDA
 return
 
 feSLDB:
 gui,submit,nohide
-gosub,%FENAM%feSLDB
+gosub,%FETYP%feSLDB
 return
 
 feSLDC:
 gui,submit,nohide
-gosub,%FENAM%feSLDC
+gosub,%FETYP%feSLDC
 return
 
 feSLDD:
 gui,submit,nohide
-gosub,%FENAM%feSLDD
+gosub,%FETYP%feSLDD
 return
 
 feSLDE:
 gui,submit,nohide
-gosub,%FENAM%feSLDE
+gosub,%FETYP%feSLDE
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -84672,7 +84813,7 @@ guicontrol,,SRCHLOCDDL,|:=:System List:=:||%systmfldrs%
 guicontrol,,ESDWNLPOS,|%systmfldrs%
 guicontrol,,OVDLDS,|Matching||%systmfldrs%
 guicontrol,,DWNLPOS,|%systmfldrs%
-guicontrol,,ESPLXMP,|%systmfldrs%|%escommon%
+guicontrol,,ESPLXMP,|%systmfldrs%%escommon%
 if (NETDWNL = 1)
 	{
 		guicontrol,,SRCHLOCDDL,|:=:System List:=:||%systmfldrs%

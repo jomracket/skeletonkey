@@ -1,0 +1,15 @@
+<Game>
+	<Name>Reflectron</Name>
+	<ReleaseDate>2013-12-01T00:00:00-08:00</ReleaseDate>
+	<Plot>You are a Biological Entity Remover Node And Repair Droid (or B.E.R.N.A.R.D. for short), working for the evil robot overlord on his deadly mobile space station. Charged with maintaining the primary laser cannon, B.E.R.N.A.R.D has, however, developed something of a conscience. Instead, he has chosen to defy his master and do his best to stop the cannon's DELTA CRYSTAL from charging up by destroying the MEGA PROTONS with his cranial gun. Will he be able to stop the cannon from decimating another innocent world? Reflectron is a simple, addictive arcade style high-score action game which is free to download and play on a PC Engine emulator of your choice (such as Magic Engine, Mednafen or Ootake) or flash card.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxart1>http://images.launchbox-app.com/1ff3892e-eb73-4e56-874e-4faa889b3641.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/03b343d5-b70a-41fa-b645-d37326cb09a3.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/61b9abbd-76ec-4f80-aef0-4edae1118412.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/0ddb038b-51c3-439b-931d-b050e14f9f91.png</snapshot2>
+	<WikipediaURL>http://www.pcengine.co.uk/HTML_Homebrew/Reflectron.htm</WikipediaURL>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Action</Genre>
+	<Developer>Andrew Darovich</Developer>
+	<Publisher>Aetherbyte</Publisher>
+</game>

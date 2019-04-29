@@ -1,0 +1,20 @@
+<Game>
+	<Name>The Lost World- Jurassic Park</Name>
+	<ReleaseDate>1997-09-16T00:00:00-07:00</ReleaseDate>
+	<Plot>The player takes control of characters struggling to survive on INGen’s “Site B” populated by over 20 species of dinosaurs in an environment of escalating chaos. There are 5 characters in all to choose from, each with their own special abilities and attributes. While the game is in 3D, the game play resembles early 2D platformers in which you generically either go left or right, limiting the mobility of each character.</Plot>
+	<nPlayers>2</nPlayers>
+	<boxback1>http://images.launchbox-app.com/4435a66e-56ab-4cb1-a54f-b325a14b7842.jpg</boxback1>
+	<boxback2>http://images.launchbox-app.com/3b812b7b-ea79-4d80-a4b4-6363ae3fb533.jpg</boxback2>
+	<boxart1>http://images.launchbox-app.com/8a624e8f-e1ed-4c53-bbf1-ce849935ac0e.png</boxart1>
+	<boxart2>http://images.launchbox-app.com/42a012e0-fabf-493e-839b-cc4de83d0b4c.jpg</boxart2>
+	<media1>http://images.launchbox-app.com/399a6124-c243-4fe1-8c8e-200a3c93b10b.jpg</media1>
+	<media2>http://images.launchbox-app.com/adf98608-1ef8-48b3-aa81-43070aad9723.jpg</media2>
+	<clearlogo1>http://images.launchbox-app.com/d842b75a-b264-46fb-9d62-79c38c3dbece.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/ea993213-9bfb-4788-832c-9bbf36603d3e.jpg</fanart1>
+	<fanart2>http://images.launchbox-app.com/d2d08080-51c1-494d-9b34-02b818475bb9.jpg</fanart2>
+	<Rating>4.5</Rating>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Action</Genre>
+	<Developer>Dreamworks Interactive</Developer>
+	<Publisher>Electronic Arts</Publisher>
+</game>

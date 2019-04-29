@@ -1,0 +1,29 @@
+<Game>
+	<Name>Exodus - Journey to the Promised Land (USA) (Unl)</Name>
+	<plot>Following the story of Moses, Exodus allows the player to control Moses through the game's 100 levels on Moses' journey to the promised land.  Gameplay:Exodus controls and plays very similarly to the games Boulder Dash and Crystal Mines. The player controls Moses as he shoots the Word of God at his enemies, which include Egyptian magicians and soldiers. Levels are designed in a maze like pattern, making it very difficult to find your objectives. Obstacles include dirt hills, falling rocks, and the ever-present evil of video games, walls. By the end of the level you must collect five question marks and enough Manna to open the exit. Enemies can be destroyed or avoided but getting caught by them means losing a life. When you finally collect all the question marks for the given level, the exit appears and you can leave.   However before you can finish a level, you must answer five questions related to the Bible. These questions are random and there doesn't seem to be a large variety. Once you complete the questions, Moses will move onto the next level.  Unofficial NES GameExodus was manufactured by Wisdom Tree, a descendant of the company Color Dreams, which was one of the first companies to find a workaround for the NES Lockout chip.  Exodus was one of the games that included this method to bypass it. Some copies of the game could be played normally, however, other copies required to be connected to another officially licensed Nintendo game in order to run. This method is one reason that the Wisdom Tree games are such a novelty today.	</plot>
+	<releasedate>23/12/1993</releasedate>
+	<genre>Action, Educational</genre>
+	<Developer>Wisdom Tree, Inc.</Developer>
+	<nplayers>1</nplayers>
+	<rating>2.4</rating>
+	<thegamesdb_id>20358</thegamesdb_id>
+	<gamefaqs_url>http://www.gamefaqs.com/genesis/586168-exodus-journey-to-the-promised-land</gamefaqs_url>
+	<mobygames_url>http://www.mobygames.com/game/genesis/exodus-journey-to-the-promised-land</mobygames_url>
+	<giantbomb_url>http://www.giantbomb.com/exodus-journey-to-the-promised-land/3030-18094/</giantbomb_url>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/20358-1.jpg</boxart1>
+	<snapshot1>http://www.mobygames.com/images/shots/l/99810-exodus-journey-to-the-promised-land-genesis-screenshot-title.jpg</snapshot1>
+	<snapshot2>http://www.mobygames.com/images/shots/l/99811-exodus-journey-to-the-promised-land-genesis-screenshot-overview.jpg</snapshot2>
+	<snapshot3>http://www.mobygames.com/images/shots/l/99812-exodus-journey-to-the-promised-land-genesis-screenshot-the.jpg</snapshot3>
+	<snapshot4>http://www.mobygames.com/images/shots/l/99813-exodus-journey-to-the-promised-land-genesis-screenshot-watch.jpg</snapshot4>
+	<snapshot5>http://www.mobygames.com/images/shots/l/99814-exodus-journey-to-the-promised-land-genesis-screenshot-i-m.jpg</snapshot5>
+	<snapshot6>http://www.mobygames.com/images/shots/l/99815-exodus-journey-to-the-promised-land-genesis-screenshot-a-maze.jpg</snapshot6>
+	<snapshot7>http://www.mobygames.com/images/shots/l/99816-exodus-journey-to-the-promised-land-genesis-screenshot-educational.jpg</snapshot7>
+	<snapshot8>http://www.mobygames.com/images/shots/l/99817-exodus-journey-to-the-promised-land-genesis-screenshot-hit.jpg</snapshot8>
+	<snapshot9>http://img.gamefaqs.net/screens/1/5/3/gfs_38877_1_1.jpg</snapshot9>
+	<snapshot10>http://img.gamefaqs.net/screens/b/c/e/gfs_38877_2_1.jpg</snapshot10>
+	<Notes>Crystal Mines is a 1989 unlicensed puzzle game for the NES by Color Dreams. When they established Wisdom Tree, they repackaged the game twice: in 1991 as Exodus: Journey to the Promised Land and in 1992 as Joshua &amp; The Battle of Jericho, with Joshua labeled a sequel to Exodus. These two versions would be remade for the Sega Mega Drive in 1993 and 1994, respectively. Though the games do have a TMSS check, they will only do the $A14000 write if they detect the region of the console they are running on as US — therefore, the games will only boot on either any US Mega Drive or on any other Model 1 Mega Drive without TMSS (making that a partly useless form of region lockout). Gameplay of both versions is identical: you are the main character (Moses or Joshua, respectively) and you must collect all the bags with M on them (Joshua: coins with $ on them) scattered throughout each maze. A and C shoot; you can hold them down for rapidfire. Shooting destroys blockades and enemies. Once all the M bags are gathered, find the exit to move on to the next level. In between each level, you must answer a bunch of questions related to the story of the Bible of the game's theme; getting them wrong appears to be inconsequential to the outcome of the game (this needs investigation).</Notes>
+	<boxart2>http://images.launchbox-app.com/9698b733-8b2d-4759-be5c-8b2830fd35b5.png</boxart2>
+	<boxart3>http://images.launchbox-app.com/9679422f-2bce-46a7-9cd6-e5bcb91395c6.jpg</boxart3>
+	<clearlogo1>http://images.launchbox-app.com/ad7f4b1c-fc58-4666-b337-14ce301d5a65.png</clearlogo1>
+	<Publisher>Wisdom Tree</Publisher>
+</game>

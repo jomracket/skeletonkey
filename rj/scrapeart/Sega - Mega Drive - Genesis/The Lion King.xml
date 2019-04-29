@@ -1,0 +1,22 @@
+<Game>
+	<Name>The Lion King</Name>
+	<ReleaseDate>1994-12-08T00:00:00-08:00</ReleaseDate>
+	<Plot>The game is a side-scrolling platform game, with the controlled character having to leap, climb, run and descend from platform to platform. There is an exception during the level The Stampede, where Simba is running towards (or in the NES and Game Boy versions, running with the camera looking straight down on top of him) the camera dodging wildebeest and leaping over rocks. In most versions of the game two bars appear on the HUD. To the left is the roar meter, which must be fully charged for Simba's roar to be effective. To the right is the health bar which decreases when Simba is hurt. At the bottom left of the screen is a counter showing how many lives Simba has remaining. Health can be restored by collecting bugs which come in a variety of shapes and sizes. Some rare health-damaging bugs also exist. The player controls Simba (first as a cub, then later as an adult) in the main levels and either Timon or Pumbaa in the bonus levels.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/ac6a1a47-6269-4605-a19c-017dbb6d6083.jpg</boxback1>
+	<boxback2>http://images.launchbox-app.com/00441637-f9f0-45ac-a9b8-55042a390851.jpg</boxback2>
+	<boxback3>http://images.launchbox-app.com/eee60412-bf4e-4409-b363-5c8473031a4e.jpg</boxback3>
+	<boxart1>http://images.launchbox-app.com/b6d70c92-7ba7-47c8-852c-bbf5b3383e0d.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/709fe9e5-8920-43fe-af98-56b07a665e49.jpg</boxart2>
+	<boxart3>http://images.launchbox-app.com/211ff465-7a42-4ffc-9d76-2cf839efbf09.jpg</boxart3>
+	<clearlogo1>http://images.launchbox-app.com/cb988c20-656c-4b63-820d-ab6848f214d6.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/eae108ff-1971-4e17-90fb-ffe354a1d15a.jpg</fanart1>
+	<fanart2>http://images.launchbox-app.com/b310d044-5bee-48e1-8f90-a5879173c869.jpg</fanart2>
+	<snapshot1>http://images.launchbox-app.com/09079c0d-9b4a-4381-8e62-fbc27e014da9.jpg</snapshot1>
+	<Rating>4.333333333333333</Rating>
+	<WikipediaURL>https://en.wikipedia.org/wiki/The_Lion_King_(video_game)</WikipediaURL>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Platform</Genre>
+	<Developer>Westwood Studios</Developer>
+	<Publisher>Virgin Interactive</Publisher>
+</game>

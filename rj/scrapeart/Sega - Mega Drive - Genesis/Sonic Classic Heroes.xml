@@ -1,0 +1,16 @@
+<Game>
+	<Name>Sonic Classic Heroes</Name>
+	<ReleaseDate>2013-09-01T00:00:00-07:00</ReleaseDate>
+	<Plot>Sonic Classic Heroes is a ROM hack for the Sega Mega Drive / Genesis that is the result of a collaboration between flamewing and ColinC10, combining their respective hacks Sonic 2 Heroes and Sonic 1 and 2. It therefore is a single ROM that offers the entire campaigns of Sonic the Hedgehog and Sonic the Hedgehog 2, either alone or together; and enables the player to play as many characters such as Sonic, Tails, and Knuckles. The hack is named due to the ability to control a team of characters, which is reminiscent of the more recent 3D game Sonic Heroes. The hack is built on Sonic 2’s engine, which has been enhanced by both flamewing and ColinC10 to have new features. These include: multiple gameplay elements from Sonic 3 &amp; Knuckles, such as element shields and character-specific abilities; the ability to save progress, scores, etc. to SRAM (something rarely implemented in Sonic 2, with the other notable example being Esrael’s Sonic 2 Delta); various bug-fixes and improvements to the mechanics of the original games; and many more features, both implemented and planned.</Plot>
+	<1>http://images.launchbox-app.com/d68f665e-b2a9-4071-b04e-0eed7c68ffa2.png</1>
+	<boxback1>http://images.launchbox-app.com/44aa04cf-3112-4331-bf41-da2255bf6283.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/78e71515-1d67-45c7-84bd-1301a002bfe3.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/9b24df9f-075c-432a-acc7-96cc4967a6d1.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/a1e6b23b-f244-4999-a187-707b97ac97ff.jpg</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/25e1195b-005a-4f4a-b50d-af1d8c2e6ad9.jpg</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/f5858834-7984-47cd-a760-a137f8c7cebc.jpg</snapshot3>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Action</Genre>
+	<Developer>Sonic Team</Developer>
+	<Publisher>SEGA of America, Inc.</Publisher>
+</game>

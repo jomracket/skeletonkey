@@ -1,0 +1,25 @@
+<Game>
+	<Name>Double Dungeons</Name>
+	<ReleaseDate>1989-09-29T00:00:00-07:00</ReleaseDate>
+	<Plot>Summoned by the King, you are the last hope of a once peaceful land. Journey deep within the earth on your quest to destroy a strange, unnatural force. With new "split screen" action you and a partner can work together to uncover the mysteries of the eerie underground labyrinth and its evil inhabitants. Face the Death Crow, Pumpkin Head, and Savage Elf in over 22 levels of chilling adventure. You won't want to travel alone - and you don't have to!</Plot>
+	<nPlayers>2</nPlayers>
+	<1>http://images.launchbox-app.com/2934c1bb-faa8-414f-9da3-d06c54d8640d.png</1>
+	<boxback1>http://images.launchbox-app.com/fd1ce840-e5b5-4733-aece-5927774492e1.JPG</boxback1>
+	<boxback2>http://images.launchbox-app.com/7f8a27ad-7b64-4607-ad0d-db3eb4b04c56.jpg</boxback2>
+	<boxart1>http://images.launchbox-app.com/3d18717f-5f88-4e31-8631-84f90695be4c.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/13360643-eae2-4027-9c28-68778ddd507d.jpg</boxart2>
+	<boxart3>http://images.launchbox-app.com/c6c501c0-672c-48f9-bd14-9b9b9076b1bc.jpg</boxart3>
+	<media1>http://images.launchbox-app.com/3ee36cf1-2934-4373-95fc-1338a46caf29.jpg</media1>
+	<media2>http://images.launchbox-app.com/3cc36c06-2663-42c8-a8ec-7eae430bc561.jpg</media2>
+	<clearlogo1>http://images.launchbox-app.com/9f09260c-5ef5-4de8-9b8f-408f2fbe1357.png</clearlogo1>
+	<clearlogo2>http://images.launchbox-app.com/d424958b-6ea0-48dc-af34-9242f8bb2e0c.png</clearlogo2>
+	<fanart1>http://images.launchbox-app.com/dda233dc-d60e-42a6-b7d0-67e42a161716.png</fanart1>
+	<snapshot1>http://images.launchbox-app.com/85ecc459-8c76-4777-bc0a-316edff1254c.PNG</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/cee8f162-ee35-4617-82b2-aa887fbcf533.png</snapshot2>
+	<Rating>2</Rating>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Double_Dungeons</WikipediaURL>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Role-Playing</Genre>
+	<Developer>NCS</Developer>
+	<Publisher>NEC</Publisher>
+</game>

@@ -1,0 +1,20 @@
+<Game>
+	<Name>Raku Jongg (Japan)</Name>
+	<plot>Raku Jongg is a Miscellaneous game, developed by Enterbrain and published by Bandai, which was released in Japan in 2001.</plot>
+	<releasedate>31/5/2001</releasedate>
+	<genre>Strategy/Tactics</genre>
+	<Developer>Bandai Co., Ltd.</Developer>
+	<nplayers>1</nplayers>
+	<thegamesdb_id>27745</thegamesdb_id>
+	<mobygames_url>http://www.mobygames.com/game/wonderswan-color/raku-jongg</mobygames_url>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/27745-1.jpg</boxart1>
+	<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Bandai%20-%20WonderSwan%20Color/Named_Titles/RUN%3DDIM%20-%20Return%20to%20Earth%20(Japan).png</snapshot1>
+	<Notes>Raku Jongg is a Miscellaneous game, developed by Enterbrain and published by Bandai, which was released in Japan in 2001.</Notes>
+	<boxart2>http://images.launchbox-app.com/5a8a7dee-ba37-49db-a4ec-daa46e33e2c5.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/d54757b1-97f2-41f3-9e5f-693b3fdff724.png</clearlogo1>
+	<clearlogo2>http://images.launchbox-app.com/145aca73-2324-4db3-a86b-6abc5b4a0036.png</clearlogo2>
+	<snapshot2>http://images.launchbox-app.com/5f64997f-8558-473d-a5b1-6f7dbd9cb414.png</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/db47120f-ac8c-4581-9cea-a4d424c0cd6d.png</snapshot3>
+	<ESRB>Not Rated</ESRB>
+	<Publisher>Bandai</Publisher>
+</game>

@@ -1,0 +1,18 @@
+<Game>
+	<Name>Uchuu Senkan Yamato (Japan)</Name>
+	<plot>Uchuu Senkan Yamato is a Strategy game, developed by Tom Create and published by Bandai Visual, which was released in Japan in 2001.</plot>
+	<releasedate>8/2/2001</releasedate>
+	<genre>Strategy</genre>
+	<nplayers>1</nplayers>
+	<thegamesdb_id>27766</thegamesdb_id>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/27766-1.jpg</boxart1>
+	<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Bandai%20-%20WonderSwan%20Color/Named_Titles/Uchuu%20Senkan%20Yamato%20(Japan).png</snapshot1>
+	<Notes>Uchuu Senkan Yamato is a Strategy game, developed by Tom Create and published by Bandai Visual, which was released in Japan in 2001.</Notes>
+	<boxart2>http://images.launchbox-app.com/81ccfb6c-7f49-4749-acca-7c36afdb038a.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/7d65e853-77a5-4890-84a7-24a330f63ae2.png</clearlogo1>
+	<snapshot2>http://images.launchbox-app.com/5c373c7c-8b3f-476f-aa26-b8d3aab787fe.png</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/5e00b86a-95f0-4b0d-b5c8-22c6220877fd.png</snapshot3>
+	<ESRB>Not Rated</ESRB>
+	<Developer>Tom Create</Developer>
+	<Publisher>Bandai Visual</Publisher>
+</game>

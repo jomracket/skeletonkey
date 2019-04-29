@@ -1,0 +1,12 @@
+<Game>
+	<Name>Ultimate Mortal Kombat Trilogy</Name>
+	<ReleaseDate>2014-03-30T00:00:00-07:00</ReleaseDate>
+	<Plot>This is a hack by KABAL_MK of Ultimate Mortal Kombat 3 for the Sega Genesis. It adds nearly all playable characters from the Genesis/MegaDrive versions of Mortal Kombat 1, 2, and 3 -including the absent Sheeva, and also adds new backgrounds, specials, combos, finishing moves, and missing audio samples.</Plot>
+	<nPlayers>2</nPlayers>
+	<1>http://images.launchbox-app.com/0c55bdf3-7ef4-4cc2-8109-2ea607520098.png</1>
+	<boxart1>http://images.launchbox-app.com/c73c38dc-b9d8-4401-8548-79677ddc296a.png</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/a829e74a-77e1-4fd5-b73d-20eacef5f65a.png</clearlogo1>
+	<Genre>Fighting</Genre>
+	<Developer>KABAL_MK</Developer>
+	<Publisher>KABAL_MK</Publisher>
+</game>

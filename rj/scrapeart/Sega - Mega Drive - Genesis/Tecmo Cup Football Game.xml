@@ -1,0 +1,13 @@
+<Game>
+	<Name>Tecmo Cup Football Game</Name>
+	<Plot>Tecmo Cup Football Game is a 1992 game for the NES by Tecmo. This was the European name; in America it was called Tecmo Cup Soccer Game. In Japan where the game originated, it was called Captain Tsubasa and was based around the media franchise of the same name. As such, rather than being a straight soccer simulation, Tecmo Cup Football Game takes a more cinematic/RPG-esque approach to the sport, with the actual game being presented cinematicly and moves made by choosing from menus in a limited time. A version under the European name was being programmed for the Sega Mega Drive in 1993; only Sega and Tecmo are listed as involved companies and the programming appears to be unique to this game. The game was not released in any region; the reason why is unknown. A prototype ROM can be found in many ROM sites; it is usually called Tecmo Cup, is listed as being from Japan, and is listed as a bad dump (presumably because the header was hacked out of Twinkle Tale, which does have in common with this game one thing: using the MC68000's line 1111 emulator trap to do common routines, though the actual routines are different). Because the westernized game is still similar to Captain Tsubasa in many ways, it is often pirated by Asian pirates as a genuine Captain Tsubasa game</Plot>
+	<nPlayers>2</nPlayers>
+	<boxart1>http://images.launchbox-app.com/e65ba382-bc61-4f2c-8af5-79234c286f2b.png</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/936cbff7-cbc5-461b-820e-f7f0d7e790aa.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/8245b38f-d9a9-4064-837d-b55f3a77a6bb.jpg</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/effeeec7-a0e8-4384-9287-9eae5484d042.jpg</snapshot2>
+	<WikipediaURL>https://segaretro.org/Tecmo_Cup_Football_Game</WikipediaURL>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Sports</Genre>
+	<Developer>Sega</Developer>
+</game>

@@ -1,0 +1,10 @@
+<Game>
+	<Name>Digital Monster - D-Project (Japan)</Name>
+	<plot>Digital Monsters: D Project is a Role-Playing game, developed by Sting and published by Bandai, which was released in Japan in 2002.</plot>
+	<releasedate>3/8/2002</releasedate>
+	<genre>RPG</genre>
+	<nplayers>1</nplayers>
+	<thegamesdb_id>27702</thegamesdb_id>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/27702-1.jpg</boxart1>
+	<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Bandai%20-%20WonderSwan%20Color/Named_Titles/Digital%20Monster%20-%20D-Project%20(Japan).png</snapshot1>
+</game>

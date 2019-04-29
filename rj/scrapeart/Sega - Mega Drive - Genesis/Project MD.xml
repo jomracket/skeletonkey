@@ -1,0 +1,16 @@
+<Game>
+	<Name>Project MD</Name>
+	<ReleaseDate>2012-01-27T00:00:00-08:00</ReleaseDate>
+	<Plot>Project MD is a new homebrew game for Mega Drive. It's a 2D platformer set in a virtual world. Use the power-ups to get new abilities and reach hidden areas! What is hiding inside this world...? Project MD uses the Echo sound engine. Stephany is a Mega Drive fangirl. She's shy, but also smart. She built a virtual world inside her computer. This virtual world is called "Project MD". This is a day inside that virtual world... Welcome to Project MD. Stephany: the protagonist. She created this virtual world and she lives in it. She thinks real world is boring which is why she made Project MD. Stephany can use power-ups to gain new abilities. Dark Stephany: the antagonist. An evil clone of Stephany. She will try to do everything to stop Stephany. She is very powerful and merciless and will make your life impossible. Foes: these guys roam around Project MD. They will try to annoy Stephany, but they're pretty weak and dumb so they can't cause much damage.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxart1>http://images.launchbox-app.com/809ddaac-1b6c-4ee2-ae26-2978f605439f.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/aa3f8811-dd6f-43b1-978f-ca7550abe9ea.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/49f8d74a-b22a-463e-afc6-c1126746dc6a.jpg</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/fd062a71-6f24-44c5-89e7-0dea1103f04b.jpg</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/14397182-89db-414b-9de5-8974589c16e3.jpg</snapshot3>
+	<snapshot4>http://images.launchbox-app.com/8b004c2b-2f44-48a0-8905-7208866e3193.jpg</snapshot4>
+	<snapshot5>http://images.launchbox-app.com/bff90e01-3578-473f-8e91-da1afae301c7.jpg</snapshot5>
+	<Genre>Action; Platform</Genre>
+	<Developer>Sik</Developer>
+	<Publisher>Sik</Publisher>
+</game>

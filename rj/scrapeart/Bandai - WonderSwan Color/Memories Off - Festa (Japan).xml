@@ -1,0 +1,23 @@
+<Game>
+	<Name>Memories Off - Festa (Japan)</Name>
+	<plot>Overview:Memories Off Festa is an adventure game developed and published by KID Corp. for the WonderSwan Color.</plot>
+	<releasedate>8/3/2001</releasedate>
+	<genre>Adventure</genre>
+	<nplayers>1</nplayers>
+	<thegamesdb_id>27740</thegamesdb_id>
+	<giantbomb_url>http://www.giantbomb.com/memories-off-festa/3030-39239/</giantbomb_url>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/27740-1.jpg</boxart1>
+	<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Bandai%20-%20WonderSwan%20Color/Named_Titles/Memories%20Off%20-%20Festa%20(Japan).png</snapshot1>
+	<snapshot2>http://static.giantbomb.com/uploads/scale_large/9/97089/2286024-3.png</snapshot2>
+	<snapshot3>http://static.giantbomb.com/uploads/scale_large/9/97089/2286023-2.png</snapshot3>
+	<snapshot4>http://static.giantbomb.com/uploads/scale_large/9/97089/2286022-1.png</snapshot4>
+	<Notes>Memories Off Festa is an Adventure game, developed and published by Kid, which was released in Japan in 2001.</Notes>
+	<boxart2>http://images.launchbox-app.com/5b62b4f8-da90-47d2-b625-1c063a5a6072.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/f19e0c1a-5540-4711-bcd3-d22b1a0cfd28.png</clearlogo1>
+	<clearlogo2>http://images.launchbox-app.com/4f9cce80-858c-43f8-bbc1-72c2f353b9d9.png</clearlogo2>
+	<snapshot5>http://images.launchbox-app.com/6e0e7cc3-39ce-4691-855e-bea16ac2b24e.png</snapshot5>
+	<snapshot6>http://images.launchbox-app.com/60343d9f-0f75-42b3-948f-e95fc0ef3b2b.png</snapshot6>
+	<ESRB>Not Rated</ESRB>
+	<Developer>Kid</Developer>
+	<Publisher>KID</Publisher>
+</game>

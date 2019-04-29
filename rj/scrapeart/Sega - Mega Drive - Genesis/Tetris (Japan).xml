@@ -1,0 +1,36 @@
+<Game>
+	<Name>Tetris (Japan)</Name>
+	<plot>Overview:A screenshot from the 1986 MS-DOS version of Tetris.Tetris was originally created by Alexey Pajitnov, who designed and programmed the game in June 1985 while working in the USSR at the Dorodnicyn Computing Centre of the Academy of Science in Moscow. The name Tetris is a portmanteau of the Greek prefix "tetra", which means "four", and Pajitnov's favorite sport, tennis.Gameplay:Tetris challenges the player's spatial relation abilities by presenting them with different shapes made of four square blocks. The blocks are presented one at a time at the top of a rectangular play field, and quickly begin descending toward the bottom. The player can rotate the shapes and move them horizontally as they descend, and if you are able to make a complete horizontal line of blocks, that line will clear from the field. In its original form, Tetris was an endurance test, as the speed of the descending shapes would constantly increase as time went on, and the game would end when the play field filled completely with blocks.Tetris VariantsA number of Tetris variations, both official and otherwise, have been released over the years, including Hatris, Welltris, Super Tetris 2, Tetris Blast and Tetris Attack. Aside from spawning its own spin-offs, Tetris has been highly influential on a large number of puzzle games released in its wake.IP RightsThe rights to Tetris have been greatly disputed over the years. At one point a British software house named Andromeda was going to purchase the rights, but before the deal with Pajitnov was settled, they sold the rights to Spectrum Holobyte. Even though Andromeda's original deal with Pajitnov fell through, Spectrum Holobyte released what was essentially an unlicensed version of Tetris. After that point the rights began bouncing around, with Atari, Nintendo, the Soviet government, and other entities claiming ownership at various points.Additional InformationTetris GiantTetris became even more popular when the game was packaged with the Nintendo Gameboy and helped sell millions of handheld systems.Sega also published a game known as Tetris Giant, the largest licensed Tetris arcade machine.		</plot>
+	<releasedate>23/12/1989</releasedate>
+	<Developer>SEGA Enterprises Ltd.</Developer>
+	<nplayers>1</nplayers>
+	<rating>3.3</rating>
+	<VideoURL>UB4HwwASEmY</VideoURL>
+	<thegamesdb_id>20441</thegamesdb_id>
+	<gamefaqs_url>http://www.gamefaqs.com/genesis/942250-tetris</gamefaqs_url>
+	<mobygames_url>http://www.mobygames.com/game/genesis/tetris____</mobygames_url>
+	<giantbomb_url>http://www.giantbomb.com/tetris/3030-1896/</giantbomb_url>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/20441-1.jpg</boxart1>
+	<boxart2>http://img.gamefaqs.net/box/7/8/0/89780_back.jpg</boxart2>
+	<snapshot1>http://www.mobygames.com/images/shots/l/373317-tetris-genesis-screenshot-title-screen.jpg</snapshot1>
+	<snapshot2>http://www.mobygames.com/images/shots/l/373318-tetris-genesis-screenshot-select-game.jpg</snapshot2>
+	<snapshot3>http://www.mobygames.com/images/shots/l/373319-tetris-genesis-screenshot-select-starting-level-and-other.jpg</snapshot3>
+	<snapshot4>http://www.mobygames.com/images/shots/l/373320-tetris-genesis-screenshot-the-first-block-falling-on-level.jpg</snapshot4>
+	<snapshot5>http://www.mobygames.com/images/shots/l/373321-tetris-genesis-screenshot-i-cleared-some-rows-with-an-item.jpg</snapshot5>
+	<snapshot6>http://www.mobygames.com/images/shots/l/373322-tetris-genesis-screenshot-on-level-2.jpg</snapshot6>
+	<snapshot7>http://www.mobygames.com/images/shots/l/373323-tetris-genesis-screenshot-the-blocks-reached-the-top-game.jpg</snapshot7>
+	<snapshot8>http://img.gamefaqs.net/screens/2/f/c/gfs_93683_1_1.jpg</snapshot8>
+	<snapshot9>http://img.gamefaqs.net/screens/8/6/1/gfs_93683_2_1.jpg</snapshot9>
+	<snapshot10>http://img.gamefaqs.net/screens/2/b/1/gfs_93683_2_2.jpg</snapshot10>
+	<banner1>http://i.imgur.com/4I8KdyB.png</banner1>
+	<Notes>Tetris (テトリス) is a 1988 arcade game developed and published by Sega for Sega System 16 arcade hardware. It is a derivative of an earlier Tetris game, created by Alexey Pajitnov for Soviet Elektronika 60 terminal computers in 1984.</Notes>
+	<VideoURL1>UB4HwwASEmY</VideoURL1>
+	<boxart3>http://images.launchbox-app.com/6a9d3e93-37b9-4436-9311-61cf11bb9ba1.png</boxart3>
+	<clearlogo1>http://images.launchbox-app.com/5fba4ce8-aa8f-4b72-af30-64cead0916e3.png</clearlogo1>
+	<snapshot11>http://images.launchbox-app.com/2de8f2db-7c34-4052-822c-3e2ec4d6a461.png</snapshot11>
+	<snapshot12>http://images.launchbox-app.com/dca1d007-9fcf-4fb0-98bd-49866d37c76f.png</snapshot12>
+	<snapshot13>http://images.launchbox-app.com/1e11e236-d1ce-41b5-8b87-e62d0e7219c3.png</snapshot13>
+	<ESRB>Not Rated</ESRB>
+	<genre>Puzzle</genre>
+	<Publisher>Sega</Publisher>
+</game>

@@ -1,0 +1,32 @@
+<Game>
+	<Name>Blue Wing Blitz (Japan)</Name>
+	<plot>There are six nations living in the world of floating islands. The most powerful one is the Ordia Empire, possessing the best aircrafts in the world. But its leaders were hungry for even more power, and planned to invade and to occupy the other five nations. The other nations tried to maintain diplomatic relationship with the Empire as long as possible. But one of those countries, the Esk Republic, decided to send a special strike team of skillful pilots, attempting to initiate a secret rebellion against the Empire. A young pilot named Keid, guided by his senior partner, the girl Payer, is the one who was chosen for this mission."Blue Wing Blitz" is a turn-based strategy RPG with a twist: instead of fighters or soldier units, you command aircrafts. You navigate your planes over a battle field, which consists of airspaces, in round-based fashion. Once you land on a space occupied by an enemy plane, a battle follows. During those battles you have control over your aircraft, performing various attacks or defending. After several turns, the battle stops, but will resume if the enemy planes are still standing on the same space.</plot>
+	<releasedate>4/7/2001</releasedate>
+	<genre>RPG, Strategy</genre>
+	<Developer>Square Co., Ltd.</Developer>
+	<nplayers>1</nplayers>
+	<rating>2.5</rating>
+	<thegamesdb_id>19544</thegamesdb_id>
+	<mobygames_url>http://www.mobygames.com/game/wonderswan-color/blue-wing-blitz</mobygames_url>
+	<giantbomb_url>http://www.giantbomb.com/blue-wing-blitz/3030-17818/</giantbomb_url>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/19544-1.jpg</boxart1>
+	<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Bandai%20-%20WonderSwan%20Color/Named_Titles/Blue%20Wing%20Blitz%20(Japan).png</snapshot1>
+	<snapshot2>http://www.mobygames.com/images/shots/l/151631-blue-wing-blitz-wonderswan-color-screenshot-title-screen.jpg</snapshot2>
+	<snapshot3>http://www.mobygames.com/images/shots/l/151630-blue-wing-blitz-wonderswan-color-screenshot-wow-a-special.jpg</snapshot3>
+	<snapshot4>http://www.mobygames.com/images/shots/l/151632-blue-wing-blitz-wonderswan-color-screenshot-choosing-a-name.jpg</snapshot4>
+	<snapshot5>http://www.mobygames.com/images/shots/l/151633-blue-wing-blitz-wonderswan-color-screenshot-short-intro-sequence.jpg</snapshot5>
+	<snapshot6>http://www.mobygames.com/images/shots/l/151634-blue-wing-blitz-wonderswan-color-screenshot-beginning-of-the.jpg</snapshot6>
+	<snapshot7>http://www.mobygames.com/images/shots/l/151635-blue-wing-blitz-wonderswan-color-screenshot-vieweing-the-map.jpg</snapshot7>
+	<snapshot8>http://www.mobygames.com/images/shots/l/151636-blue-wing-blitz-wonderswan-color-screenshot-two-planes-meet.jpg</snapshot8>
+	<snapshot9>http://www.mobygames.com/images/shots/l/267065-blue-wing-blitz-wonderswan-color-screenshot-ws-mono-opening.jpg</snapshot9>
+	<snapshot10>http://www.mobygames.com/images/shots/l/267066-blue-wing-blitz-wonderswan-color-screenshot-ws-mono-character.jpg</snapshot10>
+	<clearlogo1>http://thegamesdb.net/banners/clearlogo/19544.png</clearlogo1>
+	<Notes>Blue Wing Blitz is a traditional turn-based tactical role-playing game, although it has the particularity of involving mostly aerial warfare units. These are moved on a grid map, and an encounter with an enemy unit opens a separate, close-up combat screen in which up to two ally units and two enemy units engage in a short dogfight; the player using menu commands to attack, change altitude or take evasive maneuvers.</Notes>
+	<boxart2>http://images.launchbox-app.com/ff78ffe5-0974-458c-8d2b-4ff005fae56a.png</boxart2>
+	<clearlogo2>http://images.launchbox-app.com/465e0e61-df3e-4585-b735-3f89e5bf9345.png</clearlogo2>
+	<clearlogo3>http://images.launchbox-app.com/165199e7-219f-4245-9121-e9f20750d512.png</clearlogo3>
+	<snapshot11>http://images.launchbox-app.com/6b9f69c2-5708-4729-99ee-2c48e6486d7f.png</snapshot11>
+	<snapshot12>http://images.launchbox-app.com/d2a52ec1-b472-4fb4-ba52-9644ad10034e.png</snapshot12>
+	<ESRB>Not Rated</ESRB>
+	<Publisher>Square</Publisher>
+</game>
