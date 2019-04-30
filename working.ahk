@@ -181,10 +181,7 @@ ifnotexist, Settings.ini
 romf= %1%
 
 ;{;;;;;;;;;;;;;;;;;;;;        ===   INITIALIZE   ====         ;;;;;;;;;;;;;;;;;;;;;;;;;
-if (INITIAL = "")
-	{
-		TrayTip, skeletonKey,skeletonKey is loading,,48
-	}
+
 ;{;;;;;;;;;;;;;;;;;;;      GENERATE SETTINGS    ;;;;;;;;;;;;;;;;;;;;;;;;
 for obj in ComObjGet("winmgmts:\\.\root\cimv2").ExecQuery("SELECT OSArchitecture FROM Win32_OperatingSystem")
 artmp :=(obj.OSArchitecture)
@@ -827,7 +824,7 @@ XMBGUIITEMS=XMBGRP|RETALFE|MNUCLRTXT|CLRPICKR|CLRDDL|OVRLBTN|OVRLYTXT|OVRLAY|OVR
 FEGUIITEMS=feBUTA|feBUTB|feBUTC|feBUTG|feBUTD|feBUTE|feBUTF|feBUTH|feBUTI|feBUTJ|feBUTK|feBUTL|feBUTM|fePICA|fePICB|fePICC|fePICD|fePICE|fePICF|fePICG|feCHKD|feCHKE|feCHKF|feCHKG|feCHKH|feCHKI|feCHKJ|feCHKK|feCHKL|feCHKM|feCHKN|feCHKO|feCHKP|feCHKQ|feCHKA|feCHKB|feCHKC|feCBXE|feCBXF|feCBXG|feCBXH|feCBXI|feCBXJ|feCBXA|feCBXB|feCBXC|feCBXD|feDDLE|feDDLF|feDDLG|feDDLH|feDDLI|feLNKA|feLNKB|feDDLC|feDDLD|feDDLA|feDDLB|feEDTA|feEDTB|feEDTC|feEDTD|feEDTE|feEDTF|feEDTG|feEDTI|feUPDA|feEDTH|feUPDB|feLVA|feUPDC|feGRPA|feGRPB|feGRPC|feGRPD|feGRPE|feGRPF|feGRPG|feLBXA|feLBXB|feLVA|feLVB|feLVC|fePRGB|fePRGA|feRad5B|feRad5C|feRad4A|feRad4B|feRad5A|feRad6A|feRad6B|feRad6C|feRad6D|feRad7A|feRad7B|feRad8A|feRad8B|feRad9A|feRad9B|feRad9C|feRad10A|feRad10B|feRad11A|feRad11B|feRad2A|feRad2B|feRad2C|feRad1A|feRad3A|feRad3B|feRad3C|feRad3D|feRad1B|feSLDA|feSLDB|feSLDD|feSLDE|feSLDC|feTXTA|feTXTB|feTXTC|feTXTD|feTXTE|feTXTF|feTXTG|feTXTS|feTXTT|feTXTR|feTXTM|feTXTH|feTXTI|feTXTN|feTXTO|feTXTP|feTXTQ|feTXTJ|feTXTK|feTXTL
 JACKETGUIITEMS=RJSYSRADA|RJSYSRADB|RJSYSRADC|RJSYSLOAD|RJCHKL|RJCHKH|RJCHKM|RJCHKP|RJDELCOMP|RJSYSSAV|RJSYSSAVAS|RJENMAP|RJOVKM|RJMAPDD|RJMAPRET|RJMAPRETOPN|RJMAP1ROFTYPA|RJMAP1ROFTYPB|RJMAP1ROFTYPC|RJMAP1PL|RJMAP1PLOPN|RJMAP2ROFTYPA|RJMAP2ROFTYPB|RJMAP2ROFTYPC|RJMAP2PL|RJMAP2PLOPN|RJENLNCHR|RJLNCHOVR|RJRad4B|RJRad4A|RJEXEB|RJEMUPRECFG|RJEMUPRM|RJCHKQ|RJBUTM|RJCHKK|RJCHKA|RJADDSUBD|RJREMSUBD|RJSUBDCBX|RJSUBDH|RJCNSLDD|RJENCNSLD|RJENXTRARC|RJXTRARCA|RJXTRARCB|RJXTRARCDD|RJRad11A|RJRad11B|RJEDTO|RJDDLF|RJCHKW|RJBUTV|RJBUTG|RJCBXJ|RJDDLP|RJCBXH|RJBUTH|RJENDMNT|RJDMNTDD|RJDIMGET|RJRad8A|RJRad8B|RJENDMOV|RJCHKF|RJCHKO|RJPRECFGCBX|RJADDPRECFG|RJREMPRECFG|RJPOSTCFGCBX|RJADDPOSTCFG|RJREMPOSTCFG|RRJEARGSCBX|RJEMUXTCBX|RJRAD1A|RJRAD1B|RJZJP|RJCHKU|RJCHKT|RJCHKS|RJEOPTSCBX|RJCHKR|RJCHKJ
 UTLGUIITEMS=utlBUTB|utlBUTC|utlBUTG|utlBUTD|utlBUTE|utlBUTF|utlBUTH|utlBUTI|utlBUTJ|utlCHKD|utlCHKE|utlCHKF|utlCHKG|utlCHKH|utlCHKI|utlCHKJ|utlCHKK|utlCHKL|utlCHKM|utlCHKN|utlCHKO|utlCHKP|utlCHKQ|utlCHKA|utlCHKB|utlCHKC|utlCBXE|utlCBXF|utlCBXG|utlCBXH|utlCBXI|utlCBXJ|utlCBXA|utlCBXB|utlCBXC|utlCBXD|utlDDLE|utlDDLF|utlDDLG|utlDDLH|utlDDLI|utlDDLJ|utlDDLC|utlDDLD|utlDDLB|utlEDTA|utlEDTB|utlEDTC|utlEDTD|utlEDTE|utlEDTF|utlEDTG|utlEDTI|utlUPDA|utlEDTH|utlUPDB|utlLVA|utlUPDC|utlGRPA|utlGRPB|utlGRPC|utlGRPD|utlGRPE|utlGRPF|utlGRPG|utlLBXA|utlLBXB|utlLVA|utlLVB|utlLVC|utlPRGB|utlPRGA|utlRad5B|utlRad5C|utlRad4A|utlRad4B|utlRad5A|utlRad6A|utlRad6B|utlRad6C|utlRad6D|utlRad7A|utlRad7B|utlRad8A|utlRad8B|utlRad9A|utlRad9B|utlRad9C|utlRad10A|utlRad10B|utlRad11A|utlRad11B|utlRad2A|utlRad2B|utlRad2C|utlRad1A|utlRad3A|utlRad3B|utlRad3C|utlRad3D|utlRad1B|utlSLDA|utlSLDB|utlSLDD|utlSLDE|utlSLDC|utlTXTA|utlTXTC|utlTXTD|utlTXTE|utlTXTF|utlTXTG|utlTXTS|utlTXTT|utlTXTR|utlTXTM|utlTXTH|utlTXTI|utlTXTN|utlTXTO|utlTXTP|utlTXTQ|utlTXTJ|utlTXTK|utlTXTL
-XMBPLITEMS=DWNLPOS|RECURSE|RECURTX|PLALSYSBUT|PLLISTALL|PLLISTN|PLLISTSORT|RECURTX|RPOPDL|RPOPPL|ROMPOP|PLGBA|PLGBB|PLGBC|PLGBD|CURPLST|APNDTYPGRP|PLAPPND|PLOVR|CRCEnbl|ZIPSEEK|PLCORE|DETECTCORE|SVPLST|PLNAMEDT|OPNPLST|PGCONFG|SVAPLST|CPYPL|PLADPTXT|CLRPP|PLCLRPTXT|BRADD|FENWTXT|REMPL|PLRMVTXT|MVPLOU|MVPLOD|CLRPL|PLCLRTXT|PLINIT|PLDBTXT
+XMBPLITEMS=DWNLPOS|RECURSE|RECURTX|PLALSYSBUT|PLLISTALL|PLLISTN|PLLISTSORT|RECURTX|RPOPDL|RPOPPL|ROMPOP|PLGBA|PLGBB|PLGBC|PLGBD|CURPLST|APNDTYPGRP|PLAPPND|PLOVR|CRCEnbl|ZIPSEEK|PLCORE|DETECTCORE|SVPLST|PLNAMEDT|OPNPLST|PGCONFG|SVAPLST|CPYPL|PLADPTXT|CLRPP|PLCLRPTXT|BRADD|FENWTXT|REMPL|PLRMVTXT|MVPLOU|MVPLOD|CLRPL|PLCLRTXT|PLINIT|PLDBTXT|EXCLBOOL|INCLBOOL|PARSEALL|EXTPARSED|FLTXT|SVASPLST
 ESPLRI=ESBACKUP|ESSVPL|ESPLXMP|ESCPYSCR|ESUSESCR|ESRPOPDL|ESRPOPPL|ESPLCORE|ESRPOPROM|ESROMROOT|ESRRTXT|ESMIRSEL|ESDWNLPOS|ESBOXSRCHBUT|ESBOXCHK|ESMRQCHK|ESTHMBCHK|ESVIDCHK|ESMARQSRCHBUT|ESTHUMBSRCHBUT|ESVIDSRCHBUT
 ESPLSWAP=ESNAMTXT|ESNAMEDT|ESPTHTXT|ESDESCTXT|ESDESCEDT|ESIMGBUT|ESIMGTXT|ESVIDPTHTXT|ESVIDTXT|ESVIDBUT|ESPTHEDT|ESSAVEOPL|ESMARQTXT|ESMARQBUT|ESMARQPTHTXT|ESOPNIMGPTHTXT|ESPUBTXT|ESPUBEDT|ESDEVTXT|ESDEVEDT|ESRATTXT|ESRATSLD|ESRLSDTXT|ESRLSDG|ESGENTXT|ESGENEDT|ESDDPLNUM|ESPLNUMTXT|ESROMPTHBUT|ESROMADDBUT|ESFLDADDBUT|ESKIDG|ESFAV|ESHIDDEN|ESTHMBTXT|ESTHUMBBUT|ESTHUMBP
 ESPLITEMS=ESPLCORE|ESBACKUP|ESSVPL|ESPLXMP|ESOPENPL|ESUSESCR|ESCPYSCR|ESDWNLPOS|ESRPOPDL|ESRPOPPL|ESRPOPROM|ESMIRSEL|ESROMROOT|ESRRTXT|ESBOXSRCHBUT|ESBOXCHK|ESMRQCHK|ESTHMBCHK|ESVIDCHK|ESMARQSRCHBUT|ESTHUMBSRCHBUT|ESVIDSRCHBUT|ESNAMTXT|ESNAMEDT|ESPTHTXT|ESDESCTXT|ESDESCEDT|ESIMGBUT|ESIMGTXT|ESOPNIMGPTHTXT|ESVIDPTHTXT|ESVIDTXT|ESVIDBUT|ESPTHEDT|ESMARQTXT|ESMARQBUT|ESMARQPTHTXT|ESPUBTXT|ESPUBEDT|ESDEVTXT|ESDEVEDT|ESRATTXT|ESRATSLD|ESRLSDTXT|ESRLSDG|ESGENTXT|ESGENEDT|ESDDPLNUM|ESPLNUMTXT|ESROMPTHBUT|ESROMADDBUT|ESFLDADDBUT|ESKIDG|ESFAV|ESHIDDEN|ESTHMBTXT|ESTHUMBBUT|ESTHUMBP
@@ -1326,6 +1323,7 @@ if (INITIAL = "")
 		SplashImageGUI(SplashImage, "Center", "Center", true)
 		Progress, ZX0 ZY0 B w300 CB808080 CWFFFFFF CT808080  WS900 FS11,.Loading skeletonKey.,,skelprg,BebasNeue
 		WinSet, TransColor, White,skelprg
+		WinSet, AlwaysOnTop
 		WinGetPos,,, Width, Height, skelprg
 		WinMove, skelprg,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)-70
 	}
@@ -1830,10 +1828,10 @@ Gui Tab, :=: MAIN :=:
 Gui,Font,Bold
 Gui,Add,Text, cred x18 y4 w53 h15 vCFGSWITCH Center,
 Gui,Font, Normal
-Gui, Add, DropDownList, x125 y0 w291 vRUNSYSDDL gRUNSYSDDL, :=:System List:=:||%initfldrs%
+Gui, Add, DropDownList, x125 y2 w291 vRUNSYSDDL gRUNSYSDDL, :=:System List:=:||%initfldrs%
 Gui, Add, Radio, x18 y4 h16 vRUNPLRAD gRUNPLRAD, Playlist
 Gui, Add, Radio, x72 y4 h16 vRUNFLRAD gRUNFLRAD Checked, Folder
-Gui, Add, ComboBox, x18 y22 w640 vRUNROMCBX gEDTROM +0x2 +E0x5000 Right,
+Gui, Add, ComboBox, x18 y24 w640 vRUNROMCBX gEDTROM +0x2 +E0x5000 Right,
 gui,font,Bold
 Gui Add, Button, x720 y516 w42 h19 vFNDGUI gFndGui,find
 Gui,Font,Normal
@@ -1844,14 +1842,14 @@ Gui, Add, ComboBox, x459 y22 w100 vCUSTMOPTS gCustmOpts hidden, |%INJOPT%
 Gui, Add, ComboBox, x560 y22 w100 vCUSTMARGS gCustmArgs hidden, |%INJARG%
 
 Gui, Add, Button, x418 y0 w41 h21 vGROM gGetROM, ROM
-Gui, Add, DropdownList, x525 y0 w135 hwndRUNCORE vLCORE gLnchCore,
-Gui, Add, DropDownList, x540 y0 w135 vJCORE gRJCORE hidden,
+Gui, Add, DropdownList, x525 y2 w135 hwndRUNCORE vLCORE gLnchCore,
+Gui, Add, DropDownList, x540 y2 w135 vJCORE gRJCORE hidden,
 ;;Gui, Add, DropDownList, x540 y24 w135 vJCORE gRJCORE hidden,
 Gui, Font, Bold
 Gui, Add, Button, x661 y3 w16 h17 vOPNCORE gOpnCore,C
-Gui, Add, Button, x661 y0 w78 h29 vHLNCHBUT gRUNTABHOSTING hidden, HOST
-Gui, Add, Button, x677 y0 w60 h29 vLNCHBUT gLNCH disabled, LAUNCH
-Gui, Add, Button, x737 y0 w25 h29 vRCLLNCH gRCLLNCH,::>
+Gui, Add, Button, x661 y2 w78 h29 vHLNCHBUT gRUNTABHOSTING hidden, HOST
+Gui, Add, Button, x677 y2 w60 h29 vLNCHBUT gLNCH disabled, LAUNCH
+Gui, Add, Button, x737 y2 w25 h29 vRCLLNCH gRCLLNCH,::>
 Gui, Add, Button, x740 y30 w16 h17 vCLRCUROM gCLREDT,X
 gui, font, bold
 Gui, Add, Button, x740 y30 w16 h17 vRETAL gRETAL hidden,>
@@ -1867,7 +1865,7 @@ Gui, Add, Slider, x351 y273 w116 h18 vRaSpdSld gRaSpdSld Range-10-10 hidden,0
 
 ;{;;;;;;;;~~~DISPLAY DRIVER MENU GROUP~~~;;;;;;;;;;;;;
 Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x24 y43 w174 h117 vDDRVGRP hidden, Video-Drivers
+Gui, Add, GroupBox, x24 y46 w174 h117 vDDRVGRP hidden, Video-Drivers
 Gui, Add, Text, x45 y60 h16 +0x200 vDISPDRVTXT hidden, Display Driver
 Gui, Add, Text, x43 y105 h16 +0x200 vGUIDRVTXT hidden, GUI Driver
 Gui,Font,%fontXsm% Norm
@@ -1878,7 +1876,7 @@ Gui Add, DropDownList, x42 y126 w120 vGUIDRV gGUIDRV hidden, XMB||RGUI|OZONE|GLU
 
 ;{;;;;;;;;~~~OUTPUT MENU GROUP~~~;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x215 y43 w97 h133 vOUTMGRP hidden, Output Mode
+Gui, Add, GroupBox, x215 y46 w97 h133 vOUTMGRP hidden, Output Mode
 Gui,Font,%fontXsm% Norm
 Gui, Add, Radio, x227 y62 h16 vOUTFS gFSCRN hidden, FullScreen
 Gui, Add, Radio, x227 y81 h16 vOUTW gWIND Checked hidden, Window
@@ -1893,7 +1891,7 @@ Gui, Add, Slider, x221 y156 w86 h16 Range0-240 vREFSLD gRefSld hidden,
 
 ;{;;;;;;;;~~~AUDIO  MENU GROUP~~~;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x317 y43 w164 h117 vSNDGRP hidden, Audio
+Gui, Add, GroupBox, x317 y46 w164 h117 vSNDGRP hidden, Audio
 Gui, add, Text, x330 y70 vAUDDRVTXT hidden, Driver
 Gui,Font,%fontXsm% Norm
 Gui, Add, DropDownList, x323 y90 w70 vAUDDRV gAUDDRV hidden, xAudio||dSound|SDL2|WASAPI|openal
@@ -1907,7 +1905,7 @@ Gui, Add, CheckBox,x396 y107 h15 vGLBLAUDIO gAudioToggle Checked hidden, Enabled
 
 ;{;;;;;;;;~~~SCALING MENU GROUP~~~;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x485 y43 w269 h162 vSCLGRP hidden, Scaling
+Gui, Add, GroupBox, x485 y46 w269 h162 vSCLGRP hidden, Scaling
 Gui,Font,%fontXsm% Norm
 
 Gui, Add, ComboBox, x491 y61 w55 vVIDSCL gSclVid hidden, 3||1|2|3|4|5|6
@@ -4601,6 +4599,7 @@ SplashImageGUI(Picture, X, Y, Transparent = false)
 		If Transparent
 			{
 				Winset, TransColor, 00000
+				Winset, AlwaysOnTop
 			}
 		Gui, XPT99:Show, x%X% y%Y% NoActivate
 		return
@@ -35494,16 +35493,18 @@ if (fenam = "XMB")
 		xmbtog= show
 		opltog= hide
 		gosub,HideOtherFEPL
+		Loop,Parse,XMBPLITEMS,|
+			{
+				guicontrol,%xmbtog%,%A_LoopField%
+			}
 		guicontrol,hide,EXCLBOOL
 		guicontrol,hide,INCLBOOL
 		guicontrol,hide,PARSEALL
 		guicontrol,hide,EXTPARSED
 		guicontrol,hide,FLTXT
 		guicontrol,hide,SVASPLST
-		Loop,Parse,XMBPLITEMS,|
-			{
-				guicontrol,%xmbtog%,%A_LoopField%
-			}
+		guicontrol,,ROMPOP,|
+		guicontrol,,CURPLST,|
 		return
 	}
 if (fenam = "EmulationStation")
@@ -35601,6 +35602,8 @@ if (fenam = "EmulationStation")
 		guicontrol,%ofetog%,ESMARQSRCHBUT
 		guicontrol,%ofetog%,ESTHUMBSRCHBUT
 		guicontrol,%ofetog%,ESVIDSRCHBUT
+		guicontrol,,ROMPOP,|
+		guicontrol,,CURPLST,|
 		return
 	}
 if (fenam = "Pegasus")
@@ -35701,6 +35704,8 @@ if (fenam = "Pegasus")
 		guicontrol,%ofetog%,PGMARQSRCHBUT
 		guicontrol,%ofetog%,PGTHUMBSRCHBUT
 		guicontrol,%ofetog%,PGVIDSRCHBUT
+		guicontrol,,ROMPOP,|
+		guicontrol,,CURPLST,|
 		return
 	}
 if (fenam = "RetroFE")
@@ -35805,6 +35810,8 @@ if (fenam = "RetroFE")
 		guicontrol,%ofetog%,RFMARQSRCHBUT
 		guicontrol,%ofetog%,RFTHUMBSRCHBUT
 		guicontrol,%ofetog%,RFVIDSRCHBUT
+		guicontrol,,ROMPOP,|
+		guicontrol,,CURPLST,|
 		return
 	}
 return
@@ -67038,7 +67045,7 @@ guicontrol,,ESDWNLPOS,|
 guicontrol,show,ESRRTXT
 guicontrol,show,ESROMROOT
 guicontrol,hide,ESMIRSEL
-guicontrol,,ESDWNLPOS,|%ESPLPLST%
+guicontrol,,ESDWNLPOS,|%ESPLPLST%%systmfldrs%
 stringleft,esptr,ESPLPLST,1
 if (esptr = "|")
 	{
