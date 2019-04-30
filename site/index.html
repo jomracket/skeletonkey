@@ -31,7 +31,8 @@
 						<li><a href="#USE" class='buttonz buttonx'>Usage</a></li>
 						<li><a href="#FRONTENDS" class='buttonz buttonx'>Frontends</a></li>
 						<li><a href="#JOYSTICKS" class='buttonz buttonx'>Joysticks</a></li>
-						<li><a href="#ROMJACKETS" class='buttonz buttonx'>RoM-Jackets</a></li>
+						<li><a href="#ROMJACKETS" class='buttonz buttonx'>RoM-Jackets</a></li>	
+						<li><a href="#REPOSITORY" class='buttonz buttonx'>Repository</a></li>
 						<li><a href="#NETPLAY" class='buttonz buttonx'>Netplay</a></li>
 						<li><a href="#UTILITIES" class='buttonz buttonx'>Utilities</a></li>
 					</ul>
@@ -521,12 +522,15 @@
 				</div>
 			</div>
 			<br>
+				<a id="REPOSITORY"</a>
 			<div id="grad1" align="left">
 				<h2 class='button'>Repository</h2>
 			</div>
 			<div id="outer" align="left">
 				<div id="inner">
-					Remote repositories such as archive.org's ROM libraries can be launched and hosted via this tab. <br>Right-Clicking on a selection of ROMs will allow metadata to be downloaded.<br>The Archive Tab can be used to list, search, download and emulate the ROMs available on remote repositories such as archive.org.<br> This tab is brought forward automatically under certain conditions while connecting to players listed in the netplay tab.
+					Remote repositories such as archive.org's ROM libraries can be launched and hosted via this tab. <br>Right-Clicking on a selection of ROMs will allow metadata to be downloaded.<br>
+					The Archive Tab can be used to list, search, download and emulate the ROMs available on remote repositories.<br> 
+					This tab is brought forward automatically under certain conditions while connecting to players listed in the netplay tab.
 					<h4><a>Repository Options</a></h4>
 					<p>Options to download into a ROM-Jacket, manual overrides and extraction settings for compressed files can be combined in many ways to create custom libraries.<br>Right-Clicking on the emu/core dropdown will allow the ROM to be configured for the selected emulator/core.</p>
 					<p>Enabling the &quot;Download Only&quot; option will allow multiple files to be selected and queued.<br>
@@ -1318,28 +1322,7 @@ main {
 	max-width: 70em;
 }
 
-.buttonz {
-	font-family: "Muli";
-	font-weight: bold;
-	font-size: 18px;
-	color: #000;
-	text-align: Left;
-	text-shadow: -1px -2px 2px #949494, 1px -1px 1px #fff;
-	text-rendering: optimizeLegibility;
-	-webkit-transition-duration: 0.4s;
-	transition-duration: 0.4s;
-}
 
-.buttonx:hover {
-	text-shadow: 1px 2px -2px #ffffff, -1px 1px -1px #000000;
-	color: #ffffff;
-	border-radius: 7px;
-	-webkit-transition-duration: 0.4s;
-	transition-duration: 0.4s;
-	text-rendering: optimizeLegibility;
-}
-
-	
 .button {
 	background-color: #B3B3B3;
 	font-family: "Muli";
@@ -1556,7 +1539,7 @@ input[type=radio]:checked+label::after {
 	padding-left: 10px;
 	padding-right: 38px;
 	right: -100px;
-	background: rgba(128, 128, 128, 0.7);
+	background: rgba(75, 75, 75, 0.7);
 	-moz-border-radius: 5px 5px 5px 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px 5px 5px 5px;
@@ -1568,17 +1551,38 @@ input[type=radio]:checked+label::after {
 }
 
 #menu li {
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: bolder;
 	padding: 5% 5%;
-	text-shadow: 1px -1px 1px white;
+	text-shadow: 1px -1px 1px black;
 }
 
 #menuToggle input:checked~ul {
 	transform: scale(1.0, 1.0);
 	opacity: 1;
 }
+.buttonz {
+	font-family: "Muli";
+	font-weight: bold;
+	font-size: 16px;
+	color: white;
+	text-align: Left;
+	text-shadow: -1px -2px 2px #949494, 1px -1px 1px #B3B3B3;
+	text-rendering: optimizeLegibility;
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+}
 
+.buttonx:hover {
+	text-shadow: 1px 2px -2px #B3B3B3, -1px 1px -1px #000000;
+	color: blue;
+	border-radius: 7px;
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+	text-rendering: optimizeLegibility;
+}
+
+	
 @media screen and (max-width:680px) {
 	ul.topnav li:not(:first-child) {
 		display: none;

@@ -1,0 +1,10 @@
+<Game>
+	<Name>Super Bioman I</Name>
+	<ReleaseDate>1992-12-01T00:00:00-08:00</ReleaseDate>
+	<Plot>Super Bio Man 1 is an unlicensed game which is similar to the Super Boy series, a Mario clone. Instead of using graphics ripped from Super Mario Bros. 3, the game uses sprites loosely based off of the character sprites in SMB3.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxart1>http://images.launchbox-app.com/4ec6e49b-af59-4f9f-aa4b-96364a842160.jpg</boxart1>
+	<Genre>Platform</Genre>
+	<Developer>Hello Soft</Developer>
+	<Publisher>HiCom</Publisher>
+</game>

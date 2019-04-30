@@ -1,0 +1,23 @@
+<Game>
+	<Name>The Lion King</Name>
+	<ReleaseDate>1994-01-01T00:00:00-08:00</ReleaseDate>
+	<Plot>The game is a side-scrolling platform game, with the controlled character having to leap, climb, run and descend from platform to platform. There is an exception during the level The Stampede, where Simba is running towards (or in the NES and Game Boy versions, running with the camera looking straight down on top of him) the camera dodging wildebeest and leaping over rocks.</Plot>
+	<nPlayers>1</nPlayers>
+	<banner1>http://images.launchbox-app.com/a6873e5b-55d2-4c05-8ccc-975a524a57ca.jpg</banner1>
+	<1>http://images.launchbox-app.com/087284bf-662e-46f7-a9ed-3d6e4d57df66.png</1>
+	<boxback1>http://images.launchbox-app.com/e6a30ddf-40a6-437b-be5a-3110f20559b5.jpg</boxback1>
+	<boxback2>http://images.launchbox-app.com/b4b3cd30-867b-4cb5-a038-fb5b61aeb723.jpg</boxback2>
+	<boxart1>http://images.launchbox-app.com/89e7772a-6374-48d9-b864-4dac37f422e0.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/7acb83f6-03d2-430d-b244-7f327331e783.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/0cd9526a-5835-445e-aac2-602c2f6c9faf.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/e7466a64-7d7c-4185-879e-5158a3f0f8a1.jpg</fanart1>
+	<fanart2>http://images.launchbox-app.com/87bad9c0-b4bf-4a41-b1cb-33b2c2ede439.jpg</fanart2>
+	<fanart3>http://images.launchbox-app.com/f2d16ee4-8199-4314-a24b-3153a6e412a4.jpg</fanart3>
+	<fanart4>http://images.launchbox-app.com/b692345d-88d3-4414-b4ed-d3fe31011b1b.jpg</fanart4>
+	<snapshot1>http://images.launchbox-app.com/f0cfc63f-3451-469f-af5f-ff7fba4a01c8.PNG</snapshot1>
+	<Rating>3.5</Rating>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Adventure; Platform</Genre>
+	<Developer>Virgin Interactive</Developer>
+	<Publisher>Sega</Publisher>
+</game>

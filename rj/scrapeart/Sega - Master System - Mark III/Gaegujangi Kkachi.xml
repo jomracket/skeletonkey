@@ -1,0 +1,16 @@
+<Game>
+	<Name>Gaegujangi Kkachi</Name>
+	<ReleaseDate>1993-08-21T00:00:00-07:00</ReleaseDate>
+	<Plot>Licensed to the Lee Hyunse manhwa and animated series, Gaegujangi Kkachi is a stock "character" platformer. All it really shares with the cartoon are the main characters, and even they don't look quite the same. The game resembles Alex Kidd in Miracle World quite a bit. Kkachi has to retrieve six keys from six stages that are selectable from the beginning. Enemies are either beaten by slapping them or by using limited special moves. There are random items (garlic, fruit, etc.) lying or floating around throughout the levels that amount to money, which can be used in stores to buy items. After each (mostly uninspired) bossfight, Kkachi gets also a special weapon only usable against bosses. Unfortunately the mechanic is broken and only the first weapon ever gained can be used, and even that only once throughout the entire game.</Plot>
+	<nPlayers>1</nPlayers>
+	<1>http://images.launchbox-app.com/c9ff8d45-12ff-4e8c-8d55-d5702cf52144.png</1>
+	<boxback1>http://images.launchbox-app.com/70397ee7-e190-4fad-af1e-4f1cae3cea92.png</boxback1>
+	<boxart1>http://images.launchbox-app.com/9568c27a-4ebe-4de7-bf83-f56c83b9637e.png</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/ad2f88d4-2216-4557-9fb2-6fefab87640c.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/ed5227a1-711b-4daf-95d4-e6187b87cacf.png</snapshot1>
+	<WikipediaURL>https://segaretro.org/Gaegujangi_Kkachi</WikipediaURL>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Platform</Genre>
+	<Developer>HiCom</Developer>
+	<Publisher>HiCom</Publisher>
+</game>

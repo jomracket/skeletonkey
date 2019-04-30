@@ -1,0 +1,18 @@
+<Game>
+	<Name>The Terminator</Name>
+	<ReleaseDate>1992-08-01T00:00:00-07:00</ReleaseDate>
+	<Plot>Kyle Reese, a lone warrior from the future, returns to the past to protect the one woman who holds the key to the survival of the human race. Together they must face not only everything Los Angeles has to throw at them, but also the terrifying might of a cyborg known as the Terminator... who will stop at nothing to kill them both.</Plot>
+	<nPlayers>1</nPlayers>
+	<1>http://images.launchbox-app.com/992529c6-13cb-459b-b758-b2c83f9548c9.png</1>
+	<boxback1>http://images.launchbox-app.com/6bb78b76-f3be-4bec-8cc9-e62a1e20bff2.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/e7e98aaa-afd2-4e3c-b56c-aab2253257a1.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/8d20f278-f80b-4605-ad52-0f2393a9d263.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/da72c47d-b60c-4b79-8004-0d14a91eb99d.jpg</fanart1>
+	<fanart2>http://images.launchbox-app.com/152d4062-2aac-40cf-ad2d-f088fc7e3441.jpg</fanart2>
+	<snapshot1>http://images.launchbox-app.com/5ad6002a-290b-4671-9951-125afed8a106.jpg</snapshot1>
+	<Rating>5</Rating>
+	<ESRB>M - Mature</ESRB>
+	<Genre>Action; Platform</Genre>
+	<Developer>Probe Software</Developer>
+	<Publisher>Virgin</Publisher>
+</game>

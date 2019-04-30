@@ -1,0 +1,31 @@
+<Game>
+	<Name>Golfamania (Europe) (Beta)</Name>
+	<plot>Golfamania is a golfing simulation game where players play on an 18 hole golf course with all the rules and scoring like in the real game.Within the game there are 4 different modes to play on that includes Practice, Match Play, Stroke Play, and Pro Tournament. In Practice a single player can play any of the 18 holes available. Match Play is 2 player mode against human or computer. Stroke Play is the player can play up to 4 others that can include 1 computer player. In this mode the character skill can increase in 3 different areas that are power, accuracy, and luck with the 6 different characters available. The main mode is the Pro Tournament and it is where the player plays against over 30 computer players (all playing different holes) with the objective to score lower than the other players (as per the rules of golf). Based on performance the player can earn experience points (XP) that they can use to upgrade the power, accuracy, and luck of the character for future tournaments. Some of the holes have awards like longest drive and hole in one awards that can earn bonus XP.     Regardless of the mode the game is played in the same sort of way. The player selects a character (the selection depends on the mode) and then sets up the character by naming and picking their style.  In all modes but Practice the player must pick 3 golf clubs that they must remove from their selection of 17 different clubs (1-5 wood, 1-9 Iron, Pitching Wedge, Sand Wedge, and Putter). When playing the player is presented with a top down view where the player lines up the shot and the location on the golf ball they want to hit (for spin). Then the player selects the club they want to use (all go varying distances). When that is all done the player must play the skill part of the game, where they are presented with a power bar that has a marker that going is up and down along it. The player must stop the marker on the red area in the centre of the power bar to get a good hit (with the center been a perfect hit)and if this area is missed the ball will only travel about 20 yards (compared to about 100+ yards of a good hit). The amount of red that is on the power bar depends on the golf club used. To help the player the distance of the shot can be lowered in exchange for a lower marker speed and can be used for shots closer to the hole (very helpful for putter shots). The game uses battery backed RAM save to continue play later.Cheat: Take a MulliganAfter playing a bad stroke, and when the words ''In the Rough'' appear on the screen, press the Resest button to take the same shot again.</plot>
+	<releasedate>1/6/1990</releasedate>
+	<genre>Sports</genre>
+	<Developer>SEGA Enterprises Ltd.</Developer>
+	<nplayers>1-4 Sim</nplayers>
+	<VideoURL>v2F5RM98UeA</VideoURL>
+	<thegamesdb_id>2801</thegamesdb_id>
+	<gamefaqs_url>http://www.gamefaqs.com/sms/588076-golfamania</gamefaqs_url>
+	<mobygames_url>http://www.mobygames.com/game/sega-master-system/golfamania</mobygames_url>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/2801-1.jpg</boxart1>
+	<boxback1>http://www.mobygames.com/images/covers/l/256537-golfamania-sega-master-system-back-cover.jpg</boxback1>
+	<media>http://www.mobygames.com/images/covers/l/256538-golfamania-sega-master-system-media.jpg</media>
+	<snapshot1>http://www.mobygames.com/images/shots/l/349533-golfamania-sega-master-system-screenshot-title-screen.jpg</snapshot1>
+	<snapshot2>http://www.mobygames.com/images/shots/l/348870-golfamania-sega-master-system-screenshot-main-menu.jpg</snapshot2>
+	<snapshot3>http://www.mobygames.com/images/shots/l/348871-golfamania-sega-master-system-screenshot-selecting-a-player.jpg</snapshot3>
+	<snapshot4>http://www.mobygames.com/images/shots/l/348872-golfamania-sega-master-system-screenshot-selecting-a-player.jpg</snapshot4>
+	<snapshot5>http://www.mobygames.com/images/shots/l/348873-golfamania-sega-master-system-screenshot-setting-up-my-character.jpg</snapshot5>
+	<snapshot6>http://www.mobygames.com/images/shots/l/348874-golfamania-sega-master-system-screenshot-the-start-of-a-new.jpg</snapshot6>
+	<snapshot7>http://www.mobygames.com/images/shots/l/348875-golfamania-sega-master-system-screenshot-lining-up-the-shot.jpg</snapshot7>
+	<snapshot8>http://www.mobygames.com/images/shots/l/348876-golfamania-sega-master-system-screenshot-waiting-for-the-ideal.jpg</snapshot8>
+	<snapshot9>http://www.mobygames.com/images/shots/l/348877-golfamania-sega-master-system-screenshot-it-hits-the-green.jpg</snapshot9>
+	<snapshot10>http://www.mobygames.com/images/shots/l/348878-golfamania-sega-master-system-screenshot-so-the-ball-lands.jpg</snapshot10>
+	<Notes>You'll need sharp eyes, a smooth swing, and perfect judgment if you're going to master Golfamania. Out on the links you'll have to consider the distance, the wind, the lie of the ball, where to hit the ball and which club to use. Then watch that power meter and swing for the pin!</Notes>
+	<boxart2>http://images.launchbox-app.com/b13d821a-8db9-47fa-b743-47186f622b9c.jpg</boxart2>
+	<boxart3>http://images.launchbox-app.com/d28da756-9dc4-4f51-a63a-036ffdc50ffc.png</boxart3>
+	<clearlogo1>http://images.launchbox-app.com/0dca0ef1-b006-486e-87bf-77a54cb5e948.png</clearlogo1>
+	<snapshot11>http://images.launchbox-app.com/2dea14e8-1cfa-4648-8de8-2a08973f268b.PNG</snapshot11>
+	<Publisher>Sega</Publisher>
+</game>

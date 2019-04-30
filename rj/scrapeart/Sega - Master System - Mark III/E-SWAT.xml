@@ -1,0 +1,23 @@
+<Game>
+	<Name>E-SWAT</Name>
+	<ReleaseDate>1990-09-01T00:00:00-07:00</ReleaseDate>
+	<Plot>E-SWAT is a horizontal-scrolling beat 'em up where you have to make your way from left to right and defeat a mastermind. There are 15 stages to complete that have you patrolling through Liberty streets, car yards, stadiums, restaurants, the CBD, construction sites, and boat docks. While you're out on patrol, you can pick up ammunition, and the amount you get varies. For example, on some levels, ammo may be worth 10 bullets, while in others, you may get 60 bullets. Once you have obtained the cyber-suit, you wear it for the duration of the game.</Plot>
+	<nPlayers>2</nPlayers>
+	<banner1>http://images.launchbox-app.com/3c0ce878-e10b-47aa-a9cb-909c6471d923.jpg</banner1>
+	<1>http://images.launchbox-app.com/5b047016-fb64-4d13-b6c5-65a4464a8795.png</1>
+	<boxback1>http://images.launchbox-app.com/73219749-c313-4d9f-817f-31f90bc611e3.jpg</boxback1>
+	<boxback2>http://images.launchbox-app.com/7e4b8676-3b6e-4825-9287-735a92babbf2.jpg</boxback2>
+	<boxback3>http://images.launchbox-app.com/6b15fe6f-9c13-4a2d-b9ee-5352a59cd5be.jpg</boxback3>
+	<boxart1>http://images.launchbox-app.com/3700c333-dac8-4c61-b33f-d6f2ce97e5bf.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/5856ca42-1d44-45a5-8e93-b0584e292fea.jpg</boxart2>
+	<boxart3>http://images.launchbox-app.com/2a58378e-0e5a-4808-a3a2-891ceebb2639.jpg</boxart3>
+	<clearlogo1>http://images.launchbox-app.com/a1611e82-7f13-4863-a98b-47e0e6d521e6.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/99d08e8c-eeb0-40f9-bf3c-290f7b35b412.PNG</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/4325f554-38cf-4cef-89e2-c6ddfcbd82d0.png</snapshot2>
+	<Rating>4</Rating>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Cyber_Police_ESWAT</WikipediaURL>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Action; Shooter</Genre>
+	<Developer>Sega</Developer>
+	<Publisher>Sega</Publisher>
+</game>

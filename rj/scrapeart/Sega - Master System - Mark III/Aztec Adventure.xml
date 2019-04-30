@@ -1,0 +1,22 @@
+<Game>
+	<Name>Aztec Adventure</Name>
+	<ReleaseDate>1987-09-20T00:00:00-07:00</ReleaseDate>
+	<Plot>Gameplay involves the player trying to reach Paradise by exploring ten different lands, including desert, marshes, ruins, underground waterways, and forest. While exploring you can collect weapons, by destroying plants. A variety of in-game weapons can be found, some more powerful than others. Some weapons can be used against bosses, which can take a certain amount of hits from the player's default weapon, unless he has companions. The player's companions need to be hired with gold, and until he pays them they remain your enemies. Players must either bribe them or battle them to make them join his quest.</Plot>
+	<nPlayers>1</nPlayers>
+	<banner1>http://images.launchbox-app.com/d2df124f-77a3-4658-86df-7b24dbbf41a7.jpg</banner1>
+	<1>http://images.launchbox-app.com/e25dc595-1a60-4d11-ab60-068b13f3eb6c.png</1>
+	<boxback1>http://images.launchbox-app.com/b449c1f0-fc35-4b0b-96bd-f5b5555a0ccb.jpg</boxback1>
+	<boxback2>http://images.launchbox-app.com/137ce8ef-c52e-4a21-a36a-95e6382bfe1c.jpg</boxback2>
+	<boxart1>http://images.launchbox-app.com/9b6de620-9e75-435f-9448-c8f2e705ca0f.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/0dc73962-7ad7-489e-b842-eb1ac1193d23.jpg</boxart2>
+	<boxart3>http://images.launchbox-app.com/d68ed719-b96d-45bf-ba20-a61de02b06d5.jpg</boxart3>
+	<clearlogo1>http://images.launchbox-app.com/a8b64e88-05d3-4866-811f-a2ec782f22ea.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/679d4def-10f1-46e3-8fff-366797103238.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/1ddd41dd-8ea4-4a87-b333-db8f094e6dde.png</snapshot2>
+	<Rating>4</Rating>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Aztec_Adventure</WikipediaURL>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Strategy</Genre>
+	<Developer>Sega</Developer>
+	<Publisher>Sega</Publisher>
+</game>

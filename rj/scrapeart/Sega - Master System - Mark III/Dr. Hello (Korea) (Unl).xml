@@ -1,0 +1,15 @@
+<Game>
+	<Name>Dr. Hello (Korea) (Unl)</Name>
+	<releasedate>31/12/1991</releasedate>
+	<giantbomb_url>http://www.giantbomb.com/dr-hello/3030-43592/</giantbomb_url>
+	<boxart1>http://static.giantbomb.com/uploads/scale_large/16/164924/2531373-dr.png</boxart1>
+	<Plot>Unlicensed Dr. Mario clone developed for the MSX and ported to the Sega Master System. It was developed in South Korea by a company known as "Sis Co." in 1991, without the backing from either Sega or Nintendo. The game uses a completely different set of graphics and music to Dr. Mario, but the gameplay is exactly the same. Despite being released on a Master System cartridge, the Master System version runs in SG-1000 mode, and hence appears to have weaker graphics than most other Master System games. This is likely because the MSX and SG-1000 share similar specifications, and porting from one system to another was not too difficult</Plot>
+	<nPlayers>2</nPlayers>
+	<VideoURL1>l4Cy51EAUys</VideoURL1>
+	<boxart2>http://images.launchbox-app.com/cc1630bd-f112-4111-9b78-cf5a8f1d3a4e.png</boxart2>
+	<snapshot1>http://images.launchbox-app.com/06483729-e87e-4f96-bd98-38bf78856451.png</snapshot1>
+	<ESRB>Not Rated</ESRB>
+	<genre>Puzzle</genre>
+	<Developer>Sis Co.</Developer>
+	<Publisher>Sis Co.</Publisher>
+</game>

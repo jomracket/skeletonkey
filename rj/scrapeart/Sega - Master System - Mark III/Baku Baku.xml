@@ -1,0 +1,17 @@
+<Game>
+	<Name>Baku Baku</Name>
+	<ReleaseDate>1998-10-15T00:00:00-07:00</ReleaseDate>
+	<Plot>Baku Baku Animal is a variation on the very often copied Tetris type of game. The game has three different play modes: practice, normal and hard.  The objective is to pair animal heads with their respective food. If a rabbit head comes falling, you must make it fall on a pile of carrot tiles, dog heads with bones, panda heads with bamboos and monkey heads with bananas. There is a bonus item, the "BB coin", which will appear from times to times, and remove piled tiles from the playfield. Removed tiles will be sent to the opponent's playfield all at once, increasing the difficulty of the task. Polly will face several contestants, and she'll win when her opponents get their playfield piled to the top.</Plot>
+	<nPlayers>1</nPlayers>
+	<1>http://images.launchbox-app.com/be34dbf5-6981-42f1-852a-8c5bd839acf6.png</1>
+	<boxback1>http://images.launchbox-app.com/52d7e1a3-b1dd-4d23-9e50-a9d8b6b3f5fc.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/cd769834-bc6e-4516-87dc-7f0ff347ccd1.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/986e7ff0-c7ef-4e6c-b646-5d1cee8f7ccf.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/b2753af1-862b-4938-b397-4c6dda99dc76.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/c49677e1-f9d4-4a51-8bd3-9d5c0098104e.png</snapshot2>
+	<Rating>1</Rating>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Baku_Baku_Animal</WikipediaURL>
+	<Genre>Puzzle</Genre>
+	<Developer>Minato Giken</Developer>
+	<Publisher>Tec Toy</Publisher>
+</game>

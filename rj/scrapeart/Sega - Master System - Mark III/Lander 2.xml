@@ -1,0 +1,13 @@
+<Game>
+	<Name>Lander 2</Name>
+	<ReleaseDate>2015-03-27T00:00:00-07:00</ReleaseDate>
+	<Plot>Developed by Jmimu, with similarities to Lunar Lander the purpose of the game is to make your rocket land safely on landing areas (horizontal with red dots) without using all your fuel. This is done by thrusting your ship into the right direction by using specific buttons on the joypad. Be warned though if you thrust too hard your ship will be uncontrollable and you'll end up smashing into many tiny pieces.</Plot>
+	<nPlayers>1</nPlayers>
+	<1>http://images.launchbox-app.com/977c3f56-8222-436e-829c-9e18e27225db.png</1>
+	<boxback1>http://images.launchbox-app.com/4616c1b1-d56a-409e-b174-9577e0c940f9.png</boxback1>
+	<boxart1>http://images.launchbox-app.com/9e506a13-9e1a-40a1-bcb0-462b79cd5f05.png</boxart1>
+	<media1>http://images.launchbox-app.com/78c3e724-0b10-4da6-aff9-67b63227e3a3.png</media1>
+	<clearlogo1>http://images.launchbox-app.com/da93b1bb-cada-473c-9e2e-51c43a9bc489.png</clearlogo1>
+	<Genre>Action; Flight Simulator</Genre>
+	<Developer>Jmimu</Developer>
+</game>
