@@ -24,6 +24,8 @@ Gui,Font, Normal
 Gui Add, Text, x10 y168 w120 h13, Drag'n Drop supported
 TrayTip, skeletonKey, Welcome to skeletonKey`nPlease take a moment to setup your locations,,48
 Gui, Show, w274 h188, Window
+guicontrolget,RJEMUF,,intrmemu
+guicontrolget,RJSYSTEMS,,intrmsys
 ifexist,%rjsyst%\
 	{
 		ifexist,%rjemut%\
@@ -125,14 +127,14 @@ if (efi = ":\")
 		RJSYSTEMF= %RJSYSTEMFR%
 		ifmsgbox,no
 			{
-				RJSYSTEMF= %RJSYSDRV%
+				RJSYSTEMF= %efix%
 			}
 		ifmsgbox,cancel
 			{
 				RJSYSTSL= 
 				goto, SETJKR
 			}
-		ifnotexist, %RJSYSTEMF%
+		ifnotexist, %RJSYSTEMF%\
 			{
 				filecreatedir,%RJSYSTEMF%
 					if (ERRORLEVEL <> 0)
@@ -213,7 +215,8 @@ if (RJEMUF = "")
 emuselected:
 splitpath,RJEMUF,usremum
 stringright,efi,RJEMUF,2	
-if ((efi = ":\") or (usremum = A_Username))
+stringLeft,efix,RJEMUF,2	
+if (usremum = A_Username)
 	{
 		SFEvb= Create an
 		ifexist,%RJEMUF%\Emulators
@@ -232,7 +235,7 @@ if ((efi = ":\") or (usremum = A_Username))
 				EMUTSL= 
 				goto, SETEMUR
 			}
-		ifnotexist,%RJEMUF%	
+		ifnotexist,%RJEMUF%\
 			{
 				filecreatedir,%RJEMUF%
 				if (ERRORLEVEL <> 0)
@@ -249,7 +252,11 @@ if ((efi = ":\") or (usremum = A_Username))
 						ExitApp
 					}
 			}
-	}	
+	}
+if (efi = ":\")
+	{
+		RJEMUF= %efix%
+	}
 fileappend,f,%RJEMUF%\sk
 if (ERRORLEVEL <> 0)
 	{
@@ -279,14 +286,24 @@ if ((RJEMUF = "") or (RJSYSTEMS = ""))
 	{
 		msgbox,,Not Set,An Emulator Directory and a Systems Directory Must be set to continue
 		return
-	}
+	}	
 ifnotexist,%RJEMUF%
 	{
 		filecreatedir,%RJEMUF%
+		if (ERRORLEVEL <> 0)
+			{
+				SB_SetText("Cannot create directory")
+				return
+			}
 	}
 ifnotexist,%RJSYSTEMS%
 	{
 		filecreatedir,%RJSYSTEMS%
+		if (ERRORLEVEL <> 0)
+			{
+				SB_SetText("Cannot create directory")
+				return
+			}
 	}
 IniWrite, "%RJEMUF%",Settings.ini,GLOBAL,emulators_directory
 IniWrite, "%RJSYSTEMS%",Settings.ini,GLOBAL,systems_directory

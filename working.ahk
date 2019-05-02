@@ -2045,7 +2045,7 @@ Gui, Add, CheckBox,x352 y476 h23 vAUO gAutoOverride hidden, Auto-Overrides
 
 ;{;;;;;;;;~~~SEARCH MENU GROUP~~~;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x487 y203 w268 h299 Right vSRCHGRP, SEARCH
+Gui, Add, GroupBox, x487 y203 w268 h306 Right vSRCHGRP, SEARCH
 Gui,Font,%fontXsm% Norm
 
 Gui, Add, ListBox, x491 y277 w261 h232 HWNDlocalromp +HScroll1500 Multi vSRCHROMLBX gSRCHROMLBX hidden,
@@ -7231,17 +7231,17 @@ if (RJSYSTEMF = "")
 	{
 		return
 	}
+stringright,efi,RJSYSTEMF,2
+stringLeft,efix,RJSYSTEMF,2
 ifnotexist,SystemLocations.ini
 	{
 		filecopy,sets\SystemLocations.set,SystemLocations.ini,1
 	}
-stringright,efi,RJSYSTEMF,2
-stringLeft,efix,RJSYSTEMF,2
 if (efi = ":\")
 	{
 		RJSYSDRV= %RJSYSTEMF%
 		RJSYSTEMF= %efix%
-		RJSYSTEMFX= %RJSYSTEMF%Console
+		RJSYSTEMFX= %RJSYSDRV%Console
 	}
 splitpath,RJSYSTEMFX,pthnm
 if (pthnm = A_Username)
@@ -7297,11 +7297,6 @@ if (nask = "")
 						RJSYSTEMFR= %RJSYSTEMF%\Console
 					}
 				Msgbox,8196,Confirm,%SFEvb% Console directory?
-				RJSYSTEMF= %RJSYSTEMFR%
-				ifmsgbox,no
-					{
-						RJSYSTEMF= %RJSYSDRV%
-					}
 				ifmsgbox,cancel
 					{
 						RJSYSTSL=
@@ -7309,7 +7304,6 @@ if (nask = "")
 					}
 
 			}
-
 		Msgbox,8196,Confirm,You have selected ''%RJSYSTEMF%''`nAre you sure you would like to use this directory?
 		ifmsgbox,no
 			{
@@ -7534,6 +7528,7 @@ if (RJEMUF = "")
 		return
 	}
 stringright,efi,RJEMUF,2
+stringLeft,efix,RJEMUF,2
 
 if (efi = ":\")
 	{
@@ -7543,11 +7538,12 @@ if (efi = ":\")
 				SFEvb= Use the
 			}
 		RJSDRV= %RJEMUF%
-		RJEMUF= %RJEMUF%Emulators
+		RJEMUF= %efix%
+		RJEMUFX= %RJSDRV%Emulators
 		Msgbox,8196,Confirm,Confirm %SFEvb% Emulator directory?
-		ifmsgbox,no
+		ifmsgbox,yes
 			{
-				RJEMUF= %RJSDRV%
+				RJEMUF= %RJEMUFX%
 			}
 		ifmsgbox,cancel
 			{
@@ -7762,6 +7758,12 @@ pltry+=1
 FileSelectFolder,playlistloctmp,*%pltmp%,3,Playlist Location
 if (playlistloctmp <> "")
 	{
+		stringLeft,efix,playlistloctmp,2
+		stringright,efi,playlistloctmp,2
+		if (efi = ":\")
+			{
+				playlistloctmp= %efix%
+			}
 		playlistloc= %playlistloctmp%
 		SB_SetText(" Playlist location set to " playlistloc " ")
 		guicontrol,,playlisttxt,%playlistloc%
@@ -7786,6 +7788,12 @@ cachetry+=1
 FileSelectFolder,cacheloctmp,*%pltmp%,3,Temp Location
 if (cacheloctmp <> "")
 	{
+		stringright,efi,cacheloctmp,2
+		stringLeft,efix,cacheloctmp,2
+		if (efi = ":\")
+			{
+				cacheloctmp= %efix%
+			}
 		cacheloc= %cacheloctmp%
 		SB_SetText(" Temp location set to " cacheloc " ")
 		guicontrol,,tmpdispl,%cacheloc%
@@ -9702,6 +9710,12 @@ if (xtractmul = "")
 	{
 		return
 	}
+	stringright,efi,xtractmul,2
+	stringLeft,efix,xtractmul,2
+	if (efi = ":\")
+		{
+			xtractmul= %efix%
+		}
 guicontrolget,selfnd,,INSTEMUDDL
 xtractmu= %xtractmul%\%selfnd%
 
@@ -10440,7 +10454,7 @@ Loop, Parse,UrlIndex,`n`r
 				ifnotexist, %save%
 					{
 						rjintr= x
-						msgbox,0,, %urloc1%`n''%URLFILE%`n'' was not downloaded, 20
+						msgbox,0,, %urloc1%`n''%URLFILE%''`n was not downloaded, 20
 						GuiControl, Enable, EAVAIL
 						GuiControl, Enable, UAVAIL
 						GuiControl, Enable, AVAIL
@@ -12239,6 +12253,13 @@ if (ROMDFLDR = "")
 	{
 		return
 	}
+
+stringright,efi,ROMDFLDR,2
+stringLeft,efix,ROMDFLDR,2
+if (efi = ":\")
+	{
+		ROMDFLDR= %efix%
+	}	
 MULTI_LINKLOOP:
 guicontrolget,EAVAIL,,EAVAIL
 Loop, Parse, EAVAIL,|
@@ -12256,6 +12277,12 @@ if (ROMDFLDR = "")
 		SB_SetText("No folder selected")
 		return
 	}
+stringright,efi,ROMDFLDR,2
+stringLeft,efix,ROMDFLDR,2
+if (efi = ":\")
+	{
+		ROMDFLDR= %efix%
+	}	
 RomDLocM:
 IniRead,kiv,SystemLocations.ini,LOCATIONS,%semu%
 ifinstring,kiv,%ROMDFLDR%|
@@ -12927,6 +12954,13 @@ if FldrSel=
 	{
 		return
 	}
+	
+stringright,efi,FldrSel,2
+stringLeft,efix,FldrSel,2
+if (efi = ":\")
+	{
+		FldrSel= %efix%
+	}	
 SB_SetText(" " LOCDIR "= " FldrSel " ")
 stringreplace,LOCDNX,LOCDIR,_,,All
 %LOCDNX%= %FldrSel%
@@ -27096,6 +27130,13 @@ if (raexeloctmp = "")
 	{
 		raexeloctmp= %RJEMUD%
 	}
+
+stringright,efi,raexeloctmp,2
+stringLeft,efix,raexeloctmp,2
+if (efi = ":\")
+	{
+		raexeloctmp= %efix%
+	}		
 locfnd= 1
 ranmt=
 REINPUTRA:
@@ -31991,6 +32032,9 @@ ifexist, Assignments.ini
 								FileCopy,sets\Assignments.set, Assignments.ini,1
 								FileDelete,Apps.ini
 								farvr=
+							}
+							else {
+								return
 							}
 					}
 			}
@@ -38657,6 +38701,13 @@ if (OVDFLDR = "")
 	{
 		return
 	}
+
+stringright,efi,OVDFLDR,2
+stringLeft,efix,OVDFLDR,2
+if (efi = ":\")
+	{
+		OVDFLDR= %efix%
+	}		
 guicontrol,,OVDCHK,1
 guicontrol,enable,OVDLDS
 guicontrol,enable,SETOVD
@@ -43791,6 +43842,12 @@ if (NWMPTH = "")
 	{
 		return
 	}
+stringright,efi,NWMPTH,2
+stringLeft,efix,NWMPTH,2
+if (efi = ":\")
+	{
+		NWMPTH= %efix%
+	}		
 guicontrolget,emuDDLA,,emuDDLA
 iniwrite,%NWMPTH%,%snes9xcfgloc%,Settings\Win\Files,%emuddla%
 guicontrol,,emuedta,%nwmpth%
@@ -51105,6 +51162,12 @@ if (NWMPTH = "")
 	{
 		return
 	}
+stringright,efi,NWMPTH,2
+stringLeft,efix,NWMPTH,2
+if (efi = ":\")
+	{
+		NWMPTH= %efix%
+	}		
 guicontrolget,emuDDLA,,emuDDLA
 guicontrolget,emuEDTA,,emuEDTA
 MAME_%emuddla%= %emuedta%;%nwmpth%
@@ -51118,6 +51181,12 @@ FileSelectFolder,NWMDIR,,3,Add A Path
 if (NWMDIR = "")
 	{
 		return
+	}
+stringright,efi,NWMDIR,2
+stringLeft,efix,NWMDIR,2
+if (efi = ":\")
+	{
+		NWMDIR= %efix%
 	}
 guicontrolget,emuDDLB,,emuDDLB
 guicontrolget,emuEDTB,,emuEDTB
@@ -56193,6 +56262,12 @@ if (selctsystmp = "")
 	{
 		return
 	}
+stringright,efi,selctsystmp,2
+stringLeft,efix,selctsystmp,2
+if (efi = ":\")
+	{
+		selctsystmp= %efix%
+	}
 selctsys= %selctsystmp%
 guicontrol,,FETXTJ,%selctsys%
 extpop=
@@ -57591,6 +57666,12 @@ if (PGROOTFLDTMP = "")
 	{
 		return
 	}
+stringright,efi,PGROOTFLDTMP,2
+stringLeft,efix,PGROOTFLDTMP,2
+if (efi = ":\")
+	{
+		PGROOTFLDTMP= %efix%
+	}
 PGROOTFLD= %PGROOTFLDTMP%
 SB_SetText("Current ROM folder is set to " PGROOTFLD "")
 guicontrol,,PGRRTXT, ROM Directory is SET
@@ -58329,6 +58410,13 @@ if (PGMARQUEEPATHTMP = "")
 			}
 		return
 	}
+
+stringright,efi,PGMARQUEEPATHTMP,2
+stringLeft,efix,PGMARQUEEPATHTMP,2
+if (efi = ":\")
+	{
+		PGMARQUEEPATHTMP= %efix%
+	}	
 PGMARQUEEPATH= %PGMARQUEEPATHTMP%
 SB_SetText("Marquee path set to " PGMARQUEEPATH " ")
 guicontrol,,PGMRQCHK,1
@@ -58354,6 +58442,12 @@ if (PGVIDEOPATHTMP = "")
 			}
 		return
 	}
+stringright,efi,PGVIDEOPATHTMP,2
+stringLeft,efix,PGVIDEOPATHTMP,2
+if (efi = ":\")
+	{
+		PGVIDEOPATHTMP= %efix%
+	}	
 PGVIDEOPATH= %PGVIDEOPATHTMP%
 SB_SetText("VIDEO path set to " PGVIDEOPATH " ")
 guicontrol,,PGVIDCHK,1
@@ -58378,6 +58472,12 @@ if (PGTHUMBNAILPATHTMP = "")
 			}
 		return
 	}
+stringright,efi,PGTHUMBNAILPATHTMP,2
+stringLeft,efix,PGTHUMBNAILPATHTMP,2
+if (efi = ":\")
+	{
+		PGTHUMBNAILPATHTMP= %efix%
+	}	
 PGTHUMBNAILPATH= %PGTHUMBNAILPATHTMP%
 SB_SetText("Thumbnails path set to " PGTHUMBNAILPATH " ")
 guicontrol,,PGTHMBCHK,1
@@ -58402,6 +58502,12 @@ if (PGBOXPATHTMP = "")
 			}
 		return
 	}
+stringright,efi,PGBOXPATHTMP,2
+stringLeft,efix,PGBOXPATHTMP,2
+if (efi = ":\")
+	{
+		PGBOXPATHTMP= %efix%
+	}	
 PGBOXPATH= %PGBOXPATHTMP%
 SB_SetText("Box-Art path set to " PGBOXPATH " ")
 guicontrol,,PGBOXCHK,1
@@ -59420,6 +59526,12 @@ if (PGTHTMP = "")
 		presel=
 		goto, PGFLDRSEL
 	}
+stringright,efi,PGTHTMP,2
+stringLeft,efix,PGTHTMP,2
+if (efi = ":\")
+	{
+		PGTHTMP= %efix%
+	}	
 pgperpath= %PGTHTMP%
 splitpath,pgperpath,,,,pgpepnam
 ifnotinstring,syssub,%pgperpnam%
@@ -59529,6 +59641,12 @@ if (PGTHTMP = "")
 	{
 		return
 	}
+stringright,efi,PGTHTMP,2
+stringLeft,efix,PGTHTMP,2
+if (efi = ":\")
+	{
+		PGTHTMP= %efix%
+	}	
 pgpepath= %PGTHTMP%
 PGREPL=
 Loop, Parse, PGGAMP,`n`r
@@ -60286,6 +60404,12 @@ if (selctsystmp = "")
 	{
 		return
 	}
+stringright,efi,selctsystmp,2
+stringLeft,efix,selctsystmp,2
+if (efi = ":\")
+	{
+		selctsystmp= %efix%
+	}	
 selctsys= %selctsystmp%
 guicontrol,,FETXTJ,%selctsys%
 extpop=
@@ -61751,6 +61875,12 @@ if (RFROOTFLDTMP = "")
 	{
 		return
 	}
+stringright,efi,RFROOTFLDTMP,2
+stringLeft,efix,RFROOTFLDTMP,2
+if (efi = ":\")
+	{
+		RFROOTFLDTMP= %efix%
+	}	
 RFROOTFLD= %RFROOTFLDTMP%
 SB_SetText("Current ROM folder is set to " RFROOTFLD "")
 guicontrol,,RFRRTXT, ROM Directory is SET
@@ -62512,6 +62642,12 @@ if (RFMARQUEEPATHTMP = "")
 			}
 		return
 	}
+stringright,efi,RFMARQUEEPATHTMP,2
+stringLeft,efix,RFMARQUEEPATHTMP,2
+if (efi = ":\")
+	{
+		RFMARQUEEPATHTMP= %efix%
+	}	
 RFMARQUEEPATH= %RFMARQUEEPATHTMP%
 SB_SetText("Marquee path set to " RFMARQUEEPATH " ")
 guicontrol,,RFMRQCHK,1
@@ -62537,6 +62673,12 @@ if (RFVIDEOPATHTMP = "")
 			}
 		return
 	}
+stringright,efi,RFVIDEOPATHTMP,2
+stringLeft,efix,RFVIDEOPATHTMP,2
+if (efi = ":\")
+	{
+		RFVIDEOPATHTMP= %efix%
+	}	
 RFVIDEOPATH= %RFVIDEOPATHTMP%
 SB_SetText("VIDEO path set to " RFVIDEOPATH " ")
 guicontrol,,RFVIDCHK,1
@@ -62561,6 +62703,12 @@ if (RFTHUMBNAILPATHTMP = "")
 			}
 		return
 	}
+stringright,efi,RFTHUMBNAILPATHTMP,2
+stringLeft,efix,RFTHUMBNAILPATHTMP,2
+if (efi = ":\")
+	{
+		RFTHUMBNAILPATHTMP= %efix%
+	}	
 RFTHUMBNAILPATH= %RFTHUMBNAILPATHTMP%
 SB_SetText("Thumbnails path set to " RFTHUMBNAILPATH " ")
 guicontrol,,RFTHMBCHK,1
@@ -62585,6 +62733,12 @@ if (RFBOXPATHTMP = "")
 			}
 		return
 	}
+stringright,efi,RFBOXPATHTMP,2
+stringLeft,efix,RFBOXPATHTMP,2
+if (efi = ":\")
+	{
+		RFBOXPATHTMP= %efix%
+	}	
 RFBOXPATH= %RFBOXPATHTMP%
 SB_SetText("Box-Art path set to " RFBOXPATH " ")
 guicontrol,,RFBOXCHK,1
@@ -63698,6 +63852,12 @@ if (RFTHTMP = "")
 		presel=
 		goto, RFFLDRSEL
 	}
+stringright,efi,RFTHTMP,2
+stringLeft,efix,RFTHTMP,2
+if (efi = ":\")
+	{
+		RFTHTMP= %efix%
+	}	
 rfperpath= %RFTHTMP%
 splitpath,rfperpath,,,,rfpepnam
 ifnotinstring,syssub,%rfperpnam%
@@ -63807,6 +63967,12 @@ if (RFTHTMP = "")
 	{
 		return
 	}
+stringright,efi,RFTHTMP,2
+stringLeft,efix,RFTHTMP,2
+if (efi = ":\")
+	{
+		RFTHTMP= %efix%
+	}	
 rfpepath= %RFTHTMP%
 RFREPL=
 Loop, Parse, RFGAMP,`n`r
@@ -64567,6 +64733,12 @@ if (selctsystmp = "")
 	{
 		return
 	}
+stringright,efi,selctsystmp,2
+stringLeft,efix,selctsystmp,2
+if (efi = ":\")
+	{
+		selctsystmp= %efix%
+	}	
 selctsys= %selctsystmp%
 guicontrol,,FETXTJ,%selctsys%
 extpop=
@@ -66069,6 +66241,12 @@ if (ESROOTFLDTMP = "")
 	{
 		return
 	}
+stringright,efi,ESROOTFLDTMP,2
+stringLeft,efix,ESROOTFLDTMP,2
+if (efi = ":\")
+	{
+		ESROOTFLDTMP= %efix%
+	}	
 ESROOTFLD= %ESROOTFLDTMP%
 SB_SetText("Current ROM folder is set to " ESROOTFLD "")
 guicontrol,,ESRRTXT, ROM Directory is SET
@@ -66836,6 +67014,12 @@ if (ESMARQUEEPATHTMP = "")
 			}
 		return
 	}
+stringright,efi,ESMARQUEEPATHTMP,2
+stringLeft,efix,ESMARQUEEPATHTMP,2
+if (efi = ":\")
+	{
+		ESMARQUEEPATHTMP= %efix%
+	}	
 ESMARQUEEPATH= %ESMARQUEEPATHTMP%
 SB_SetText("Marquee path set to " ESMARQUEEPATH " ")
 guicontrol,,ESMRQCHK,1
@@ -66861,6 +67045,12 @@ if (ESVIDEOPATHTMP = "")
 			}
 		return
 	}
+stringright,efi,ESVIDEOPATHTMP,2
+stringLeft,efix,ESVIDEOPATHTMP,2
+if (efi = ":\")
+	{
+		ESVIDEOPATHTMP= %efix%
+	}	
 ESVIDEOPATH= %ESVIDEOPATHTMP%
 SB_SetText("VIDEO path set to " ESVIDEOPATH " ")
 guicontrol,,ESVIDCHK,1
@@ -66885,6 +67075,12 @@ if (ESTHUMBNAILPATHTMP = "")
 			}
 		return
 	}
+stringright,efi,ESTHUMBNAILPATHTMP,2
+stringLeft,efix,ESTHUMBNAILPATHTMP,2
+if (efi = ":\")
+	{
+		ESTHUMBNAILPATHTMP= %efix%
+	}	
 ESTHUMBNAILPATH= %ESTHUMBNAILPATHTMP%
 SB_SetText("Thumbnails path set to " ESTHUMBNAILPATH " ")
 guicontrol,,ESTHMBCHK,1
@@ -66909,6 +67105,12 @@ if (ESBOXPATHTMP = "")
 			}
 		return
 	}
+stringright,efi,ESBOXPATHTMP,2
+stringLeft,efix,ESBOXPATHTMP,2
+if (efi = ":\")
+	{
+		ESBOXPATHTMP= %efix%
+	}	
 ESBOXPATH= %ESBOXPATHTMP%
 SB_SetText("Box-Art path set to " ESBOXPATH " ")
 guicontrol,,ESBOXCHK,1
@@ -68057,6 +68259,12 @@ if (ESTHTMP = "")
 		presel=
 		goto, ESFLDRSEL
 	}
+stringright,efi,ESTHTMP,2
+stringLeft,efix,ESTHTMP,2
+if (efi = ":\")
+	{
+		ESTHTMP= %efix%
+	}	
 esperpath= %ESTHTMP%
 splitpath,esperpath,,,,espepnam
 ifnotinstring,syssub,%esperpnam%
@@ -68166,6 +68374,12 @@ if (ESTHTMP = "")
 	{
 		return
 	}
+stringright,efi,ESTHTMP,2
+stringLeft,efix,ESTHTMP,2
+if (efi = ":\")
+	{
+		ESTHTMP= %efix%
+	}	
 espepath= %ESTHTMP%
 ESREPL=
 Loop, Parse, ESGAMP,`n`r
@@ -68385,6 +68599,12 @@ if (NWMIRLOCT = "")
 	{
 		return
 	}
+stringright,efi,NWMIRLOCT,2
+stringLeft,efix,NWMIRLOCT,2
+if (efi = ":\")
+	{
+		NWMIRLOCT= %efix%
+	}	
 mirnum=
 MIRDDLOC=
 Loop, Read, Settings.ini
@@ -68967,6 +69187,12 @@ if (MRNTMP = "")
 		ainc+= 1
 		goto, mirlocrst
 	}
+stringright,efi,MRNTMP,2
+stringLeft,efix,MRNTMP,2
+if (efi = ":\")
+	{
+		MRNTMP= %efix%
+	}	
 mirnvl1=
 mirnvl2=
 stringsplit,mirnvl,MIRSLV,_
@@ -68996,6 +69222,12 @@ if (ICNTMP = "")
 		ainc+= 1
 		goto, icolocrst
 	}
+stringright,efi,ICNTMP,2
+stringLeft,efix,ICNTMP,2
+if (efi = ":\")
+	{
+		ICNTMP= %efix%
+	}	
 mirnvl1=
 mirnvl2=
 stringsplit,mirnvl,MIRSLV,_
@@ -69440,6 +69672,12 @@ if (FEDDLC = "Other")
 			{
 				return
 			}
+		stringright,efi,BXTMP,2
+		stringLeft,efix,BXTMP,2
+		if (efi = ":\")
+			{
+				BXTMP= %efix%
+			}	
 		Guicontrolget,FEDDLC,,FEDDLB
 		mirnvl1=
 		mirnvl2=
@@ -72415,6 +72653,12 @@ if (ESROMMEDPTHTMP = "")
 	{
 		return
 	}
+stringright,efi,ESROMMEDPTHTMP,2
+stringLeft,efix,ESROMMEDPTHTMP,2
+if (efi = ":\")
+	{
+		ESROMMEDPTHTMP= %efix%
+	}	
 ESROMMEDPTH= %ESROMMEDPTHTMP%
 Loop, Parse, cslst,|
 	{
@@ -85077,6 +85321,12 @@ if (skeloc = "")
 	{
 		goto, QUITOUT
 	}
+stringright,efi,skeloc,2
+stringLeft,efix,skeloc,2
+if (efi = ":\")
+	{
+		skeloc= %efix%
+	}	
 guicontrol,,DisplSkTXT, %skeloc%
 return
 
