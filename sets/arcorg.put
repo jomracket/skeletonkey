@@ -9,7 +9,7 @@ UPDATEFILE=[UPDATEFILE]
 
 [SOURCES]
 Archive=http://archive.org/download
-Archive:SET=[REPOSRC]/Archive/Archive.7z
+Archive:SET=[REPOSRC]/ARCHIVE/Archive.7z
 the-eye=https://the-eye.eu/public/rom
 the-eye:SET=[REPOSRC]/THE-EYE/THE-EYE.7z
 

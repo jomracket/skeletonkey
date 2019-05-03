@@ -269,13 +269,6 @@ If (raexeloc = "")
 	{
 		gosub, NORA
 	}
-iniread,EULA,Settings.ini,Global,EULA
-EULAOPT= disabled
-if (EULA = 1)
-	{
-		EULAOPT= 
-		AUTOBBUT= show
-	}
 IniRead,playlistloctmp,Settings.ini,GLOBAL,playlist_location
 If (playlistloctmp <> "ERROR")
 	{
@@ -404,6 +397,7 @@ if (ARCSRC = "ERROR")
 		iniwrite, "", Settings.ini,GLOBAL,RemoteRepository
 		ArcSiteN= ""
 	}
+	
 /*
 if (ArcSiteN = "")
 	{
@@ -434,8 +428,8 @@ Loop,gam\*,2
 		ifinstring,ARCSRCS,A_LoopFilename
 			{
 				continue
-			}
-		ARCSRCS.= A_LoopFileName
+			}	
+		ARCSRCS.= A_LoopFileName . "|"
 	}
 sort,ARCSRCS	
 GAMSRCS= gam\%ARCSRC%
@@ -445,6 +439,13 @@ if (LNCHPT <> 1)
 	{
 		LNCHPRIO=
 		LNCHPT= 0
+	}
+iniread,EULA,Settings.ini,Global,%arcSRC%_EULA
+EULAOPT= disabled
+if (EULA = 1)
+	{
+		EULAOPT= 
+		AUTOBBUT= show
 	}
 
 AUTOPGSIO=
@@ -3332,7 +3333,7 @@ Gui,Font,%fontXsm% Normal
 Gui, Add, Checkbox, x18 y11 w25 vENHAK gENHAK +0x200,+hacks
 Gui, Add, Checkbox, x26 y28 w25 vMAMESWCHK gMAMESWCHK,MAME
 Gui, Add, DropDownList, x84 y20 w260 vARCSYS gArchiveSystems, Select a System||%syslist%
-Gui, Add, DropDownList, x26 y48 w136 vARCCORES gArcCores, Select_a_Core||%runlist%
+Gui, Add, DropDownList, x26 y48 w136 vARCCORES gArcCores, Emu_Preset||%runlist%
 
 Gui, Add, Checkbox, x169 y47 h10 vREDWN gReDownload, Redownload
 Gui, Add, CheckBox, x169 y61 h13 vDOWNONLY gDownOnly, Download Only
@@ -31073,7 +31074,7 @@ Loop, Parse, semu,|
 						guicontrol,,LCORE,|%runlist%
 						guicontrol,,EMPRDDL,|Emulators||%runlist%
 						guicontrol,,PLCORE,|%runlist%
-						guicontrol,,ARCCORES,|Select_a_Core||%runlist%
+						guicontrol,,ARCCORES,|Emu_Preset||%runlist%
 						guicontrol,,JOYCORE,|Antimicro||Xpadder|%supgui%|%corelist%
 					}
 			;;}
@@ -37696,16 +37697,16 @@ if ((urlaloc = "ERROR") or (urlaloc = ""))
 		return
 	}
 splitpath,urlaloc,urlalocf,,urlaext
-iniread,EULA,Settings.ini,Global,EULA
-filecopy,sets\archiveeula.set,tmp.htm
+iniread,EULA,Settings.ini,Global,%urltxt%_EULA
+filecopy,sets\%urltxt%eula.set,tmp.htm,1
 if (EULA <> 1)
 	{
 		ARCEULA=file:///%A_ScriptDir%\tmp.htm
-		Options := "Buttons=Yes/No, HtmW=700, HtmH=550, BDefault=2, BEsc=2,Title=Click_Yes_to_Agree, DlgTopmost=1,DlgStyle="
+		Options := "Buttons=I Agree/Decline, HtmW=700, HtmH=550, BDefault=2, BEsc=2,Title=Archive.org_EULA, DlgTopmost=1,DlgStyle="
 		viSel := HtmDlg( ARCEULA, "taskbar", Options )
 		if (visel <> 1)
 			{
-				Msgbox,8449,Click Yes to Agree,You Must Click Yes to Agree to the terms and use archive.org's repositories.
+				Msgbox,8449,Agree,You Must Click I Agree and accept the terms to enable and use repositories.
 				ifmsgbox,OK
 					{
 						goto,AltURLGet
@@ -37718,7 +37719,7 @@ filedelete,tmp.htm
 AUTOBBUT= show
 guicontrol,enable,AUTOBIOS
 EULA= 1
-iniwrite,1,Settings.ini,Global,EULA
+iniwrite,1,Settings.ini,Global,%urltxt%_EULA
 save= %cacheloc%\%UrlTxt%.%urlaext%
 DownloadFile(urlaloc, save, True, True)
 ifnotexist, %save%
@@ -37761,7 +37762,7 @@ if (ArcSitex = "")
 	}
 SB_SetText("")
 	
-ifnotinstring,ArcSiteN,%ARCSRC%|
+ifnotinstring,ARCSRCS,%ArcSiteN%|
 	{
 		ArcSRCS.= ArcSiteN . "|"
 	}
@@ -38440,7 +38441,7 @@ guicontrolget,ARCSYS,,ARCSYS
 EXTRSYS= %ARCSYS%
 if (ARCSYS = "Select a System")
 	{
-		guicontrol,,ARCCORES,|Select_a_Core||%runlist%
+		guicontrol,,ARCCORES,|Emu_Preset||%runlist%
 		guicontrol,,SRCHDDL,|All||%sysddllist%
 		guicontrol,,ARCPOP,|
 		return
@@ -85163,7 +85164,7 @@ if (runltmp = "|")
 guicontrol,,JCORE,|%runlist%
 guicontrol,,LCORE,|%runlist%
 guicontrol,,EMPRDDL,|Emulators|%runlist%
-guicontrol,,ARCCORES,|Select_a_Core||%runlist%
+guicontrol,,ARCCORES,|Emu_Preset||%runlist%
 guicontrol,,PLCORE,|%lastcore%||%runlist%
 guicontrol,,ASCORE,|%corelist%
 guicontrol,,JOYCORE,|Antimicro||Xpadder|%supgui%|%corelist%
