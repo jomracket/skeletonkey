@@ -3052,6 +3052,7 @@ StringReplace,arcorgv,arcorgv,[HOSTINGURL],%REPOURL%,All
 StringReplace,arcorgv,arcorgv,[LOBBY],%NLOB%,All
 StringReplace,arcorgv,arcorgv,[SHADERHOST],%SHDRPURL%,All
 StringReplace,arcorgv,arcorgv,[SOURCEHOST],%UPDTURL%,All
+StringReplace,arcorgv,arcorgv,[REPOSRC],https://github.com/%gituser%/skeletonKey/releases/download/,All
 StringReplace,arcorgv,arcorgv,[IPLK],%GETIPADR%,All
 StringReplace,arcorgv,arcorgv,[CURV],%vernum%,All
 FileAppend,%skthemes%,%SKELD%\sets\themes.set
@@ -3096,8 +3097,9 @@ if (OvrStable = 1)
 if (INITINCL = 1)
 	{
 			exprt= 
-			exprt.= "FileCreateDir, gam\Archive\MAME - Systems" . "`n"
-			exprt.= "FileCreateDir, gam\THE-EYE" . "`n"
+			;;exprt.= "FileCreateDir, gam\Archive\MAME - Systems" . "`n"
+			;;exprt.= "FileCreateDir, gam\THE-EYE" . "`n"
+			exprt.= "FileCreateDir, gam" . "`n"
 			exprt.= "FileCreateDir, img" . "`n"
 			exprt.= "FileCreateDir, site" . "`n"
 			exprt.= "FileCreateDir, sets" . "`n"
@@ -3192,6 +3194,7 @@ if (INITINCL = 1)
 					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
 					exprt.= "FileInstall," . ain . "," . ain . ",1" . "`n"
 				}
+			/*	
 			Loop, files, %SKELD%\gam\Archive\MAME - Systems\*.gam,R
 				{
 					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
@@ -3207,6 +3210,7 @@ if (INITINCL = 1)
 					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
 					exprt.= "FileInstall," . ain . "," . ain . ",1" . "`n"
 				}
+			*/	
 			Loop, files, %SKELD%\rj\emucfgs\*.*,R
 				{
 					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
@@ -3252,6 +3256,7 @@ if (INITINCL = 1)
 			exprt.= "FileInstall, src\tf.ahk,src\tf.ahk,1" . "`n"	
 			exprt.= "FileInstall, src\lbex.ahk,src\lbex.ahk,1" . "`n"	
 			exprt.= "FileInstall, src\LVA.ahk,src\LVA.ahk,1" . "`n"	
+			exprt.= "FileInstall, src\HtmlDlg.ahk,src\HtmlDlg.ahk,1" . "`n"	
 			exprt.= "FileInstall, src\AHKSock.ahk,src\AHKSock.ahk,1" . "`n"
 			exprt.= "FileInstall, Readme.md,Readme.md,1" . "`n"
 			FileDelete,%SKELD%\sets\ExeRec.set
@@ -3360,7 +3365,7 @@ guicontrol,,progb,20
 
 if (DATBLD = 1)
 	{		
-		SB_SetText(" Recompiling Database ")
+		SB_SetText(" Recompiling Databases ")
 		FileDelete, %DEPL%\DATFILES.7z
 		Loop, %GITD%\rj\scrapeArt\*.7z
 			{
@@ -3368,6 +3373,12 @@ if (DATBLD = 1)
 				runwait, %comspec% cmd /c " "%BUILDIR%\bin\7za.exe" a -t7z "DATFILES.7z" "%A_LoopFileFullPath%" >>"%DEPL%\deploy.log"",%DEPL%,%rntp%
 				RunWait, %comspec% cmd /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%	
 			}
+		Loop, %GITD%\gam,2
+			{
+				RunWait, %comspec% cmd /c echo.##################  CREATE GAMFILES  ######################## >>"%DEPL%\deploy.log", ,%rntp%	
+				runwait, %comspec% cmd /c " "%BUILDIR%\bin\7za.exe" a -t7z "%A_LoopFileName%.7z" "%A_LoopFileFullPath%" >>"%DEPL%\deploy.log"",%DEPL%,%rntp%
+				RunWait, %comspec% cmd /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%	
+			}	
 	}
 
 FileGetSize,dbsize,%DEPL%\DATFILES.7z,K
@@ -3514,6 +3525,7 @@ if (GitPush = 1)
 		FileAppend, copy /y "src\BSL.ahk" "%GITD%\src"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "src\lbex.ahk" "%GITD%\src"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "src\LVA.ahk" "%GITD%\src"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, copy /y "src\HtmlDlg.ahk" "%GITD%\src"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "src\tf.ahk" "%GITD%\src"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "src\AHKsock.ahk" "%GITD%\src"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "src\SKey-Deploy.ahk" "%GITD%\src"`n,%SKELD%\!gitupdate.cmd
@@ -3625,6 +3637,14 @@ if (ServerPush = 1)
 						FileAppend, "%GITRLS%" delete -r skeletonkey -t DATFILES`n,%DEPL%\gpush.cmd
 						FileAppend, "%GITRLS%" release -r skeletonkey -t DATFILES`n,%DEPL%\gpush.cmd
 						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t DATFILES -l "DATFILES" -n DATFILES.7z -f "%DEPL%\DATFILES.7z"`n,%DEPL%\gpush.cmd
+
+						FileAppend, "%GITRLS%" delete -r skeletonkey -t ARCHIVE`n,%DEPL%\gpush.cmd
+						FileAppend, "%GITRLS%" release -r skeletonkey -t ARCHIVE`n,%DEPL%\gpush.cmd
+						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t ARCHIVE -l "ARCHIVE" -n Archive.7z -f "%DEPL%\Archive.7z"`n,%DEPL%\gpush.cmd
+
+						FileAppend, "%GITRLS%" delete -r skeletonkey -t THE-EYE`n,%DEPL%\gpush.cmd
+						FileAppend, "%GITRLS%" release -r skeletonkey -t THE-EYE`n,%DEPL%\gpush.cmd
+						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t THE-EYE -l "THE-EYE" -n THE-EYE.7z -f "%DEPL%\THE-EYE.7z"`n,%DEPL%\gpush.cmd
 					}
 			}
 		if (OvrStable = 1)

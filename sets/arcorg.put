@@ -9,7 +9,9 @@ UPDATEFILE=[UPDATEFILE]
 
 [SOURCES]
 Archive=http://archive.org/download
+Archive:SET=[REPOSRC]/Archive/Archive.7z
 the-eye=https://the-eye.eu/public/rom
+the-eye:SET=[REPOSRC]/THE-EYE/THE-EYE.7z
 
 [REPOSITORIES]
 Acorn - Electron=Acorn_Electronic_TOSEC_2012_04_23/Acorn_Electronic_TOSEC_2012_04_23.zip/

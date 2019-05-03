@@ -16,6 +16,7 @@ RASTABLE= 1.7.6
 #Include src\tf.ahk
 #Include src\lbex.ahk
 #Include src\LVA.ahk
+#Include src\HtmlDlg.ahk
 #Include src\AHKsock.ahk
 /*  ;;[DEBUGOV]
 #Include src\LV_InCellEdit.ahk
@@ -268,7 +269,13 @@ If (raexeloc = "")
 	{
 		gosub, NORA
 	}
-
+iniread,EULA,Settings.ini,	
+EULAOPT= hidden disabled
+if (EULA = 1)
+	{
+		EULAOPT= 
+		AUTOBBUT= show
+	}
 IniRead,playlistloctmp,Settings.ini,GLOBAL,playlist_location
 If (playlistloctmp <> "ERROR")
 	{
@@ -380,7 +387,7 @@ MIRDISP:= "Mirror=" . CMIRLOC . "`n`r" . "Icons=" . CICOLOC . "`n`r" . "Boxart="
 IniRead, lastcore, Settings.ini,GLOBAL,last_core
 splitpath, lastcore, coreselv,,,
 IniRead, romf, Settings.ini,GLOBAL,last_rom
-IniRead,ArcSite,Settings.ini,GLOBAL,RemoteRepository
+IniRead,ARCSRC,Settings.ini,GLOBAL,RemoteRepository
 INIREAD,cloudloc,%ARCORG%,GLOBAL,CLOUDLOC
 iniread,FILT_UNSUP,Settings.ini,GLOBAL,global_filter
 if (FILT_UNSUP = "ERROR")
@@ -391,24 +398,19 @@ filtmrk= checked
 if (FILT_UNSUP = 0)
 		{
 			filtmrk=
-		}
-if (ArcSite = "ERROR")
+		}		
+if (ARCSRC = "ERROR")
 	{
-		iniwrite, "%cloudloc%", Settings.ini,GLOBAL,RemoteRepository
-		ArcSite:= cloudloc
+		iniwrite, "", Settings.ini,GLOBAL,RemoteRepository
+		ArcSiteN= ""
 	}
-if (ArcSite = "")
+/*
+if (ArcSiteN = "")
 	{
-		ArcSite:= cloudloc
-		iniwrite, "%ArcSite%", Settings.ini,GLOBAL,RemoteRepository
+		ArcSiteN:= cloudloc
+		iniwrite, "%ArcSiteN%", Settings.ini,GLOBAL,RemoteRepository
 	}
-
-stringsplit,cloudv,arcsite,./,:
-ARCSRC= %cloudv3%
-if (ARCSRC = "www")
-	{
-		ARCSRC= %cloudv4%
-	}
+*/
 IniRead,ArcSRCv,%ARCORG%,SOURCES,
 Loop,Parse,Arcsrcv,`n`r
 	{
@@ -416,10 +418,26 @@ Loop,Parse,Arcsrcv,`n`r
 			{
 				continue
 			}
-		stringsplit,ARCSRCx,A_LoopField,=,"
+		stringsplit,ARCSRCx,A_LoopField,:=,"
 		;"
-		ARCSRCS.= ARCSRCx1 . "|"
+		if (A_index = 1)
+			{
+				ARCSRC= %ARCSRCx1%
+			}
+		ifnotinstring,ARCSRCS,%ARCSRCx1%
+			{
+				ARCSRCS.= ARCSRCx1 . "|"
+			}
 	}
+Loop,gam\*,2
+	{
+		ifinstring,ARCSRCS,A_LoopFilename
+			{
+				continue
+			}
+		ARCSRCS.= A_LoopFileName
+	}
+sort,ARCSRCS	
 GAMSRCS= gam\%ARCSRC%
 LNCHPRIO= Checked
 IniRead, LNCHPT,Settings.ini,GLOBAL,Launcher_Priority
@@ -837,12 +855,12 @@ RFPLITEMS=RFPLCORE|RFBACKUP|RFSVPL|RFPLXMP|RFOPENPL|RFUSESCR|RFCPYSCR|RFDWNLPOS|
 UNIPLITEMS=ROMPOP|PLGBA|PLGBB|PLGBC|PLGBD|CURPLST|APNDTYPGRP|PLAPPND|PLOVR|CPYPL|PLADPTXT|CLRPP|PLCLRPTXT|BRADD|FENWTXT|REMPL|PLRMVTXT|MVPLOD|MVPLOU|CLRPL|PLCLRTXT
 mednafsc= advance_frame|exit|fast_forward|insert_coin|insert_eject_disk|load_movie|load_state|power|reset|rotate_screen|run_normal|save_movie|save_state|select_disk|slow_forward|state_rewind|state_slot_dec|state_slot_inc|take_scaled_snapshot|take_snapshot|toggle_fps_view|toggle_fs|toggle_grab|toggle_state_rewind|togglecheatactive|togglecheatview|togglenetview
 mamescs= UI_ON_SCREEN_DISPLAY|UI_DEBUG_BREAK|UI_CONFIGURE|UI_PAUSE|UI_PAUSE_SINGLE|UI_SHOW_GFX|UI_FRAMESKIP_DEC|UI_FRAMESKIP_INC|UI_THROTTLE|UI_FAST_FORWARD|UI_REWIND_SINGLE|UI_RESET_MACHINE|TOGGLE_FULLSCREEN|UI_SOFT_RESET|UI_SHOW_FPS|UI_SNAPSHOT|UI_ROTATE|UI_TIMECODE|UI_RECORD_MNG|UI_RECORD_AVI|UI_SHOW_PROFILER|UI_PASTE|UI_TOGGLE_DEBUG|UI_SAVE_STATE|UI_LOAD_STATE|UITAPE_START|UI_TAPE_STOP|RENDER_SNAP|RENDER_AVI|POST_PROCESS
-EMUTABITEMS= SKBSRLGRP|CACGRP|GRPDROPBIOS|AUTOBIOS|UAVAIL|EAVAIL|AVAIL|UPDCL|GCUPDT|DWNPRGRS|EMPRLST|EMPRBUTA|EMPRDDL|EMPRBUTU|EMPRBUTX|DELCFGPGC|EMGRPF|DSKMNTGRP|DSKMNTCHK|DSKMNTDDL|DSKSELBUT|DSKMNTOVR|EMRad11B|EMCHKW|EMDDLF|EMBUTG|EMCBXH|EMDDLP|EMBUTO|EMEDTO|EMBUTH|KARC|RepoSet|SITEDTXT|AddRepo|BCKCORE|UPDBTN|CCGRP|CRNTCORS|EXELIST|RALIST|SKRAstch|LNCHPRDDL|LNCHPT|ADDCORE|OPNSYS|OVEXTL|ADDNSYS|SAVNSYS|OVSETTXT|OVSETRM|DCORE|ARDCORE|DAPP|ASCORE|SELAPP|SYSIDENT|SYSNICK|SVNICK|DELNICK|EXTINP|APPOPT|APPARG|OPTTXT|ARGTXT|EMUPGC|ERUN|LRUN|NoExtn|OMITQ|OMITPTH|EXDISPL|UNIQLNK|INSTEMUDDL|LOCEMUIN|MULTINST|EMUINST|EMUASIGN|CHEMUINST|EINSTTXT|EINSTLOC|ROMDLOC|MROMDLOC|ROMDTXT|ROMDEDT|SKENBF|SKBEFCMD|SKRBFTXT|SKENAF|SKAFTCMD|SKRAFTXT|DISCFG|SKOVRJM|SKXPADOV|SKAMOV|SKPROFOV|SKPRFJTXT|SKFROV|SKFROVDD|SKRAEXE|SKRAXETXT|SKRADISP|SKIMPRATXT|SKRAIMP|SKSAVTXT|SKSAVE|SKSVAS|SKCCTXT|RAVERTXT|GRAVER|QRSETUP
+EMUTABITEMS= SKBSRLGRP|CACGRP|GRPDROPBIOS|UAVAIL|EAVAIL|AVAIL|UPDCL|GCUPDT|DWNPRGRS|EMPRLST|EMPRBUTA|EMPRDDL|EMPRBUTU|EMPRBUTX|DELCFGPGC|EMGRPF|DSKMNTGRP|DSKMNTCHK|DSKMNTDDL|DSKSELBUT|DSKMNTOVR|EMRad11B|EMCHKW|EMDDLF|EMBUTG|EMCBXH|EMDDLP|EMBUTO|EMEDTO|EMBUTH|KARC|RepoSet|SITEDTXT|AddRepo|BCKCORE|UPDBTN|CCGRP|CRNTCORS|EXELIST|RALIST|SKRAstch|LNCHPRDDL|LNCHPT|ADDCORE|OPNSYS|OVEXTL|ADDNSYS|SAVNSYS|OVSETTXT|OVSETRM|DCORE|ARDCORE|DAPP|ASCORE|SELAPP|SYSIDENT|SYSNICK|SVNICK|DELNICK|EXTINP|APPOPT|APPARG|OPTTXT|ARGTXT|EMUPGC|ERUN|LRUN|NoExtn|OMITQ|OMITPTH|EXDISPL|UNIQLNK|INSTEMUDDL|LOCEMUIN|MULTINST|EMUINST|EMUASIGN|CHEMUINST|EINSTTXT|EINSTLOC|ROMDLOC|MROMDLOC|ROMDTXT|ROMDEDT|SKENBF|SKBEFCMD|SKRBFTXT|SKENAF|SKAFTCMD|SKRAFTXT|DISCFG|SKOVRJM|SKXPADOV|SKAMOV|SKPROFOV|SKPRFJTXT|SKFROV|SKFROVDD|SKRAEXE|SKRAXETXT|SKRADISP|SKIMPRATXT|SKRAIMP|SKSAVTXT|SKSAVE|SKSVAS|SKCCTXT|RAVERTXT|GRAVER|QRSETUP
 RAINSTITEMS= AVAIL|BCKCORE|CRNTCORS|EXELIST|GCUPDT|GRAVER|QRSETUP|RALIST|RAVERTXT|SKCCTXT|SKIMPRATXT|SKRADISP|SKRAEXE|SKRAIMP|SKRAXETXT|SKSAVE|SKSAVTXT|SKSVAS|UPDBTN|UPDCL
 SYSINSTITEMS= EAVAIL|OVEXTL|OVSETRM|DSKMNTGRP|DSKMNTCHK|DSKMNTDDL|DSKSELBUT|DSKMNTOVR|EMRAD11A|EMCHKW|EMDDLF|EMBUTG|EMDDLP|EMBUTO|EMEDTO|EMBUTH|EMPRDDL|EMPRLST|EMPRBUTA|EMPRBUTU|EMPRBUTD|EMPRBUTX|DELCFGPGC|OPNSYS|ADDCORE|OVLIST|OVSETTXT|DCORE|ARDCORE|DAPP|EXDISPL|EAVAIL|EINSTTXT|EINSTLOC|CHEMUINST|INSTEMUDDL|LOCEMUIN|EMUINST|EMUASIGN|ROMDLOC|ROMDTXT|ROMDEDT
 FEINSTITEMS= ADDREPO|CHEMUINST|DISCFG|EINSTLOC|EINSTTXT|EMUINST|INSTEMUDDL|LOCEMUIN|REPOSET|SITEDTXT|SKAFTCMD|SKAMOV|SKAMOV|SKBEFCMD|SKBSRLGRP|SKENAF|SKENBF|SKFROV|SKFROVDD|SKOVRJM|SKOVRJM|SKPRFJTXT|SKPROFOV|SKRAFTXT|SKRBFTXT|SKXPADOV|UAVAIL
 UTLINSTITEMS= REPOSET|SITEDTXT|ADDREPO|LOCEMUIN|UAVAIL|EINSTTXT|EINSTLOC|CHEMUINST|EMUINST|INSTEMUDDL
-EMUINSTITEMS= GRPDROPBIOS|AUTOBIOS|REPOSET|SITEDTXT|ADDREPO|UAVAIL|LNCHPT|LNCHPRDDL|EINSTTXT|EINSTLOC|CHEMUINST|EMUINST|INSTEMUDDL|LOCEMUIN
+EMUINSTITEMS= GRPDROPBIOS|REPOSET|SITEDTXT|ADDREPO|UAVAIL|LNCHPT|LNCHPRDDL|EINSTTXT|EINSTLOC|CHEMUINST|EMUINST|INSTEMUDDL|LOCEMUIN
 supgui= mednafen|mame|retroarch|snes9x
 
 JSTSET= %JOYSET%
@@ -2212,7 +2230,7 @@ Gui,Font,%fontXsm% Bold
 Gui, Add, GroupBox, x470 y25 w263 h94 Center +0x400000 vGRPDROPBIOS hidden, Drop BIOS here
 Gui,Font,%fontXsm% Norm
 
-Gui, Add, Button, x480 y40 w42 h19 vAUTOBIOS gAUTOBIOS hidden,auto
+Gui, Add, Button, x480 y40 w240 h80 vAUTOBIOS gAUTOBIOS %EULAOPT%,AUTO
 
 Gui, Add, ListBox,x5 y21 w271 h463 HWNDtrxvail vUAVAIL gUAvailSel hidden, %allsupport%
 
@@ -3325,8 +3343,8 @@ Gui, Add, ComboBox, x218 y78 w123 vCUSTMARG gCustmArg hidden,|
 Gui, Add, CheckBox, x26 y75 w61 h17 vCUSTSWITCH gCustSwitch, switches
 
 Gui, Add, Checkbox, x28 y240 h13 vALTURL gEnableAltUrl %ARCURLE%, Enable Login
-Gui, Add, DropDownlist, x88 y258 w225 vUrlTxt gREPOUrlEdt Readonly, %ArcSRC%||%ARCSRCS%
-Gui, Add, Button, x326 y258 w18 h18 vALTURLSET gALTURLSET,+
+Gui, Add, DropDownlist, x28 y258 w225 vUrlTxt gREPOUrlEdt Readonly, %ArcSRC%||%ARCSRCS%|Add Repository
+Gui, Add, Button, x266 y259 h18 vALTURLGET gALTURLGET,Download
 Gui, Add, Edit, x24 y215 w159 h21 vARCLOGIN gArcLogin %ARCURLCK%,%ARC_USER%
 Gui, Add, Edit, x187 y215 w154 h21 Password vARCPASS gArcPass %ARCURLCK%,%ARC_PASS%
 Gui, Add, CheckBox, x260 y238 h15 vSAVPASS gSavPass %ARCURLCK% %ARCPSVD%, save
@@ -8152,67 +8170,75 @@ if ((demul_file <> "ERROR")&&(demul_file <> ""))
 		splitpath,demul_file,,demul_path
 		filecreateDir,%demul_path%\roms
 	}
-
-Loop, Read,gam\Archive\AutoBios.set
+ifexist,gam\Archive\AutoBios.set
 	{
-		if (A_LoopReadLine = "")
+		Loop, Read,gam\Archive\AutoBios.set
 			{
-				continue
-			}
-		stringsplit,aiv,A_LoopReadLine,|
-		splitpath,aiv1,biosname
-		save= %cacheloc%\bios\%biosname%
-		biosout= %cacheloc%\bios
-		if (aiv2 = "PS2")
-			{
-				if (pcsx2_verx = "ERROR")
+				if (A_LoopReadLine = "")
 					{
 						continue
 					}
-				biosout= %pcsx2_path%\bios
+				stringsplit,aiv,A_LoopReadLine,|
+				splitpath,aiv1,biosname
 				save= %cacheloc%\bios\%biosname%
-			}
-		if (aiv2 = "DEMUL")
-			{
-				if (demul_file = "ERROR")
+				biosout= %cacheloc%\bios
+				if (aiv2 = "PS2")
 					{
+						if (pcsx2_verx = "ERROR")
+							{
+								continue
+							}
+						biosout= %pcsx2_path%\bios
+						save= %cacheloc%\bios\%biosname%
+					}
+				if (aiv2 = "DEMUL")
+					{
+						if (demul_file = "ERROR")
+							{
+								continue
+							}
+						biosout= %demul_path%\roms
+						save= %cacheloc%\firmware\%biosname%
+					}
+				if (aiv2 = "MESS")
+					{
+						if (mame_verx = "ERROR")
+							{
+								continue
+							}
+						biosout= %mame_path%\roms
+						save= %cacheloc%\firmware\%biosname%
+					}
+				ifnotexist, %save%
+					{
+						SB_SetText("Downloading " biosname " ")
+						DownloadFile(aiv1,save,True,True)
+					}
+				ifnotexist, %save%
+					{
+						Msgbox,,Not Found,Could not download %biosname%,4
 						continue
 					}
-				biosout= %demul_path%\roms
-				save= %cacheloc%\firmware\%biosname%
-			}
-		if (aiv2 = "MESS")
-			{
-				if (mame_verx = "ERROR")
+				SB_SetText("extracting " biosname " ")
+				if (aiv2 = "MAME")
 					{
+						filecopy,%save%,%mame_path%\roms
 						continue
 					}
-				biosout= %mame_path%\roms
-				save= %cacheloc%\firmware\%biosname%
+				Runwait,"bin\7za.exe e -y "%save%" -O"%biosout%" ",,hide
+				if (ERRORLEVEL <> 0)
+					{
+						SB_SetText(" " save " could not be extracted")
+					}
 			}
-		ifnotexist, %save%
-			{
-				SB_SetText("Downloading " biosname " ")
-				DownloadFile(aiv1,save,True,True)
-			}
-		ifnotexist, %save%
-			{
-				Msgbox,,Not Found,Could not download %biosname%,4
-				continue
-			}
-		SB_SetText("extracting " biosname " ")
-		if (aiv2 = "MAME")
-			{
-				filecopy,%save%,%mame_path%\roms
-				continue
-			}
-		Runwait, %comspec% cmd /c  "bin\7za.exe e -y "%save%" -O"%biosout%" ",,hide
+		
 	}
 gosub, BiosProc
 guicontrol,enable,EAVAIL
 guicontrol,enable,UAVAIL
 guicontrol,enable,AVAIL
 return
+
 
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -9589,7 +9615,7 @@ Loop,Parse,EMUTABITEMS,|
 	{
 		guicontrol,hide,%A_LoopField%
 	}
-
+guicontrol,hide,AUTOBIOS
 guicontrol,disable,EMUASIGN
 guicontrol,disable,ROMDLOC
 guicontrol,disable,LOCEMUIN
@@ -9669,6 +9695,7 @@ if (SALIST = "Emulators")
 			{
 				guicontrol,show,%A_LoopField%
 			}
+		guicontrol,%AUTOBBUT%,AUTOBIOS
 		guicontrol,,SKRAstch,Skeletonkey-Emulator-Associations
 		guicontrol,move,CACGRP, x2 y5 w276 h478
 		guicontrol,move,CCGRP,x278 y5 w185 h366
@@ -37623,8 +37650,12 @@ return
 REPOUrlEdt:
 gui,submit,nohide
 guicontrolget,UrlTxt,,UrlTxt
+if (UrlTxt = "Add Repository")
+	{
+		goto,ALTURLSET
+	}
 iniread,ArcSitex,%ARCORG%,SOURCES,%UrlTxt%
-iniwrite, "%ArcSitex%",Settings.ini,GLOBAL,RemoteRepository
+iniwrite, "%UrlTxt%",Settings.ini,GLOBAL,RemoteRepository
 if (ArcSiteX <> Arcsite)
 	{
 		arcsite= %ArcSiteX%
@@ -37632,6 +37663,7 @@ if (ArcSiteX <> Arcsite)
 		GAMSRCS= gam\%UrlTxt%
 		gosub,resetSYS
 		SB_SetText("Repository source changed")
+		return
 	}
 return
 
@@ -37654,45 +37686,93 @@ if (ALTURL = 0)
 	}
 return
 
-AltURLSet:
-gui, submit, nohide
+AltURLGet:
+gui,submit,nohide
 guicontrolget,UrlTxt,,UrlTxt
-iniread,ddsp,%ARCORG%,SOURCES,%UrlTxt%
-inputbox,ArcSitex,Set Remote Repository URL,,,400,100,,,,,%ddsp%
-if (ArcSitex = "")
+iniread,urlaloc,%ARCORG%,SOURCES,%UrlTxt%:SET
+if ((urlaloc = "ERROR") or (urlaloc = ""))
 	{
-		ARCSRC= archive
-		ArcSite = http://archive.org/download
-		iniwrite, "%ArcSite%",Settings.ini,Global,RemoteRepository
-		if (UrlTxt = "Archive")
-			{
-				guicontrol,,UrlTxt,|%ARCSRC%||%ARCSRCS%
-				iniwrite, %ArcSite%,%ARCORG%,SOURCES,Archive
-				return
-			}
-		stringreplace,arcsrcs,arcsrcs,%urltxt%|,,All
-		inidelete,%ARCORG%,SOURCES,%UrlTxt%
-		guicontrol,,UrlTxt,|%ARCSRC%||%ARCSRCS%
+		SB_SetText(" " URLTXT " repository could not be found")
 		return
 	}
-stringsplit,cloudv,Arcsitex,./,:
-ArcSite= %Arcsitex%
-ArcSRC= %cloudv3%
-if (cloudv3 = "www")
+splitpath,urlaloc,urlalocf,,urlaext
+iniread,EULA,Settings.ini,Global,EULA
+filecopy,sets\archiveeula.set,tmp.htm
+if (EULA <> 1)
 	{
-		ARCSRC= %cloudv4%
+		ARCEULA=file:///%A_ScriptDir%\tmp.htm
+		Options := "Buttons=Yes/No, HtmW=700, HtmH=550, BDefault=2, BEsc=2,Title=Click_Yes_to_Agree, DlgTopmost=1,DlgStyle="
+		viSel := HtmDlg( ARCEULA, "taskbar", Options )
+		if (visel <> 1)
+			{
+				Msgbox,8449,Click Yes to Agree,You Must Click Yes to Agree to the terms and use archive.org's repositories.
+				ifmsgbox,OK
+					{
+						goto,AltURLGet
+					}
+				return
+			}
 	}
-ifnotinstring,ARCSRCS,%ARCSRC%|
+EULAAGREE:
+filedelete,tmp.htm
+AUTOBBUT= show
+guicontrol,enable,AUTOBIOS
+EULA= 1
+iniwrite,1,Settings.ini,Global,EULA
+save= %cacheloc%\%UrlTxt%.%urlaext%
+DownloadFile(urlaloc, save, True, True)
+ifnotexist, %save%
 	{
-		ArcSRCS.= ARCSRC . "|"
+		SB_SetText(" " urltxt " repository could not be found.")
+		return
 	}
-guicontrol,,UrlTxt,|%ARCSRC%||%ARCSRCS%
+Runwait,"bin\7za.exe" x -y "%save%" -O"gam",,hide
+if (ERRORLEVEL <> 0)
+	{
+		msgbox,1,Extract Failed,Exraction of Archive list failed
+	}
+GAMSRCS= gam\%UrlTxt%	
+gosub, ResetSys	
+SB_SetText(" " UrlTxt " has been added to your repository options")
+return
+
+AltURLSet:
+gui, submit, nohide
+inputbox,ArcSiteN,Set Repository Name,,,400,100,,,,,
+if (ArcSiteN = "")
+	{
+		return
+	}	
+iniread,ddsp,%ARCORG%,SOURCES,%ArcSiteN%
+ifinstring,SOURCES,%ArcSiteN%
+	{
+		SB_SetText("Repository is Added")
+		return
+	}
+	
+inputbox,ArcSitex,Repository Archive URL,,,400,100,,,,,
+SB_SetText("Enter the URL to the archive containing repository lists.")
+stringsplit,arcvv,arcsitex,/
+arcsitev= %arcvv1%//%arcvv2%
+if (ArcSitex = "")
+	{
+		SB_SetText("You must supply a url to the repository archive.")
+		return
+	}
+SB_SetText("")
+	
+ifnotinstring,ArcSiteN,%ARCSRC%|
+	{
+		ArcSRCS.= ArcSiteN . "|"
+	}
+guicontrol,,UrlTxt,|%ArcSiteN%||%ARCSRCS%|Add Repository
+iniwrite, %ArcSiteN%,%ARCORG%,SOURCES,%arcsitev%
+iniwrite, %ArcSiteN%:SET,%ARCORG%,SOURCES,%ArcSiteX%
+iniwrite, "%ArcSiteN%",Settings.ini,Global,RemoteRepository
 ifnotexist, gam\%ARCSRC%\
 	{
-		filecreatedir,gam\%ARCSRC%
+		gosub, AltURLGet
 	}
-iniwrite, %ArcSite%,%ARCORG%,SOURCES,%ARCSRC%
-iniwrite, "%ArcSite%",Settings.ini,Global,RemoteRepository
 return
 
 SearchInp:
@@ -38606,6 +38686,7 @@ return
 
 ARCEDURA:
 gui,submit,nohide
+IniDelete,%ARCORG%,SOURCES
 IniRead,RESZEDA,sets\Arcorg.set,SOURCES
 Loop,parse,RESZEDA,`n`r
 	{
@@ -38625,7 +38706,9 @@ IniRead,RESZEDT,sets\Arcorg.set,SOURCES,%urltxt%
 if (RESZEDT <> "ERROR")
 	{
 		IniWrite,RESZEDT,%ARCORG%,REPOSITORIES,%urltxt%
+		return
 	}
+iniDelete,%ARCORG%,SOURCES,%urlTxt%	
 return
 
 ARCEDTBR:
@@ -83675,7 +83758,7 @@ FileAppend, last_core = "%LCORE%"`n, Settings.ini
 FileAppend, last_connect = "%IPA%.%IPB%.%IPC%.%IPD%"`n, Settings.ini
 FileAppend, last_port = "%HPORTNUM%"`n, Settings.ini
 FileAppend, core_option_copy = "%CORECOPY%"`n, Settings.ini
-FileAppend, RemoteRepository = "%ArcSite%"`n, Settings.ini
+FileAppend, RemoteRepository = "%ARCSRC%"`n, Settings.ini
 FileAppend, file_server_port = "%fileServerPort%"`n, Settings.ini
 FileAppend, netplay_rom_location = "%netplayRomLocation%"`n, Settings.ini
 FileAppend, netplay_core_assets_directory = "%netplayCoreAssetsDirectory%"`n, Settings.ini
@@ -85087,6 +85170,10 @@ guicontrol,,JOYCORE,|Antimicro||Xpadder|%supgui%|%corelist%
 return
 
 resetSYS:
+if (EULA <> 1)
+	{
+		return
+	}
 FileDelete, msys.ini
 FileDelete, sys.ini
 FileDelete, hacksyst.ini

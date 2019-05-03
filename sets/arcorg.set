@@ -9,7 +9,9 @@ UPDATEFILE=https://github.com/romjacket/skeletonKey/releases/download/portable/s
 
 [SOURCES]
 Archive=http://archive.org/download
+Archive:SET=https://github.com/romjacket/skeletonKey/releases/download//Archive/Archive.7z
 the-eye=https://the-eye.eu/public/rom
+the-eye:SET=https://github.com/romjacket/skeletonKey/releases/download//THE-EYE/THE-EYE.7z
 
 [REPOSITORIES]
 Acorn - Electron=Acorn_Electronic_TOSEC_2012_04_23/Acorn_Electronic_TOSEC_2012_04_23.zip/
