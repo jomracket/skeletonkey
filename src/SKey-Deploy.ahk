@@ -3104,6 +3104,7 @@ if (INITINCL = 1)
 			exprt.= "FileCreateDir, site" . "`n"
 			exprt.= "FileCreateDir, sets" . "`n"
 			exprt.= "FileCreateDir, bin" . "`n"
+			exprt.= "FileCreateDir, src" . "`n"
 			exprt.= "IfNotExist, rj" . "`n" . "{" . "`n" . "FileCreateDir, rj" . "`n" . "FILEINS= 1" . "`n" . "}" . "`n"
 			exprt.= "If (INITIAL = 1)" . "`n" . "{" . "`n" . "FILEINS= 1" . "`n" . "}" . "`n"
 			exprt.= "If (FILEINS = 1)" . "`n" . "{" . "`n" 
@@ -3190,6 +3191,11 @@ if (INITINCL = 1)
 					exprt.= "FileInstall," . ain . "," . ain . ",1" . "`n"
 				}
 			Loop, files, %SKELD%\rj\KODI\*.set,R
+				{
+					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
+					exprt.= "FileInstall," . ain . "," . ain . ",1" . "`n"
+				}
+			Loop, files, %SKELD%\src\*.ahk,R
 				{
 					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
 					exprt.= "FileInstall," . ain . "," . ain . ",1" . "`n"
@@ -3296,6 +3302,7 @@ FileAppend, "%SKELD%\src\lbex.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\src\init.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\src\PortableUtil.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\src\LVA.ahk"`n,ltc.txt
+FileAppend, "%SKELD%\src\HtmlDlg.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\src\emuexe.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\src\tf.ahk"`n,ltc.txt
 FileAppend, "%SKELD%\src\LV_InCellEdit.ahk"`n,ltc.txt

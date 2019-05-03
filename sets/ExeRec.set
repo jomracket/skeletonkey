@@ -3,6 +3,7 @@ FileCreateDir, img
 FileCreateDir, site
 FileCreateDir, sets
 FileCreateDir, bin
+FileCreateDir, src
 IfNotExist, rj
 {
 FileCreateDir, rj
@@ -1000,6 +1001,18 @@ FileInstall,rj\KODI\AEL\roms.xml.set,rj\KODI\AEL\roms.xml.set,1
 FileInstall,rj\KODI\IAGL\userdata\addon_data\plugin.program.iagl\settings.xml.set,rj\KODI\IAGL\userdata\addon_data\plugin.program.iagl\settings.xml.set,1
 FileInstall,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emurom.set,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emurom.set,1
 FileInstall,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emuromend.set,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emuromend.set,1
+FileInstall,src\AHKSock.ahk,src\AHKSock.ahk,1
+FileInstall,src\BSL.ahk,src\BSL.ahk,1
+FileInstall,src\emuexe.ahk,src\emuexe.ahk,1
+FileInstall,src\HtmlDlg.ahk,src\HtmlDlg.ahk,1
+FileInstall,src\Init.ahk,src\Init.ahk,1
+FileInstall,src\lbex.ahk,src\lbex.ahk,1
+FileInstall,src\LVA.ahk,src\LVA.ahk,1
+FileInstall,src\LV_InCellEdit.ahk,src\LV_InCellEdit.ahk,1
+FileInstall,src\PortableUtil.ahk,src\PortableUtil.ahk,1
+FileInstall,src\SKey-Deploy.ahk,src\SKey-Deploy.ahk,1
+FileInstall,src\tf.ahk,src\tf.ahk,1
+FileInstall,src\Update.ahk,src\Update.ahk,1
 FileInstall,rj\emucfgs\3doplay\config.xml.set,rj\emucfgs\3doplay\config.xml.set,1
 FileInstall,rj\emucfgs\4DO\Config.xml.set,rj\emucfgs\4DO\Config.xml.set,1
 FileInstall,rj\emucfgs\4DO\FourDO.settings.set,rj\emucfgs\4DO\FourDO.settings.set,1
