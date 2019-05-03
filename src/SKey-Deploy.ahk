@@ -3052,7 +3052,7 @@ StringReplace,arcorgv,arcorgv,[HOSTINGURL],%REPOURL%,All
 StringReplace,arcorgv,arcorgv,[LOBBY],%NLOB%,All
 StringReplace,arcorgv,arcorgv,[SHADERHOST],%SHDRPURL%,All
 StringReplace,arcorgv,arcorgv,[SOURCEHOST],%UPDTURL%,All
-StringReplace,arcorgv,arcorgv,[REPOSRC],https://github.com/%gituser%/skeletonKey/releases/download/,All
+StringReplace,arcorgv,arcorgv,[REPOSRC],https://github.com/%gituser%/skeletonKey/releases/download,All
 StringReplace,arcorgv,arcorgv,[IPLK],%GETIPADR%,All
 StringReplace,arcorgv,arcorgv,[CURV],%vernum%,All
 FileAppend,%skthemes%,%SKELD%\sets\themes.set
