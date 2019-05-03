@@ -522,7 +522,7 @@
 				</div>
 			</div>
 			<br>
-				<a id="REPOSITORY"</a>
+			<a id="REPOSITORY"</a>
 			<div id="grad1" align="left">
 				<h2 class='button'>Repository</h2>
 			</div>
@@ -531,12 +531,20 @@
 					Remote repositories such as archive.org's ROM libraries can be launched and hosted via this tab. <br>Right-Clicking on a selection of ROMs will allow metadata to be downloaded.<br>
 					The Archive Tab can be used to list, search, download and emulate the ROMs available on remote repositories.<br> 
 					This tab is brought forward automatically under certain conditions while connecting to players listed in the netplay tab.
-					<h4><a>Repository Options</a></h4>
-					<p>Options to download into a ROM-Jacket, manual overrides and extraction settings for compressed files can be combined in many ways to create custom libraries.<br>Right-Clicking on the emu/core dropdown will allow the ROM to be configured for the selected emulator/core.</p>
-					<p>Enabling the &quot;Download Only&quot; option will allow multiple files to be selected and queued.<br>
-						Only direct-links are supported, however future releases of skeletonkey will support torrents as well as other redirected networking addresses.<br>
-						MAME ROM-Lists can often contain ROMs which are incompatible with other emulators.  MAME/MESS systems' ROM-Lists should be in a <code>MAME - Systems</code> subdirectory of the <strong>source</strong> folder.
-					</p>
+					<div class="wrapper">
+						<div class="tab">
+							<input id="tab-arctb" name="tabs" type="checkbox"> <label for="tab-arctb">Repository Details }&gt;</label>
+							<div class="tab-content" id="detailsdiv">
+								<p>You must agree to the EULA before downloading repository lists.</p>
+								<p>Repositories may contain contents which may be restricted in your juristiction.  These contents include BIOS and ROM files.<p>
+								<p>Options to download into a ROM-Jacket, manual overrides and extraction settings for compressed files can be combined in many ways to create custom libraries.<br>Right-Clicking on the emu/core dropdown will allow the ROM to be configured for the selected emulator/core.</p>
+								<p>Enabling the &quot;Download Only&quot; option will allow multiple files to be selected and queued.<br>
+									Only direct-links are supported, however future releases of skeletonkey will support torrents as well as other redirected networking addresses.<br>
+									MAME ROM-Lists can often contain ROMs which are incompatible with other emulators.  MAME/MESS systems' ROM-Lists should be in a <code>MAME - Systems</code> subdirectory of the <strong>source</strong> folder.
+								</p>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<br>

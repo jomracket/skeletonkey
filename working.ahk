@@ -269,8 +269,8 @@ If (raexeloc = "")
 	{
 		gosub, NORA
 	}
-iniread,EULA,Settings.ini,	
-EULAOPT= hidden disabled
+iniread,EULA,Settings.ini,Global,EULA
+EULAOPT= disabled
 if (EULA = 1)
 	{
 		EULAOPT= 
@@ -2230,7 +2230,7 @@ Gui,Font,%fontXsm% Bold
 Gui, Add, GroupBox, x470 y25 w263 h94 Center +0x400000 vGRPDROPBIOS hidden, Drop BIOS here
 Gui,Font,%fontXsm% Norm
 
-Gui, Add, Button, x480 y40 w240 h80 vAUTOBIOS gAUTOBIOS %EULAOPT%,AUTO
+Gui, Add, Button, x480 y40 w240 h70 vAUTOBIOS gAUTOBIOS hidden %EULAOPT%,AUTO
 
 Gui, Add, ListBox,x5 y21 w271 h463 HWNDtrxvail vUAVAIL gUAvailSel hidden, %allsupport%
 
@@ -37959,7 +37959,7 @@ if (DownOnly = 0)
 							}
 						aftpth2=
 						stringsplit,aftpth,A_LoopReadLine,|
-						if (aftpth3 = "$")
+						if (aftpth8 = "$")
 							{
 								if (ARC_USER = "")
 									{
@@ -38257,7 +38257,7 @@ Loop, %SRCHMET%\%HACKAPN%%SRCHGAM%.gam
 							{
 								emucmd= %getpth3%
 							}
-						romelg= %getpth3%
+						romelg= %getpth8%
 						if (romelg <> "$")
 							{
 								emucmd= %romelg%
@@ -39611,7 +39611,7 @@ if (tmprm <> "")
 		Loop, read, %SRCHMET%\%HACKAPN%%ARCSYS%.gam
 			{
 				stringsplit,ave,A_LoopReadLine,|
-				if (ave3 = "$")
+				if (ave8 = "$")
 					{
 						if (ARC_USER = "")
 							{
