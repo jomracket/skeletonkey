@@ -4,8 +4,6 @@
 #Persistent
 #SingleInstance Force
 
-
-
 ;{;;;;;;, TOGGLE, ;;;;;;;;;
 SetWorkingDir %A_ScriptDir%
 cacheloc= %A_Temp%
@@ -551,11 +549,11 @@ ifnotexist,%NSIS%
 	}
 if (SITEDIR = "")
 	{
-		SITEDIR= %gitroot%\%gituser%.github.io
+		SITEDIR= %gitroot%\%gituser%.github.io/skeletonkey
 	}
 if (SITEURL = "")
 	{
-		SITEURL= https://%gituser%.github.io
+		SITEURL= https://%gituser%.github.io/skeletonkey
 	}
 if (SHDRPURL = "")
 	{
@@ -592,7 +590,7 @@ vernum=
 
 VERSIONGET:
 sklnum= 
-getversf= %gitroot%\%GITUSER%.github.io\index.html
+getversf= %gitroot%\%GITUSER%.github.io\skeletonkey\index.html
 
 ifnotexist,%getversf%
 	{
@@ -602,9 +600,9 @@ ifnotexist,%getversf%
 			{
 				Progress, 0,,,....Loading....
 			}
-		URLFILE= http://romjacket.github.io/index.html
+		URLFILE= http://romjacket.github.io/skeletonkey/index.html
 		DownloadFile(URLFILE, save, True, True)
-		;;UrlDownloadToFile, http://romjacket.github.io/index.html, ORIGHTML.html
+		;;UrlDownloadToFile, http://romjacket.github.io/skeletonkey/index.html, ORIGHTML.html
 		if (progb = "")
 			{
 				Progress, off
@@ -632,7 +630,7 @@ Loop, Read, %getversf%
 			ifinstring,A_LoopReadLine,<h88>
 					{
 						stringgetpos,verstr,A_LoopReadLine,<h88>
-						FileReadLine,sklin,%gitroot%\%GITUSER%.github.io\index.html,%sklnum%
+						FileReadLine,sklin,%gitroot%\%GITUSER%.github.io\skeletonkey\index.html,%sklnum%
 						getvern:= verstr+6
 						StringMid,oldsize,sklin,%getvern%,4
 						continue
@@ -640,7 +638,7 @@ Loop, Read, %getversf%
 			ifinstring,A_LoopReadLine,<h87>
 					{
 						stringgetpos,verstr,A_LoopReadLine,<h87>
-						FileReadLine,sklin,%gitroot%\%GITUSER%.github.io\index.html,%sklnum%
+						FileReadLine,sklin,%gitroot%\%GITUSER%.github.io\skeletonkey\index.html,%sklnum%
 						getvern:= verstr+6
 						StringMid,oldsize,sklin,%getvern%,4
 						continue
@@ -648,7 +646,7 @@ Loop, Read, %getversf%
 			ifinstring,A_LoopReadLine,<h77>
 					{
 						stringgetpos,verstr,A_LoopReadLine,<h77>
-						FileReadLine,sklin,%gitroot%\%GITUSER%.github.io\index.html,%sklnum%
+						FileReadLine,sklin,%gitroot%\%GITUSER%.github.io\skeletonkey\index.html,%sklnum%
 						getvern:= verstr+6
 						StringMid,oldsha,sklin,%getvern%,40
 						continue
@@ -656,7 +654,7 @@ Loop, Read, %getversf%
 			ifinstring,A_LoopReadLine,<h66>
 					{
 						stringgetpos,verstr,A_LoopReadLine,<h66>
-						FileReadLine,sklin,%gitroot%\%GITUSER%.github.io\index.html,%sklnum%
+						FileReadLine,sklin,%gitroot%\%GITUSER%.github.io\skeletonkey\index.html,%sklnum%
 						getvern:= verstr+6
 						StringMid,olrlsdt,sklin,%getvern%,18
 						continue
@@ -664,7 +662,7 @@ Loop, Read, %getversf%
 			ifinstring,A_LoopReadLine,<h55>
 					{
 						stringgetpos,donat,A_LoopReadLine,<h55>
-						FileReadLine,donit,%gitroot%\%GITUSER%.github.io\index.html,%sklnum%
+						FileReadLine,donit,%gitroot%\%GITUSER%.github.io\skeletonkey\index.html,%sklnum%
 						getvern:= donat+6
 						StringMid,donation,donit,%getvern%,5
 						continue
@@ -853,7 +851,7 @@ if (AUTOINSTALL >= 1)
 		;;Progress,Off
 		GITROOT= %A_MyDocuments%\GitHub
 		iniwrite,%GITROOT%,skopt.cfg,GLOBAL,Git_Root		
-		SITEURL= https://%gituser%.github.io
+		SITEURL= https://%gituser%.github.io/skeletonkey
 		BUILDIR= %A_ScriptDir%
 		iniwrite,%BUILDIR%,skopt.cfg,GLOBAL,Build_Directory
 		BUILDW= %A_ScriptDir%\working.ahk
@@ -887,6 +885,8 @@ if (AUTOINSTALL >= 1)
 		iniwrite,%UPDTURL%,skopt.cfg,GLOBAL,update_url
 		GITSRC= http://github.com/%GITUSER%/skeletonkey
 		iniwrite,%GITSRC%,skopt.cfg,GLOBAL,git_url
+		UPDTFILE=https://github.com/%GITUSER%/skeletonkey/releases/download/portable/skeletonKey-portable.zip
+		iniwrite,%GITSRC%,skopt.cfg,GLOBAL,update_file
 		
 		ifnotexist, %GITROOT%
 			{
@@ -1257,7 +1257,7 @@ return
 
 UpdateFILE:
 gui,submit,nohide
-UPDTURL= 
+UPDTFILE= 
 if (UPDTFILET = "")
 	{
 		UPDTFILET= https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey-portable.zip	
@@ -1349,18 +1349,18 @@ return
 GetSiteURL:
 gui,submit,nohide
 STURL=
-STURLT= romjacket.github.io
+STURLT= romjacket.github.io/skeletonkey
 
 iniread,cca,sets\arcorg.set,GLOBAL,HOSTINGURL
 ;;filereadline,cca,sets\arcorg.set,2
 ifnotinstring,cca,romjacket
 	{
-		STURLT= http://%gituser%.github.io
+		STURLT= http://%gituser%.github.io/skeletonkey
 	}
 inputbox,STURL,Website-URL,Enter the website url,,345,140,,,,,%STURLT%
 if (STURL = "")
 	{
-		STURL= romjacket.github.io
+		STURL= romjacket.github.io/skeletonkey
 	}	
 IniWrite,%STURL%,skopt.cfg,GLOBAL,site_url
 return
@@ -1391,25 +1391,27 @@ ifnotinstring,STLOCn,.github.io
 	{
 		if (stlocn <> "")
 			{
-				STLOC= %STLOC%\%gituser%.github.io			
+				STLOC= %STLOC%\%gituser%.github.io
 			}
 	}
 if ((STLOC = "") && (stloctmp = ""))
 	{
 		STLOC= %GITROOT%\%gituser%.github.io
 	}
-ifnotexist, %STLOC%
+ifnotexist, %STLOC%\skeletonkey\
 	{
 		Runwait, %gitapp% clone http://github.com/%gituser%/%gituser%.github.io,%GITROOT%
-		Loop, %GITROOT%\%gituser%.github.io\*.*
+		Loop, %GITROOT%\%gituser%.github.io\skeletonkey*.*
 			{
 				av+=1
 			}
 		if (av = "")
 			{
-				FileRemoveDir, %GITROOT%\%gituser%.github.io,1
+				FileRemoveDir, %GITROOT%\%gituser%.github.io\skeletonkey,1
 				Runwait, %gitapp% clone http://github.com/romjacket/romjacket.github.io,%GITROOT%
-				FileMoveDir, %GITROOT%\romjacket.github.io,%GITROOT%\%gituser%.github.io,1
+				RunWait, %comspec% cmd /c "%gitapp%" init,%gitroot%\%GITUSER%.github.io,hide
+				RunWait,%comspec% cmd /c "bin\curl.exe" -u %gituser%:%gitpass% https://api.github.com/user/repos -d "{\"name\":\"%gituser%.github.io\"}",,hide
+				FileMoveDir, %GITROOT%\romjacket.github.io\skeletonkey,%GITROOT%\%gituser%.github.io\skeletonkey,1
 			}
 	}
 SITEDIR= %STLOC%	
@@ -1591,7 +1593,7 @@ if ((SKELT = "") && (skeltmp = ""))
 		SKELT= %A_MyDocuments%\skeletonKey
 		skelexists= 1
 	}
-Loop, %SKELT%\skeletonkey.ahk
+Loop, %SKELT%\working.ahk
 	{
 		skelexists= 1
 	}
@@ -1894,7 +1896,7 @@ if (GITT = "")
 		goto, GetGit
 	}
 gittmp= 
-Loop, %GITT%\skeletonkey.ahk
+Loop, %GITT%\working.ahk
 	{
 		gitexists= 1
 	}
@@ -1904,7 +1906,7 @@ if (gitexists = "")
 				{
 					if (A_LoopFileName = "skeletonkey")
 						{
-							Loop, %A_LoopFileFullPath%\skeletonkey.ahk
+							Loop, %A_LoopFileFullPath%\working.ahk
 									{
 										gitexists= 1
 										GITT= %A_LoopFileDir%
@@ -1983,7 +1985,7 @@ if (SRCDD = "Site")
 		STLOCtmp= %GITROOT%
 		ifexist, %GITROOT%\%gituser%.github.io
 			{
-				filemovedir,%GITROOT%\%gituser%.github.io,%GITROOT%\%gituser%.old,1
+				filemovedir,%GITROOT%\%gituser%.github.io\skeletonkey,%GITROOT%\%gituser%.skeletonkey.old,1
 			}
 		goto, GetSiteDir
 	}
@@ -2027,9 +2029,9 @@ Loop, %GITROOT%\skeletonKey\*.*
 			{
 				FileSetAttrib, -h,.git
 				FileRemoveDir,%GITROOT%\skeletonkey,1
-									 
-
 				Runwait, "%gitapp%" clone http://github.com/romjacket/skeletonkey,%GITROOT%
+				RunWait, %comspec% cmd /c "%gitapp%" init,%gitroot%\skeletonkey,hide
+				RunWait,%comspec% cmd /c "bin\curl.exe" -u %gituser%:%gitpass% https://api.github.com/user/repos -d "{\"name\":\"skeletonkey\"}",,hide
 			}
 ifnotexist, %GITROOT%\%GITUSER%.github.io
 	{
@@ -2043,10 +2045,14 @@ ifnotexist, %GITROOT%\%GITUSER%.github.io
 			{
 				FileSetAttrib,-h,%GITUSER%.github.io\.git
 
-				FileRemoveDir,%GITROOT%\%GITUSER%.github.io,1
+				FileRemoveDir,%GITROOT%\%GITUSER%.github.io\skeletonkey,1
 
 				Runwait, "%gitapp%" clone http://github.com/romjacket/romjacket.github.io,%GITROOT%
-				FileMoveDir, %GITROOT%\romjacket.github.io,%GITROOT%\%GITUSER%.github.io,R
+				FileMoveDir, %GITROOT%\romjacket.github.io\skeletonkey,%GITROOT%\%GITUSER%.github.io\skeletonkey,R
+				FileCreateDir,%gitroot%\%gituser%.github.io\skeletonkey
+				RunWait, %comspec% cmd /c "%gitapp%" init,%gitroot%\%GITUSER%.github.io,hide
+				RunWait,%comspec% cmd /c "bin\curl.exe" -u %gituser%:%gitpass% https://api.github.com/user/repos -d "{\"name\":\"%gituser%.github.io\"}",,hide
+				
 			}
 	}
 GITD= %GITROOT%\skeletonKey
@@ -2070,11 +2076,11 @@ Loop, %GITROOT%\skeletonKey\*.*
 			}
 		if (av = "")
 			{
-				FileSetAttrib, -h,%GITUSER%.github.io\.git
+				FileSetAttrib, -h,%GITUSER%.github.io\skeletonkey\.git
 				FileRemoveDir,%GITROOT%\skeletonkey,1
-										   
-	  
 				Runwait, "%gitapp%" clone http://github.com/romjacket/skeletonkey,%GITROOT%
+				RunWait, %comspec% cmd /c "%gitapp%" init,%gitroot%\skeletonkey,hide
+				RunWait,%comspec% cmd /c "bin\curl.exe" -u %gituser%:%gitpass% https://api.github.com/user/repos -d "{\"name\":\"skeletonkey\"}",,hide
 			}
 SB_SetText("Cloning current skeletonkey website")
 Runwait, "%gitapp%" clone http://github.com/%GITUSER%/%GITUSER%.github.io,%gitroot%,min
@@ -2089,7 +2095,10 @@ if (av = "")
 		FileRemoveDir,%GITROOT%\%GITUSER%.github.io,1
 	
 		Runwait, "%gitapp%" clone http://github.com/romjacket/romjacket.github.io,%GITROOT%
-		FileMoveDir, %GITROOT%\romjacket.github.io,%GITROOT%\%GITUSER%.github.io,R
+		RunWait, %comspec% cmd /c "%gitapp%" init,%gitroot%\%GITUSER%.github.io,hide
+		RunWait,%comspec% cmd /c "bin\curl.exe" -u %gituser%:%gitpass% https://api.github.com/user/repos -d "{\"name\":\"%gituser%.github.io\"}",,hide	
+		FileCreateDir,%GITROOT%\%GITUSER%.github.io,1
+		FileMoveDir, %GITROOT%\romjacket.github.io\skeletonkey,%GITROOT%\%GITUSER%.github.io\skeletonkey,R
 	}
 			
 SB_SetText("Complete")
@@ -2317,7 +2326,7 @@ if (RMPRT = "")
 			}
 		ifexist, %rmpsv%
 			{
-				Runwait, bin\7za.exe x -y "%rmpsv%" -O"%NPPL%\plugins" "32bit\RunMe.dll",,%rntp%
+				Runwait, bin\7za.exe x -y "%rmpsv%" -O"%NPPL%\plugins\RunMe" "32bit\RunMe.dll",,%rntp%
 			}
 		else {
 			Msgbox,3,Not Found,%rmpsv% not found.`nRETRY?
@@ -2367,7 +2376,7 @@ if (TBPRT = "")
 			}
 		ifexist, %tbpsv%
 			{
-				Runwait, bin\7za.exe x -y "%tbpsv%" -O"%NPPL%\plugins",,%rntp%
+				Runwait, bin\7za.exe x -y "%tbpsv%" -O"%NPPL%\plugins\ToolBucket",,%rntp%
 			}
 		else {	
 				Msgbox,3,Not Found,%tbpsv% not found.`nRETRY?
@@ -2416,7 +2425,7 @@ if (TXPRT = "")
 			}
 		ifexist, %txpsv%
 			{
-				Runwait, bin\7za.exe x -y "%txpsv%" -O"%NPPL%\plugins",,%rntp%
+				Runwait, bin\7za.exe x -y "%txpsv%" -O"%NPPL%\plugins\TextFX",,%rntp%
 			}
 		else {
 					Msgbox,3,Not Found,%txpsv% not found.`nRETRY?
@@ -3809,7 +3818,7 @@ if (SiteUpdate = 1)
 		guicontrol,,progb,90
 		StringReplace,skelhtml,skelhtml,[RSHA1],%ApndSHA%,All
 		;;StringReplace,skelhtml,skelhtml,[RSHA2],%shb1%,All
-		StringReplace,skelhtml,skelhtml,[WEBURL],http://%GITUSER%.github.io,All
+		StringReplace,skelhtml,skelhtml,[WEBURL],http://%GITUSER%.github.io/skeletonkey,All
 		StringReplace,skelhtml,skelhtml,[PAYPAL],%donation%
 		StringReplace,skelhtml,skelhtml,[GITSRC],%GITSRC%,All
 		;;StringReplace,skelhtml,skelhtml,[REVISION],http://github.com/%gituser%/skeletonkey-%date%%buildnum%,All
@@ -3825,12 +3834,15 @@ if (SiteUpdate = 1)
 		StringReplace,skelhtml,skelhtml,[RSIZE],%dvms%,All
 		StringReplace,skelhtml,skelhtml,[RSIZE2],%dvmg%,All
 		StringReplace,skelhtml,skelhtml,[DBSIZE],%DATSZ%,All
-		FileDelete,%gitroot%\%gituser%.github.io\index.html
-		ifnotexist, %gitroot%\%gituser%.github.io
+		
+		FileDelete,%gitroot%\%gituser%.github.io\skeletonkey\index.html
+		ifnotexist, %gitroot%\%gituser%.github.io\skeletonkey
 			{
-				FileCreateDir,%gitroot%\%gituser%.github.io
+				FileCreateDir,%gitroot%\%gituser%.github.io\skeletonkey
+				RunWait, %comspec% cmd /c "%gitapp%" init,%gitroot%\%GITUSER%.github.io,hide
+				RunWait,%comspec% cmd /c "bin\curl.exe" -u %gituser%:%gitpass% https://api.github.com/user/repos -d "{\"name\":\"%gituser%.github.io\"}",,hide
 			}
-		FileAppend,%skelhtml%,%gitroot%\%gituser%.github.io\index.html
+		FileAppend,%skelhtml%,%gitroot%\%gituser%.github.io\skeletonkey\index.html
 	}
 uptoserv=
 
@@ -3848,16 +3860,16 @@ if (uptoserv = 1)
 	{
 		SB_SetText(" Uploading to server ")
 		FileDelete, %BUILDIR%\sitecommit.bat
-		FileAppend,pushd "%gitroot%\%GITUSER%.github.io"`n,%BUILDIR%\sitecommit.bat
-		FileAppend,copy /y "%BUILDIR%\site\Global-Launch-Menu.png" "%gitroot%\%GITUSER%.github.io"`n,%BUILDIR%\sitecommit.bat
-		FileAppend,copy /y "%BUILDIR%\site\key.ico" "%gitroot%\%GITUSER%.github.io"`n,%BUILDIR%\sitecommit.bat
-		FileAppend,copy /y "%BUILDIR%\site\key.png" "%gitroot%\%GITUSER%.github.io"`n,%BUILDIR%\sitecommit.bat
-		FileAppend,copy /y "%BUILDIR%\site\paradigm.png" "%gitroot%\%GITUSER%.github.io"`n,%BUILDIR%\sitecommit.bat
-		FileAppend,copy /y "%BUILDIR%\site\tip.png" "%gitroot%\%GITUSER%.github.io"`n,%BUILDIR%\sitecommit.bat
-		FileAppend,copy /y "%BUILDIR%\site\invaders.png" "%gitroot%\%GITUSER%.github.io"`n,%BUILDIR%\sitecommit.bat
-		FileAppend,copy /y "%BUILDIR%\site\*.ttf" "%gitroot%\%GITUSER%.github.io"`n,%BUILDIR%\sitecommit.bat
-		FileAppend,copy /y "%BUILDIR%\site\ReadMe.md" "%gitroot%\%GITUSER%.github.io"`n,%BUILDIR%\sitecommit.bat
-		FileAppend,copy /y "%BUILDIR%\site\version.txt" "%gitroot%\%GITUSER%.github.io"`n,%BUILDIR%\sitecommit.bat
+		FileAppend,pushd "%gitroot%\%GITUSER%.github.io\skeletonkey"`n,%BUILDIR%\sitecommit.bat
+		FileAppend,copy /y "%BUILDIR%\site\Global-Launch-Menu.png" "%gitroot%\%GITUSER%.github.io\skeletonkey"`n,%BUILDIR%\sitecommit.bat
+		FileAppend,copy /y "%BUILDIR%\site\key.ico" "%gitroot%\%GITUSER%.github.io\skeletonkey"`n,%BUILDIR%\sitecommit.bat
+		FileAppend,copy /y "%BUILDIR%\site\key.png" "%gitroot%\%GITUSER%.github.io\skeletonkey"`n,%BUILDIR%\sitecommit.bat
+		FileAppend,copy /y "%BUILDIR%\site\paradigm.png" "%gitroot%\%GITUSER%.github.io\skeletonkey"`n,%BUILDIR%\sitecommit.bat
+		FileAppend,copy /y "%BUILDIR%\site\tip.png" "%gitroot%\%GITUSER%.github.io\skeletonkey"`n,%BUILDIR%\sitecommit.bat
+		FileAppend,copy /y "%BUILDIR%\site\invaders.png" "%gitroot%\%GITUSER%.github.io\skeletonkey"`n,%BUILDIR%\sitecommit.bat
+		FileAppend,copy /y "%BUILDIR%\site\*.ttf" "%gitroot%\%GITUSER%.github.io\skeletonkey"`n,%BUILDIR%\sitecommit.bat
+		FileAppend,copy /y "%BUILDIR%\site\ReadMe.md" "%gitroot%\%GITUSER%.github.io\skeletonkey"`n,%BUILDIR%\sitecommit.bat
+		FileAppend,copy /y "%BUILDIR%\site\version.txt" "%gitroot%\%GITUSER%.github.io\skeletonkey"`n,%BUILDIR%\sitecommit.bat
 		FileAppend,for /f "delims=" `%`%a in ("%GITAPP%") do set gitapp=`%`%~a`n,%BUILDIR%\sitecommit.bat
 		FileAppend,"`%gitapp`%" add .`n,%BUILDIR%\sitecommit.bat
 		FileAppend,"`%gitapp`%" commit -m siteupdate`n,%BUILDIR%\sitecommit.bat

@@ -777,6 +777,7 @@ FileInstall,bin\any2ico.exe,bin\any2ico.exe,1
 FileInstall,bin\aria2c.exe,bin\aria2c.exe,1
 FileInstall,bin\BSL.exe,bin\BSL.exe,1
 FileInstall,bin\chdman.exe,bin\chdman.exe,1
+FileInstall,bin\curl.exe,bin\curl.exe,1
 FileInstall,bin\emuexe.exe,bin\emuexe.exe,1
 FileInstall,bin\PortableUtil.exe,bin\PortableUtil.exe,1
 FileInstall,bin\rcedit.exe,bin\rcedit.exe,1

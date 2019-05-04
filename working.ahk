@@ -37690,10 +37690,12 @@ return
 AltURLGet:
 gui,submit,nohide
 guicontrolget,UrlTxt,,UrlTxt
+guicontrol,disable,ALTURLGET
 iniread,urlaloc,%ARCORG%,SOURCES,%UrlTxt%:SET
 if ((urlaloc = "ERROR") or (urlaloc = ""))
 	{
 		SB_SetText(" " URLTXT " repository could not be found")
+		guicontrol,enable,ALTURLGET
 		return
 	}
 splitpath,urlaloc,urlalocf,,urlaext
@@ -37702,7 +37704,7 @@ filecopy,sets\%urltxt%eula.set,tmp.htm,1
 if (EULA <> 1)
 	{
 		ARCEULA=file:///%A_ScriptDir%\tmp.htm
-		Options := "Buttons=I Agree/Decline, HtmW=700, HtmH=550, BDefault=2, BEsc=2,Title=Archive.org_EULA, DlgTopmost=1,DlgStyle="
+		Options := "Buttons=I Agree/Decline, HtmW=700, HtmH=550, BDefault=2, BEsc=2,Title=%urltxt%_EULA, DlgTopmost=1,DlgStyle="
 		viSel := HtmDlg( ARCEULA, "taskbar", Options )
 		if (visel <> 1)
 			{
@@ -37711,6 +37713,7 @@ if (EULA <> 1)
 					{
 						goto,AltURLGet
 					}
+				guicontrol,enable,ALTURLGET
 				return
 			}
 	}
@@ -37735,15 +37738,101 @@ if (ERRORLEVEL <> 0)
 GAMSRCS= gam\%UrlTxt%	
 gosub, ResetSys	
 SB_SetText(" " UrlTxt " has been added to your repository options")
+guicontrol,enable,ALTURLGET
 return
+
+sitensan:
+SB_SetText("do not include spaces or any other symbols:  Use letters,numbers and the ''-'' dash character only."	
+
 
 AltURLSet:
 gui, submit, nohide
 inputbox,ArcSiteN,Set Repository Name,,,400,100,,,,,
 if (ArcSiteN = "")
 	{
+		guicontrol,,UrlTxt,|%ARCSRC%||%ArcSrcs%
 		return
-	}	
+	}
+ifinstring,ArcSiteN,`,
+	{
+		gosub,sitensan
+	}
+ifinstring,ArcSiteN,@
+	{
+		gosub,sitensan
+	}
+ifinstring,ArcSiteN,`%
+	{
+		gosub,sitensan
+	}
+ifinstring,ArcSiteN,`^
+	{
+		gosub,sitensan
+	}
+ifinstring,ArcSiteN,#
+	{
+		gosub,sitensan
+	}
+ifinstring,ArcSiteN,/
+	{
+		gosub,sitensan
+	}
+ifinstring,ArcSiteN,\
+	{
+		gosub,sitensan
+	}
+ifinstring,ArcSiteN,[
+	{
+		gosub,sitensan
+	}
+ifinstring,ArcSiteN,]
+	{
+		gosub,sitensan
+	}
+ifinstring,ArcSiteN,<
+	{
+		gosub,sitensan
+	}
+ifinstring,ArcSiteN,`{
+	{
+		gosub,sitensan
+	}
+ifinstring,ArcSiteN,`}
+	{
+		gosub,sitensan
+	}
+ifinstring,ArcSiteN,>
+	{
+		gosub,sitensan
+	}
+ifinstring,ArcSiteN,|
+	{
+		gosub,sitensan
+	}
+ifinstring,ArcSiteN,+
+	{
+		gosub,sitensan
+	}
+ifinstring,ArcSiteN,=
+	{
+		gosub,sitensan
+	}
+ifinstring,ArcSiteN,!
+	{
+		gosub,sitensan
+	}
+ifinstring,ArcSiteN,`*
+	{
+		gosub,sitensan
+	}
+ifinstring,ArcSiteN,`?
+	{
+		gosub,sitensan
+	}
+ifinstring,ArcSiteN,`&
+	{
+		gosub,sitensan
+	}
 iniread,ddsp,%ARCORG%,SOURCES,%ArcSiteN%
 ifinstring,SOURCES,%ArcSiteN%
 	{
@@ -37758,6 +37847,7 @@ arcsitev= %arcvv1%//%arcvv2%
 if (ArcSitex = "")
 	{
 		SB_SetText("You must supply a url to the repository archive.")
+		guicontrol,,UrlTxt,|%ARCSRC%||%ArcSrcs%
 		return
 	}
 SB_SetText("")
