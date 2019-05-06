@@ -37742,7 +37742,7 @@ guicontrol,enable,ALTURLGET
 return
 
 sitensan:
-SB_SetText("do not include spaces or any other symbols:  Use letters,numbers and the ''-'' dash character only."	
+SB_SetText("do not include spaces or any other symbols:  Use letters,numbers and the ''-'' dash character only.")	
 
 
 AltURLSet:

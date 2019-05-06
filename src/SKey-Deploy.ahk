@@ -3860,7 +3860,7 @@ if (uptoserv = 1)
 	{
 		SB_SetText(" Uploading to server ")
 		FileDelete, %BUILDIR%\sitecommit.bat
-		FileAppend,pushd "%gitroot%\%GITUSER%.github.io\skeletonkey"`n,%BUILDIR%\sitecommit.bat
+		FileAppend,pushd "%gitroot%\%GITUSER%.github.io"`n,%BUILDIR%\sitecommit.bat
 		FileAppend,copy /y "%BUILDIR%\site\Global-Launch-Menu.png" "%gitroot%\%GITUSER%.github.io\skeletonkey"`n,%BUILDIR%\sitecommit.bat
 		FileAppend,copy /y "%BUILDIR%\site\key.ico" "%gitroot%\%GITUSER%.github.io\skeletonkey"`n,%BUILDIR%\sitecommit.bat
 		FileAppend,copy /y "%BUILDIR%\site\key.png" "%gitroot%\%GITUSER%.github.io\skeletonkey"`n,%BUILDIR%\sitecommit.bat
@@ -3871,7 +3871,7 @@ if (uptoserv = 1)
 		FileAppend,copy /y "%BUILDIR%\site\ReadMe.md" "%gitroot%\%GITUSER%.github.io\skeletonkey"`n,%BUILDIR%\sitecommit.bat
 		FileAppend,copy /y "%BUILDIR%\site\version.txt" "%gitroot%\%GITUSER%.github.io\skeletonkey"`n,%BUILDIR%\sitecommit.bat
 		FileAppend,for /f "delims=" `%`%a in ("%GITAPP%") do set gitapp=`%`%~a`n,%BUILDIR%\sitecommit.bat
-		FileAppend,"`%gitapp`%" add .`n,%BUILDIR%\sitecommit.bat
+		FileAppend,"`%gitapp`%" add skeletonkey`n,%BUILDIR%\sitecommit.bat
 		FileAppend,"`%gitapp`%" commit -m siteupdate`n,%BUILDIR%\sitecommit.bat
 		if (GITPASS <> "")
 			{
