@@ -1,8 +1,0 @@
-<Game>
-	<Name>Pong Master 4k</Name>
-	<Plot>An implementation of the classic game of Pong for the Sega Master System. Probably the first game for this console to ever be coded in C.</Plot>
-	<nPlayers>2</nPlayers>
-	<snapshot1>http://images.launchbox-app.com/ed475905-4434-4ba6-a143-40377ee29eea.jpg</snapshot1>
-	<Genre>Action</Genre>
-	<Developer>Haroldo Pinheiro</Developer>
-</game>
