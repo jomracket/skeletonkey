@@ -1,0 +1,19 @@
+<Game>
+	<Name>The Lost Vikings</Name>
+	<ReleaseDate>1992-01-01T00:00:00-08:00</ReleaseDate>
+	<Plot>In the game, the three Vikings get kidnapped by Tomator, emperor of the alien Croutonian empire, for an inter-galactic zoo and become lost in various periods of time. The purpose of the game is to control the three characters (who all have separate abilities) in order to solve puzzles to escape and get back home.</Plot>
+	<nPlayers>3</nPlayers>
+	<banner1>http://images.launchbox-app.com/456fe3f9-2cd4-4e18-bb8d-0591c5526094.png</banner1>
+	<boxback1>http://images.launchbox-app.com/20a9995c-4d37-4091-a2cd-1ef7a565e1fa.jpg</boxback1>
+	<boxback2>http://images.launchbox-app.com/b05c9e70-b46e-4b4a-a929-86cd331666b2.jpg</boxback2>
+	<boxart1>http://images.launchbox-app.com/45266167-857f-4e9e-be03-351a77dbcc63.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/06e50222-bf12-4c05-be65-4df20c750c6e.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/47751443-1134-4647-a8d0-1d3c6208f28e.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/e1f448b0-e55b-4218-9f9e-5df484da31ff.jpg</fanart1>
+	<snapshot1>http://images.launchbox-app.com/488394df-4fc1-4b0c-a4f9-8ec5e1d7f53b.jpg</snapshot1>
+	<Rating>4.25</Rating>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Puzzle</Genre>
+	<Developer>Blizzard</Developer>
+	<Publisher>Blizzard</Publisher>
+</game>

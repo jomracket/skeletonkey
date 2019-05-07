@@ -1,0 +1,37 @@
+<Game>
+	<Name>Columns (World) (v1.1)</Name>
+	<plot>Drift back to ancient Phoenicia and challenge yourself with Columns, a game favored by middle eastern merchants. In this mesmerizing pastime, tinker with your riches to align glittering jewels across, down, or diagonally. As you line up colors, the gems vanish and more sparklers drop from above. The challenge increases as the jewels fall more rapidly. You must quickly align them before the columns reach the top. You don't have to be a joystick whiz to excel, even at the hardest levels. Try Flash Columns and make a flashing jewel disappear before time runs out. Enjoy solitary games, or play with a friend. Imagine yourself on the warm Mediterranean coast, or drifting over a languid sea. Forget the passage of time, and tickle your mind with Columns, the brilliant game of strategy and skill.Cheat: Get an extra magic jewelColumns Extra Magic JewelsThere is a way to trick the game into giving you a second magic jewel. To do this you must set up the screen in a certain way. Have one row of the normal jewels stacked up almost to the top of the playfield. There must be vertical space for only two of the three jewels in the next block to come on the screen. Watch the "Next Block" preview box. When you see that the magic jewel block is next, get ready to quickly move it on top of your prepared stack. After the magic jewel eliminates the 'touching' color jewels, all of the remaining jewels will drop down as will the one magic jewel that was off the screen. This magic jewel will drop down and eliminate another group of colored jewels.</plot>
+	<releasedate>23/12/1991</releasedate>
+	<Developer>SEGA of America, Inc.</Developer>
+	<nplayers>1</nplayers>
+	<rating>3.6</rating>
+	<ESRB>E - Everyone</ESRB>
+	<VideoURL>htcKIzCK_2c</VideoURL>
+	<thegamesdb_id>465</thegamesdb_id>
+	<gamefaqs_url>http://www.gamefaqs.com/genesis/586114-columns</gamefaqs_url>
+	<mobygames_url>http://www.mobygames.com/game/genesis/columns</mobygames_url>
+	<giantbomb_url>http://www.giantbomb.com/columns/3030-5487/</giantbomb_url>
+	<boxart1>http://static.giantbomb.com/uploads/scale_large/9/93770/2370464-genesis_columns.jpg</boxart1>
+	<boxback1>http://thegamesdb.net/banners/boxart/original/back/465-1.jpg</boxback1>
+	<media>http://www.mobygames.com/images/covers/l/152808-columns-genesis-media.jpg</media>
+	<snapshot1>http://www.mobygames.com/images/shots/l/80684-columns-genesis-screenshot-title-screen.jpg</snapshot1>
+	<snapshot2>http://www.mobygames.com/images/shots/l/466961-columns-genesis-screenshot-alternate-title-screen.jpg</snapshot2>
+	<snapshot3>http://www.mobygames.com/images/shots/l/466947-columns-genesis-screenshot-the-tutorial-cinematic.jpg</snapshot3>
+	<snapshot4>http://www.mobygames.com/images/shots/l/80683-columns-genesis-screenshot-first-piece.jpg</snapshot4>
+	<snapshot5>http://www.mobygames.com/images/shots/l/80685-columns-genesis-screenshot-magic-jewel.jpg</snapshot5>
+	<snapshot6>http://www.mobygames.com/images/shots/l/80686-columns-genesis-screenshot-scoring.jpg</snapshot6>
+	<snapshot7>http://www.mobygames.com/images/shots/l/80687-columns-genesis-screenshot-near-to-lose.jpg</snapshot7>
+	<snapshot8>http://www.mobygames.com/images/shots/l/80688-columns-genesis-screenshot-record-table.jpg</snapshot8>
+	<snapshot9>http://www.mobygames.com/images/shots/l/466962-columns-genesis-screenshot-single-player-menu-options-screen.jpg</snapshot9>
+	<snapshot10>http://www.mobygames.com/images/shots/l/466963-columns-genesis-screenshot-single-player-menu-options-screen.jpg</snapshot10>
+	<fanart1>http://thegamesdb.net/banners/fanart/original/465-1.jpg</fanart1>
+	<banner1>http://i.imgur.com/sgYpXmY.png</banner1>
+	<clearlogo1>http://thegamesdb.net/banners/clearlogo/465.png</clearlogo1>
+	<Notes>The game takes place inside a tall, rectangular playing area, as in Tetris. Columns of three different symbols (such as differently-colored jewels) appear, one at a time, at the top of the well and fall to the bottom, landing either on the floor or on top of previously-fallen "Columns". While a column is falling, the player can move it left and right, and can also cycle the positions of the symbols within it. If, after a column has fallen, there are three or more of the same symbols connected in a straight line horizontally, vertically, or diagonally, those symbols disappear. The pile of columns then settles under gravity. If this causes three or more other symbols to become aligned, they also disappear and the pile settles again. This process repeats as many times as necessary. It is not uncommon for this to happen three or four times in a row - it often happens by accident when the well is becoming crowded. If the well fills beyond the top of the screen, the game ends. Occasionally, a special column called the Magic Jewel appears. The Magic Jewel flashes with different colors and when it lands, it destroys all the jewels with the same color as the one underneath it. Like Tetris, the columns fall at a faster rate as the player progresses. The goal of the game is to play for as long as possible before the well fills up with symbols. Some ports of the game offer alternate game modes as well. "Flash columns" involves mining their way through a set number of lines to get to a flashing jewel at the bottom. "Doubles" allows two players work together in the same well. "Time trial" involves racking up as many points as possible within the time limit.</Notes>
+	<boxart2>http://images.launchbox-app.com/fa3d9974-96b8-476d-aba3-83298f7b94f7.jpg</boxart2>
+	<boxart3>http://images.launchbox-app.com/be396e0b-4558-495e-8822-1ab76b8bc642.png</boxart3>
+	<clearlogo2>http://images.launchbox-app.com/b3a67e7d-35a3-4526-9476-67c098b4d199.png</clearlogo2>
+	<clearlogo3>http://images.launchbox-app.com/979bc2de-3959-4997-9d91-1eeb3b420837.png</clearlogo3>
+	<genre>Puzzle</genre>
+	<Publisher>Sega</Publisher>
+</game>

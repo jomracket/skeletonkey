@@ -1,0 +1,19 @@
+<Game>
+	<Name>Riddle Wired (Japan) (SegaNet)</Name>
+	<plot>Riddle Wired is a Miscellaneous game, developed and published by Sega,which was released in Japan in 1991.</plot>
+	<releasedate>23/12/1991</releasedate>
+	<genre>Miscellaneous, Board Game</genre>
+	<Developer>Sega</Developer>
+	<gamefaqs_url>http://www.gamefaqs.com/genesis/951932-riddle-wired</gamefaqs_url>
+	<snapshot1>http://img.gamefaqs.net/screens/c/2/a/gfs_109816_1_1.jpg</snapshot1>
+	<snapshot2>http://img.gamefaqs.net/screens/6/f/a/gfs_109816_1_2.jpg</snapshot2>
+	<snapshot3>http://img.gamefaqs.net/screens/6/b/7/gfs_109816_2_1.jpg</snapshot3>
+	<snapshot4>http://img.gamefaqs.net/screens/d/0/3/gfs_109816_3_1.jpg</snapshot4>
+	<Notes>Riddle Wired is a quiz game for the Sega Mega Drive, released exclusively in Japan via the Sega Game Toshokan service. You play through 6 stages against 5 opponents. Each stage contains 2 to 3 sub-stages (besides stage 6, which is a final confrontation between you and the opponent from stage 5). The goal of the game is to knock the opponent's HP down to 0. You achieve this by correctly selecting the right answer out of the four possible answers for each question. Each time the player guesses incorrectly, they will lose a health point. Between each stage, you are treated to a bonus game where you must hit a button to stop the bonus spinner. This can get you additional HP to the starting 3 that you have.</Notes>
+	<nPlayers>2</nPlayers>
+	<clearlogo1>http://images.launchbox-app.com/d4106600-c1dc-4b40-be02-5636dccdccab.png</clearlogo1>
+	<snapshot5>http://images.launchbox-app.com/4c4616e2-7f0f-479f-b126-cab0286cc769.png</snapshot5>
+	<snapshot6>http://images.launchbox-app.com/8f42be99-16ec-402a-a426-2658190af5fa.png</snapshot6>
+	<ESRB>Not Rated</ESRB>
+	<Publisher>Sega</Publisher>
+</game>

@@ -1,0 +1,16 @@
+<Game>
+	<Name>Digital Monsters- D Project</Name>
+	<ReleaseDate>2002-08-03T00:00:00-07:00</ReleaseDate>
+	<Plot>Digital Monsters: D Project is a Role-Playing game, developed by Sting and published by Bandai, which was released in Japan in 2002.</Plot>
+	<nPlayers>1</nPlayers>
+	<1>http://images.launchbox-app.com/70254eb7-c5c3-42dd-afd2-e26863f6a75e.png</1>
+	<boxback1>http://images.launchbox-app.com/ea17bd07-f5f4-4bca-b923-ebcb53829c25.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/4ca55168-2ea1-40a4-8839-4eb0687249a1.jpg</boxart1>
+	<media1>http://images.launchbox-app.com/70f876fc-dfc4-4f06-ab61-1423027f55da.png</media1>
+	<clearlogo1>http://images.launchbox-app.com/b35abc6e-e869-4e9c-85ea-ca67d99f98fd.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/2abe9d0f-12b0-434a-8710-c159f938dc20.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/9e41b0bc-bad0-4f55-8548-d102b62ad3f6.png</snapshot2>
+	<Genre>Role-Playing</Genre>
+	<Developer>Sting</Developer>
+	<Publisher>Bandai</Publisher>
+</game>

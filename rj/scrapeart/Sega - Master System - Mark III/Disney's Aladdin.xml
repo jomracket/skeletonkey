@@ -1,0 +1,34 @@
+<Game>
+	<Name>Disney's Aladdin</Name>
+	<ReleaseDate>1994-12-31T00:00:00-08:00</ReleaseDate>
+	<Plot>As Aladdin, baffle the guards in the streets of Agrabah. Elude the tempting traps in the Cave of Wonders, and the dangers of the Sultan's Palace. Ride the magic carpet through breathtaking skies. Then challenge the evil Jafar to a duel of swords and magic!</Plot>
+	<nPlayers>1</nPlayers>
+	<1>http://images.launchbox-app.com/4932cc7c-4516-495a-ad8e-710e3844e0f4.png</1>
+	<boxback1>http://images.launchbox-app.com/91c04c78-fbda-4b2c-9f0f-41b6c4e115a0.jpg</boxback1>
+	<boxback2>http://images.launchbox-app.com/3197721c-6b54-4178-849d-343257768d25.jpg</boxback2>
+	<boxart1>http://images.launchbox-app.com/3b860be5-ddd3-466d-8db9-cc07b1c96ec3.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/88eec3ba-6726-4751-8ba8-854d361411d4.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/6cf1bb6d-2612-4f49-b9aa-8bfbdb93d185.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/831a494d-615b-40c4-a87f-f949e53515be.jpg</fanart1>
+	<fanart2>http://images.launchbox-app.com/8103c666-b3d1-4a99-8fb3-b026a11ef2e6.jpg</fanart2>
+	<fanart3>http://images.launchbox-app.com/35b26553-9634-422f-8501-cac8dd6b0146.jpg</fanart3>
+	<fanart4>http://images.launchbox-app.com/a17dd2df-8039-46a7-935f-c0aa501044e9.jpg</fanart4>
+	<fanart5>http://images.launchbox-app.com/dfc774e9-aa22-49a4-9d3d-6b8733422fe4.jpg</fanart5>
+	<fanart6>http://images.launchbox-app.com/56240fa6-8be1-414d-8caa-6cc78f9b7ba1.jpg</fanart6>
+	<fanart7>http://images.launchbox-app.com/4b38ca7f-0d45-4e45-96cd-45365abb44b1.jpg</fanart7>
+	<fanart8>http://images.launchbox-app.com/6bbdd126-9f53-4766-bac2-af0589a3819b.jpg</fanart8>
+	<snapshot1>http://images.launchbox-app.com/56dd81d6-5e24-4f87-9664-121236a27de5.PNG</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/5fab65fb-de0e-4dba-ab24-ee57bda000d4.jpg</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/e86895f8-983c-4bbb-af34-05ef37034571.jpg</snapshot3>
+	<snapshot4>http://images.launchbox-app.com/6879303b-10b4-44fd-a073-4fd17b0a512f.jpg</snapshot4>
+	<snapshot5>http://images.launchbox-app.com/1252a975-f6b2-45cd-ac47-1b36e2bd39e9.jpg</snapshot5>
+	<snapshot6>http://images.launchbox-app.com/d2e57afa-61b2-4797-a2a5-f31f460281e0.jpg</snapshot6>
+	<snapshot7>http://images.launchbox-app.com/f70eeefa-5a33-4938-8013-bf775b9e2413.jpg</snapshot7>
+	<snapshot8>http://images.launchbox-app.com/73e445d7-f55a-4e32-a2a4-efad2d4f6160.jpg</snapshot8>
+	<snapshot9>http://images.launchbox-app.com/66e751c2-33bc-447e-8740-9a0fceecc1ac.jpg</snapshot9>
+	<Rating>3.75</Rating>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Action; Platform</Genre>
+	<Developer>SIMS</Developer>
+	<Publisher>Sega</Publisher>
+</game>

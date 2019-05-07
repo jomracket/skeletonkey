@@ -1,0 +1,16 @@
+<Game>
+	<Name>Spider-Man</Name>
+	<ReleaseDate>1991</ReleaseDate>
+	<Plot>Spider-Man vs. The Kingpin, commonly referred to as just Spider-Man or Spiderman, is a platform video game based on the Spider-Man Marvel comic book series released for the Sega Master System and Sega Game Gear in 1991 and 1992 respectively. The Master System version was released at the same time as a Sega Mega Drive version, which although follows the same plot, is a different game to this version. Spider-Man vs. The Kingpin sees the player control Spider-Man, who must defeat various enemies and famous villains from the comic book series in an attempt to stop a bomb and save New York.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/c16419e8-f258-40da-a840-4d1c2dbcedc8.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/e491c76c-7939-4836-a41f-a6524b2bfa7f.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/dd25e10b-d70a-4648-b292-c6e1a32d3ca4.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/6d7c06f3-add9-42a5-b8d5-fb921c8009b5.jpg</fanart1>
+	<Rating>4.5</Rating>
+	<WikipediaURL>https://en.wikipedia.org/wiki/The_Amazing_Spider-Man_vs._The_Kingpin</WikipediaURL>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Action</Genre>
+	<Developer>Technopop</Developer>
+	<Publisher>Sega</Publisher>
+</game>

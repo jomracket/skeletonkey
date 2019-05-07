@@ -78,6 +78,9 @@ ESTHEME=https://github.com/romjacket/esthemes/raw/master/simplified-static-canel
 [zoid]
 ESTHEME=https://github.com/romjacket/esthemes/raw/master/zoid.zip
 
+[Game-Vault]
+ESTHEME=https://github.com/romjacket/esthemes/raw/master/Game-Vault.zip
+
 [snes-mini]
 ESTHEME=https://github.com/romjacket/esthemes/raw/master/snes-mini.zip
 

@@ -1,0 +1,12 @@
+<Game>
+	<Name>Pooyan</Name>
+	<Plot>In Pooyan, you play the role of a pig, protecting its piglets from wolves. There are two stages. In the first, the wolves are riding to the bottom of the screen, and if Mama does not shoot them down, they will climb up the ladders and try to eat her. In the second (occurring after an "intermission" sequence), the wolves are riding to the top of screen, and if enough wolves get there, they will push a boulder on top of Mama, resulting in a life being lost. In both cases, the stage is cleared by shooting all the wolves, though in the second stage the boss must be shot down (which will take many shots unless the meat is used), otherwise the wolves will keep coming. After the second stage is cleared a bonus round begins. In one type, Mama must shoot all the wolves only using meat, while in the other she must use regular arrows on the fruits. Afterward, the game begins anew with higher difficulty.</Plot>
+	<nPlayers>2</nPlayers>
+	<clearlogo1>http://images.launchbox-app.com/3254e944-0139-4e04-82e8-063b0c0a06bb.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/404a6667-6881-4ba9-8767-71b55fbf9a46.png</fanart1>
+	<snapshot1>http://images.launchbox-app.com/7a8ae4aa-a65d-471c-bae1-19f565688d95.png</snapshot1>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Pooyan</WikipediaURL>
+	<Genre>Action</Genre>
+	<Developer>Unknown</Developer>
+	<Publisher>HiCom</Publisher>
+</game>

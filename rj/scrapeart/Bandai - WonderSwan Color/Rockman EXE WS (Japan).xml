@@ -1,0 +1,21 @@
+<Game>
+	<Name>Rockman EXE WS (Japan)</Name>
+	<plot>RockMan EXE WS is an Action game, developed by Capcom and published by Bandai, which was released in Japan in 2003.Like Mega Man Network Transmission, Rockman EXE WS is a side-scrolling, platform-based video game. The gameplay mainly consisted of shooting enemies and jumping through obstacles and platforms.As the game begin, players are given mission briefing through cutscenes. In the cutscenes there will be conversations between MegaMan and other character, which will explain players about the background of the mission.After the briefing, players are brought to a screen that shows a list of chips[jargon] the players have gained while playing and four boxes. By selecting a chip from the list, players choose which of the four boxes the chip will go into.Once chips are selected and the stage begins, players may use the chips by pressing the Y buttons on the console. Unlike the Mega Man Battle Network games, some chips can be used multiple times, or replace the Mega Buster attack (such as Wide Sword. Chips can be found lying in stage or by defeating enemies.As players battle through the level, the stage splits into two paths. Both paths lead to a different boss, which will be fought depending on player's completion percentage.</plot>
+	<releasedate>8/2/2003</releasedate>
+	<genre>Platform</genre>
+	<nplayers>1</nplayers>
+	<thegamesdb_id>19640</thegamesdb_id>
+	<giantbomb_url>http://www.giantbomb.com/rockman-exe-ws/3030-24887/</giantbomb_url>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/19640-1.jpg</boxart1>
+	<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Bandai%20-%20WonderSwan%20Color/Named_Titles/Rockman%20EXE%20-%20N1%20Battle%20(Japan).png</snapshot1>
+	<snapshot2>http://static.giantbomb.com/uploads/scale_large/0/7465/841335-rockman_exe_ws.png</snapshot2>
+	<Notes>RockMan EXE WS is an Action game, developed by Capcom and published by Bandai, which was released in Japan in 2003. Like Mega Man Network Transmission, Rockman EXE WS is a side-scrolling, platform-based video game. The gameplay mainly consisted of shooting enemies and jumping through obstacles and platforms. As the game begin, players are given mission briefing through cutscenes. In the cutscenes there will be conversations between MegaMan and other character, which will explain players about the background of the mission. After the briefing, players are brought to a screen that shows a list of chips[jargon] the players have gained while playing and four boxes. By selecting a chip from the list, players choose which of the four boxes the chip will go into. Once chips are selected and the stage begins, players may use the chips by pressing the Y buttons on the console. Unlike the Mega Man Battle Network games, some chips can be used multiple times, or replace the Mega Buster attack (such as Wide Sword. Chips can be found lying in stage or by defeating enemies. As players battle through the level, the stage splits into two paths. Both paths lead to a different boss, which will be fought depending on player's completion percentage.</Notes>
+	<boxart2>http://images.launchbox-app.com/d900f894-be45-4cc7-83eb-9aedb51cb624.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/1fb7a069-1efb-4bba-9c2c-6a476a47f2f9.png</clearlogo1>
+	<clearlogo2>http://images.launchbox-app.com/b8ff1c8b-5d4c-470e-8371-d15394816491.png</clearlogo2>
+	<snapshot3>http://images.launchbox-app.com/b15d36e3-7ff7-48db-a79e-3be4ebe6fb3b.png</snapshot3>
+	<snapshot4>http://images.launchbox-app.com/fe4e37d1-0ec6-4c4f-9d9c-6cf18e51add4.png</snapshot4>
+	<ESRB>Not Rated</ESRB>
+	<Developer>Capcom</Developer>
+	<Publisher>Bandai</Publisher>
+</game>

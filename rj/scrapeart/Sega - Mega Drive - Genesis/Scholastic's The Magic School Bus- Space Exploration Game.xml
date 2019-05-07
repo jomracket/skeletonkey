@@ -1,0 +1,13 @@
+<Game>
+	<Name>Scholastic's The Magic School Bus- Space Exploration Game</Name>
+	<ReleaseDate>1995-01-01T00:00:00-08:00</ReleaseDate>
+	<Plot>Based on the PBS kids program, The Magic School Bus along with Ms. Frizzle and her companion Liz takes the player throughout the solar system one planet at a time to learn about them while exploring each one. Along the way, players will be transported on the bus on their way to the next planet where they can take photos of the planets, their moons, stars, among many other things they can see. Along the way they will encounter puzzles they have to solve in order to advance using the facts they have learned through their planetary visit and can also build their own solar system in any way they choose.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/63c0add7-18bb-4be1-bfbb-282484c7ecb3.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/49501557-e05b-4fb9-b277-fda7f20d0835.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/11b1acb7-5c47-495d-9a89-5c3451663100.png</clearlogo1>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Education</Genre>
+	<Developer>Novotrade</Developer>
+	<Publisher>Sega</Publisher>
+</game>

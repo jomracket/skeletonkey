@@ -1,0 +1,35 @@
+<Game>
+	<Name>Klax (Japan)</Name>
+	<plot>Overview:The game objective is to line up colored blocks into rows of similar colors to make them disappear. Atari Games originally released it as a coin-op follow up to Tetris, which they were tangled in a legal dispute about at the time. Klax features a conveyor belt at the top of the screen which rolls toward the playing area, delivering a steady supply of colored blocks. The player controls a small device which sits at the interface between the conveyor belt and the playing area. By moving this left and right, the player can catch the blocks and deposit them in the playing area. Failure to catch any block results in it falling down the gap between the conveyor belt and playing area and one drop being used. Once all of the drops are used, the player is given a chance to continue. Otherwise, the game ends. (In the original coin-op, the game ends when all drops are used.)Cheat: Easy game At the Options screen highlight DIFFICULTY and press C ten times.Cheat: Warp to level 49 Make an "X" on level 6 or 11 and you'll warp to level 49.</plot>
+	<releasedate>23/12/1990</releasedate>
+	<genre>Action, Strategy</genre>
+	<Developer>Tengen Inc.</Developer>
+	<nplayers>1-2 VS</nplayers>
+	<rating>3.2</rating>
+	<thegamesdb_id>539</thegamesdb_id>
+	<gamefaqs_url>http://www.gamefaqs.com/genesis/586277-klax</gamefaqs_url>
+	<mobygames_url>http://www.mobygames.com/game/genesis/klax</mobygames_url>
+	<giantbomb_url>http://www.giantbomb.com/klax/3030-16455/</giantbomb_url>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/539-1.jpg</boxart1>
+	<boxback1>http://thegamesdb.net/banners/boxart/original/back/539-1.jpg</boxback1>
+	<media>http://www.mobygames.com/images/covers/l/280282-klax-genesis-media.jpg</media>
+	<snapshot1>http://thegamesdb.net/banners/screenshots/539-1.jpg</snapshot1>
+	<snapshot2>http://www.mobygames.com/images/shots/l/178664-klax-genesis-screenshot-it-is-the-nineties-and-there-is-time.jpg</snapshot2>
+	<snapshot3>http://www.mobygames.com/images/shots/l/178665-klax-genesis-screenshot-klax.jpg</snapshot3>
+	<snapshot4>http://www.mobygames.com/images/shots/l/178668-klax-genesis-screenshot-select-a-wave.jpg</snapshot4>
+	<snapshot5>http://www.mobygames.com/images/shots/l/178670-klax-genesis-screenshot-how-to-play.jpg</snapshot5>
+	<snapshot6>http://www.mobygames.com/images/shots/l/178671-klax-genesis-screenshot-you-must-get-three-klaxes.jpg</snapshot6>
+	<snapshot7>http://www.mobygames.com/images/shots/l/178673-klax-genesis-screenshot-first-wave.jpg</snapshot7>
+	<snapshot8>http://www.mobygames.com/images/shots/l/178675-klax-genesis-screenshot-you-must-get-five-klaxes.jpg</snapshot8>
+	<snapshot9>http://www.mobygames.com/images/shots/l/178676-klax-genesis-screenshot-calculating-bonus.jpg</snapshot9>
+	<snapshot10>http://www.mobygames.com/images/shots/l/178677-klax-genesis-screenshot-you-must-get-3-diagonals.jpg</snapshot10>
+	<banner1>http://i.imgur.com/oxgMuMR.jpg</banner1>
+	<clearlogo1>http://thegamesdb.net/banners/clearlogo/539.png</clearlogo1>
+	<Notes>Klax features a conveyor belt at the top of the screen. It constantly rolls toward the playing area, delivering a steady supply of blocks. The player controls a small device which sits at the interface between the conveyor belt and the playing area, and can be moved left and right to catch the blocks and either deposit them in the playing area or push them back up the conveyor belt. The device can hold up to five blocks. A block which is not caught and placed in the playing area or pushed back up the belt is considered a drop. The blocks are solid colours, but there is also a flashing block which can be used as a wildcard on any colour.</Notes>
+	<boxart2>http://images.launchbox-app.com/3b992645-6ac8-48ed-a13d-05a5c5741f56.jpg</boxart2>
+	<boxart3>http://images.launchbox-app.com/58077fc9-b5a2-45be-9b45-d88761969d41.jpg</boxart3>
+	<clearlogo2>http://images.launchbox-app.com/72f4b488-8753-485a-be6e-6cc497791369.png</clearlogo2>
+	<clearlogo3>http://images.launchbox-app.com/bc050adc-199f-42fb-bed8-22714cd28e1f.png</clearlogo3>
+	<snapshot11>http://images.launchbox-app.com/cf16af38-cfe0-4fab-aa80-ce8ebd3eb591.jpg</snapshot11>
+	<Publisher>Tengen</Publisher>
+</game>

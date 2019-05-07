@@ -1,0 +1,34 @@
+<Game>
+	<Name>Zoom! (World)</Name>
+	<plot>Zoom! is an arcade style puzzle game.  Your character Zoomer (a Pacman lookalike with arms &amp; legs) must trace the outline of the squares on the game board to light them up.  Points are awarded when full squares are formed, although the game also displays how many lines must still be completed. You proceed to the next level when all the squares have been lit up.  There are various monsters that will try to hunt you down - contact with these costs you energy and eventually a life. There are also a number of power-ups that will aid your quest - quick filling of tiles surrounding the bonus piece, a level skip and bonus points, for example.Cheat: Debug ModeEnter the code below, select the ''Debug'' option, begin game play, and press A. The screen will split and reveal the game code.</plot>
+	<releasedate>23/12/1989</releasedate>
+	<genre>Action, Strategy</genre>
+	<Developer>SEGA of America, Inc.</Developer>
+	<nplayers>1-2 Alt</nplayers>
+	<rating>3.0</rating>
+	<VideoURL>9OdKHMfLArY</VideoURL>
+	<thegamesdb_id>4751</thegamesdb_id>
+	<gamefaqs_url>http://www.gamefaqs.com/genesis/586628-zoom</gamefaqs_url>
+	<mobygames_url>http://www.mobygames.com/game/genesis/zoom</mobygames_url>
+	<giantbomb_url>http://www.giantbomb.com/zoom/3030-16107/</giantbomb_url>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/4751-1.jpg</boxart1>
+	<boxback1>http://thegamesdb.net/banners/boxart/original/back/4751-1.jpg</boxback1>
+	<media>http://www.mobygames.com/images/covers/l/95861-zoom-genesis-media.jpg</media>
+	<snapshot1>http://www.mobygames.com/images/shots/l/234439-zoom-genesis-screenshot-intro.jpg</snapshot1>
+	<snapshot2>http://www.mobygames.com/images/shots/l/234440-zoom-genesis-screenshot-start-menu.jpg</snapshot2>
+	<snapshot3>http://www.mobygames.com/images/shots/l/234441-zoom-genesis-screenshot-loading-screen.jpg</snapshot3>
+	<snapshot4>http://www.mobygames.com/images/shots/l/234442-zoom-genesis-screenshot-game-start.jpg</snapshot4>
+	<snapshot5>http://www.mobygames.com/images/shots/l/234443-zoom-genesis-screenshot-level-02.jpg</snapshot5>
+	<snapshot6>http://www.mobygames.com/images/shots/l/234444-zoom-genesis-screenshot-level-02-complete.jpg</snapshot6>
+	<snapshot7>http://www.mobygames.com/images/shots/l/234445-zoom-genesis-screenshot-level-03-killed.jpg</snapshot7>
+	<snapshot8>http://www.mobygames.com/images/shots/l/234446-zoom-genesis-screenshot-level-04.jpg</snapshot8>
+	<snapshot9>http://www.mobygames.com/images/shots/l/234447-zoom-genesis-screenshot-game-over.jpg</snapshot9>
+	<snapshot10>http://img.gamefaqs.net/screens/8/6/4/gfs_92694_1_1.jpg</snapshot10>
+	<banner1>http://i.imgur.com/5GglAWM.png</banner1>
+	<clearlogo1>http://thegamesdb.net/banners/clearlogo/4751.png</clearlogo1>
+	<Notes>Zoom! is an arcade style puzzle game. Your character Zoomer (a Pacman lookalike with arms &amp; legs) must trace the outline of the squares on the game board to light them up. Points are awarded when full squares are formed, although the game also displays how many lines must still be completed. You proceed to the next level when all the squares have been lit up. There are various monsters that will try to hunt you down - contact with these costs you energy and eventually a life. There are also a number of power-ups that will aid your quest - quick filling of tiles surrounding the bonus piece, a level skip and bonus points, for example.</Notes>
+	<boxart2>http://images.launchbox-app.com/2da8b7dc-8c50-432e-a5c9-4d94705f2f7b.png</boxart2>
+	<boxart3>http://images.launchbox-app.com/40ff09b8-1d24-4384-9e76-1d20d6010666.jpg</boxart3>
+	<clearlogo2>http://images.launchbox-app.com/9e4c5cea-ab82-4bcb-bab2-99dc7bb110f1.png</clearlogo2>
+	<Publisher>Sega</Publisher>
+</game>

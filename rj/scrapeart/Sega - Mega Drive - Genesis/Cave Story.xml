@@ -1,0 +1,16 @@
+<Game>
+	<Name>Cave Story</Name>
+	<ReleaseDate>2016</ReleaseDate>
+	<Plot>A 10 year old PC game ported to a 25 year old console because why not? This is a rewrite/port of the popular freeware game Cave Story for Sega MegaDrive/Genesis. The engine is built using SGDK, and written almost entirely in C. It should work on any console or emulator.</Plot>
+	<nPlayers>1</nPlayers>
+	<VideoURL>gavHsmH_-mk</VideoURL>
+	<fanart1>http://images.launchbox-app.com/5d07113d-ad38-439d-b06a-c910fb785443.png</fanart1>
+	<fanart2>http://images.launchbox-app.com/9f39373c-3c74-4905-975f-8ac40174fbe9.png</fanart2>
+	<snapshot1>http://images.launchbox-app.com/67fcb872-f20b-432a-8a7f-69ccf6a220b2.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/05db32e6-6551-4230-824d-48d36129fa45.png</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/0f487161-9d5e-4fa4-aa13-d232d5f4afcb.png</snapshot3>
+	<snapshot4>http://images.launchbox-app.com/20cd989f-39ca-4fe7-bb69-a14b032be57d.png</snapshot4>
+	<WikipediaURL>http://en.wikipedia.org/wiki/Cave_Story</WikipediaURL>
+	<Genre>Adventure; Platform</Genre>
+	<Developer>Studio Pixel</Developer>
+</game>

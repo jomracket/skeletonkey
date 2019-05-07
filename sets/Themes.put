@@ -78,6 +78,9 @@ ESTHEME=[HOSTINGURL]/esthemes/raw/master/simplified-static-canela.zip
 [zoid]
 ESTHEME=[HOSTINGURL]/esthemes/raw/master/zoid.zip
 
+[Game-Vault]
+ESTHEME=[HOSTINGURL]/esthemes/raw/master/Game-Vault.zip
+
 [snes-mini]
 ESTHEME=[HOSTINGURL]/esthemes/raw/master/snes-mini.zip
 

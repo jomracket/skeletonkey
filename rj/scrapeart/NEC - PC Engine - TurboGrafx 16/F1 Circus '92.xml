@@ -1,0 +1,16 @@
+<Game>
+	<Name>F1 Circus '92</Name>
+	<ReleaseDate>1992-12-18T00:00:00-08:00</ReleaseDate>
+	<Plot>The fast paced Forumla 1 action returns, retaining all the gameplay elements of the original.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/4e9fd987-0b34-42ab-bc25-4a64494a10f9.JPG</boxback1>
+	<boxart1>http://images.launchbox-app.com/6a776a75-df2c-4c83-bcd4-d143be6ede11.JPG</boxart1>
+	<media1>http://images.launchbox-app.com/cdf68e77-0911-4817-9bfb-5f098dbf515f.JPG</media1>
+	<clearlogo1>http://images.launchbox-app.com/21557b9e-ade8-46de-9a50-09b1e7055906.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/cea02b28-6009-4fc3-9298-5ab5eb50c9ac.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/c2742937-58ab-4834-bcdc-66a9531bfc1b.png</snapshot2>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Racing; Sports</Genre>
+	<Developer>Nihon Bussan</Developer>
+	<Publisher>Nihon Bussan</Publisher>
+</game>

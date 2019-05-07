@@ -1,0 +1,33 @@
+<Game>
+	<Name>Mr. Driller (Japan)</Name>
+	<plot>DevelopmentMr. Driller originated from an unofficial project at Namco, worked on by a few staff on the side, to develop a new game in the Dig-Dug series. As such the working title of the game was Dig-Dug 3. The main character of the game is Susumu Hori, son of Taizou Hori from Dig-Dug. Later the project was endorsed by Namco and became official, transforming into Mr. Driller en-route.Gameplay:The goal of Mr. Driller is to keep drilling down through a set amount of level (often depending on difficulty) of varying lengths. Upon clearing a level, all blocks above you are destroyed and you are given a boost to your air supply. Your Air supply is your life. You run out, you die. While your air supply constantly dwindles as you are progressing to the next stage, finding air tanks will refill portions of your air. Watch out for rock and boxes marked with an &#8220;X&#8221; for they take many drills to destroy (slowing you down) and once they are destroyed they take a portion of your air supply.The controls are rather simple: one button is your drill, while the D-pad or analog stick is your movement. You have the ability to use your drill in all four directions and you have the ability to jump up one block to your left or right, granted that there is space for you.As you drill, you will notice that similar colored blocks will link together. These linked blocks are what you should be aiming for because once you tap one part of it with your drill, all the blocks linked in that chain will disappear. Aiming for these while drilling down will clear out a path much faster than just going straight down. Pay attention though, blocks that are not linked and have no support under them will fall down, often on your Mr. Driller. Its not the scariest thing in the world, for blocks will link even if they are falling, providing some intense moments where you think your end has come only for the block to link at the last moment.Tips:Don't forget to move left and right! Having the ability to move left and right will save you from falling objects while also giving you access to more linked blocksAir supplies count as blocks! When you get an Air Supply and there is a block (or many blocks) above it, it will fall. So grab them quick and get back to drilling!Take your time! If you are just starting with Mr. Driller, take the time to learn how fast he jumps up blocks and moves left to right. This will prevent you from trying to drill out of the way of falling blocks rather than just moving out of the way.Boxes and rocks marked with an X don't link! If you see these falling, avoid them at all costs. Its also good to give some space before you start drilling right under one. [Actually this tip is incorrect, X-blocks do link like any other block, and it is how you're supposed to get rid of them when they are surrounding an air capsule.]iPhone versionMr. Driller for iPhone seems to be an updated version of the original Mr. Driller, the main difference being that Susumu's in-game sprites have been redrawn to resemble the current artwork.The app is only 1.99 US and, like any iPhone app, is compatible with the iPad.</plot>
+	<releasedate>5/4/2001</releasedate>
+	<genre>Simulation, Strategy</genre>
+	<Developer>Namco Limited</Developer>
+	<nplayers>1</nplayers>
+	<rating>4.4</rating>
+	<thegamesdb_id>19798</thegamesdb_id>
+	<mobygames_url>http://www.mobygames.com/game/wonderswan-color/mr-driller</mobygames_url>
+	<giantbomb_url>http://www.giantbomb.com/mr-driller/3030-8221/</giantbomb_url>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/19798-1.jpg</boxart1>
+	<boxback1>http://thegamesdb.net/banners/boxart/original/back/19798-1.jpg</boxback1>
+	<media1>http://www.mobygames.com/images/covers/l/313502-mr-driller-wonderswan-color-media.jpg</media1>
+	<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Bandai%20-%20WonderSwan%20Color/Named_Titles/Mr.%20Driller%20(Japan).png</snapshot1>
+	<snapshot2>http://www.mobygames.com/images/shots/l/105443-mr-driller-wonderswan-color-screenshot-title-screen.jpg</snapshot2>
+	<snapshot3>http://www.mobygames.com/images/shots/l/266974-mr-driller-wonderswan-color-screenshot-the-year-the-future.jpg</snapshot3>
+	<snapshot4>http://www.mobygames.com/images/shots/l/266975-mr-driller-wonderswan-color-screenshot-mr-driller.jpg</snapshot4>
+	<snapshot5>http://www.mobygames.com/images/shots/l/266976-mr-driller-wonderswan-color-screenshot-to-work.jpg</snapshot5>
+	<snapshot6>http://www.mobygames.com/images/shots/l/266977-mr-driller-wonderswan-color-screenshot-to-work-is-to-drill.jpg</snapshot6>
+	<snapshot7>http://www.mobygames.com/images/shots/l/266993-mr-driller-wonderswan-color-screenshot-select-depth.jpg</snapshot7>
+	<snapshot8>http://www.mobygames.com/images/shots/l/266979-mr-driller-wonderswan-color-screenshot-begin.jpg</snapshot8>
+	<snapshot9>http://www.mobygames.com/images/shots/l/266980-mr-driller-wonderswan-color-screenshot-drilling-a-bit.jpg</snapshot9>
+	<snapshot10>http://www.mobygames.com/images/shots/l/266994-mr-driller-wonderswan-color-screenshot-count-down-to-run-out.jpg</snapshot10>
+	<clearlogo1>http://thegamesdb.net/banners/clearlogo/19798.png</clearlogo1>
+	<Notes>Mr. Driller's world has been covered with mysterious colored blocks. Armed with only a mighty drill, you'll have to dig your way down to safety before his air supply runs out! It will take quick thinking and sharp reflexes to get the job done. Can you handle the challenge?</Notes>
+	<boxart2>http://images.launchbox-app.com/04a234fd-e559-43c2-8110-bdb8ed4bf8b0.png</boxart2>
+	<clearlogo2>http://images.launchbox-app.com/a758f9bb-3cf3-464f-8495-0d751732671f.png</clearlogo2>
+	<clearlogo3>http://images.launchbox-app.com/0c79ec81-c982-4304-bb3c-b1ab2e3fc964.png</clearlogo3>
+	<snapshot11>http://images.launchbox-app.com/23d0c79e-ef72-46ca-8169-835a02b02724.png</snapshot11>
+	<snapshot12>http://images.launchbox-app.com/95e5ba05-3f1c-49c4-91bb-1e813e828daf.png</snapshot12>
+	<Publisher>Namco</Publisher>
+</game>

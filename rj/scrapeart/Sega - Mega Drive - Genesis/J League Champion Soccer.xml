@@ -1,0 +1,13 @@
+<Game>
+	<Name>J League Champion Soccer</Name>
+	<ReleaseDate>1993-02-26T00:00:00-08:00</ReleaseDate>
+	<Plot>J. League Champion Soccer (Ｊリーグチャンピオンサッカー) is a football game developed by Krisalis Software and published by Shogakukan Production/Game Arts for the Sega Mega Drive in 1993. It is a re-worked and stripped-down version of European Club Soccer intended for Japanese audiences.</Plot>
+	<nPlayers>4</nPlayers>
+	<boxback1>http://images.launchbox-app.com/2da89449-97dc-4d7c-90a8-a52a4ea270f3.png</boxback1>
+	<boxart1>http://images.launchbox-app.com/91f0329a-ec88-4e10-9e6a-5129b9932c61.png</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/5d642b68-782c-4c7b-9ed9-3052c694a1c0.png</clearlogo1>
+	<Rating>1.5</Rating>
+	<Genre>Sports</Genre>
+	<Developer>Krisalis Software</Developer>
+	<Publisher>Shogakukan Production</Publisher>
+</game>

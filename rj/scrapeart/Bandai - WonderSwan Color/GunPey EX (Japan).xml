@@ -1,0 +1,31 @@
+<Game>
+	<Name>GunPey EX (Japan)</Name>
+	<plot>Direct sequel to the original Gunpey on the WonderSwan, Gunpey EX adds a number of new elements to the classic; most notably, color.In addition to earning points for completing a line across the field you will now earn points if those lines are of a matching color. Previously only gray lines were possible now red, blue, and green lines appear.Gunpey EX has the same modes as the previous game, except a story mode. Time Attack mode where one has to eliminate as many tiles as possible in two of five minutes. Endless mode give the player unlimited time to crank out whatever score they desire. Stage mode presents a set number of tiles to remove in a given time. Puzzle mode puts the player in the situation of having to remove a certain group of tiles, the player can change the color of the lines here when they swap their tiles positions.A link mode is available to play against another human with a WonderSwan and Gunpey EX. This game could access the internet through a wireless phone and the WonderGate where it was able to interact with an online high score board.</plot>
+	<releasedate>9/12/2000</releasedate>
+	<Developer>Bandai Co., Ltd.</Developer>
+	<nplayers>1-2 Alt</nplayers>
+	<rating>2.8</rating>
+	<thegamesdb_id>27718</thegamesdb_id>
+	<mobygames_url>http://www.mobygames.com/game/wonderswan-color/gunpey-ex</mobygames_url>
+	<giantbomb_url>http://www.giantbomb.com/gunpey/3030-13414/</giantbomb_url>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/27718-1.jpg</boxart1>
+	<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Bandai%20-%20WonderSwan%20Color/Named_Titles/GunPey%20EX%20(Japan).png</snapshot1>
+	<snapshot2>http://www.mobygames.com/images/shots/l/309679-gunpey-ex-wonderswan-color-screenshot-title-screen.jpg</snapshot2>
+	<snapshot3>http://www.mobygames.com/images/shots/l/309680-gunpey-ex-wonderswan-color-screenshot-wondergate-connection.jpg</snapshot3>
+	<snapshot4>http://www.mobygames.com/images/shots/l/309681-gunpey-ex-wonderswan-color-screenshot-with-engrish.jpg</snapshot4>
+	<snapshot5>http://www.mobygames.com/images/shots/l/309682-gunpey-ex-wonderswan-color-screenshot-mode-selection.jpg</snapshot5>
+	<snapshot6>http://www.mobygames.com/images/shots/l/309683-gunpey-ex-wonderswan-color-screenshot-stage-1-a-castle-it.jpg</snapshot6>
+	<snapshot7>http://www.mobygames.com/images/shots/l/309684-gunpey-ex-wonderswan-color-screenshot-all-blues-lines-will.jpg</snapshot7>
+	<snapshot8>http://www.mobygames.com/images/shots/l/309685-gunpey-ex-wonderswan-color-screenshot-sadly-it-can-be-difficult.jpg</snapshot8>
+	<snapshot9>http://www.mobygames.com/images/shots/l/309686-gunpey-ex-wonderswan-color-screenshot-stage-clear-after-a.jpg</snapshot9>
+	<snapshot10>http://www.mobygames.com/images/shots/l/309687-gunpey-ex-wonderswan-color-screenshot-branching-lines-that.jpg</snapshot10>
+	<Notes>Launch title for the WonderSwan Color. The game features new colored-base puzzles. The game is compatible with the Wondergate peripheral allowing players to play in multiplayer mode online and includes a new quit-restart function so players can take breaks. however, the Story Mode feature has been removed.</Notes>
+	<boxart2>http://images.launchbox-app.com/3eacb129-b28e-4a62-9776-630d3959e6a3.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/54de3c83-f8bd-467e-a919-72cc58f9506a.png</clearlogo1>
+	<clearlogo2>http://images.launchbox-app.com/50498ec9-429b-4718-a3c8-39f38fd62b02.png</clearlogo2>
+	<snapshot11>http://images.launchbox-app.com/916f4f6b-208a-4b35-8334-283dc2772ae3.png</snapshot11>
+	<snapshot12>http://images.launchbox-app.com/0ac92f74-04b1-409f-bccc-ca1ec9145251.png</snapshot12>
+	<ESRB>Not Rated</ESRB>
+	<genre>Puzzle</genre>
+	<Publisher>Bandai</Publisher>
+</game>

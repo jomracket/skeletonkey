@@ -1,0 +1,20 @@
+<Game>
+	<Name>Saint Seiya - Ougon Densetsu Hen - Perfect Edition (Japan)</Name>
+	<plot>Saint Seiya: Ougon Densetsuhen Perfect Edition is a Role-Playing game, developed by TOSE and published by Bandai, which was released in Japan in 2003.</plot>
+	<releasedate>31/7/2003</releasedate>
+	<genre>RPG</genre>
+	<nplayers>1</nplayers>
+	<thegamesdb_id>27751</thegamesdb_id>
+	<giantbomb_url>http://www.giantbomb.com/saint-seiya-ougon-densetsu-hen-perfect-edition/3030-42980/</giantbomb_url>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/27751-1.jpg</boxart1>
+	<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Bandai%20-%20WonderSwan%20Color/Named_Titles/SD%20Gundam%20-%20Operation%20U.C.%20(Japan).png</snapshot1>
+	<Notes>Saint Seiya: Ougon Densetsuhen Perfect Edition is a Role-Playing game, developed by TOSE and published by Bandai, which was released in Japan in 2003.</Notes>
+	<boxart2>http://images.launchbox-app.com/e19ab535-754e-492a-b648-797493b592b8.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/11b77469-d9a1-4b3c-a79b-0ac3e4579410.png</clearlogo1>
+	<clearlogo2>http://images.launchbox-app.com/cdb8c489-c272-4362-8c0e-071c68a52628.png</clearlogo2>
+	<snapshot2>http://images.launchbox-app.com/e455155a-b749-4c91-8052-9156082bcc29.png</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/e265f44a-40ac-4ac1-8bc4-0dce9b4a26af.png</snapshot3>
+	<ESRB>Not Rated</ESRB>
+	<Developer>TOSE</Developer>
+	<Publisher>Bandai</Publisher>
+</game>

@@ -1,0 +1,7 @@
+<Game>
+	<Name>240P Test Suite</Name>
+	<Plot>Although this is under the NEC Turbografix 16 platform, it cane work on many other early systems such as Genesis as well. This is included with Retroarch as a content download. Artemio’s 240p Test Suite is a software suite for video game consoles developed to help in the evaluation of upscalers, upscan converters, line doublers and of course TV processing of 240p video. It consists of tests designed with the processing of 240p signals in mind, although when possible it includes other video modes and specific tests for them. These have been tested with video processors on real hardware and a variety of displays, including CRTs, PVMs, BVMs and Arcade monitors via RGB. As a secondary target, the suite aims to provide tools for calibrating colors, geometry, linearity, overscan and black &amp; white levels, for specific console outputs and setups.</Plot>
+	<nPlayers>1</nPlayers>
+	<snapshot1>http://images.launchbox-app.com/529c22aa-4d9a-4844-839c-d4b506f6ce34.png</snapshot1>
+	<WikipediaURL>http://junkerhq.net/xrgb/index.php?title=240p_test_suite</WikipediaURL>
+</game>

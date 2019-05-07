@@ -1,0 +1,11 @@
+<Game>
+	<Name>Flux (Europe) (Requires MegaCD) (Program)</Name>
+	<plot>Flux is a music visualizer software developed by EXP for the Sega Mega Drive and released by Virgin Interactive exclusively in Europe. When the Mega Drive is connected to a Sega Mega-CD, an audio CD is in the CD tray, and this cartridge in the Mega Drive, Flux will have the Mega CD play the music on the CD and show various user-configurable effects (the default being a two-channel oscilloscope). B pauses playback, Left and Right skip tracks, and Start brings up the configuration panel.The cartridge works for two reasons &#8212; the Mega CD supports using a cartridge as a boot image (this was also done with Wonder Library) and supports having the boot image access the CD drive for audio playback. Kega Fusion can emulate all this specifically for Flux; instructions are in its readme file. It requires a small modification to its configuration file and a European Mega CD BIOS to work.</plot>
+	<releasedate>28/8/1995</releasedate>
+	<thegamesdb_id>20374</thegamesdb_id>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/20374-1.jpg</boxart1>
+	<Notes>Flux is a music visualizer software developed by EXP for the Sega Mega Drive and released by Virgin Interactive exclusively in Europe. When the Mega Drive is connected to a Sega Mega-CD, an audio CD is in the CD tray, and this cartridge in the Mega Drive, Flux will have the Mega CD play the music on the CD and show various user-configurable effects (the default being a two-channel oscilloscope). B pauses playback, Left and Right skip tracks, and Start brings up the configuration panel. The cartridge works for two reasons — the Mega CD supports using a cartridge as a boot image (this was also done with Wonder Library) and supports having the boot image access the CD drive for audio playback. Kega Fusion can emulate all this specifically for Flux; instructions are in its readme file. It requires a small modification to its configuration file and a European Mega CD BIOS to work.</Notes>
+	<boxart2>http://images.launchbox-app.com/fc67eda2-f4ea-4763-b5b4-133bb2a0ef9d.jpg</boxart2>
+	<Developer>EXP</Developer>
+	<Publisher>Virgin</Publisher>
+</game>

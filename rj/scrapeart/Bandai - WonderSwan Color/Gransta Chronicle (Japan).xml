@@ -1,0 +1,19 @@
+<Game>
+	<Name>Gransta Chronicle (Japan)</Name>
+	<plot>Gransta Chronicle is a Role-Playing game, developed by Tom Create and published by Omega Micott, which was released in Japan in 2002.</plot>
+	<releasedate>13/6/2002</releasedate>
+	<genre>RPG</genre>
+	<nplayers>1</nplayers>
+	<thegamesdb_id>27716</thegamesdb_id>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/27716-1.jpg</boxart1>
+	<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Bandai%20-%20WonderSwan%20Color/Named_Titles/Gransta%20Chronicle%20(Japan).png</snapshot1>
+	<Notes>Gransta Chronicle is a Role-Playing game, developed by Tom Create and published by Omega Micott, which was released in Japan in 2002.</Notes>
+	<boxart2>http://images.launchbox-app.com/b1d871b0-6b28-4afd-83b0-84b9a6dd5f12.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/248f3fe3-b65b-4df9-8fa3-2de8a9727036.png</clearlogo1>
+	<clearlogo2>http://images.launchbox-app.com/748b08ad-1a6c-4ebb-a6b1-44e98775561f.png</clearlogo2>
+	<snapshot2>http://images.launchbox-app.com/f10af7b0-e76a-4d3c-b4cc-ebd5a9206bb4.png</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/7850aa72-77d9-4e20-8802-70a16812b79a.png</snapshot3>
+	<ESRB>Not Rated</ESRB>
+	<Developer>Omega Micott</Developer>
+	<Publisher>Omega Micott</Publisher>
+</game>

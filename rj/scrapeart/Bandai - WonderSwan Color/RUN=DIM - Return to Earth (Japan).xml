@@ -1,0 +1,20 @@
+<Game>
+	<Name>RUN=DIM - Return to Earth (Japan)</Name>
+	<plot>Run=Dim is a Role-Playing game, developed and published by Digital Dream, which was released in Japan in 2002.http://www.gamefaqs.com/portable/wscolor/home/566641.html</plot>
+	<releasedate>4/7/2002</releasedate>
+	<genre>RPG</genre>
+	<Developer>Digital Dream</Developer>
+	<nplayers>1</nplayers>
+	<thegamesdb_id>19641</thegamesdb_id>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/19641-1.jpg</boxart1>
+	<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Bandai%20-%20WonderSwan%20Color/Named_Titles/Romancing%20Sa-Ga%20(Japan).png</snapshot1>
+	<Notes>Run=Dim: Return to Earth is an Action game, developed and published by Digital Dream, which was released in Japan in 2002.</Notes>
+	<boxart2>http://images.launchbox-app.com/d87ac826-96f6-4997-ab27-6cd2e3d0d119.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/c2cb0c1d-b57a-4db5-8632-35cde7047f8c.png</clearlogo1>
+	<clearlogo2>http://images.launchbox-app.com/40df088b-c126-4d18-8741-fa2559f8ad1d.png</clearlogo2>
+	<snapshot2>http://images.launchbox-app.com/b0368271-4380-493f-b21a-13fd5cdd61c5.png</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/93d5cf14-6458-488e-9d48-5ef58710b27a.png</snapshot3>
+	<rating>4</rating>
+	<ESRB>Not Rated</ESRB>
+	<Publisher>Digital Dream</Publisher>
+</game>

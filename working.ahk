@@ -11,7 +11,7 @@ setworkingdir= %A_ScriptDir%
 GLBTOP:
 RELEASE= [VERSION]
 VERSION= [CURV]
-RASTABLE= 1.7.6
+RASTABLE= 1.7.7
 
 #Include src\tf.ahk
 #Include src\lbex.ahk
@@ -2232,11 +2232,13 @@ Gui, Add, GroupBox, x470 y25 w263 h94 Center +0x400000 vGRPDROPBIOS hidden, Drop
 Gui,Font,%fontXsm% Norm
 
 Gui, Add, Button, x480 y40 w240 h70 vAUTOBIOS gAUTOBIOS hidden %EULAOPT%,AUTO
+Gui, Add, Edit, x5 y2 w210 vINSFLTR gINSFLTR,
+Gui, Add, Button, x217 y5 w15 h15 vCLRFLTR gCLRFLTR,X
+Gui, Add, Text, x235 y5 h13 vINSFLTRX, Filter
+Gui, Add, ListBox,x5 y23 w271 h463 HWNDtrxvail vUAVAIL gUAvailSel hidden,
 
-Gui, Add, ListBox,x5 y21 w271 h463 HWNDtrxvail vUAVAIL gUAvailSel hidden, %allsupport%
-
-Gui, Add, ListBox, Multi x5 y21 w271 h463 HWNDeavlbx vEAVAIL gEAvailSel, %allsupport%
-Gui, Add, ListBox, Multi x15 y23 w227 h433 hwndAVWIND vAVAIL gAvailSel Hidden, %corezips%
+Gui, Add, ListBox, Multi x5 y23 w271 h463 HWNDeavlbx vEAVAIL gEAvailSel, %allsupport%
+Gui, Add, ListBox, Multi x5 y23 w237 h433 hwndAVWIND vAVAIL gAvailSel Hidden, %corezips%
 
 Gui, Add, Button, x258 y341 w48 h20 vUPDCL gGetCoreList hidden, Refresh
 Gui, Add, Button, x377 y340 w80 h26 vGCUPDT gGCUpdt hidden, Update Cores
@@ -4315,7 +4317,8 @@ RJENXTRARC_TT :="Extracts .7z, .zip and .rar files"
 RJXTRARCA_TT :="Archives are extracted before jackets are created."
 RJXTRARCB_TT :="Archives are extracted after jackets are created."
 RJXTRARCDD_TT :="Store will move archives to skeletonKey's temp directory`nDelete will delete the archive after extraction`nKeep will not delete or move the archive"
-
+CLRFLTR_TT :="Clearse the current filter"
+INSFLTR_TT :="Filters the current list"
 MVPLOU_TT :="Moves an item up in the playlist."
 MVPLOD_TT :="Moves an item down in the playlist."
 DONATELNK_TT :="You can donate to me and I will thank you personally."
@@ -9539,6 +9542,9 @@ RaList:
 gui,submit,nohide
 guicontrol,Show,GCUpdt
 guicontrol,Show,UPDCL
+guicontrol,Show,INSFLTR
+guicontrol,Show,CLRFLTR
+guicontrol,Show,INSFLTRX
 guicontrol,move, CACGRP, x2 y5 w244 h478
 guicontrol, move, CCGRP, x251 y5 w212 h366
 guicontrol,enable,GCUPDT
@@ -9607,11 +9613,87 @@ fileappend, %repoWrite%,RepoList.ini
 IniWrite, "%REPOSET%",Settings.ini,GLOBAL,Emulator_Repository
 return
 
+CLRFLTR:
+gui,submit,nohide
+guicontrol,,INSFLTR,
+guicontrolget,INSFLTR,,INSFLTR
+if (INSFLTR = "")
+	{
+		return
+	}
+INSFLTR:
+gui,submit,nohide
+guicontrolget,INSFLTR,,INSFLTR
+SB_SetText("searching")
+if (SALIST = "Emulators")
+	{
+		if (INSFLTR = "")
+			{
+				SB_SetText("")
+				guicontrol,,UAVAIL,|%emuinstpop%
+				return
+			}
+		reapp= 	
+		Loop,parse,emuinstpop,|
+			{
+				ifinstring,A_LoopField,%INSFLTR%
+					{
+						reapp.= A_LOopField . "|"
+					}
+			}
+		SB_SetText("")
+		GuiControl,,UAVAIL,|%reapp%	
+		return	
+	}
+if ((SALIST = "RetroArch")&&(RALIST = 1))
+	{
+		if (INSFLTR = "")
+			{
+				SB_SetText("")
+				guicontrol,,AVAIL,|%AVAILCORES%
+				return
+			}
+		reapp= 	
+		Loop,parse,AVAILCORES,|
+			{
+				ifinstring,A_LoopField,%INSFLTR%
+					{
+						reapp.= A_LOopField . "|"
+					}
+			}
+		SB_SetText("")
+		GuiControl,,AVAIL,|%reapp%	
+		return	
+	}
+if (SALIST = "Systems")
+	{
+		if (INSFLTR = "")
+			{
+				SB_SetText("")
+				guicontrol,,EAVAIL,|%allsupport%
+				return
+			}
+		reisys= 	
+		Loop,parse,allsupport,|
+			{
+				ifinstring,A_LoopField,%INSFLTR%
+					{
+						reisys.= A_LoopField . "|"
+					}
+			}
+		SB_SetText("")
+		GuiControl,,EAVAIL,|%reisys%	
+		return	
+	}
+return
 
 SaList:
 gui,submit,nohide
 guicontrolget,SALIST,,SALIST
-
+guicontrol,show,CLRFLTR
+guicontrol,show,INSFLTRX
+guicontrol,show,INSFLTR
+guicontrol,,INSFLTR,
 Loop,Parse,EMUTABITEMS,|
 	{
 		guicontrol,hide,%A_LoopField%
@@ -9639,6 +9721,9 @@ if (SALIST = "Frontends")
 			{
 				guicontrol,show,%A_LoopField%
 			}
+		guicontrol,hide,INSFLTR
+		guicontrol,hide,CLRFLTR
+		guicontrol,hide,INSFLTRX
 		guicontrol,,UAVAIL,|Mirrored_Links|Media|retroFE|Hyperspin|EmulationStation|Pegasus|Kodi_XBMC|IAGL|AdvancedLauncher|ROM_Collection_Browser|MediaBrowser|CabrioFE|ICE
 		guicontrol,move,CACGRP, x2 y5 w276 h478
 		guicontrol,move,CCGRP,x278 y5 w185 h366
@@ -9652,6 +9737,9 @@ if (SALIST = "Utilities")
 			{
 				guicontrol,show,%A_LoopField%
 			}
+		guicontrol,hide,INSFLTR
+		guicontrol,hide,CLRFLTR
+		guicontrol,hide,INSFLTRX
 		guicontrol,move,CACGRP, x2 y5 w276 h478
 		guicontrol,move,CCGRP,x278 y5 w185 h366
 		guicontrol,,CCGRP,Installer
@@ -9663,7 +9751,10 @@ if (SALIST = "RetroArch")
 		Loop,Parse,RAINSTITEMS,|
 			{
 				guicontrol,show,%A_LoopField%
-			}
+			}			
+		guicontrol,hide,INSFLTR
+		guicontrol,hide,CLRFLTR
+		guicontrol,hide,INSFLTRX
 		guicontrol,,CRNTCORS,|%CoreNamz%
 		guicontrol,,CCGRP,Current Cores
 		iniread,raexefnd,Settings.ini,retroarch_location
@@ -14849,7 +14940,7 @@ GuiControl, Disable, CNCLDWN
 return
 
 ShowBB:
-RAUPDF= RetroArch.7z
+RAUPDF= 
 ifexist, %raexeloc%\retroarch.exe
 	{
 		RAUPDF= %UPDATERAEXE%
@@ -14877,7 +14968,7 @@ gui, submit, nohide
 return
 
 ShowCIC:
-RAUPDF= RetroArch.7z
+RAUPDF= 
 ifexist, %raexeloc%\retroarch.exe
 	RAUPDF= %UPDATERAEXE%
 	UPDTONLY= 1
@@ -14905,7 +14996,7 @@ guicontrol, disable, GCUPDT
 guicontrol, enable, CNCLDWN
 corexist=
 redistr= redist.7z
-RAUPDF= RetroArch.7z
+RAUPDF= 
 ifexist, %raexeloc%\retroarch.exe
 	{
 		RAUPDF= %UPDATERAEXE%
@@ -15036,7 +15127,7 @@ return
 ;{;;;;;;;;;;;;;;;;;;;;   RA PARTS DOWNLOAD  ;;;;;;;;;;;;;;
 STABLE:
 SB_SetText("Downloading Stable")
-updtmsg= RetroArch.7z
+updtmsg= 
 XTRACTLOC= %raexeloc%
 URLFILE= %buildBotCore%/stable/%RASTABLE%/windows/x86%ARCHR%/%updtmsg%
 gosub, GettingRA
@@ -37752,30 +37843,6 @@ if (ArcSiteN = "")
 	{
 		guicontrol,,UrlTxt,|%ARCSRC%||%ArcSrcs%
 		return
-	}
-ifinstring,ArcSiteN,`,
-	{
-		gosub,sitensan
-	}
-ifinstring,ArcSiteN,@
-	{
-		gosub,sitensan
-	}
-ifinstring,ArcSiteN,`%
-	{
-		gosub,sitensan
-	}
-ifinstring,ArcSiteN,`^
-	{
-		gosub,sitensan
-	}
-ifinstring,ArcSiteN,#
-	{
-		gosub,sitensan
-	}
-ifinstring,ArcSiteN,/
-	{
-		gosub,sitensan
 	}
 ifinstring,ArcSiteN,\
 	{

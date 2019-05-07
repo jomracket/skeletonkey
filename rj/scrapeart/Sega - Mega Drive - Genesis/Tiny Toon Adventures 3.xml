@@ -1,0 +1,12 @@
+<Game>
+	<Name>Tiny Toon Adventures 3</Name>
+	<ReleaseDate>1996-01-01T00:00:00-08:00</ReleaseDate>
+	<Plot>Tiny Toon Adventures 3 is an unlicensed Sega Mega Drive platform game, first released in 1996. Despite its name it has no relation to the cartoon show, instead following "Clever Rabbit" on his quest to save his animal friends from "The Prince of Darkness".</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/6e86fef2-adb7-433b-889b-0cd3b325540b.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/d8e6b7d8-4abe-41c6-940b-56211aaef55b.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/0dc46bb8-fbf8-45e0-8400-f6e22c5b30db.png</clearlogo1>
+	<Rating>3</Rating>
+	<Genre>Action</Genre>
+	<Developer>Gamtec</Developer>
+</game>

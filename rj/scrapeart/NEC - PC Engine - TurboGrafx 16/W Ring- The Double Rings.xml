@@ -1,0 +1,19 @@
+<Game>
+	<Name>W Ring- The Double Rings</Name>
+	<ReleaseDate>1990-09-28T00:00:00-07:00</ReleaseDate>
+	<Plot>W Ring is a horizontally scrolling shooter in which the player sits in a space ship and shoots a lot of enemies, preferably without being hit by their deadly shots or touch. There are six levels which also scroll slightly up and down and end with a big end boss. Some of those levels are a bit gimmicky, e.g. one level has a lot of water movement in the background which makes it harder to keep an overview and level five is a fast scrolling maze system in which the player needs to take the correct paths to avoid dead ends (and therefore certain death). Of course there are also power ups to collect: depending on their colour, they stand for a different weapon system (overall five) like lasers or rings which circle around the ship and make it harder to crush against the environment. Collecting multiple symbols of the same colour upgrades the current weapon up to two times. The game features three difficulty levels and a rapid fire option.</Plot>
+	<nPlayers>1</nPlayers>
+	<VideoURL>http://www.pcengine.co.uk/HTML_Games/W-Ring.htm</VideoURL>
+	<boxback1>http://images.launchbox-app.com/df431c2a-bd4f-4465-9f2d-22f7c25dbd7e.JPG</boxback1>
+	<boxart1>http://images.launchbox-app.com/a2638b19-cc0b-4067-92b0-6969aa28f40e.jpg</boxart1>
+	<media1>http://images.launchbox-app.com/4fb51851-2322-4b6d-90d6-069a02c81acf.jpg</media1>
+	<clearlogo1>http://images.launchbox-app.com/e4c997e9-7117-4912-ba64-13218313292b.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/de52c6c9-efdc-48a4-82e1-97bda615c52d.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/68a16c69-1426-4177-9234-97051f2264be.png</snapshot2>
+	<Rating>2.75</Rating>
+	<WikipediaURL>http://www.pcengine.co.uk/HTML_Games/W-Ring.htm</WikipediaURL>
+	<ESRB>T - Teen</ESRB>
+	<Genre>Shooter</Genre>
+	<Developer>NAXAT Soft</Developer>
+	<Publisher>Naxat Soft</Publisher>
+</game>

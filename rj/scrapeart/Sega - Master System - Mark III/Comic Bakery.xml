@@ -1,0 +1,10 @@
+<Game>
+	<Name>Comic Bakery</Name>
+	<Plot>Comic Bakery is a 1984 arcade game developed by Konami which was subsequently brought to the MSX computer later in the year. The MSX port was brought to the Sega Master System without a license in South Korea, with the localized title of Ppang Gongjang (빵공장). It is not yet known who brought the game to Sega's platform, or when. The Master System version of the game runs in the graphics mode meant for SG-1000 backwards compatibility.</Plot>
+	<nPlayers>2</nPlayers>
+	<fanart1>http://images.launchbox-app.com/b37836b4-50bb-4a55-b56b-50dced33c9d0.png</fanart1>
+	<snapshot1>http://images.launchbox-app.com/f085ea5a-5f00-4689-bfaa-ceda46f43ccf.png</snapshot1>
+	<WikipediaURL>http://segaretro.org/Comic_Bakery</WikipediaURL>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Action</Genre>
+</game>

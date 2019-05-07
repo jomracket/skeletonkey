@@ -1,0 +1,18 @@
+<Game>
+	<Name>Riviera - Yakusoku no Chi Riviera (Japan)</Name>
+	<plot>Riviera: Yakusoku no Chi Riviera is a Role-Playing game, developed by Sting and published by Bandai, which was released in Japan in 2002.</plot>
+	<releasedate>12/7/2002</releasedate>
+	<genre>RPG</genre>
+	<nplayers>1</nplayers>
+	<thegamesdb_id>27748</thegamesdb_id>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/27748-1.jpg</boxart1>
+	<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Bandai%20-%20WonderSwan%20Color/Named_Titles/Rhyme%20Rider%20Kerorican%20(Japan).png</snapshot1>
+	<Notes>Riviera: Yakusoku no Chi Riviera is a Role-Playing game, developed by Sting and published by Bandai, which was released in Japan in 2002.</Notes>
+	<boxart2>http://images.launchbox-app.com/3adc7509-d48b-4a7e-866c-26b062b5019b.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/30bb43f2-a603-4f02-b782-2afeb417ec5d.png</clearlogo1>
+	<snapshot2>http://images.launchbox-app.com/6d4da18d-ea0f-4b00-a56e-2305da7539ca.png</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/869aa3c7-e3f8-442b-86a9-dce3cad9b0ee.png</snapshot3>
+	<ESRB>Not Rated</ESRB>
+	<Developer>Sting</Developer>
+	<Publisher>Bandai</Publisher>
+</game>

@@ -1,0 +1,13 @@
+<Game>
+	<Name>Battle Ace</Name>
+	<ReleaseDate>1989-11-30T00:00:00-08:00</ReleaseDate>
+	<Plot>Taking a fair amount of inspiration from Sega's After Burner II, Battle Ace is a sci-fi based cockpit shooter. Gameplay is purely arcade style, with a standard machine gun and lock-on missiles to take down the enemy aggressors. There's little more to it than that. (From The PC Engine Software Bible)</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/cae635b2-06c7-4bc6-b7dd-9d3a7f0815e4.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/cc42061d-5891-425f-a63f-c7668fd6bf03.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/924c8605-2c3b-4ab0-ad70-33bb2ccef2c9.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/db2a01a0-2b73-42a3-a8eb-963b402fa751.png</clearlogo1>
+	<Genre>Shooter</Genre>
+	<Developer>Hudson Soft</Developer>
+	<Publisher>Hudson Soft</Publisher>
+</game>

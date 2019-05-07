@@ -1,0 +1,33 @@
+<Game>
+	<Name>GP Rider (Europe)</Name>
+	<plot>GP Rider is an arcade like motorcycle racing game that players can race in all the tracks of all the 15 tracks of the 1989 Motorcycle Grand Prix. There is also an extra Arcade track for the player to race on.There are 3 modes of play that are Arcade, Tournament, and Grand Prix. In Arcade the player races on only 1 track that is named Arcade. In Tournament players get to choose any number of tracks to race, from 0 (which defaults to the Arcade track) to all 15 available tracks. Grand Prix is where the player races in all 15 tracks in order of the 1989 season. All races regardless of the mode played in the same way. The game is played on a split screen even if only one player is playing. A CPU character named Wayne controls the bike on the top screen if there is no other player playing. Wayne races like a real player would, having both good and bad races and occasionally making mistakes. The race is made up of a Qualify to determine gird position and then the Race where the player races 15 other races (including Wayne) over a predefined number of laps depending on track length. The track can raced in ether the wet or the dry (only dry in Arcade mode) and the weather can change from the Qualify to the Race. The races take place on flat roads with straights and curves simulating the layout of the real track. On the bike there is a fuel gage that simply counts down the seconds left of fuel and is automatically refilled at the completion of each lap. If the player doesnt complete the lap before time runs out then the player will Out of Fuel and end the race in the placed down with other non-finishers. At the end of each race (accept in Arcade mode) the player will get points depending on there position before going onto the next race.The player sets up the bike with some basic set ups that are all available from the start. In Arcade mode the player has the options of an Automatic or Manual gearbox with either High Gearing (better top speed) or Low Gearing (better acceleration). In Tournament and Grand Prix modes the options are extended to Engine type of Lean, Medium, and Thirsty which progressively adds speed while cutting the time available per lap. There is gearing that works the same as Arcade mode, and a tyre type of wet and dry depending on the weather.</plot>
+	<releasedate>9/1/1992</releasedate>
+	<genre>Driving, Racing</genre>
+	<Developer>SEGA Enterprises Ltd.</Developer>
+	<nplayers>1-2 Alt</nplayers>
+	<ESRB>E - Everyone</ESRB>
+	<VideoURL>9-1dMU94Q7U</VideoURL>
+	<thegamesdb_id>2803</thegamesdb_id>
+	<gamefaqs_url>http://www.gamefaqs.com/sms/570227-gp-rider</gamefaqs_url>
+	<mobygames_url>http://www.mobygames.com/game/sega-master-system/gp-rider</mobygames_url>
+	<boxart1>http://thegamesdb.net/banners/boxart/original/front/2803-1.jpg</boxart1>
+	<boxback1>http://www.mobygames.com/images/covers/l/145959-gp-rider-sega-master-system-back-cover.jpg</boxback1>
+	<snapshot1>http://www.mobygames.com/images/shots/l/334759-gp-rider-sega-master-system-screenshot-title-screen.jpg</snapshot1>
+	<snapshot2>http://www.mobygames.com/images/shots/l/334760-gp-rider-sega-master-system-screenshot-title-screen-2.jpg</snapshot2>
+	<snapshot3>http://www.mobygames.com/images/shots/l/334761-gp-rider-sega-master-system-screenshot-menu.jpg</snapshot3>
+	<snapshot4>http://www.mobygames.com/images/shots/l/334762-gp-rider-sega-master-system-screenshot-track-data-for-the.jpg</snapshot4>
+	<snapshot5>http://www.mobygames.com/images/shots/l/334763-gp-rider-sega-master-system-screenshot-the-basic-setup-in.jpg</snapshot5>
+	<snapshot6>http://www.mobygames.com/images/shots/l/334764-gp-rider-sega-master-system-screenshot-getting-ready-to-go.jpg</snapshot6>
+	<snapshot7>http://www.mobygames.com/images/shots/l/334765-gp-rider-sega-master-system-screenshot-wayne-is-about-to-take.jpg</snapshot7>
+	<snapshot8>http://www.mobygames.com/images/shots/l/334766-gp-rider-sega-master-system-screenshot-wayne-takes-the-qualifying.jpg</snapshot8>
+	<snapshot9>http://www.mobygames.com/images/shots/l/334767-gp-rider-sega-master-system-screenshot-i-am-way-down-in-14th.jpg</snapshot9>
+	<snapshot10>http://www.mobygames.com/images/shots/l/334768-gp-rider-sega-master-system-screenshot-i-am-prepared-let-s.jpg</snapshot10>
+	<Notes>GP Rider is a simple, arcade motorbike game for the Master System. While the game does have its weaknesses, it is known to give an overall enjoyable high speed experience. The games most interesting aspect is that it is played permanently in a split screen, regardless of if one or two players are playing. If only one player is racing then the second player is replaced by a computer opponent called "Wayne." Unique for a 8-bit game is that "Wayne" plays like a human player. He has good races and bad races. He passes riders and he has crashes. This is years ahead of its time considering other racing games of the era where the main opponent is programmed to always finish in the same position</Notes>
+	<VideoURL1>97HWmpDHjRE</VideoURL1>
+	<boxart2>http://images.launchbox-app.com/8f3a59a8-9d11-4595-84e0-71f76b4a639b.jpg</boxart2>
+	<boxart3>http://images.launchbox-app.com/52061547-fe51-4f59-91b2-050dbaee86b6.png</boxart3>
+	<clearlogo1>http://images.launchbox-app.com/00a14bcf-cfdf-4319-a247-2cd3e95154d2.png</clearlogo1>
+	<snapshot11>http://images.launchbox-app.com/88278bed-36fa-4380-b754-36820319c696.PNG</snapshot11>
+	<rating>2.25</rating>
+	<Publisher>Sega</Publisher>
+</game>

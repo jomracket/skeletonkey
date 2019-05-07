@@ -1,0 +1,39 @@
+<Game>
+	<Name>Disney's Aladdin</Name>
+	<ReleaseDate>1993-11-26T00:00:00-08:00</ReleaseDate>
+	<Plot>The game involves killing enemies with basic swordplay and jumping across ledges. There are several levels, including one level where Aladdin must escape from the Cave of Wonders on Carpet and another where he must jump across the Agrabah's rooftops. The player controls Aladdin, who must make his way through several levels based on locations from the movie: from the streets and rooftops of Agrabah, the Cave of Wonders and the Sultan's dungeon to the final confrontation in Grand Vizier Jafar's palace. The Sultan's guards and also animals of the desert want to hinder Aladdin in his way. He can defend himself with his sword or by throwing apples. Next to apples, Aladdin can also collect gems which can be traded for lives and continues with a traveling trader. Finding Genie or Abu icons enables bonus rounds. The Genie bonus round is a game of luck played for apples, gems or extra lives, and continues until the player runs out of Genie tokens or lands on Jafar. In Abu's bonus round, the player controls the little monkey who has to catch bonus items that fall from the sky, but without touching any of the unwanted objects like rocks and pots.</Plot>
+	<nPlayers>1</nPlayers>
+	<banner1>http://images.launchbox-app.com/1656c0a1-72c3-4ead-9a3b-e3c841b2344c.jpg</banner1>
+	<banner2>http://images.launchbox-app.com/58220f03-e270-45fa-9f14-dbae58e307c5.jpg</banner2>
+	<boxback1>http://images.launchbox-app.com/0e5b28ed-17ff-4bf2-92cd-177d82067dde.jpg</boxback1>
+	<boxback2>http://images.launchbox-app.com/ff737270-c4cd-4b50-9da9-c8867cd702c5.jpg</boxback2>
+	<boxback3>http://images.launchbox-app.com/bcd3ab49-c2ca-4f96-81ab-da452ec44412.jpg</boxback3>
+	<boxart1>http://images.launchbox-app.com/15cc4642-fc0d-4eee-a1d3-cfc0f4958504.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/1755463f-632c-4188-9672-5b22890ff41f.jpg</boxart2>
+	<boxart3>http://images.launchbox-app.com/61c40353-fece-4d6e-a2fa-532d5549794e.jpg</boxart3>
+	<media1>http://images.launchbox-app.com/a0b24b0a-20f1-432a-a26b-4f4d690f8676.jpg</media1>
+	<media2>http://images.launchbox-app.com/11bb815c-f456-426a-9de0-5b721a9b0179.jpg</media2>
+	<clearlogo1>http://images.launchbox-app.com/917567fc-677f-494d-9cf3-139839545da0.png</clearlogo1>
+	<clearlogo2>http://images.launchbox-app.com/66645490-90e7-4038-8edb-533f4028620a.png</clearlogo2>
+	<fanart1>http://images.launchbox-app.com/7103e334-e38e-419e-a5da-d67297d4d8dd.jpg</fanart1>
+	<fanart2>http://images.launchbox-app.com/a5ce39f8-ee4b-4a1a-a638-a1244a7adb96.jpg</fanart2>
+	<fanart3>http://images.launchbox-app.com/de9dc898-a145-49d2-a62d-a0b9b4b2f3b9.jpg</fanart3>
+	<fanart4>http://images.launchbox-app.com/b93368a7-7b3d-4199-8274-d748c70a7fbf.jpg</fanart4>
+	<fanart5>http://images.launchbox-app.com/649113f3-39f4-43cd-9e33-d0a65e9a9015.jpg</fanart5>
+	<fanart6>http://images.launchbox-app.com/10e8096e-e6a3-4af7-bc75-cb15eabf3715.jpg</fanart6>
+	<fanart7>http://images.launchbox-app.com/31a931ad-01c1-40cd-b893-4fa82f9649b9.jpg</fanart7>
+	<snapshot1>http://images.launchbox-app.com/c00a0c05-3b35-492d-b90c-24c585b1f3c4.jpg</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/8707eacf-fa33-47c4-a6a6-1a5000056b11.jpg</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/07b2f2c2-f5fa-47c2-83fc-92ddc7f0fded.jpg</snapshot3>
+	<snapshot4>http://images.launchbox-app.com/c2f96077-d06f-4553-bff5-3e33db6063d8.jpg</snapshot4>
+	<snapshot5>http://images.launchbox-app.com/2c15e371-35ff-4160-b39e-f5aef04b07b8.jpg</snapshot5>
+	<snapshot6>http://images.launchbox-app.com/7d30dd56-b8ff-47e0-a1fa-4d88ec59085a.jpg</snapshot6>
+	<snapshot7>http://images.launchbox-app.com/72fbc561-358e-454f-81f0-65a14032b5da.jpg</snapshot7>
+	<snapshot8>http://images.launchbox-app.com/899662ce-bca4-4f1e-ac17-6f80fb12fbfa.jpg</snapshot8>
+	<Rating>4.1428571428571432</Rating>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Disney%27s_Aladdin_(Virgin_Games)</WikipediaURL>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Action; Platform</Genre>
+	<Developer>Disney Interactive Studios</Developer>
+	<Publisher>Virgin Interactive</Publisher>
+</game>

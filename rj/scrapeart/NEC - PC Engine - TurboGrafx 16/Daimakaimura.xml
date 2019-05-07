@@ -1,0 +1,16 @@
+<Game>
+	<Name>Daimakaimura</Name>
+	<ReleaseDate>1990-07-27T00:00:00-07:00</ReleaseDate>
+	<Plot>As the brave knight Arthur, you must rescue the princess from the forces of evil! This sequel to the original Makaimura (Ghosts 'n' Goblins') follows the similar platforming gameplay through a variety of spooky landscapes. Starting with a simple suit of armour and a throwing lance, you can pick up various weapons along the way; these include a rapid-firing dagger, a short range sword, a flame that burns the ground in front of you and a shield that slides along the ground. Some of these weapons are less useful than others and you will soon learn to keep hold of the dagger for as long as possible. You also get the chance to pick up a special gold suit of armour. When equipped, you can fire off a special move by holding and releasing the attack button. These attacks can be especially useful, particularly the ghost Arthur that follows and attacks with you. Armour can only protect you to a degree though - take a hit and you end up walking around in your underwear - take another and you're a pile of bones, ready to start again from either the beginning or the half-way point if you have reached it. Occasionally, you will see chests mysteriously pop out of the ground. These can be both a blessing and a curse as they can either contain weapons, or a magician intent on transforming you into a duck or a slow-moving OAP with a walking stick. Levels are split into two areas, with a daunting boss guarding the exit to each one. Defeat them and it's off to the next stage.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/23b8ba1b-03a8-46b7-a0b7-be735c57f375.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/840984cb-53cb-4598-8ea4-d2f1469c6725.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/e5e459c6-3cf3-4f85-8fa0-45ba2b2f327f.png</clearlogo1>
+	<clearlogo2>http://images.launchbox-app.com/67684b08-3e60-4e9d-9015-c82bfd190d02.png</clearlogo2>
+	<snapshot1>http://images.launchbox-app.com/034d8726-e217-4f5d-979a-b16147fdd215.jpg</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/68643644-57c0-42f0-a7d9-61c0f6ba7f92.jpg</snapshot2>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Ghouls_%27n_Ghosts</WikipediaURL>
+	<Genre>Action; Horror</Genre>
+	<Developer>Capcom</Developer>
+	<Publisher>Capcom</Publisher>
+</game>

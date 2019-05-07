@@ -1,0 +1,17 @@
+<Game>
+	<Name>Nazo No Masquerade</Name>
+	<ReleaseDate>1990-03-02T00:00:00-08:00</ReleaseDate>
+	<Plot>Nazo no Masquerade ("Mystery of the Masquerade") is a menu-driven adventure game for the PC Engine. It was developed by Riverhillsoft, a company best known for the JB Harold series of murder mystery adventure games. The player is a detective staying in a mansion while investigating a crime on the premises in the early 20th century. They can move around the mansion via a map that can be pulled up at any time, and talk to various NPCs staying in the mansion's many rooms.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/a0d7f5c2-4c1c-49c6-96f4-ba6c9709dae4.JPG</boxback1>
+	<boxart1>http://images.launchbox-app.com/ec65fb4a-e235-45f7-8735-046c366347ab.JPG</boxart1>
+	<media1>http://images.launchbox-app.com/53beb64e-ed9a-4353-9256-f66816350274.JPG</media1>
+	<media2>http://images.launchbox-app.com/38d9ada2-2d77-4cb1-a67f-00d5d85c22c4.JPG</media2>
+	<clearlogo1>http://images.launchbox-app.com/e90f0069-3b94-467b-91dd-98b80833acaf.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/c90a5f7d-c237-4772-a1e6-8bdfd5a49492.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/a74cd9fc-6c58-4f6e-8e98-5c0c46488da9.png</snapshot2>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Adventure</Genre>
+	<Developer>NCS</Developer>
+	<Publisher>Masaya</Publisher>
+</game>
