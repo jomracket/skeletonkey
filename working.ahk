@@ -295,7 +295,7 @@ If (historyloctmp <> "ERROR")
 		historyloc= %historyloctmp%
 		ifnotexist, %historyloctmp%
 			{
-				FileAppend,{`n%pspce%"version": "1.0"`,`n%pspce%"items": [`n%pspxe%{`n%pspce%"path": ""`,`n%pspce%"label": ""`,`n%pspce%"core_path": ""`,`n%pspce%"core_name": ""`,`n%pspce%"crc32": ""`,`n%pspce%"db_name": ""`n%pspxe%}`n%A_Space%%A_Space%]`n}`n,*%historyloctmp%
+				;;FileAppend,{`n%pspce%"version": "1.0"`,`n%pspce%"items": [`n%pspxe%{`n%pspce%"path": ""`,`n%pspce%"label": ""`,`n%pspce%"core_path": ""`,`n%pspce%"core_name": ""`,`n%pspce%"crc32": ""`,`n%pspce%"db_name": ""`n%pspxe%}`n%A_Space%%A_Space%]`n}`n,*%historyloctmp%
 			}
 	}
 
@@ -443,6 +443,7 @@ if (LNCHPT <> 1)
 		LNCHPT= 0
 	}
 iniread,EULA,Settings.ini,Global,%arcSRC%_EULA
+%arcSRC%_EULA= %EULA%
 EULAOPT= disabled
 if (EULA = 1)
 	{
@@ -810,7 +811,7 @@ KBSET=a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|1|2|3|4|5|6|7|8|9|0|mi
 RUNBOXGUIITEMS=LCORE|CUSTSWITCHS|RUNSYSDDL|RUNPLRAD|RUNFLRAD|RUNROMCBX|GROM|OPNCORE|LNCHBUT|RCLLNCH|CLRCUROM
 GUISRCHITEMS=SRCHGRP|SRCHLOCDDL|SRCHFLRAD|SRCHPLRAD|SRCHROMLBX|SRCHROMEDT|SRCHROMBUT|SRCHRCRSCHK
 EMUTABGUIITEMS=emuBUTA|emuBUTB|emuBUTC|emuBUTG|emuBUTD|emuBUTE|emuBUTF|emuBUTH|emuBUTI|emuBUTJ|emuBUTK|emuCHKD|emuCHKE|emuCHKF|emuCHKG|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKO|emuCHKP|emuCHKQ|emuCHKR|emuCHKS|emuCHKT|emuCHKU|emuCHKA|emuCHKB|emuCHKC|emuCBXE|emuCBXF|emuCBXG|emuCBXH|emuCBXI|emuCBXJ|emuCBXA|emuCBXB|emuCBXC|emuCBXD|emuDDLE|emuDDLF|emuDDLG|emuDDLH|emuDDLI|emuDDLJ|emuDDLC|emuDDLD|emuDDLA|emuDDLB|emuEDTA|emuEDTB|emuEDTC|emuEDTD|emuEDTE|emuEDTF|emuEDTG|emuEDTI|emuUPDA|emuEDTH|emuUPDB|emuLVA|emuUPDC|emuLBXA|emuLBXB|emuLVA|emuLVB|emuLVC|emuPRGB|emuPRGA|emuRad5B|emuRad5C|emuRad4A|emuRad4B|emuRad5A|emuRad6A|emuRad6B|emuRad6C|emuRad6D|emuRad7A|emuRad7B|emuRad8A|emuRad8B|emuRad9A|emuRad9B|emuRad9C|emuRad10A|emuRad10B|emuRad11A|emuRad11B|emuRad2A|emuRad2B|emuRad2C|emuRad1A|emuRad3A|emuRad3B|emuRad3C|emuRad3D|emuRad1B|emuSLDA|emuSLDB|emuSLDD|emuSLDE|emuSLDC|emuGRPA|emuGRPB|emuGRPC|emuGRPD|emuGRPE|emuGRPF|emuGRPG|emuTXTA|emuTXTB|emuTXTC|emuTXTD|emuTXTE|emuTXTF|emuTXTG|emuTXTS|emuTXTT|emuTXTR|emuTXTM|emuTXTH|emuTXTI|emuTXTN|emuTXTO|emuTXTP|emuTXTQ|emuTXTJ|emuTXTK|emuTXTL
-RAGUIMENUITEMS=ART|ARTXT|ASYNC|AUO|AUTOASPECT|AUTSHD|BFI|CGSHDVAR|CGSLCT|CROP|CSTCMD|CSTCRE|CSTRAOPTF|CSTRAARGF|D3DDRV|D3D11|D3D12|DDRVGRP|DIRSTXT|DLFRMTXT|DRCGRP|DSND|DTCOMP|DirBut|FILTSEL|FILTXT|FLICKF|FLK|FLTFILE|FORCEAR|FRMDL|FRMDLTXT|FSREZ|GDIDRV|GLBLAUDIO|GLSHDVAR|GLSLCT|GPUFRMTXT|GPUSS|GPUV|GPUVREC|DISPLDRV|RaSpdEdt|RaSpdSld|RASpdTxt|DISPDRVTXT|AUDDRVTXT|GUIDRV|AUDDRV|GUIDRVTXT|HSYNC|INTG|IntXres|IntYres|LATENCY|LOCDIR|LOCPTH|MAXSWPTXT|MONGTXT|MONRESTXT|MONUM|MONXREZ|MONXTXT|MONYREZ|MSWCHI|MUTE|OGLDRV|OPENAL|OPERGRP|OUTFS|OUTFW|OUTMGRP|OUTW|OVRIDGRP|PAUSMNU|PAUSEBG|PGM|POSYTXT|PTHSTXT|PthBut|REFRESH|REFSLD|REFTXT|REFUD|REWEN|REWGRAN|REZV|ROTATE|SAVDIVTXT|SAVEXIT|SAVGRP|SAVSECTXT|SAVSRT|SAVSTPTXT|SCLGRP|SCLTXT|SDL2|SDL2DRV|SHAREDV|SHDEN|SHDPTHTXT|SHDSEL|SLCT|SLSHDVAR|SMTHV|SNDGRP|SNDLATXT|STAI|STAL|STAS|STORT|STRCH|SVINT|SWHOST|SWPFRMTXT|SWPV|THRDV|VIDASPECT|VIDGTXT|VIDRESTXT|VIDRESTXT|VIDSCL|AVIDSYNC|VIDSYNC|VIDXTXT|VPOSTXT|VPOSXTXT|VROTXT|VidXLoc|VidYLoc|RUN2ND|RUNAHEAD|RUNAFRMS|SRCHGRP|ROMRPGRP|SRCHLOCDDL|SRCHFLRAD|SRCHPLRAD|SRCHROMLBX|SRCHROMEDT|SRCHROMBUT|SRCHRCRSCHK
+RAGUIMENUITEMS=ART|ARTXT|ASYNC|AUO|AUTOASPECT|AUTSHD|BFI|CGSHDVAR|CGSLCT|CROP|CSTCMD|CSTCRE|CSTRAOPTF|CSTRAARGF|D3DDRV|D3D11|D3D12|DDRVGRP|DIRSTXT|DLFRMTXT|DRCGRP|DSND|DTCOMP|DirBut|FILTSEL|FILTXT|FLICKF|FLK|FLTFILE|FORCEAR|FRMDL|FRMDLTXT|FSREZ|GDIDRV|GLBLAUDIO|GLSHDVAR|GLSLCT|GPUFRMTXT|GPUSS|GPUV|GPUVREC|DISPLDRV|RaSpdEdt|RaSpdSld|RASpdTxt|DISPDRVTXT|AUDDRVTXT|GUIDRV|AUDDRV|GUIDRVTXT|HSYNC|INTG|IntXres|IntYres|LATENCY|LOCDIR|LOCPTH|MAXSWPTXT|MONGTXT|MONRESTXT|MONUM|MONXREZ|MONXTXT|MONYREZ|MSWCHI|MUTE|OGLDRV|OPENAL|OPERGRP|OUTFS|OUTFW|OUTMGRP|OUTW|OVRIDGRP|PAUSMNU|DBLESCP|PAUSEBG|PGM|POSYTXT|PTHSTXT|PthBut|REFRESH|REFSLD|REFTXT|REFUD|REWEN|REWGRAN|REZV|ROTATE|SAVDIVTXT|SAVEXIT|SAVGRP|SAVSECTXT|SAVSRT|SAVSTPTXT|SCLGRP|SCLTXT|SDL2|SDL2DRV|SHAREDV|SHDEN|SHDPTHTXT|SHDSEL|SLCT|SLSHDVAR|SMTHV|SNDGRP|SNDLATXT|STAI|STAL|STAS|STORT|STRCH|SVINT|SWHOST|SWPFRMTXT|SWPV|THRDV|VIDASPECT|VIDGTXT|VIDRESTXT|VIDRESTXT|VIDSCL|AVIDSYNC|VIDSYNC|VIDXTXT|VPOSTXT|VPOSXTXT|VROTXT|VidXLoc|VidYLoc|RUN2ND|RUNAHEAD|RUNAFRMS|SRCHGRP|ROMRPGRP|SRCHLOCDDL|SRCHFLRAD|SRCHPLRAD|SRCHROMLBX|SRCHROMEDT|SRCHROMBUT|SRCHRCRSCHK
 RAJOYINBUTITEMS=LTRIGIN|LBUMPIN|RTRIGIN|RBUMPIN|LSTICKUPIN|LSTICKLFTIN|LSTICKRTIN|LSTICKDWNIN|LSTICKBUTIN|RSTICKUPIN|RSTICKLFTIN|RSTICKRTIN|RSTICKDWNIN|RSTICKBUTIN|DPADDWNIN|DPADUPIN|DPADLFTIN|DPADRTIN|SLCTBUTIN|STRTBUTIN|YBUTIN|XBUTIN|BBUTIN|ABUTIN|INPBUTIN|TURBOIN
 RAJOYGUIITEMS=JOYPIC|JOYDRVGRP|JHIDDRV|JDINDRV|JXINDRV|JSDLDRV|INPDRVGRP|IDDINP|IDSDLINP|IDRAW|LASTKGRP|RASTKGRP|DPADGRP|CIREMAPGRP|BBUTTXT|YBUTTXT|XBUTTXT|ABUTTXT|L3BUTTXT|R3BUTTXT|LTRIGTXT|RTRIGTXT|LBUTTXT|RBUTTXT|HBTNTXT|SELECTBUTTXT|STARTBUTTXT|CFGPLGRP|INDWRN|CLRPLYR|RSTPLYR|DEFPLCTRLGRP|HOTKGRP|JSW|KSW|HKEYCB|HKEYDD|JYPLTXT|PLAYERN|MENBUTCMBTXT|DSPLGC|MGPC|MXUSRTXT|MXUSR|SWAPOKC|ADJS|REMPB|RMPLOAD|KBGP|AUM|JPINDX|MOUSEIND|JOYIND|MINXTXT|ANLDZGRP|ANLDZTXT|DEDZTXT|DEDZ|UNIFMENU|POLLING|POLTXT|JBLNKGRP|TRBPRD|TURBOP|TURBUD|DUTCTXT|DUTYCYCLE|DUTYUD|ANLDP|TRBTXT|TURBOIN|LTRIGIN|LBUMPIN|RTRIGIN|RBUMPIN|LSTICKUPIN|LSTICKLFTIN|LSTICKRTIN|LSTICKDWNIN|LSTICKBUTIN|RSTICKUPIN|RSTICKLFTIN|RSTICKRTIN|RSTICKDWNIN|RSTICKBUTIN|DPADDWNIN|DPADUPIN|DPADLFTIN|DPADRTIN|SLCTBUTIN|STRTBUTIN|YBUTIN|XBUTIN|BBUTIN|ABUTIN|INPBUTIN|TRBCMB|RA_RXMinus|RA_RYPlus|RA_R|RA_L|RA_RXPlus|RA_RYMinus|RA_R3|RA_L3|RA_LXMinus|RA_LYPlus|RA_LYMinus|RA_LXPlus|RA_select|RA_start|RA_up|RA_left|RA_right|RA_down|RA_Y|RA_X|RA_B|RA_A|RA_l2|RA_r2|RA_Home
 EMUINPUTNULLITEMS=INDWRN|emjAGRP|emjCGRP|emjDGRP|emjEGRP|emjFGRP|emjATXT|emjBTXT|emjCTXT|emjDTXT|emjETXT|emjFTXT|emjGTXT|emjHTXT|emjITXT|emjJTXT|emjKTXT|emjLTXT|emjMTXT|emJHGRP|emjNTXT|emjGGRP|emjPTXT|emjRTXT|emjSTXT|emjTTXT|emjJGRP|emjUTXT|emjVTXT|emjWTXT|emjIGRP|emjXTXT|emjYTXT|emjZTXT|emjQTXT|emjOtxt
@@ -1995,8 +1996,9 @@ Gui,Font,%fontXsm% Bold
 Gui, Add, GroupBox, x24 y322 w342 h59 vOPERGRP hidden, Operational
 Gui,Font,%fontXsm% Norm
 
-Gui, Add, CheckBox, x348 y180 h13 vPAUSEBG gBGPause hidden, Pause in Background
-Gui, Add, CheckBox, x348 y200 w94 h13 vPAUSMNU gPauseMenu hidden, Pause In Menu
+Gui, Add, CheckBox, x348 y166 h13 vPAUSEBG gBGPause hidden, Pause in Background
+Gui, Add, CheckBox, x348 y188 w94 h13 vPAUSMNU gPauseMenu hidden, Pause In Menu
+Gui, Add, CheckBox, x348 y210 w94 h13 vDBLESCP gDblEscp hidden, Double-Escape
 
 Gui, Add, CheckBox, x284 y342 h13 vGPUVREC gGPURecord hidden, GPU Rec.
 Gui, Add, CheckBox, x205 y342 h13 vGPUSS gGPUScreenShot Checked hidden, GPU Snaps
@@ -3320,7 +3322,7 @@ Gui, Add, Text, x504 y416 vfeTXTS %fevis%,
 Gui, Add, Text, x504 y432 vfeTXTT %fevis%,
 Gui, Add, Text, x505 y400 vfeTXTR %fevis%,
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+	
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;        [[ARCHIVE TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -4070,7 +4072,7 @@ DPIOVR_TT :="Override the dpi of the video font"
 
 TMPDISPL_TT :="The temp directory location"
 SETTMPD_TT :="Set the location for temp files."
-
+DBLESCP_TT :="Allows retroarch to be closed with a double escape-press`nas opposed to a single press"
 
 DTCOMP_TT :="Toggles desktop compositing.`n Works in windows 7 and older only"
 DUTYCYCLE_TT :="How long the period of a turbo-enabled button should be.`nNumbers are in frames"
@@ -8140,6 +8142,7 @@ Loop, Parse, curbios,`n`r
 SB_SetText(" Found " biosnum " bios files ")
 return
 
+
 AUTOBIOS:
 filecreatedir,%cacheloc%\firmware
 filecreatedir,%cacheloc%\bios
@@ -8174,6 +8177,7 @@ if ((demul_file <> "ERROR")&&(demul_file <> ""))
 		splitpath,demul_file,,demul_path
 		filecreateDir,%demul_path%\roms
 	}
+
 ifexist,gam\Archive\AutoBios.set
 	{
 		Loop, Read,gam\Archive\AutoBios.set
@@ -8237,6 +8241,7 @@ ifexist,gam\Archive\AutoBios.set
 			}
 		
 	}
+
 gosub, BiosProc
 guicontrol,enable,EAVAIL
 guicontrol,enable,UAVAIL
@@ -8378,6 +8383,7 @@ iniread,historyloctmp,config.cfg,OPTIONS,contentHistoryPath
 if historyloctmp = "ERROR")
 	{
 		historyloc= %A_WorkingDir%\content_history.lpl
+		contenthistorypath= %historyloc%
 		guicontrol,,histtxt,%A_WorkingDir%\content_history.lpl
 		return
 	}
@@ -8386,6 +8392,7 @@ if (historyloctmp <> "")
 		historyloc= %historyloctmp%
 		iniwrite, "%historyloc%",Settings.ini,GLOBAL,history_location
 		guicontrol,,histtxt,%historyloc%
+		contenthistorypath= %historyloc%
 		ifexist,%historyLoc%
 			{
 				return
@@ -16049,6 +16056,16 @@ menuThrottleFrameRate= false
 }
 iniwrite, "%menuThrottleFramerate%",%curcfg%,OPTIONS,menu_throttle_framerate
 return
+
+DblEscp:
+Gui,submit,nohide
+quitpresstwice = true
+if (DBLESCP <> 1)
+	{
+		quitpresstwice = false
+	}
+iniwrite, "%quitpresstwice%",%curcfg%,OPTIONS,quit_press_twice
+return	
 
 PauseMenu:
 gui, submit, nohide
@@ -28024,6 +28041,16 @@ if (runaheadsecondaryinstance = "false")
 	}
 return
 
+quitpresstwice:
+DBLESCP= 0
+quitpresstwice= %inival2%
+if (inival2 = "true")
+	{
+		DBLESCP= 1
+	}
+guicontrol,,DBLESCP,%DBLESCP%	
+return
+
 pauseNonactive:
 PAUSEBG= 1
 pauseNonactive= %inival2%
@@ -37811,6 +37838,7 @@ if ((urlaloc = "ERROR") or (urlaloc = ""))
 	}
 splitpath,urlaloc,urlalocf,,urlaext
 iniread,EULA,Settings.ini,Global,%urltxt%_EULA
+current_EULA= %EULA%
 dispeula= %urltxt%
 ifnotexist,sets\%urltxt%eula.set
 {
@@ -37834,6 +37862,7 @@ if (EULA <> 1)
 			}
 	}
 EULAAGREE:
+guicontrol,disable,ARCSYS
 filedelete,tmp.htm
 AUTOBBUT= show
 guicontrol,enable,AUTOBIOS
@@ -37844,6 +37873,8 @@ DownloadFile(urlaloc, save, True, True)
 ifnotexist, %save%
 	{
 		SB_SetText(" " urltxt " repository could not be found.")
+		guicontrol,enable,ARCSYS
+		guicontrol,enable,ALTURLGET		
 		return
 	}
 Runwait,"bin\7za.exe" x -y "%save%" -O"gam",,hide
@@ -37854,6 +37885,7 @@ if (ERRORLEVEL <> 0)
 GAMSRCS= gam\%UrlTxt%	
 gosub, ResetSys	
 SB_SetText(" " UrlTxt " has been added to your repository options")
+guicontrol,enable,ARCSYS
 guicontrol,enable,ALTURLGET
 return
 
@@ -38567,6 +38599,8 @@ return
 
 ArchiveSystems:
 gui, submit, nohide
+overrdx:= % (%UrlTxt%_EULA)
+msgbox,,,overrdx=`n"%overrdx%"
 guicontrol,,ENHAK,0
 guicontrol,hide,sortoverride
 guicontrol,,sortoverride,0
