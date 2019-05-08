@@ -741,10 +741,12 @@ FileInstall,sets\ExeRec.set,sets\ExeRec.set,1
 FileInstall,sets\felkup.set,sets\felkup.set,1
 FileInstall,sets\Frontends.set,sets\Frontends.set,1
 FileInstall,sets\fuzSysLk.set,sets\fuzSysLk.set,1
+FileInstall,sets\generic_eula.set,sets\generic_eula.set,1
 FileInstall,sets\Keymappers.set,sets\Keymappers.set,1
 FileInstall,sets\launchparams.set,sets\launchparams.set,1
 FileInstall,sets\libmatch.set,sets\libmatch.set,1
 FileInstall,sets\LkUp.set,sets\LkUp.set,1
+FileInstall,sets\MAME - Arcade.set,sets\MAME - Arcade.set,1
 FileInstall,sets\mediafe.set,sets\mediafe.set,1
 FileInstall,sets\pgsettings.set,sets\pgsettings.set,1
 FileInstall,sets\PgThemes.set,sets\PgThemes.set,1
@@ -763,7 +765,6 @@ FileInstall,sets\skdeploy.set,sets\skdeploy.set,1
 FileInstall,sets\supported.set,sets\supported.set,1
 FileInstall,sets\SystemEmulators.set,sets\SystemEmulators.set,1
 FileInstall,sets\SystemLocations.set,sets\SystemLocations.set,1
-FileInstall,sets\the-eyeeula.set,sets\the-eyeeula.set,1
 FileInstall,sets\themes.set,sets\themes.set,1
 FileInstall,sets\urls.set,sets\urls.set,1
 FileInstall,sets\Utilities.set,sets\Utilities.set,1

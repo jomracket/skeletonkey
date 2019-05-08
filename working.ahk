@@ -283,6 +283,7 @@ If (playlistloctmp <> "ERROR")
 					}
 			}
 	}
+	
 If (playlistloctmp = "ERROR")
 	{
 		gosub, NOFNDPL
@@ -302,6 +303,7 @@ If (historyloctmp = "ERROR")
 	{
 		gosub, NoHistoryFile
 	}
+	
 IniRead,HISAPND,Settings.ini,GLOBAL,history_append
 if (HISAPND = 1)
 	{
@@ -425,7 +427,7 @@ Loop,Parse,Arcsrcv,`n`r
 	}
 Loop,gam\*,2
 	{
-		ifinstring,ARCSRCS,A_LoopFilename
+		ifinstring,ARCSRCS,%A_LoopFilename%
 			{
 				continue
 			}	
@@ -456,7 +458,7 @@ if (AUTOPGS <> 0)
 		AUTOPGS= 1
 	}
 
-	SRCHCOMPLIO=
+SRCHCOMPLIO=
 IniRead, SRCHCOMPL,Settings.ini,GLOBAL,AutoPopulate_Search
 if (SRCHCOMPL <> 0)
 	{
@@ -473,9 +475,6 @@ ifNotExist, msys.ini
 	}
 if (INITIAL = 1)
 	{
-		gosub, DestroySplashGUI
-		SplashImage = img\net.png
-		SplashImageGUI(SplashImage, "Center", "Center", true)
 		SplashTextOn, ,skeletonKey,Creating Configuration
 	}
 if (raexefile <> "NOT-FOUND.exe")
@@ -504,9 +503,6 @@ if (raexefile <> "NOT-FOUND.exe")
 
 if (INITIAL = 1)
 	{
-		gosub, DestroySplashGUI
-		SplashImage = img\emu.png
-		SplashImageGUI(SplashImage, "Center", "Center", true)
 		SplashTextOn, ,skeletonKey,Creating Configuration
 	}
 ARC_USER= Login Not Set
@@ -548,9 +544,6 @@ SKCCTXT= %CORENUM% cores
 
 if (INITIAL = 1)
 	{
-		gosub, DestroySplashGUI
-		SplashImage = img\cor.png
-		SplashImageGUI(SplashImage, "Center", "Center", true)
 		SplashTextOn, ,skeletonKey,Creating Configuration
 	}
 
@@ -622,9 +615,6 @@ Loop, Parse, EmuPartSet,`n`r
 sort,emuinstpop,D|
 if (INITIAL = 1)
 	{
-		gosub, DestroySplashGUI
-		SplashImage = site\key.png
-		SplashImageGUI(SplashImage, "Center", "Center", true)
 		SplashTextOn, ,skeletonKey,Creating Configuration
 	}
 Loop, Parse, EmuPartSet,`n`r
@@ -640,6 +630,7 @@ Loop, Parse, EmuPartSet,`n`r
 		StringSplit,sysplix,A_LoopField,=,:
 		emupos .= (A_Index == 1 ? "" : "|") . sysplix1
 	}
+	
 Loop,Read,gl.ini
 gl_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
 Loop,Read,cg.ini
@@ -649,6 +640,10 @@ sl_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
 sl_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
 Loop,Read,msys.ini
 msyslist .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
+ifnotexist,sys.ini
+	{
+		gosub,resetSYS
+	}
 Loop,Read,sys.ini
 syslist .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
 Loop,Read,hacksyst.ini
@@ -747,13 +742,6 @@ Loop, Parse, mamesplit,`n`r
 	}
 mame_sys.= mame_sysk
 sort,mame_sys, Alphabetically D|
-if (INITIAL = 1)
-	{
-		gosub, DestroySplashGUI
-		SplashImage = img\Ins.png
-		SplashImageGUI(SplashImage, "Center", "Center", true)
-		SplashTextOn, ,skeletonKey,Detecting Environment
-	}
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;;;;;;;;;;;;      ITERATE VALUES           ;;;;;;;;;;;;;;;;;;;;;;;
@@ -1292,6 +1280,10 @@ BLDBOT= http://buildbot.libretro.com/nightly/windows/x86%ARCHR%
 imgrepo= http://raw.githubusercontent.com/libretro/libretro-thumbnails/master
 ASSETS= Assets
 
+if (INITIAL = 1)
+	{
+		gosub, DestroySplashGUI
+	}
 
 fontName= system
 fontXmed= s9
@@ -1838,7 +1830,14 @@ Gui, Font, normal
 ;};;;;;;;;;;;;
 
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[MAIN TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+if (INITIAL = 1)
+	{
+		Progress, ZX0 ZY0 B w300 CB808080 CWFFFFFF CT808080  WS900 FS11,......Loading Options......,,skelprg,BebasNeue
+		WinSet, TransColor, White,skelprg
+		WinSet, AlwaysOnTop
+		WinGetPos,,, Width, Height, skelprg
+		WinMove, skelprg,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)-70
+	}
 Progress, 16,......Loading Options......
 
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   ~~~RUN OPTIONS MENU GROUP~~~   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -5687,7 +5686,7 @@ ifinstring,coreselv,mame
 			}
 	}
 guicontrol,,RUNFLRAD,1
-guicontrol,,RUNSYSDDL,|%EXTRSYS%||%SYSTMFLDRS%
+guicontrol,,RUNSYSDDL,|%EXTRSYS%||%INITFLDRS%
 gosub, ArcLaunch
 return
 
@@ -7406,9 +7405,9 @@ gosub, RJSYSRESET
 if (FILT_UNSUP = 1)
 	{
 		systmfldrs= %knownfldrs%
-		guicontrol,,RUNSYSDDL,|:=:System List:=:||%systmfldrs%
+		guicontrol,,RUNSYSDDL,|:=:System List:=:||%INITFLDRS%
 		guicontrol,,RJSYSDD,|Systems||%systmfldrs%
-		guicontrol,,SRCHLOCDDL,|:=:System List:=:||%systmfldrs%
+		guicontrol,,SRCHLOCDDL,|:=:System List:=:||%INITFLDRS%
 		guicontrol,,ESDWNLPOS,|%systmfldrs%
 		return
 	}
@@ -7763,7 +7762,7 @@ ifnotexist,%historyloctmp%
 		historyLoc= %A_WorkingDir%\content_history.lpl
 		ifnotexist,%historyloc%
 			{
-				FileAppend,,%historyloc%
+				SB_SetText("HISTORY NOT FOUND")
 			}
 	}
 iniwrite, "%historyLoc%",Settings.ini,GLOBAL,history_location
@@ -7800,6 +7799,7 @@ if (playlistloctmp <> "")
 	}
 guicontrol,,playlisttxt,%playlistloc%
 return
+
 SETTMPD:
 cachetmp= %cacheDirectory%
 gui,submit,nohide
@@ -8301,14 +8301,14 @@ Loop,Parse,EDTROM,\
 					{
 						if (A_LoopField = kmat)
 							{
-								guicontrol,,RUNSYSDDL,|:=:System List:=:|%A_LoopField%||%systmfldrs%
+								guicontrol,,RUNSYSDDL,|:=:System List:=:|%A_LoopField%||%INITFLDRS%
 								gosub, RUNSYSDDL
 								return
 							}
 					}
 			}
 	}
-guicontrol,,RUNSYSDDL,|:=:System List:=:||%systmfldrs%
+guicontrol,,RUNSYSDDL,|:=:System List:=:||%INITFLDRS%
 gosub, RUNSYSDDL
 return
 
@@ -8379,11 +8379,6 @@ if historyloctmp = "ERROR")
 	{
 		historyloc= %A_WorkingDir%\content_history.lpl
 		guicontrol,,histtxt,%A_WorkingDir%\content_history.lpl
-		ifnotexist, %historyloc%
-			{
-				FileAppend,{`n%pspce%"version": "1.0"`,`n%pspce%"items": [`n%pspxe%{`n%pspce%"path": ""`,`n%pspce%"label": ""`,`n%pspce%"core_path": ""`,`n%pspce%"core_name": ""`,`n%pspce%"crc32": ""`,`n%pspce%"db_name": ""`n%pspxe%}`n%A_Space%%A_Space%]`n}`n,*%historyloc%
-			}
-		iniwrite, "%A_WorkingDir%\content_history.lpl",Settings.ini,GLOBAL,history_location
 		return
 	}
 if (historyloctmp <> "")
@@ -8399,7 +8394,7 @@ if (historyloctmp <> "")
 historyloc= %A_WorkingDir%\content_history.lpl
 ifnotexist, %historyloc%
 	{
-				FileAppend,{`n%pspce%"version": "1.0"`,`n%pspce%"items": [`n%pspxe%{`n%pspce%"path": ""`,`n%pspce%"label": ""`,`n%pspce%"core_path": ""`,`n%pspce%"core_name": ""`,`n%pspce%"crc32": ""`,`n%pspce%"db_name": ""`n%pspxe%}`n%A_Space%%A_Space%]`n}`n,*%historyloc%
+				SB_SetText("History file not found")
 	}
 guicontrol,,histtxt,%A_WorkingDir%\content_history.lpl
 iniwrite, "%A_WorkingDir%\content_history.lpl",Settings.ini,GLOBAL,history_location
@@ -8433,10 +8428,11 @@ return
 FILT_UNSUP:
 gui,submit,nohide
 gosub, RJSYSRESET
+INITFLDRS= %systmfldrs%
 if (FILT_UNSUP = 1)
 	{
-		systmfldrs= %knownfldrs%
-		guicontrol,,RUNSYSDDL,|:=:System List:=:||%systmfldrs%
+		INITFLDRS= %knownfldrs%
+		guicontrol,,RUNSYSDDL,|:=:System List:=:||%INITFLDRS%
 		guicontrol,,RJSYSDD,|Systems||%systmfldrs%
 		guicontrol,,SRCHLOCDDL,|:=:System List:=:||%systmfldrs%
 		guicontrol,,ESDWNLPOS,|%systmfldrs%
@@ -9264,7 +9260,7 @@ Loop, Parse, romOVf,|
 						isofldr1=
 						StringSplit,isofldr,nocad,\
 						SRCHLOCDDL:= isofldr1
-						guicontrol,,RUNSYSDDL,|%SRCHLOCDDL%||%systmfldrs%
+						guicontrol,,RUNSYSDDL,|%SRCHLOCDDL%||%INITFLDRS%
 						coreslv=
 						iniread, coreord,Assignments.ini,OVERRIDES,%isofldr%
 						/*
@@ -9286,7 +9282,7 @@ Loop, Parse, romOVf,|
 					{
 						if (RUNSYSDDL <> SRCHLOCDDL)
 							{
-								guicontrol,,RUNSYSDDL,|%SRCHLOCDDL%||%systmfldrs%
+								guicontrol,,RUNSYSDDL,|%SRCHLOCDDL%||%INITFLDRS%
 							}
 						guicontrol,,RUNROMCBX,|%romf%||%lsrchpop%
 					}
@@ -27596,6 +27592,14 @@ Loop, parse,viditerate,|
 	}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;       READ DIR LOCATIONS       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;;;;;;;;;;;;;;;~~~OVERRIDE~~~~;;;;;;;;;;;;;
+cacheDirectory=%cacheloc%
+playlistdirectory=%playlistloc%
+coreassetsdirectory=%coresassetsdirectory%
+iniwrite,"%cacheloc%",%curcfg%,OPTIONS,cache_directory
+iniwrite,"%playlistloc%",%curcfg%,OPTIONS,playlist_directory
+iniwrite,"%RJSYSTEMS%",%curcfg%,OPTIONS,core_assets_directory
+;;;;;;;;;;;;;;;;;;;
 SB_SetText(" Loading Directory Locations ")
 
 Loop, parse, dirlocations,|
@@ -27622,6 +27626,10 @@ Loop, parse, dirlocations,|
 	}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;       READ PATH LOCATIONS       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;  ~~~~~OVERRIDE~~~~~~~
+contenthistorypath=%historyloc%
+iniwrite,"%historyLoc%",%curcfg%,OPTIONS,content_history_path
+;;;;;;;;
 SB_SetText(" Loading Path Locations ")
 Loop, parse,pathlocations,|
 	{
@@ -27807,6 +27815,10 @@ if (optline <> "[OPTIONS]")
 	{
 		gosub WriteCORETop
 	}
+iniwrite,"%cacheloc%",%curcfg%,OPTIONS,cache_directory
+iniwrite,"%playlistloc%",%curcfg%,OPTIONS,playlist_directory
+iniwrite,"%historyLoc%",%curcfg%,OPTIONS,content_history_path
+iniwrite,"%RJSYSTEMS%",%curcfg%,OPTIONS,core_assets_direcotry
 Loop, parse,COREVARS,|
 	{
 		inivar=
@@ -28173,7 +28185,11 @@ if (rewtmp = ":")
 
 return
 cacheDirectory:
-cacheDirectory= %inival2%
+;;Lets wait on this
+;;cacheDirectory= %inival2%
+
+cacheDirectory=%cacheloc%
+
 if (cacheDirectory = "")
 	{
 		cacheDirectory= %lpful%
@@ -28189,6 +28205,7 @@ if (rewtmp = ":")
 
 return
 contentHistoryDir:
+;;lets wait on that
 contentHistoryDir= %inival2%
 rewtmp=
 rewtmpd=
@@ -28201,7 +28218,10 @@ if (rewtmp = ":")
 
 return
 coreAssetsDirectory:
-coreAssetsDirectory= %inival2%
+;;lets wait on that
+;;coreAssetsDirectory= %inival2%
+;;
+corAssetsDirectory= %RJSYSTEMS%
 rewtmp=
 rewtmpd=
 stringLeft, rewtmp, inival2,1
@@ -37065,7 +37085,7 @@ gui, submit, nohide
 return
 
 NiceName:
-Loop, Read, %GAMSRCS%\MAME - Arcade.gam
+Loop, Read, sets\MAME - Arcade.set
 	{
 		stringsplit,romtitl,A_LoopReadLine,|
 		if (romn = romtitl1)
@@ -37791,11 +37811,16 @@ if ((urlaloc = "ERROR") or (urlaloc = ""))
 	}
 splitpath,urlaloc,urlalocf,,urlaext
 iniread,EULA,Settings.ini,Global,%urltxt%_EULA
-filecopy,sets\%urltxt%eula.set,tmp.htm,1
+dispeula= %urltxt%
+ifnotexist,sets\%urltxt%eula.set
+{
+dispeula= generic_
+}
+filecopy,sets\%dispeula%eula.set,tmp.htm,1
 if (EULA <> 1)
 	{
 		ARCEULA=file:///%A_ScriptDir%\tmp.htm
-		Options := "Buttons=I Agree/Decline, HtmW=700, HtmH=550, BDefault=2, BEsc=2,Title=%urltxt%_EULA, DlgTopmost=1,DlgStyle="
+		Options := "Buttons=I Agree/Decline, HtmW=700, HtmH=550, BDefault=2, BEsc=2,Title=%dispeula%EULA, DlgTopmost=1,DlgStyle="
 		viSel := HtmDlg( ARCEULA, "taskbar", Options )
 		if (visel <> 1)
 			{
@@ -38904,7 +38929,7 @@ if (tmprm = "")
 ifnotinstring,systmfldrs,%ARCSYS%
 sysmfldrs.= ARCSYS . "|"
 guicontrol,,RUNFLRAD,1
-guicontrol,,RUNSYSDDL,|%ARCSYS%||%SYSTMFLDRS%
+guicontrol,,RUNSYSDDL,|%ARCSYS%||%INITFLDRS%
 guicontrol,,RUNROMCBX,|%afnchk%||%HISTORY%
 guicontrol,,LCORE,|%ARCCORES%||%runlist%
 EXTRSYS= %ARCSYS%
@@ -39972,7 +39997,7 @@ if (romf = "")
 lastcore= %coreselv%
 guicontrol,,RUNROMCBX, |%romf%||%HISTORY%
 guicontrol,,RUNFLRAD,1
-guicontrol,,RUNSYSDDL,|%EXTRSYS%||%SYSTMFLDRS%
+guicontrol,,RUNSYSDDL,|%EXTRSYS%||%INITFLDRS%
 guicontrol,,LCORE, |%lastcore%||%runlist%
 ifnotexist, %save%
 	{
@@ -56516,7 +56541,7 @@ Loop, Read, PGcfg.ini
 	{
 		if (A_LoopReadLine = "[CONFIG]")
 			{
-				break
+				continue
 			}
 		extpov1=
 		extpov2=
@@ -56586,7 +56611,7 @@ if (FERAD5A = 1)
 						stringsplit,ivn,A_LoopReadLine,=
 						if (ivn1 = "[CONFIG]")
 							{
-								break
+								continue
 							}
 						if (ivn1 = "_%A_LoopField%")
 							{
@@ -56684,7 +56709,7 @@ if (FERAD5A = 1)
 						stringsplit,ivn,A_LoopReadLine,=
 						if (ivn1 = "[CONFIG]")
 							{
-								break
+								continue
 							}
 						if (ivn1 = "_%A_LoopField%")
 							{
@@ -56854,7 +56879,7 @@ Loop, Read, PGcfg.ini
 	{
 		if (A_LoopReadLine = "[CONFIG]")
 			{
-				break
+				continue
 			}
 		extpov1=
 		extpov2=
@@ -56975,7 +57000,7 @@ Loop, Read, PGcfg.ini
 	{
 		if (A_LoopReadLine = "[CONFIG]")
 			{
-				break
+				continue
 			}
 		extpov1=
 		extpov2=
@@ -57094,7 +57119,7 @@ Loop, Read, PGcfg.ini
 	{
 		if (A_LoopReadLine = "[CONFIG]")
 			{
-				break
+				continue
 			}
 		extpov1=
 		extpov2=
@@ -57398,7 +57423,7 @@ Loop, Read, PGcfg.ini
 	{
 		if (A_LoopReadLine = "[CONFIG]")
 			{
-				break
+				continue
 			}
 		extpov1=
 		extpov2=
@@ -57443,7 +57468,7 @@ Loop, Read, PGcfg.ini
 	{
 		if (A_LoopReadLine = "[CONFIG]")
 			{
-				break
+				continue
 			}
 		extpov1=
 		extpov2=
@@ -57684,7 +57709,7 @@ Loop, read, PGcfg.ini
 		knti2=
 		if (A_LoopReadLine = "[CONFIG]")
 			{
-				break
+				continue
 			}
 		stringsplit,knti,A_LoopReadLine,=
 		stringsplit,ksivi,knti2,|
@@ -58240,7 +58265,7 @@ Loop, Parse, existlst,|
 									{
 										fndmet= 1
 										pulmeta.= metaspl3
-										if (metaspl4 = "/")
+										if (metaspl4 = "/plot")
 											{
 												fndmet=
 											}
@@ -60658,7 +60683,7 @@ Loop, Read, RFcfg.ini
 	{
 		if (A_LoopReadLine = "[CONFIG]")
 			{
-				break
+				continue
 			}
 		extpov1=
 		extpov2=
@@ -60726,7 +60751,7 @@ if (FERAD5A = 1)
 						stringsplit,ivn,A_LoopReadLine,=
 						if (ivn1 = "[CONFIG]")
 							{
-								break
+								continue
 							}
 						if (ivn1 = "_%A_LoopField%")
 							{
@@ -60824,7 +60849,7 @@ if (FERAD5A = 1)
 						stringsplit,ivn,A_LoopReadLine,=
 						if (ivn1 = "[CONFIG]")
 							{
-								break
+								continue
 							}
 						if (ivn1 = "_%A_LoopField%")
 							{
@@ -61149,7 +61174,7 @@ Loop, Read, RFcfg.ini
 	{
 		if (A_LoopReadLine = "[CONFIG]")
 			{
-				break
+				continue
 			}
 		extpov1=
 		extpov2=
@@ -61268,7 +61293,7 @@ Loop, Read, RFcfg.ini
 	{
 		if (A_LoopReadLine = "[CONFIG]")
 			{
-				break
+				continue
 			}
 		extpov1=
 		extpov2=
@@ -61598,7 +61623,7 @@ Loop, Read, RFcfg.ini
 	{
 		if (A_LoopReadLine = "[CONFIG]")
 			{
-				break
+				continue
 			}
 		extpov1=
 		extpov2=
@@ -61643,7 +61668,7 @@ Loop, Read, RFcfg.ini
 	{
 		if (A_LoopReadLine = "[CONFIG]")
 			{
-				break
+				continue
 			}
 		extpov1=
 		extpov2=
@@ -61883,7 +61908,7 @@ Loop, read, RFcfg.ini
 		knti2=
 		if (A_LoopReadLine = "[CONFIG]")
 			{
-				break
+				continue
 			}
 		stringsplit,knti,A_LoopReadLine,=
 		stringsplit,ksivi,knti2,|
@@ -62465,7 +62490,7 @@ Loop, Parse, existlst,|
 										{
 											fndmet= 1
 											pulmeta.= metaspl3
-											if (metaspl4 = "/")
+											if (metaspl4 = "/plot")
 												{
 													fndmet=
 												}
@@ -64506,9 +64531,6 @@ guicontrol, font, FEBUTK
 guicontrol,,FEBUTK,>
 
 
-
-
-
 guicontrol,%fetog%,FECHKB
 guicontrol,enable,FECHKB
 guicontrol,move,FECHKB,x643 y424 w101 h13
@@ -64987,7 +65009,7 @@ Loop, Read, EScfg.ini
 	{
 		if (A_LoopReadLine = "[CONFIG]")
 			{
-				break
+				continue
 			}
 		extpov1=
 		extpov2=
@@ -65057,7 +65079,7 @@ if (FERAD5A = 1)
 						stringsplit,ivn,A_LoopReadLine,=
 						if (ivn1 = "[CONFIG]")
 							{
-								break
+								continue
 							}
 						if (ivn1 = "_%A_LoopField%")
 							{
@@ -65155,7 +65177,7 @@ if (FERAD5A = 1)
 						stringsplit,ivn,A_LoopReadLine,=
 						if (ivn1 = "[CONFIG]")
 							{
-								break
+								continue
 							}
 						if (ivn1 = "_%A_LoopField%")
 							{
@@ -65325,7 +65347,7 @@ Loop, Read, EScfg.ini
 	{
 		if (A_LoopReadLine = "[CONFIG]")
 			{
-				break
+				continue
 			}
 		extpov1=
 		extpov2=
@@ -65458,7 +65480,7 @@ Loop, Read, EScfg.ini
 	{
 		if (A_LoopReadLine = "[CONFIG]")
 			{
-				break
+				continue
 			}
 		extpov1=
 		extpov2=
@@ -65577,7 +65599,7 @@ Loop, Read, EScfg.ini
 	{
 		if (A_LoopReadLine = "[CONFIG]")
 			{
-				break
+				continue
 			}
 		extpov1=
 		extpov2=
@@ -65917,7 +65939,7 @@ Loop, Read, EScfg.ini
 	{
 		if (A_LoopReadLine = "[CONFIG]")
 			{
-				break
+				continue
 			}
 		extpov1=
 		extpov2=
@@ -65962,7 +65984,7 @@ Loop, Read, EScfg.ini
 	{
 		if (A_LoopReadLine = "[CONFIG]")
 			{
-				break
+				continue
 			}
 		extpov1=
 		extpov2=
@@ -66205,7 +66227,7 @@ Loop, read, EScfg.ini
 		knti2=
 		if (A_LoopReadLine = "[CONFIG]")
 			{
-				break
+				continue
 			}
 		stringsplit,knti,A_LoopReadLine,=
 		stringsplit,ksivi,knti2,|
@@ -66711,7 +66733,6 @@ Loop, Parse, existlst,|
 				ESTHU= 1
 				ESTHUMBNAILPATH= %ESHOME%\downloaded_images\%SYSNAME%
 				imgett= %imgetn%-thumb
-
 			}
 		ROMTHUMBNAILMATCH=
 		Loop, %ESTHUMBNAILPATH%\%imgett%.*
@@ -66832,16 +66853,16 @@ Loop, Parse, existlst,|
 												fndmet=
 											}
 									}
-							if (metaspl2 = "plot")
+								if (metaspl2 = "plot")
 									{
 										fndmet= 1
 										pulmeta.= metaspl3
-										if (metaspl4 = "/")
+										if (metaspl4 = "/plot")
 											{
 												fndmet=
 											}
 									}
-							if (metaspl2 = "overview")
+								if (metaspl2 = "overview")
 									{
 										fndmet= 1
 										pulmeta.= metaspl3
@@ -66850,7 +66871,7 @@ Loop, Parse, existlst,|
 												fndmet=
 											}
 									}
-							if (metaspl2 = "notes")
+								if (metaspl2 = "notes")
 									{
 										fndmet= 1
 										pulmeta.= metaspl3
@@ -66875,19 +66896,23 @@ Loop, Parse, existlst,|
 		if (ESVID = 1)
 			{
 				stringreplace,ROMVIDEOMATCH,ROMVIDEOMATCH,%ESVIDEOPATH%,~/.emulationstation/downloaded_videos/%SYSNAME%,All
+				stringreplace,ROMVIDEOMATCH,ROMVIDEOMATCH,\,/,All
 			}
 		if (ESMARQ = 1)
 			{
 				stringreplace,ROMMARQUEEMATCH,ROMMARQUEEMATCH,%ESMARQUEEPATH%,~/.emulationstation/downloaded_images/%SYSNAME%,All
+				stringreplace,ROMMARQUEEMATCH,ROMMARQUEEMATCH,\,/,All
 			}
 		if (ESTHU = 1)
 			{
 				stringreplace,ROMTHUMBNAILMATCH,ROMTHUMBNAILMATCH,%ESTHUMBNAILPATH%,~/.emulationstation/downloaded_images/%SYSNAME%,All
+				stringreplace,ROMTHUMBNAILMATCH,ROMTHUMBNAILMATCH,\,/,All
 			}
 		if (ESBOX = 1)
 			{
 				stringreplace,ROMIMAGEMATCH,ROMIMAGEMATCH,%ESBOXPATH%,~/.emulationstation/downloaded_images/%SYSNAME%,All
-			}
+				stringreplace,ROMIMAGEMATCH,ROMIMAGEMATCH,\,/,All
+			}	
 		ifinstring,pthrom,:
 			{
 				stringreplace,pthrom,pthrom,%RJSYSTEMS%\%SYSNAME%\,,All
@@ -71282,7 +71307,7 @@ if (mameget = 1)
 	{
 		if (mamedbx = "")
 			{
-				FileRead, mamedbx, %GAMSRCS%\MAME - Arcade.gam
+				FileRead, mamedbx, sets\MAME - Arcade.set
 			}
 	}
 if (mediaorder = "")
@@ -71827,8 +71852,7 @@ if (mameget = 1)
 						realj1=
 						realj2=
 						stringsplit,realn,A_LoopField,|
-						stringsplit,realj,realn1,.
-						if (realj1 = jaktit)
+						if (realn1 = jaktit)
 							{
 								realname= %realn2%
 								break
@@ -77547,12 +77571,12 @@ Loop, rj\*.jak
 
 		if (NICEFLDR = 1)
 			{
-				SETGAM= MAME - Arcade.gam
+				SETGAM= sets\MAME - Arcade.set
 				ifExist, %GAMSRCS%\%curjf%.gam
 					{
-						SETGAM= %curjf%.gam
+						SETGAM= %GAMSRCS%\%curjf%.gam
 					}
-				FileRead, fldmvr, %GAMSRCS%\%SETGAM%
+				FileRead, fldmvr, %SETGAM%
 				FileCreateDir, %RJSYSTEMS%\%curjf%\SOURCE
 				FileSetAttrib,+H,%RJSYSTEMS%\%curjf%\SOURCE,2
 				IniRead,subdls,rj\%curjf%.ini,%curjf%,RJSUBDS
@@ -84457,7 +84481,11 @@ if (dmchk = 1)
 				RUNROM=
 			}
 	}
-
+histrplcd=	
+ifinstring,historyloc,%RUNROM%
+	{
+		histrplcd= 1
+	}
 guicontrol,,LCORE,|%coreselv%||%runlist%
 SB_SetText(" ..\" xenm "" RunOptions "" RUNROM "" RunArgs "|||from " runbrv " ")
 RunWait, "%OvrExtAs%"%RunOptions%%RUNROM%%RunArgs%,%runloc%,,overxtpid
@@ -84529,19 +84557,40 @@ if (EPGC = 1)
 		gosub, opncore
 		SB_SetText("settings reloaded")
 	}
+
 guicontrol, Enable, LNCHBUT
 guicontrol, Enable, RCLLNCH
 guicontrol, Enable, CNCTBUT
 guicontrol, Enable, HostButton
+
+inithist= 
 if (HISAPND = 1)
 	{
+		ifnotexist,%historyLoc%
+			{
+				inithist= 1
+				FileAppend,{`n%pspce%"version": "1.0"`,`n%pspce%"items": [`n,*%historyloc%
+			}
 		hisapl= %pspxe%{`n%pspce%"path": %RUNROM%`,`n%pspce%"label": "%ROMNAME%"`,`n%pspce%"core_path": "%OvrExtAs%"`,`n%pspce%"core_name": "%coreselv%"`,`n%pspce%"crc32": ""`,`n%pspce%"db_name": ""`,`n%pspxe%}`n%A_Space%%A_Space%]`n
+		stringreplace,hisapl,hisapl,\\\\,\,All
+		stringreplace,hisapl,hisapl,\\\,\,All
+		stringreplace,hisapl,hisapl,\\,\,All
 		stringreplace,hisapl,hisapl,\,\\,All
 		hiscnt:=TF_CountLines(TF(historyloc))
-		replinea:= hiscnt - 3
+ 		replinea:= hiscnt - 3
 		replineb:= hiscnt - 2
-		TF_replaceline("!"historyloc,replinea,replinea,"" pspxe "}," "")
-		TF_replaceline("!"historyloc,replineb,replineb,hisapl)
+		if (inithist = 1)
+			{
+				fileappend,%hisapl%,*%historyloc%	
+			}
+			else {
+				if (histrplcd = "")
+					{
+						stringreplace,hisapl,hisapl,"core_name": "DETECT","core_name": "%coreselv%",All
+					}
+				TF_replaceline("!"historyloc,replinea,replinea,"" pspxe "}," "")
+				TF_replaceline("!"historyloc,replineb,replineb,hisapl)
+			}
 	}
 if (DDRUN = "")
 	{
@@ -85339,6 +85388,10 @@ syslist=
 msyslist=
 nsys=
 msys=
+if (EULA = "")
+	{
+		SB_SetText("You must agree to the EULA before accessing the repositories.")
+	}
 loop, %GAMSRCS%\MAME - Systems\*.gam
 	{
 		msys+=1
@@ -85394,7 +85447,7 @@ Loop,parse,suitar,`n`r
 			}
 	}
 guicontrol,,RJSYDD,|Systems||%rjsystmfldrs%
-guicontrol,,RUNSYSDDL,|:=:System List:=:||%systmfldrs%
+guicontrol,,RUNSYSDDL,|:=:System List:=:||%INITFLDRS%
 guicontrol,,SRCHLOCDDL,|:=:System List:=:||%systmfldrs%
 guicontrol,,ESDWNLPOS,|%systmfldrs%
 guicontrol,,OVDLDS,|Matching||%systmfldrs%
