@@ -1,12 +1,13 @@
-skeletonKey 0.99.69.64
+skeletonKey 0.99.69.65
 
- 2019-05-08 1:24 AM
+ 2019-05-09 6:38 PM
  
 by romjacket 
 
 This tool is a unified interface for ROMs, emulators and frontends.
-In addition to deployment tools, skeletonKey can also be used as a GUI to launch
-ROMs, leveraging internet ROM repositories and retroArch's netplay capabilities.
+SkeletonKey can be used as a GUI to download and configure emulators, frontends, 
+launch ROMs, and manage artwork, leveraging internet ROM repositories databases 
+and retroArch's netplay capabilities.
 
 Official files are found at GITHUB
 http://github.com/romjacket/skeletonKey
@@ -16,7 +17,7 @@ https://www.paypal.me/romjacket
 
               donate 5 bucks!  
               
-              OR ELSE!
+              OR THE PUPPIES ANSWER!
   
 
 
@@ -30,26 +31,12 @@ Upon installtion, a quick-start wizard will allow users to get up and running qu
 
 ###########################################
 
-# Deployment.
+# Forking skeletonKey
 
 SKey-Deploy.exe:  
 
-To deploy your own installer, binary and github website (including this tool) will need:
-
-		NSIS: Nullsoft Scriptable Install System
-				https://sourceforge.net/projects/nsis/
-
-		AutoHotkey 1.1 or newer:
-				https://autohotkey.com/download/
-				
-		Github account and command-line programs for windows:
-				http://github.com/
-		
-		Github-release:
-				http://github.com/romjacket/githubrelease/
-				
-
-These programs can be automatically downloaded using the skey-deploy executable.
+To deploy your own installer, binary and github website (including this tool) 
+You will need a [github account](https://github.com/join) and a [token](https://github.com/settings/tokens)
 
 ###########################################
 

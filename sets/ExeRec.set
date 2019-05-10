@@ -726,7 +726,6 @@ FileInstall,sets\AppParams.set,sets\AppParams.set,1
 FileInstall,sets\archiveeula.set,sets\archiveeula.set,1
 FileInstall,sets\arcorg.set,sets\arcorg.set,1
 FileInstall,sets\Assignments.set,sets\Assignments.set,1
-FileInstall,sets\AutoBios.set,sets\AutoBios.set,1
 FileInstall,sets\autoconfig.set,sets\autoconfig.set,1
 FileInstall,sets\BIOS.set,sets\BIOS.set,1
 FileInstall,sets\BuildTools.set,sets\BuildTools.set,1

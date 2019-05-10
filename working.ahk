@@ -3347,7 +3347,7 @@ Gui, Add, ComboBox, x218 y78 w123 vCUSTMARG gCustmArg hidden,|
 Gui, Add, CheckBox, x26 y75 w61 h17 vCUSTSWITCH gCustSwitch, switches
 
 Gui, Add, Checkbox, x28 y240 h13 vALTURL gEnableAltUrl %ARCURLE%, Enable Login
-Gui, Add, DropDownlist, x28 y258 w225 vUrlTxt gREPOUrlEdt Readonly, %ArcSRC%||%ARCSRCS%|Add Repository
+Gui, Add, DropDownlist, x28 y258 w225 vUrlTxt gREPOUrlEdt, %ArcSRC%||%ARCSRCS%|Add Repository
 Gui, Add, Button, x266 y259 h18 vALTURLGET gALTURLGET,Download
 Gui, Add, Edit, x24 y215 w159 h21 vARCLOGIN gArcLogin %ARCURLCK%,%ARC_USER%
 Gui, Add, Edit, x187 y215 w154 h21 Password vARCPASS gArcPass %ARCURLCK%,%ARC_PASS%
@@ -5123,6 +5123,14 @@ If A_GuiControlEvent RightClick
 	if A_Guicontrol = UrlTxt
 		{
 			guicontrolget,URLTXT,,URLTXT
+			stringreplace,urlsv,urltxt,',,All
+			stringreplace,urlsv,urlsv,.,,All
+			stringreplace,urlsv,urlsv,&,,All
+			stringreplace,urlsv,urlsv,`%,,All
+			stringreplace,urlsv,urlsv,-,,All
+			stringreplace,urlsv,urlsv,`,,,All
+			stringreplace,urlsv,urlsv,~,,All
+			stringreplace,urlsv,urlsv,%A_Space%,,All
 			Menu, ARCSETB, Show, %A_GuiX% %A_GuiY%
 			return
 		}
@@ -8178,9 +8186,9 @@ if ((demul_file <> "ERROR")&&(demul_file <> ""))
 		filecreateDir,%demul_path%\roms
 	}
 
-ifexist,gam\Archive\AutoBios.set
+ifexist,%GAMSRCS%\AutoBios.set
 	{
-		Loop, Read,gam\Archive\AutoBios.set
+		Loop, Read,%GAMSRCS%\AutoBios.set
 			{
 				if (A_LoopReadLine = "")
 					{
@@ -37789,17 +37797,30 @@ return
 REPOUrlEdt:
 gui,submit,nohide
 guicontrolget,UrlTxt,,UrlTxt
+stringreplace,urlsv,urltxt,',,All
+stringreplace,urlsv,urlsv,.,,All
+stringreplace,urlsv,urlsv,&,,All
+stringreplace,urlsv,urlsv,`%,,All
+stringreplace,urlsv,urlsv,-,,All
+stringreplace,urlsv,urlsv,`,,,All
+stringreplace,urlsv,urlsv,~,,All
+stringreplace,urlsv,urlsv,%A_Space%,,All
 if (UrlTxt = "Add Repository")
 	{
+		guicontrol,,ARCSYS,|Select A System||
 		goto,ALTURLSET
 	}
+iniread,olarcnm,Settings.ini,GLOBAL,RemoteRepository
+iniread,olarna,Settings.ini,GLOBAL,%urltxt%_EULA
 iniread,ArcSitex,%ARCORG%,SOURCES,%UrlTxt%
 iniwrite, "%UrlTxt%",Settings.ini,GLOBAL,RemoteRepository
-if (ArcSiteX <> Arcsite)
+alra=
+if ((urlTxt <> olarcnm)or(olarna <> 1))
 	{
 		arcsite= %ArcSiteX%
 		FileDelete,sys.ini
 		GAMSRCS= gam\%UrlTxt%
+		guicontrol,,ARCSYS,|Select A System||
 		gosub,resetSYS
 		SB_SetText("Repository source changed")
 		return
@@ -37828,6 +37849,14 @@ return
 AltURLGet:
 gui,submit,nohide
 guicontrolget,UrlTxt,,UrlTxt
+stringreplace,urlsv,urltxt,',,All
+stringreplace,urlsv,urlsv,.,,All
+stringreplace,urlsv,urlsv,&,,All
+stringreplace,urlsv,urlsv,`%,,All
+stringreplace,urlsv,urlsv,-,,All
+stringreplace,urlsv,urlsv,`,,,All
+stringreplace,urlsv,urlsv,~,,All
+stringreplace,urlsv,urlsv,%A_Space%,,All
 guicontrol,disable,ALTURLGET
 iniread,urlaloc,%ARCORG%,SOURCES,%UrlTxt%:SET
 if ((urlaloc = "ERROR") or (urlaloc = ""))
@@ -37838,17 +37867,17 @@ if ((urlaloc = "ERROR") or (urlaloc = ""))
 	}
 splitpath,urlaloc,urlalocf,,urlaext
 iniread,EULA,Settings.ini,Global,%urltxt%_EULA
-current_EULA= %EULA%
+%urlsv%_EULA= %EULA%
 dispeula= %urltxt%
 ifnotexist,sets\%urltxt%eula.set
-{
-dispeula= generic_
-}
+	{
+		dispeula= generic_
+	}
 filecopy,sets\%dispeula%eula.set,tmp.htm,1
 if (EULA <> 1)
 	{
 		ARCEULA=file:///%A_ScriptDir%\tmp.htm
-		Options := "Buttons=I Agree/Decline, HtmW=700, HtmH=550, BDefault=2, BEsc=2,Title=%dispeula%EULA, DlgTopmost=1,DlgStyle="
+		Options := "Buttons=I Agree/Decline, HtmW=700, HtmH=550, BDefault=2, BEsc=2,Title=" dispeula "_EULA, DlgTopmost=1,DlgStyle="
 		viSel := HtmDlg( ARCEULA, "taskbar", Options )
 		if (visel <> 1)
 			{
@@ -37860,6 +37889,7 @@ if (EULA <> 1)
 				guicontrol,enable,ALTURLGET
 				return
 			}
+		%urlsv%_EULA= 1	
 	}
 EULAAGREE:
 guicontrol,disable,ARCSYS
@@ -38599,8 +38629,7 @@ return
 
 ArchiveSystems:
 gui, submit, nohide
-overrdx:= % (%UrlTxt%_EULA)
-msgbox,,,overrdx=`n"%overrdx%"
+overrdx:= % (%urlsv%_EULA)
 guicontrol,,ENHAK,0
 guicontrol,hide,sortoverride
 guicontrol,,sortoverride,0
@@ -38919,6 +38948,14 @@ return
 ARCEDURL:
 gui,submit,nohide
 guicontrolget,urltxt,,urltxt
+stringreplace,urlsv,urltxt,',,All
+stringreplace,urlsv,urlsv,.,,All
+stringreplace,urlsv,urlsv,&,,All
+stringreplace,urlsv,urlsv,`%,,All
+stringreplace,urlsv,urlsv,-,,All
+stringreplace,urlsv,urlsv,`,,,All
+stringreplace,urlsv,urlsv,~,,All
+stringreplace,urlsv,urlsv,%A_Space%,,All
 IniRead,RESZEDT,sets\Arcorg.set,SOURCES,%urltxt%
 if (RESZEDT <> "ERROR")
 	{
@@ -53354,6 +53391,7 @@ MameSwapDGRP= Right Analog Stick
 gosub, MameSwap
 return
 
+MAMEpsxJOY:
 MAMEpsuJOY:
 MAMEpseJOY:
 MAMEpsjJOY:
@@ -66543,7 +66581,7 @@ stringLeft,efix,ESROOTFLDTMP,2
 if (efi = ":\")
 	{
 		ESROOTFLDTMP= %efix%
-	}	
+	}
 ESROOTFLD= %ESROOTFLDTMP%
 SB_SetText("Current ROM folder is set to " ESROOTFLD "")
 guicontrol,,ESRRTXT, ROM Directory is SET
@@ -66567,12 +66605,14 @@ gui,submit,nohide
 SB_SetText("Creating Playlist ... ")
 SYSNAME=
 guicontrolget,SYSNAME,,ESPLXMP
+
 if (SYSNAME = "")
 	{
 		SB_SetText("You Must have a name for your playlist.")
 		return
 	}
 ;{;;;;;fold
+
 plsave=
 if (plsave = "")
 	{
@@ -72661,16 +72701,15 @@ Loop, Read, rj\scrapeArt\%SYSLKUP%\%xmlf%
 					{
 						if (PYEXIST = 1)
 							{
-								ifnotexist,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%gefls2%.mp4
+								ifnotexist,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%xlmb3%.mp4
 									{
 										SB_SetText("Downloading " realname " Video")
-										msgbox,,,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%gefls2%.mp4`n%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%xlmb3%.mp4
 										RunWait, %comspec% /c " "%A_ScriptDir%\bin\youtube-dl.exe" -R 3 -i --id "%xlmb3%" --prefer-insecure --no-part ",%ASSETS%\%REALSYS%\%realname%\%jaksbd%,hide
 										FileGetSize,imgsz,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%xlmb3%.mp4,K
 										if (imgsz < 1)
 											{
 												DWNFLD= 1
-												FileDelete,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%gefls2%.mp4
+												FileDelete,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%xlmb3%.mp4
 												SB_SetText(" " realname " " jaksbd " was not downloaded")
 												continue
 											}
@@ -85411,10 +85450,6 @@ guicontrol,,JOYCORE,|Antimicro||Xpadder|%supgui%|%corelist%
 return
 
 resetSYS:
-if (EULA <> 1)
-	{
-		return
-	}
 FileDelete, msys.ini
 FileDelete, sys.ini
 FileDelete, hacksyst.ini
@@ -85422,9 +85457,15 @@ syslist=
 msyslist=
 nsys=
 msys=
-if (EULA = "")
+iniread,alra,Settings.ini,GLOBAL,%urlTxt%_EULA
+if (alra <> 1)
 	{
 		SB_SetText("You must agree to the EULA before accessing the repositories.")
+		gosub,ALtURLGet
+		if (current_EULA <> 1)
+			{
+				return
+			}
 	}
 loop, %GAMSRCS%\MAME - Systems\*.gam
 	{
