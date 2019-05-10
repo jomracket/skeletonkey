@@ -408,17 +408,19 @@ if (ArcSiteN = "")
 	}
 */
 IniRead,ArcSRCv,%ARCORG%,SOURCES,
+srcfnd=
 Loop,Parse,Arcsrcv,`n`r
 	{
 		if (A_Loopfield = "")
 			{
 				continue
 			}
+		srcfnd=	
 		stringsplit,ARCSRCx,A_LoopField,:=,"
 		;"
-		if (A_index = 1)
+		if (srcfnd = 1)
 			{
-				ARCSRC= %ARCSRCx1%
+				ARCSRCb= %ARCSRCx1%
 			}
 		ifnotinstring,ARCSRCS,%ARCSRCx1%
 			{
@@ -433,6 +435,14 @@ Loop,gam\*,2
 			}	
 		ARCSRCS.= A_LoopFileName . "|"
 	}
+iniread,ARCSRCv,Settings.ini,GLOBAL,RemoteRepository	
+if ((ARCSRCv = "") or (arcsrcv = "ERROR"))
+	{
+		ARCSRC= %ARCSRCb%
+	}
+	else {
+		ARCSRC= %ARCSRCv%
+	}
 sort,ARCSRCS	
 GAMSRCS= gam\%ARCSRC%
 LNCHPRIO= Checked
@@ -443,7 +453,15 @@ if (LNCHPT <> 1)
 		LNCHPT= 0
 	}
 iniread,EULA,Settings.ini,Global,%arcSRC%_EULA
-%arcSRC%_EULA= %EULA%
+stringreplace,urlsv,arcSRC,',,All
+stringreplace,urlsv,urlsv,.,,All
+stringreplace,urlsv,urlsv,&,,All
+stringreplace,urlsv,urlsv,`%,,All
+stringreplace,urlsv,urlsv,-,,All
+stringreplace,urlsv,urlsv,`,,,All
+stringreplace,urlsv,urlsv,~,,All
+stringreplace,urlsv,urlsv,%A_Space%,,All
+%urlsv%_EULA= %EULA%
 EULAOPT= disabled
 if (EULA = 1)
 	{
@@ -1742,9 +1760,9 @@ Menu, ARCSETB, Add, Reset-ALL Sources, ARCEDURA
 Menu, ARSOCCFG, Add, Configure Association, ARSCFG
 Menu, ARSOCCFG, Add,
 Menu, ARSOCCFG, Add, Reset Download/Run Paramaters, ARSRST
-Menu, ARSOCCFG, Add,
-Menu, ARSOCCFG, Add, Edit Base-URL for selected system, ARCEDTBU
-Menu, ARSOCCFG, Add, Reset Base-URL for selected system, ARCEDTBR
+;;Menu, ARSOCCFG, Add,
+;;Menu, ARSOCCFG, Add, Edit Base-URL for selected system, ARCEDTBU
+;;Menu, ARSOCCFG, Add, Reset Base-URL for selected system, ARCEDTBR
 
 
 Menu, ASOCCFG, Add, Configure Association, ASCFG
@@ -3347,7 +3365,7 @@ Gui, Add, ComboBox, x218 y78 w123 vCUSTMARG gCustmArg hidden,|
 Gui, Add, CheckBox, x26 y75 w61 h17 vCUSTSWITCH gCustSwitch, switches
 
 Gui, Add, Checkbox, x28 y240 h13 vALTURL gEnableAltUrl %ARCURLE%, Enable Login
-Gui, Add, DropDownlist, x28 y258 w225 vUrlTxt gREPOUrlEdt, %ArcSRC%||%ARCSRCS%|Add Repository
+Gui, Add, DropDownlist, x28 y258 w225 vUrlTxt gREPOUrlEdt, %ArcSRC%||%ARCSRCS%Add Repository
 Gui, Add, Button, x266 y259 h18 vALTURLGET gALTURLGET,Download
 Gui, Add, Edit, x24 y215 w159 h21 vARCLOGIN gArcLogin %ARCURLCK%,%ARC_USER%
 Gui, Add, Edit, x187 y215 w154 h21 Password vARCPASS gArcPass %ARCURLCK%,%ARC_PASS%
@@ -37818,6 +37836,7 @@ alra=
 if ((urlTxt <> olarcnm)or(olarna <> 1))
 	{
 		arcsite= %ArcSiteX%
+		ARCSRC= %urlTxt%
 		FileDelete,sys.ini
 		GAMSRCS= gam\%UrlTxt%
 		guicontrol,,ARCSYS,|Select A System||
@@ -37928,7 +37947,7 @@ gui, submit, nohide
 inputbox,ArcSiteN,Set Repository Name,,,400,100,,,,,
 if (ArcSiteN = "")
 	{
-		guicontrol,,UrlTxt,|%ARCSRC%||%ArcSrcs%
+		guicontrol,,UrlTxt,|%ARCSRC%||%ArcSrcs%Add Repository
 		return
 	}
 ifinstring,ArcSiteN,\
@@ -38001,7 +38020,7 @@ arcsitev= %arcvv1%//%arcvv2%
 if (ArcSitex = "")
 	{
 		SB_SetText("You must supply a url to the repository archive.")
-		guicontrol,,UrlTxt,|%ARCSRC%||%ArcSrcs%
+		guicontrol,,UrlTxt,|%ARCSRC%||%ArcSrcs%Add Repository
 		return
 	}
 SB_SetText("")
@@ -38010,7 +38029,7 @@ ifnotinstring,ARCSRCS,%ArcSiteN%|
 	{
 		ArcSRCS.= ArcSiteN . "|"
 	}
-guicontrol,,UrlTxt,|%ArcSiteN%||%ARCSRCS%|Add Repository
+guicontrol,,UrlTxt,|%ArcSiteN%||%ARCSRCS%Add Repository
 iniwrite, %ArcSiteN%,%ARCORG%,SOURCES,%arcsitev%
 iniwrite, %ArcSiteN%:SET,%ARCORG%,SOURCES,%ArcSiteX%
 iniwrite, "%ArcSiteN%",Settings.ini,Global,RemoteRepository
@@ -38522,6 +38541,13 @@ Loop, %SRCHMET%\%HACKAPN%%SRCHGAM%.gam
 return
 
 ArcPPND:
+stringreplace,EXTRSYSK,EXTRSYS,#HACKS#,,All
+ARCSUBS= %EXTRSYSK%
+ifnotinstring,EXTRSYSK,%A_Space%-%A_Space%
+	{
+		ARCSUBS= MAME - Systems
+	}
+/*
 loop, Parse, ArcOrgSet,`n`r
 	{
 		if (A_LoopField = "")
@@ -38547,6 +38573,7 @@ loop, Parse, ArcOrgSet,`n`r
 			}
 	}
 SB_SetText(" " sysurl " ")
+*/	
 return
 
 RomSavePPND:
@@ -38964,27 +38991,6 @@ if (RESZEDT <> "ERROR")
 	}
 iniDelete,%ARCORG%,SOURCES,%urlTxt%	
 return
-
-ARCEDTBR:
-gui,submit,nohide
-IniRead,ECSEDT,sets\Arcorg.set,REPOSITORIES,%ARCSYS%
-IniWrite,ECSEDT,%ARCORG%,REPOSITORIES,%ARCSYS%
-SB_SetText(" " ARCSYS " Base url reset")
-return
-
-ARCEDTBU:
-gui,submit,nohide
-IniRead,ECSEDTs,sets\Arcorg.set,REPOSITORIES,%ARCSYS%
-ECSEDT=
-inputbox,ECSEDT,Set BASE URL for %ARCSYS%,,,400,100,,,,,%ECSEDTs%
-if (ECSEDT = "")
-	{
-		return
-	}
-IniWrite,%ECSEDT%,%ARCORG%,REPOSITORIES,%ARCSYS%
-SB_SetText(" " ARCSYS " base url set to " ECSEDT " ")
-return
-
 
 ARCPCFG:
 gui,submit,nohide
@@ -39808,6 +39814,7 @@ if (arcpnum > 1)
 	}
 if (tmprm <> "")
 	{
+	/*
 		Loop, Parse, ArcOrgSet,`n`r
 			{
 				if (A_loopField = "")
@@ -39830,6 +39837,7 @@ if (tmprm <> "")
 						break
 					}
 			}
+		*/	
 		if (MAMESWCHK = 1)
 			{
 				Loop, Parse, mamesplit,`n`r
@@ -39846,14 +39854,23 @@ if (tmprm <> "")
 										stringsplit,ave,A_LoopReadLine,|
 										if (ave2 = arcpopcul)
 											{
-												URLFILE= %ArcSite%/%sysurl%%ave1%
-												ifinstring,sysurl,://
+												;;URLFILE= %ArcSite%/%sysurl%%ave1%
+												ifinstring,ave4,://
 													{
-														URLFILE= %sysurl%%ave1%
-													}
-												ifinstring,ave1,://
-													{
-														URLFILE= %ave1%
+														;;URLFILE= %sysurl%%ave1%
+														URLFILE= %ave4%
+														ifinstring,ave4,http
+															{
+																ariadltyp=http
+															}
+														ifinstring,ave4,ftp
+															{
+																ariadltyp=ftp
+															}
+														ifinstring,ave4,magnet
+															{
+																ariadltyp=magnet
+															}
 													}
 												break
 											}
@@ -39875,10 +39892,23 @@ if (tmprm <> "")
 					}
 				if (ave2 = arcpopcul)
 					{
-						URLFILE= %ArcSite%/%sysurl%%ave1%
-						ifinstring,sysurl,://
+						;;URLFILE= %ArcSite%/%sysurl%%ave1%
+						ifinstring,ave4,://
 							{
-								URLFILE= %sysurl%%ave1%
+								;;URLFILE= %sysurl%%ave1%
+								URLFILE= %ave4%
+								ifinstring,ave4,http
+									{
+										ariadltyp=http
+									}
+								ifinstring,ave4,ftp
+									{
+										ariadltyp=ftp
+									}
+								ifinstring,ave4,magnet
+									{
+										ariadltyp=magnet
+									}
 							}
 						ifinstring,ave1,://
 							{
@@ -39890,6 +39920,7 @@ if (tmprm <> "")
 	}
 if (tmpsr <> "")
 	{
+	/*
 		Loop, Parse, ArcOrgSet,`n`r
 			{
 				if (A_loopField = "")
@@ -39903,19 +39934,29 @@ if (tmpsr <> "")
 						break
 					}
 			}
+		*/	
 		Loop, read, %SRCHMET%\%EXTRSYS%.gam
 			{
 				stringsplit,ave,A_LoopReadLine,|
 				if (ave2 = tmpsrg)
 					{
-						URLFILE= %ArcSite%/%sysurl%%ave1%
-						ifinstring,sysurl,://
+						;;URLFILE= %ArcSite%/%sysurl%%ave1%
+						ifinstring,ave4,://
 							{
-								URLFILE= %sysurl%%ave1%
-							}
-						ifinstring,ave1,://
-							{
-								URLFILE= %ave1%
+								;;URLFILE= %sysurl%%ave1%
+								URLFILE= %ave4%
+								ifinstring,ave4,http
+									{
+										ariadltyp=http
+									}
+								ifinstring,ave4,ftp
+									{
+										ariadltyp=ftp
+									}
+								ifinstring,ave4,magnet
+									{
+										ariadltyp=magnet
+									}
 							}
 						break
 					}

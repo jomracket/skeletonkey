@@ -731,6 +731,7 @@ Gui, Add, Button, x408 y123 w75 h23 vCANCEL gCANCEL hidden, CANCEL
 gui,font,normal
 Gui, Add, Text, x308 y155, Version
 Gui, Add, CheckBox, x204 y76 w114 h13 vINITINCL gINITINCL checked, Initialize-Include
+Gui, Add, CheckBox, x204 y95 w154 h13 vREPODATS gREPODATS, Repository Databases
 Gui, Add, CheckBox, x90 y95 w104 h13 vPortVer gPortVer checked %FIE%, Portable/Update
 Gui, Add, CheckBox, x90 y76 w104 h13 vOvrStable gOvrStable %FIE% checked,Stable
 Gui, Add, CheckBox, x90 y95 w154 h13 vDevlVer gDevlVer hidden, Development Version
@@ -2845,6 +2846,11 @@ gui,submit,nohide
 
 return
 
+REPODATS:
+gui,submit,nohide
+
+return
+
 DatBld:
 gui,submit,nohide
 
@@ -3032,9 +3038,11 @@ guicontrol,disable,GitPush
 guicontrol,disable,ServerPush
 guicontrol,disable,SiteUpdate
 guicontrol,disable,DatBld
+guicontrol,disable,REPODATS
 guicontrol,disable,PortVer
 guicontrol,disable,INITINCL
 guicontrol,disable,DevlVer
+guicontrolget,REPODATS,,REPODATS
 guicontrolget,DATBLD,,DATBLD
 guicontrolget,GITPUSH,,GITPUSH
 guicontrolget,SERVERPUSH,,SERVERPUSH
@@ -3389,12 +3397,20 @@ if (DATBLD = 1)
 				runwait, %comspec% cmd /c " "%BUILDIR%\bin\7za.exe" a -t7z "DATFILES.7z" "%A_LoopFileFullPath%" >>"%DEPL%\deploy.log"",%DEPL%,%rntp%
 				RunWait, %comspec% cmd /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%	
 			}
-		Loop, %GITD%\gam,2
+	}
+if (REPODATS = 1)
+	{
+		SB_SetText(" Compiling Repository Databases ")
+		repolsts= 
+		Loop, %BUILDIR%\gam,2
 			{
-				RunWait, %comspec% cmd /c echo.##################  CREATE GAMFILES  ######################## >>"%DEPL%\deploy.log", ,%rntp%	
+				repolsts+=1
+				repoln%A_Index%= %A_LoopFileName%
+				RunWait, %comspec% cmd /c echo.##################  CREATE GAMFILES  ######################## >>"%DEPL%\deploy.log", ,%rntp%
 				runwait, %comspec% cmd /c " "%BUILDIR%\bin\7za.exe" a -t7z "%A_LoopFileName%.7z" "%A_LoopFileFullPath%" >>"%DEPL%\deploy.log"",%DEPL%,%rntp%
-				RunWait, %comspec% cmd /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%	
+				RunWait, %comspec% cmd /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%
 			}	
+
 	}
 
 FileGetSize,dbsize,%DEPL%\DATFILES.7z,K
@@ -3653,14 +3669,20 @@ if (ServerPush = 1)
 						FileAppend, "%GITRLS%" delete -r skeletonkey -t DATFILES`n,%DEPL%\gpush.cmd
 						FileAppend, "%GITRLS%" release -r skeletonkey -t DATFILES`n,%DEPL%\gpush.cmd
 						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t DATFILES -l "DATFILES" -n DATFILES.7z -f "%DEPL%\DATFILES.7z"`n,%DEPL%\gpush.cmd
-
-						FileAppend, "%GITRLS%" delete -r skeletonkey -t ARCHIVE`n,%DEPL%\gpush.cmd
-						FileAppend, "%GITRLS%" release -r skeletonkey -t ARCHIVE`n,%DEPL%\gpush.cmd
-						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t ARCHIVE -l "ARCHIVE" -n Archive.7z -f "%DEPL%\Archive.7z"`n,%DEPL%\gpush.cmd
-
-						FileAppend, "%GITRLS%" delete -r skeletonkey -t THE-EYE`n,%DEPL%\gpush.cmd
-						FileAppend, "%GITRLS%" release -r skeletonkey -t THE-EYE`n,%DEPL%\gpush.cmd
-						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t THE-EYE -l "THE-EYE" -n THE-EYE.7z -f "%DEPL%\THE-EYE.7z"`n,%DEPL%\gpush.cmd
+					}
+			}
+		if (REPODATS = 1)
+			{
+				if (ServerPush = 1)
+					{
+						Loop,%repolsts%
+							{
+								rpofn:= % rpoln%A_Index%
+								stringupper,rpoln,rpofn
+								FileAppend, "%GITRLS%" delete -r skeletonkey -t %rpoln%`n,%DEPL%\gpush.cmd
+								FileAppend, "%GITRLS%" release -r skeletonkey -t %rpoln%`n,%DEPL%\gpush.cmd
+								FileAppend, "%GITRLS%" upload -R -r skeletonkey -t %rpoln% -l "%rpoln%" -n %rpofn%.7z -f "%DEPL%\%rpofn%.7z"`n,%DEPL%\gpush.cmd
+							}
 					}
 			}
 		if (OvrStable = 1)
@@ -3903,6 +3925,7 @@ guicontrol,enable,GitPush
 guicontrol,enable,ServerPush
 guicontrol,enable,SiteUpdate
 guicontrol,enable,DatBld
+guicontrol,enable,REPODATS
 guicontrol,enable,PortVer
 guicontrol,enable,INITINCL
 guicontrol,enable,DevlVer
