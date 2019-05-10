@@ -3402,7 +3402,7 @@ if (REPODATS = 1)
 	{
 		SB_SetText(" Compiling Repository Databases ")
 		repolsts= 
-		Loop, %BUILDIR%\gam,2
+		Loop, %BUILDIR%\gam\*,2
 			{
 				repolsts+=1
 				repoln%A_Index%= %A_LoopFileName%
@@ -3524,7 +3524,7 @@ if (GitPush = 1)
 		FileAppend, del /s /q "%GITD%\rj\netArt\*"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, rd /s/q "%GITD%\rj\netArt"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, rd /s/q "%GITD%\rj\sysCfgs"`n,%SKELD%\!gitupdate.cmd
-		FileAppend, robocopy "gam" "%GITD%\gam" /s /e /w:1 /r:1`n,%SKELD%\!gitupdate.cmd
+		;;FileAppend, robocopy "gam" "%GITD%\gam" /s /e /w:1 /r:1`n,%SKELD%\!gitupdate.cmd
 		FileAppend, del /q "%GITD%\rj\*.tdb"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, del /q "%GITD%\rj\*.tmp"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, del /q "%GITD%\rj\*.ini"`n,%SKELD%\!gitupdate.cmd
