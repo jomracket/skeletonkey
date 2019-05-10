@@ -3677,7 +3677,7 @@ if (ServerPush = 1)
 					{
 						Loop,%repolsts%
 							{
-								rpofn:= % rpoln%A_Index%
+								rpofn:= % repoln%A_Index%
 								stringupper,rpoln,rpofn
 								FileAppend, "%GITRLS%" delete -r skeletonkey -t %rpoln%`n,%DEPL%\gpush.cmd
 								FileAppend, "%GITRLS%" release -r skeletonkey -t %rpoln%`n,%DEPL%\gpush.cmd
