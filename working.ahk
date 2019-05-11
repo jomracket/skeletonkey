@@ -1709,6 +1709,8 @@ Menu, EMURCLMENU, Add, Clear Emulator, EMUREMFESEL
 Menu, EMURCLMENU, Add, Delete Emulator, EMUDELFESEL
 Menu, EMURCLMENU, Add, Update Emulator, EMUUPDTSEL
 
+Menu,clRfltmenu,Add,Show Detected,CLRFLTRSUB
+
 Menu, FERCLMENU, Add, Toggle Selection, TOGFESEL
 
 Menu, FERCLMENU, Add, Add Selection, ADDFESEL
@@ -1874,11 +1876,11 @@ Gui Add, Button, x720 y516 w42 h19 vFNDGUI gFndGui,find
 Gui,Font,Normal
 Gui, Add, CheckBox, x662 y32 h14 vSWHOST gSwHost hidden, Host
 
-Gui, Add, CheckBox, x461 y2 h15 vCustSwitchs gCustSwitchs, switches
+Gui, Add, CheckBox, x461 y4 h15 vCustSwitchs gCustSwitchs, switches
 Gui, Add, ComboBox, x459 y22 w100 vCUSTMOPTS gCustmOpts hidden, |%INJOPT%
 Gui, Add, ComboBox, x560 y22 w100 vCUSTMARGS gCustmArgs hidden, |%INJARG%
 
-Gui, Add, Button, x418 y0 w41 h21 vGROM gGetROM, ROM
+Gui, Add, Button, x418 y2 w41 h21 vGROM gGetROM, ROM
 Gui, Add, DropdownList, x525 y2 w135 hwndRUNCORE vLCORE gLnchCore,
 Gui, Add, DropDownList, x540 y2 w135 vJCORE gRJCORE hidden,
 ;;Gui, Add, DropDownList, x540 y24 w135 vJCORE gRJCORE hidden,
@@ -4336,7 +4338,7 @@ RJENXTRARC_TT :="Extracts .7z, .zip and .rar files"
 RJXTRARCA_TT :="Archives are extracted before jackets are created."
 RJXTRARCB_TT :="Archives are extracted after jackets are created."
 RJXTRARCDD_TT :="Store will move archives to skeletonKey's temp directory`nDelete will delete the archive after extraction`nKeep will not delete or move the archive"
-CLRFLTR_TT :="Clearse the current filter"
+CLRFLTR_TT :="Clearse the current filter`nright-click for filter-options"
 INSFLTR_TT :="Filters the current list"
 MVPLOU_TT :="Moves an item up in the playlist."
 MVPLOD_TT :="Moves an item down in the playlist."
@@ -5173,7 +5175,14 @@ If A_GuiControlEvent RightClick
 			Menu, EMURCLMENU, Show, %A_GuiX% %A_GuiY%
 			return
 		}
-
+	if A_GUicontrol = CLRFLTR
+		{
+			if (SALIST = "Systems")
+				{
+					Menu, clRfltmenu, show, %A_GuiX% %A_GuiY%
+				}
+			return
+		}
 	if A_GuiControl = AUTOBIOS
 		{
 			Menu, BDRCLMENU, Show, %A_GuiX% %A_GuiY%
@@ -9642,6 +9651,11 @@ fileappend, %repoWrite%,RepoList.ini
 IniWrite, "%REPOSET%",Settings.ini,GLOBAL,Emulator_Repository
 return
 
+CLRFLTRSUB:
+gui,submit,nohide
+guicontrol,,EAVAIL,|%knownfldrs%
+return
+
 CLRFLTR:
 gui,submit,nohide
 guicontrol,,INSFLTR,
@@ -9712,6 +9726,10 @@ if (SALIST = "Systems")
 			}
 		SB_SetText("")
 		GuiControl,,EAVAIL,|%reisys%	
+		if (INSFLTR = "DETECTED")
+			{
+				goto, CLRFLTRSUB
+			}
 		return	
 	}
 return
