@@ -2348,7 +2348,7 @@ Gui, Add, CheckBox, x595 y122 h17 vEMUPGC gEmuPGC Checked hidden, Per-Game Confi
 Gui, Add, Radio, x506 y241 h23 vERUN gERun Checked Hidden, RUN from emulator path
 Gui, Add, Radio, x506 y260 h23 vLRUN gLRun Hidden, RUN from ROM path
 Gui, Add, CheckBox, x505 y283 h17 vNoExtn gNoExtn Hidden, Omit extension at runtime
-Gui, Add, CheckBox, x649 y283 h13 vEXTARUN gEXTARUN Hidden, Extract at runtime
+Gui, Add, CheckBox, x649 y283 h13 vEXTARUN gEXTARUN Hidden,Run-Extracted
 Gui, Add, CheckBox, x649 y244 h13 vOMITQ gOmitQ hidden, Omit-Quotes
 Gui, Add, CheckBox, x649 y261 h13 vOMITPTH gOmitPth Hidden, No-Path
 
@@ -31859,6 +31859,10 @@ emupgc=
 iniread, emupgc, AppParams.ini, %sysni%,per_game_configurations
 if (emupgc <> "ERROR")
 	{
+		if (emupgc = "")
+			{
+				emupgc= 0
+			}
 		guicontrol,,EMUPGC,%emupgc%
 	}
 
@@ -31882,6 +31886,10 @@ apext=
 iniread, apext, AppParams.ini,%sysni%,extension
 if (apext <> "ERROR")
 	{
+		if (apext = "")
+			{
+				apext= 0
+			}
 		guicontrol,,NOEXTN,%apext%
 		if (apext = 1)
 			{
@@ -31906,17 +31914,21 @@ tmsnp=
 iniread, tmsnp, AppParams.ini,%sysni%,EXTARUN
 if (tmsnp <> "ERROR")
 	{
-		guicontrol,,EXTARUN,%tmpnp%
-		if (tmpnp = 1)
+		if (tmsnp = "")
 			{
-				pthdisp=
+				tmsnp= 0
 			}
+		guicontrol,,EXTARUN,%tmsnp%
 	}
 
 tmpnp=
 iniread, tmpnp, AppParams.ini,%sysni%,no_path
 if (tmpnp <> "ERROR")
 	{
+		if (tmpnp = "")
+			{
+				tmpnp= 0
+			}
 		guicontrol,,OMITPTH,%tmpnp%
 		if (tmpnp = 1)
 			{
@@ -31928,6 +31940,10 @@ tmpq=
 iniread, tmpq, AppParams.ini,%sysni%,no_quotes
 if (tmpq <> "ERROR")
 	{
+		if (tmpq = "")
+			{
+				tmpq= 0
+			}
 		guicontrol,,OMITQ,%tmpq%
 		if (omitq = 1)
 			{
@@ -31939,6 +31955,10 @@ iniread, tmpdt, AppParams.ini,%sysni%,DSKMNTCHK
 guicontrol,,DSKMNTCHK,0
 if (tmpdt <> "ERROR")
 	{
+		if (tmpdt = "")
+			{
+				tmpdt= 0
+			}
 		guicontrol,,DSKMNTCHK,%tmpdt%
 		if (tmpdt = 1)
 			{
@@ -31999,9 +32019,9 @@ guicontrol,show,OPTTXT
 guicontrol,show,ARGTXT
 guicontrol, , APPOPT,| ||%INJOPT%
 guicontrol, , APPARG,| ||%INJARG%
-guicontrol,,EXTARUN, 0
-guicontrol,,OMITPTH, 0
-guicontrol,,OMITQ, 0
+guicontrol,,EXTARUN,0
+guicontrol,,OMITPTH,0
+guicontrol,,OMITQ,0
 guicontrol,,NOEXTN,0
 guicontrol,,EMUPGC,1
 guicontrol,,LRUN,0

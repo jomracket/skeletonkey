@@ -712,6 +712,15 @@ FileCreateDir, rj\RF
 FileInstall,site\version.txt,site\version.txt,1
 FileInstall,site\ReadMe.md,site\ReadMe.md,1
 FileInstall,site\key.ico,site\key.ico,1
+FileInstall,site\download.svg,site\download.svg,1
+FileInstall,site\frontends.svg,site\frontends.svg,1
+FileInstall,site\jacket.svg,site\jacket.svg,1
+FileInstall,site\joysticks.svg,site\joysticks.svg,1
+FileInstall,site\netplay.svg,site\netplay.svg,1
+FileInstall,site\repository.svg,site\repository.svg,1
+FileInstall,site\usage.svg,site\usage.svg,1
+FileInstall,site\utilities.svg,site\utilities.svg,1
+FileInstall,site\video.svg,site\video.svg,1
 FileInstall,site\Global-Launch-Menu.png,site\Global-Launch-Menu.png,1
 FileInstall,site\invaders.png,site\invaders.png,1
 FileInstall,site\key.png,site\key.png,1

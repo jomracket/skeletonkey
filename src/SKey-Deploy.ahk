@@ -3162,6 +3162,11 @@ if (INITINCL = 1)
 					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
 					exprt.= "FileInstall," . ain . "," . ain . ",1" . "`n"
 				}
+			Loop, files, %SKELD%\site\*.svg
+				{
+					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
+					exprt.= "FileInstall," . ain . "," . ain . ",1" . "`n"
+				}
 			Loop, files, %SKELD%\site\*.png
 				{
 					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
@@ -3507,6 +3512,7 @@ if (GitPush = 1)
 				donation= 00.00				
 			}			
 		FileDelete, %SKELD%\!gitupdate.cmd
+		FileAppend, mkdir "%GITD%\gam"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, mkdir "%GITD%\bin"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, mkdir "%GITD%\rj\scrapeArt"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, mkdir "%GITD%\rj\ES"`n,%SKELD%\!gitupdate.cmd
