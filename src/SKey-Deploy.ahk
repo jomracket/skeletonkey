@@ -3853,6 +3853,8 @@ if (SiteUpdate = 1)
 		StringReplace,skelhtml,skelhtml,[REVISION],http://github.com/%gituser%/skeletonKey/releases/download/Installer/Installer.zip,All
 		StringReplace,skelhtml,skelhtml,[PORTABLE],https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey-portable.zip,All
 		
+		StringReplace,skelhtml,skelhtml,[GITUSER],%gituser%,All
+		StringReplace,skelhtml,skelhtml,[RELEASEPG],https://github.com/%gituser%/skeletonKey/releases,All
 		StringReplace,skelhtml,skelhtml,[DATFILES],https://github.com/%gituser%/skeletonKey/releases/download/DATFILES/DATFILES.7z,All
 		;;StringReplace,skelhtml,skelhtml,[DATFILES],https://github.com/%gituser%/DATFILES/raw/master/DATFILES.7z,All
 		

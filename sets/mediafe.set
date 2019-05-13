@@ -1,4 +1,17 @@
 [GLOBAL]
+3DBoxart=3DBoxart||
+Marquee=Marquee||Banner|Logo
+4Mix=4Mix||
+3Mix=3Mix||
+Label=Label||
+Cart=Media||Cart|Disc|CD|DVD|Cartridge|Tape|Disk|Floppy
+Backdrop=fanart||backdrop|background
+BoxArt=Folder||box|boxfront|Cover|Boxart
+Logo=Logo||banner|wheel
+Video=Video||videosnap|movie
+Metadata=meta||game|info|metadata
+Snapshot=Snapshot||snap|screenshot
+
 [CONFIG]
 Global_image_height=600
 Global_image_width=600

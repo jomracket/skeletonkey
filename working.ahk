@@ -1748,7 +1748,7 @@ Menu,SHORTRUN,Add,
 Menu, ARCSHORT, Add,Run With:=->, AQRUN
 Menu,ARCSHORT,Add,
 
-Menu, ASOCRUN, Add, Associate with System+, ASRUN
+Menu, ASOCRUN, Add, Assign to System, ASRUN
 Menu, ASOCRUN, Add, Configure Emulator, ASEMUCFG
 Menu,ASOCRUN,Add,
 
@@ -3211,7 +3211,7 @@ Gui, Add, Button, x640 y144 w75 h23 vfeBUTI gfeBUTI %fevis%, feBUTI
 Gui, Add, Button, x689 y480 w66 h23 vfeBUTJ gfeBUTJ %fevis%, feBUTJ
 Gui, Add, Button, x689 y480 w66 h23 vfeBUTK gfeBUTK %fevis%, feBUTK
 Gui, Add, Button, x689 y480 w66 h23 vfeBUTL gfeBUTL %fevis%, feBUTL
-Gui, Add, Button, x689 y480 w66 h23 vffeBUTM gfeBUTM %fevis%, feBUTM
+Gui, Add, Button, x689 y480 w66 h23 vfeBUTM gfeBUTM %fevis%, feBUTM
 Gui, Add, Picture, x0 y0 w1 h1 vfePICA gfePICA %fevis%,
 Gui, Add, Picture, x0 y0 w1 h1 vfePICB gfePICB %fevis%,
 Gui, Add, Picture, x0 y0 w1 h1 vfePICC gfePICC %fevis%,
@@ -4338,7 +4338,7 @@ RJENXTRARC_TT :="Extracts .7z, .zip and .rar files"
 RJXTRARCA_TT :="Archives are extracted before jackets are created."
 RJXTRARCB_TT :="Archives are extracted after jackets are created."
 RJXTRARCDD_TT :="Store will move archives to skeletonKey's temp directory`nDelete will delete the archive after extraction`nKeep will not delete or move the archive"
-CLRFLTR_TT :="Clearse the current filter`nright-click for filter-options"
+CLRFLTR_TT :="Resets the current filter`nright-click for filter-options"
 INSFLTR_TT :="Filters the current list"
 MVPLOU_TT :="Moves an item up in the playlist."
 MVPLOD_TT :="Moves an item down in the playlist."
@@ -5177,7 +5177,7 @@ If A_GuiControlEvent RightClick
 		}
 	if A_GUicontrol = CLRFLTR
 		{
-			if (SALIST = "Systems")
+			if ((SALIST = "Systems")or(SALIST = "Emulators"))
 				{
 					Menu, clRfltmenu, show, %A_GuiX% %A_GuiY%
 				}
@@ -8318,9 +8318,6 @@ return
 RUNPLRAD:
 gui,submit,nohide
 guicontrol,,RUNSYSDDL,|History||%plistfiles%
-
-guicontrol,disable,RUNROMCBX
-guicontrol,disable,RUNSYSDDL
 gosub, RUNSYSDDL
 return
 
@@ -8329,9 +8326,10 @@ gui,submit,nohide
 guicontrolget,lcrtst,,LCORE
 guicontrolget,EDTROM,,RUNROMCBX
 splitpath,EDTROM,edtrmf
-
-guicontrol,disable,RUNROMCBX
-guicontrol,disable,RUNSYSDDL
+Loop,Parse,RUNBOXGUIITEMS,|
+	{
+		guicontrol,disable,%A_LoopField%
+	}
 Loop,Parse,EDTROM,\
 	{
 		ifinstring,A_LoopField,%A_Space%-%A_Space%
@@ -8510,8 +8508,10 @@ EXTRSYS= %OPTYP%
 ROMSYS= %OPTYP%
 guicontrolget,SRCHTMP,,SRCHLOCDDL
 guicontrol,,RUNROMCBX,|.........indexing............||
-guicontrol,disable,RUNROMCBX
-guicontrol,disable,RUNSYSDDL
+Loop,Parse,RUNBOXGUIITEMS,|
+	{
+		guicontrol,disable,%A_LoopField%
+	}
 poptadd=
 romf=
 if (RUNPLRAD = 1)
@@ -8713,9 +8713,11 @@ if (RUNPLRAD = 1)
 			}
 		guicontrol,,RUNROMCBX,|%romf%||%poptadd%
 		gosub, EDTROM
-		SB_SetText(" ... Index generated ...")
-		guicontrol,enable,RUNROMCBX
-		guicontrol,enable,RUNSYSDDL
+		SB_SetText(" ... Index generated ...")		
+		Loop,Parse,RUNBOXGUIITEMS,|
+			{
+				guicontrol,enable,%A_LoopField%
+			}
 		RUNSYSCHNG=
 		return
 	}
@@ -8820,6 +8822,7 @@ if (SRCHCOMPL = 1)
 	guicontrol,,SRCHROMLBX,|
 	gosub, SRCHROMBUT
 }
+
 if (Ident_sys = "")
 	{
 		goto, SkipCoreGet
@@ -8976,8 +8979,10 @@ if (coreselv = "")
 
 SkipCoreGet:
 gosub, EDTROM
-guicontrol,enable,RUNROMCBX
-guicontrol,enable,RUNSYSDDL
+Loop,Parse,RUNBOXGUIITEMS,|
+	{
+		guicontrol,enable,%A_LoopField%
+	}
 RUNSYSCHNG=
 rflr=
 return
@@ -9653,7 +9658,14 @@ return
 
 CLRFLTRSUB:
 gui,submit,nohide
-guicontrol,,EAVAIL,|%knownfldrs%
+if (SALIST = "Systems")
+	{
+		guicontrol,,EAVAIL,|%knownfldrs%
+	}
+if (SALIST = "Emulators")
+	{
+		guicontrol,,UAVAIL,|%addemu%
+	}
 return
 
 CLRFLTR:
@@ -9686,6 +9698,10 @@ if (SALIST = "Emulators")
 			}
 		SB_SetText("")
 		GuiControl,,UAVAIL,|%reapp%	
+		if (INSFLTR = "INSTALLED")
+			{
+				goto, CLRFLTRSUB
+			}
 		return	
 	}
 if ((SALIST = "RetroArch")&&(RALIST = 1))
@@ -9789,6 +9805,7 @@ if (SALIST = "Utilities")
 		guicontrol,hide,INSFLTRX
 		guicontrol,move,CACGRP, x2 y5 w276 h478
 		guicontrol,move,CCGRP,x278 y5 w185 h366
+		guicontrol,,UAVAIL,|Antimicro|DS4Windows|Daemon_Tools|DirectX|Visual_C++_Runtimes|Xinput_Drivers|Xpadder|Display_Changer|VirtualCloneDrive|WinCDEmu|360button						
 		guicontrol,,CCGRP,Installer
 		guicontrol,,CACGRP,Utilities
 		return
@@ -10085,7 +10102,7 @@ guicontrol,show,EINSTLOC
 
 guicontrol,enable,ROMDLOC
 
-
+guicontrol,hide,EMUASIGN
 guicontrol,hide,OEMUNICK
 guicontrol,hide,OEMUDEL
 guicontrol,hide,OEMUSV
@@ -41160,6 +41177,8 @@ moptog= enable
 gosub, TOGSKELRUN
 srchtog= hide
 gosub, TOGGLESEARCHBOX
+guicontrol,move,FNDGUI, x720 y516 w42 h19
+guicontrol,,FNDGUI,find
 return
 
 
@@ -70561,8 +70580,11 @@ guicontrol,,FEPICA,
 
 guicontrol,%fetog%,FEBUTA
 guicontrol,enable,FEBUTA
-guicontrol,move,FEBUTA,x668 y473 w93 h23
+guicontrol,move,FEBUTA,x368 y463 w93 h23
 guicontrol,,FEBUTA,Download
+gui,font,Bold
+Guicontrol,font,FEBUTA
+gui,font,normal
 
 guicontrol,hide,FEBUTB
 guicontrol,enable,FEBUTB
@@ -70591,19 +70613,24 @@ guicontrol,,FEBUTF,. . .
 
 guicontrol,hide,FEBUTG
 guicontrol,enable,FEBUTG
-guicontrol,move,FEBUTG,x640 y450 w41 h18
-guicontrol,,FEBUTG,<<-<---
+guicontrol,move,FEBUTG,x533 y474 w11 h16
+guicontrol,,FEBUTG,<
 
 guicontrol,hide,FEBUTH
 guicontrol,enable,FEBUTH
-guicontrol,move,FEBUTH,x685 y450 w41 h18
-guicontrol,,FEBUTH,--->->>
+guicontrol,move,FEBUTH,x544 y474 w11 h16
+guicontrol,,FEBUTH,>
 
 guicontrol,hide,FEBUTI
 guicontrol,enable,FEBUTI
 guicontrol,move,FEBUTI,x620 y480 w45 h18
 guicontrol,,FEBUTI,cancel
 
+
+guicontrol,hide,FEBUTM
+guicontrol,enable,FEBUTM
+guicontrol,move,FEBUTM,x738 y473 w20 h20
+guicontrol,,FEBUTM,...
 
 guicontrol,hide,FEBUTL
 guicontrol,enable,FEBUTL
@@ -70634,12 +70661,6 @@ guicontrol,move,FEEDTB,x341 y180 w186 h21
 guicontrol,+password,FEEDTB
 guicontrol,,FEEDTB,%sspassw%
 
-guicontrol,%fetog%,FEDDLC
-guicontrol,enable,FEDDLC
-guicontrol,move,FEDDLC,x281 y237 w100
-guicontrol,,FEDDLC,|Global||%metaimages%
-guicontrol,hide,FEDDLC
-
 guicontrol,enable,FEEDTC
 guicontrol,hide, FEEDTC
 guicontrol,move,FEEDTC, x397 y368 w72 h21
@@ -70657,9 +70678,19 @@ guicontrol,-Multi,FELBXB
 guicontrol,enable,FELBXB
 guicontrol,move,FELBXB,x564 y235 w199 h212
 
+guicontrol,hide,FECBXA
+guicontrol,,FECBXA,|ImageName||
+guicontrol,enable,FECBXA
+guicontrol,move,FECBXA,x444 y89 w100 h21
+
+guicontrol,hide,FECBXB
+guicontrol,,FECBXB,|
+guicontrol,enable,FECBXB
+guicontrol,move,FECBXB,x565 y474 w171
 
 
-guicontrol,,FELBXB,
+
+guicontrol,,FELBXB,|
 
 guicontrol,hide,FELBXA
 guicontrol,enable,FELBXA
@@ -70694,9 +70725,14 @@ guicontrol,enable,FECHKE
 guicontrol,move,FECHKE,x466 y327 w80 h13
 guicontrol,,FECHKE,Metadata
 
-guicontrol,hide,FECHKF
+guicontrol,%fetog%,FECHKO
+guicontrol,enable,FECHKO
+guicontrol,move,FECHKO, x466 y243 w80 h13
+guicontrol,,FECHKO,Photos
+
+guicontrol,%fetog%,FECHKF
 guicontrol,enable,FECHKF
-guicontrol,move,FECHKF,x572 y475 w80 h13
+guicontrol,move,FECHKF,x591 y323 w80 h13
 guicontrol,,FECHKF,Overwrite
 
 guicontrol,%fetog%,FECHKG
@@ -70746,6 +70782,11 @@ guicontrol,enable,FECHKN
 guicontrol,move,FECHKN,x385 y423 w82 h13
 guicontrol,,FECHKN,Redundancy
 guicontrol,hide,FECHKN
+
+guicontrol,hide,FECHKO
+guicontrol,enable,FECHKO
+guicontrol,move,FECHKO,x15 y15 w122 h13
+guicontrol,,FECHKO,Scrape to Jacket
 ;};;;;;
 
 ;{;;;; DROPDOWNS ;;;;;;
@@ -70758,8 +70799,20 @@ guicontrolget,FEDDLD,,FEDDLD
 guicontrol,%fetog%,FEDDLE
 guicontrol,enable,FEDDLE
 guicontrol,move,FEDDLE,x662 y212 w100
-guicontrol,,FEDDLE,
+guicontrol,,FEDDLE,|
 guicontrol,hide,FEDDLE
+
+guicontrol,hide,FEDDLF
+guicontrol,enable,FEDDLF
+guicontrol,move,FEDDLF,x340 y89 w100
+guicontrol,,FEDDLF,|Image Type||%metaimages%
+guicontrol,hide,FEDDLF
+
+guicontrol,%fetog%,FEDDLC
+guicontrol,enable,FEDDLC
+guicontrol,move,FEDDLC,x281 y237 w100
+guicontrol,,FEDDLC,|Global||%metaimages%
+guicontrol,hide,FEDDLC
 
 guicontrol,%fetog%,FEDDLA
 guicontrol,enable,FEDDLA
@@ -70799,9 +70852,9 @@ guicontrol,move,FERAD2A,x272 y65 w80 h13
 guicontrol,,FERAD2A,Systems
 guicontrol,,FERAD2A, 1
 
-guicontrol,%fetog%,FERAD2B
+guicontrol,hide,FERAD2B
 guicontrol,enable,FERAD2B
-guicontrol,move,FERAD2B,x272 y89 w80 h13
+guicontrol,move,FERAD2B,x272 y89 w60 h13
 guicontrol,,FERAD2B,Jackets
 guicontrol,,FERAD2B, 0
 
@@ -70813,13 +70866,13 @@ guicontrol,,FERAD2C, 0
 
 guicontrol,hide,FERAD7A
 guicontrol,enable,FERAD7A
-guicontrol,move,FERAD7A,x557 y212 w40 h13
+guicontrol,move,FERAD7A,x608 y457 w40 h13
 guicontrol,,FERAD7A,Strict
 guicontrol,,FERAD7A, 1
 
 guicontrol,hide,FERAD7B
 guicontrol,enable,FERAD7B
-guicontrol,move,FERAD7B,x557 y455 w77 h15
+guicontrol,move,FERAD7B,x557 y455 w45 h15
 guicontrol,,FERAD7B,Fuzzy
 guicontrol,,FERAD7B, 0
 ;};;;;;
@@ -70910,14 +70963,20 @@ guicontrol,,FETXTK,ROMPATHS
 guicontrol,%fetog%,FETXTL
 guicontrol,enable,FETXTL
 guicontrol,hide,FETXTL
-guicontrol,move,FETXTL,x472 y373 w88 h23
+guicontrol,move,FETXTL,x472 y373 w88 h13
 guicontrol,,FETXTL,Image Max-Width
 
 guicontrol,%fetog%,FETXTM
 guicontrol,enable,FETXTM
 guicontrol,hide,FETXTM
-guicontrol,move,FETXTM,x472 y397 w88 h23
+guicontrol,move,FETXTM,x472 y396 w88 h13
 guicontrol,,FETXTM,Image Max-height
+
+guicontrol,hide,FETXTN
+guicontrol,enable,FETXTN
+guicontrol,hide,FETXTN
+guicontrol,move,FETXTN,x470 y75 w88 h13
+guicontrol,,FETXTN,Image-Name
 ;};;;;;
 
 guicontrol,%fetog%,FEGRPA
@@ -71025,6 +71084,8 @@ if (FECHKM = 1)
 guicontrolget,FECHKF,,FECHKF
 
 iniRead, mediaorder,mediafe.ini,ORDER,system_order
+IniRead, photop,sets\themes.set,%FEDDLD%,Photos
+IniRead, photod,sets\themes.set,%FEDDLD%,Photos_Directory
 IniRead, bckdrp,sets\themes.set,%FEDDLD%,Backdrop
 IniRead, bckdrpd,sets\themes.set,%FEDDLD%,Backdrop_Directory
 IniRead, icnl,sets\themes.set,%FEDDLD%,Icon
@@ -71106,6 +71167,34 @@ if (FERAD2A = 1)
 									gosub, cleanprgb
 									break
 								}
+						if (FECHKO = 1)
+							{
+								URLFILE= %photod%/%A_LoopField%.png
+								save= rj\netArt\%FEDDLD%\%A_LoopField%\Photos\%A_LoopField%.png
+								ifnotexist, rj\netArt\%FEDDLD%\%A_LoopField%\Photos
+								FileCreateDir, rj\netArt\%FEDDLD%\%A_LoopField%\Photos
+								DownloadFile(URLFILE,save, DWNOVR, True)
+								FileGetSize,imgsz,%save%,K
+								SB_SetText(" " A_LoopField " Photo downloaded")
+								if (imgsz < 1)
+									{
+										DWNFLD= 1
+										FileDelete,%save%
+										SB_SetText(" " A_LoopField " Photo was not downloaded")
+									}
+								ifNotExist, %save%
+									{
+										DWNFLD= 1
+										SB_SetText(" " A_LoopField " Photo was not downloaded")
+									}
+							}
+							if (CNCLKUP = 1)
+								{
+									SB_SetText("Process Interrupted")
+									gosub, cleanprgb
+									break
+								}
+								
 						if (FECHKB = 1)
 							{
 								URLFILE= %icnld%/%A_LoopField%.png
@@ -71248,6 +71337,28 @@ if (FERAD2A = 1)
 								SB_SetText(" " A_LoopField " backdrops was not downloaded")
 							}
 					}
+				if (FECHKO = 1)
+					{
+						URLFILE= %photop%
+						splitpath,URLFILE,pdfile
+						save= rj\netArt\%FEDDLD%\%pdfile%
+						ifnotexist, rj\netArt\%FEDDLD%
+						FileCreateDir, rj\netArt\%FEDDLD%
+						DownloadFile(URLFILE,save, DWNOVR, True)
+						FileGetSize,imgsz,%save%,K
+						SB_SetText(" " A_LoopField " photoss downloaded")
+						if (imgsz < 1)
+							{
+								DWNFLD= 1
+								FileDelete,%save%
+								SB_SetText(" " A_LoopField " photos was not downloaded")
+							}
+						ifNotExist, %save%
+							{
+								DWNFLD= 1
+								SB_SetText(" " A_LoopField " photos was not downloaded")
+							}
+					}
 				if (FECHKB = 1)
 					{
 						URLFILE= %icnl%
@@ -71386,8 +71497,8 @@ if (FERAD2C = 1)
 						break
 					}
 			}
-			SB_SetText("Scraping Complete")
-			gosub, cleanprgb
+				SB_SetText("Scraping Complete")
+				gosub, cleanprgb
 	}
 arpause= enable
 gosub,ARTPAUSE
@@ -71500,6 +71611,68 @@ iniread,imagefrmt,mediafe.ini,CONFIG,Global_image_format
 iniread,imageheight,mediafe.ini,CONFIG,Global_image_height
 iniread,imagewdith,mediafe.ini,CONFIG,Global_image_width
 iniread,iscrp,mediaFE.ini,ORDER
+
+iniread,zrox,MediaFE.ini,%FEDDLA%,3DBoxart
+if ((zrox = "")or(zrox = "ERROR"))
+	{
+		zrox= 3dboxart
+	}
+iniread,mrox,MediaFE.ini,%FEDDLA%,Marquee
+if ((mrox = "")or(mrox = "ERROR"))
+	{
+		mrox= Marquee
+	}
+iniread,4rox,MediaFE.ini,%FEDDLA%,4Mix
+if ((4rox = "")or(4rox = "ERROR"))
+	{
+		4rox= 4mix
+	}
+iniread,3rox,MediaFE.ini,%FEDDLA%,3Mix
+if ((3rox = "")or(3rox = "ERROR"))
+	{
+		3rox= 3mix
+	}
+iniread,lrox,MediaFE.ini,%FEDDLA%,Label
+if ((lrox = "")or(lrox = "ERROR"))
+	{
+		lrox= label
+	}
+iniread,crox,MediaFE.ini,%FEDDLA%,Cart
+if ((crox = "")or(crox = "ERROR"))
+	{
+		crox= Media
+	}
+iniread,brox,MediaFE.ini,%FEDDLA%,Backdrop
+if ((brox = "")or(brox = "ERROR"))
+	{
+		brox= Fanart
+	}
+iniread,arox,MediaFE.ini,%FEDDLA%,BoxArt
+if ((arox = "")or(arox = "ERROR"))
+	{
+		arox= Folder
+	}
+iniread,orox,MediaFE.ini,%FEDDLA%,Logo
+if ((orox = "")or(orox = "ERROR"))
+	{
+		orox= Logo
+	}
+iniread,vrox,MediaFE.ini,%FEDDLA%,Video
+if ((vrox = "")or(vrox = "ERROR"))
+	{
+		vrox= video
+	}
+iniread,drox,MediaFE.ini,%FEDDLA%,Metadata
+if ((drox = "")or(drox = "ERROR"))
+	{
+		drox= game
+	}
+iniread,srox,MediaFE.ini,%FEDDLA%,Snapshot
+if ((srox = "")or(srox = "ERROR"))
+	{
+		srox= snapshot
+	}
+
 Loop, Parse, mediaorder,|
 	{
 		if (A_LoopField = "ScreenScraper")
@@ -72142,6 +72315,10 @@ RRDboxart:
 				{
 					SB_SetText("Downloading " SYSROMD " Boxart ")
 					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Boxartimgtall% -max_width=%Boxartimgsize% -%Boxartimgtyp%_src=%BoxArtscrapeorder%  -append=false -retries=5 -download_images=true -console_img=b -img_format=%Boxartimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Boxart" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
+					if (FECHKO = 1)
+						{
+							FileCopy,%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Boxart\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%arox%.%scrsufx%
+						}
 					if (FECHKN = 1)
 						{
 							return
@@ -72152,6 +72329,11 @@ RRDsnapshot:
 				{
 					SB_SetText("Downloading " SYSROMD " Snapshots ")
 					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Snapshotsimgtall% -max_width=%Snapshotsimgsize% -%Snapshotimgtyp%_src=%Snapshotscrapeorder%  -append=false -retries=5 -download_images=true -console_img=s -img_format=%Snapshotimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Snapshots" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
+					if (FECHKO = 1)
+						{
+							FileCopy,%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Snapshots\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\.snaps\%srox%.%scrsufx%
+						}
+
 					if (FECHKN = 1)
 						{
 							return
@@ -72167,6 +72349,10 @@ RRDbackdrop:
 						}
 					SB_SetText("Downloading " SYSROMD " Backdrops ")
 					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%imgtall% -max_width=%Backdropimgsize% -%Backdropimgtyp%_src=%Backdropscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Backdropimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Backdrops" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
+					if (FECHKO = 1)
+						{
+							FileCopy,%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Backdrops\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%brox%.%scrsufx%
+						}
 					if (FECHKN = 1)
 						{
 							return
@@ -72182,6 +72368,10 @@ RRDlogo:
 						}
 					SB_SetText("Downloading " SYSROMD " Logos ")
 					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Logoimgtall% -max_width=%Logoimgsize% -%imgtyp%_src=%Logoscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Logoimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Logos" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
+					if (FECHKO = 1)
+						{
+							FileCopy,%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Logos\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%orox%.%scrsufx%
+						}
 					if (FECHKN = 1)
 						{
 							return
@@ -72192,6 +72382,10 @@ RRD3dboxart:
 				{
 					SB_SetText("Downloading " SYSROMD " 3D-Boxart ")
 					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3dboximgtall% -max_width=%3dboximgsize% -%imgtyp%_src=%3DBoxscrapeorder%  -append=false -retries=5 -download_images=true -console_img=3b -img_format=%3dboxartimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\3D-Boxart" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
+					if (FECHKO = 1)
+						{
+							FileCopy,%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\3DBoxart\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%zrox%.%scrsufx%
+						}
 					if (FECHKN = 1)
 						{
 							return
@@ -72207,6 +72401,10 @@ RRDcart:
 						}
 					SB_SetText("Downloading " SYSROMD " Carts ")
 					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Cartimgtall% -max_width=%Cartimgsize% -%imgtyp%_src=%Cartscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Cartimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Carts" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
+					if (FECHKO = 1)
+						{
+							FileCopy,%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Carts\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%crox%.%scrsufx%
+						}
 					if (FECHKN = 1)
 						{
 							return
@@ -72219,6 +72417,10 @@ RRDlabel:
 						{
 							SB_SetText("Downloading " SYSROMD " Labels ")
 							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Labelimgtall% -max_width=%Labelimgsize% -%imgtyp%_src=%Labelscrapeorder%  -append=false -retries=5 -download_images=true -console_img=clabel -img_format=%Labelimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Labels" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
+							if (FECHKO = 1)
+								{
+									FileCopy,%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Labels\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%lrox%.%scrsufx%
+								}
 						}
 					if (FECHKN = 1)
 						{
@@ -72232,6 +72434,10 @@ RRDbanner:
 						{
 							SB_SetText("Downloading " SYSROMD " Marquees ")
 							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -retries=5 -download_images=true -console_img=a -img_format=%Marqueeimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Marquees" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
+								if (FECHKO = 1)
+									{
+										FileCopy,%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Marquees\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%mrox%.%scrsufx%
+									}
 						}
 					if (FECHKN = 1)
 						{
@@ -72245,6 +72451,10 @@ RRD3mix:
 						{
 							SB_SetText("Downloading " SYSROMD " 3Mix ")
 							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3Miximgtall% -max_width=%3Miximgsize% -%imgtyp%_src=%3Mixscrapeorder%  -append=false -retries=5 -download_images=true -console_img=mix3 -img_format=%3miximagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\3Mix" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
+							if (FECHKO = 1)
+								{
+									FileCopy,%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\3Mix\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%3rox%.%scrsufx%
+								}
 					}
 					if (FECHKN = 1)
 						{
@@ -72258,6 +72468,10 @@ RRD4mix:
 						{
 							SB_SetText("Downloading " SYSROMD " 4Mix ")
 							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%4Mixscrapeorder% -max_height=%4Miximgtall% -max_width=%4Miximgsize% -append=false -retries=5 -download_images=true -console_img=mix4 -img_format=%4miximagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\4Mix" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
+							if (FECHKO = 1)
+								{
+									FileCopy,%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\4mix\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%4rox%.%scrsufx%
+								}
 						}
 					if (FECHKN = 1)
 						{
@@ -72277,6 +72491,10 @@ RRDmarquee:
 							SB_SetText("Downloading " SYSROMD " Marquees ")
 							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -%imgtyp%_src=%Marqueescrapeorder% -append=false -retries=5 -download_images=true -console_img=m -img_format=%Marqueeimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Marquees" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 						}
+					if (FECHKO = 1)
+						{
+							FileCopy,%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Marquees\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%mrox%.%scrsufx%
+						}
 					if (FECHKN = 1)
 						{
 							return
@@ -72288,6 +72506,10 @@ RRDvid:
 				{
 					SB_SetText("Downloading " SYSROMD " Video ")
 					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Videoscrapeorder%  -append=false -retries=5 -download_images=false -video_suffix="%scrsufx%" -use_filename=true -video_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Video" -output_file="" ",%sysfrd%,hide
+					if (FECHKO = 1)
+						{
+							FileCopy,%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Videos\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%vrox%.%scrsufx%
+						}
 					if (FECHKN = 1)
 						{
 							return
@@ -72298,6 +72520,10 @@ RRDmetadata:
 				{
 					SB_SetText("Downloading " SYSROMD " MetaData ")
 					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Metadatascrapeorder%  -append=true -retries=5 -download_images=false -use_filename=true -output_file="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\MetaData\%SYSROMD%%scrsufx%.xml" ",%sysfrd%,hide
+					if (FECHKO = 1)
+						{
+							FileCopy,%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\MetaData\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%drox%.xml
+						}
 					if (FECHKN = 1)
 						{
 							return
@@ -72382,7 +72608,12 @@ JRDboxart:
 									SBNOT= Failed
 								}
 						}
-					SB_SetText("Downloaded " realname " Boxart " SBNOT " ")
+					SB_SetText("Downloaded " realname " Boxart " SBNOT " ")					
+					if (FECHKO = 1)
+						{
+							FileCopy,%ASSETS%\%REALSYS%\%realname%\Boxart\%realname%%scrsufx%.%Boxartimagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%arox%.%Boxartimagefrmt%
+						}
+
 					if (FECHKN = 1)
 						{
 							return
@@ -72403,6 +72634,10 @@ JRDsnapshot:
 								}
 						}
 					SB_SetText("Downloaded " realname " Snapshots " SBNOT " ")
+					if (FECHKO = 1)
+						{
+							FileCopy,%ASSETS%\%REALSYS%\%realname%\Snapshots\%realname%%scrsufx%.%Boxartimagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%arox%.%Boxartimagefrmt%
+						}
 					if (FECHKN = 1)
 						{
 							return
@@ -72428,6 +72663,10 @@ JRDbackdrop:
 								}
 						}
 					SB_SetText("Downloaded " realname " Backdrops " SBNOT " ")
+					if (FECHKO = 1)
+						{
+							FileCopy,%ASSETS%\%REALSYS%\%realname%\Backdrops\%realname%%scrsufx%.%backdropimagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%brox%.%backdropimagefrmt%
+						}
 					if (FECHKN = 1)
 						{
 							return
@@ -72453,6 +72692,10 @@ JRDlogo:
 								}
 						}
 					SB_SetText("Downloaded " realname " Logos " SBNOT " ")
+					if (FECHKO = 1)
+						{
+							FileCopy,%ASSETS%\%REALSYS%\%realname%\Logos\%realname%%scrsufx%.%logoimagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%orox%.%logoimagefrmt%
+						}
 					if (FECHKN = 1)
 						{
 							return
@@ -72473,6 +72716,10 @@ JRD3dboxart:
 								}
 						}
 					SB_SetText("Downloaded " realname " 3D-Boxart " SBNOT " ")
+					if (FECHKO = 1)
+						{
+							FileCopy,%ASSETS%\%REALSYS%\%realname%\3D-Boxart\%realname%%scrsufx%.%3dboximagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%zrox%.%3dboximagefrmt%
+						}
 					if (FECHKN = 1)
 						{
 							return
@@ -72498,6 +72745,10 @@ JRDcart:
 								}
 						}
 					SB_SetText("Downloaded " realname " Carts " SBNOT " ")
+					if (FECHKO = 1)
+						{
+							FileCopy,%ASSETS%\%REALSYS%\%realname%\Carts\%realname%%scrsufx%.%Cartimagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%crox%.%Cartimagefrmt%
+						}
 					if (FECHKN = 1)
 						{
 							return
@@ -72521,6 +72772,10 @@ JRDlabel:
 								}
 							SB_SetText("Downloaded " realname " Labels " SBNOT " ")
 						}
+					if (FECHKO = 1)
+						{
+							FileCopy,%ASSETS%\%REALSYS%\%realname%\Labels\%realname%%scrsufx%.%Labelimagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%lrox%.%Labelimagefrmt%
+						}	
 					if (FECHKN = 1)
 						{
 							return
@@ -72544,6 +72799,10 @@ JRDbanner:
 								}
 							SB_SetText("Downloaded " realname " Marquees " SBNOT " ")
 						}
+					if (FECHKO = 1)
+						{
+							FileCopy,%ASSETS%\%REALSYS%\%realname%\Labels\%realname%%scrsufx%.%marqueeimagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%mrox%.%marqueeimagefrmt%
+						}		
 					if (FECHKN = 1)
 						{
 							return
@@ -72572,6 +72831,10 @@ JRD3mix:
 						{
 							return
 						}
+					if (FECHKO = 1)
+						{
+							FileCopy,%ASSETS%\%REALSYS%\%realname%\3Mix\%realname%%scrsufx%.%3miximagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%3rox%.%3miximagefrmt%
+						}			
 				}
 JRD4mix:
 		if (get4mix = 1)
@@ -72591,6 +72854,10 @@ JRD4mix:
 								}
 							SB_SetText("Downloaded " realname " 4Mix " SBNOT " ")
 						}
+					if (FECHKO = 1)
+						{
+							FileCopy,%ASSETS%\%REALSYS%\%realname%\4Mix\%realname%%scrsufx%.%4miximagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%4rox%.%4miximagefrmt%
+						}				
 					if (FECHKN = 1)
 						{
 							return
@@ -72629,6 +72896,10 @@ JRDmarquee:
 								}
 							SB_SetText("Downloaded " realname " Marquees " SBNOT " ")
 						}
+					if (FECHKO = 1)
+						{
+							FileCopy,%ASSETS%\%REALSYS%\%realname%\Marquees\%realname%%scrsufx%.%Marqueeimagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%mrox%.%Marqueeimagefrmt%
+						}
 					if (FECHKN = 1)
 						{
 							return
@@ -72649,6 +72920,10 @@ JRDvideo:
 								}
 						}
 					SB_SetText("Downloaded " realname " Video " SBNOT " ")
+					if (FECHKO = 1)
+						{
+							FileCopy,%ASSETS%\%REALSYS%\%realname%\Videos\%realname%%scrsufx%.mp4,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%vrox%.mp4
+						}
 					if (FECHKN = 1)
 						{
 							return
@@ -72664,6 +72939,10 @@ JRDmetadata:
 							SBNOT= Completed
 						}
 					SB_SetText("Downloaded " realname " MetaData " SBNOT " ")
+					if (FECHKO = 1)
+						{
+							FileCopy,%ASSETS%\%REALSYS%\%realname%\MetaData\%realname%%scrsufx%.xml,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%drox%.xml
+						}
 					if (FECHKN = 1)
 						{
 							return
@@ -72677,7 +72956,6 @@ return
 
 
 DBSCRAPE:
-
 IfNotInString,mediaorder,IAGL
 	{
 		return
@@ -73174,6 +73452,11 @@ if (FECHKN = 0)
 	SB_SetText("")
 	}
 return
+MediaFECHKO:
+ACTRJ= %FECHKO%
+return
+
+
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;;;;;;;;;;;;;;;  EDIT FIELDS  ;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -73390,14 +73673,68 @@ return
 MediaFEDDLD:
 return
 
+MediaFEDDLF:
+gui,submit,nohide
+iniread,fed,Mediafe.ini,GLOBAL,%FEDDLF%
+guicontrolget,FEDDLA,,FEDDLA
+guicontrolget,FEDDLF,,FEDDLF
+iniread,fei,Mediafe.ini,%FEDDLA%,%FEDDLF%
+if ((fei = "ERROR") or (fei = ""))
+	{
+		iniread,fei,Mediafe.ini,GLOBAL,%FEDDLF%
+		guicontrol,,FECBXA,|%fed%
+		return
+	}
+stringreplace,fed,fed,||,|,All	
+guicontrol,,FECBXA,|%fei%||%fed%
+return
+
+MediaFECBXA:
+gui,submit,nohide
+guicontrolget,FECBXA,,FECBXA
+guicontrolget,FEDDLF,,FEDDLF
+if ((FECBXA = "") or (FEDDLF = "Image Name"))
+	{
+		return
+	}
+iniwrite,%FECBXA%,MediaFE.ini,%FEDDLA%,%FEDDLF%
+return
+
+MediaFECBXB:
+gui,submit,nohide
+guicontrolget,FECBXB,,FECBXB
+efx= 
+Loop,%FECBXB%\*,2
+	{
+		if (A_Index = 1)
+			{
+				efxi= %A_LoopFileName%
+			}
+		efx.= A_LoopFileName . "|"
+	}
+guicontrol,,FEDDLE,|%efxi%||%efx%
+gosub,FEDDLE
+return
+
+	
+
 MediaFERAD2A:
 fromcfg=
 guicontrol,show,FETXTB
 guicontrol,show,FETXTC
 guicontrol,show,FETXTD
 guicontrol,show,FETXTE
+guicontrol,show,FECHKO
 guicontrol,show,FERAD5A
 guicontrol,show,FERAD5B
+guicontrol,move,FECHKF,x591 y323
+guicontrol,hide,FEDDLF
+guicontrol,hide,FEBUTM
+guicontrol,hide,FECBXB
+guicontrol,hide,FECBXA
+guicontrol,hide,FERAD2B
+guicontrol,hide,FETXTN
+guicontrol,hide,FECHKO
 guicontrol,,FECHKA,0
 guicontrol,,FECHKB,0
 guicontrol,,FECHKC,0
@@ -73440,31 +73777,7 @@ LV_ModifyCol()
 return
 
 MediaFERAD2B:
-guicontrol,hide,FERAD5A
-guicontrol,hide,FERAD5B
-guicontrol,,FECHKA,0
-guicontrol,,FECHKB,0
-guicontrol,,FECHKC,0
-guicontrol,,FECHKD,0
-guicontrol,,FECHKE,0
-guicontrol,,FECHKG,0
-guicontrol,,FECHKH,0
-guicontrol,,FECHKJ,0
-guicontrol,,FECHKI,0
-guicontrol,,FECHKJ,0
-guicontrol,,FECHKK,0
-guicontrol,,FECHKL,0
-guicontrol,,FECHKM,0
-Loop,Parse,MEDIAFEITEMS,
-	{
-		guicontrol,show,%A_LoopField%
-	}
-guicontrol,hide,FETXTB
-guicontrol,hide,FETXTC
-guicontrol,hide,FETXTD
-guicontrol,hide,FETXTE
-guicontrol,hide,FEBUTG
-guicontrol,hide,FEBUTH
+gui,submit,nohide
 
 guicontrol,enable,FECHKD
 guicontrol,,FERAD5A,1
@@ -73518,6 +73831,17 @@ guicontrol,hide,FETXTB
 guicontrol,hide,FETXTC
 guicontrol,hide,FETXTD
 guicontrol,hide,FETXTE
+guicontrol,hide,FECHKO
+guicontrol,show,FECHKO
+
+guicontrol,show,FEBUTM
+guicontrol,show,FECBXB
+guicontrol,show,FEDDLF
+guicontrol,show,FECBXA
+guicontrol,show,FETXTN
+
+guicontrol,show,FERAD2B
+guicontrol,move,FECHKF,x385 y440
 guicontrol,,FECHKA,0
 guicontrol,,FECHKB,0
 guicontrol,,FECHKC,0
@@ -73555,6 +73879,27 @@ if (FERAD2B = 1)
 SB_SetText("opening " assets " " msyn " folder ")
 Run, %comspec% /c explorer "%A_ScriptDir%\%ASSETS%\%msyn%"
 return
+
+MediaFEBUTM:
+gui,submit,nohide
+FileSelectFolder,ASTDV,,3,Select a folder of media
+if (ASTDV = "")
+	{
+		return
+	}
+guicontrol,,FECBXB,|%ASTDV%||
+guicontrol,,FEDDLE,|
+imgonl= |png|jpg|svg|bmp|jpeg|gif|
+ijv= 
+Loop, %ASTDV%\*.*
+	{
+		ifinstring,imgonl,|%A_LoopFileExt%|
+			{
+				ijv.= A_LoopFileFullPath . "|"
+			}
+	}
+guicontrol,,FELBXB,|%ijv%
+return	
 
 MedaiFELBXB:
 ;;showimage;;
@@ -73739,6 +74084,7 @@ Loop,%ASSETS%\%FEDDLA%\%srchsh%*,2
 					SUBFLDRPOP.= A_LoopFileName . "|"
 					}
 			guicontrol,,FEDDLE,|%tmpfldr%|%SUBFLDRPOP%
+			guicontrol,,FECBXB,|%fldrnm%||
 			guicontrol,show,FEBUTH
 			guicontrol,show,FEBUTG
 			continue
@@ -73858,6 +74204,13 @@ imagey:=y+20
 winmove,MediaMID,,%imagex%,%imagey%
 }
 SplashImage, Off
+pkvi= 
+Loop,%ASSETS%\%FEDDLA%\%curtxt%\*,2
+	{
+		pkvi.= A_LoopFileFUllPath . "|"
+	}
+guicontrol,,FECBXB,|%ASSETS%\%FEDDLA%\%curtxt%\%FEDDLE%||%pkvi%
+
 return
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
