@@ -726,7 +726,8 @@ FileInstall,site\key.png,site\key.png,1
 FileInstall,site\paradigm.png,site\paradigm.png,1
 FileInstall,site\tip.png,site\tip.png,1
 FileInstall,site\index.html,site\index.html,1
-FileInstall,site\Monoton-Regular.ttf,site\Monoton-Regular.ttf,1
+FileInstall,site\gadugi.ttf,site\gadugi.ttf,1
+FileInstall,site\gadugib.ttf,site\gadugib.ttf,1
 FileInstall,site\Muli-ExtraBold.ttf,site\Muli-ExtraBold.ttf,1
 FileInstall,site\Muli.ttf,site\Muli.ttf,1
 FileInstall,site\Opticon.ttf,site\Opticon.ttf,1

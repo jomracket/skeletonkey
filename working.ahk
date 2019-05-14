@@ -869,6 +869,7 @@ SYSINSTITEMS= EAVAIL|OVEXTL|OVSETRM|DSKMNTGRP|DSKMNTCHK|DSKMNTDDL|DSKSELBUT|DSKM
 FEINSTITEMS= ADDREPO|CHEMUINST|DISCFG|EINSTLOC|EINSTTXT|EMUINST|INSTEMUDDL|LOCEMUIN|REPOSET|SITEDTXT|SKAFTCMD|SKAMOV|SKAMOV|SKBEFCMD|SKBSRLGRP|SKENAF|SKENBF|SKFROV|SKFROVDD|SKOVRJM|SKOVRJM|SKPRFJTXT|SKPROFOV|SKRAFTXT|SKRBFTXT|SKXPADOV|UAVAIL
 UTLINSTITEMS= REPOSET|SITEDTXT|ADDREPO|LOCEMUIN|UAVAIL|EINSTTXT|EINSTLOC|CHEMUINST|EMUINST|INSTEMUDDL
 EMUINSTITEMS= GRPDROPBIOS|REPOSET|SITEDTXT|ADDREPO|UAVAIL|LNCHPT|LNCHPRDDL|EINSTTXT|EINSTLOC|CHEMUINST|EMUINST|INSTEMUDDL|LOCEMUIN
+ESFEGUIITEMS= FEBUTA|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEBUTF|FEBUTH|FEBUTG|FEBUTI|FEBUTJ|FEBUTK|FECHKB|FECHKC|FECHKD|FECHKE|FECHKF|FEEDTA|FEEDTB|FEDDLD|FEDDLA|FEDDLC|FEDDLF|FEDDLG|FECBXB|FECBXC|FECBXD|FECBXA|FELVA|FERAD5A|FERAD5B|FERAD5C|FERAD2A|FERAD2B|FESLDA|FELBXA|FEPRGA
 supgui= mednafen|mame|retroarch|snes9x
 
 JSTSET= %JOYSET%
@@ -8295,20 +8296,17 @@ return
 LNCHCHK:
 lnchcc=
 lnchrc=
+nlnch=
 guicontrol,hide,RETAL
 guicontrol,move,CLRCUROM,x740 y30
+guicontrolget,runcc,,RUNSYSDDL
 guicontrolget,lnchcc,,LCORE
 guicontrolget,lnchrc,,RUNROMCBX
-if (lnchrc = "")
+if ((lnchrc = "")or(lnchcc = "")or(runcc = ":=:System List:=:"))
 	{
 		guicontrol,disable,LNCHBUT
 		guicontrol,disable,RCLLNCH
-		return
-	}
-if (lnchcc = "")
-	{
-		guicontrol,disable,LNCHBUT
-		guicontrol,disable,RCLLNCH
+		nlnch= 1
 		return
 	}
 guicontrol,enable,LNCHBUT
@@ -8732,6 +8730,7 @@ if (OPTYP = ":=:System List:=:")
 		romf=
 		RUNSYSCHNG=
 		gosub, ShowOnlyEmuGui
+		gosub, LNCHCHK
 		SB_SetText("")
 		return
 	}
@@ -14399,6 +14398,11 @@ curmedINPT=
 BCSTO=
 BCSTA=
 USRCORE= 1
+gosub, LNCHCHK
+if (nlnch <> "")
+	{
+		return
+	}
 if (core_gui <> LCORE)
 	{
 		gosub, ShowOnlyEmuGui
@@ -64447,7 +64451,7 @@ return
 
 ;};;;
 
-;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  EMULATIONSTATION  FRONTEND  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  EMULATIONSTATION FRONTEND  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EmulationStationToggle:
 gosub, FEUNPOP
 ESINIT:
@@ -64528,23 +64532,7 @@ Loop, %eshome%\themes,2
 fetog= show
 ESCURPL=
 guicontrol,,FELBXA,|
-		Loop,Read,EScfg.ini
-			{
-				ccpl1=
-				ccpl2=
-				gotsy1=
-				stringsplit,ccpl,A_LoopReadLine,=
-				stringsplit,gotsy,ccpl2,|
-				if (ccpl1 = "[GLOBAL]")
-					{
-						continue
-					}
-				if (ccpl1 = "[CONFIG]")
-					{
-						break
-					}
-				ESCURPL.= gotsy1 . "|"
-			}
+
 iniread,sysordr,EScfg.ini,ORDER,system_order
 if (sysordr <> "ERROR")
 	{
@@ -65014,10 +65002,37 @@ Loop, Parse, prsy,|
 			{
 				continue
 			}
-
 		sysfin=
 		sysesc= %A_loopField%
-
+		
+		iniread,abr_es,EScfg.ini,%sysesc%,abbreviation
+		iniread,dsp_es,EScfg.ini,%sysesc%,dsp_es
+		iniread,ext_es,EScfg.ini,%sysesc%,ext_es
+		iniread,emu_es,EScfg.ini,%sysesc%,emu_es	
+		stringreplace,extn,ext_es,`,,%A_Space%,All
+		iniread,emucmd,apps.ini,EMULATORS,%emu_es%
+		ifinstring,emu_es,:
+			{
+				emucmd= %emu_es%
+			}
+		iniread,arg_es,EScfg.ini,%sysesc%,arg_es
+		iniread,rmp_es,EScfg.ini,%sysesc%,rmp_es
+		iniread,thm_es,EScfg.ini,%sysesc%,thm_es
+		FileAppend,<system>`n,rj\ES\cursys.cfg
+		FileAppend,<name>%sysesc%</name>`n,rj\ES\cursys.cfg
+		FileAppend,<fullname>%dsp_en%</fullname>`n,rj\ES\cursys.cfg
+		FileAppend,<path>%rmp_es%</path>`n,rj\ES\cursys.cfg
+		FileAppend,<extension>%extn%</extension>`n,rj\ES\cursys.cfg
+		stringreplace,emucmd,emucmd,",,All
+		;"
+		splitpath,emucmd,fxe,fp,xe,fn,fd
+		stringleft,fd,fd,1
+		stringtrimleft,fp,fp,3
+		FileAppend,<command>%fd%":\%fp%\%fxe%" %arg_es%</command>`n,rj\ES\cursys.cfg
+		FileAppend,<platform>%abr_es%</platform>`n,rj\ES\cursys.cfg
+		FileAppend,<theme>%thm_es%</theme>`n,rj\ES\cursys.cfg
+		FileAppend,</system>`n,rj\ES\cursys.cfg
+		/*
 		iniread,tmpes,EScfg.ini,GLOBAL
 		Loop, Parse, tmpes,`n`r
 			{
@@ -65087,6 +65102,7 @@ Loop, Parse, prsy,|
 						break
 					}
 			}
+			*/
 	}
 FileRead,escfg,sets\es_settings.cfg.set
 stringreplace,escfg,escfg,[THEME],%FEDDLD%,All
@@ -65124,6 +65140,7 @@ if (sysfnd = "")
 		return
 	}
 TCURPL=
+inidelete,EScfg.ini,%curtxt%
 Loop, Parse, ESCURPL,|
 	{
 		if (A_LoopField = "")
@@ -65132,17 +65149,6 @@ Loop, Parse, ESCURPL,|
 			}
 		if (A_loopField = curtxt)
 			{
-				iniread,tmpes,EScfg.ini,GLOBAL
-				Loop, Parse, tmpes,|
-					{
-						stringsplit,ffj,A_loopfield,|
-						stringsplit,ans,ffj1,=
-						if (ans2 = curtxt)
-							{
-								systdl= ans1
-							}
-					}
-				inidelete,EScfg.ini,GLOBAL,%systdl%
 				continue
 			}
 		TCURPL.= A_LoopField . "|"
@@ -65174,6 +65180,8 @@ if (efi = ":\")
 	}	
 selctsys= %selctsystmp%
 guicontrol,,FETXTJ,%selctsys%
+iniwrite,%selctsys%,EScfg.ini,%curtxt%,rompath
+/*
 extpop=
 Loop, Read, EScfg.ini
 	{
@@ -65210,22 +65218,25 @@ Loop, Parse, estv,|
 				iniwrite,%estv%,EScfg.ini,GLOBAL,%extpop%
 			}
 	}
+*/	
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-return
-
 EmulationStationFEBUTE:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   ADD SYSTEMS  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Loop,Parse,ESFEGUIITEMS,|
+	{
+		guicontrol,disable,%A_loopField%
+	}
 SNFEITMS=
 NFEITMS=
 FEItems=
 FEItems:= LVGetCheckedItems("", "ahk_id" . FELSTVA)
 guicontrolget,SYSTHM,,FECBXA
-IniRead,syso,EScfg.ini,ORDER,system_order
-if (syso = "ERROR")
+IniRead,ESCURPL,EScfg.ini,ORDER,system_order
+if (ESCURPL = "ERROR")
 	{
-		syso=
+		ESCURPL=
 	}
 if (FERAD5A = 1)
 	{
@@ -65237,30 +65248,7 @@ if (FERAD5A = 1)
 						continue
 					}
 				symnt=
-				Loop, Read, EScfg.ini
-					{
-						ivn1=
-						ivn2=
-						ivn3=
-						ivn4=
-						ivn5=
-						ivn6=
-						ivn7=
-						stringsplit,ivn,A_LoopReadLine,=
-						if (ivn1 = "[CONFIG]")
-							{
-								continue
-							}
-						if (ivn1 = "_%A_LoopField%")
-							{
-								symnt= 1
-								break
-							}
-					}
-				if (symnt = "")
-					{
-						vmint.= A_LoopField . "|"
-					}
+				vmint.= A_LoopField . "|"
 			}
 		Loop, Parse, vmint,|
 			{
@@ -65305,7 +65293,13 @@ if (FERAD5A = 1)
 						SNFEITMS.= "_" . ffr . "|"
 					}
 				NFEITMS.= A_LoopField . "|"
-				IniWrite,%emks%|%CHKITM%|%SLCTDEXT%|%SLCTDEMU%|%SLCTDRW%|%selctsys%|%emks%,EScfg.ini,GLOBAL,%SLCTDSN%
+				IniWrite,%emks%,ESCfg.ini,%SLCTDSN%,abbreviation
+				IniWrite,%CHKITM%,ESCfg.ini,%SLCTDSN%,dsp_es
+				IniWrite,bat,ESCfg.ini,%SLCTDSN%,ext_es
+				IniWrite,%SLCTDEMU%,ESCfg.ini,%SLCTDSN%,emu_es
+				IniWrite,"`%ROM_RAW`%",ESCfg.ini,%SLCTDSN%,arg_es
+				IniWrite,%selctsys%,ESCfg.ini,%SLCTDSN%,rmp_es
+				IniWrite,%emks%,ESCfg.ini,%SLCTDSN%,thm_es
 			}
 		iniread,sysordr,EScfg.ini,ORDER,system_order
 		if (sysordr = "ERROR")
@@ -65316,15 +65310,23 @@ if (FERAD5A = 1)
 		iniwrite,%ESCURPL%,EScfg.ini,ORDER,system_order
 		Guicontrol,,FELBXA,|%ESCURPL%
 		LV_Modify(0, "-Check")
+		Loop,Parse,ESFEGUIITEMS,|
+			{
+				guicontrol,enable,%A_loopField%
+			}
 		return
 	}
-	if (FERAD5B = 1)
+if (FERAD5B = 1)
 	{
 		guicontrolget,FEDDLF,,FEDDLF
 		iniread,esmirror,Settings.ini,GLOBAL,%FEDDLF%
 		if (esmirror = "ERROR")
 			{
 				SB_SetText("You Must define a mirror directory in the Mirrord_Links Frontend Dropdown.")
+				Loop,Parse,ESFEGUIITEMS,|
+					{
+						guicontrol,enable,%A_loopField%
+					}
 				return
 			}
 		vmint=
@@ -65335,30 +65337,7 @@ if (FERAD5A = 1)
 						continue
 					}
 				symnt=
-				Loop, Read, EScfg.ini
-					{
-						ivn1=
-						ivn2=
-						ivn3=
-						ivn4=
-						ivn5=
-						ivn6=
-						ivn7=
-						stringsplit,ivn,A_LoopReadLine,=
-						if (ivn1 = "[CONFIG]")
-							{
-								continue
-							}
-						if (ivn1 = "_%A_LoopField%")
-							{
-								symnt= 1
-								break
-							}
-					}
-				if (symnt = "")
-					{
-						vmint.= A_LoopField . "|"
-					}
+				vmint.= A_LoopField . "|"
 			}
 		Loop, Parse, vmint,|
 			{
@@ -65407,7 +65386,13 @@ if (FERAD5A = 1)
 						SNFEITMS.= ffr . "_" . "|"
 					}
 				NFEITMS.= A_LoopField . "|"
-				IniWrite,%emks%|%CHKITM%|%SLCTDEXT%|%SLCTDEMU%|%SLCTDRW%|%selctsys%|%emks%,EScfg.ini,GLOBAL,%SLCTDSN%
+				IniWrite,%emks%,ESCfg.ini,%SLCTDSN%,abbreviation
+				IniWrite,%CHKITM%,ESCfg.ini,%SLCTDSN%,dsp_es
+				IniWrite,%SLCTDEXT%,ESCfg.ini,%SLCTDSN%,ext_es
+				IniWrite,%SLCTDEMU%,ESCfg.ini,%SLCTDSN%,emu_es
+				IniWrite,%SLCTDRW%,ESCfg.ini,%SLCTDSN%,arg_es
+				IniWrite,%selctsys%,ESCfg.ini,%SLCTDSN%,rmp_es
+				IniWrite,%emks%,ESCfg.ini,%SLCTDSN%,thm_es
 			}
 		iniread,sysordr,EScfg.ini,ORDER,system_order
 		if (sysordr = "ERROR")
@@ -65418,15 +65403,22 @@ if (FERAD5A = 1)
 		iniwrite,%ESCURPL%,EScfg.ini,ORDER,system_order
 		Guicontrol,,FELBXA,|%ESCURPL%
 		LV_Modify(0, "-Check")
+		Loop,Parse,ESFEGUIITEMS,|
+			{
+				guicontrol,enable,%A_loopField%
+			}
 		return
 	}
-
 nvar=
 if (FERAD5C = 1)
 	{
 		if (sysfnd = 1)
 			{
 				SB_SetText("Current system is already added")
+				Loop,Parse,ESFEGUIITEMS,|
+					{
+						guicontrol,enable,%A_loopField%
+					}
 				return
 			}
 		RowNumber = 0
@@ -65445,10 +65437,15 @@ if (FERAD5C = 1)
 				if (A_LoopField = curtxt)
 					{
 						SB_SetText("Current system is already in the playlist.")
+						Loop,Parse,ESFEGUIITEMS,|
+							{
+								guicontrol,enable,%A_loopField%
+							}
 						return
 					}
 			}
 		ESCURPL.= curtxt . "|"
+		guicontrolget,FECBXB,,FECBXB
 		guicontrolget,FECBXB,,FECBXB
 		if (FECBXB = "")
 			{
@@ -65474,6 +65471,10 @@ if (FERAD5C = 1)
 				if (esemu = "")
 					{
 						SB_SetText("You must assign an Emulator")
+						Loop,Parse,ESFEGUIITEMS,|
+							{
+								guicontrol,enable,%A_loopField%
+							}
 						return
 					}
 				SLCTDEMU= %esemu%
@@ -65487,11 +65488,24 @@ if (FERAD5C = 1)
 		if (SLCTDRW = "")
 			{
 				SB_SetText("You must desgnate an execution paramater, eg: ''`%ROM_RAW`%''")
+				Loop,Parse,ESFEGUIITEMS,|
+					{
+						guicontrol,enable,%A_loopField%
+					}
 				return
 			}
 		SLCTDRW=%A_SPACE%%SLCTDRW%
 	}
+IniWrite,%FECBXD%,ESCfg.ini,%emks%,abbreviation
+IniWrite,%FECBXB%,ESCfg.ini,%emks%,dsp_es
+IniWrite,%SLCTDEXT%,ESCfg.ini,%emks%,ext_es
+IniWrite,%SLCTDEMU%,ESCfg.ini,%emks%,emu_es
+IniWrite,%SLCTDRW%,ESCfg.ini,%emks%,arg_es
+IniWrite,%selctsys%,ESCfg.ini,%emks%,rmp_es
+IniWrite,%FECBXA%,ESCfg.ini,%emks%,thm_es
+/*
 IniWrite,%FECBXD%|%FECBXB%|%SLCTDEXT%|%SLCTDEMU%|%SLCTDRW%|%selctsys%|%FECBXA%,EScfg.ini,GLOBAL,%emks%
+*/
 iniread,sysordr,EScfg.ini,ORDER,system_order
 if (sysordr <> "ERROR")
 	{
@@ -65501,6 +65515,10 @@ guicontrol,,FELBXA,|%ESCURPL%
 iniwrite,%ESCURPL%,EScfg.ini,ORDER,system_order
 Gui,ListView,FELVA
 LV_Modify(0, "-Check")
+Loop,Parse,ESFEGUIITEMS,|
+	{
+		guicontrol,enable,%A_loopField%
+	}
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -65512,46 +65530,9 @@ if (sysfnd = "")
 	}
 guicontrolget,SYSTHM,,FECBXA
 guicontrolget,SYSNAM,,FECBXD
-extpop=
-Loop, Read, EScfg.ini
-	{
-		if (A_LoopReadLine = "[CONFIG]")
-			{
-				continue
-			}
-		extpov1=
-		extpov2=
-		extpon1=
-		extpon2=
-		stringsplit,extpov,A_LoopReadLine,=
-		stringsplit,extpon,extpov2,|
-		if (extpon1 = curtxt)
-			{
-				extpop= %extpov1%
-				break
-			}
-	}
-ifinstring,curtxt,_
-	{
-		extpop= %curtxt%
-	}
-iniread,estv,EScfg.ini,GLOBAL,%extpop%
-avi=
-kkv=
-pt1=
-pt2=
-pt3=
-pt4=
-pt5=
-pt6=
-pt7=
-pt8=
-Loop, Parse, estv,|
-	{
-		pt%A_index%= %A_LoopField%
-	}
-estv= %pt1%|%pt2%|%pt3%|%pt4%|%pt5%|%pt6%|%SYSTHM%
-iniwrite,%estv%,EScfg.ini,GLOBAL,%extpop%
+extpop= %curtxt%
+iniwrite,%SYSTHM%,EScfg.ini,%extpop%,thm_es
+
 cursysthemelist=
 Loop, %ESHOME%\themes\%FEDDLD%\*,2
 	{
@@ -65567,20 +65548,7 @@ if (sysfnd = "")
 	}
 guicontrolget,FECBXC,,FECBXC
 guicontrolget,FECBXD,,FECBXD
-iniread,estv,EScfg.ini,GLOBAL,%FECBXD%
-avi=
-kkv=
-Loop, Parse, estv,|
-	{
-		avi+=1
-		if (avi = 1)
-			{
-				kkv.= FECBXC . "|"
-				continue
-			}
-		kkv.= A_LoopField . "|"
-	}
-iniwrite,%kkv%,EScfg.ini,GLOBAL,%FECBXD%
+iniwrite,%FECBXC%,EScfg.ini,%FECBXD%,abbreviation
 return
 
 
@@ -65592,14 +65560,21 @@ if (sysfnd = "")
 		return
 	}
 blockinput,on
-iniread,sysreplace,EScfg.ini,GLOBAL,%SYSREORDER%
-inidelete,EScfg.ini,GLOBAL,%FECBXD%
+iniread,sysreplace,EScfg.ini,%SYSREORDER%
+inidelete,EScfg.ini,%SYSNAMEREP%
 blockinput,off
-FECBXD= %SYSNAMEREP%
 ESRELST=
 IniRead, ESQLIST,EScfg.ini,ORDER,system_order
 IniDelete,EScfg.ini,GLOBAL,%SYSREORDER%
-IniWrite,%sysreplace%,EScfg.ini,GLOBAL,%SYSNAMEREP%
+Loop,parse,sysreplace,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,dki,A_LoopField,=
+		IniWrite,%dki2%,EScfg.ini,%SYSNAMEREP%,%dki1%
+	}
 Loop, Parse, ESQLIST,|
 	{
 		if (A_LoopField = "")
@@ -65612,7 +65587,6 @@ Loop, Parse, ESQLIST,|
 			}
 		ESRELST.= A_LoopField . "|"
 	}
-guicontrolget,FECBXD,,FECBXD
 guicontrol,,FELBXA,|%ESRELST%
 return
 
@@ -65645,44 +65619,8 @@ if (sysfnd = "")
 		return
 	}
 guicontrolget,FECBXB,,FECBXB
-extpop=
-Loop, Read, EScfg.ini
-	{
-		if (A_LoopReadLine = "[CONFIG]")
-			{
-				continue
-			}
-		extpov1=
-		extpov2=
-		extpon1=
-		extpon2=
-		stringsplit,extpov,A_LoopReadLine,=
-		stringsplit,extpon,extpov2,|
-		if (extpon1 = curtxt)
-			{
-				extpop= %extpov1%
-				break
-			}
-	}
-ifinstring,curtxt,_
-	{
-		extpop= %curtxt%
-	}
-
-iniread,estv,EScfg.ini,GLOBAL,%extpop%
-avi=
-kkv=
-Loop, Parse, estv,|
-	{
-		avi+=1
-		if (avi = 2)
-			{
-				kkv= %A_LoopField%
-				continue
-			}
-			kkv.= A_LoopField . "|"
-	}
-iniwrite,%kkv%,EScfg.ini,GLOBAL,%extpop%
+extpop= %curtxt%
+iniwrite,%FECBXB%,EScfg.ini,%curtxt%,dsp_es
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -65713,25 +65651,14 @@ if (esemt = "ERROR")
 			}
 		iniwrite, "%esemu%",apps.ini,EMULATORS,%FEDDLG%
 	}
-iniread,estv,EScfg.ini,GLOBAL,%knti1%
+	
 emuwr= %FEDDLG%
+
 if (pto = 1)
 	{
 		emuwr= %esemu%
 	}
-avi=
-kkv=
-Loop, Parse, estv,|
-	{
-		avi+=1
-		if (avi = 4)
-			{
-				kkv.= emuwr . "|"
-				continue
-			}
-		kkv.= A_LoopField . "|"
-	}
-iniwrite,%kkv%,EScfg.ini,GLOBAL,%knti1%
+iniwrite,%emuwr%,EScfg.ini,%curtxt%,emu_es
 pto=
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -65739,8 +65666,6 @@ return
 EmulationStationFEDDLF:
 ;{;;;;;;;;;;;;;;;;;;;;;;;   MIRROR SELECTION DROPDOWN   ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 guicontrolget,FEDDLF,,FEDDLF
-iniread,mirtmp,Settings.ini,GLOBAL,%FEDDLF%
-ESMIRROR= %mirtmp%
 Gui,ListView,FELVA
 LV_Delete()
 Loop, %ESMIRROR%\*,2
@@ -65752,7 +65677,7 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;
 
 EmulationStationFEBUTH:
-guicontrolget,sysfnd,,
+guicontrolget,sysfnd,,FEDDLG
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;   ES EMULATOR SELECTION   ;;;;;;;;;;;;;;;;;;;;;;;;;;
 if (sysfnd = "")
 	{
@@ -65764,7 +65689,8 @@ if (esemutmp = "")
 		return
 	}
 esemu= %esemutmp%
-extpop=
+extpop= %curtxt%
+/*
 Loop, Read, EScfg.ini
 	{
 		if (A_LoopReadLine = "[CONFIG]")
@@ -65828,6 +65754,8 @@ Loop, Parse, estv,|
 			}
 				iniwrite,%kka%|%kkb%|%kkc%|%kkd%|%kke%|%kkf%|%kkg%,EScfg.ini,GLOBAL,%extpop%
 	}
+*/
+iniwrite,%esemu%,EScfg.ini,%curtxt%,emu_es
 guicontrol,,FEDDLG,|other||%emuinstpop%
 return
 
@@ -66076,9 +66004,17 @@ Loop, read, %escfgtmp%
 					}
 				rdfnd=
 				ESTOPOP.= EROF . "|"
-				LOADEDCFG.= ESNM . "=" . vesplatform . "|" . vesfullname . "|" . vesextension . "|" . vesxd . """" . ":" . "\" . vesfp . "\" . vesfxe . """" . "|" . vesign . vesopt . vesign . "|" . vespath . "|" . vestheme . "`n"
+				;;LOADEDCFG.= ESNM . "=" . vesplatform . "|" . vesfullname . "|" . vesextension . "|" . vesxd . """" . ":" . "\" . vesfp . "\" . vesfxe . """" . "|" . vesign . vesopt . vesign . "|" . vespath . "|" . vestheme . "`n"
+				iniwrite, %vesplatform%,rj\es\loadsys.ini,%ESNM%,abbreviation
+				iniwrite, %vesfullname%,rj\es\loadsys.ini,%ESNM%,dsp_es
+				iniwrite, %vesextension%,rj\es\loadsys.ini,%ESNM%,ext_es
+				iniwrite, %vesxd%":\%vesfp%\%vesfxe%",rj\es\loadsys.ini,%ESNM%,emu_es
+				iniwrite, %vesign%%vesopt%%vesign%,rj\es\loadsys.ini,%ESNM%,arg_es
+				iniwrite, %vespath%,rj\es\loadsys.ini,%ESNM%,rmp_es
+				iniwrite, %vestheme%,rj\es\loadsys.ini,%ESNM%,thm_es
 			}
-		iniwrite, %LOADEDCFG%,rj\es\loadsys.ini,GLOBAL
+;;		iniwrite, %LOADEDCFG%,rj\es\loadsys.ini,GLOBAL
+		
 	}
 iniwrite,%esgameparse%,rj\es\loadsys.ini,CONFIG,Parse_Only
 iniwrite,%esquickselect%,rj\es\loadsys.ini,CONFIG,quick_select
@@ -66104,7 +66040,8 @@ if (sysfnd = "")
 		return
 	}
 guicontrolget,FEEDTA,,FEEDTA
-extpop=
+extpop= %curtxt%
+/*
 Loop, Read, EScfg.ini
 	{
 		if (A_LoopReadLine = "[CONFIG]")
@@ -66141,6 +66078,8 @@ Loop, Parse, estv,|
 		kkv.= A_LoopField . "|"
 	}
 iniwrite,%kkv%,EScfg.ini,GLOBAL,%extpop%
+*/
+iniwrite,%FEEDTA%,EScfg.ini,%curtxt%,arg_es
 return
 
 EmulationStationFEEDTB:
@@ -66149,6 +66088,7 @@ if (sysfnd = "")
 		return
 	}
 guicontrolget,FEEDTB,,FEEDTB
+/*
 extpop=
 Loop, Read, EScfg.ini
 	{
@@ -66185,6 +66125,9 @@ Loop, Parse, estv,|
 				iniwrite,%estv%,EScfg.ini,GLOBAL,%extpop%
 			}
 	}
+*/
+iniwrite,%FEEDTB%,EScfg.ini,%curtxt%,ext_es
+	
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -66226,26 +66169,20 @@ return
 
 EmulationStationFERAD5C:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  ES ROM RADIO   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+guicontrol,hide,FEDDLF
 Gui,ListView,FELVA
-Guicontrol,-checked,FELVA
-Guicontrol,-Multi,FELVA
 LV_Delete()
-Loop, Parse, EsLkUp,`n`r
+Guicontrol,+checked,FELVA
+Guicontrol,+Multi,FELVA
+Loop, %RJSYSTEMS%\*,2
 	{
-		if (A_LoopField = "")
+		if A_LoopFileAttrib contains H
 			{
 				continue
 			}
-		syslk1=
-		syslk2=
-		syslk3=
-		syslk4=
-		syslk5=
-		stringsplit,syslk,A_LoopField,=
-		LV_Add("",syslk1)
+		LV_Add("",A_LoopFileName)
 	}
 LV_ModifyCol()
-guicontrol,hide,FEDDLF
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -66268,6 +66205,13 @@ if (FERAD5C = 1)
 				LV_GetNext(RowNumber, Focused)
 				LV_GetText(curtxt, RowNumber)
 			}
+		if (curtxt <> "")
+			{
+				Loop,Parse,ESFEGUIITEMS,|
+					{
+						guicontrol,disable,%A_loopField%
+					}
+			}
 		Loop, Parse, ESCURPL,|
 			{
 				if (A_LoopField = curtxt)
@@ -66276,6 +66220,10 @@ if (FERAD5C = 1)
 						SB_SetText("Current system is already in the playlist.")
 						LV_Modify(RowNumber, "-Select")
 						curtxt=
+						Loop,Parse,ESFEGUIITEMS,|
+							{
+								guicontrol,enable,%A_loopField%
+							}
 						return
 					}
 			}
@@ -66283,11 +66231,19 @@ if (FERAD5C = 1)
 			{
 				SB_SetText("Define OTHER")
 				curtxt=
+				Loop,Parse,ESFEGUIITEMS,|
+					{
+						guicontrol,enable,%A_loopField%
+					}
 				return
 			}
 		if (curtxt <> "")
 			{
 				gosub, popesv
+			}
+		Loop,Parse,ESFEGUIITEMS,|
+			{
+				guicontrol,enable,%A_loopField%
 			}
 		return
 	}
@@ -66356,6 +66312,10 @@ if (xfnd = "")
 		guicontrol,,FEEDTB,.zip
 		guicontrol,,FEDDLG,|MAME - System|%emuinstpop%
 	}
+Loop,Parse,ESFEGUIITEMS,|
+	{
+		guicontrol,enable,%A_loopField%
+	}
 return
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -66368,7 +66328,15 @@ gui,submit,nohide
 guicontrolget,fecbxa,,FECBXA
 guicontrolget,curtxt,,FELBXA
 sysfnd= 1
+Loop,Parse,ESFEGUIITEMS,|
+	{
+		guicontrol,disable,%A_loopField%
+	}
 gosub, popesv
+Loop,Parse,ESFEGUIITEMS,|
+	{
+		guicontrol,enable,%A_loopField%
+	}
 return
 
 popesv:
@@ -66384,6 +66352,34 @@ if (FERAD5C = 1)
 	{
 		eslocor= %RJSYSTEMS%
 	}
+iniread,ksivi1,EScfg.ini,%curtxt%,abbreviation	
+iniread,ksivi2,EScfg.ini,%curtxt%,dsp_es	
+iniread,ksivi3,EScfg.ini,%curtxt%,ext_es	
+iniread,ksivi4,EScfg.ini,%curtxt%,emu_es	
+iniread,ksivi5,EScfg.ini,%curtxt%,arg_es	
+iniread,ksivi6,EScfg.ini,%curtxt%,rmp_es	
+iniread,ksivi7,EScfg.ini,%curtxt%,thm_es	
+guicontrol,,FEEDTA,%ksivi5%
+guicontrol,,FEEDTB,%ksivi3%
+ifinstring,ksivi5,:
+	{
+		ksivi5= other
+	}
+guicontrol,,FECBXD,|%curtxt%||%knwnfldrs%%cursysthemelist%
+guicontrol,,FECBXC,|%ksivi1%||%cursysthemelist%%knwnfldrs%
+kmpex= %ksivi1%||
+if (ksivi7 <> "")
+	{
+		ifexist,%ESHOME%\themes\%estheme%\%ksivi7%\
+			{
+				kmpex= %ksivi7%||
+			}
+	}
+guicontrol,,FECBXA,|%kmpex%%cursysthemelist%
+guicontrol,,FETXTJ,%ksivi6%
+guicontrol,,FEDDLG,|other|%ksivi4%||%emuinstpop%
+guicontrol,,FECBXB,|other|%ksivi2%||%knwnfldrs%
+/*
 Loop, read, EScfg.ini
 	{
 		ksivi1=
@@ -66461,6 +66457,7 @@ Loop, read, EScfg.ini
 				return
 			}
 	}
+*/	
 if (sysfnd = "")
 	{
 		emks=
@@ -66483,7 +66480,7 @@ if (sysfnd = "")
 								return
 							}
 					}
-				if (kvi1 = curtxt)
+				if (kvi3 = curtxt)
 					{
 						gosub, nweslk
 						return
@@ -66551,7 +66548,15 @@ ifmsgbox, Yes
 		ESTOPOP=
 		guicontrol,,FELBXA,|
 		filedelete,EScfg.ini
+		Loop,Parse,ESFEGUIITEMS,|
+			{
+				guicontrol,disable,%A_loopField%
+			}
 		gosub,ESINIT
+		Loop,Parse,ESFEGUIITEMS,|
+			{
+				guicontrol,enable,%A_loopField%
+			}
 	}
 return
 
@@ -70725,10 +70730,10 @@ guicontrol,enable,FECHKE
 guicontrol,move,FECHKE,x466 y327 w80 h13
 guicontrol,,FECHKE,Metadata
 
-guicontrol,%fetog%,FECHKO
-guicontrol,enable,FECHKO
-guicontrol,move,FECHKO, x466 y243 w80 h13
-guicontrol,,FECHKO,Photos
+guicontrol,%fetog%,FECHKP
+guicontrol,enable,FECHKP
+guicontrol,move,FECHKP, x466 y243 w80 h13
+guicontrol,,FECHKP,Photos
 
 guicontrol,%fetog%,FECHKF
 guicontrol,enable,FECHKF
@@ -70785,8 +70790,8 @@ guicontrol,hide,FECHKN
 
 guicontrol,hide,FECHKO
 guicontrol,enable,FECHKO
-guicontrol,move,FECHKO,x15 y15 w122 h13
-guicontrol,,FECHKO,Scrape to Jacket
+guicontrol,move,FECHKO,x362 y62 w109 h13
+guicontrol,,FECHKO,Scrape to Jackets
 ;};;;;;
 
 ;{;;;; DROPDOWNS ;;;;;;
@@ -71167,7 +71172,7 @@ if (FERAD2A = 1)
 									gosub, cleanprgb
 									break
 								}
-						if (FECHKO = 1)
+						if (FECHKP = 1)
 							{
 								URLFILE= %photod%/%A_LoopField%.png
 								save= rj\netArt\%FEDDLD%\%A_LoopField%\Photos\%A_LoopField%.png
@@ -71337,7 +71342,7 @@ if (FERAD2A = 1)
 								SB_SetText(" " A_LoopField " backdrops was not downloaded")
 							}
 					}
-				if (FECHKO = 1)
+				if (FECHKP = 1)
 					{
 						URLFILE= %photop%
 						splitpath,URLFILE,pdfile
@@ -73442,6 +73447,9 @@ return
 MediaFECHKM:
 return
 
+MediaFECHKP:
+return
+
 MediaFECHKN:
 if (FECHKN = 1)
 	{
@@ -73454,6 +73462,17 @@ if (FECHKN = 0)
 return
 MediaFECHKO:
 ACTRJ= %FECHKO%
+if (FECHKO = 1)
+	{
+		guicontrol,show,FEDDLF
+		guicontrol,show,FECBXA
+		guicontrol,show,FETXTN
+		SB_SetText("Scraped Artwork will be copied to jackets.")	
+		return
+	}
+guicontrol,hide,FEDDLF
+guicontrol,hide,FECBXA
+guicontrol,hide,FETXTN	
 return
 
 
@@ -73724,7 +73743,7 @@ guicontrol,show,FETXTB
 guicontrol,show,FETXTC
 guicontrol,show,FETXTD
 guicontrol,show,FETXTE
-guicontrol,show,FECHKO
+guicontrol,show,FECHKP
 guicontrol,show,FERAD5A
 guicontrol,show,FERAD5B
 guicontrol,move,FECHKF,x591 y323
@@ -73831,14 +73850,11 @@ guicontrol,hide,FETXTB
 guicontrol,hide,FETXTC
 guicontrol,hide,FETXTD
 guicontrol,hide,FETXTE
-guicontrol,hide,FECHKO
+guicontrol,hide,FECHKP
 guicontrol,show,FECHKO
 
 guicontrol,show,FEBUTM
 guicontrol,show,FECBXB
-guicontrol,show,FEDDLF
-guicontrol,show,FECBXA
-guicontrol,show,FETXTN
 
 guicontrol,show,FERAD2B
 guicontrol,move,FECHKF,x385 y440
@@ -83950,10 +83966,6 @@ splitpath,RUNROMCBX,EDTRMF,EDTRMP,inputext,EDTRMFN
 guicontrol,-Altsubmit,RUNROMCBX
 gui,submit,nohide
 indvcp=
-if (romf = "")
-	{
-		iniread, romf, Settings.ini,GLOBAL,last_rom
-	}
 if (romf = "")
 	{
 		gosub, LNCHCHK
