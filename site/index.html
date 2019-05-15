@@ -7,34 +7,34 @@
 </head>
 <body>
       <div id="menuToggle">
-         <input type="checkbox" />
+         <input type="checkbox" onclick="onClickHandler()" id="box" />
          <span></span>
          <span></span>
          <span></span>
          <ul id="menu">
             <li>
-               <a href="#DOWNLOAD">Download</a>
+               <a href="#DOWNLOAD"DOWNLOAD</a>
             </li>
             <li>
-               <a href="#USE">Usage</a>
+               <a href="#USE">USAGE</a>
             </li>
             <li>
-               <a href="#FRONTENDS">Frontends</a>
+               <a href="#FRONTENDS">FRONTENDS</a>
             </li>
             <li>
-               <a href="#JOYSTICKS">Joysticks</a>
+               <a href="#JOYSTICKS">JOYSTICKS</a>
             </li>
             <li>
-               <a href="#ROMJACKETS">RoM-Jackets</a>
+               <a href="#ROMJACKETS">RoM-JACKETS</a>
             </li>
             <li>
-               <a href="#REPOSITORY">Repository</a>
+               <a href="#REPOSITORY">REPOSITORY</a>
             </li>
             <li>
-               <a href="#NETPLAY">Netplay</a>
+               <a href="#NETPLAY">NETPLAY</a>
             </li>
             <li>
-               <a href="#UTILITIES">Utilities</a>
+               <a href="#UTILITIES">UTILITIES</a>
             </li>
          </ul>
       </div>
@@ -107,9 +107,8 @@
          <div id="inner">
             <div class="tabWrapper">
                <div class="tabItem close">
-                  <br>
                   <h8 class="tabItemHeading">Play Donation Invaders</h8>
-                  <div class="tabItemContent" id="detailsdiv"> <br> Click the key to win<br>
+                  <div class="tabItemContent" id="detailsdiv"><p>Click the key to win</p>
                      <a href="https://www.paypal.me/romjacket"><img src="key.png" alt="" /></a>
                   </div>
                </div>
@@ -151,41 +150,54 @@
       </div>
    </div>
    <a id="TUTORIALS"></a>
-   <br>
-   <div id="TUTS">
-      <div id="SectSeparate">
-         <h1>Usage</h1>
-      </div>
-      <div id="outer">
-         <div id="inner">
-            <div align="center" class="tabWrapper">
-               <div class="tabItem close">
-                  <h2 class="tabItemHeading">:=: Video Tutorials :=:</h2>
-                  <div align="left" class="tabItemContent" id="detailsdiv">
-                     <a class="lightbox" href="https://www.youtube.com/embed/f15aDWKoI7A?showinfo=0">
-                     <img alt="" height="14" src="video.svg" width="14">
-                     </a><strong> Setup Tutorial</strong>
-                     <br>
-                     <br>
-                     <a class="lightbox" href="https://www.youtube.com/embed/5Ksp63RJuaU?showinfo=0">
-                     <img alt="" height="14" src="video.svg" width="14">
-                     </a><strong> Launching ROMs</strong>
-                     <br>
-                     <br>
-                     <a class="lightbox" href="https://www.youtube.com/embed/XXZlbioMoyc?showinfo=0">
-                     <img alt="" height="14" src="video.svg" width="14">
-                     </a><strong> Creating ROM-Jackets</strong>
-                  </div>
-               </div>
+	<a id="USE"></a>
+        <br>
+        <div id="TUTS">
+            <div id="SectSeparate">
+                <h1>Usage</h1>
             </div>
-         </div>
-      </div>
-      <hr>
-      <a id="USE"></a>
-      <br>
-      <br>
-      <br>
-   </div>
+		<div id="outer">	
+		<div id="inner" align="left">
+			<div class="tabWrapper">
+            <div class="tabItem close">
+              <h2 class="tabItemHeading">
+               <img alt="" height="34" src="video.svg" width="34">
+				  </a>Videos</h2>
+                            <div class="tabItemContent" id="detailsdiv">
+						<h2>:=: Video Tutorials :=:</h2>
+						<hr>
+						<a class="lightbox" href="https://www.youtube.com/embed/f15aDWKoI7A?showinfo=0">
+							<img alt="" height="14" src="video.svg" width="14">
+				 </a>Setup Tutorial
+						<br>
+						<br>
+						<a class="lightbox" href="https://www.youtube.com/embed/5Ksp63RJuaU?showinfo=0">
+							<img alt="" height="14" src="video.svg" width="14">
+				 </a>Launching ROMs
+						<br>
+						<br>
+						<a class="lightbox" href="https://www.youtube.com/embed/XXZlbioMoyc?showinfo=0">
+							<img alt="" height="14" src="video.svg" width="14"></a>
+							Creating ROM-Jackets
+
+						<br>
+						<br>
+						<a class="lightbox" href="https://www.youtube.com/embed/KqjwlBFwZHw?showinfo=0">
+							<img alt="" height="14" src="video.svg" width="14">
+				 </a>Deploying an HTPC Gaming Frontend
+						</span>
+			  </div>
+            <div class="parent" id="youtubelightbox">
+                <div class="centeredchild">
+                    <div class="videowrapper">
+                        <div id="playerdiv"></div>
+                    </div>
+                </div>
+            </div>
+			  </div>
+          </div>
+         </div></div>
+        </div>
    <div align="left" id="outer">
       <div id="inner">
          <p>SkeletonKey functions both as a ROM launcher and as a backend configuration tool for HTPC frontends.
@@ -252,10 +264,8 @@
                </div>
             </div>
          </div>
-         <br>
       </div>
    </div>
-   <br>
    <div id="SectSeparate">
       <h1>Settings</h1>
    </div>
@@ -285,7 +295,6 @@
          </div>
       </div>
    </div>
-   <br>
    <a id="MAIN"></a>
    <div id="SectSeparate">
       <h1>Main</h1>
@@ -402,7 +411,6 @@
       </div>
    </div>
    <a id="INSTALL"></a>
-   <br>
    <div id="SectSeparate">
       <h1>Emu :=: Sys</h1>
    </div>
@@ -541,7 +549,6 @@
          </div>
       </div>
    </div>
-   <br>
    <div align="left" id="outer">
       <div id="inner">
          <h3>Drivers</h3>
@@ -613,7 +620,6 @@
       </div>
    </div>
    <a id="JOYSTICKS"></a>
-   <br>
    <div id="SectSeparate">
       <h1>Joystick</h1>
    </div>
@@ -664,7 +670,6 @@
          </div>
       </div>
    </div>
-   <br>
    <a id="PLAYLISTS"></a>
    <div id="SectSeparate">
       <h1>Playlists</h1>
@@ -740,7 +745,6 @@
          </div>
       </div>
    </div>
-   <br>
    <a id="REPOSITORY"></a>
    <div id="SectSeparate">
       <h1>Repository</h1>
@@ -758,7 +762,7 @@
          <div class="tabWrapper">
             <div class="tabItem close">
                <h8 class="tabItemHeading">Repository Details</h8>
-               <div class="tabItemContent" id="detailsdiv">
+              <div class="tabItemContent" id="detailsdiv">
                   <p>You must agree to the EULA before downloading or alowing skeletonkey access to repository
                      lists.
                   </p>
@@ -774,19 +778,26 @@
                   <p>Enabling the &quot;Download Only&quot; option will allow multiple files to be selected and
                      queued.
                   </p>
-                  <p>Only direct-links are supported, however future releases of skeletonkey will support torrents
+                <p>Only direct-links are supported, however future releases of skeletonkey will support torrents
                      as well as other redirected networking addresses.
-                  </p>
-                  <p>MAME ROM-Lists can often contain ROMs which are incompatible with other emulators. MAME/MESS
-                     systems' ROM-Lists should be in a <code>MAME - Systems</code> subdirectory of the
-                     <strong>source</strong> folder.
-                  </p>
-               </div>
+                 </p>
+                 <p>MAME ROM-Lists can often contain ROMs which are incompatible with other emulators. MAME/MESS
+                     systems' ROM-Lists should be in the <strong><em>Your_Repository_Name\MAME - Systems</em></strong> subdirectory.
+                 </p><p>Have your own special list of ROMs you want to share with others?</p><p>The following structure is observed for repository list files:</p>
+				 <h4>&gt;...\skeletonKey\gam\<em>Your_Repository_Name\Your_List.gam</em></h4><p>Each line only needs to contain a direct link to a file, however <br>eg: paramaters are pipe delimited, and a single space may be used to specify default/detected settings.</p>
+				<br>
+				<span style="font-size: xx-small"><em>220 </em></span><code>http://justa.link.rom</code><br>
+					<span style="font-size: xx-small"><em>221 </em></span>
+				  <code> http://direct.link.org|Game 3.1|-run_cmd|ftp://mirror.org|Company's - Computer - System|</code><br>
+				<span style="font-size: xx-small"><em>222 </em></span><code> http://link.to.the.rom|ROM_Title|emu=optons|magnet://link.torrent|target_system_name</code><br>
+				<span style="font-size: xx-small"><em>223 </em></span><code> http://legit.preservation.biz|All_Descriptors_in_FileName|emulator_options|https://..|...</code><br>
+			    <span style="font-size: xx-small"><em>224 </em></span><code> http://romz.pirate.file|ROM_Index_#001|emulator_options|...|...|...</code><br>
+				  <span style="font-size: xx-small"><em>225 </em></span><code>| | | | |http://...</code><p></p>
+              </div>
             </div>
          </div>
       </div>
    </div>
-   <br>
    <a id="FRONTENDS"></a>
    <div id="SectSeparate">
       <h1>Frontends</h1>
@@ -937,7 +948,6 @@
          </div>
       </div>
    </div>
-   <br>
    <div id="SectSeparate">
       <h1>Cores</h1>
    </div>
@@ -964,7 +974,6 @@
          </div>
       </div>
    </div>
-   <br>
    <div id="SectSeparate">
       <h1>Netplay</h1>
    </div>
@@ -1017,7 +1026,6 @@
       </div>
    </div>
    <a id="ROMJACKETS"></a>
-   <br>
    <div id="SectSeparate">
       <h1>ROM-Jackets</h1>
    </div>
@@ -1349,9 +1357,7 @@
          </div>
       </div>
    </div>
-   <br>
    <a id="UTILITIES"></a>
-   <br>
    <div id="SectSeparate">
       <h1>Utilities</h1>
    </div>
@@ -1456,8 +1462,8 @@
          </div>
       </div>
    </div>
-   <a id="FAQS"></a>
-   <br>
+   <hr>
+<a id="FAQS"></a>
    <div id="SectSeparate">
       <h1>FAQs</h1>
    </div>
@@ -1481,8 +1487,8 @@
          </p>
       </div>
    </div>
-   <br>
    <a id="RESOURCES"></a>
+	<hr>
    <div>
    <div id="SectSeparate">
       <footer>
@@ -1490,7 +1496,10 @@
          </h5>
       </footer>
    </div>
+</div>
+</div>
 </body>
+
 <script>
     var tag = document.createElement('script')
     tag.src = "https://www.youtube.com/iframe_api";
@@ -1506,13 +1515,16 @@
     youtubelightbox.querySelector('.centeredchild').addEventListener('click', function(e) {
         e.stopPropagation()
     }, false)
+
     function onYouTubeIframeAPIReady() {
         createlightbox()
     }
+
     function getyoutubeid(link) {
         var youtubeidreg = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i;
         return youtubeidreg.exec(link)[1]
     }
+
     function createyoutubeplayer(videourl) {
         player = new YT.Player('playerdiv', {
             videoId: videourl,
@@ -1521,6 +1533,7 @@
             }
         })
     }
+
     function createlightbox() {
         var targetlinks = document.querySelectorAll('.lightbox')
         for (var i = 0; i < targetlinks.length; i++) {
@@ -1559,14 +1572,21 @@
     }
 </script>
 
-
 <style>
+	@font-face {
+		font-family: 'gadugi';
+		src: url('gadugi.ttf') format('truetype');
+	}
 body {
     overflow-x: hidden;
     background-color: #D4D4D4;
+	font-family: "gadugi";
+    font-size: 14px;
 }
 td,
 th {
+    font-size: 14px;
+    margin: 0;
     font-size: 14px;
     margin: 0;
     align-content: center;
@@ -1606,13 +1626,10 @@ h99 {
 	font-weight: bolder;
 }
 h88 {
-	font-weight: bolder;
 }
 h77 {
-	font-weight: bolder;
 }
 h66 {
-	font-weight: bolder;
 }
 h55 {
 	font-weight: bolder;
@@ -1653,6 +1670,7 @@ main {
 	padding-right: 5px;
 	padding-bottom: 9px;
 	max-width: 70em;
+	
 }
 #detailsdiv {
     background-color: #515151;
@@ -1661,6 +1679,9 @@ main {
     padding-left: 3%;
     padding-bottom: 2%;
     padding-top: 2%;
+    -webkit-box-shadow: 4px -4px 0px 0px rgba(230, 230, 230, 1);
+    -moz-box-shadow: 4px -4px 0px 0px rgba(230, 230, 230, 1);
+    box-shadow: 4px -4px 0px 0px rgba(230, 230, 230, 1);
     padding-right: 3%;
     text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.23);
 }
@@ -1668,55 +1689,67 @@ main {
 	}
 </style>
 <style>
-	.parent {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    display: none;
-    text-align: center;
-    z-index: 9;
-}
-.parent:before {
-    content: '';
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-}
-.parent:after {
-    background: black;
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0.5;
-    z-index: 10;
-}
-.centeredchild {
-    position: relative;
-    z-index: 20;
-    display: inline-block;
-    vertical-align: middle;
-    width: 80%;
-}
-.videowrapper {
-    position: relative;
-    padding-top: 25px;
-    padding-bottom: 56.25%;
-    height: 0;
-    z-index: 9;
-}
-.videowrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9;
-}
+    .parent {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        display: none;
+        text-align: center;
+        z-index: 9;
+    }
+    
+    .parent:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
+    
+    .parent:after {
+        background: black;
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0.5;
+        z-index: 10;
+    }
+    /* Centered child element can be any width and height */
+    
+    .centeredchild {
+        position: relative;
+        /* position element to participate in z-indexing */
+        z-index: 20;
+        /* higher z-index than overlay */
+        display: inline-block;
+        vertical-align: middle;
+        width: 80%;
+        /* can be any width */
+    }
+    /* Video container to maintain Youtube 16:9 aspect ratio */
+    
+    .videowrapper {
+        position: relative;
+        padding-top: 25px;
+        padding-bottom: 56.25%;
+        /* 16:9 aspect ratio */
+        height: 0;
+        z-index: 9;
+    }
+    /* Make Youtube IFRAME responsive */
+    
+    .videowrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9;
+    }
 </style>
 <style>
 	.tabItem {
@@ -1792,18 +1825,22 @@ main {
 #menuToggle input:checked~span:nth-last-child(2) {
     transform: rotate(-45deg) translate(0, -1px);
 }
-#menu {	
-    position: absolute;
-    width: 150px;
-    margin: 2% 40px 5% 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 38px;
-    right: -100px;
-    background-color: #D4D4D4;
-    list-style-type: none;
-    transform: translate(100%, 0);
+#menu {
+	position: absolute;
+	width: 150px;
+    -webkit-box-shadow: -4px 4px 0px 0px rgba(61, 61, 61, 1);
+    -moz-box-shadow: -4px 4px 0px 0px rgba(61, 61, 61, 1);
+    box-shadow: -4px 4px 0px 0px rgba(61, 61, 61, 1);
+	margin: 2% 40px 5% 15px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 38px;
+	right: -100px;
+	background-color: #D4D4D4;
+    border: thick ;
+	list-style-type: none;
+	transform: translate(100%, 0);
 }
 
 #menu li {

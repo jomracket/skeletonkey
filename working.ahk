@@ -64650,6 +64650,8 @@ guicontrol,%fetog%,FEBUTA
 guicontrol,enable,FEBUTA
 guicontrol,move,FEBUTA, x537 y33 w60 h19
 guicontrol,,FEBUTA,Download
+gui,font,normal
+Guicontrol,font,FEBUTA
 
 guicontrol,%fetog%,FEBUTB
 guicontrol,enable,FEBUTB
@@ -65206,7 +65208,6 @@ if (FERAD5A = 1)
 				IniWrite,"`%ROM_RAW`%",ESCfg.ini,%SLCTDSN%,arg_es
 				IniWrite,%selctsys%,ESCfg.ini,%SLCTDSN%,rmp_es
 				IniWrite,%emks%,ESCfg.ini,%SLCTDSN%,thm_es
-				msgbox,,,e1
 			}
 		iniread,sysordr,EScfg.ini,ORDER,system_order
 		if (sysordr = "ERROR")
@@ -65300,7 +65301,6 @@ if (FERAD5B = 1)
 				IniWrite,%SLCTDRW%,ESCfg.ini,%SLCTDSN%,arg_es
 				IniWrite,%selctsys%,ESCfg.ini,%SLCTDSN%,rmp_es
 				IniWrite,%emks%,ESCfg.ini,%SLCTDSN%,thm_es
-				msgbox,,,e
 			}
 		iniread,sysordr,EScfg.ini,ORDER,system_order
 		if (sysordr = "ERROR")
@@ -65411,10 +65411,6 @@ IniWrite,%SLCTDEMU%,ESCfg.ini,%emks%,emu_es
 IniWrite,%SLCTDRW%,ESCfg.ini,%emks%,arg_es
 IniWrite,%selctsys%,ESCfg.ini,%emks%,rmp_es
 IniWrite,%FECBXA%,ESCfg.ini,%emks%,thm_es
-msgbox,,,f
-/*
-IniWrite,%FECBXD%|%FECBXB%|%SLCTDEXT%|%SLCTDEMU%|%SLCTDRW%|%selctsys%|%FECBXA%,EScfg.ini,GLOBAL,%emks%
-*/
 iniread,sysordr,EScfg.ini,ORDER,system_order
 if (sysordr <> "ERROR")
 	{
@@ -65441,7 +65437,6 @@ guicontrolget,SYSTHM,,FECBXA
 guicontrolget,SYSNAM,,FECBXD
 extpop= %curtxt%
 iniwrite,%SYSTHM%,EScfg.ini,%extpop%,thm_es
-msgbox,,,s
 
 cursysthemelist=
 Loop, %ESHOME%\themes\%FEDDLD%\*,2
@@ -65548,18 +65543,21 @@ if (FEDDLG = "other")
 		esemu= other
 		gosub,FEBUTH
 		guicontrol,,FEDDLG,|other||%emuinstpop%
+		guicontrol,enable,FEBUTE
 		return
 	}
 iniread,esemt,apps.ini,EMULATORS,%FEDDLG%
 if (esemt = "ERROR")
 	{
 		esemu=
+		guicontrol,disable,FEBUTE
 		gosub, FEBUTH
 		if (esemu = "")
 			{
 				return
 			}
 		iniwrite, "%esemu%",apps.ini,EMULATORS,%FEDDLG%
+		guicontrol,enable,FEBUTE
 	}
 	
 emuwr= %FEDDLG%
@@ -65858,9 +65856,7 @@ Loop, read, %escfgtmp%
 				iniwrite, %vesign%%vesopt%%vesign%,rj\es\loadsys.ini,%ESNM%,arg_es
 				iniwrite, %vespath%,rj\es\loadsys.ini,%ESNM%,rmp_es
 				iniwrite, %vestheme%,rj\es\loadsys.ini,%ESNM%,thm_es
-				msgbox,,,v
 			}
-;;		iniwrite, %LOADEDCFG%,rj\es\loadsys.ini,GLOBAL
 		
 	}
 iniwrite,%esgameparse%,rj\es\loadsys.ini,CONFIG,Parse_Only
@@ -65962,6 +65958,7 @@ return
 EmulationStationFELVA:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   ES LISTVIEW  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 gui,listview,FELVA
+guicontrol,enable,FEBUTE
 if (FERAD5C = 1)
 	{
 		curtxt=
@@ -65991,6 +65988,7 @@ if (FERAD5C = 1)
 					{
 						curtxt=
 						SB_SetText("Current system is already in the playlist.")
+						guicontrol,disable,FEBUTE
 						LV_Modify(RowNumber, "-Select")
 						curtxt=
 						Loop,Parse,ESFEGUIITEMS,|
@@ -66002,6 +66000,7 @@ if (FERAD5C = 1)
 			}
 		if (curtxt = "other")
 			{
+				guicontrol,disable,FEBUTE
 				SB_SetText("Define OTHER")
 				curtxt=
 				Loop,Parse,ESFEGUIITEMS,|
@@ -66204,10 +66203,12 @@ iniread,emkce,apps.ini,EMULATORS,%kvi5%
 if (emkce = "ERROR")
 	{
 		SB_SetText(" " emkce " is not found")
+		guicontrol,disable,FEBUTE
 	}
 ifnotexist,%emkce%
 	{
 		SB_SetText(" " emkce " is not found")
+		guicontrol,disable,FEBUTE
 	}
 emks= %kvi3%
 emkx= %kvi4%
