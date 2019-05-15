@@ -64467,12 +64467,13 @@ if (EmulationStation = "ERROR")
 		guicontrol, ChooseString, EAVAIL,EmulationStation
 		return
 	}
+esinit=
 ifnotexist,EScfg.ini
 	{
 		FileAppend,[GLOBAL]`n,EScfg.ini
 		FileAppend,[CONFIG]`n,EScfg.ini
 		FileAppend,[ORDER]`n,EScfg.ini
-
+		esinit= 1
 		IniWrite,0,EScfg.ini,CONFIG,Parse_Only
 		esgameparse= 0
 		esparseonly= false
@@ -64488,6 +64489,7 @@ ifnotexist,EScfg.ini
 		esvideoram= 100
 		IniWrite,simple,EScfg.ini,CONFIG,theme
 		estheme= simple
+		esthpop= simple
 		IniWrite,video,EScfg.ini,CONFIG,GameList
 		esgamelist= video
 		IniWrite,slide,EScfg.ini,CONFIG,transition
@@ -64529,6 +64531,15 @@ Loop, %eshome%\themes,2
 			}
 		esthemes.= A_LoopFileName . "|"
 	}
+if (esinit = 1)
+	{
+		ifinstring,esthemes,rj|
+			{
+				esthpop= rj
+				iniwrite,rj,EScfg.ini,CONFIG,theme
+			}
+		esinit= 	
+	}
 fetog= show
 ESCURPL=
 guicontrol,,FELBXA,|
@@ -64538,7 +64549,7 @@ if (sysordr <> "ERROR")
 	{
 		ESCURPL= %sysordr%
 	}
-insttheme=
+insttheme= simple
 Loop,%ESHOME%\themes\*,2
 {
 	insttheme= %A_LoopFileName%
@@ -64573,7 +64584,11 @@ if (estransition = "ERROR")
 IniRead, estheme,EScfg.ini,CONFIG,theme
 if (estheme = "ERROR")
 	{
-		estheme= rj
+		estheme= simple
+		ifinstring,cursysthemelist,rj|
+			{
+				estheme= rj
+			}
 	}
 IniRead, esvideoram,EScfg.ini,CONFIG,VRAM
 if (esvideoram = "ERROR")
@@ -64732,7 +64747,7 @@ guicontrol,,FEEDTB,
 guicontrol,%fetog%,FEDDLD
 guicontrol,enable,FEDDLD
 guicontrol,move,FEDDLD,x599 y32 w162
-guicontrol,,FEDDLD,|rj||%esthemes%
+guicontrol,,FEDDLD,|%esthpop%||%esthemes%
 
 guicontrol,%fetog%,FEDDLA
 guicontrol,enable,FEDDLA
@@ -64811,7 +64826,7 @@ guicontrol,%fetog%,FERAD5C
 guicontrol,enable,FERAD5C
 guicontrol,move,FERAD5C,x265 y101 w53 h15
 guicontrol,,FERAD5C,ROMs
-guicontrol,,FERAD5C, 0
+guicontrol,,FERAD5C, 1
 
 guicontrol,%fetog%,FERAD2A
 guicontrol,enable,FERAD2A
@@ -65020,7 +65035,7 @@ Loop, Parse, prsy,|
 		iniread,thm_es,EScfg.ini,%sysesc%,thm_es
 		FileAppend,<system>`n,rj\ES\cursys.cfg
 		FileAppend,<name>%sysesc%</name>`n,rj\ES\cursys.cfg
-		FileAppend,<fullname>%dsp_en%</fullname>`n,rj\ES\cursys.cfg
+		FileAppend,<fullname>%dsp_es%</fullname>`n,rj\ES\cursys.cfg
 		FileAppend,<path>%rmp_es%</path>`n,rj\ES\cursys.cfg
 		FileAppend,<extension>%extn%</extension>`n,rj\ES\cursys.cfg
 		stringreplace,emucmd,emucmd,",,All
@@ -65032,77 +65047,6 @@ Loop, Parse, prsy,|
 		FileAppend,<platform>%abr_es%</platform>`n,rj\ES\cursys.cfg
 		FileAppend,<theme>%thm_es%</theme>`n,rj\ES\cursys.cfg
 		FileAppend,</system>`n,rj\ES\cursys.cfg
-		/*
-		iniread,tmpes,EScfg.ini,GLOBAL
-		Loop, Parse, tmpes,`n`r
-			{
-				if (A_LoopField = "")
-					{
-						continue
-					}
-				rjsp1=
-				rjsp2=
-				stringsplit,rjsp,A_LoopField,=
-				apnd=
-				ppnd=
-				stringleft,rj,rjsp1,1
-				if (rj = "_")
-					{
-						ppnd= _
-						apnd=
-					}
-				stringright,rj,rjsp1,1
-				if (rj = "_")
-					{
-						ppnd=
-						apnd= _
-					}
-				ffj1=
-				ffj2=
-				ans1=
-				ans2=
-				stringsplit,ans,A_LoopField,=
-				stringsplit,ffj,ans2,|
-				typm= %ans1%
-				if ((apnd = ppnd) && (apnd <> "_"))
-					{
-						typm= %ffj1%
-					}
-				if (typm = sysesc)
-					{
-						iniread,sysvlz,EScfg.ini,GLOBAL,%ans1%
-						injvar1=
-						injvar2=
-						injvar3=
-						injvar4=
-						injvar5=
-						injvar6=
-						injvar7=
-						stringsplit,injvar,sysvlz,|
-						iniread,emucmd,apps.ini,EMULATORS,%injvar4%
-						ifinstring,injvar4,:
-							{
-								emucmd= %injvar4%
-							}
-						FileAppend,<system>`n,rj\ES\cursys.cfg
-						FileAppend,<name>%ans1%</name>`n,rj\ES\cursys.cfg
-						FileAppend,<fullname>%injvar2%</fullname>`n,rj\ES\cursys.cfg
-						FileAppend,<path>%injvar6%</path>`n,rj\ES\cursys.cfg
-						stringreplace,extn,injvar3,`,,%A_Space%,All
-						FileAppend,<extension>%extn%</extension>`n,rj\ES\cursys.cfg
-						stringreplace,emucmd,emucmd,",,All
-						;"
-						splitpath,emucmd,fxe,fp,xe,fn,fd
-						stringleft,fd,fd,1
-						stringtrimleft,fp,fp,3
-						FileAppend,<command>%fd%":\%fp%\%fxe%" %injvar5%</command>`n,rj\ES\cursys.cfg
-						FileAppend,<platform>%injvar1%</platform>`n,rj\ES\cursys.cfg
-						FileAppend,<theme>%injvar7%</theme>`n,rj\ES\cursys.cfg
-						FileAppend,</system>`n,rj\ES\cursys.cfg
-						break
-					}
-			}
-			*/
 	}
 FileRead,escfg,sets\es_settings.cfg.set
 stringreplace,escfg,escfg,[THEME],%FEDDLD%,All
@@ -65181,44 +65125,6 @@ if (efi = ":\")
 selctsys= %selctsystmp%
 guicontrol,,FETXTJ,%selctsys%
 iniwrite,%selctsys%,EScfg.ini,%curtxt%,rompath
-/*
-extpop=
-Loop, Read, EScfg.ini
-	{
-		if (A_LoopReadLine = "[CONFIG]")
-			{
-				continue
-			}
-		extpov1=
-		extpov2=
-		extpon1=
-		extpon2=
-		stringsplit,extpov,A_LoopReadLine,=
-		stringsplit,extpon,extpov2,|
-		if (extpon1 = curtxt)
-			{
-				extpop= %extpov1%
-				break
-			}
-	}
-ifinstring,curtxt,_
-	{
-		extpop= %curtxt%
-	}
-iniread,estv,EScfg.ini,GLOBAL,%extpop%
-avi=
-kkv=
-Loop, Parse, estv,|
-	{
-		avi+=1
-		if (avi = 6)
-			{
-				kkv= %A_LoopField%
-				stringreplace,estv,estv,%kkv%,%selctsys%,All
-				iniwrite,%estv%,EScfg.ini,GLOBAL,%extpop%
-			}
-	}
-*/	
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -65300,6 +65206,7 @@ if (FERAD5A = 1)
 				IniWrite,"`%ROM_RAW`%",ESCfg.ini,%SLCTDSN%,arg_es
 				IniWrite,%selctsys%,ESCfg.ini,%SLCTDSN%,rmp_es
 				IniWrite,%emks%,ESCfg.ini,%SLCTDSN%,thm_es
+				msgbox,,,e1
 			}
 		iniread,sysordr,EScfg.ini,ORDER,system_order
 		if (sysordr = "ERROR")
@@ -65388,11 +65295,12 @@ if (FERAD5B = 1)
 				NFEITMS.= A_LoopField . "|"
 				IniWrite,%emks%,ESCfg.ini,%SLCTDSN%,abbreviation
 				IniWrite,%CHKITM%,ESCfg.ini,%SLCTDSN%,dsp_es
-				IniWrite,%SLCTDEXT%,ESCfg.ini,%SLCTDSN%,ext_es
+				IniWrite,.bat,ESCfg.ini,%SLCTDSN%,ext_es
 				IniWrite,%SLCTDEMU%,ESCfg.ini,%SLCTDSN%,emu_es
 				IniWrite,%SLCTDRW%,ESCfg.ini,%SLCTDSN%,arg_es
 				IniWrite,%selctsys%,ESCfg.ini,%SLCTDSN%,rmp_es
 				IniWrite,%emks%,ESCfg.ini,%SLCTDSN%,thm_es
+				msgbox,,,e
 			}
 		iniread,sysordr,EScfg.ini,ORDER,system_order
 		if (sysordr = "ERROR")
@@ -65503,6 +65411,7 @@ IniWrite,%SLCTDEMU%,ESCfg.ini,%emks%,emu_es
 IniWrite,%SLCTDRW%,ESCfg.ini,%emks%,arg_es
 IniWrite,%selctsys%,ESCfg.ini,%emks%,rmp_es
 IniWrite,%FECBXA%,ESCfg.ini,%emks%,thm_es
+msgbox,,,f
 /*
 IniWrite,%FECBXD%|%FECBXB%|%SLCTDEXT%|%SLCTDEMU%|%SLCTDRW%|%selctsys%|%FECBXA%,EScfg.ini,GLOBAL,%emks%
 */
@@ -65532,6 +65441,7 @@ guicontrolget,SYSTHM,,FECBXA
 guicontrolget,SYSNAM,,FECBXD
 extpop= %curtxt%
 iniwrite,%SYSTHM%,EScfg.ini,%extpop%,thm_es
+msgbox,,,s
 
 cursysthemelist=
 Loop, %ESHOME%\themes\%FEDDLD%\*,2
@@ -65690,71 +65600,7 @@ if (esemutmp = "")
 	}
 esemu= %esemutmp%
 extpop= %curtxt%
-/*
-Loop, Read, EScfg.ini
-	{
-		if (A_LoopReadLine = "[CONFIG]")
-			{
-				continue
-			}
-		extpov1=
-		extpov2=
-		extpon1=
-		extpon2=
-		stringsplit,extpov,A_LoopReadLine,=
-		stringsplit,extpon,extpov2,|
-		if (extpon1 = curtxt)
-			{
-				extpop= %extpov1%
-				break
-			}
-	}
-ifinstring,curtxt,_
-	{
-		extpop= %curtxt%
-	}
-iniread,estv,EScfg.ini,GLOBAL,%extpop%
-avi=
-kka=
-kkb=
-kkc=
-kkd=
-kke=
-kkf=
-Loop, Parse, estv,|
-	{
-		avi+=1
-		if (avi = 1)
-			{
-				kka= %A_LoopField%
-			}
-		if (avi = 2)
-			{
-				kkb= %A_LoopField%
-			}
-		if (avi = 3)
-			{
-				kkc= %A_LoopField%
-			}
-		if (avi = 4)
-			{
-				kkd= %esemu%
-			}
-		if (avi = 5)
-			{
-				kke= %A_LoopField%
-			}
-		if (avi = 6)
-			{
-				kkf= %A_LoopField%
-			}
-		if (avi = 7)
-			{
-				kkg= %A_LoopField%
-			}
-				iniwrite,%kka%|%kkb%|%kkc%|%kkd%|%kke%|%kkf%|%kkg%,EScfg.ini,GLOBAL,%extpop%
-	}
-*/
+
 iniwrite,%esemu%,EScfg.ini,%curtxt%,emu_es
 guicontrol,,FEDDLG,|other||%emuinstpop%
 return
@@ -66012,6 +65858,7 @@ Loop, read, %escfgtmp%
 				iniwrite, %vesign%%vesopt%%vesign%,rj\es\loadsys.ini,%ESNM%,arg_es
 				iniwrite, %vespath%,rj\es\loadsys.ini,%ESNM%,rmp_es
 				iniwrite, %vestheme%,rj\es\loadsys.ini,%ESNM%,thm_es
+				msgbox,,,v
 			}
 ;;		iniwrite, %LOADEDCFG%,rj\es\loadsys.ini,GLOBAL
 		
@@ -66041,44 +65888,7 @@ if (sysfnd = "")
 	}
 guicontrolget,FEEDTA,,FEEDTA
 extpop= %curtxt%
-/*
-Loop, Read, EScfg.ini
-	{
-		if (A_LoopReadLine = "[CONFIG]")
-			{
-				continue
-			}
-		extpov1=
-		extpov2=
-		extpon1=
-		extpon2=
-		stringsplit,extpov,A_LoopReadLine,=
-		stringsplit,extpon,extpov2,|
-		if (extpon1 = curtxt)
-			{
-				extpop= %extpov1%
-				break
-			}
-	}
-ifinstring,curtxt,_
-	{
-		extpop= %curtxt%
-	}
-iniread,estv,EScfg.ini,GLOBAL,%extpop%
-avi=
-kkv=
-Loop, Parse, estv,|
-	{
-		avi+=1
-		if (avi = 5)
-			{
-				kkv.= FEEDTA . "|"
-				continue
-			}
-		kkv.= A_LoopField . "|"
-	}
-iniwrite,%kkv%,EScfg.ini,GLOBAL,%extpop%
-*/
+
 iniwrite,%FEEDTA%,EScfg.ini,%curtxt%,arg_es
 return
 
@@ -66088,44 +65898,7 @@ if (sysfnd = "")
 		return
 	}
 guicontrolget,FEEDTB,,FEEDTB
-/*
-extpop=
-Loop, Read, EScfg.ini
-	{
-		if (A_LoopReadLine = "[CONFIG]")
-			{
-				continue
-			}
-		extpov1=
-		extpov2=
-		extpon1=
-		extpon2=
-		stringsplit,extpov,A_LoopReadLine,=
-		stringsplit,extpon,extpov2,|
-		if (extpon1 = curtxt)
-			{
-				extpop= %extpov1%
-				break
-			}
-	}
-ifinstring,curtxt,_
-	{
-		extpop= %curtxt%
-	}
-iniread,estv,EScfg.ini,GLOBAL,%extpop%
-avi=
-kkv=
-Loop, Parse, estv,|
-	{
-		avi+=1
-		if (avi = 3)
-			{
-				kkv= %A_LoopField%
-				stringreplace,estv,estv,%kkv%,%FEEDTB%,All
-				iniwrite,%estv%,EScfg.ini,GLOBAL,%extpop%
-			}
-	}
-*/
+
 iniwrite,%FEEDTB%,EScfg.ini,%curtxt%,ext_es
 	
 return
@@ -66282,7 +66055,7 @@ Loop, Parse, EsLkUp,`n`r
 							}
 					}
 				guicontrol,,FECBXA,|%kvmax%%cursysthemelist%
-				guicontrol,,FECBXB,|%matv3%||%s1ystmfldrs%%cursysthemelist%
+				guicontrol,,FECBXB,|%matv3%||%systmfldrs%%cursysthemelist%
 				guicontrol,,FECBXD,|%matv1%||%cursysthemelist%%systmfldrs%
 				guicontrol,,FECBXC,|%matv1%||%cursysthemelist%%systmfldrs%
 				xfnd= 1
@@ -66355,8 +66128,20 @@ if (FERAD5C = 1)
 iniread,ksivi1,EScfg.ini,%curtxt%,abbreviation	
 iniread,ksivi2,EScfg.ini,%curtxt%,dsp_es	
 iniread,ksivi3,EScfg.ini,%curtxt%,ext_es	
-iniread,ksivi4,EScfg.ini,%curtxt%,emu_es	
-iniread,ksivi5,EScfg.ini,%curtxt%,arg_es	
+iniread,ksivi4,EScfg.ini,%curtxt%,emu_es
+iniread,ksivir,EScfg.ini,%curtxt%
+Loop,parse,ksivir,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,avn,A_LoopField,=
+		if (avn1 = "arg_es")
+			{
+				ksivi5:= avn2
+			}
+	}
 iniread,ksivi6,EScfg.ini,%curtxt%,rmp_es	
 iniread,ksivi7,EScfg.ini,%curtxt%,thm_es	
 guicontrol,,FEEDTA,%ksivi5%
@@ -66379,85 +66164,7 @@ guicontrol,,FECBXA,|%kmpex%%cursysthemelist%
 guicontrol,,FETXTJ,%ksivi6%
 guicontrol,,FEDDLG,|other|%ksivi4%||%emuinstpop%
 guicontrol,,FECBXB,|other|%ksivi2%||%knwnfldrs%
-/*
-Loop, read, EScfg.ini
-	{
-		ksivi1=
-		ksivi2=
-		ksivi3=
-		ksivi4=
-		ksivi5=
-		ksivi6=
-		ksivi7=
-		knti1=
-		knti2=
-		if (A_LoopReadLine = "[CONFIG]")
-			{
-				continue
-			}
-		stringsplit,knti,A_LoopReadLine,=
-		stringsplit,ksivi,knti2,|
-		if (knti2 = "")
-			{
-				continue
-			}
-		ifinstring,knti1,_
-			{
-				kmpex=
-				if (knti1 = curtxt)
-					{
-						espopext= %knti1%
-						defthm= %ksivi1%
-						guicontrol,,FEEDTA,%ksivi5%
-						guicontrol,,FEEDTB,%ksivi3%
-						ifinstring,ksivi5,:
-							{
-								ksivi5= other
-							}
-						guicontrol,,FECBXD,|%knti1%||%systmfldrs%%cursysthemelist%
-						guicontrol,,FECBXC,|%ksivi1%||%cursysthemelist%%systmfldrs%
-						if (ksivi7 <> "")
-							{
-								ifexist,%ESHOME%\themes\%ksivi7%\
-									{
-										kmpex= %ksivi7%||
-									}
-							}
-						guicontrol,,FECBXA,|%kmpex%%cursysthemelist%
-						guicontrol,,FETXTJ,%ksivi6%
-						guicontrol,,FEDDLG,|other|%ksivi4%||%emuinstpop%
-						guicontrol,,FECBXB,|other|%ksivi2%||%systmfldrs%
-						return
-					}
-			}
-		if (ksivi1 = curtxt)
-			{
-				kmpex=
-				espopext= %knti1%
-				defthm= %ksivi1%
-				guicontrol,,FEEDTA,%ksivi5%
-				guicontrol,,FEEDTB,%ksivi3%
-				ifinstring,ksivi5,:
-					{
-						ksivi5= other
-					}
-				guicontrol,,FECBXD,|%knti1%||%systmfldrs%%cursysthemelist%
-				guicontrol,,FECBXC,|%ksivi1%||%cursysthemelist%%systmfldrs%
-				if (ksivi7 <> "")
-					{
-						ifexist,%ESHOME%\themes\%estheme%\%ksivi7%\
-							{
-								kmpex= %ksivi7%||
-							}
-					}
-				guicontrol,,FECBXA,|%kmpex%%cursysthemelist%
-				guicontrol,,FETXTJ,%ksivi6%
-				guicontrol,,FEDDLG,|other|%ksivi4%||%emuinstpop%
-				guicontrol,,FECBXB,|other|%ksivi2%||%systmfldrs%
-				return
-			}
-	}
-*/	
+
 if (sysfnd = "")
 	{
 		emks=
@@ -66506,21 +66213,14 @@ emks= %kvi3%
 emkx= %kvi4%
 emkr= %kvi6%
 emkt= %kvi1%
-emkn= %kvi7%
+emkn= %kvi1%
 if (emkx = ":")
 	{
 		emkx= .*
 	}
 guicontrol,,FECBXC,|%emks%||%systmfldrs%%cursysthemelist%
 guicontrol,,FECBXD,|%emkt%||%cursysthemelist%
-emky=
-if (emkn <> "")
-	{
-		ifexist,%ESHOME%\themes\%estheme%\%emkn%\
-			{
-				emky= %emkn%
-			}
-	}
+emky= %emkn%||
 
 guicontrol,,FECBXA,|%emky%%cursysthemelist%
 guicontrol,,FEDDLG,|other|%emke%||%emuinstpop%
@@ -66831,13 +66531,7 @@ if (ESCPYSCR = 1)
 Loop, Parse, existlst,|
 	{
 		TOTPTH= %ESROOTFLD%\%A_LoopField%
-/*
-		ifinstring,A_LoopField,:
-			{
-				ESABSOL= 1
-				TOTPTH= %A_LoopField%
-			}
-			*/
+
 		splitpath,TOTPTH,romn,romind,romext,romname,romdd
 		imgetn= %romname%
 		if (ESPLCORE = "Fuzzy-Match")
