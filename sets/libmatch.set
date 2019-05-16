@@ -481,9 +481,10 @@ puae_libretro.dll|Commodore - Amiga CDTV
 px68k_libretro.dll|Sharp - X68000
 quicknes_libretro.dll|Nintendo - Famicom Disk System
 quicknes_libretro.dll|Nintendo - Nintendo Entertainment System
+reicast_wince_libretro.dll|Sega - Dreamcast
 reicast_libretro.dll|Sega - Dreamcast
 reicast_libretro.dll|Sega - NAOMI
-reicast_oit_libretro.dll|Sega - NAOMI
+reicast_wince_libretro.dll|Sega - NAOMI
 scummvm_libretro.dll|ScummVM - ScummVM
 snes9x2002_libretro.dll|Nintendo - Super Nintendo Entertainment System
 snes9x2005_libretro.dll|Nintendo - Super Nintendo Entertainment System

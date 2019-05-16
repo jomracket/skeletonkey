@@ -4548,7 +4548,6 @@ if (SETPORTABLE = 1)
 
 if (locfnd = 1)
 	{
-		TrayTip,Installer,Install RetroArch and any cores you may desire,20,48
 		GuiControl, Choose, TABMENU, 3
 	}
 
@@ -8269,7 +8268,7 @@ ifexist,%GAMSRCS%\AutoBios.set
 						filecopy,%save%,%mame_path%\roms
 						continue
 					}
-				Runwait,"bin\7za.exe e -y "%save%" -O"%biosout%" ",,hide
+				Runwait,"bin\7za.exe" e -y "%save%" -O"%biosout%",,hide
 				if (ERRORLEVEL <> 0)
 					{
 						SB_SetText(" " save " could not be extracted")
@@ -10763,6 +10762,7 @@ Loop, Parse,UrlIndex,`n`r
 							}
 						guicontrol,,EMPRDDL,|%runlist%
 					}
+				
 				if (EMUASIGN = 1)
 						{
 							OVRKND=
@@ -10787,7 +10787,8 @@ Loop, Parse,UrlIndex,`n`r
 												{
 													preEmuCfg.= urloc1 . "|"
 												}
-											guicontrol,,EMPRDDL,|%urloc1%|%runlist%
+											guicontrol,,EMPRDDL,|%urloc1%||%runlist%
+									msgbox,,,emuprt1=%emuprt1%`nurloc1=%urloc1%`nrunlist=%runlist%
 											gosub, EMPRBUTASPLIT
 											iniwrite, "%xtractmu%\%emuxe%",Assignments.ini,ASSIGNMENTS,%OVRKND%
 											break
@@ -11929,6 +11930,7 @@ if (semu = "")
 	}
 
 EMPRLT= %EMPRDDL%|
+
 Loop, parse, ksiv,|
 	{
 		if (A_LoopField = "")
@@ -11952,7 +11954,7 @@ guicontrol,,EMPRLST,|%EMPRLT%
 iniwrite,"%EMPRLT%",Assignments.ini,OVERRIDES,%semu%
 return
 
-EMPRBUTU:
+EMPRBUTU:		
 gui,submit,nohide
 guicontrolget,emprcur,,EMPRLST
 iniread,ksiv,Assignments.ini,OVERRIDES,%semu%
@@ -11992,6 +11994,7 @@ Loop, parse, ksiv,|
 guicontrol,,EMPRLST,|%EMPRLT%
 iniwrite,"%EMPRLT%",Assignments.ini,OVERRIDES,%semu%
 iniwrite,"%emprcur%",Assignments.ini,ASSIGNMENTS,%semu%
+msgbox,,,k
 return
 
 DELCFGPGC:
@@ -13117,7 +13120,6 @@ IniWrite, "%PthSel%",%curcfg%,OPTIONS,%PTHDIR%
 
 if (INITIAL = 1)
 	{
-		TrayTip, skeletonkey, skeletonKey is generating settings`nPlease be patient,999,48
 	}
 return
 
@@ -14813,7 +14815,7 @@ EXELIST= 1
 gosub, STABLE
 EXELIST= 0
 RALIST= 1
-SLCTCORES= 4do_libretro.dll.zip|bluemsx_libretro.dll.zip|desmume_libretro.dll.zip|dosbox_libretro.dll.zip|fbalpha2012_libretro.dll.zip|freeintv_libretro.dll.zip|gambatte_libretro.dll.zip|genesis_plus_gx_libretro.dll.zip|pcsx_rearmed_libretro.dll.zip|handy_libretro.dll.zip|mame_libretro.dll.zip|mednafen_ngp_libretro.dll.zip|mednafen_pce_fast_libretro.dll.zip|mdednafen_pcfx_libretro.dll.zip|mednafen_psx_libretro.dll.zip|mednafen_supergrafx_libretro.dll.zip|mednafen_vb_libretro.dll.zip|mednafen_wswan_libretro.dll.zip|mgba_libretro.dll.zip|nestopia_libretro.dll.zip|parallel_n64_libretro.dll.zip|picodrive_libretro.dll.zip|prosystem_libretro.dll.zip|snes9x_libretro.dll.zip|stella_libretro.dll.zip|virtualjaguar_libretro.dll.zip|crocods_libretro.dll.zip|px68k_libretro.dll.zip|openlara_libretro.dll.zip|atari800_libretro.dll.zip|np2kai_libretro.dll.zip|vice_x64_libretro.dll.zip|vice_xplus4_libretro.dll.zip|vice_xvic_libretro.dll.zip|pokemini_libretro.dll.zip|reicast_libretro.dll.zip|mednafen_saturn_libretro.dll.zip|mu_libretro.dll.zip|theodore_libretro.dll.zip
+SLCTCORES= 4do_libretro.dll.zip|bluemsx_libretro.dll.zip|desmume_libretro.dll.zip|dosbox_libretro.dll.zip|fbalpha2012_libretro.dll.zip|freeintv_libretro.dll.zip|gambatte_libretro.dll.zip|genesis_plus_gx_libretro.dll.zip|pcsx_rearmed_libretro.dll.zip|handy_libretro.dll.zip|mame_libretro.dll.zip|mednafen_ngp_libretro.dll.zip|mednafen_pce_fast_libretro.dll.zip|mdednafen_pcfx_libretro.dll.zip|mednafen_psx_libretro.dll.zip|mednafen_supergrafx_libretro.dll.zip|mednafen_vb_libretro.dll.zip|mednafen_wswan_libretro.dll.zip|mgba_libretro.dll.zip|nestopia_libretro.dll.zip|parallel_n64_libretro.dll.zip|picodrive_libretro.dll.zip|prosystem_libretro.dll.zip|snes9x_libretro.dll.zip|stella_libretro.dll.zip|virtualjaguar_libretro.dll.zip|crocods_libretro.dll.zip|px68k_libretro.dll.zip|openlara_libretro.dll.zip|atari800_libretro.dll.zip|np2kai_libretro.dll.zip|vice_x64_libretro.dll.zip|vice_xplus4_libretro.dll.zip|vice_xvic_libretro.dll.zip|pokemini_libretro.dll.zip|reicast_wince_libretro.dll.zip|reicast_libretro.dll.zip|mednafen_saturn_libretro.dll.zip|mu_libretro.dll.zip|theodore_libretro.dll.zip
 if (ARCH = "64")
 	{
 		SLCTCORES .= "|" . "dolphin_libretro.dll.zip" . "|" . "citra_canary_libretro.dll.zip" . "|" . "kronos_libretro.dll.zip"
@@ -17241,9 +17243,9 @@ if (ccv = "quicknes")
 		corcfgnam= QuickNES
 	    return
     }
-if (ccv = "reicast_OIT")
+if (ccv = "reicast_wince")
 	{
-		corcfgnam= Reicast OIT
+		corcfgnam= Reicast
 	    return
     }
 if (ccv = "reicast")
@@ -17811,11 +17813,11 @@ if (syslk = "PPSSPP")
 		corelk= ppsspp
 	    return
 }
-if (syslk = "Reicast OIT")
+if (syslk = "Reicast WinCE")
 	{
 		ASPOP= Sega - Dreamcast
 		szip= 0
-		corelk= reicast
+		corelk= reicast_wince
 	    return
 }
 if (syslk = "Reicast")
@@ -23061,13 +23063,13 @@ return
 
 
 ;{;;;;; reicast CORE  ;;;;;
+core_reicast_winceDDLA:
 core_reicastDDLA:
-if (ccv = "reicast_OIT")
+if (ccv = "reicast_WinCE")
 	{
-		airv= reicast_OIT
+		airv= reicast_WinCE
 		ccv= reicast
 	}
-core_reicast_OITDDLA:
 guicontrol,,CORERADA,dynamic-recompiler
 guicontrol,,CORERADB,generic-recompiler
 guicontrol,,CORECMBA,|%reicastaudiobuffersize%||1024|2048
@@ -24339,7 +24341,7 @@ return
 
 ;{;;;;;;;; RESET REICAST ;;;;;;;;;;;;
 core_reicastRESET:
-core_reicast_OITRESET:
+core_reicast_WINCERESET:
 reicastCpuMode= dynamicRecompiler
 reicastBootToBios= disabled
 reicastInternalResolution= 640x480
@@ -27289,7 +27291,6 @@ ifexist,%raexeloc%\retroarch.cfg
 	{
 		gosub, IMPRTCFG
 	}
-TrayTip, skeletonkey, skeletonKey is initializing settings`nPlease be patient,999,48
 return
 
 selRaLoc:
@@ -27387,7 +27388,6 @@ if (raexefile = "NOT-FOUND.exe")
 	}
 if (INITIAL = 1)
 	{
-		TrayTip, skeletonkey, skeletonKey is generating settings`nPlease be patient,999,48
 	}
 
 guicontrol,,SKRADISP,%raexeloc%
@@ -38715,6 +38715,7 @@ return
 
 ArchiveSystems:
 gui, submit, nohide
+guicontrol,,ARCCORES,|Emu_Preset||%runlist%
 overrdx:= % (%urlsv%_EULA)
 guicontrol,,ENHAK,0
 guicontrol,hide,sortoverride
@@ -41301,7 +41302,12 @@ if (SK_MODE = 1)
 				svgbrnv=
 				guicontrol,enable,OPNCORE
 				EMUSN= %nicktstk%
-				goto, %EMUSN%_GUI
+				guito= %nicktstk%
+				ifnotinstring,supgui,%guito%
+					{
+						guito= unimp
+					}
+				goto, %guito%_GUI
 			}
 	}
 
@@ -42199,1090 +42205,7 @@ gosub, initEmuOpts
 gosub, RAOPTPOP
 return
 
-1964_GUI:
-gosub, initEmuOpts
-return
-3doplay_GUI:
-gosub, initEmuOpts
-return
-archie_GUI:
-gosub, initEmuOpts
-return
-3DNes_GUI:
-gosub, initEmuOpts
-return
-aprnes_GUI:
-gosub, initEmuOpts
-return
-arcem_GUI:
-gosub, initEmuOpts
-return
-alice32_GUI:
-gosub, initEmuOpts
-return
-apple1_GUI:
-gosub, initEmuOpts
-return
-apfemu_GUI:
-gosub, initEmuOpts
-return
-Arnimedes_GUI:
-gosub, initEmuOpts
-return
-ex68_GUI:
-gosub, initEmuOpts
-return
-zmz_GUI:
-gosub, initEmuOpts
-return
-AdviEmulator_GUI:
-gosub, initEmuOpts
-return
-4DO_GUI:
-gosub, initEmuOpts
-return
-ActiveGS_GUI:
-gosub, initEmuOpts
-return
-Altirra_GUI:
-gosub, initEmuOpts
-return
-AdriPSX_GUI:
-gosub, initEmuOpts
-return
-Anex86_GUI:
-gosub, initEmuOpts
-return
-AppleWin_GUI:
-gosub, initEmuOpts
-return
-Arculator_GUI:
-gosub, initEmuOpts
-return
-Atari800_GUI:
-gosub, initEmuOpts
-return
-Atari800win_GUI:
-gosub, initEmuOpts
-return
-BeebEm_GUI:
-gosub, initEmuOpts
-return
-Bizhawk_GUI:
-gosub, initEmuOpts
-return
-pcae_GUI:
-gosub, initEmuOpts
-return
-rainbow_GUI:
-gosub, initEmuOpts
-return
-sainT_GUI:
-gosub, initEmuOpts
-return
-bws_GUI:
-gosub, initEmuOpts
-return
-dcmicrocolor_GUI:
-gosub, initEmuOpts
-return
-DCAlice_GUI:
-gosub, initEmuOpts
-return
-wataroo_GUI:
-gosub, initEmuOpts
-return
-mtxemu_GUI:
-gosub, initEmuOpts
-return
-speccy_GUI:
-gosub, initEmuOpts
-return
-ultimo_GUI:
-gosub, initEmuOpts
-return
-oswan_GUI:
-gosub, initEmuOpts
-return
-ASCD_GUI:
-gosub, initEmuOpts
-return
-Bliss_GUI:
-gosub, initEmuOpts
-return
-BlueMSX_GUI:
-gosub, initEmuOpts
-return
-CD-I_GUI:
-gosub, initEmuOpts
-return
-CEMU_GUI:
-gosub, initEmuOpts
-return
-Citra_GUI:
-gosub, initEmuOpts
-return
-Colem_GUI:
-gosub, initEmuOpts
-return
-Cxbx_GUI:
-gosub, initEmuOpts
-return
-DOSBox_GUI:
-gosub, initEmuOpts
-return
-Demul_GUI:
-gosub, initEmuOpts
-return
-DesMume_GUI:
-gosub, initEmuOpts
-return
-Dolphin_GUI:
-gosub, initEmuOpts
-return
-DosPlus_GUI:
-gosub, initEmuOpts
-return
-EMU7800_GUI:
-gosub, initEmuOpts
-return
-ElectrEm_GUI:
-gosub, initEmuOpts
-return
-FMBochs_GUI:
-gosub, initEmuOpts
-return
-FMBocks_GUI:
-gosub, initEmuOpts
-return
-FS-UAE_GUI:
-gosub, initEmuOpts
-return
-FinalBurnAlpha_GUI:
-gosub, initEmuOpts
-return
-FishNChips_GUI:
-gosub, initEmuOpts
-return
-Fusion_GUI:
-gosub, initEmuOpts
-return
-funnymu_GUI:
-gosub, initEmuOpts
-return
-Ishiiruka_GUI:
-gosub, initEmuOpts
-return
-Kegs32_GUI:
-gosub, initEmuOpts
-return
-medusa_GUI:
-gosub, initEmuOpts
-return
-Mesen_GUI:
-gosub, initEmuOpts
-return
-Mess_GUI:
-gosub, initEmuOpts
-return
-minimon_GUI:
-gosub, initEmuOpts
-return
-Neko_GUI:
-gosub, initEmuOpts
-return
-NeoRaine_GUI:
-gosub, initEmuOpts
-return
-No$GBA_GUI:
-gosub, initEmuOpts
-return
-Nostalgia_GUI:
-gosub, initEmuOpts
-return
-NullDC_GUI:
-gosub, initEmuOpts
-return
-Ootake_GUI:
-gosub, initEmuOpts
-return
-Oricutron_GUI:
-gosub, initEmuOpts
-return
-PC6001VW_GUI:
-gosub, initEmuOpts
-return
-PC6001VX_GUI:
-gosub, initEmuOpts
-return
-PPSSPP_GUI:
-gosub, initEmuOpts
-return
-ParaJVE_GUI:
-gosub, initEmuOpts
-return
-Pcsx2_GUI:
-gosub, initEmuOpts
-return
-PicoDrive_GUI:
-gosub, initEmuOpts
-return
-ProSystem_GUI:
-gosub, initEmuOpts
-return
-Project64_GUI:
-gosub, initEmuOpts
-return
-ProjectTempest_GUI:
-gosub, initEmuOpts
-return
-SL9821_GUI:
-gosub, initEmuOpts
-return
-SNESGT_GUI:
-gosub, initEmuOpts
-return
-SSF_GUI:
-gosub, initEmuOpts
-return
-SimCoupe_GUI:
-gosub, initEmuOpts
-return
-Stella_GUI:
-gosub, initEmuOpts
-return
-Supermodel_GUI:
-gosub, initEmuOpts
-return
-Unz_GUI:
-gosub, initEmuOpts
-return
-SWFOpener_GUI:
-gosub, initEmuOpts
-return
-VirtuaNes_GUI:
-gosub, initEmuOpts
-return
-VisualBoyAdvance_GUI:
-gosub, initEmuOpts
-return
-VisualBoyAdvance-M_GUI:
-gosub, initEmuOpts
-return
-vita3k_GUI:
-gosub, initEmuOpts
-return
-WinAPE_GUI:
-gosub, initEmuOpts
-return
-WinArcadia_GUI:
-gosub, initEmuOpts
-return
-WinKawaks_GUI:
-gosub, initEmuOpts
-return
-aes4all_GUI:
-gosub, initEmuOpts
-return
-WinUAE_GUI:
-gosub, initEmuOpts
-return
-WinVICE_GUI:
-gosub, initEmuOpts
-return
-WinX68k_GUI:
-gosub, initEmuOpts
-return
-X1turbo_GUI:
-gosub, initEmuOpts
-return
-XM6_GUI:
-gosub, initEmuOpts
-return
-XM7_GUI:
-gosub, initEmuOpts
-return
-dcexel_GUI:
-gosub, initEmuOpts
-return
-Xroar_GUI:
-gosub, initEmuOpts
-return
-ep32_GUI:
-gosub, initEmuOpts
-return
-enter_GUI:
-gosub, initEmuOpts
-return
-ep128emu_GUI:
-gosub, initEmuOpts
-return
-tunix_GUI:
-gosub, initEmuOpts
-return
-Yabause_GUI:
-gosub, initEmuOpts
-return
-ZXSpin_GUI:
-gosub, initEmuOpts
-return
-Zsnes_GUI:
-gosub, initEmuOpts
-return
-ace_GUI:
-gosub, initEmuOpts
-return
-virtu_GUI:
-gosub, initEmuOpts
-return
-apemuw_GUI:
-gosub, initEmuOpts
-return
-aqemu_GUI:
-gosub, initEmuOpts
-return
-aipc_GUI:
-gosub, initEmuOpts
-return
-bem_GUI:
-gosub, initEmuOpts
-return
-modelb_GUI:
-gosub, initEmuOpts
-return
-joyce_GUI:
-gosub, initEmuOpts
-return
-faux1_GUI:
-gosub, initEmuOpts
-return
-arnold_GUI:
-gosub, initEmuOpts
-return
-atari++_GUI:
-gosub, initEmuOpts
-return
-atari800winplus_GUI:
-gosub, initEmuOpts
-return
-atom_GUI:
-gosub, initEmuOpts
-return
-atomulator_GUI:
-gosub, initEmuOpts
-return
-bgb_GUI:
-gosub, initEmuOpts
-return
-blastem_GUI:
-gosub, initEmuOpts
-return
-boycottadv_GUI:
-gosub, initEmuOpts
-return
-bsnes_GUI:
-gosub, initEmuOpts
-return
-calice_GUI:
-gosub, initEmuOpts
-return
-callus_GUI:
-gosub, initEmuOpts
-return
-ccs31_GUI:
-gosub, initEmuOpts
-return
-kcemu_GUI:
-gosub, initEmuOpts
-return
-dcvg5k_GUI:
-gosub, initEmuOpts
-return
-chankast_GUI:
-gosub, initEmuOpts
-return
-colecovision_GUI:
-gosub, initEmuOpts
-return
-comeback64_GUI:
-gosub, initEmuOpts
-return
-cpce_GUI:
-gosub, initEmuOpts
-return
-cps3emulator_GUI:
-gosub, initEmuOpts
-return
-creativisionemulator_GUI:
-gosub, initEmuOpts
-return
-dega_GUI:
-gosub, initEmuOpts
-return
-lisa_GUI:
-gosub, initEmuOpts
-return
-o2em_GUI:
-gosub, initEmuOpts
-return
-realityboy_GUI:
-gosub, initEmuOpts
-return
-vbjin_GUI:
-gosub, initEmuOpts
-return
-kindred_GUI:
-gosub, initEmuOpts
-return
-neusnem_GUI:
-gosub, initEmuOpts
-return
-pokemini_GUI:
-gosub, initEmuOpts
-return
-vpanajr_GUI:
-gosub, initEmuOpts
-return
-lisaem_GUI:
-gosub, initEmuOpts
-return
-dgen_GUI:
-gosub, initEmuOpts
-return
-minivmac_GUI:
-gosub, initEmuOpts
-return
-pcemacplus_GUI:
-gosub, initEmuOpts
-return
-gemulator_GUI:
-gosub, initEmuOpts
-return
-dinoboy_GUI:
-gosub, initEmuOpts
-return
-directvms_GUI:
-gosub, initEmuOpts
-return
-dmgboy_GUI:
-gosub, initEmuOpts
-return
-dream64_GUI:
-gosub, initEmuOpts
-return
-ePSXe_GUI:
-gosub, initEmuOpts
-return
-eightyone_GUI:
-gosub, initEmuOpts
-return
-elkulator_GUI:
-gosub, initEmuOpts
-return
-em7_GUI:
-gosub, initEmuOpts
-return
-elf_GUI:
-gosub, initEmuOpts
-return
-winfellow_GUI:
-gosub, initEmuOpts
-return
-c4pc_GUI:
-gosub, initEmuOpts
-return
-SIMH_GUI:
-gosub, initEmuOpts
-return
-emma02_GUI:
-gosub, initEmuOpts
-return
-nanowasp_GUI:
-gosub, initEmuOpts
-return
-ubee512_GUI:
-gosub, initEmuOpts
-return
-sheepshaver_GUI:
-gosub, initEmuOpts
-return
-emu64_GUI:
-gosub, initEmuOpts
-return
-dreamvmu_GUI:
-gosub, initEmuOpts
-return
-emukon_GUI:
-gosub, initEmuOpts
-return
-euphoric_GUI:
-gosub, initEmuOpts
-return
-fceux_GUI:
-gosub, initEmuOpts
-return
-firegb_GUI:
-gosub, initEmuOpts
-return
-fm77_GUI:
-gosub, initEmuOpts
-return
-fm77av40_GUI:
-gosub, initEmuOpts
-return
-fm77av40ex_GUI:
-gosub, initEmuOpts
-return
-fm77av_GUI:
-gosub, initEmuOpts
-return
-fm7_GUI:
-gosub, initEmuOpts
-return
-fm8_GUI:
-gosub, initEmuOpts
-return
-fmsx_GUI:
-gosub, initEmuOpts
-return
-freedo_GUI:
-gosub, initEmuOpts
-return
-frodo_GUI:
-gosub, initEmuOpts
-return
-gSport_GUI:
-gosub, initEmuOpts
-return
-gamecomemu_GUI:
-gosub, initEmuOpts
-return
-gamegear_GUI:
-gosub, initEmuOpts
-return
-gbeplus_GUI:
-gosub, initEmuOpts
-return
-gearsystem_GUI:
-gosub, initEmuOpts
-return
-genesisplus_GUI:
-gosub, initEmuOpts
-return
-gens_GUI:
-gosub, initEmuOpts
-return
-gensgs_GUI:
-gosub, initEmuOpts
-return
-gensplus_GUI:
-gosub, initEmuOpts
-return
-gest_GUI:
-gosub, initEmuOpts
-return
-hatari_GUI:
-gosub, initEmuOpts
-return
-horizon_GUI:
-gosub, initEmuOpts
-return
-hoxs64_GUI:
-gosub, initEmuOpts
-return
-hugo_GUI:
-gosub, initEmuOpts
-return
-calcem_GUI:
-gosub, initEmuOpts
-return
-pkemu_GUI:
-gosub, initEmuOpts
-return
-pk201_GUI:
-gosub, initEmuOpts
-return
-cpspemu_GUI:
-gosub, initEmuOpts
-return
-Play_GUI:
-gosub, initEmuOpts
-return
-modeller_GUI:
-gosub, initEmuOpts
-return
-exodus_GUI:
-gosub, initEmuOpts
-return
-hpsx_GUI:
-gosub, initEmuOpts
-return
-Makaron_GUI:
-gosub, initEmuOpts
-return
-cogwheel_GUI:
-gosub, initEmuOpts
-return
-vdmgr_GUI:
-gosub, initEmuOpts
-return
-psxjin_GUI:
-gosub, initEmuOpts
-return
-pcsp_GUI:
-gosub, initEmuOpts
-return
-dcmo5_GUI:
-gosub, initEmuOpts
-return
-pmd85_GUI:
-gosub, initEmuOpts
-return
-zinc_GUI:
-gosub, initEmuOpts
-return
-daphne_GUI:
-gosub, initEmuOpts
-return
-classic99_GUI:
-gosub, initEmuOpts
-return
-ti994w_GUI:
-gosub, initEmuOpts
-return
-win994a_GUI:
-gosub, initEmuOpts
-return
-tilem_GUI:
-gosub, initEmuOpts
-return
-dcmoto_GUI:
-gosub, initEmuOpts
-return
-coolcv_GUI:
-gosub, initEmuOpts
-return
-winTVC_GUI:
-gosub, initEmuOpts
-return
-emu_GUI:
-gosub, initEmuOpts
-return
-hyper64_GUI:
-gosub, initEmuOpts
-return
-ideas_GUI:
-gosub, initEmuOpts
-return
-intv_GUI:
-gosub, initEmuOpts
-return
-jagulator_GUI:
-gosub, initEmuOpts
-return
-javacpc_GUI:
-gosub, initEmuOpts
-return
-jpcsp_GUI:
-gosub, initEmuOpts
-return
-nucleus_GUI:
-gosub, initEmuOpts
-return
-jr100_GUI:
-gosub, initEmuOpts
-return
-jum52_GUI:
-gosub, initEmuOpts
-return
-jvz200_GUI:
-gosub, initEmuOpts
-return
-jynx_GUI:
-gosub, initEmuOpts
-return
-jzintv_GUI:
-gosub, initEmuOpts
-return
-dsp_GUI:
-gosub, initEmuOpts
-return
-kat5200_GUI:
-gosub, initEmuOpts
-return
-kegs_GUI:
-gosub, initEmuOpts
-return
-kigb_GUI:
-gosub, initEmuOpts
-return
-koleko_GUI:
-gosub, initEmuOpts
-return
-m2emulator_GUI:
-gosub, initEmuOpts
-return
-m5_GUI:
-gosub, initEmuOpts
-return
-m88_GUI:
-gosub, initEmuOpts
-return
-macmini_GUI:
-gosub, initEmuOpts
-return
-mastersystem_GUI:
-gosub, initEmuOpts
-return
-meka_GUI:
-gosub, initEmuOpts
-return
-melonDS_GUI:
-gosub, initEmuOpts
-return
-mesadx_GUI:
-gosub, initEmuOpts
-return
-mgba_GUI:
-gosub, initEmuOpts
-return
-micro64_GUI:
-gosub, initEmuOpts
-return
-msx1_GUI:
-gosub, initEmuOpts
-return
-msx2_GUI:
-gosub, initEmuOpts
-return
-msx2p_GUI:
-gosub, initEmuOpts
-return
-mupen64plus_GUI:
-gosub, initEmuOpts
-return
-mupen64plusplus_GUI:
-gosub, initEmuOpts
-return
-mx88_GUI:
-gosub, initEmuOpts
-return
-mzxx_GUI:
-gosub, initEmuOpts
-return
-mz700_GUI:
-gosub, initEmuOpts
-return
-mz700win_GUI:
-gosub, initEmuOpts
-return
-mz800_GUI:
-gosub, initEmuOpts
-return
-nebula_GUI:
-gosub, initEmuOpts
-return
-neocd_GUI:
-gosub, initEmuOpts
-return
-neopop_GUI:
-gosub, initEmuOpts
-return
-nestopia_GUI:
-gosub, initEmuOpts
-return
-next_GUI:
-gosub, initEmuOpts
-return
-no$2k6_GUI:
-gosub, initEmuOpts
-return
-no$c64_GUI:
-gosub, initEmuOpts
-return
-no$cpc_GUI:
-gosub, initEmuOpts
-return
-no$gmb_GUI:
-gosub, initEmuOpts
-return
-no$msx_GUI:
-gosub, initEmuOpts
-return
-no$nes_GUI:
-gosub, initEmuOpts
-return
-no$psx_GUI:
-gosub, initEmuOpts
-return
-no$sns_GUI:
-gosub, initEmuOpts
-return
-no$zx_GUI:
-gosub, initEmuOpts
-return
-nova_GUI:
-gosub, initEmuOpts
-return
-openmsx_GUI:
-gosub, initEmuOpts
-return
-osmose_GUI:
-gosub, initEmuOpts
-return
-pc6001_GUI:
-gosub, initEmuOpts
-return
-pc6001mk2_GUI:
-gosub, initEmuOpts
-return
-pc6001mk2sr_GUI:
-gosub, initEmuOpts
-return
-pc6601_GUI:
-gosub, initEmuOpts
-return
-pc6601sr_GUI:
-gosub, initEmuOpts
-return
-pc8001mk2sr_GUI:
-gosub, initEmuOpts
-return
-pc8201_GUI:
-gosub, initEmuOpts
-return
-pc8201a_GUI:
-gosub, initEmuOpts
-return
-pc8801ma_GUI:
-gosub, initEmuOpts
-return
-pc9801_GUI:
-gosub, initEmuOpts
-return
-pc9801e_GUI:
-gosub, initEmuOpts
-return
-pc9801u_GUI:
-gosub, initEmuOpts
-return
-pc9801vf_GUI:
-gosub, initEmuOpts
-return
-pc9801vm_GUI:
-gosub, initEmuOpts
-return
-pc98do_GUI:
-gosub, initEmuOpts
-return
-pc98ha_GUI:
-gosub, initEmuOpts
-return
-pc98lt_GUI:
-gosub, initEmuOpts
-return
-pcengine_GUI:
-gosub, initEmuOpts
-return
-pcsxr_GUI:
-gosub, initEmuOpts
-return
-phoenix_GUI:
-gosub, initEmuOpts
-return
-potator_GUI:
-gosub, initEmuOpts
-return
-project64k_GUI:
-gosub, initEmuOpts
-return
-psxfin_GUI:
-gosub, initEmuOpts
-return
-pv1000_GUI:
-gosub, initEmuOpts
-return
-pv2000_GUI:
-gosub, initEmuOpts
-return
-ql2k_GUI:
-gosub, initEmuOpts
-return
-dchector_GUI:
-gosub, initEmuOpts
-return
-virtualinteract_GUI:
-gosub, initEmuOpts
-return
-vecxgl_GUI:
-gosub, initEmuOpts
-return
-infovectrex_GUI:
-gosub, initEmuOpts
-return
-raine_GUI:
-gosub, initEmuOpts
-return
-rascalboyadv_GUI:
-gosub, initEmuOpts
-return
-redream_GUI:
-gosub, initEmuOpts
-return
-redsquirrel_GUI:
-gosub, initEmuOpts
-return
-regen_GUI:
-gosub, initEmuOpts
-return
-rpcemu_GUI:
-gosub, initEmuOpts
-return
-rpcs3_GUI:
-gosub, initEmuOpts
-return
-sc3000_GUI:
-gosub, initEmuOpts
-return
-scummvm_GUI:
-gosub, initEmuOpts
-return
-scv_GUI:
-gosub, initEmuOpts
-return
-streetsofrageremake_GUI:
-gosub, initEmuOpts
-return
-sharpchip8_GUI:
-gosub, initEmuOpts
-return
-softvms_GUI:
-gosub, initEmuOpts
-return
-galaxywin_GUI:
-gosub, initEmuOpts
-return
-sorcerer_GUI:
-gosub, initEmuOpts
-return
-steem_GUI:
-gosub, initEmuOpts
-return
-stem_GUI:
-gosub, initEmuOpts
-return
-geepee32_GUI:
-gosub, initEmuOpts
-return
-sugarbox_GUI:
-gosub, initEmuOpts
-return
-supergcube_GUI:
-gosub, initEmuOpts
-return
-tgbdual_GUI:
-gosub, initEmuOpts
-return
-tronds_GUI:
-gosub, initEmuOpts
-return
-TypeXtra_GUI:
-gosub, initEmuOpts
-return
-twombit_GUI:
-gosub, initEmuOpts
-return
-vace3d_GUI:
-gosub, initEmuOpts
-return
-vace_GUI:
-gosub, initEmuOpts
-return
-vaeg_GUI:
-gosub, initEmuOpts
-return
-vaquarius_GUI:
-gosub, initEmuOpts
-return
-vb64_GUI:
-gosub, initEmuOpts
-return
-vgb_GUI:
-gosub, initEmuOpts
-return
-vgba_GUI:
-gosub, initEmuOpts
-return
-cxbxreloaded_GUI:
-gosub, initEmuOpts
-return
-ryujinx_GUI:
-gosub, initEmuOpts
-return
-virtualapf_GUI:
-gosub, initEmuOpts
-return
-virtualjaguar_GUI:
-gosub, initEmuOpts
-return
-virtuanesplus_GUI:
-gosub, initEmuOpts
-return
-wincpc_GUI:
-gosub, initEmuOpts
-return
-winvz300_GUI:
-gosub, initEmuOpts
-return
-x1_GUI:
-gosub, initEmuOpts
-return
-ncdz_GUI:
-gosub, initEmuOpts
-return
-ngae_GUI:
-gosub, initEmuOpts
-return
-race!_GUI:
-gosub, initEmuOpts
-return
-neopopcott_GUI:
-gosub, initEmuOpts
-return
-koyote_GUI:
-gosub, initEmuOpts
-return
-x1twin_GUI:
-gosub, initEmuOpts
-return
-x86Box_GUI:
-gosub, initEmuOpts
-return
-x88_GUI:
-gosub, initEmuOpts
-return
-xe_GUI:
-gosub, initEmuOpts
-return
-xebra_GUI:
-gosub, initEmuOpts
-return
-yape_GUI:
-gosub, initEmuOpts
-return
-yuzu_GUI:
-gosub, initEmuOpts
-return
-z26_GUI:
-gosub, initEmuOpts
-return
-zboy_GUI:
-gosub, initEmuOpts
-return
-zesarux_GUI:
-gosub, initEmuOpts
-return
-M71_GUI:
+unimp_GUI:
 gosub, initEmuOpts
 return
 
@@ -51828,6 +50751,15 @@ mameopts:= RegExReplace(mameopts, "m)^\Q"  "samplerate \E.*", "samplerate " MAME
 gosub, MameRew
 return
 
+MAMEEDTC:
+MAMEEDTD:
+MAMEEDTE:
+MAMEEDTF:
+MAMEEDTG:
+MAMEEDTH:
+MAMEEDTI:
+return
+
 MAMEEDTA:
 gui,submit,nohide
 guicontrolget,emuDDLA,,emuDDLA
@@ -52569,6 +51501,19 @@ if (RJMAMENM = "nes")
 				return
 			}
 	}
+if (RJMAMENM = "wscolor")
+	{
+		ifnotinstring,curmameINPT,BUTTONS
+			{
+				ifnotinstring,curmameINPT,CURS
+					{
+						emjtog= hide
+						gosub,EMJTOG
+						guicontrol,show,emjDDLF
+						return					
+					}
+			}
+	}
 if (RJMAMENM = "megadriv")
 	{
 		ifnotinstring,curmameINPT,pad
@@ -52834,9 +51779,6 @@ MameSwapCGRP=
 MameSwapDGRP=
 gosub, MameSwap
 return
-return
-
-
 
 MAMEgamegearJOY:
 MAMEgamegearjJOY:
@@ -53772,17 +52714,17 @@ MAMEwswanJOY:
 if (curmameINPT = "")
 	{
 		guicontrol,,emjDDLF,|INPUTS||
-		curmameINPT= INPUTS
+		curmameINPT= BUTTONS
 	}
 guicontrol,,emjDDLB,|1||
 
-supinp= INPUTS
+supinp= BUTTONS|CURSX|CURSY
 
-mameswapB= a
-mameswapA= b
+mameswapB= _BUTTON1
+mameswapA= _BUTTON2
 mameswapX=
 mameswapY=
-mameswapStart= _START
+mameswapStart= START1
 mameswapSelect=
 mameswapDown= _JOYSTICK_DOWN
 mameswapUp= _JOYSTICK_UP
@@ -77107,6 +76049,11 @@ gosub, TOGSKELRUN
 srchtog= hide
 gosub, TOGGLESEARCHBOX
 emutog= show
+guito= %EMUSN%
+ifnotinstring,supgui,%guito%
+	{
+		guito= unimp
+	}
 goto, %EMUSN%_GUI
 return
 

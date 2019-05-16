@@ -22,7 +22,6 @@ Gui, Add, Button, x61 y89 w62 h17 gSETEMUD, BROWSE
 Gui Add, Button, x190 y163 w80 h23 vCONTINUE gCONTINUE, CONTINUE
 Gui,Font, Normal
 Gui Add, Text, x10 y168 w120 h13, Drag'n Drop supported
-TrayTip, skeletonKey, Welcome to skeletonKey`nPlease take a moment to setup your locations,,48
 Gui, Show, w274 h188, Window
 guicontrolget,RJEMUF,,intrmemu
 guicontrolget,RJSYSTEMS,,intrmsys

@@ -4212,7 +4212,7 @@ MAME?RJEMUOPTS=<dc -cdrm<|<dcjp -cdrm<|<dceu -cdrm<|<dc -cdrm<
 RJZIPPEEK=0
 SHORTNM=SDREAM
 SUPEMU=Demul|NullDC|chankast|reicast|redream|Makaron
-SUPCORE=reicast_libretro.dll|reicast_oit_libretro.dll|redream_libretro.dll
+SUPCORE=reicast_libretro.dll|reicast_wince_libretro.dll|redream_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=dreamcast
 
