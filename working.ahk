@@ -409,22 +409,22 @@ if (ArcSiteN = "")
 */
 IniRead,ArcSRCv,%ARCORG%,SOURCES,
 srcfnd=
-Loop,Parse,Arcsrcv,`n`r
+Loop,Parse,ArcSRCv,`n`r
 	{
 		if (A_Loopfield = "")
 			{
 				continue
 			}
-		srcfnd=	
-		stringsplit,ARCSRCx,A_LoopField,:=,"
+		srcfnd+=1	
+		stringsplit,SRCx,A_LoopField,:=,"
 		;"
 		if (srcfnd = 1)
 			{
-				ARCSRCb= %ARCSRCx1%
+				ARCSRCb= %SRCx1%
 			}
-		ifnotinstring,ARCSRCS,%ARCSRCx1%
+		ifnotinstring,ARCSRCS,%SRCx1%
 			{
-				ARCSRCS.= ARCSRCx1 . "|"
+				ARCSRCS.= SRCx1 . "|"
 			}
 	}
 Loop,gam\*,2
@@ -432,7 +432,11 @@ Loop,gam\*,2
 		ifinstring,ARCSRCS,%A_LoopFilename%
 			{
 				continue
-			}	
+			}
+		if (A_Index = 1)
+			{
+				ARCSRCb= %A_LoopFileName
+			}
 		ARCSRCS.= A_LoopFileName . "|"
 	}
 iniread,ARCSRCv,Settings.ini,GLOBAL,RemoteRepository	
@@ -3368,6 +3372,7 @@ Gui, Add, ComboBox, x218 y78 w123 vCUSTMARG gCustmArg hidden,|
 Gui, Add, CheckBox, x26 y75 w61 h17 vCUSTSWITCH gCustSwitch, switches
 
 Gui, Add, Checkbox, x28 y240 h13 vALTURL gEnableAltUrl %ARCURLE%, Enable Login
+msgbox,,,%ArcSRC%
 Gui, Add, DropDownlist, x28 y258 w225 vUrlTxt gREPOUrlEdt, %ArcSRC%||%ARCSRCS%Add Repository
 Gui, Add, Button, x266 y259 h18 vALTURLGET gALTURLGET,Download
 Gui, Add, Edit, x24 y215 w159 h21 vARCLOGIN gArcLogin %ARCURLCK%,%ARC_USER%
