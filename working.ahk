@@ -1299,10 +1299,13 @@ xmbShowSettings= true
 xmbVerticalThumbnails= 0
 xmbShowVideo= true
 xmbTheme= 0
+ASSETS= Assets
+
 buildBotCore=http://buildbot.libretro.com
 BLDBOT= http://buildbot.libretro.com/nightly/windows/x86%ARCHR%
 imgrepo= http://raw.githubusercontent.com/libretro/libretro-thumbnails/master
-ASSETS= Assets
+SHADERHOST= http://raw.githubusercontent.com/libretro/shader-previews/master/
+curlobby= http://newlobby.libretro.com/list
 
 if (INITIAL = 1)
 	{
@@ -4853,7 +4856,6 @@ if (shdprvsz < 20)
 	}
 IfNotExist,%assetsDirectory%\shaderPreviews\%shaderpth%\%shadername%.png
 			{
-				IniRead,shaderHost,%ARCORG%,GLOBAL,SHADERHOST
 				URLDownloadToFile,%shaderHost%\%shaderpth%/%shadername%.png,%assetsDirectory%\shaderPreviews\%shaderpth%\%shadername%.png
 			}
 ifnotexist,%assetsDirectory%\shaderPreviews\%shaderpth%\%shadername%.png
@@ -33162,7 +33164,7 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 NewLobby:
-IniRead,curlobby,%ARCORG%,GLOBAL,LOBBY
+;;IniRead,curlobby,%ARCORG%,GLOBAL,LOBBY
 ;;FileReadLine,curlobby,arcorg.set,3
 URLDownloadToFile,%curlobby%,%A_ScriptDir%\lobby.ini
 if ErrorLevel = 1

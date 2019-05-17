@@ -13,10 +13,6 @@ if (A_Is64bitOS	= 0)
 	{
 		ARCH= 32
 	}
-;;BLDTOOLS= https://raw.githubusercontent.com/romjacket/BuildTools/master/BuildTools-%ARCH%.7z
-;;NOTEPADL= https://raw.githubusercontent.com/romjacket/Notepad_PlusPlus/master/Notepad_PlusPlus.7z
-;;save= %cacheloc%\BuildTools-%ARCH%.7z
-;;npsave= %cacheloc%\Notepad_PlusPlus.7z
 
 optionONE= %1%
 optionTWO= %2%
@@ -50,9 +46,7 @@ ifinstring,optionONE,-reset
 			}
 		cntrst= 1	
 		GITROOT=
-		SITEURL=
 		BUILDIR=
-		BUILDW=
 		SKELD=
 		AHKDIR=
 		DEPL=
@@ -60,14 +54,12 @@ ifinstring,optionONE,-reset
 		GITAPP=
 		GITD=
 		SITEDIR=
-		SHDRPURL=
 		GETIPADR=
-		NLOB=
 		REPOURL=
 		UPDTURL=
 		GITSRC=
 		GITRLS=
-		NPPR=
+		SCITL=
 		ifmsgbox,No
 			{
 				GITPASS= 
@@ -83,17 +75,6 @@ Loop, %save%
 		if (A_LoopFileSizeMB < 30)
 			{
 				filedelete, %save%
-			}
-	}
-ifnotexist, skopt.cfg
-	{
-		ifexist, %save%
-			{
-				MsgBox,3,BuildTools-%ARCH%,Would you like to keep the build-tools in your temp directory?`nIt will be redownloaded if needed.
-				ifmsgbox, No
-					{
-						filedelete, %save%
-					}
 			}
 	}
 ProgramFilesX86 := A_ProgramFiles . (A_PtrSize=8 ? " (x86)" : "")
@@ -151,21 +132,19 @@ nsitmp= %A_MyDocuments%\NSIS
 nstmp= %A_MyDocuments%\NSIS\makensis.exe
 
 npptmp= %A_MyDocuments%
-ifexist, %A_ProgramFiles%\Notepad++
+ifexist, %A_ProgramFiles%\AutoHotkey\SciTE\SciTE.exe
 	{
-		npptmp= %A_ProgramFiles%\Notepad++
+		npptmp= %A_ProgramFiles%\AutoHotkey\SciTE\SciTE.exe
 	}
-ifexist, %A_ProgramFilesx86%\Notepad++
+ifexist, %A_ProgramFilesx86%\AutoHotkey\SciTE\SciTE.exe
 	{
-		npptmp= %A_ProgramFiles%\Notepad++
+		npptmp= %A_ProgramFiles%\AutoHotkey\SciTE\SciTE.exe
 	}
 iniread,REPOURLX,sets\arcorg.set,GLOBAL,HOSTINGURL
-;;FileReadline,REPOURLX,sets\arcorg.set,2
 if (REPOURLX <> "")
 	{
 		REPORULT= %REPOURLX%
 	}
-			
 FormatTime, date, YYYY_MM_DD, yyyy-MM-dd
 FormatTime, TimeString,,Time
 rntp= hide
@@ -183,7 +162,6 @@ if ("%1%" = "show")
 	{
 		rntp= max
 	}
-
 IfNotExist, skopt.cfg
 	{
 		INIT= 1
@@ -203,386 +181,287 @@ IfNotExist, skopt.cfg
 					}
 				goto, READSKOPT
 			}
-			
-		gosub, SelDXB
 	}
-	
+
 READSKOPT:	
 Loop, Read, skopt.cfg
 	{
 		curvl1= 
 		curvl2= 
 		stringsplit, curvl, A_LoopReadLine,=
-		if (curvl1 = "Git_Root")
-				{
-					if (curvl2 <> "")
-						{
-							GITROOT= %curvl2%
-						}
-				}
-		if (curvl1 = "Build_Directory")
-			{
-				if (curvl2 <> "")
-					{
-						BUILDIR= %curvl2%
-					}
-			}
-		if (curvl1 = "Working_file")
-			{
-				if (curvl2 <> "")
-					{
-						BUILDW= %curvl2%
-					}
-			}
-		if (curvl1 = "Source_Directory")
-			{
-				if (curvl2 <> "")
-					{
-						SKELD= %curvl2%
-					}
-			}
-		if (curvl1 = "Compiler_Directory")
-			{
-				if (curvl2 <> "")
-					{
-						AHKDIR= %curvl2%
-					}
-			}
-		if (curvl1 = "Deployment_Directory")
-			{
-				if (curvl2 <> "")
-					{
-						DEPL= %curvl2%
-					}
-			}
-		if (curvl1 = "NSIS")
-				{
-					if (curvl2 <> "")
-						{
-							NSIS= %curvl2%
-						}
-				}
-		if (curvl1 = "Git_app")
-				{
-					if (curvl2 <> "")
-						{
-							GITAPP= %curvl2%
-							splitpath,GITAPP,,GITAPPT
-						}
-				}
-		if (curvl1 = "Project_Directory")
-					{
-						if (curvl2 <> "")
-							{
-								GITD= %curvl2%
-							}
-					}
-		if (curvl1 = "Site_URL")
-					{
-						if (curvl2 <> "")
-							{
-								SITEURL= %curvl2%
-							}
-					}
-		if (curvl1 = "Site_Directory")
-					{
-						if (curvl2 <> "")
-							{
-								SITEDIR= %curvl2%
-							}
-					}
-		if (curvl1 = "shader_url")
-				{
-					if (curvl2 <> "")
-						{
-							SHDRPURL= %curvl2%
-						}
-				}
-		if (curvl1 = "net_ip")
-				{
-					if (curvl2 <> "")
-						{
-							GETIPADR= %curvl2%
-						}
-				}
-		if (curvl1 = "lobby_url")
-				{
-					if (curvl2 <> "")
-						{
-							NLOB= %curvl2%
-						}
-				}
-		if (curvl1 = "repository_url")
-				{
-					if (curvl2 <> "")
-						{
-							REPOURL= %curvl2%
-						}
-				}
-		if (curvl1 = "update_url")
-				{
-					if (curvl2 <> "")
-						{
-							UPDTURL= %curvl2%
-						}
-				}
-		if (curvl1 = "update_file")
-				{
-					if (curvl2 <> "")
-						{
-							UPDTFILE= %curvl2%
-						}
-				}
-		if (curvl1 = "git_url")
-				{
-					if (curvl2 <> "")
-						{
-							GITSRC= %curvl2%
-						}
-				}
 		if (curvl1 = "git_username")
 				{
-					if (curvl2 <> "")
+					_GITUSER= 
+					if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
 						{
 							GITUSER= %curvl2%
+							_GITUSER= %curvl2%
+							CONTPARAM1= 1
 						}
 				}
 		if (curvl1 = "git_password")
-				{
-					if (curvl2 <> "")
+				{	
+					_GITPASS=
+					if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
 						{
 							GITPASS= %curvl2%
+							_GITPASS= %curvl2%
+							CONTPARAM2= 1
 						}
 				}
 		if (curvl1 = "git_token")
 				{
-					if (curvl2 <> "")
+					_GITPAT= 
+					if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
 						{
 							GITPAT= %curvl2%
+							_GITPAT= %curvl2%
+							CONTPARAM3= 1
 						}
 				}
 		if (curvl1 = "git_app")
 				{
-					if (curvl2 <> "")
+					_GITAPP= git.exe
+					if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
 						{
 							GITAPP= %curvl2%
+							_GITAPP= %curvl2%
+							CONTPARAM4= 1
 						}
-				}
+				}		
 		if (curvl1 = "git_rls")
 				{
-					if (curvl2 <> "")
+					_GITRLS= github-release.exe
+					if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
 						{
 							GITRLS= %curvl2%
+							_GITRLS= %curvl2%
+							CONTPARAM5= 1
 						}
 				}
-		if (curvl1 = "Notepad_PlusPlus")
+		if (curvl1 = "NSIS")
 				{
-					if (curvl2 <> "")
+					_NSIS= makensis.exe
+					if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
 						{
-							NPPR= %curvl2%
+							NSIS= %curvl2%
+							_NSIS= %curvl2%
+							CONTPARAM6= 1
 						}
 				}
+		if (curvl1 = "Compiler_Directory")
+			{
+				_AHKDIR= Ahk2Exe.exe
+				if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
+					{
+						AHKDIR= %curvl2%
+						_AHKDIR= %curvl2%
+						CONTPARAM7= 1
+					}
+			}
+		if (curvl1 = "Git_Root")
+				{
+					_GITROOT= Github-Projects-Directory
+					if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
+						{
+							GITROOT= %curvl2%
+							_GITROOT= %curvl2%
+							CONTPARAM8= 1
+						}
+				}
+		if (curvl1 = "Source_Directory")
+			{
+				_SKELD= Source-Directory
+				if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
+					{
+						SKELD= %curvl2%
+						_SKELD= %curvl2%
+						CONTPARAM9= 1
+					}
+			}
+		if (curvl1 = "Project_Directory")
+					{
+						_GITD= Github-Skeletonkey-Directory
+						if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
+							{
+								GITD= %curvl2%
+								_GITD= %curvl2%
+								CONTPARAM10= 1
+							}
+					}
+		if (curvl1 = "Site_Directory")
+					{
+						_SITEDIR= Github-Site-Directory
+						if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
+							{
+								SITEDIR= %curvl2%
+								_SITEDIR= %curvl2%
+								CONTPARAM11= 1
+							}
+					}
+		if (curvl1 = "Deployment_Directory")
+			{
+				_DEPL= Deployment-Directory
+				if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
+					{
+						DEPL= %curvl2%
+						_DEPL= %curvl2%
+						CONTPARAM12= 1
+					}
+			}
+		if (curvl1 = "update_url")
+				{
+					_UPDTURL= http://raw.githubusercontent.com/romjacket/skeletonkey/master/version.txt
+					if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
+						{
+							UPDTURL= %curvl2%
+							_UPDTURL= %curvl2%
+							CONTPARAM13= 1
+						}
+				}
+		if (curvl1 = "update_file")
+				{
+					_UPDTFILE= https://github.com/romjacket/skeletonKey/releases/download/portable/skeletonKey-portable.zip
+					if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
+						{
+							UPDTFILE= %curvl2%
+							_UPDTFILE= %curvl2%
+							CONTPARAM14= 1
+						}
+				}
+		if (curvl1 = "net_ip")
+				{
+					_GETIPADR= http://www.netikus.net/show_ip.html
+					if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
+						{
+							GETIPADR= %curvl2%
+							_GETIPADR= %curvl2%
+							CONTPARAM15= 1
+						}
+				}
+		if (curvl1 = "repository_url")
+				{
+					_REPOURL= http://github.com/romjacket
+					if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
+						{
+							REPOURL= %curvl2%
+							_REPOURL= %curvl2%
+							CONTPARAM16= 1
+						}
+				}
+		if (curvl1 = "Build_Directory")
+			{
+				_BUILDIR= Build-Directory
+				if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
+					{
+						BUILDIR= %curvl2%
+						_BUILDIR= %curvl2%
+						CONTPARAM17= 1
+					}
+			}
+		if (curvl1 = "git_url")
+				{
+					_GITSRC= http://github.com/romjacket/skeletonkey
+					if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
+						{
+							GITSRC= %curvl2%
+							_GITSRC= %curvl2%
+							CONTPARAM18= 1
+						}
+				}
+		if (curvl1 = "SciTE4AutoHotkey")
+				{
+					if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
+						{
+							SCITL= %curvl2%
+						}
+				}
+	}
+initchk= 
 
+;{;;;;;;;;;;;;;;;;;;;  INITIALIZATION MENU ;;;;;;;;;;;;;;;;;;;;;;;;;;
+Loop,18
+	{
+		vinit= % CONTPARAM%A_Index%
+		if (vinit = "")
+			{
+				initchk= 1
+				break
+			}
+	}
+if (initchk = 1)
+	{
+		Gui,Font,Bold
+		Gui Add, GroupBox, x11 y1 w370 h406, Deployment Tool Setup
+		Gui,Font,normal
+		Gui Add, Text, x20 y20 w29 h14 , login:
+		Gui Add, Text, x287 y25 w88 h14 , (github username)
+		Gui Add, Edit, x51 y18 w234 h21 vILogin gILogin, %_GITUSER%
+		Gui Add, Text, x18 y45 w29 h14 , pass:
+		Gui Add, Edit, x51 y41 w171 h21 vIPass gIPass password, %_GITPASS%
+		Gui Add, Text, x18 y68 w29 h14 , token:
+		Gui Add, Edit, x51 y64 w295 h21 vIToken gIToken, %_GITPAT%
+		Gui Add, Link, x351 y66 w10 h19, <a href="https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line#creating-a-token">?</a>
 
-	}	
+		Gui Add, Button, x16 y88 w13 h17 vDwnGit gDwnGit, V
+		Gui Add, Text, x32 y90 w323 h14 vTxtGit, %_GITAPP%
+		Gui Add, Button, x355 y87 w20 h19 vSelGit gSelGit, F
+		Gui Add, Text, x14 y106 w363 h2 +0x10
 
-if (GITUSER = "")
-	{
-		gosub, GetGUSR
+		Gui Add, Button, x16 y109 w13 h17 vDwnRls gDwnRls, V
+		Gui Add, Text, x32 y112 w324 h14 vTxtRls, %_GITRLS%
+		Gui Add, Button, x355 y108 w20 h19 vSelRls gSelRls, F
+		Gui Add, Text, x16 y128 w363 h2 +0x10
+
+		Gui Add, Button, x16 y130 w13 h17 vDwnNSIS gDwnNSIS, V
+		Gui Add, Text, x32 y134 w323 h14 vTxtNSIS, %_NSIS%
+		Gui Add, Button, x355 y130 w20 h19 vSelNSIS gSelNSIS, F
+		Gui Add, Text, x16 y150 w363 h2 +0x10
+
+		Gui Add, Button, x16 y152 w13 h17 vDwnAHK gDwnAHK, V
+		Gui Add, Text, x32 y155 w323 h14 vTxtAHK, %AHKDIR%\Ahk2Exe.exe
+		Gui Add, Button, x355 y152 w20 h19 vSelAHK gSelAHK, F
+		Gui Add, Text, x16 y170 w363 h2 +0x10
+
+		Gui Add, Text, x23 y197 w322 h14  vTxtBLD, %_BUILDIR%
+		Gui Add, Button, x353 y193 w23 h23 vSelBLD gSelBLD, ...
+		Gui Add, Text, x16 y191 w363 h2 +0x10
+
+		Gui Add, Text, x23 y175 w322 h14 vTxtGPD, %_GITROOT%
+		Gui Add, Button, x353 y170 w23 h23 vSelGPD gSelGPD, ...
+		Gui Add, Text, x16 y216 w363 h2 +0x10
+
+		Gui Add, Button, x16 y218 w13 h17 vDwnPULL gPULLSKEL, C
+		Gui Add, Text, x37 y221 w307 h14 vTxtGSD, %_GITD%
+		Gui Add, Button, x353 y216 w23 h23 vSelGSD gSelGSD, ...
+		Gui Add, Text, x16 y239 w363 h2 +0x10
+
+		Gui Add, Button, x16 y241 w13 h17 vDwnIO gPULLIO, C
+		Gui Add, Text, x37 y243 w307 h14 vTxtGWD, %_SITEDIR%
+		Gui Add, Button, x353 y239 w23 h23 vSelGWD gSelGWD, ...
+		Gui Add, Text, x16 y262 w363 h2 +0x10
+
+		Gui Add, Text, x23 y267 w322 h14 vTxtDPL, %_DEPL%
+		Gui Add, Button, x353 y262 w23 h23 vSelDPL gSelDPL, ...
+		Gui Add, Text, x16 y284 w363 h2 +0x10
+
+		Gui Add, Text, x23 y290 w322 h14 vTxtSRC, %_SKELD%
+		Gui Add, Button, x353 y285 w23 h23 vSelSRC gSelSRC, ...
+
+		Gui Add, Edit, x30 y310 w326 h21 vUVER gUVER, %_UPDTURL%
+		Gui Add, Edit, x30 y333 w326 h21 vUFLU gUFLU, %_UPDTFILE%
+		Gui Add, Edit, x30 y357 w326 h21 vIURL gIURL, %_GETIPADR%
+		Gui Add, Edit, x30 y380 w326 h21 vIREPO gIREPO, %_REPOURL%
+		Gui Add, Button, x10 y409 w51 h19 vIReset gIReset, reset_all
+		Gui Add, Button, x331 y409 w51 h19 vSelDXB gSelDXB, detect
+		Gui Add, Button, x159 y411 w80 h23 vICONTINUE gICONTINUE, CONTINUE
+		Gui Add, StatusBar,, Status Bar
+		Gui Show, w391 h462, _DEPLSETUP_
+		return	
 	}
-if (GITUSER = "")
-	{
-		msgbox,1,,Git User must be set.`nGITUSER set to ''romjacket'',5
-	}
-if (GITPASS = "")
-	{
-		gosub, GitGPass
-	}
-if (GITROOT = "")
-	{
-		gosub, GitRoot
-	}
-if (GITROOT = "")
-	{
-		msgbox,1,,Git Root Directory must be set.
-		filedelete, skopt.cfg
-		ExitApp
-	}
-ifnotexist, %GITROOT%
-	{
-		gosub, GitRoot
-	}
-if (GITAPP = "")
-	{
-		gosub, GetApp
-	}
-if (GITAPP = "")
-	{
-		msgbox,1,,Git.exe must be set.
-		filedelete, skopt.cfg
-		ExitApp
-	}
-if (GITSRC = "")
-	{
-		gosub, GitSRC
-	}	
-ifnotexist,%GITAPP%
-	{
-		gosub, GetApp
-	}
-if (GITRLS = "")
-	{
-		splitpath,gitapp,,gitrlstmp
-		gosub, GetRls
-	}
-if (GITRLS = "")
-	{
-		msgbox,1,,github-release.exe must be set to deploy executables to github.
-	}
-if (BUILDIR = "")
-	{
-		gosub, GetBld
-	}
-if (BUILDIR = "")
-	{
-		msgbox,1,,Build Directory must be set.
-		filedelete, skopt.cfg
-		ExitApp
-	}
-ifnotexist,%BUILDIR%
-	{
-		gosub, GetBLD
-	}
-if (BUILDW = "")
-	{
-		gosub, GetWrk
-	}
-if (BUILDW = "")
-	{
-		msgbox,1,,Working development file must be set.
-		filedelete, skopt.cfg
-		ExitApp
-	}
-ifnotexist,%BUILDW%
-	{
-		gosub, GetWrk
-	}
-if (SKELD = "")
-	{
-		gosub, GetSrc
-	}
-if (SKELD = "")
-	{
-		msgbox,1,,Source Directory must be set.
-		filedelete, skopt.cfg
-		ExitApp
-	}
-ifnotexist,%SKELD%
-	{
-		gosub, GetSrc
-	}
-if (DEPL = "")
-	{
-		depltmp= %GITROOT%
-		gosub, GetDepl
-	}
-if (DEPL = "")
-	{
-		msgbox,1,.deploy,Deployment Directory must be set.
-		filedelete, skopt.cfg
-		ExitApp
-	}
-ifnotexist, %DEPL%
-	{
-		gosub, GetDepl
-	}
-if (AHKDIR = "")
-	{
-		gosub, GetComp
-	}
-if (AHKDIR = "")
-	{
-		msgbox,1,,Compiler Directory must be set.
-		filedelete, skopt.cfg
-		ExitApp
-	}
-ifnotexist,%AHKDIR%
-	{
-		gosub, GetComp
-	}
-if (GITD = "")
-	{
-		gosub, GetGit
-	}
-if (GITD = "")	{
-		msgbox,1,,Project Directory must be set.
-		filedelete, skopt.cfg
-		ExitApp
-	}
-ifnotexist,%GITD%
-	{
-		gosub, GetGit
-	}
-if (GITPAT = "")
-	{
-		gosub, GetGPAC
-	}
-if (GITPAT = "")
-	{
-		msgbox,1,,Git Personal Access Token must be set to deploy executables.,3
-		GITPAT= XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-		FIE=
-	}
-if (NSIS = "")
-	{
-		gosub, SelNSIS
-	}
-if (NSIS = "")
-	{
-		msgbox,1,,makeNSIS.exe must be set.
-		filedelete, skopt.cfg
-		ExitApp
-	}
-ifnotexist,%NSIS%
-	{
-		gosub,SelNSIS
-	}
-if (SITEDIR = "")
-	{
-		SITEDIR= %gitroot%\%gituser%.github.io/skeletonkey
-	}
-if (SITEURL = "")
-	{
-		SITEURL= https://%gituser%.github.io/skeletonkey
-	}
-if (SHDRPURL = "")
-	{
-		gosub, GetShaderP
-	}
-if (REPOURL = "")
-	{
-		gosub, RepoURL
-	}
-if (GETIPADR = "")
-	{
-		gosub, GetIPAddr
-	}
-if (NLOB = "")
-	{
-		gosub, NewLobby
-	}
-if (UPDTURL = "")
-	{
-		gosub, UpdateURL
-	}
-if (UPDTFILE = "")
-	{
-		gosub, UpdateFile
-	}
-if (NPPR = "")
-	{
-		NPPR= Notepad++.exe
-	}
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+INITCOMPLETE:
 oldsize=
 oldsha= 
 olrlsdt=
@@ -602,7 +481,6 @@ ifnotexist,%getversf%
 			}
 		URLFILE= http://romjacket.github.io/skeletonkey/index.html
 		DownloadFile(URLFILE, save, True, True)
-		;;UrlDownloadToFile, http://romjacket.github.io/skeletonkey/index.html, ORIGHTML.html
 		if (progb = "")
 			{
 				Progress, off
@@ -667,13 +545,14 @@ Loop, Read, %getversf%
 						StringMid,donation,donit,%getvern%,5
 						continue
 					}	
-}
+	}
 
 if (vernum = "")
 	{
 		vernum= [DIVERSION]
 	}
-FileReadLine,initchk,skopt.cfg,21
+initchk= 	
+FileReadLine,initchk,skopt.cfg,19
 if (initchk = "")
 	{
 		msgbox,,,incomplete config
@@ -700,10 +579,10 @@ Gui Add, Tab2, x2 y-1 w487 h171 vTABMENU Bottom, Setup|Deploy
 Gui, Tab, 1
 Gui, Tab, Setup
 Gui, Add, Text,x164 y5, Location
-Gui, Add, DropDownList, x8 y2 w100 vSRCDD gSrcDD, Project||Git.exe|github-release|Source|Compiler|Site|Deployment|Build|NSIS|NP++
+Gui, Add, DropDownList, x8 y2 w100 vSRCDD gSrcDD, Project||Git.exe|github-release|Source|Compiler|Site|Deployment|Build|NSIS|SciTE4AutoHotkey
 Gui, Add, Button, x109 y2 w52 h21 vSELDIR gSelDir, Select
 Gui, Add, Button, x109 y26 w52 h21 vRESGET gRESGET, Clone
-Gui Add, DropDownList,x331 y2 w92 vResDD gResDD, All||Dev-Build|Portable-Build|Stable-Build|Deployer|Site-URL|Update-URL|Update-File|Shader-URL|Repo-URL|Internet-IP-URL|Git-User|Git-Password|Git-Token|Git-URL
+Gui Add, DropDownList,x331 y2 w92 vResDD gResDD, All||Dev-Build|Portable-Build|Stable-Build|Deployer|Update-URL|Update-File|Repo-URL|Internet-IP-URL|Git-User|Git-Password|Git-Token|Git-URL
 Gui Add, Button, x425 y2 w52 h21 vResB gResB, Reset
 
 Gui Add, Text,x4 y125, %ARCH%-bit
@@ -750,16 +629,15 @@ SelDXB:
 Msgbox,3,Quick-Setup,This tool can automatically install and initialize a development environment in:`n%A_MyDocuments%`n`nProceed? 
 ifmsgbox,No
 	{
-		goto, SelDir
+		return
 	}
 ifmsgbox,Cancel
 	{
-		goto, QUITOUT
+		return
 	}
-AUTOINSTALL= 1
 GITAV= GIT_%ARCH%
 GITRV= Git_Release_%ARCH%
-BLDITEMS=%GITAV%|%GITRV%|Notepad_PlusPlus|RunMe_Plugin|ToolBucket_Plugin|TextFX_Plugin|AutoHotkey|NSIS
+BLDITEMS=%GITAV%|%GITRV%|SciTE4AutoHotkey|AutoHotkey|NSIS
 Loop,parse,BLDITEMS,|
 	{
 		stringreplace,dwnlsi,A_LoopField,_%ARCH%,,All
@@ -768,49 +646,29 @@ Loop,parse,BLDITEMS,|
 		splitpath,nwurl,nwurlf
 		if (A_LoopField = GITAV)
 			{
-						gosub, GetGitz
+				gosub, GetGitz
 			}
 		if (A_LoopField = GITRV)
 			{
-						gosub, GetRls
+				gosub, GetRls
 			}
 		if (A_LoopField = "AutoHotkey")
 			{
-						gosub, GetAHKZ
+				gosub, GetAHKZ
 			}
 		if (A_LoopField = "NSIS")
 			{
-						gosub, GetNSIS
+				gosub, GetNSIS
 			}
-		if (A_LoopField = "Notepad_PlusPlus")
+		if (A_LoopField = "SciTE4AutoHotkey")
 			{
-						gosub, GetNPP
-			}
-		if (A_LoopField = "TextFX_Plugin")
-			{
-						gosub, GetTXP
-			}
-		if (A_LoopField = "ToolBucket_Plugin")
-			{
-						gosub, GetTBP
-			}
-		if (A_LoopField = "RunMe_Plugin")
-			{
-						gosub, GetRMP
+				gosub, DwnSCI
 			}
 	}
-	
+return	
 	
 SelDir:
 gui,submit,nohide
-
-if (INIT = 1)
-	{
-		if (GITUSER = "")
-			{
-				gosub, GetGUSR
-			}
-	}
 if (SRCDD = "Git-User")
 	{
 		gosub, GetGUSR
@@ -819,124 +677,15 @@ if (SRCDD = "Git-User")
 				GITUSER= %A_Username%
 			}
 	}
-if (INIT = 1)
-	{
-		GITPASST= *******
-		if (GITPASS = "")
-			{
-				gosub, GitGPass
-			}
-	}
-if (INIT = 1)
-	{
-		if (GITPAT = "")
-			{
-				GITPAT= XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-			}
-	}
 if (GITPAT = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
 	{
 		msgbox,1,,Git Personal Access Token must be set to deploy executables.,5
 		gosub, GetGPAC
 	}
-
-if (AUTOINSTALL >= 1)
-	{
-		iniwrite,%GITUSER%,skopt.cfg,GLOBAL,git_username
-		iniwrite,%GITPASS%,skopt.cfg,GLOBAL,git_password
-		iniwrite,%GITPAT%,skopt.cfg,GLOBAL,git_token
-		;;Progress,10,Extracting Tools
-		;;Runwait, bin\7za.exe x -y "%save%" -O"%A_MyDocuments%",,%rntp%
-		;;Progress,100,Complete
-		;;Sleep, 1000
-		;;Progress,Off
-		GITROOT= %A_MyDocuments%\GitHub
-		iniwrite,%GITROOT%,skopt.cfg,GLOBAL,Git_Root		
-		SITEURL= https://%gituser%.github.io/skeletonkey
-		BUILDIR= %A_ScriptDir%
-		iniwrite,%BUILDIR%,skopt.cfg,GLOBAL,Build_Directory
-		BUILDW= %A_ScriptDir%\working.ahk
-		iniwrite,%BUILDW%,skopt.cfg,GLOBAL,working_file
-		SKELD= %A_ScriptDir%
-		iniwrite,%SKELD%,skopt.cfg,GLOBAL,source_Directory
-		AHKDIR= %A_MyDocuments%\AutoHotkey\Compiler
-		iniwrite,%AHKDIR%,skopt.cfg,GLOBAL,Compiler_Directory
-		DEPL= %GITROOT%\skeletonkey.deploy
-		iniwrite,%DEPL%,skopt.cfg,GLOBAL,Deployment_Directory
-		NSIS= %A_MyDocuments%\NSIS\makensis.exe
-		iniwrite,%NSIS%,skopt.cfg,GLOBAL,NSIS
-		GITAPP= %A_MyDocuments%\Git\bin\git.exe
-		splitpath,GITAPP,,GITAPPD
-		iniwrite,%GITAPP%,skopt.cfg,GLOBAL,git_app
-		GITRLS= %GITAPPD%\github-release.exe
-		iniwrite,%GITRLS%,skopt.cfg,GLOBAL,git_rls
-		GITD= %GITROOT%\skeletonKey
-		iniwrite,%GITD%,skopt.cfg,GLOBAL,Project_Directory
-		SITEDIR= %GITROOT%\%GITUSER%.github.io
-		iniwrite,%SITEDIR%,skopt.cfg,GLOBAL,site_directory
-		SHDRPURL= http://raw.githubusercontent.com/libretro/shader-previews/master/
-		iniwrite,%SHDRPURL%,skopt.cfg,GLOBAL,shader_url
-		GETIPADR= http://www.netikus.net/show_ip.html
-		iniwrite,%GETIPADR%,skopt.cfg,GLOBAL,net_ip
-		NLOB= http://newlobby.libretro.com/list
-		iniwrite,%NLOB%,skopt.cfg,GLOBAL,lobby_url
-		REPOURL= https://github.com/%gituser%
-		iniwrite,%REPOURL%,skopt.cfg,GLOBAL,repository_url
-		UPDTURL= http://raw.githubusercontent.com/%gituser%/skeletonkey/master/version.txt
-		iniwrite,%UPDTURL%,skopt.cfg,GLOBAL,update_url
-		GITSRC= http://github.com/%GITUSER%/skeletonkey
-		iniwrite,%GITSRC%,skopt.cfg,GLOBAL,git_url
-		UPDTFILE=https://github.com/%GITUSER%/skeletonkey/releases/download/portable/skeletonKey-portable.zip
-		iniwrite,%GITSRC%,skopt.cfg,GLOBAL,update_file
-		
-		ifnotexist, %GITROOT%
-			{
-				FileCreateDir, %GITROOT%
-			}	
-			
-		ifnotexist, %DEPL%
-			{
-				FileCreateDir,%DEPL%
-			}
-		Progress,10,Cloning skeletonKey from github	
-		ifnotexist, %GITD%
-			{
-				Runwait, "%gitapp%" clone %GITSRC%,%gitroot%,%rntp%
-			}
-		Progress,90,Cloning skeletonKey website
-		ifnotexist, %SITEDIR%
-			{
-				Runwait, "%gitapp%" clone https://github.com/%gituser%/%gituser%.github.io,%GITROOT%,%rntp%
-			}
-		Progress,100,Complete
-		Sleep,1000
-		Progress, off
-		if (AUTOINSTALL > 1)
-			{
-				Progress,1,Extracting Notepad++
-				Runwait, bin\7za.exe x -y "%npsave%" -O"%A_MyDocuments%",,%rntp%
-				Progress,100,Complete
-				Sleep,1000
-				Progress,off
-				NPPR= %A_MyDocuments%\Notepad_PlusPlus\notepad++.exe
-				iniwrite,%NPPR%,skopt.cfg,GLOBAL,Notepad_PlusPlus
-			}
-		INIT= 
-		return
-	}
-
-if (INIT = 1)
-	{
-		SRCDD= Source
-	}
 if (SRCDD = "Source")
 	{
 		skeltmp= %A_ScriptDir%
 		gosub, GetSrc
-	}
-if (INIT = 1)
-	{
-		SRCDD= Git.exe
 	}
 if (SRCDD = "Git.exe")
 	{	
@@ -947,27 +696,15 @@ if (SRCDD = "Git.exe")
 			}
 		gosub, GetAPP
 	}
-if (INIT = 1)
-	{
-		SRCDD= GitRoot
-	}
 if (SRCDD = "GitRoot")
 	{
 		gitrttmp= %A_MyDocuments%
 		gosub, GitRoot
 	}
-if (INIT = 1)
-	{
-		SRCDD= Site
-	}
 if (SRCDD = "Site")
 	{
 		STLOCtmp= %GITROOT%
 		gosub, GetSiteDir
-	}
-if (INIT = 1)
-	{
-		SRCDD= Compiler
 	}
 if (SRCDD = "Compiler")
 	{
@@ -983,10 +720,6 @@ if (SRCDD = "Compiler")
 			}
 		gosub, GetComp
 	}
-if (INIT = 1)
-	{
-		SRCDD= Project
-	}
 if (SRCDD = "Project")
 	{
 		gittmp= %A_MyDocuments%
@@ -996,44 +729,24 @@ if (SRCDD = "Project")
 			}
 		gosub, GetGit
 	}
-if (INIT = 1)
+if (SRCDD = "SciTE4AutoHotkey")
 	{
-		SRCDD= Notepad_PlusPlus
-	}
-if (SRCDD = "NP++")
-	{
-		npptmp= %A_MyDocuments%
-		gosub, GetNPP
-	}
-if (INIT = 1)
-	{
-		SRCDD= Deployment
+		scitmp= %A_MyDocuments%
+		gosub, GetSCI
 	}
 if (SRCDD = "Deployment")
 	{
 		depltmp= %GITROOT%
 		gosub, GetDepl
 	}
-if (INIT = 1)
-	{
-		SRCDD= Build
-	}
 if (SRCDD = "github-release")
 	{
 		splitpath,gitapp,,gitrlstmp
 		gosub, GetRls
 	}
-if (INIT = 1)
-	{
-		SRCDD= NP++
-	}
 if (SRCDD = "Build")
 	{
 		gosub, GetBld
-	}
-if (INIT = 1)
-	{
-		SRCDD= NSIS
 	}
 if (SRCDD = "NSIS")
 	{
@@ -1058,64 +771,22 @@ if (SRCDD = "NSIS")
 INIT= 
 return
 
-GetWrk:
-BUILDWT= %BUILDW%
-bldtmpf= %BUILDIR%
-FileSelectFile,BUILDWT,3,%bldtmpf%\working.ahk,Select The working development file,*.ahk
-if (BUILDW <> "")
-	{
-		if (BUILDWT = "")
-			{
-				SB_SetText("Working development file is " BUILDW " ")
-				if (bldtmpf <> "")
-					{
-						bldtmpf= 
-						goto, GetWrk
-					}
-				return
-			}
-	}
-if (BUILDWT = "")
-	{
-		return
-	}
-BUILDW= %BUILDWT%	
-FileCopy, %BUILDIR%\Working.ahk,%BUILDIR%\Working.bak,1
-FileCopy, %BUILDWT%,%BUILDIR%\Working.ahk,1
-IniWrite, %BUILDW%,skopt.cfg,GLOBAL,Working_file
-return
-
+SelGPD:
+gui,submit,nohide
 GitRoot:
-GITROOTT= %GITROOT%
-ifnotexist, %gitrttmp%
-	{
-		gitrttmp= 
-	}
+CONTPARAM8= 
+gitrttmp= %A_MyDocuments%\GitHub
 FileSelectFolder, GITROOTT,*%gitrttmp% ,1,Select The GitHub Root Directory (contains all projects)
-gitrtexists= 
-if (GITROOT <> "")
-	{
-		if (GITROOTT = "")
-			{
-				SB_SetText("Github dir is " GITROOT " ")
-				if (gitrttmp <> "")
-					{
-						gitrttmp=
-						goto, GitRoot
-					}
-				return
-			}
-	}
-if ((GitROOTT = "") && (gitrttmp <> ""))
-	{
-		gitrttmp= 
-		goto, GitROOT
-	}
 if (GITROOTT = "")
 	{
-		GITROOTT= %A_MyDocuments%
+		inidelete,skopt.cfg,GLOBAL,Git_Root
+		guicontrol,,txtGPD, Github-Projects-Directory
+		CONTPARAM8=
+		return
 	}
-ifnotinstring,GITROOTT,GitHub
+GITROOT:= GITROOTT
+splitpath,GITROOTT,GITROOTTFN
+ifnotinstring,GITROOTTFN,GitHub
 	{
 		Loop, %GITROOTT%\*,2
 			{
@@ -1125,6 +796,8 @@ ifnotinstring,GITROOTT,GitHub
 						GITROOT:= GITROOTT
 						iniwrite, %GITROOT%,skopt.cfg,GLOBAL,Git_Root
 						SB_SetText("Github dir is " GITROOT " ")
+						CONTPARAM8= 1
+						guicontrol,,txtGPD,%GITROOT%
 						return
 					}
 			}
@@ -1132,45 +805,169 @@ ifnotinstring,GITROOTT,GitHub
 		ifmsgbox,Yes
 			{
 				filecreatedir, %GITROOTT%\GitHub
-				GITROOTT= %GITROOTT%\GitHub
-				GITROOT:= GITROOTT
-				iniwrite, %GITROOT%,skopt.cfg,GLOBAL,Git_Root
-				SB_SetText("Github dir is " GITROOT " ")
-				return
+				if (ERRORLEVEL = 0)
+					{
+						GITROOTT= %GITROOTT%\GitHub
+						GITROOT:= GITROOTT
+					}
 			}
-		ifmsgbox,No
-			{
-				filedelete,skopt.cfg
-				ExitApp
-			}
-	}
-if (GITROOTT = A_MyDocuments)
-	{
-		filecreatedir, %GITROOTT%\GitHub
-		GITROOTT= %GITROOTT%\GitHub
-		GITROOT:= GITROOTT
 		iniwrite, %GITROOT%,skopt.cfg,GLOBAL,Git_Root
 		SB_SetText("Github dir is " GITROOT " ")
-		return
+		CONTPARAM8= 1
+		guicontrol,,txtGPD,%GITROOT%
+		return			
 	}
-ifinstring,GITROOTT,GitHub
-	{
-		GITROOT:= GITROOTT
-		iniwrite, %GITROOT%,skopt.cfg,GLOBAL,Git_Root
-		SB_SetText("Github dir is " GITROOT " ")
-		return
-	}
-Msgbox,3,Github Root,Github Root Directory not found.`nRetry?
-IfMsgBox, Yes
-	{
-		gosub, GitRoot
-	}
-filedelete, skopt.cfg
-ExitApp
+CONTPARAM8= 1
+guicontrol,,txtGPD,%GITROOT%
+iniwrite, %GITROOT%,skopt.cfg,GLOBAL,Git_Root
+SB_SetText("Github dir is " GITROOT " ")
+return
 
 INITINCL:
 INITINCL= 1
 return
+
+IReset:
+gui,submit,nohide
+guicontrol,,txtGIT,	git.exe
+guicontrol,,ilogin,	
+guicontrol,,ipass,	
+guicontrol,,itoken,	
+guicontrol,,txtrls,	github-release.exe
+guicontrol,,txtnsis, makensis.exe
+guicontrol,,txtahk,	Ahk2Exe.exe
+guicontrol,,txtgpd,	Github-Projects-Directory
+guicontrol,,txtgsd,	Github-Skeletonkey-Directory
+guicontrol,,txtgwd,	Github-Site-Directory
+guicontrol,,txtsrc,	Source-Directory
+guicontrol,,txtbld,	Build-Directory
+guicontrol,,txtdpl,	Deployment-Directory
+guicontrol,,uver, http://raw.githubusercontent.com/romjacket/skeletonkey/master/version.txt
+guicontrol,,iurl,http://www.netikus.net/show_ip.html
+guicontrol,,uflu, https://github.com/romjacket/skeletonKey/releases/download/portable/skeletonKey-portable.zip
+guicontrol,,irepo, https://github.com/romjacket
+Loop,16
+	{
+		CONTPARAM%A_Index%= 
+	}
+CONTPARAM13= 1
+CONTPARAM14= 1
+CONTPARAM15= 1
+CONTPARAM16= 1
+filedelete,skopt.cfg
+return
+	
+
+ICONTINUE:
+nocont= 
+stv= 
+if (CONTPARAM13 = "")
+	{
+		guicontrolget,UVER,,UVER
+		iniwrite,%UVER%,skopt.cfg,GLOBAL,update_url
+		CONTPARAM13= 1
+	}
+if (CONTPARAM14 = "")
+	{
+		guicontrolget,UFLU,,UFLU
+		CONTPARAM14= 1
+		iniwrite,%UFLU%,skopt.cfg,GLOBAL,update_file
+	}
+if (CONTPARAM15 = "")
+	{
+		guicontrolget,IURL,,IURL
+		iniwrite,%IURL%,skopt.cfg,GLOBAL,net_ip
+		CONTPARAM15= 1
+	}
+if (CONTPARAM16 = "")
+	{
+		guicontrolget,IREPO,,IREPO
+		IniWrite,%IREPO%,skopt.cfg,GLOBAL,repository_url
+		CONTPARAM16= 1
+	}
+Loop,18
+	{
+		stv= % CONTPARAM%A_Index%
+		if (stv = "")
+			{
+				nocont= 1
+			}
+	}
+if (nocont = 1)
+	{
+		if (CONTPARAM1 = "")
+			{
+				SB_SetText("github user not defined")
+				return
+			}
+		if (CONTPARAM2 = "")
+			{
+				SB_SetText("password not defined")
+				return
+			}
+		if (CONTPARAM3 = "")
+			{
+				SB_SetText("token not defined")
+				return
+			}
+		if (CONTPARAM4 = "")
+			{
+				SB_SetText("git.exe not defined")
+				return
+			}
+		if (CONTPARAM5 = "")
+			{
+				SB_SetText("github-release.exe not defined")
+				return
+			}
+		if (CONTPARAM6 = "")
+			{
+				SB_SetText("makensis.exe not defined")
+				return
+			}
+		if (CONTPARAM7 = "")
+			{
+				SB_SetText("Ahk2exe.exe not defined")
+				return
+			}
+		if (CONTPARAM8 = "")
+			{
+				SB_SetText("github projects directory not defined")
+				return
+			}
+		if (CONTPARAM9 = "")
+			{
+				SB_SetText("source directory not defined")
+				return
+			}
+		if (CONTPARAM10 = "")
+			{
+				SB_SetText("github skeletonkey project not defined")
+				return
+			}
+		if (CONTPARAM11 = "")
+			{
+				SB_SetText("website directory not defined")
+				return
+			}
+		if (CONTPARAM12 = "")
+			{
+				SB_SetText("deployment directory not defined")
+				return
+			}
+		if (CONTPARAM17 = "")
+			{
+				SB_SetText("Build Directory not defined")
+				return
+			}
+		if (CONTPARAM18 = "")
+			{
+				SB_SetText("github skeletonkey project not defined")
+				return
+			}
+	}
+Gui,Destroy
+goto, INITCOMPLETE
 
 GetBld:
 BUILDIT= %BUILDIR%
@@ -1214,17 +1011,18 @@ IfMsgBox, Yes
 filedelete, skopt.cfg
 ExitApp
 
-GetShaderP:
-gui,submit,NoHide
-SHDRPURL= 
-if (SHDRPURLT = "") 
-	SHDRPURLT= http://raw.githubusercontent.com/libretro/shader-previews/master/
-inputbox,SHDRPURL,Shader Preveiw URL,Enter the url of the shader preview master directory,,345,140,,,,,%SHDRPURLT%
-if (SHDRPURL = "")
+
+IURL:
+gui,submit,nohide
+guicontrolget,IURL,,IURL
+SB_SetText("Enter the url of the file which contains your internet ip-address")
+if (IRUL = "")
 	{
-		SHDRPRUL= %SHDRPURLT%
+		IURL= http://www.netikus.net/show_ip.html
 	}
-iniwrite,%SHDRPURL%,skopt.cfg,GLOBAL,shader_url
+CONTPARAM15= 1
+guicontrol,,IURL,%IURL%
+iniwrite,%IURL%,skopt.cfg,GLOBAL,net_ip
 return
 
 GetIpAddr:
@@ -1254,6 +1052,22 @@ if (UPDTURL = "")
 		UPDTURL= %UPDTURLT%
 	}
 IniWrite,%UPDTURL%,skopt.cfg,GLOBAL,update_url
+return
+
+UFLU:
+gui,submit,nohide
+guicontrolget,UFLU,,UFLU
+if (UFLU = "")
+	{
+		UFLU= https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey-portable.zip
+	}
+if ((GITROOT = "")or(GITUSER = "")or(GITPASS = "")or(GITPAT = ""))
+		{
+			UFLU= https://github.com/romjacket/skeletonKey/releases/download/portable/skeletonKey-portable.zip			
+		}
+guicontrol,,UFLU,%UFLU%
+CONTPARAM14= 1
+iniwrite,%UFLU%,skopt.cfg,GLOBAL,update_file
 return
 
 UpdateFILE:
@@ -1303,6 +1117,23 @@ if (GitSRC = "")
 IniWrite,%GitSRC%,skopt.cfg,GLOBAL,git_url
 return
 
+IREPO:
+gui,submit,nohide
+guicontrolget,IREPO,,IREPO
+iniread,IREPO,sets\arcorg.set,GLOBAL,HOSTINGURL
+if (IREPO = "")
+	{
+		IREPO= https://github.com/%gituser%
+	}
+if (GITUSER = "")
+	{
+		IREPO= https://github.com/romjacket
+	}
+guicontrol,,IREPO,%IREPO%
+CONTPARAM16= 1
+IniWrite,%IREPO%,skopt.cfg,GLOBAL,repository_url
+return
+
 RepoUrl:
 gui,submit,nohide
 REPOURL= 
@@ -1310,7 +1141,6 @@ UPDTFILE= http://github.com/%GITUSER%/skeletonKey/releases/download/nodats
 if (REPORURLT = "")
 	{
 		iniread,REPOURLT,sets\arcorg.set,GLOBAL,HOSTINGURL
-		;;filereadline,REPOURLT,sets\arcorg.set,2
 		UPDTFILE= %REPORULT%/skeletonKey/releases/download/nodats
 	}
 inputbox,REPOURL,Repository-URL,Enter the base-url of the file-repository,,345,140,,,,,%REPOURLT%
@@ -1322,20 +1152,6 @@ if (REPOURL = "")
 IniWrite,%REPOURL%,skopt.cfg,GLOBAL,repository_url
 return
 
-NewLobby:
-gui,submit,nohide
-NLOB= 
-if (NLOBT = "")
-	{
-		NLOBT= http://newlobby.libretro.com/list
-	}
-inputbox,NLOB,retroarch lobby,Enter the url of the lobby list file,,275,140,,,,,%NLOBT%
-if (NLOB = "")
-	{
-		NLOB= %NLOBT%
-	}
-IniWrite,%NLOB%,skopt.cfg,GLOBAL,lobby_url
-return
 
 GetUpdate:
 UPDTURLT=,http://raw.githubusercontent.com/%GITUSER%/skeletonkey/master/version.txt
@@ -1347,251 +1163,205 @@ InputBox,UPDTURL,Update URL,If you wish to deploy updates from your own reposito
 				}
 return
 
-GetSiteURL:
+UVER:
 gui,submit,nohide
-STURL=
-STURLT= romjacket.github.io/skeletonkey
-
-iniread,cca,sets\arcorg.set,GLOBAL,HOSTINGURL
-;;filereadline,cca,sets\arcorg.set,2
-ifnotinstring,cca,romjacket
+guicontrolget,UVER,,UVER
+if (UVER = "")
 	{
-		STURLT= http://%gituser%.github.io/skeletonkey
+		UVER= http://raw.githubusercontent.com/%GITUSER%/skeletonkey/master/version.txt
 	}
-inputbox,STURL,Website-URL,Enter the website url,,345,140,,,,,%STURLT%
-if (STURL = "")
+if ((GITROOT = "")or(GITUSER = "")or(GITPASS = "")or(GITPAT = ""))
 	{
-		STURL= romjacket.github.io/skeletonkey
-	}	
-IniWrite,%STURL%,skopt.cfg,GLOBAL,site_url
+		UVER= http://raw.githubusercontent.com/romjacket/skeletonkey/master/version.txt
+	}
+guicontrol,,UVER,%UVER%
+CONTPARAM13= 1
+iniwrite,%UVER%,skopt.cfg,GLOBAL,update_url
 return
 
+SelGWD:
 GetSiteDir:
 gui,submit,nohide
+SB_SetText("Usually ..\ " gitroot "\" gituser ".github.io")
+CONTPARAM11= 
+if (GITROOT = "")
+	{
+		SB_SetText("GitHub Projects Directory not defined.")
+		guicontrol,,txtGWD,Github-Site-Directory (..\GitHub\%gituser%.github.io)
+		return
+	}
 STLOC=
 STLOCT=
-FileSelectFolder, STLOCT,*%STLOCtmp% ,1,Select The Git-WebSite Root Directory or cancel to pull the latest version from github.
-STLOCexists= 
-if (STLOC <> "")
+STLOCtmp= %GITROOT%
+FileSelectFolder, STLOCT,%STLOCtmp%,1,Select The WebSite Root Directory.
+if (STLOCT = "")
 	{
-		if (STLOCT = "")
-			{
-				SB_SetText(" Website directory is " STLOC " ")
-				if (STLOCtmp <> "")
-					{
-						STLOCtmp=
-						goto, GetSiteDir
-					}
-				return
-			}
+		guicontrol,,txtGWD,Github-Site-Directory
+		CONTPARAM11= 
+		inidelete,skopt.cfg,GLOBAL,Site_Directory
+		return
 	}
 STLOCtmp= 
 STLOC:= STLOCT
 splitpath,STLOC,STLOCn
+webdx= 
 ifnotinstring,STLOCn,.github.io
 	{
-		if (stlocn <> "")
+		ifexist,%STLOC%\%gituser%.github.io\
 			{
 				STLOC= %STLOC%\%gituser%.github.io
+				webdx= 1
 			}
 	}
-if ((STLOC = "") && (stloctmp = ""))
+gitspx= %gituser%.github.io	
+Loop,%STLOC%\*,2
 	{
-		STLOC= %GITROOT%\%gituser%.github.io
+		if (A_LoopField = "skeletonkey")
+			{
+				webdx= 1
+			}
+		if (A_LoopField = gitspx)
+			{
+				STLOC= %GITROOT%\%gitspx%
+				webdx= 1
+			}
+	}
+if (webdx = "")
+	{
+		gosub, PULLIO
 	}
 ifnotexist, %STLOC%\skeletonkey\
 	{
-		Runwait, %gitapp% clone http://github.com/%gituser%/%gituser%.github.io,%GITROOT%
-		Loop, %GITROOT%\%gituser%.github.io\skeletonkey*.*
-			{
-				av+=1
-			}
-		if (av = "")
-			{
-				FileRemoveDir, %GITROOT%\%gituser%.github.io\skeletonkey,1
-				Runwait, %gitapp% clone http://github.com/romjacket/romjacket.github.io,%GITROOT%
-				RunWait, %comspec% cmd /c "%gitapp%" init,%gitroot%\%GITUSER%.github.io,hide
-				RunWait,%comspec% cmd /c "bin\curl.exe" -u %gituser%:%gitpass% https://api.github.com/user/repos -d "{\"name\":\"%gituser%.github.io\"}",,hide
-				FileMoveDir, %GITROOT%\romjacket.github.io\skeletonkey,%GITROOT%\%gituser%.github.io\skeletonkey,1
-			}
+		guicontrol,,txtGWD,
+		CONTPARAM11= 
+		inidelete,skopt.cfg,GLOBAL,Site_Directory
+		return
 	}
 SITEDIR= %STLOC%	
 iniwrite, %SITEDIR%,skopt.cfg,GLOBAL,Site_Directory
-if (SITEDIR = "")
-	{
-		Msgbox,3,Website Directory,Website Environment not found`nRetry
-		IfMsgBox, Yes
-			{
-				STLOCtmp= 
-				goto, GetSiteDir
-			}
-		filedelete, skopt.cfg
-		ExitApp
-	}
+SITEDIR= %GITROOT%\%gituser%.github.io
+CONTPARAM11= 1
+RunWait, %comspec% cmd /c "%gitapp%" init,%gitroot%\%GITUSER%.github.io,hide
+RunWait,%comspec% cmd /c "bin\curl.exe" -k -u %gituser%:%gitpass% https://api.github.com/user/repos -d "{\"name\":\"%gituser%.github.io\"}",,hide
+guicontrol,,txtGWD,%SITEDIR%
+CONTPARAM11= 1
 return
 
 
+SelDPL:
+gui,submit,nohide
+SB_SetText("The directory in which binaries are compiled token.")
 GetDepl:
+CONTPARAM12= 
 DEPL=
-DEPLT=
+depltmp= %GITROOT%\skeletonkey.deploy
 ifnotexist, %depltmp%
 	{
 		depltmp= 
 	}
 FileSelectFolder, DEPLT,*%depltmp% ,1,Select The Deployment Directory
-deplexists= 
-if (DEPL <> "")
+if (DEPLT = "")
 	{
-		if (DEPLT= "")
+		guicontrol,,txtDPL,
+		CONTPARAM12=
+		inidelete,skopt.cfg,GLOBAL,Deployment_Directory
+		return
+	}
+Loop, %DEPLT%\*,2
+	{
+		ifinstring,A_LoopFileName,skeletonkey.deploy
 			{
-				SB_SetText(" Deploy dir is " DEPL " ")
-				if (depltmp <> "")
-					{
-						depltmp=
-						goto, GetDepl
-					}
+				DEPLT= %A_LoopFileFullPath%
+				DEPL= %DEPLT%
+				iniwrite,%DEPL%,skopt.cfg,GLOBAL,Deployment_Directory
+				CONTPARAM12= 1
+				guicontrol,,txtDPL,%DEPL%
 				return
 			}
 	}
-depltmp= 
-if (DEPLT = "")
+DEPL= %DEPLT%
+splitpath,DEPLT,depln
+if (DEPLN <> "skeletonkey.deploy")
 	{
-		Msgbox,3,Deployment Directory,Deployment Environment not found`nRetry
-		IfMsgBox, Yes
-			{
-				goto, GetDepl
-			}
-		filedelete, skopt.cfg
-		ExitApp
+		DEPL= %DEPLT%\skeletonkey.deploy
 	}
-DEPL:= DEPLT
-if (DEPL = "")
+filecreatedir,%DEPL%
+ifnotexist,%DEPL%\
 	{
-		DEPL= %GITROOT%\skeletonkey.deploy
+		inidelete,skopt.cfg,GLOBAL,Deployment_Directory
+		guicontrol,,txtDPL,Deployment-Directory
+		CONTPARAM12= 
+		return
 	}
-splitpath,DEPL,depln
-if (DEPLN = "Project")
-	{
-		DEPL= %DEPL%\skeletonkey.deploy
-	}
-splitpath,DEPL,deplname
-ifnotinstring,deplname,.deploy
-	{
-		Loop, %DEPL%\*,2
-			{
-				ifinstring,A_LoopFileName,.deploy
-					{
-						DEPL= %A_LoopFileFullPath%
-					}
-			}
-	}
-splitpath,DEPL,deplname
-ifnotinstring,deplname,.deploy
-	{
-		DEPL= %DEPL%\skeletonkey.deploy
-	}
-ifnotexist, %DEPL%
-	{
-		fileCreateDir,%DEPL%
-	}
-iniwrite, %DEPL%,skopt.cfg,GLOBAL,Deployment_Directory
+iniwrite,%DEPL%,skopt.cfg,GLOBAL,Deployment_Directory
+CONTPARAM12= 1
+guicontrol,,txtDPL,%DEPL%
 return
 
+SelAHK:
+gui,submit,nohide
 GetComp:
-ifnotexist, %comptmp%
-	{
-		comptmp= 
-	}
-AHKDIT= %AHKDIR%
-ifnotexist, %comptmp%
-	{
-		comptmp= 
-	}
-ifexist, %A_MyDocuments%\AutoHotkey\Compiler
+CONTPARAM7= 
+ifexist, %A_MyDocuments%\AutoHotkey\Compiler\
 	{
 		comptmp= %A_MyDocuments%\AutoHotkey\Compiler
 	}
-ifexist, %a_programfiles%\AutoHotkey\Compiler
+ifexist, %a_programfiles%\AutoHotkey\Compiler\
 	{
 		comptmp= %a_programfiles%\AutoHotkey\Compiler
 	}
-FileSelectFolder, AHKDIT,*%comptmp%,0,Select The AHK Compiler Directory or cancel to install it.
-compexists= 
-if (AHKDIR <> "")
+FileSelectFile, AHKDIT,3,%comptmp%\Ahk2Exe.exe,Select AHK2Exe,*.exe
+if (AHKDIT = "")
 	{
-		if (AHKDIT = "")
-			{
-				SB_SetText(" AHK Compiler dir is " AHKDIR " ")
-				if (comptmp <> "")
-					{
-						comptmp= 
-						goto, GetComp
-					}
-				return
-			}
-	}
-comptmp= 
-if ((comptmp <> "") && (AHKDIT = ""))
-	{
-		comptmp= 
-		goto, GetComp
-	}
-ahkkcd= 	
-Loop,Files, %AHKDIT%\Ahk2Exe.exe,R
-	{
-		ahkkcd= %A_LoopFileFullPath%
-		compexists= 1
-	}
-if (compexists = 1)
-	{
-		splitpath,ahkkcd,,AHKDIT
-		AHKDIR:= AHKDIT
-		iniwrite, %AHKDIR%,skopt.cfg,GLOBAL,Compiler_Directory
+		guicontrol,,txtAHK,
+		CONTPARAM7= 
+		inidelete,skopt.cfg,GLOBAL,Compiler_Directory
 		return
 	}
-gosub, GetAHKZ
+splitpath,AHKDIT,,AHKDIR
+CONTPARAM7= 1
+iniwrite, %AHKDIR%,skopt.cfg,GLOBAL,Compiler_Directory
+guicontrol,,txtAHK,%AHKDIR%\Ahk2Exe.exe
+return
 
-if (AHKDIR = "")
+SelBld:
+gui,submit,nohide
+CONTPARAM17= 
+FileSelectFolder, BUILDT,*%A_ScriptDir% ,1,Select The BUILD Directory
+if (BUILDT = "")
 	{
-		if (comptmp <> "")
-			{
-				comptmp= %A_MyDocuments%
-			}
-		ahktmp=
-		gosub, GetComp
+		CONTPARAM17= 
+		guicontrol,,txtBld,Build-Directory
+		inidelete,skopt.cfg,GLOBAL,BUILD_Directory
+		return
 	}
-if (AHKDIR = "")
+splitpath,BUILDT,BUILDTFN
+BUILDIR:= BUILDT
+CONTPARAM17= 1
+guicontrol,,txtBLD,%BUILDIR%
+iniwrite, %BUILDIR%,skopt.cfg,GLOBAL,BUILD_Directory
+if (SKELD = GITD)
 	{
-		filedelete, skopt.cfg
-		ExitApp
+		SB_SetText(It is recommended to keep your BUILD and github directories separate)
 	}
 return
 
+SelSRC:
+gui,submit,nohide
+SB_SetText("Usually the current directory")
+CONTPARAM9= 
 GetSrc:
-SKELT= %SKELD%
-ifnotexist, %skeltmp%
+FileSelectFolder, SKELT,*%A_ScriptDir% ,1,Select The Source Directory
+if (SKELT = "")
 	{
-		skeltmp= 
+		CONTPARAM9= 
+		guicontrol,,txtBLD
+		inidelete,skopt.cfg,GLOBAL,Source_Directory
+		return
 	}
-
-FileSelectFolder, SKELT,*%skeltmp% ,1,Select The Source Directory
-skelexists= 
-if (SKELD <> "")
+splitpath,SKELT,SKELTFN
+if (SKELTFN = "skeletonkey")
 	{
-		if (SKELT = "")
-			{
-				SB_SetText(" SOURCE dir is " SKELD " ")
-				if (skeltmp <> "")
-					{
-						skeltmp=
-						goto, GetSrc
-					}
-				return
-			}
-	}
-if ((SKELT = "") && (skeltmp = ""))
-	{
-		SKELT= %A_MyDocuments%\skeletonKey
 		skelexists= 1
 	}
 Loop, %SKELT%\working.ahk
@@ -1601,211 +1371,179 @@ Loop, %SKELT%\working.ahk
 if (skelexists = 1)
 	{
 		SKELD:= SKELT
+		CONTPARAM9= 1
+		guicontrol,,txtSRC,%SKELD%
 		iniwrite, %SKELD%,skopt.cfg,GLOBAL,Source_Directory
+		if (SKELD = GITD)
+			{
+				SB_SetText(It is recommended to keep your source and github directories separate)
+			}
+		if (BUILDIR = "")
+			{
+				BUILDIR= %SKELD%
+				guicontrol,,txtBLD,%SKELD%
+				CONTPARAM17= 1
+			}
 		return
+	}	
+Msgbox,3,Not-Found,Skeletonkey was not found.`nRetry?
+ifmsgbox,Yes
+	{
+		goto,SelSRC
 	}
-skeltmp= 
-gosub, GetSrc
+CONTPARAM9= 
+guicontrol,,txtSRC
+inidelete,skopt.cfg,GLOBAL,Source_Directory
+CONTPARAM9= 
 return
 
-GetRls:
-GITRLST=
+DwnRls:
+gui,submit,nohide
+CONTPARAM5= 
 iniread,GRLURL,sets\BuildTools.set,BUILDENV,Github_Release_%ARCH%
 splitpath,GRLURL,grlfn
 grlsv= %cacheloc%\%grlfn%
-grltmp= %GITAPPD%
-if (AUTOINSTALL >= 1)
+ifnotexist,%grlsv%
 	{
-		GITRLST= 
-		goto, GITRLST
+		grltmp= %GITAPPD%
+		if (progb = "")
+			{
+				Progress, 0, , ,Downloading Github-release
+			}	
+		DownloadFile(GRLURL, grlsv, False, True)
+		sleep, 1200
+		if (progb = "")
+			{
+				Progress, off
+			}
+		ifnotexist,%grlsv%
+			{
+				Msgbox,3,Not Found,%grlsv% not found.`nRETRY?
+				ifmsgbox,Yes
+					{
+						goto,DwnRls
+					}
+			}
+		return
 	}
+ifnotexist, %grlsv%
+	{
+		inidelete,skopt.cfg,GLOBAL,git_rls
+		CONTPARAM5= 
+		return
+	}
+GRLK=
+GRLL=
+grltmp= %GITAPPD%
+FileselectFolder,GRLL,*%grltmp%,0,Location to extract Github-release.exe
+GRLLSEL:
+if (GRLL = "")
+	{
+		inidelete,skopt.cfg,GLOBAL,git_rls
+		CONTPARAM5= 
+		guicontrol,,TxtGit,
+		return
+	}
+Runwait, "bin\7za.exe" x -y "%grlsv%" -O"%GRLL%",,%rntp%
+GITRLS= %GRLL%\github-release.exe
+iniwrite, %GITRLS%,skopt.cfg,GLOBAL,git_rls
+CONTPARAM5= 1
+SB_SetText(" Github-release is " GITRLS "")
+return
+
+
+SelRls:
+gui,submit,nohide
+CONTPARAM5= 
+GetRls:
+GITRLST=
+grltmp= %GITAPPD%
 FileSelectFile,GITRLST,3,%grltmp%\github-release.exe,Select github-release,*.exe
 GITRLST:
 if (GITRLST = "")
 	{
-		ifnotexist,%grlsv%
-			{
-				grltmp= %GITAPPD%
-				if (progb = "")
-					{
-						Progress, 0, , ,Downloading Github-release
-					}	
-				DownloadFile(GRLURL, grlsv, False, True)
-				sleep, 1200
-				if (progb = "")
-					{
-						Progress, off
-					}
-			}
-		ifexist, %grlsv%
-			{
-				GRLK=
-				GRLL=
-				if (AUTOINSTALL >= 1)
-					{
-						GRLL= %GITAPPD%
-						goto, GRLLSEL
-					}
-				FileselectFolder,GRLL,*%grltmp%,0,Location to extract Github-release.exe
-				GRLLSEL:
-				if (GRLL = "")
-					{
-						return
-					}
-				Runwait, bin\7za.exe x -y "%grlsv%" -O"%GRLL%",,%rntp%
-				GITRLS= %GRLL%\github-release.exe
-				iniwrite, %GITRLS%,skopt.cfg,GLOBAL,git_rls
-				SB_SetText(" Github-release is " GITRLS "")
-				return
-			}
 		grltmp= 
-		Msgbox,3,Not Found,%grlsv% not found.`nRETRY?
-		ifmsgbox,Yes
-			{
-				AUTOINSTALL= 
-				gosub,GetRls
-			}
+		guicontrol,,TxtGit,
+		CONTPARAM5= 
 		return
-}
+	}
 GITRLS= %GITRLST%
 iniwrite, %GITRLS%,skopt.cfg,GLOBAL,git_rls
-SB_SetText(" Notepad Plus Plus is " GITRLS "")
+CONTPARAM5= 1
+SB_SetText(" Github Release is " GITRLS "")
 return
 
+
 SelNSIS:
+gui,submit,nohide
+CONTPARAM6= 
 ifexist, %A_MyDocuments%\NSIS
 	{
 		nsisapdtmp= %A_MyDocuments%\NSIS
 	}
-NSIST= %NSIS%
-NSISCONT:
+ifexist, %A_programfiles%\NSIS
+	{
+		nsisapdtmp= %A_programfiles%\NSIS
+	}
 ifnotexist, %nsisapdtmp%
 	{
 		nsisapdtmp= 
 	}
-
-FileSelectFile, NSIST,3,%nsisapdtmp%\makensis.exe,Select the makensis.exe or cancel to install it.,*.exe
+FileSelectFile, NSIST,3,%nsisapdtmp%\makensis.exe,Select the makensis.exe,*.exe
 nsisapptmp= 
 if (NSIST = "")
 	{
-		MsgBox,1,NSIS,Download NSIS?
-		ifMsgBox,OK
-			{
-				goto,SelNSIS
-			}
-		gosub, GetNSIS
-	}
-nsisappxst= 
-if (NSIS <> "")
-	{
-		if (NSIST = "")
-			{
-				SB_SetText("NSIS is " NSIS " ")
-				if (nsisapdtmp <> "")
-					{
-						nsisapdtmp= 
-						goto, NSISCONT
-					}
-				return
-			}
-	}	
-ifexist, %a_programfiles%\NSIS\makensis.exe
-	{
-		NSISXST= 1
-	}
-IF (NSISXST = 1)	
-	{	
-		NSIS= %a_programfiles%\NSIS\makensis.exe
+		CONTPARAM6= 
+		guicontrol,,txtNSIS,
+		inidelete,skopt.cfg,GLOBAL,NSIS
+		return
 	}
 NSIS= %NSIST%
-if (NSIST = "")
-	{
-		gosub, GetNSIS
-		if (NSIS = "")
-			{
-				MsgBox,3,NSIS,NSIS not found, Retry?
-				ifmsgbox, No
-					{
-						NSISAPP= nsis		
-					}
-				ifmsgbox, Yes
-					{
-						nsisapptmp= 
-						goto, NSISCONT
-					}
-			}
-			
-	}
-splitpath, nsisapp,,nsisappd
+splitpath, NSIS,,nsisappd
 iniwrite, %NSIS%,skopt.cfg,GLOBAL,NSIS
+guicontrol,,txtNSIS,%NSIS%
+CONTPARAM6= 1
 return
 
+
+SelGit:
+gui,submit,nohide
 GetAPP:
+CONTPARAM4= 
+ifexist, %a_programfiles%\git\bin\git.exe
+	{
+		gitapdtmp= %a_programfiles%\git\bin\git.exe
+	}
 ifexist, %A_MyDocuments%\Git\bin
 	{
 		gitapdtmp= %A_MyDocuments%\Git\Bin
 	}
-GITAPPT= %GITAPP%
-GITAPPCONT:
-ifnotexist, %gitapdtmp%
-	{
-		gitapdtmp= 
-	}
-
-FileSelectFile, GITAPPT,3,%gitapdtmp%\git.exe,Select the git.exe or cancel to install it.,*.exe
+FileSelectFile, GITAPPT,3,%gitapdtmp%\git.exe,Select the git.exe,*.exe
 gitapptmp= 
 if (GITAPPT = "")
 	{
-		MsgBox,1,Git.exe,Download Git.exe?
-		ifMsgBox,OK
-			{
-				gosub, GetGITZ
-			}
-		goto,GetAPP 
-	}
-gitappxst= 
-if (GITAPP <> "")
-	{
-		if (GITAPPT = "")
-			{
-				SB_SetText("Git is " GITAPP " ")
-				if (gitapdtmp <> "")
-					{
-						gitapdtmp= 
-						goto, GITAPPCONT
-					}
-				return
-			}
-	}	
-ifexist, %a_programfiles%\git\bin\git.exe
-	{
-		GITAPPXST= 1
-	}
-IF (GITAPPXST = 1)	
-	{	
-		GITAPP= %a_programfiles%\git\bin\git.exe
+		inidelete,skopt.cfg,GLOBAL,git_app
+		return
 	}
 GITAPP= %GITAPPT%
-if (GITAPPT = "")
-	{
-		gosub, GetGITZ
-		if (GITAPP = "")
-			{
-				MsgBox,3,Git exe,Git not found, Retry?
-				ifmsgbox, No
-					{
-						GITAPP= git		
-					}
-				ifmsgbox, Yes
-					{
-						gitapptmp= 
-						goto, GITAPPCONT
-					}
-			}
-			
-	}
+CONTPARAM4= 1
 splitpath, gitapp,,gitappd
 iniwrite, %GITAPP%,skopt.cfg,GLOBAL,git_app
+guicontrol,,txtGIT,%GITAPP%
+return
+
+
+IToken:
+gui,submit,nohide
+guicontrolget,GITPAT,,IToken
+CONTPARAM3= 
+if (GITPAT <> "")
+	{
+		CONTPARAM3= 1
+		iniwrite, %GITPAT%,skopt.cfg,GLOBAL,git_token
+		return
+	}
+inidelete,skopt.cfg,GLOBAL,git_token
 return
 
 GetGPAC:
@@ -1826,6 +1564,19 @@ SB_SetText(" Git Access token is " GITPAT " ")
 return
 
 
+IPass:
+gui,submit,nohide
+guicontrolget,GITPASS,,IPass
+CONTPARAM2= 
+if (GITPASS <> "")
+	{
+		CONTPARAM2= 1
+		iniwrite, %GITPASS%,skopt.cfg,GLOBAL,Git_password
+		return
+	}
+inidelete,skopt.cfg,GLOBAL,Git_password
+return
+
 GetGPass:
 InputBox, GITPASST , Git-Password, Input your github password,HIDE , 180, 140, , , ,, %GITPASST%
 if (GITPASS <> "")
@@ -1838,6 +1589,29 @@ if (GITPASS <> "")
 	}
 GITPASS= %GITPASST%	
 iniwrite, %GITPASS%,skopt.cfg,GLOBAL,Git_password
+return
+
+ILogin:
+gui,submit,nohide
+guicontrolget,GITUSER,,ILogin
+CONTPARAM1= 
+if (GITUSER = "")
+	{
+		SB_SetText("You must enter a username to continue")
+		inidelete,skopt.cfg,GLOBAL,Git_username
+		return
+	}
+CONTPARAM1= 1
+iniwrite, %GITUSER%,skopt.cfg,GLOBAL,Git_username	
+guicontrol,,uVer,http://raw.githubusercontent.com/%gituser%/skeletonkey/master/version.txt
+CONTPARAM13= 1
+iniwrite,%uVer%,skopt.cfg,GLOBAL,update_url
+guicontrol,,uFLU,https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey-portable.zip
+CONTPARAM14= 1
+iniwrite,%uFLU%,skopt.cfg,GLOBAL,update_file
+guicontrol,,iRepo,https://github.com/%gituser%
+CONTPARAM16= 1
+iniwrite,%irepo%,skopt.cfg,GLOBAL,repository_url
 return
 
 GetGUSR:
@@ -1855,95 +1629,90 @@ GITUSER= %GITUSERT%
 iniwrite, %GITUSER%,skopt.cfg,GLOBAL,Git_username
 return
 
+
+SelGSD:
+gui,submit,nohide
+CONTPARAM10= 
+CONTPARAM18= 
+gittmp= %gitroot%\skeletonkey
+if (GITUSER = "")
+	{
+		SB_SetText("username is not defined")
+		return
+	}
+if (GITPASS = "")
+	{
+		SB_SetText("password is not defined")
+		return
+	}
+if (BUILDIR = "")
+	{
+		SB_SetText("Build-directory is not defined")
+		return
+	}
+if (GITAPP = "")
+	{
+		SB_SetText("Git.exe is not defined")
+		return
+	}
+if (GITROOT = "")
+	{
+		SB_SetText("Github-projects-directory is not defined")
+		return
+	}
 GetGit:
 GITT= 
 ifnotexist, %gittmp%
 	{
 		gittmp= 
 	}
-FileSelectFolder,GITT,*%gittmp%,1,Select The Git skeletonKey Project Directory or cancel to pull it to the git-root directory.
+FileSelectFolder,GITT,*%gittmp%,1,Select The Git skeletonKey Project Directory.
 if (GITT = "")
 	{
-		MsgBox,1,Project,Pull the skeletonKey project from GitHub?
-		ifMsgbox,OK
-			{
-				gosub,gitclone
-			}
-		goto, GetGit
+		return
 	}
-gitexists= 
-if (GITD <> "")
+Loop, %GITT%\*,2
 	{
-		if (GITT = "")
+		if (A_LoopFileName = "skeletonKey")
 			{
-				GITT= 
-				SB_SetText(" GIT dir is " GITD " ")
-				if (gittmp <> "")
-					{
-						gittmp= 
-						goto, GetGit
-					}
-				return
+				GITT= %A_LoopFileFullPath%
+				break
 			}
 	}	
-if (GITT = "")
+splitpath,gitt,gittn
+if (gittn <> "skeletonKey")
 	{
-		MsgBox,1,Clone,Would you like to clone skeletonKey from github?
-		ifmsgbox,OK
-			{
-				goto, gitclone
-			}
-		gittmp= 
-		goto, GetGit
-	}
-gittmp= 
-Loop, %GITT%\working.ahk
-	{
-		gitexists= 1
-	}
-if (gitexists = "")
-		{
-			Loop, %GITT%\*,2
-				{
-					if (A_LoopFileName = "skeletonkey")
-						{
-							Loop, %A_LoopFileFullPath%\working.ahk
-									{
-										gitexists= 1
-										GITT= %A_LoopFileDir%
-										gitexists= 1
-										break
-									}
-						}
-				}
-		}
-if (gitexists = 1)
-	{
-		GITD:= GITT
-		iniwrite, %GITD%,skopt.cfg,GLOBAL,Project_Directory
-		FileDelete, %BUILDIR%\gitcommit.bat
-		FileAppend,for /f "delims=" `%`%a in ("%GITAPP%") do set gitapp=`%`%~a`n,%BUILDIR%\gitcommit.bat
-		FileAppend,pushd "%GITD%"`n,%BUILDIR%\gitcommit.bat
-		FileAppend,"`%gitapp`%" add .`n,%BUILDIR%\gitcommit.bat
-		FileAppend,"`%gitapp`%" commit -m `%1`%.`n,%BUILDIR%\gitcommit.bat
-		if (GITPASS <> "")
-			{
-				FileAppend,"`%gitapp`%" push --repo http://%gituser%:%GITPASS%@github.com/%gituser%/skeletonkey`n,%BUILDIR%\gitcommit.bat			
-			}
-		if (GITPASS = "")
-			{
-				FileAppend,"`%gitapp`%" push origin master`n,%BUILDIR%\gitcommit.bat			
-			}
+		SB_SetText("Github SkeletonKey directory not found")
+		CONTPARAM10= 
+		CONTPARAM18= 
 		return
 	}
-if (GITT = "")
+if ((GITT = BUILDIR)or(GITT = SKELD))
 	{
-		goto, PULLSKEL
+		SB_SetText("Github SkeletonKey project directory should not be your source or build directories")
 	}
-if (GITD <> "")
+GITD:= GITT
+GITSRC= http://github.com/%gituser%/skeletonkey
+iniwrite, %GITD%,skopt.cfg,GLOBAL,Project_Directory
+IniWrite,%GitSRC%,skopt.cfg,GLOBAL,git_url
+CONTPARAM10= 1
+CONTPARAM18= 1
+FileDelete, %BUILDIR%\gitcommit.bat
+FileAppend,for /f "delims=" `%`%a in ("%GITAPP%") do set gitapp=`%`%~a`n,%BUILDIR%\gitcommit.bat
+FileAppend,pushd "%GITD%"`n,%BUILDIR%\gitcommit.bat
+FileAppend,"`%gitapp`%" add .`n,%BUILDIR%\gitcommit.bat
+FileAppend,"`%gitapp`%" commit -m `%1`%.`n,%BUILDIR%\gitcommit.bat
+if (GITPASS <> "")
 	{
-		return
+		FileAppend,"`%gitapp`%" push --repo http://%gituser%:%GITPASS%@github.com/%gituser%/skeletonkey`n,%BUILDIR%\gitcommit.bat			
 	}
+if (GITPASS = "")
+	{
+		FileAppend,"`%gitapp`%" push origin master`n,%BUILDIR%\gitcommit.bat			
+	}
+guicontrol,,txtGSD,%GITD%	
+return
+
 gitclone:
 Msgbox,3,project not found,Git Source file not found`nWould you like to pull the latest version?
 ifmsgbox, Yes
@@ -1990,17 +1759,14 @@ if (SRCDD = "Site")
 			}
 		goto, GetSiteDir
 	}
-
-if (SRCDD = "NP++")
+if (SRCDD = "SciTE4AutoHotkey")
 	{
-		goto, GetNPP
+		goto, DwnSCI
 	}
-
 if (SRCDD = "Compiler")
 	{
 		goto, GetAHKZ
 	}
-
 if (SRCDD = "NSIS")
 	{
 		nsitmp= %A_MyDocuments%
@@ -2020,20 +1786,110 @@ if (SRCDD = "NSIS")
 return
 
 PULLSKEL:
+gui,submit,nohide
 av= 
+if (gitapp = "")
+	{
+		SB_SetText("git.exe is not located")
+		return
+	}
+if (SKELD = "")
+	{
+		SB_SetText("Source Directory is not defined")
+		return
+	}
+if (gituser = "")
+	{
+		SB_SetText("username is not defined")
+		return
+	}
+if (gitpass = "")
+	{
+		SB_SetText("password is not defined")
+		return
+	}
+if (gitroot = "")
+	{
+		SB_SetText("github project directory is not defined")
+		return
+	}
+SB_SetText("Cloning skeletonkey")
 Runwait, "%gitapp%" clone http://github.com/%GITUSER%/skeletonKey,%GITROOT%
 Loop, %GITROOT%\skeletonKey\*.*
+	{
+		av+=1
+		break
+	}
+if (av = "")
+	{
+		CONTPARAM10= 
+		CONTPARAM18= 
+		FileSetAttrib, -h,.git
+		FileRemoveDir,%GITROOT%\skeletonkey,1
+		Msgbox,3,SetUp Github Project,Would you like to clone romjacket's skeletonkey?
+		ifmsgbox,yes
 			{
-				av+=1
+				Runwait, "%gitapp%" clone http://github.com/romjacket/skeletonkey,%GITROOT%					
 			}
-		if (av = "")
+		ifmsgbox,no
 			{
-				FileSetAttrib, -h,.git
-				FileRemoveDir,%GITROOT%\skeletonkey,1
-				Runwait, "%gitapp%" clone http://github.com/romjacket/skeletonkey,%GITROOT%
-				RunWait, %comspec% cmd /c "%gitapp%" init,%gitroot%\skeletonkey,hide
-				RunWait,%comspec% cmd /c "bin\curl.exe" -u %gituser%:%gitpass% https://api.github.com/user/repos -d "{\"name\":\"skeletonkey\"}",,hide
+				Msgbox,3,SetUp Github Project,Would you like to copy the build directory to your github projects?
+				ifmsgbox,Yes
+					{
+						FileCopyDir,%SKELD%,%GITROOT%\skeletonkey,1
+					}
+				ifmsgbox,No
+					{
+						guicontrol,,txtGSD,Github-Skeletonkey-Directory
+						inidelete,skopt.cfg,GLOBAL,git_src
+						inidelete,skopt.cfg,GLOBAL,Project_Directory
+						return
+					}
 			}
+	}
+ifexist,%GITROOT%\skeletonkey\
+	{
+		GitSRC= http://github.com/%gituser%/skeletonkey
+		GITD= %GITROOT%\skeletonkey
+		CONTPARAM10= 1
+		CONTPARAM18= 1
+		RunWait, %comspec% cmd /c "%gitapp%" init,%gitroot%\skeletonkey,hide
+		RunWait,%comspec% cmd /c "bin\curl.exe" -k -u %gituser%:%gitpass% https://api.github.com/user/repos -d "{\"name\":\"skeletonkey\"}",,hide					
+		guicontrol,,txtGSD,%GITD%
+		IniWrite,%GitSRC%,skopt.cfg,GLOBAL,git_url
+		iniwrite, %GITD%,skopt.cfg,GLOBAL,Project_Directory
+	}
+return	
+
+PULLIO:
+av= 
+if (gitapp = "")
+	{
+		SB_SetText("git.exe is not located")
+		return
+	}
+if (SKELD = "")
+	{
+		SB_SetText("Source Directory is not defined")
+		return
+	}
+if (gituser = "")
+	{
+		SB_SetText("username is not defined")
+		return
+	}
+if (gitpass = "")
+	{
+		SB_SetText("password is not defined")
+		return
+	}
+if (gitroot = "")
+	{
+		SB_SetText("github project directory is not defined")
+		return
+	}
+
+SB_SetText("Cloning website")	
 ifnotexist, %GITROOT%\%GITUSER%.github.io
 	{
 		av= 
@@ -2045,20 +1901,39 @@ ifnotexist, %GITROOT%\%GITUSER%.github.io
 		if (av = "")
 			{
 				FileSetAttrib,-h,%GITUSER%.github.io\.git
-
 				FileRemoveDir,%GITROOT%\%GITUSER%.github.io\skeletonkey,1
-
-				Runwait, "%gitapp%" clone http://github.com/romjacket/romjacket.github.io,%GITROOT%
-				FileMoveDir, %GITROOT%\romjacket.github.io\skeletonkey,%GITROOT%\%GITUSER%.github.io\skeletonkey,R
-				FileCreateDir,%gitroot%\%gituser%.github.io\skeletonkey
-				RunWait, %comspec% cmd /c "%gitapp%" init,%gitroot%\%GITUSER%.github.io,hide
-				RunWait,%comspec% cmd /c "bin\curl.exe" -u %gituser%:%gitpass% https://api.github.com/user/repos -d "{\"name\":\"%gituser%.github.io\"}",,hide
-				
+				Msgbox,3,SetUp Github Project,Would you like to clone romjacket's site?
+				ifmsgbox,yes
+					{
+						Runwait, "%gitapp%" clone http://github.com/romjacket/romjacket.github.io,%GITROOT%
+						FileCopyDir, %GITROOT%\romjacket.github.io\skeletonkey,%GITROOT%\%GITUSER%.github.io\skeletonkey,1
+					}
+				ifmsgbox,no
+					{
+						Msgbox,3,SetUp Github Site,Would you like to copy the source site to your github projects?
+						ifmsgbox,Yes
+							{
+								FileCopyDir,%SKELD%\skeletonkey,%GITROOT%\%gituser%.github.io\skeleotnkey,1
+							}
+						ifmsgbox,No
+							{
+								CONTPARAM11= 
+								guicontrol,,txtGWD,Github-Site-Directory
+								inidelete,skopt.cfg,GLOBAL,site_directory
+								return
+							}
+					}
 			}
 	}
-GITD= %GITROOT%\skeletonKey
-iniwrite, %GITD%,skopt.cfg,GLOBAL,Project_Directory
-iniwrite, %SITEDIR%,skopt.cfg,GLOBAL,Site_Directory
+ifexist,%GITROOT%\%gituser%.github.io\skeletonkey
+	{
+		SITEDIR= %GITROOT%\%gituser%.github.io
+		CONTPARAM11= 1
+		RunWait, %comspec% cmd /c "%gitapp%" init,%gitroot%\%GITUSER%.github.io,hide
+		RunWait,%comspec% cmd /c "bin\curl.exe" -k -u %gituser%:%gitpass% https://api.github.com/user/repos -d "{\"name\":\"%gituser%.github.io\"}",,hide
+		guicontrol,,txtGWD,%SITEDIR%
+		iniwrite, %SITEDIR%,skopt.cfg,GLOBAL,Site_Directory
+	}	
 return
 
 Clone:
@@ -2103,7 +1978,6 @@ if (av = "")
 	}
 			
 SB_SetText("Complete")
-
 guicontrol,enable,SRCDD
 guicontrol,enable,SELDIR
 guicontrol,enable,RESGET
@@ -2111,7 +1985,9 @@ guicontrol,enable,RESDD
 guicontrol,enable,RESB
 return
 
-
+DwnNSIS:
+gui,submit,nohide
+CONTPARAM6= 
 GetNSIS:
 iniread,nsisurl,sets\BuildTools.set,BUILDENV,NSIS
 splitpath,nsisurl,nsisf
@@ -2129,51 +2005,104 @@ ifnotexist, %cacheloc%\%nsisf%
 				Progress, off
 			}
 	}
-ifexist, %nsisv%
+ifnotexist, %nsisv%
 	{
-		NSISD= 
-		NSISDT= 
-		NSIS= 
-		if (AUTOINSTALL >= 1)
+		gitapdtmp= 
+		Msgbox,3,not found,%nsisv% not found.`nRETRY?
+		ifmsgbox,yes
 			{
-				NSISDT= %A_MyDocuments%
-				goto, NSISSL
+				goto, getNSIS
 			}
-		FileSelectFolder, NSIST,*%gitapdtmp%,0,Location to extract the NSIS programs.
-		NSISSL:
-		if (NSISDT = "")
-			{
-				return
-			}
-		splitpath,nsisdt,nsisdfn,nsisdnew
-		ifinstring,nsisdfn,nsis
-			{
-				NSISDT= %nsisdnew%
-			}
-		Runwait, bin\7za.exe x -y "%nsisv%" -O"%NSISDT%",,%rntp%
-		Loop, %NSISDT%\nsis-*,2
-			{
-				NSISdf= %A_LoopFilename%
-				break
-			}
-		filemovedir,%NSISDT%\%NSISdf%,%NSISDT%\NSIS,R
-		NSISD= %NSISDT%\NSIS
-		NSIS= %NSISD%\makensis.exe
-		iniwrite, %NSIS%,skopt.cfg,GLOBAL,NSIS
-		SB_SetText("makensis.exe is " NSIS " ")
+		inidelete,skopt.cfg,GLOBAL,NSIS
+		guicontrol,,txtNSIS,makensis.exe
+		CONTPARAM6= 
 		return
 	}
-gitapdtmp= 
-Msgbox,3,not found,%nsisv% not found.`nRETRY?
-ifmsgbox,yes
+NSISD= 
+NSISDT= 
+NSIS= 
+NSISDT= %A_MyDocuments%
+FileSelectFolder, NSIST,*%gitapdtmp%,0,Location to extract the NSIS programs.
+if (NSIST = "")
 	{
-		AUTOINSTALL= 
-		gosub, getNSIS
+		inidelete,skopt.cfg,GLOBAL,NSIS
+		guicontrol,,txtNSIS,
+		CONTPARAM6= 
+		return
 	}
+splitpath,NSIST,nsisdfn,nsisdnew
+Runwait, "bin\7za.exe" x -y "%nsisv%" -O"%NSISDT%",,%rntp%
+NSIS= %NSIST%\makensis.exe
+iniwrite, %NSIS%,skopt.cfg,GLOBAL,NSIS
+SB_SetText("makensis.exe is " NSIS " ")
+guicontrol,,txtNSIS,%NSIS%
+CONTPARAM6= 1
 return
 
 
+getSCI:
+gui,submit,nohide
+SCIRT=
+FileSelectFile,SCIRT,3,%scitmp%,Select SciTE,*.exe
+if (SCIRT = "")
+	{
+		return
+	}
+SCITL= %SCIRT%
+iniwrite,%SCITL%,skopt.cfg,GLOBAL,SciTE4AutoHotkey
+SB_SetText(" SciTE4AutoHotkey " SCITL "")
+return
+
+DwnSCI:
+iniread,SCIURL,sets\BuildTools.set,BUILDENV,SciTE4AutoHotkey
+splitpath,SCIURL,scifn
+scisv= %cacheloc%\%scifn%
+ifnotexist,%scisv%
+	{
+		scitmp= %A_MyDocuments%				
+		if (progb = "")
+			{
+				Progress, 0, , ,Downloading SciTE
+			}	
+		DownloadFile(SCIURL, scisv, False, True)
+		sleep, 1200
+		if (progb = "")
+			{
+				Progress, off
+			}
+	}
+ifnotexist, %scisv%
+	{
+		scitmp= 
+		Msgbox,3,Not Found,%scisv% not found.`nRETRY?
+		ifmsgbox,Yes
+			{
+				gosub,DwnSCI
+			}
+		return
+	}
+SCIK=
+SCIL=
+FileselectFolder,SCITL,*%scitmp%,0,Location to extract SciTE4AutoHotkey
+SCILSEL:
+if (SCITL = "")
+	{
+		return
+	}
+splitpath,SCIL,sciflt
+ifnotinstring,sciflt,scite
+SCIL.= "\SciTE"
+Runwait, bin\7za.exe x -y "%scisv%" -O"%SCIL%",,%rntp%
+SCITL= %SCIL%\SciTE.exe
+iniwrite,%SCIR%,skopt.cfg,GLOBAL,SciTE4AutoHotKey
+SB_SetText(" SciTE4AutoHotkey is " SCITL "")
+return
+
+
+DwnGit:
+gui,submit,nohide
 GetGITZ:
+CONTPARAM4= 
 iniread,gitzurl,sets\BuildTools.set,BUILDENV,GIT_%ARCH%
 splitpath,gitzurl,gitzf
 gitzsv= %cacheloc%\%gitzf%
@@ -2194,11 +2123,6 @@ ifexist, %gitzsv%
 	{
 		GITAPP= 
 		GITAPPT=
-		if (AUTOINSTALL >= 1)
-			{
-				GITAPPT= %A_MyDocuments%
-				goto, GITZSL
-			}
 		FileSelectFolder, GITAPPT,*%gitapdtmp%,0,Location to extract the Git programs.
 		GITZSL:
 		ifinstring,GITAPPT,git
@@ -2215,6 +2139,7 @@ ifexist, %gitzsv%
 		Runwait, bin\7za.exe x -y "%gitzsv%" -O"%GITAPPT%",,%rntp%
 		GITAPP= %GITAPPT%\bin\Git.exe
 		splitpath, gitapp,,gitappd
+		CONTPARAM4= 1
 		iniwrite, %GITAPP%,skopt.cfg,GLOBAL,git_app
 		return
 	}
@@ -2222,224 +2147,15 @@ gitapdtmp=
 Msgbox,3,not found,%gitzsv% not found.`nRETRY?
 ifmsgbox,yes
 	{
-		AUTOINSTALL= 
 		gosub, getGitz
 	}
 return
 
 
-GetNPP:
-NPPRT=
-iniread,NPPURL,sets\BuildTools.set,BUILDENV,Notepad_PlusPlus
-splitpath,NPPURL,nppfn
-nppsv= %cacheloc%\%nppfn%				   
-
-if (AUTOINSTALL >= 1)
-	{
-		NPPRT= 
-		goto, NPPRT
-	}
-FileSelectFile,NPPRT,3,%npptmp%,Select notepad++,*.exe
-NPPRT:
-if (NPPRT = "")
-	{
-		ifnotexist,%nppsv%
-			{
-				npptmp= %A_MyDocuments%				
-				if (progb = "")
-					{
-						Progress, 0, , ,Downloading NotePad++
-					}	
-				DownloadFile(NPPURL, nppsv, False, True)
-				sleep, 1200
-				if (progb = "")
-					{
-						Progress, off
-					}
-			}
-		ifexist, %nppsv%
-			{
-				NPPK=
-				NPPL=
-				if (AUTOINSTALL >= 1)
-					{
-						NPPL= %A_MyDocuments%
-						goto, NPPLSEL
-					}
-				FileselectFolder,NPPL,*%npptmp%,0,Location to extract NotepadPlusPlus
-				NPPLSEL:
-				if (NPPL = "")
-					{
-						return
-					}
-				splitpath,NPPL,nppflt
-				ifnotinstring,nppflt,notepad
-				NPPL.= "\Notepad++"
-				Runwait, bin\7za.exe x -y "%nppsv%" -O"%NPPL%",,%rntp%
-				NPPR= %NPPL%\notepad++.exe
-				SB_SetText(" Notepad Plus Plus is " NPPR "")
-				return
-			}
-		npptmp= 
-		Msgbox,3,Not Found,%nppsv% not found.`nRETRY?
-		ifmsgbox,Yes
-			{
-				AUTOINSTALL= 
-				gosub,GetNPP
-			}
-		return
-}
-NPPR= %NPPRT%
-SB_SetText(" Notepad Plus Plus is " NPPR "")
-GetRMP:
-rmptmp= %NPPL%\plugins
-iniread,RMPURL,sets\BuildTools.set,BUILDENV,RunMe_Plugin
-splitpath,RMPURL,rmpfn
-rmpsv= %cacheloc%\%rmpfn%
-ifexist,%NPPL%\plugins\RunMe.dll
-	{
-		goto,GetTBP
-	}
-goto,RMPRT
-GetRMPSL:
-if (AUTOINSTALL >= 1)
-	{
-		RMPRT= %NPPL%\plugins
-		goto, RMPRT
-	}
-FileSelectFile,RMPRT,3,%rmptmp%,Select RunMe.dll,*.dll
-RMPRT:
-if (RMPRT = "")
-	{
-		ifnotexist,%rmpsv%
-			{
-				rmptmp= %A_MyDocuments%				
-				if (progb = "")
-					{
-						Progress, 0, , ,Downloading RunMe Plugin
-					}	
-				DownloadFile(RMPURL, rmpsv, False, True)
-				sleep, 1200
-				if (progb = "")
-					{
-						Progress, off
-					}
-			}
-		ifexist, %rmpsv%
-			{
-				Runwait, bin\7za.exe x -y "%rmpsv%" -O"%NPPL%\plugins\RunMe" "32bit\RunMe.dll",,%rntp%
-			}
-		else {
-			Msgbox,3,Not Found,%rmpsv% not found.`nRETRY?
-					ifmsgbox,Yes
-						{
-							AUTOINSTALL= 
-							gosub,GetRMPSL
-						}
-				}
-	}
-GetTBP:
-tbptmp= %NPPL%\plugins
-iniread,TBPURL,sets\BuildTools.set,BUILDENV,ToolBucket_Plugin
-splitpath,TBPURL,tbpfn
-tbpsv= %cacheloc%\%tbpfn%
-ifexist,%NPPL%\plugins\NppToolBucket.dll
-	{
-		goto,GetTXP
-	}
-if (AUTOINSTALL >= 1)
-	{
-		TBPRT= %NPPL%\plugins
-		goto, TBPRT
-	}
-
-goto, TBPRT
-
-GetTBPSL:
-FileSelectFile,TBPRT,3,%tbptmp%,Select NppToolBucket.dll,*.dll
-
-TBPRT:
-if (TBPRT = "")
-	{
-		ifnotexist,%tbpsv%
-			{
-				tbptmp= %A_MyDocuments%
-				if (progb = "")
-					{
-						Progress, 0, , ,Downloading ToolBucket Plugin
-					}	
-				DownloadFile(TBPURL, tbpsv, False, True)
-				sleep, 1200
-				if (progb = "")
-					{
-						Progress, off
-					}
-			}
-		ifexist, %tbpsv%
-			{
-				Runwait, bin\7za.exe x -y "%tbpsv%" -O"%NPPL%\plugins\ToolBucket",,%rntp%
-			}
-		else {	
-				Msgbox,3,Not Found,%tbpsv% not found.`nRETRY?
-				ifmsgbox,Yes
-					{
-						AUTOINSTALL= 
-						gosub,GetTBPSL
-					}
-		}
-	}
-GetTXP:
-txptmp= %NPPL%\plugins
-iniread,TXPURL,sets\BuildTools.set,BUILDENV,TextFX_Plugin
-splitpath,TXPURL,txpfn
-tspsv= %cacheloc%\%txpfn%
-ifexist,%NPPL%\plugins\NppTextFX.dll
-	{
-		return
-	}
-if (AUTOINSTALL >= 1)
-	{
-		TXPRT= %NPPL%\plugins
-		goto, TXPRT
-	}
-	
-goto, TXPRT
-
-TXPRSL:
-FileSelectFile,TXPRT,3,%txptmp%,Select NppTextFX.dll,*.dll
-TXPRT:
-if (TXPRT = "")
-	{
-		ifnotexist,%txpsv%
-			{
-				txptmp= %A_MyDocuments%
-				if (progb = "")
-					{
-						Progress, 0, , ,Downloading TextFX Plugin
-					}	
-				DownloadFile(TXPURL, txpsv, False, True)
-				sleep, 1200
-				if (progb = "")
-					{
-						Progress, off
-					}
-			}
-		ifexist, %txpsv%
-			{
-				Runwait, bin\7za.exe x -y "%txpsv%" -O"%NPPL%\plugins\TextFX",,%rntp%
-			}
-		else {
-					Msgbox,3,Not Found,%txpsv% not found.`nRETRY?
-					ifmsgbox,Yes
-						{
-							AUTOINSTALL= 
-							gosub,TXPRSL
-						}
-		}	
-	}	
-return
-
+DwnAHK:
+gui,submit,nohide
 GetAHKZ:
+CONTPARAM7= 
 iniread,AHKURL,sets\BuildTools.set,BUILDENV,AutoHotkey
 splitpath,AHKURL,ahksvf
 ahksv= %cacheloc%\%ahksvf%
@@ -2457,40 +2173,36 @@ ifnotexist, %ahksv%
 				Progress, off
 			}
 	}
-ifexist, %ahksv%
+ifnotexist, %ahksv%
 	{
-		AHKDIR= 
-		AHKDIT= 		
-		if (AUTOINSTALL >= 1)
-			{
-				AHKDIT= %A_MyDocuments%
-				goto, AHKRT
-			}
-		FileSelectFolder, AHKDIT,*%ahktmp%,0,Location to extract the AutoHotkey Programs.
-		AHKRT:
-		if (AHKDIT = "")
-			{
-				return
-			}
-		splitpath,ahkdit,ahktstn
-		ifnotinstring,ahktstn,autohotkey
-			{
-				AHKDIT.= "\Autohotkey"
-			}
-		Runwait, bin\7za.exe x -y "%ahksv%" -O"%AHKDIT%",,%rntp%
-		AHKDIR= %AHKDIT%\Compiler
-		iniwrite, %AHKDIR%,skopt.cfg,GLOBAL,Compiler_Directory
-		SB_SetText("AutoHotkey Compiler Directory is " AHKDIR " ")
 		ahktmp= 
+		Msgbox,3,Not Found,%ahksv% not found.`nRETRY?
+		ifmsgbox,Yes
+			{
+				goto,GetAHKZ
+			}
+		inidelete,skopt.cfg,GLOBAL,Compiler_Directory
+		CONTPARARM7= 
+		guicontrol,,txtAHK,
 		return
 	}
-ahktmp= 
-Msgbox,3,Not Found,%ahksv% not found.`nRETRY?
-ifmsgbox,Yes
+AHKDIR= 
+ahktmp= %A_MyDocuments%
+FileSelectFolder, AHKDIT,*%ahktmp%,0,Location to extract the AutoHotkey Programs.
+if (AHKDIT = "")
 	{
-		AUTOINSTALL= 
-		gosub,GetAHKZ
+		inidelete,skopt.cfg,GLOBAL,Compiler_Directory
+		CONTPARARM7= 
+		guicontrol,,txtAHK,Ahk2Exe.exe
+		return
 	}
+splitpath,ahkdit,ahktstn
+Runwait, "bin\7za.exe" x -y "%ahksv%" -O"%AHKDIT%",,%rntp%
+AHKDIR= %AHKDIT%\Compiler
+iniwrite, %AHKDIR%,skopt.cfg,GLOBAL,Compiler_Directory
+CONTPARAM7= 1
+SB_SetText("AutoHotkey Compiler Directory is " AHKDIR " ")
+guicontrol,,txtAHK,%AHKDIR%\Ahk2Exe.exe
 return
 
 SrcDD:
@@ -2532,9 +2244,9 @@ if (SRCDD = "Site")
 		SB_SetText(" " SITEDIR " ")
 	}
 	
-if (SRCDD = "NP++")
+if (SRCDD = "SciTE4AutoHotkey")
 	{
-		SB_SetText(" " NPPR " ")
+		SB_SetText(" " SCITE " ")
 	}
 		
 if (SRCDD = "Git.exe")
@@ -2585,10 +2297,6 @@ if (RESDD = "Deployer")
 	{
 		SB_SetText(" Reset this tool to default options !Remember your password!")
 	}
-if (RESDD = "Shader-URL")
-	{
-		SB_SetText(" " SHDRPURL " ")
-	}
 if (RESDD = "Internet-IP-URL")
 	{
 		SB_SetText(" " GETIPADR " ")
@@ -2596,10 +2304,6 @@ if (RESDD = "Internet-IP-URL")
 if (RESDD = "Git-Password")
 	{
 		SB_SetText(" ********* ")
-	}
-if (RESDD = "Site-URL")
-	{
-		SB_SetText(" " SITEURL " ")
 	}
 if (RESDD = "Git-User")
 	{
@@ -2634,7 +2338,6 @@ if (RESDD = "Stable-Build")
 					SBOV= 1
 				}
 	}
-
 if (RESDD = "Portable-Build")
 	{
 		PortBld= 
@@ -2651,7 +2354,6 @@ if (RESDD = "Portable-Build")
 					PBOV= 1
 				}
 	}
-
 if (RESDD = "Dev-Build")
 	{
 		DevBld= 
@@ -2679,7 +2381,6 @@ if (RESDD = "Dev-Build")
 					DBOV= 1
 				}
 	}
-
 if (RESDD = "Deployer")
 	{
 		MsgBox,1,Confirm Tool Reset, Are You sure you want to reset the Deployment Tool?
@@ -2688,12 +2389,9 @@ if (RESDD = "Deployer")
 				FileDelete, %BUILDIR%\gitcommit.bat
 				FileDelete, %BUILDIR%\skdeploy.nsi				
 				FileDelete, %BUILDIR%\skopt.cfg
-				;;FileDelete, %BUILDIR%\ltc.txt
-				;;FileDelete, %BUILDIR%\insts.sha1
 				ExitApp
 			}
 	}
-
 if (RESDD = "NSIS")
 	{
 		MsgBox,1,Confirm Tool Reset, Are You sure you want to reset the NSIS makensis.exe?
@@ -2715,7 +2413,6 @@ if (RESDD = "NSIS")
 				ExitApp
 			}
 	}
-
 if (RESDD = "github-release")
 	{
 		MsgBox,1,Confirm Tool Reset, Are You sure you want to reset the github-release.exe?
@@ -2737,31 +2434,16 @@ if (RESDD = "github-release")
 				ExitApp
 			}
 	}
-	
-if (RESDD = "Site-URL")
-	{
-		Gosub, GetSiteURL
-	}
-
 if (RESDD = "Repo-URL")
 	{
 		iniread,REPOURL,sets\arcorg.set,GLOBAL,HOSTINGURL
-		;;FileReadline,REPOURLT,arcorg.set,2
 		Gosub, RepoURL
 	}
-
 if (RESDD = "Internet-IP-URL")
 	{
 		GETIPADRT= %GETIPADR%
 		Gosub, GetIpAddr
 	}
-
-if (RESDD = "Shader-URL")
-	{
-		SHDRPURLT= %SHDRPURL%
-		Gosub, GetShaderP
-	}
-
 if (RESDD = "Git-URL")
 	{
 		GITSRCT= %GITSRC%
@@ -2948,9 +2630,6 @@ FileDelete,skdeploy.nsi
 CrCFLN= %DEPL%\skeletonkey-installer.exe
 gosub, SHA1GET
 nchash:= ApndSHA
-;;RunWait, %comspec% cmd /c " "%BUILDIR%\fciv.exe" -sha1 "%DEPL%\skeletonkey-installer.exe" > "%BUILDIR%\fcivINST.txt" ", %BUILDIR%,%rntp%
-;;FileReadLine, nchash, %BUILDIR%\fcivINST.txt,4
-;;RunWait, %comspec% cmd /c " "%NSIS%" "%BUILDIR%\skdeploy.nsi" >"%DEPL%\deploy.log"", ,%rntp%
 BLDERROR= 
 ifnotexist, %DEPL%\skeletonKey-installer.exe
 	{
@@ -2972,8 +2651,6 @@ if (BLDERROR = 1)
 
 FileDelete, %SKELD%\site\version.txt
 FileAppend, %date% %timestring%=%nchash%=%vernum%,%SKELD%\site\version.txt
-
-
 buildnum= 
 buildtnum= 1
 Loop, %DEPL%\skeletonkey-%date%*.zip
@@ -3066,7 +2743,6 @@ FIleRead,arcorgv,%SKELD%\sets\arcorg.put
 StringReplace,skthemes,skthemes,[HOSTINGURL],%REPOURL%,All
 StringReplace,arcorgv,arcorgv,[UPDATEFILE],%UPDTFILE%,All
 StringReplace,arcorgv,arcorgv,[HOSTINGURL],%REPOURL%,All
-StringReplace,arcorgv,arcorgv,[LOBBY],%NLOB%,All
 StringReplace,arcorgv,arcorgv,[SHADERHOST],%SHDRPURL%,All
 StringReplace,arcorgv,arcorgv,[SOURCEHOST],%UPDTURL%,All
 StringReplace,arcorgv,arcorgv,[REPOSRC],https://github.com/%gituser%/skeletonKey/releases/download,All
@@ -3114,8 +2790,6 @@ if (OvrStable = 1)
 if (INITINCL = 1)
 	{
 			exprt= 
-			;;exprt.= "FileCreateDir, gam\Archive\MAME - Systems" . "`n"
-			;;exprt.= "FileCreateDir, gam\THE-EYE" . "`n"
 			exprt.= "FileCreateDir, gam" . "`n"
 			exprt.= "FileCreateDir, img" . "`n"
 			exprt.= "FileCreateDir, site" . "`n"
@@ -3222,23 +2896,6 @@ if (INITINCL = 1)
 					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
 					exprt.= "FileInstall," . ain . "," . ain . ",1" . "`n"
 				}
-			/*	
-			Loop, files, %SKELD%\gam\Archive\MAME - Systems\*.gam,R
-				{
-					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
-					exprt.= "FileInstall," . ain . "," . ain . ",1" . "`n"
-				}
-			Loop, files, %SKELD%\gam\Archive\*.gam,R
-				{
-					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
-					exprt.= "FileInstall," . ain . "," . ain . ",1" . "`n"
-				}
-			Loop, files, %SKELD%\gam\THE-EYE\*.gam,R
-				{
-					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
-					exprt.= "FileInstall," . ain . "," . ain . ",1" . "`n"
-				}
-			*/	
 			Loop, files, %SKELD%\rj\emucfgs\*.*,R
 				{
 					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
@@ -3269,7 +2926,6 @@ if (INITINCL = 1)
 				}				
 			exprt.= "FileInstall, bin\7zsd32.sfx,bin\7zsd32.sfx" . "`n"	
 			exprt.= "FileInstall, bin\7zsd64.sfx,bin\7zsd64.sfx" . "`n"	
-			;;exprt.= "FileInstall, bin\Portable.bat,bin\Portable.bat,1" . "`n"	
 			exprt.= "FileInstall, site\index.html,site\index.html,1" . "`n"	
 			exprt.= "FileInstall, site\version.txt,site\version.txt,1" . "`n"	
 			exprt.= "FileInstall, working.ahk,working.ahk,1" . "`n"	
@@ -3310,88 +2966,7 @@ if (OvrStable = 1)
 guicontrol,,progb,15
 FileDelete,%SKELD%\*.lpl
 FileDelete,%SKELD%\*.tmp
-/*
-;;FileDelete,%SKELD%\version.txt
-FileDelete,ltc.txt
-;;FileAppend, "%SKELD%\skeletonkey.ahk"`n,ltc.txt
-FileAppend, "%SKELD%\working.ahk"`n,ltc.txt
-FileAppend, "%SKELD%\src\Update.ahk"`n,ltc.txt
-FileAppend, "%SKELD%\site\version.txt"`n,ltc.txt
-FileAppend, "%SKELD%\src\SKey-Deploy.ahk"`n,ltc.txt
-FileAppend, "%SKELD%\src\BSL.ahk"`n,ltc.txt
-FileAppend, "%SKELD%\src\AHKsock.ahk"`n,ltc.txt
-FileAppend, "%SKELD%\src\lbex.ahk"`n,ltc.txt
-FileAppend, "%SKELD%\src\init.ahk"`n,ltc.txt
-FileAppend, "%SKELD%\src\PortableUtil.ahk"`n,ltc.txt
-FileAppend, "%SKELD%\src\LVA.ahk"`n,ltc.txt
-FileAppend, "%SKELD%\src\HtmlDlg.ahk"`n,ltc.txt
-FileAppend, "%SKELD%\src\emuexe.ahk"`n,ltc.txt
-FileAppend, "%SKELD%\src\tf.ahk"`n,ltc.txt
-FileAppend, "%SKELD%\src\LV_InCellEdit.ahk"`n,ltc.txt
-Loop, %SKELD%\*
-		{
-			if (A_LoopFileExt = "cfg")
-				{
-					continue
-				}
-			if (A_LoopFileExt = "7z")
-				{
-					continue
-				}
-			if (A_LoopFileExt = "zip")
-				{
-					continue
-				}
-			if (A_LoopFileExt = "ini")
-				{
-					continue
-				}
-			if (A_LoopFileExt = "ahk")
-				{
-					continue
-				}
-			if (A_LoopFileExt = "bak")
-				{
-					continue
-				}
-			FileAppend, "%A_LoopFileFullPath%"`n,ltc.txt
-		}
-FileAppend,:%SKELD%\img\*.ico`n,ltc.txt
-FileAppend,:%SKELD%\rj\ES\*.set`n,ltc.txt
-FileAppend,:%SKELD%\rj\PG\*.set`n,ltc.txt
-FileAppend,:%SKELD%\rj\RF\*.set`n,ltc.txt
-FileAppend,:%SKELD%\img`n,ltc.txt
-FileAppend,:%SKELD%\rj\joycfgs`n,ltc.txt
-FileAppend,:%SKELD%\rj\KODI\*.set`n,ltc.txt
-FileAppend,:%SKELD%\rj\KODI\AEL\*.set`n,ltc.txt
-FileAppend,:%SKELD%\rj\emucfgs`n,ltc.txt
-FileAppend,:%SKELD%\rj\scrapeart`n,ltc.txt
-
-Loop, %SKELD%\rj\scrapeart\*.7z
-	{
-		FileAppend,"%A_LoopFileFullPath%"`n,ltc.txt
-	}
-
-Loop, %SKELD%\rj\emucfgs\*,2
-	{
-		FileAppend,:"%A_LoopFileFullPath%"`n,ltc.txt
-		Loop, %A_LoopFileFullPath%\*
-			{
-				FileAppend,"%A_LoopFIleFullPath%"`n,ltc.txt
-			}
-	}
-
-Loop, %SKELD%\rj\joycfgs\*,2
-	{										
-		FileAppend,:"%A_LoopFileFullPath%"`n,ltc.txt
-		Loop, %A_LoopFileFullPath%\*
-			{
-				FileAppend,"%A_LoopFIleFullPath%"`n,ltc.txt
-			}
-	}
-*/
 guicontrol,,progb,20
-
 if (DATBLD = 1)
 	{		
 		SB_SetText(" Recompiling Databases ")
@@ -3443,15 +3018,13 @@ if (BCANC = 1)
 		gosub, canclbld
 		compiling= 
 		return
-	}
-	
+	}	
 if (DevlVer = 1)
 	{
 		SB_SetText(" Building Devel ")
 		gosub, BUILDING
 		guicontrol,,progb,55
 }
-
 if (BCANC = 1)
 	{
 		SB_SetText(" Cancelling Git Push ")
@@ -3460,7 +3033,6 @@ if (BCANC = 1)
 		compiling= 
 		return
 	}
-
 if (GitPush = 1)
 	{
 		ifinstring,pushnotes,$
@@ -3530,7 +3102,6 @@ if (GitPush = 1)
 		FileAppend, del /s /q "%GITD%\rj\netArt\*"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, rd /s/q "%GITD%\rj\netArt"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, rd /s/q "%GITD%\rj\sysCfgs"`n,%SKELD%\!gitupdate.cmd
-		;;FileAppend, robocopy "gam" "%GITD%\gam" /s /e /w:1 /r:1`n,%SKELD%\!gitupdate.cmd
 		FileAppend, del /q "%GITD%\rj\*.tdb"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, del /q "%GITD%\rj\*.tmp"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, del /q "%GITD%\rj\*.ini"`n,%SKELD%\!gitupdate.cmd
@@ -3553,9 +3124,7 @@ if (GitPush = 1)
 		FileAppend, copy /y "*.exe" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "bin\*.exe" "%GITD%\bin"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "sets\*.set" "%GITD%\sets"`n,%SKELD%\!gitupdate.cmd
-		;;FileAppend, copy /y "bin\Portable.bat" "%GITD%\bin"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "site\index.html" "%GITD%\site"`n,%SKELD%\!gitupdate.cmd
-		;;FileAppend, copy /y "version.html" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "src\LV_InCellEdit.ahk" "%GITD%\src"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "src\emuexe.ahk" "%GITD%\src"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "src\init.ahk" "%GITD%\src"`n,%SKELD%\!gitupdate.cmd
@@ -3568,7 +3137,6 @@ if (GitPush = 1)
 		FileAppend, copy /y "src\AHKsock.ahk" "%GITD%\src"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "src\SKey-Deploy.ahk" "%GITD%\src"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "working.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
-		;;FileAppend, copy /y "skeletonkey.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "rj\KODI\RCB\*.set" "%GITD%\rj\KODI\RCB"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "rj\KODI\AEL\*.set" "%GITD%\rj\KODI\AEL"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "rj\KODI\IAGL\*.set" "%GITD%\rj\KODI\IAGL"`n,%SKELD%\!gitupdate.cmd
@@ -3621,7 +3189,6 @@ if (GitPush = 1)
 		SB_SetText(" source changes pushed to master ")
 		guicontrol,,progb,65
 	}
-
 if (BCANC = 1)
 	{
 		SB_SetText(" Cancelling Stable Overwrite ")
@@ -3630,7 +3197,6 @@ if (BCANC = 1)
 		compiling= 
 		return
 	}
-
 if (OvrStable = 1)
 	{
 		SB_SetText(" overwriting stable ")
@@ -3640,7 +3206,6 @@ if (OvrStable = 1)
 			}
 	}				
 guicontrol,,progb,70
-
 if (BCANC = 1)
 	{
 		SB_SetText(" Cancelling Server Upload ")
@@ -3649,16 +3214,13 @@ if (BCANC = 1)
 		compiling= 
 		return
 	}
-
 if (ServerPush = 1)
 	{
 		FileDelete, %DEPL%\gpush.cmd
 		FileAppend, set GITHUB_USER=%GITUSER%`n,%DEPL%\gpush.cmd
 		FileAppend, set GITHUB_TOKEN=%GITPAT%`n,%DEPL%\gpush.cmd
 		FileAppend, pushd "%DEPL%"`n,%DEPL%\gpush.cmd
-		
 		SB_SetText(" Uploading to server ")
-		
 		if (PortVer = 1)
 			{
 				if (ServerPush = 1)
@@ -3700,18 +3262,6 @@ if (ServerPush = 1)
 						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t Installer -l Installer -n Installer.zip -f "%DEPL%\Installer.zip"`n,%DEPL%\gpush.cmd
 					}
 			}
-
-			/*
-		if (DevlVer = 1)
-			{
-				if (ServerPush = 1)
-					{
-						FileAppend, "%GITRLS%" delete -r skeletonkey -t FullVersion`n,%DEPL%\gpush.cmd
-						FileAppend, "%GITRLS%" release -r skeletonkey -t FullVersion`n,%DEPL%\gpush.cmd
-						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t FullVersion -l "Full Version" -n FullVersion.zip -f "%DEPL%\skeletonkey-Full-%date%%buildnum%.zip"`n,%DEPL%\gpush.cmd
-					}
-			}
-			*/
 		if (SiteUpdate <> 1)
 			{
 
@@ -3723,8 +3273,7 @@ if (ServerPush = 1)
 				RunWait, %comspec% cmd /c " "gpush.cmd" >>"%DEPL%\deploy.log"",%DEPL%,%rntp%
 				RunWait, %comspec% cmd /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%
 			}
-	}
-	
+	}	
 if (BCANC = 1)
 	{
 		SB_SetText(" Cancelling Site Update ")
@@ -3733,7 +3282,6 @@ if (BCANC = 1)
 		compiling= 
 		return
 	}
-
 if (SiteUpdate = 1)
 	{
 		SB_SetText(" Updating the website ")
@@ -3791,21 +3339,6 @@ if (SiteUpdate = 1)
 										ApndSHA= reverted
 									}
 							}
-							/*
-						ifExist, %DEPL%\skeletonkey-Full.exe
-							{
-								Runwait, %comspec% cmd /c " "%BUILDIR%\fciv.exe" -sha1 "%DEPL%\skeletonkey-Full.exe" >"%BUILDIR%\instsFull.sha1" ", %BUILDIR%,%rntp%
-								if (SBOV = 1)
-									{
-										shb1= reverted
-									}
-								if (DBOV = 1)
-									{
-										shb1= reverted
-									}
-							}
-							*/
-							
 						ifExist, %DEPL%\skeletonkey-%date%%buildnum%.zip
 							{
 								FileGetSize,dvlsize,%DEPL%\skeletonkey-%date%%buildnum%.zip, K
@@ -3822,44 +3355,18 @@ if (SiteUpdate = 1)
 							}
 					}
 			}			
-			/*
-		ifExist, %DEPL%\skeletonkey-Full-%date%%buildnum%.zip
-			{
-				FileGetSize,dvgsize,%DEPL%\skeletonkey-Full-%date%%buildnum%.zip, K
-				dvpg:= dvgsize / 1000
-				StringLeft,dvmg,dvpg,4
-				if (DBOV = 1)
-					{
-						dvmg= reverted
-					}
-				if (SBOV = 1)
-					{
-						dvmg= reverted
-					}
-			}
-			*/
-		;;FileReadLine,shap,%BUILDIR%\insts.sha1,4
-		;;stringsplit,sha,shap,%A_Space%
-		;;FileReadLine,shag,%BUILDIR%\instsFull.sha1,4
-		;;stringsplit,shb,shag,%A_Space%		
-		
 		guicontrol,,progb,90
 		StringReplace,skelhtml,skelhtml,[RSHA1],%ApndSHA%,All
-		;;StringReplace,skelhtml,skelhtml,[RSHA2],%shb1%,All
 		StringReplace,skelhtml,skelhtml,[WEBURL],http://%GITUSER%.github.io/skeletonkey,All
 		StringReplace,skelhtml,skelhtml,[PAYPAL],%donation%
 		StringReplace,skelhtml,skelhtml,[GITSRC],%GITSRC%,All
-		;;StringReplace,skelhtml,skelhtml,[REVISION],http://github.com/%gituser%/skeletonkey-%date%%buildnum%,All
 		StringReplace,skelhtml,skelhtml,[REVISION],http://github.com/%gituser%/skeletonKey/releases/download/Installer/Installer.zip,All
 		StringReplace,skelhtml,skelhtml,[PORTABLE],https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey-portable.zip,All
 		
 		StringReplace,skelhtml,skelhtml,[GITUSER],%gituser%,All
 		StringReplace,skelhtml,skelhtml,[RELEASEPG],https://github.com/%gituser%/skeletonKey/releases,All
 		StringReplace,skelhtml,skelhtml,[DATFILES],https://github.com/%gituser%/skeletonKey/releases/download/DATFILES/DATFILES.7z,All
-		;;StringReplace,skelhtml,skelhtml,[DATFILES],https://github.com/%gituser%/DATFILES/raw/master/DATFILES.7z,All
 		
-		
-;;		StringReplace,skelhtml,skelhtml,[FULLRELEASE],https://github.com/%gituser%/skeletonKey/releases/download/FullVersion/FullVersion.zip,All
 		StringReplace,skelhtml,skelhtml,[RDATE],%RDATE%,All
 		StringReplace,skelhtml,skelhtml,[RSIZE],%dvms%,All
 		StringReplace,skelhtml,skelhtml,[RSIZE2],%dvmg%,All
@@ -3870,22 +3377,19 @@ if (SiteUpdate = 1)
 			{
 				FileCreateDir,%gitroot%\%gituser%.github.io\skeletonkey
 				RunWait, %comspec% cmd /c "%gitapp%" init,%gitroot%\%GITUSER%.github.io,hide
-				RunWait,%comspec% cmd /c "bin\curl.exe" -u %gituser%:%gitpass% https://api.github.com/user/repos -d "{\"name\":\"%gituser%.github.io\"}",,hide
+				RunWait,%comspec% cmd /c "bin\curl.exe" -k -u %gituser%:%gitpass% https://api.github.com/user/repos -d "{\"name\":\"%gituser%.github.io\"}",,hide
 			}
 		FileAppend,%skelhtml%,%gitroot%\%gituser%.github.io\skeletonkey\index.html
 	}
 uptoserv=
-
 if (SiteUpdate = 1)
 	{
 		uptoserv= 1
 	}
-
 if (ServerPush = 1)
 	{
 		uptoserv= 1
 	}
-
 if (uptoserv = 1)
 	{
 		SB_SetText(" Uploading to server ")
@@ -3948,6 +3452,10 @@ filemove,%SKELD%\skeletonKey.exe, %SKELD%\skeletonKey.del,1
 return
 
 esc::
+#IfWinActive _DEPLSETUP_
+	{
+		exitapp
+	}
 #IfWinActive _DEV_
 FDME:= 8452
 quitnum+=1
@@ -3976,8 +3484,6 @@ ifmsgbox, no
 	}
 return
 
-
-
 SHA1GET:
 ApndSHA= % FileSHA1( CrCFLN )
 FileSHA1(sFile="", cSz=4) {
@@ -4002,6 +3508,8 @@ return
 QUITOUT:
 WinGet, PEFV,PID,_DEV_
 Process, close, %PEFV%
+WinGet, DSFV,PID,_DEPLSETUP_
+Process, close, %DSFV%
 GuiEscape:
 GuiClose:
 ExitApp
@@ -4103,6 +3611,5 @@ if (progb = "")
 		Progress, off
 	}
 return
-
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
