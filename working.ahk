@@ -435,7 +435,7 @@ Loop,gam\*,2
 			}
 		if (A_Index = 1)
 			{
-				ARCSRCb= %A_LoopFileName
+				ARCSRCb= %A_LoopFileName%
 			}
 		ARCSRCS.= A_LoopFileName . "|"
 	}
@@ -3372,7 +3372,6 @@ Gui, Add, ComboBox, x218 y78 w123 vCUSTMARG gCustmArg hidden,|
 Gui, Add, CheckBox, x26 y75 w61 h17 vCUSTSWITCH gCustSwitch, switches
 
 Gui, Add, Checkbox, x28 y240 h13 vALTURL gEnableAltUrl %ARCURLE%, Enable Login
-msgbox,,,%ArcSRC%
 Gui, Add, DropDownlist, x28 y258 w225 vUrlTxt gREPOUrlEdt, %ArcSRC%||%ARCSRCS%Add Repository
 Gui, Add, Button, x266 y259 h18 vALTURLGET gALTURLGET,Download
 Gui, Add, Edit, x24 y215 w159 h21 vARCLOGIN gArcLogin %ARCURLCK%,%ARC_USER%
@@ -10793,7 +10792,6 @@ Loop, Parse,UrlIndex,`n`r
 													preEmuCfg.= urloc1 . "|"
 												}
 											guicontrol,,EMPRDDL,|%urloc1%||%runlist%
-									msgbox,,,emuprt1=%emuprt1%`nurloc1=%urloc1%`nrunlist=%runlist%
 											gosub, EMPRBUTASPLIT
 											iniwrite, "%xtractmu%\%emuxe%",Assignments.ini,ASSIGNMENTS,%OVRKND%
 											break
@@ -11999,7 +11997,6 @@ Loop, parse, ksiv,|
 guicontrol,,EMPRLST,|%EMPRLT%
 iniwrite,"%EMPRLT%",Assignments.ini,OVERRIDES,%semu%
 iniwrite,"%emprcur%",Assignments.ini,ASSIGNMENTS,%semu%
-msgbox,,,k
 return
 
 DELCFGPGC:
