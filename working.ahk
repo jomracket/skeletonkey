@@ -3972,7 +3972,7 @@ If (CurrControl <> PrevControl)
 				gosub, IMGTOOLTIPN
 				return
 			}
-				if (CurrControl = "FEPICA")
+		if (CurrControl = "FEPICA")
 			{
 				guicontrolget,imgprev,,FELBXB
 				gosub, MEDIATOOLTIP
@@ -4581,32 +4581,9 @@ guicontrol,,ARCSYS,|Select a System||%syslist%
 guicontrol,,ARCPOP,|
 
 gosub, RecentWrite
-;gosub, ArchivePop
+;;gosub, ArchivePop
 gosub, utlDDLA
-/*
-romfj1=
-romfj2=
-if (romf <> "")
-	{
-		stringsplit, romfj, romf,#
-		stringmid,romhnck,romf,2,1
-		if (romhnck <> ":")
-			{
-				ifexist, %raexeloc%\%romfj1%
-					{
-						romf= %raexeloc%\%romfj1%
-						if (romfj2 <> "")
-							{
-								romf= %raexeloc%\%romfj1%#%romfj2%
-							}
-					}
-			}
-	}
-if (romf = "")
-	{
-		romf= %RJSYSTEMS%
-	}
-*/
+
 guicontrol,,JCORE,|%runlist%
 
 gui, submit, nohide
