@@ -3813,7 +3813,6 @@ nchash:= ApndSHA
 BLDERROR= 
 ifnotexist, %DEPL%\skeletonKey-installer.exe
 	{
-		msgbox,,,what
 		BLDERROR= 1
 	}
 BLDCHKSZ= 0
@@ -3829,7 +3828,7 @@ if (BLDERROR = 1)
 	{
 		MsgBox,,,HALT.,INSTALLER FAILED.,CHECK YO SCRIPT MAN!
 	}
-
+FileDelete,skdeploy.nsi
 FileDelete, %SKELD%\site\version.txt
 FileAppend, %date% %timestring%=%nchash%=%vernum%,%SKELD%\site\version.txt
 buildnum= 
