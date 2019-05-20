@@ -3491,7 +3491,7 @@ if (GitPush = 1)
 				FileAppend,pushd "%GITD%"`n,%BUILDIR%\gitcommit.bat
 				FileAppend,"`%gitapp`%" add .`n,%BUILDIR%\gitcommit.bat
 				FileAppend,"`%gitapp`%" commit -m `%1`%`n,%BUILDIR%\gitcommit.bat
-				FileAppend,"`%gitapp`%" --set-upstream http://%gituser%:%gitpass%@github.com/%gituser%/skeletonkey master,gitcommit.bat
+				FileAppend,"`%gitapp`%" --set-upstream http://%gituser%:%gitpass%@github.com/%gituser%/skeletonkey master`n,gitcommit.bat
 				if (GITPASS <> "")
 					{
 						FileAppend,"`%gitapp`%" push -f --repo http://%GITUSER%:%GITPASS%@github.com/%gituser%/skeletonKey`n,%BUILDIR%\gitcommit.bat
@@ -3734,7 +3734,7 @@ if (uptoserv = 1)
 		FileAppend,for /f "delims=" `%`%a in ("%GITAPP%") do set gitapp=`%`%~a`n,%BUILDIR%\sitecommit.bat
 		FileAppend,"`%gitapp`%" add skeletonkey`n,%BUILDIR%\sitecommit.bat
 		FileAppend,"`%gitapp`%" commit -m siteupdate`n,%BUILDIR%\sitecommit.bat
-		FileAppend,"`%gitapp`%" --set-upstream http://%gituser%:%gitpass%@github.com/%gituser%/%gituser%.github.io master,sitecommit.bat
+		FileAppend,"`%gitapp`%" --set-upstream http://%gituser%:%gitpass%@github.com/%gituser%/%gituser%.github.io master`n,sitecommit.bat
 		if (GITPASS <> "")
 			{
 				FileAppend,"`%gitapp`%" push -f --repo http://%GITUSER%:%GITPASS%@github.com/%GITUSER%/%GITUSER%.github.io`n,%BUILDIR%\sitecommit.bat
