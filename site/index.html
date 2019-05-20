@@ -13,33 +13,33 @@
          <span></span>
          <ul id="menu">
             <li>
-               <a href="#DOWNLOAD" data-smoothie>DOWNLOAD</a>
+               <a href="#DOWNLOAD" class="pk" data-smoothie>DOWNLOAD</a>
             </li>
             <li>
-               <a href="#USE" data-smoothie>USAGE</a>
+               <a href="#USE" class="pk" data-smoothie>USAGE</a>
             </li>
             <li>
-               <a href="#FRONTENDS" data-smoothie>FRONTENDS</a>
+               <a href="#FRONTENDS" class="pk" data-smoothie>FRONTENDS</a>
             </li>
             <li>
-               <a href="#JOYSTICKS" data-smoothie>JOYSTICKS</a>
+               <a href="#JOYSTICKS" class="pk" data-smoothie>JOYSTICKS</a>
             </li>
             <li>
-               <a href="#ROMJACKETS" data-smoothie>RoM-JACKETS</a>
+               <a href="#ROMJACKETS" class="pk" data-smoothie>RoM-JACKETS</a>
             </li>
             <li>
-               <a href="#REPOSITORY" data-smoothie>REPOSITORY</a>
+               <a href="#REPOSITORY" class="pk" data-smoothie>REPOSITORY</a>
             </li>
             <li>
-               <a href="#NETPLAY" data-smoothie>NETPLAY</a>
+               <a href="#NETPLAY" class="pk" data-smoothie>NETPLAY</a>
             </li>
             <li>
-               <a href="#UTILITIES" data-smoothie>UTILITIES</a>
+               <a href="#UTILITIES" class="pk" data-smoothie>UTILITIES</a>
             </li>
          </ul>
       </div>
    <div id="superflex" align="center">
-   <h1>skeletonKeY</h1>
+   <h1 class="tfnt">skeletonKeY</h1>
    <a id="DOWNLOAD"></a>
    <p>A unified interface for ROMs, emulators and frontends.</p>
    <div align="left" id="outer">
@@ -85,6 +85,14 @@
             </em>
          <blockquote><strong>-Tim Heidecker</strong></blockquote>
          </p>
+         <p><em>&quot;Use just once and destroy<br>
+			Invasion of our piracy<br>
+			Afterbirth of a nation<br>
+			Starved without your skeleton key&quot;
+            </em>
+         </p>
+         <blockquote><strong>-Kurdt Cobain</strong><em> (Radio-Friendly Unit Shifter)</em></blockquote>
+
          <p><em>&quot;Yeah, it's cool you can do anything you want&quot;
             </em>
          </p>
@@ -1582,13 +1590,17 @@ smoothie();
 
 <style>
 	@font-face {
-		font-family: 'gadugi';
-		src: url('gadugi.ttf') format('truetype');
+		font-family: 'Night Machine';
+		src: url('Night Machine.otf') format('opentype');
+	}
+	@font-face {
+		font-family: 'Trueno';
+		src: url('TruenoLt.otf') format('opentype');
 	}
 body {
     overflow-x: hidden;
     background-color: #D4D4D4;
-	font-family: "gadugi";
+	font-family: "Trueno";
     font-size: 14px;
 }
 td,
@@ -1698,6 +1710,19 @@ main {
     text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.23);
 }
 	#SectSeparate {
+	}
+	.pk {
+	color: #515151;
+	font-weight: bolder;
+    text-shadow: -1px 1px 1px rgba(0, 0, 255, 0.23);
+	}
+	.pk:hover {
+	color: blue;
+	text-shadow: 1px -1px 2px rgba(255, 255, 255, 0.43);
+	}
+	.tfnt {
+	font-family: 'Night Machine';
+	font-size: 50px;
 	}
 </style>
 <style>
