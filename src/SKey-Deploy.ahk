@@ -3806,7 +3806,6 @@ FileAppend, %nsiv%, %BUILDIR%\skdeploy.nsi
 RunWait, %comspec% cmd /c echo.###################  DEPLOYMENT LOG FOR %date%  ####################### >>"%DEPL%\deploy.log", ,%rntp%
 RunWait, %comspec% cmd /c " "%NSIS%" "%BUILDIR%\skdeploy.nsi" >>"%DEPL%\deploy.log"", ,%rntp%
 RunWait, %comspec% cmd /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%
-FileDelete,skdeploy.nsi
 CrCFLN= %DEPL%\skeletonkey-installer.exe
 gosub, SHA1GET
 nchash:= ApndSHA
