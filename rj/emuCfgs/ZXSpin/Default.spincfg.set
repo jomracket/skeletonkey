@@ -98,10 +98,10 @@ TRDOS=[SPINDIR]\
 MGT=[SPINDIR]\
 Harddisk=[SPINDIR]\[HDD]
 Microdrive=[SPINDIR]\
-Recording=[SPINDIR]\.snaps\
+Recording=[SPINDIR]\[SNAPS]\
 ROM=[SPINDIR]\
 Screen=[SPINDIR]\
-Snapshot=[SPINDIR]\.Mem\
+Snapshot=[SPINDIR]\[MEM]\
 Tape=[SPINDIR]\
 Downloads=[SPINDIR]\
 

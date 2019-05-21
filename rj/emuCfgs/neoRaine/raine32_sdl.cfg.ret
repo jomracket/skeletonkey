@@ -51,7 +51,7 @@ disable_irq1 = 0
 capture_new_pictures = 0
 
 [Directories]
-ScreenShots = [ROMPATH]\.snaps\
+ScreenShots = [ROMPATH]\[SNAPS]\
 emudx = [EMUPATH]\
 artwork = [ROMPATH]\
 rom_dir_0 = [ROMPATH]\

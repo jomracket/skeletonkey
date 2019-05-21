@@ -1,5 +1,5 @@
 [directory]
-save_dir=[ROMPATH]\.Mem\
+save_dir=[ROMPATH]\[MEM]\
 save_rom_dir=1
 last_dir=[ROMPATH]\
 plugin_lng_dir=.\plugin\

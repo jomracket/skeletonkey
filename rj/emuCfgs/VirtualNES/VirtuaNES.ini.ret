@@ -24,11 +24,11 @@ WavePathUse=1
 CheatPathUse=1
 IpsPathUse=1
 RomPath=[ROMPATH]\
-SavePath=[ROMPATH]\.Mem\
-StatePath=[ROMPATH]\.sstates\
-SnapshotPath=[ROMPATH]\.snaps\
-MoviePath=[ROMPATH]\.snaps\
-WavePath=[ROMPATH]\.snaps\
+SavePath=[ROMPATH]\[MEM]\
+StatePath=[ROMPATH]\[SSTATE]\
+SnapshotPath=[ROMPATH]\[SNAPS]\
+MoviePath=[ROMPATH]\[SNAPS]\
+WavePath=[ROMPATH]\[SNAPS]\
 CheatPath=[ROMPATH]\cheats\
 IpsPath=[ROMPATH]\.patches\
 [Emulation]

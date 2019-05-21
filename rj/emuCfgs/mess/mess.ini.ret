@@ -14,18 +14,18 @@ artpath                   [ROMPATH]\.artwork
 ctrlrpath                 [ROMPATH]\.ctrlr
 inipath                   [ROMPATH]\.ini
 fontpath                  [ROMPATH]
-cheatpath                 [ROMPATH]\.cheats
+cheatpath                 [ROMPATH]\[CHEATS]
 crosshairpath             [ROMPATH]\crosshair
 
 #
 # CORE OUTPUT DIRECTORY OPTIONS
 #
 cfg_directory             [ROMPATH]
-nvram_directory           [ROMPATH]\.Mem
-memcard_directory         [ROMPATH]\.Mem
+nvram_directory           [ROMPATH]\[MEM]
+memcard_directory         [ROMPATH]\[MEM]
 input_directory           [ROMPATH]\.inp
-state_directory           [ROMPATH]\.sstates
-snapshot_directory        [ROMPATH]\.snaps
+state_directory           [ROMPATH]\[SSTATE]
+snapshot_directory        [ROMPATH]\[SNAPS]
 diff_directory            [ROMPATH]\.patches
 comment_directory         [ROMPATH]\.comments
 

@@ -53,7 +53,7 @@ combomap = 16:0,0,0,0,0,0,0,0:0,0,0,0,0,0,0,0:0,0,0,0,0,0,0,0:0,0,0,0,0,0,0,0:0,
 joydeadzone = 13
 joyallow4 = 1
 usemouse = 0
-dsense =dir = [ROMPATH]\.snaps
+dsense =dir = [ROMPATH]\[SNAPS]
 sssingle = false
 ss1x = false
 ssinterval = 2
@@ -61,13 +61,13 @@ romdir  10
 msense = 7
 saport = lr
 ctrlcombo = true
-snapsavedir = [ROMPATH]\.snaps
+snapsavedir = [ROMPATH]\[SNAPS]
 snapload= [ROMPATH]
-statedir = [ROMPATH]\.sstates
+statedir = [ROMPATH]\[SSTATE]
 cheatfile = [EMUPATH]\stella.cht
 palettefile = ~\AppData\Roaming\Stella\stella.pal
 propsfile = [EMUPATH]\stella.pro
-nvramdir = [ROMPATH]\.Mem
+nvramdir = [ROMPATH]\[MEM]
 cfgdir = [ROMPATH]
 exitlauncher = false
 launcherres = [REZX]x[REZY]

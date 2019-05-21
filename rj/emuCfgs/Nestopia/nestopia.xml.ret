@@ -320,7 +320,7 @@
         <cheats>
             <auto-load>no</auto-load>
             <auto-save>no</auto-save>
-            <directory>[ROMPATH]\.cheats\</directory>
+            <directory>[ROMPATH]\[CHEATS]\</directory>
         </cheats>
         <fds>
             <bios />
@@ -348,20 +348,20 @@
             </files>
         </recent>
         <samples>
-            <directory>[ROMPATH]\.snaps\</directory>
+            <directory>[ROMPATH]\[SNAPS]\</directory>
         </samples>
         <saves>
-            <directory>[ROMPATH]\.Mem\</directory>
+            <directory>[ROMPATH]\[MEM]\</directory>
             <force-read-only>no</force-read-only>
         </saves>
         <screenshots>
-            <directory>[ROMPATH]\.snaps\</directory>
+            <directory>[ROMPATH]\[SNAPS]\</directory>
             <format>png</format>
         </screenshots>
         <states>
             <auto-export>yes</auto-export>
             <auto-import>yes</auto-import>
-            <directory>[ROMPATH]\.sstates\</directory>
+            <directory>[ROMPATH]\[SSTATE]\</directory>
             <use-compression>yes</use-compression>
         </states>
         <tapes>

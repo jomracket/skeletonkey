@@ -1359,7 +1359,7 @@ if (INITIAL = "")
 		gosub, DestroySplashGUI
 		SplashImage = img\splash.png
 		SplashImageGUI(SplashImage, "Center", "Center", true)
-		Progress, ZX0 ZY0 B w300 CB808080 CWFFFFFF CT808080  WS900 FS11,.Loading skeletonKey.,,skelprg,BebasNeue
+		;;Progress, ZX0 ZY0 B w300 CB808080 CWFFFFFF CT808080  WS900 FS11,.Loading skeletonKey.,,skelprg,BebasNeue
 		WinSet, TransColor, White,skelprg
 		WinSet, AlwaysOnTop
 		WinGetPos,,, Width, Height, skelprg
@@ -1652,7 +1652,7 @@ if (INITIAL = 1)
 		SplashImage = img\splash.png
 		SplashImageGUI(SplashImage, "Center", "Center", true)
 	}
-Progress, 8,.......Loading Menu Interface.......
+;;Progress, 8,.......Loading Menu Interface.......
 
 ;{;;;;;;;;;;;;;;;;;;;;;   -[x]-        MENU  SYSTEM       -[x]-    ;;;;;;;;;;;;;;;;;;
 
@@ -1861,13 +1861,13 @@ Gui, Font, normal
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[MAIN TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 if (INITIAL = 1)
 	{
-		Progress, ZX0 ZY0 B w300 CB808080 CWFFFFFF CT808080  WS900 FS11,......Loading Options......,,skelprg,BebasNeue
+		;;Progress, ZX0 ZY0 B w300 CB808080 CWFFFFFF CT808080  WS900 FS11,......Loading Options......,,skelprg,BebasNeue
 		WinSet, TransColor, White,skelprg
 		WinSet, AlwaysOnTop
 		WinGetPos,,, Width, Height, skelprg
 		WinMove, skelprg,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)-70
 	}
-Progress, 16,......Loading Options......
+;;Progress, 16,......Loading Options......
 
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   ~~~RUN OPTIONS MENU GROUP~~~   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui, Tab, 2
@@ -2425,7 +2425,7 @@ Gui, Add, DropDownList, x564 y103 w163 vSKFROVDD gSKFROVDD disabled hidden, FRON
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;;;;;;;;;;;;;;;;;        [[JOYSTICK TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Progress, 24,.....Loading Joystick Interface.....
+;;Progress, 24,.....Loading Joystick Interface.....
 Gui, Tab, 4
 Gui, Tab, Joysticks
 Gui,Font,, %fontName%
@@ -2746,7 +2746,7 @@ Gui, Add, DropDownList, x523 y202 w75 vemjr2 gemjr2 Hidden,
 
 ;{;;;;;;;;;;;;;;;;;;;;;;;;        [[PLAYLISTS TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-Progress, 30,....Loading Playlist Interface....
+;;Progress, 30,....Loading Playlist Interface....
 
 Gui, Tab, 5
 Gui, Tab, Playlists
@@ -3080,7 +3080,7 @@ Gui, Add, DropDownList, x342 y289 w35 vRFDDPLNUM gRFDDPLNUM hidden,1||2|3|4|5|6|
 
 
 ;SplashTextOn, ,skeletonKey,Loading Frontend Interface .....,
-Progress, 40,...Loading Frontend Interface...
+;;Progress, 40,...Loading Frontend Interface...
 Gui,Tab,6
 Gui,Tab,Frontends
 
@@ -3195,7 +3195,7 @@ Gui, Add, Button, x419 y4 h18 w18 vRETALFE gRETAL,>
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;SplashTextOn, ,skeletonKey,Loading Frontend Interface ......,
-Progress, 47,..Loading Frontend Interface..
+;;Progress, 47,..Loading Frontend Interface..
 
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;        FRONTEND GUI         ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui,Font,%fontXmed% Bold
@@ -3354,7 +3354,7 @@ Gui, Add, Text, x505 y400 vfeTXTR %fevis%,
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;        [[ARCHIVE TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-Progress, 53,.Loading Repository Interface.
+;;Progress, 53,.Loading Repository Interface.
 Gui, Tab, 7
 Gui, Tab, Repository
 Gui,Font,%fontXsm% Bold
@@ -3420,7 +3420,7 @@ gui, font,%fontXsm% Normal
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[JACKETIZE TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-Progress,70,..Loading Jacketizing Interface..
+;;Progress,70,..Loading Jacketizing Interface..
 Gui, Tab, 8
 Gui, Tab, Jackets
 
@@ -3608,7 +3608,7 @@ if (RJQNUM > 0)
 Gui, Add, Button, x407 y460 w91 h40 vRJPROCQ gRJPROCQ %CNFRMT%, CONFIRM %RJQNUM%
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[UTILITIES TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Progress, 78,...Loading Utilities...
+;;Progress, 78,...Loading Utilities...
 
 Gui, Tab, 9
 Gui, Tab, Util
@@ -3746,7 +3746,7 @@ Gui, Add, Text, x696 y368 vutlTXTK %utlvis%, utlTXTK
 Gui, Add, Text, x624 y488 vutltTXTL %utlvis%, utltTXTL
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[NETPLAY TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Progress, 83,....Loading Netplay Interface....
+;;Progress, 83,....Loading Netplay Interface....
 Gui, Tab, 10
 Gui, Tab, Netplay
 Gui, Add, Picture,x83 y238 w128 h113 vINVADERPIC,
@@ -3831,7 +3831,7 @@ Gui, Add, Radio, x570 y432 vLANIPRAD gLanSET hidden, LAN
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;        [[CORE OPTIONS TAB]]        ;;;;;;;;;;;;;;;;;;;;;
 
-Progress, 88,.....Loading Emulator Options.....
+;;Progress, 88,.....Loading Emulator Options.....
 
 Gui, Tab, 11
 Gui, Tab, Cores
@@ -3924,7 +3924,7 @@ Gui, Add, Button, x731 y426 w13 h19 vDELCORECFG gDeleteCoreCfg, X
 
 Gui, Add, ListBox, x488 y330 w50 h50 vDropHideLBX gGuiDropFiles Hidden, Drop ROM here
 
-Progress, 94,......GUI is initializing......
+;;Progress, 94,......GUI is initializing......
 gosub, NetSET
 gosub, HideCoreUI
 gosub, ShowBB
@@ -3937,7 +3937,7 @@ Gui,+LastFound
 GuiID:=WinExist()
 Gui, Show, Autosize,skeletonKey
 SplashTextOff
-Progress, off
+;;Progress, off
 Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util%RACORETAB%
 
 
@@ -7396,6 +7396,7 @@ if (ERRORLEVEL <> 0)
 			}
 		goto, SETJKR
 	}
+filedelete,%RJSYSTEMF%\sk	
 /*
 RJSYSTMWROK:
 Msgbox,8452,Fuzzy Rename,Would you like to rename identified system directories to supported names?`nSelecting 'no' will simply link these systems.
@@ -7654,6 +7655,7 @@ if (ERRORLEVEL <> 0)
 				goto,EMUROK
 			}
 	}
+filedelete,%RJEMUF%\sk
 
 EMUROK:
 CNFUR:
@@ -27140,7 +27142,7 @@ RAEXEP:
 if (INITIAL > 1)
 	{
 		SplashTextOff
-		progress, off
+		;;Progress, off
 	}
 RaExePath=
 RACORETAB= |Netplay|Cores
@@ -41984,7 +41986,7 @@ return
 
 ;;; RESET OVERRIDE TOGGLE ;;;
 EMUCFGOVRTGL= 1
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;    EMUCFG COPY  ;;;;
 EMUCFGCOPY:
@@ -42046,6 +42048,7 @@ if (SK_MODE = 1)
 		if (indvcpx <> "ERROR")
 			{
 				splitpath,indvcpx,,indvcp
+				nickpath= %indvcp%
 			}
 		if (mednafxf = 1)
 			{
@@ -42062,8 +42065,18 @@ IfNotExist, %indvcp%\
 	{
 		FileCreateDir,%indvcp%
 	}
+meminj= 
+maninj= 
+snapinj=
+cheatinj=
+stateinj=
 if (SK_MODE = 2)
-		{
+		{			
+			meminj= .Mem
+			maninj= .Man
+			snapinj= .snaps
+			cheatinj= .cheats
+			stateinj= .sstates
 			IfNotExist, %indvcp%\.Mem\
 				{
 					FileCreateDir,%indvcp%\.Mem
@@ -42076,19 +42089,6 @@ if (SK_MODE = 2)
 				{
 					FileCreateDir,%indvcp%\.snaps
 				}
-				/*
-			if (EMUCFGOVRTGL = 1)
-				{
-					ifexist, %indvcp%
-						{
-							FileRemoveDir,%indvcp%
-							FileCreateDir,%indvcp%
-							FileCreateDir,%indvcp%\.Mem
-							FileCreateDir,%indvcp%\.sstates
-							FileCreateDir,%indvcp%\.snaps
-						}
-				}
-				*/
 			ifinstring,supgui,%emuname%
 				{
 					if (CFG2PROP = "ERROR")
@@ -42134,8 +42134,17 @@ Loop, rj\emuCfgs\%EMUSN%\*.*
 				%SHRTNM%CFGR.= snmr . "|"
 				ifnotexist, %indvcp%\%thecfg%
 					{
-						FileCopy,%CFGFPATH%,%indvcp%\%thecfg%
+						FileRead,cfgp,%CFGFPATH%
+						stringreplace,cfgp,cfgp,[ROMPATH],%indvcp%,All
+						stringreplace,cfgp,cfgp,[MEM],%meminj%,All
+						stringreplace,cfgp,cfgp,[MAN],%maninj%,All
+						stringreplace,cfgp,cfgp,[SNAPS],%snapinj%,All
+						stringreplace,cfgp,cfgp,[SSTATES],%statinj%,All
+						stringreplace,cfgp,cfgp,[CHEATS],%cheatinj%,All
+						stringreplace,cfgp,cfgp,[EMUPATH],%nickpath%,All
+						FileAppend,%cfgp%,%indvcp%\%thecfg%
 						appndum= 1
+						continue
 					}
 			}
 		if (cfgext = "set")
@@ -42145,8 +42154,17 @@ Loop, rj\emuCfgs\%EMUSN%\*.*
 				%SHRTNM%CFGR.= snmf . "|"
 				ifnotexist, %indvcp%\%thecfg%
 					{
-						FileCopy,%CFGFPATH%,%indvcp%\%thecfg%
+						FileRead,cfgp,%CFGFPATH%
+						stringreplace,cfgp,cfgp,[ROMPATH],%indvcp%,All
+						stringreplace,cfgp,cfgp,[MEM],%meminj%,All
+						stringreplace,cfgp,cfgp,[MAN],%maninj%,All
+						stringreplace,cfgp,cfgp,[SNAPS],%snapinj%,All
+						stringreplace,cfgp,cfgp,[SSTATES],%statinj%,All
+						stringreplace,cfgp,cfgp,[CHEATS],%cheatinj%,All
+						stringreplace,cfgp,cfgp,[EMUPATH],%nickpath%,All
+						FileAppend,%cfgp%,%indvcp%\%thecfg%
 						appndum= 1
+						continue
 					}
 			}
 		if (appndum = "")
@@ -42236,8 +42254,6 @@ return
 
 ALTIRRAPOP:
 return
-
-
 ;};;;;;;;;;;;;;;;;;;;;;
 
 
@@ -42262,6 +42278,7 @@ return
 ;{;;;;;;;;;;;;;;;;;;;;;;;;   EMU GUI PARTS   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;;;;;;;;;;;;;;;;;  SNES9X  ;;;;;;;;;;;;;;;;
+
 ;{;;;;;;;;;;;;;;  SNES9X GUI HIDE-SHOW TOGGLE  ;;;;;;;;;;;;;;;;;;;;;;;;
 Snes9XGUITOG:
 guicontrol, %fndtog%, emuGRPA
@@ -45566,6 +45583,7 @@ if (mednafxf = 0)
 		splitpath,mednafpth,,mednafloc
 		EMUCFGLOC= %mednafloc%\%emucfgu%
 		indvcp= %mednafloc%
+		nickpath= %indvcp%
 	}
 
 if (ROMSYS = "")
@@ -76310,6 +76328,7 @@ Loop, rj\*.jak
 		if (RJEMULOC <> 0)
 			{
 				emuloc= %RJEMULOC%
+				nickpath= %emuloc%
 			}
 		SplitPath,emuloc,emuxe,emulocd,emulocn
 
@@ -78597,7 +78616,7 @@ if (rjchks= 1)
 		esndr= .ExT
 	}
 iniread,exesndr,Apps.ini,EMULATORS,%RJEMUPRECFG%
-iniread,exesndg,Apps.ini,EMULATORS,%RJEMUPRECFG%
+exesndg= %exesndr%
 splitpath,exesndg,exesndr,exesnp
 if (exesndg = "ERROR")
 	{
@@ -79100,7 +79119,7 @@ guicontrol,,RJINCEXCL,|All||A-Z|#
 guicontrolget,RJCHKF,,RJCHKF
 if (RJCHKF = 1)
 	{
-					guicontrolget,rjtmpemu,,RJEMUPRECFG
+		guicontrolget,rjtmpemu,,RJEMUPRECFG
 		gosub, EMUCFGCOPY
 	}
 if (PXSTCFG = "")
@@ -84369,26 +84388,26 @@ if (EXELIST = 1)
 return
 
 initall:
-Progress,0,Initializing skeletonKey
+;;Progress,0,Initializing skeletonKey
 FileDelete,*.ini
 FileDelete,*.cfg
 FileDelete,rj\*.ini
 FileDelete,rj\*.tbd
 FileRemoveDir,rj\syscfgs,1
 FileRemoveDir,cfg,1
-Progress,50,Initializing skeletonKey
+;;Progress,50,Initializing skeletonKey
 FileCreateDir,cfg
 FileRemoveDir,tmp,1
 FileCreateDir,tmp
 FileRemoveDir,executable,1
-Progress,80,Initializing skeletonKey
+;;Progress,80,Initializing skeletonKey
 FileCreateDir,executable
 Loop, rj\netart\*
 	{
 		FileRemoveDir,%A_LoopFileFullPath%,1
 	}
-Progress,100,Complete
-Progress, off
+;;Progress,100,Complete
+;;Progress, off
 ifinstring,getport,!q
 	{
 		goto, QUITOUT

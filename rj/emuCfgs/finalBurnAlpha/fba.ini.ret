@@ -122,7 +122,7 @@ szAppRomPaths[19] roms/
 szNeoCDGamesDir [ROMPATH]
 szAppPreviewsPath support/previews/
 szAppTitlesPath support/titles/
-szAppCheatsPath [ROMPATH]\.cheats/
+szAppCheatsPath [ROMPATH]\[CHEATS]/
 szAppHiscorePath support/hiscores/
 szAppSamplesPath support/samples/
 szAppIpsPath [ROMPATH]\.patches/

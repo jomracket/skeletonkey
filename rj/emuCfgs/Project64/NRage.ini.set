@@ -5,14 +5,14 @@ Language=0
 ShowMessages=1
 
 [Folders]
-Mempak=[ROMDIR]\.Mem
+Mempak=[ROMDIR]\[MEM]
 GBxRom=[ROMDIR]
 GBxSave=[ROMDIR]\.sstate
 
 [lastBrowserDir]
-Mempak=[ROMDIR]\.Mem
+Mempak=[ROMDIR]\[MEM]
 GBxRom=[ROMDIR]
-GBxSave=[ROMDIR]\.sstates
+GBxSave=[ROMDIR]\[SSTATE]
 Profile=[ROMDIR]
 Note=
 Shortcuts=
@@ -38,7 +38,7 @@ RumbleType=1
 RumbleStrength=80
 VisualRumble=0
 FFDeviceGUID=
-MemPakFile=[ROMDIR]\.Mem\Mempak1.mpk
+MemPakFile=[ROMDIR]\[MEM]\Mempak1.mpk
 GBRomFile=
 GBRomSave=
 
@@ -63,7 +63,7 @@ RumbleType=1
 RumbleStrength=80
 VisualRumble=0
 FFDeviceGUID=
-MemPakFile=[ROMDIR]\.Mem\Mempak2.mpk
+MemPakFile=[ROMDIR]\[MEM]\Mempak2.mpk
 GBRomFile=
 GBRomSave=
 

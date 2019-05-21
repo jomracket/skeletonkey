@@ -3182,6 +3182,11 @@ if (INITINCL = 1)
 					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
 					exprt.= "FileInstall," . ain . "," . ain . ",1" . "`n"
 				}
+			Loop, files, %SKELD%\site\*.otf
+				{
+					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
+					exprt.= "FileInstall," . ain . "," . ain . ",1" . "`n"
+				}
 			Loop, files,%SKELD%\sets\*.set
 				{
 					stringreplace,ain,A_LoopFileFullPath,%A_ScriptDir%\,,All
@@ -3491,7 +3496,7 @@ if (GitPush = 1)
 				FileAppend,pushd "%GITD%"`n,%BUILDIR%\gitcommit.bat
 				FileAppend,"`%gitapp`%" add .`n,%BUILDIR%\gitcommit.bat
 				FileAppend,"`%gitapp`%" commit -m `%1`%`n,%BUILDIR%\gitcommit.bat
-				FileAppend,"`%gitapp`%" --set-upstream http://%gituser%:%gitpass%@github.com/%gituser%/skeletonkey master`n,gitcommit.bat
+				FileAppend,"`%gitapp`%" push --set-upstream http://%gituser%:%gitpass%@github.com/%gituser%/skeletonkey master`n,gitcommit.bat
 				if (GITPASS <> "")
 					{
 						FileAppend,"`%gitapp`%" push -f --repo http://%GITUSER%:%GITPASS%@github.com/%gituser%/skeletonKey`n,%BUILDIR%\gitcommit.bat
@@ -3727,6 +3732,7 @@ if (uptoserv = 1)
 		FileAppend,copy /y "%BUILDIR%\site\key.png" "%gitroot%\%GITUSER%.github.io\skeletonkey"`n,%BUILDIR%\sitecommit.bat
 		FileAppend,copy /y "%BUILDIR%\site\paradigm.png" "%gitroot%\%GITUSER%.github.io\skeletonkey"`n,%BUILDIR%\sitecommit.bat
 		FileAppend,copy /y "%BUILDIR%\site\tip.png" "%gitroot%\%GITUSER%.github.io\skeletonkey"`n,%BUILDIR%\sitecommit.bat
+		FileAppend,copy /y "%BUILDIR%\site\*.otf" "%gitroot%\%GITUSER%.github.io\skeletonkey"`n,%BUILDIR%\sitecommit.bat
 		FileAppend,copy /y "%BUILDIR%\site\*.ttf" "%gitroot%\%GITUSER%.github.io\skeletonkey"`n,%BUILDIR%\sitecommit.bat
 		FileAppend,copy /y "%BUILDIR%\site\*.svg" "%gitroot%\%GITUSER%.github.io\skeletonkey"`n,%BUILDIR%\sitecommit.bat
 		FileAppend,copy /y "%BUILDIR%\site\ReadMe.md" "%gitroot%\%GITUSER%.github.io\skeletonkey"`n,%BUILDIR%\sitecommit.bat
@@ -3734,7 +3740,7 @@ if (uptoserv = 1)
 		FileAppend,for /f "delims=" `%`%a in ("%GITAPP%") do set gitapp=`%`%~a`n,%BUILDIR%\sitecommit.bat
 		FileAppend,"`%gitapp`%" add skeletonkey`n,%BUILDIR%\sitecommit.bat
 		FileAppend,"`%gitapp`%" commit -m siteupdate`n,%BUILDIR%\sitecommit.bat
-		FileAppend,"`%gitapp`%" --set-upstream http://%gituser%:%gitpass%@github.com/%gituser%/%gituser%.github.io master`n,sitecommit.bat
+		FileAppend,"`%gitapp`%" push --set-upstream http://%gituser%:%gitpass%@github.com/%gituser%/%gituser%.github.io master`n,sitecommit.bat
 		if (GITPASS <> "")
 			{
 				FileAppend,"`%gitapp`%" push -f --repo http://%GITUSER%:%GITPASS%@github.com/%GITUSER%/%GITUSER%.github.io`n,%BUILDIR%\sitecommit.bat
@@ -3804,7 +3810,7 @@ StringReplace, nsiv, nsiv,[DBP],%DEPL%,All
 StringReplace, nsiv, nsiv,[CURV],%vernum%,All
 FileAppend, %nsiv%, %BUILDIR%\skdeploy.nsi
 RunWait, %comspec% cmd /c echo.###################  DEPLOYMENT LOG FOR %date%  ####################### >>"%DEPL%\deploy.log", ,%rntp%
-RunWait, %comspec% cmd /c " "%NSIS%" "%BUILDIR%\skdeploy.nsi" >>"%DEPL%\deploy.log"", ,%rntp%
+RunWait, %comspec% cmd /c "%NSIS%" "%BUILDIR%\skdeploy.nsi" >>"%DEPL%\deploy.log", ,%rntp%
 RunWait, %comspec% cmd /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%
 CrCFLN= %DEPL%\skeletonkey-installer.exe
 gosub, SHA1GET

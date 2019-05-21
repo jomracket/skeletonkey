@@ -366,9 +366,9 @@ EmuSpeed=29
 
 ROMPath="[ROMPATH]"
 ; Save states & SRAMs, snapshots, SPCs
-SRAMPath="[ROMPATH]\.sstates\"
-SnapPath="[ROMPATH]\.snaps\"
-SPCPath="[ROMPATH]\.Mem\"
+SRAMPath="[ROMPATH]\[SSTATE]\"
+SnapPath="[ROMPATH]\[SNAPS]\"
+SPCPath="[ROMPATH]\[MEM]\"
 ; BIOS/base carts (BS-X, Sufami Turbo, Same Game & SD Gundam G-Next)
 BSXPath="[EMUPATH]\"
 STPath="[EMUPATH]\"

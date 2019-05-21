@@ -78,12 +78,12 @@ pifrom=
 roms=[ROMPATH]
 
 [Saves]
-directory=[ROMPATH]/.Mem
-eeprom16k=[ROMPATH]/.Mem
-eeprom4k=[ROMPATH]/.Mem
-flash=[ROMPATH]/.Mem
-individualsave=[ROMPATH]/.Mem
-sram=[ROMPATH]/.Mem
+directory=[ROMPATH]/[MEM]
+eeprom16k=[ROMPATH]/[MEM]
+eeprom4k=[ROMPATH]/[MEM]
+flash=[ROMPATH]/[MEM]
+individualsave=[ROMPATH]/[MEM]
+sram=[ROMPATH]/[MEM]
 
 [Table]
 columns=Filename|Size

@@ -1,7 +1,7 @@
 [General]
 DiskImageDir=[ROMPATH]\
 TapeImageDir=[ROMPATH]\
-StateFileDir=[ROMPATH]\.sstates
+StateFileDir=[ROMPATH]\[SSTATE]
 BMPFileDir=[EMUPATH]
 WAVFileDir=[EMUPATH]
 Version=2

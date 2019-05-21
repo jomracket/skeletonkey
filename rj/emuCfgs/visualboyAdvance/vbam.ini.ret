@@ -151,12 +151,12 @@ oalBufferCount=5
 xa2Device=0
 xa2BufferCount=4
 xa2Upmixing=0
-batteryDir=[ROMPATH]\.Mem
-saveDir=[ROMPATH]\.sstates
-captureDir=[ROMPATH]\.snaps
+batteryDir=[ROMPATH]\[MEM]
+saveDir=[ROMPATH]\[SSTATE]
+captureDir=[ROMPATH]\[SNAPS]
 aviRecordDir=[ROMPATH]\.trailer
 movieRecordDir=[ROMPATH]\.trailer
-soundRecordDir=[ROMPATH]\.snaps
+soundRecordDir=[ROMPATH]\[SNAPS]
 biosFileGBA=[EMUPATH]\[NGBABIOS]
 [Viewer]
 AccelEditor=2C0000000000000001000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3D000000970000009C0200007601000006

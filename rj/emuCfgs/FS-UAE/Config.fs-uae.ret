@@ -49,8 +49,8 @@ joystick_port_1 = [JOYSTICK]
 joystick_port_2 = [JOYSTICK #2]
 
 kickstart_file = [KICKSTARTPTH]
-save_states_dir = [ROMPATH]\.sstates
-screenshots_output_dir = [ROMPATH]\.snaps
+save_states_dir = [ROMPATH]\[SSTATE]
+screenshots_output_dir = [ROMPATH]\[SNAPS]
 
 hard_drive_0 = [HDD]
 

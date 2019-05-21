@@ -24,23 +24,23 @@ port4 = -1
 
 
 [VMS]
-VMSA0 = [ROMPATH]\.Mem\vms00.bin
-VMSA1 = [ROMPATH]\.Mem\vms00.bin
+VMSA0 = [ROMPATH]\[MEM]\vms00.bin
+VMSA1 = [ROMPATH]\[MEM]\vms00.bin
 VMSA2 = 
 VMSA3 = 
 VMSA4 = 
-VMSB0 = [ROMPATH]\.Mem\vms10.bin
-VMSB1 = [ROMPATH]\.Mem\vms11.bin
+VMSB0 = [ROMPATH]\[MEM]\vms10.bin
+VMSB1 = [ROMPATH]\[MEM]\vms11.bin
 VMSB2 = 
 VMSB3 = 
 VMSB4 = 
-VMSC0 = [ROMPATH]\.Mem\vms20.bin
-VMSC1 = [ROMPATH]\.Mem\vms21.bin
+VMSC0 = [ROMPATH]\[MEM]\vms20.bin
+VMSC1 = [ROMPATH]\[MEM]\vms21.bin
 VMSC2 = 
 VMSC3 = 
 VMSC4 = 
-VMSD0 = [ROMPATH]\.Mem\vms30.bin
-VMSD1 = [ROMPATH]\.Mem\vms31.bin
+VMSD0 = [ROMPATH]\[MEM]\vms30.bin
+VMSD1 = [ROMPATH]\[MEM]\vms31.bin
 VMSD2 = 
 VMSD3 = 
 VMSD4 = 
@@ -83,7 +83,7 @@ net = netDemul.dll
 
 
 [files]
-nvram = [ROMPATH]\.Mem\
+nvram = [ROMPATH]\[MEM]\
 roms0 = [EMUPATH]\roms\
 roms1 = [ROMPATH]\
 romsPathsCount = 2

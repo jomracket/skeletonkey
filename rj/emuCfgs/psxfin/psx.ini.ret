@@ -1,6 +1,6 @@
 [Paths]
-SaveStatePath=[ROMPATH]\.sstates
-MemoryCardPath=[ROMPATH]\.Mem
+SaveStatePath=[ROMPATH]\[SSTATE]
+MemoryCardPath=[ROMPATH]\[MEM]
 CDImagePath=[ROMPATH]
 ScreenShotsPath=[ROMPATH]\.Snaps
 [BIOS]
@@ -186,7 +186,7 @@ SubcodeReading=-1
 XPosition=92
 YPosition=244
 [Cards]
-Card1=[ROMPATH]\.Mem\Card1.bin
-Card2=[ROMPATH]\.Mem\Card2.bin
+Card1=[ROMPATH]\[MEM]\Card1.bin
+Card2=[ROMPATH]\[MEM]\Card2.bin
 [Language]
 CurrentLanguage=45006e0067006c006900730068000000

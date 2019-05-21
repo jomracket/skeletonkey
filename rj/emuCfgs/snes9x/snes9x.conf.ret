@@ -128,12 +128,12 @@ MaxRecentGames = 1
 
 [Settings\Win\Files]
 Dir:Roms = [ROMPATH]
-Dir:Screenshots = [ROMPATH]\.snaps
-Dir:Movies = [ROMPATH]\.snaps
-Dir:SPCs = [ROMPATH]\.Mem
-Dir:Savestates = [ROMPATH]\.sstates
-Dir:SRAM = [ROMPATH]\.Mem
-Dir:Patches = [ROMPATH]\.cheats
+Dir:Screenshots = [ROMPATH]\[SNAPS]
+Dir:Movies = [ROMPATH]\[SNAPS]
+Dir:SPCs = [ROMPATH]\[MEM]
+Dir:Savestates = [ROMPATH]\[SSTATE]
+Dir:SRAM = [ROMPATH]\[MEM]
+Dir:Patches = [ROMPATH]\[CHEATS]
 Dir:Bios = [EMUPATH]\BIOS
 Dir:Lock = FALSE
 Rom:RecentGame1 =

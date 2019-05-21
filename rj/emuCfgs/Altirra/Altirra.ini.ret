@@ -173,8 +173,8 @@
 "6c6f6164" = "[ROMPATH]\"
 "63617274" = ""
 "6469736b" = "[ROMPATH]\"
-"72766964" = "[ROMPATH]\.snaps\"
-"7363726e" = "[ROMPATH]\.snaps\"
+"72766964" = "[ROMPATH]\[SNAPS]\"
+"7363726e" = "[ROMPATH]\[SNAPS]\"
 
 [MRU List]
 "A" = "[ROMPATH]\[ROMF]"

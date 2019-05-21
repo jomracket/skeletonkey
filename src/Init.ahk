@@ -8,6 +8,16 @@ if (ERRORLEVEL = 0)
 		exitapp
 	}
 splitpath,A_ScriptDir,,,,,drvp
+
+
+RNMDIR_TT :="Renames detected console directories to supported nomenlature"
+INTRMSYS_TT :="The directory where ROMs should be located."
+INTRMEMU_TT :="The directory where Emulators should be located."
+SETJKR_TT :="Selcts the systems directory"
+SETEMUD_TT :="Selects the emulators directory."
+CONTINUE_TT :="Confirm the current settings and initializes setup."
+
+
 Gui,Font, Bold
 Gui, Add, GroupBox, x4 y0 w265 h162 +Center, SETUP
 Gui,Font, Normal
@@ -22,7 +32,9 @@ Gui, Add, Button, x61 y89 w62 h17 gSETEMUD, BROWSE
 Gui Add, Button, x190 y163 w80 h23 vCONTINUE gCONTINUE, CONTINUE
 Gui,Font, Normal
 Gui Add, Text, x10 y168 w120 h13, Drag'n Drop supported
-Gui, Show, w274 h188, Window
+Gui Add, StatusBar,, Status Bar
+OnMessage(0x200, "WM_MOUSEMOVE")
+Gui, Show, w274 h211, Window
 guicontrolget,RJEMUF,,intrmemu
 guicontrolget,RJSYSTEMS,,intrmsys
 ifexist,%rjsyst%\
@@ -161,6 +173,9 @@ if (ERRORLEVEL <> 0)
 				goto,JKDFINISH
 			}
 		goto, SETJKD
+	}
+	else {
+		filedelete,%RJSYSTEMF%\sk
 	}
 JKDFINISH:
 filedelete,%RJSYSTEMF%\sk
@@ -306,6 +321,71 @@ ifnotexist,%RJSYSTEMS%
 	}
 IniWrite, "%RJEMUF%",Settings.ini,GLOBAL,emulators_directory
 IniWrite, "%RJSYSTEMS%",Settings.ini,GLOBAL,systems_directory
+exlst= |
+exls= |
+guicontrolget,RNMDIR,,RNMDIR
+if (RNMDIR = 1)
+	{
+		guicontrol,disable,continue
+		guicontrol,disable,SETJKR
+		guicontrol,disable,SETEMUD
+		FileRead,SysLLst,sets\lkup.set
+		FileRead,fuzsys,sets\fuzsyslk.set
+		SB_SetText("Detecting systems")
+		Loop, Parse, SysLLst,`n`r
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				stringsplit,afe,A_LoopField,=
+				%afe2%= %afe1%
+				ifexist,%RJSYSTEMS%\%afe1%\
+					{
+						av+= 1
+						exlst.= afe1 . "|"
+						exls.= afe2 . "|"
+					}
+			}
+		SB_SetText(" " av " systems detected")
+		Loop, parse, fuzsys,`n`r
+			{
+				 if (A_LoopField = "")
+					{
+						continue
+					}
+				fuzn1=
+				fuzn2=
+				flsn=
+				fsys=
+				stringsplit,fuztst,A_LoopField,>
+				ifinstring,exls,|%fuztst2%|
+					{
+						continue
+					}
+				flsn= %fuztst2%
+				fsys= % %fuztst2%
+				Loop, Parse, fuztst1,|
+					{
+						aeg=
+						Loop,%RJSYSTEMS%\%A_LoopField%,2
+							{
+								ifinstring,exlst,|%A_LoopFileName%|
+									{
+										continue
+									}
+								FileMoveDir,%A_LoopFileFullPath%,%A_LoopFileDir%\%fsys%,R
+								if (ERRORLEVEL <> 0)
+									{
+										SB_SetText("Could not rename " A_LoopFileName "")
+										continue
+									}
+								ax+= 1	
+							}
+					}			
+			}
+		SB_SetText("Renamed " ax " directories")
+	}
 exitapp
 
 
@@ -344,3 +424,27 @@ if ( (A_GuiX >= 14) && (A_GuiX <= 14+247) && (A_GuiY >= 110) && (A_GuiY <= 110+4
 		return
 	}
 return
+
+
+WM_MOUSEMOVE(){
+	static CurrControl, PrevControl, _TT
+	CurrControl := A_GuiControl
+	If (CurrControl <> PrevControl)
+		{
+			SetTimer, DisplayToolTip, -300
+			PrevControl := CurrControl
+		}
+	return
+
+	DisplayToolTip:
+	try
+			ToolTip % %CurrControl%_TT
+	catch
+			ToolTip
+	SetTimer, RemoveToolTip, -2000
+	return
+
+	RemoveToolTip:
+	ToolTip
+	return
+}

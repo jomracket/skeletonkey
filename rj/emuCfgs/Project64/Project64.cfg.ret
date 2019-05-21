@@ -167,15 +167,15 @@ Type=2
 Z=0
 
 [Directory]
-Instant Save=[ROMPATH]\.sstates\
+Instant Save=[ROMPATH]\[SSTATE]\
 Instant Save - Use Selected=1
 Plugin=[EMUPATH]\Plugin\
 Plugin - Use Selected=1
-Save=[ROMPATH]\.Mem\
+Save=[ROMPATH]\[MEM]\
 Save - Use Selected=1
-Snap Shot=[ROMPATH]\.snaps\
+Snap Shot=[ROMPATH]\[SNAPS]\
 Snap Shot - Use Selected=1
-Texture Dir=[ROMPATH]\.Mem\
+Texture Dir=[ROMPATH]\[MEM]\
 Texture Dir - Use Selected=1
 
 [Direct3D8]
