@@ -1007,7 +1007,7 @@ Loop,parse,BLDITEMS,|
 					{
 						ifExist,%A_LoopFileFullPath%\makensis.exe
 							{
-								iniwrite,%A_LoopFileFullPath%s\makensis.exe,skopt.cfg,GLOBAL,NSIS
+								iniwrite,%A_LoopFileFullPath%\makensis.exe,skopt.cfg,GLOBAL,NSIS
 								CONTPARAM6= 1
 								NSIS= %A_LoopFileFullPath%\makensis.exe
 								guicontrol,,txtNSIS,%NSIS%
