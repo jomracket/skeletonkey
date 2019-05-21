@@ -3809,8 +3809,9 @@ StringReplace, nsiv, nsiv,[BUILD],%BUILDIR%,All
 StringReplace, nsiv, nsiv,[DBP],%DEPL%,All
 StringReplace, nsiv, nsiv,[CURV],%vernum%,All
 FileAppend, %nsiv%, %BUILDIR%\skdeploy.nsi
+SB_SetText("Building Installer")
 RunWait, %comspec% cmd /c echo.###################  DEPLOYMENT LOG FOR %date%  ####################### >>"%DEPL%\deploy.log", ,%rntp%
-RunWait, %comspec% cmd /c "%NSIS%" "%BUILDIR%\skdeploy.nsi" >>"%DEPL%\deploy.log", ,%rntp%
+RunWait,"%NSIS%" "%BUILDIR%\skdeploy.nsi" >>"%DEPL%\deploy.log", ,%rntp%
 RunWait, %comspec% cmd /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%
 CrCFLN= %DEPL%\skeletonkey-installer.exe
 gosub, SHA1GET
