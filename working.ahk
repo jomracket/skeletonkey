@@ -284,6 +284,18 @@ If (playlistloctmp <> "ERROR")
 			}
 	}
 	
+supguiitems= mednafen|mame|retroarch|snes9x|	
+iniread,supgui,Settings.ini,GLOBAL,suported_guis
+if ((supgui = "")or(supgui = "ERROR"))
+	{
+		supgui= %supguiitems%
+	}
+	
+AUTOGUIc=	
+ifinstring,supgui,retroarch
+	{
+		AUTOGUIc= Checked
+	}
 If (playlistloctmp = "ERROR")
 	{
 		gosub, NOFNDPL
@@ -874,7 +886,7 @@ FEINSTITEMS= ADDREPO|CHEMUINST|DISCFG|EINSTLOC|EINSTTXT|EMUINST|INSTEMUDDL|LOCEM
 UTLINSTITEMS= REPOSET|SITEDTXT|ADDREPO|LOCEMUIN|UAVAIL|EINSTTXT|EINSTLOC|CHEMUINST|EMUINST|INSTEMUDDL
 EMUINSTITEMS= GRPDROPBIOS|REPOSET|SITEDTXT|ADDREPO|UAVAIL|LNCHPT|LNCHPRDDL|EINSTTXT|EINSTLOC|CHEMUINST|EMUINST|INSTEMUDDL|LOCEMUIN
 ESFEGUIITEMS= FEBUTA|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEBUTF|FEBUTH|FEBUTG|FEBUTI|FEBUTJ|FEBUTK|FECHKB|FECHKC|FECHKD|FECHKE|FECHKF|FEEDTA|FEEDTB|FEDDLD|FEDDLA|FEDDLC|FEDDLF|FEDDLG|FECBXB|FECBXC|FECBXD|FECBXA|FELVA|FERAD5A|FERAD5B|FERAD5C|FERAD2A|FERAD2B|FESLDA|FELBXA|FEPRGA
-supgui= mednafen|mame|retroarch|snes9x
+
 
 JSTSET= %JOYSET%
 RJSYSDN= Systems
@@ -1798,63 +1810,75 @@ Gui, Add, Tab2, x0 y0 w765 h535 vTABMENU Bottom, Settings||:=: MAIN :=:|Emu:=:Sy
 
 Gui, Tab, 1
 Gui Tab, Settings
-Gui, Add, GroupBox, x566 y14 w195 h321 vSKSUMGB, Summary
+Gui, Add, GroupBox, x566 y14 w195 h184 vSKSUMGB, Summary
 Gui, Add, Link,x712 y484 w45 h18 vDONATELNK gDONATE, <a href="https://www.paypal.me/romjacket">Donate</a>
 Gui,Add,Text,x579 y484, ver %VERSION%
-Gui, Add, GroupBox, x4 y35 w560 h180 vBLNKGRP
+Gui, Add, GroupBox, x4 y33 w560 h79 +0x400000
+Gui Add, GroupBox, x4 y107 w560 h102 +0x400000
+Gui Add, GroupBox, x4 y251 w560 h80 +0x400000
+Gui Add, GroupBox, x4 y326 w560 h87 +0x400000
+Gui Add, GroupBox, x4 y408 w560 h87 +0x400000
+
 gui,font, s16 bold
 Gui, Add, Link,x579 y415 w75 h24 vHelpLink gHelp, <a href="site\index.html">Help</a>
 Gui,Font,%fontXmed% Bold
-Gui, Add, Checkbox, x422 y23 vAUTOLNCH gAutoLaunch Checked, Auto-Launch
+Gui, Add, Checkbox, x583 y176 vAUTOLNCH gAutoLaunch Checked, Auto-Launch
 Gui ,Add, Picture, x627 y338 w122 h121,site\key.png
-Gui, Add, Button, x74 y136 w43 h23 vSETEMUD gSETEMUD, SET
-Gui, Add, Button, x74 y53 w43 h23 vSETJKD gSETJKD, SET
-Gui, Add, Text, x8 y81 vSKSYSTXT, Systems ROOT
-Gui, Add, Text, x8 y163 vSKEMUDTXT, Emulators Dir
+Gui, Add, Button, x18 y147 w43 h23 vSETEMUD gSETEMUD, SET
+Gui, Add, Button, x18 y62 w43 h23 vSETJKD gSETJKD, SET
+Gui, Add, Text, x18 y88 vSKSYSTXT, Systems Dir
+Gui, Add, Text, x18 y173 vSKEMUDTXT, Emulators Dir
 Gui,Font,Normal
-Gui, Add, CheckBox, x174 y90 vFILT_UNSUP gFILT_UNSUP %filtmrk%, Filter Unsupported
-Gui, Add, Button, x579 y450 w55 h18 vUpdateSK gUpdateSK, UPDATE
+Gui, Add, CheckBox, x399 y90 vFILT_UNSUP gFILT_UNSUP %filtmrk%, Filter Unsupported
+Gui, Add, Button, x579 y460 w55 h18 vUpdateSK gUpdateSK, UPDATE
 
 Gui, Font, Bold
-Gui Add, GroupBox, x72 y270 w445 h64 Right, Playlists
-Gui Add, Button, x516 y296 w43 h23 vplaylset gplaylset,SET
+Gui Add, Text, x18 y311, Playlists Dir
+Gui Add, Button, x18 y286 w43 h23 vplaylset gplaylset,SET
 Gui, Font, normal
-Gui Add, Edit, x77 y285 w439 h41 Right vplaylisttxt ReadOnly, %playlistloc%
+Gui Add, Edit, x61 y268 w443 h41 Right vplaylisttxt ReadOnly, %playlistloc%
 
 Gui, Font, Bold
-Gui Add, GroupBox, x116 y333 w445 h64, History
-Gui Add, Button, x70 y341 w43 h23 vhistset ghistset,SET
+Gui Add, Text, x18 y390 w56 h13, HIstory File
+Gui Add, Button, x18 y364 w43 h23 vhistset ghistset,SET
 Gui, Font, normal
-Gui, Add, Checkbox, x29 y369 vHISAPND gHISAPND %HISAPNDCHK%, Append All
-Gui Add, Edit, x120 y346 w438 h44 vhisttxt ReadOnly, %historyloc%
+Gui, Add, Checkbox, x399 y389 vHISAPND gHISAPND %HISAPNDCHK%, Append All
+Gui Add, Edit, x61 y346 w443 h41 vhisttxt ReadOnly, %historyloc%
 
-Gui, Add, Button, x124 y88 w45 h18 vSYSDETECT gSysDetect, Detect
+Gui, Add, Button, x100 y87 w45 h18 vSYSDETECT gSysDetect, Detect
 ;;Gui, Add, CheckBox, x174 y86 w89 h18 vSYSAZ gSYSAZ %FUZENB%, fuzzy-Rename
-Gui, Add, Button, x120 y171 w45 h18 vEMUDETECT gEmuDetect, Detect
-Gui, Add, Text, x172 y173 vSKDSETXT, Detected Supported Emulators: %emunumtot%
-Gui, Add, Text, x331 y89 vSKDETSTXT, Detected Systems: %totsys% supported and %allsys% total
+Gui, Add, Button, x100 y171 w45 h18 vEMUDETECT gEmuDetect, Detect
+Gui, Add, Text, x150 y173 vSKDSETXT, Detected Supported Emulators: %emunumtot%
+Gui, Add, Text, x150 y90 vSKDETSTXT, Detected Systems: %totsys% supported and %allsys% total
+
 Gui, Add, Text,  x582 y101 vSKDTTXT, Daemon Tools is %DAMINST%
-Gui, Add, DropDownList, x23 y12 w163 vSKRESDDL gSKRESDDL, All||Session|Jacket-Presets|Retroarch|Associations|Core-Cfgs|Playlist-DB
-Gui, Add, Button, x187 y12 w55 h20 vSKRESET gSKRESET, RESET
-Gui, Add, Edit, x117 y45 w443 h40 Multi ReadOnly vSKSYSDISP, %RJSYSTEMS%
+Gui, Add, DropDownList, x23 y17 w163 vSKRESDDL gSKRESDDL, All||Session|Jacket-Presets|Retroarch|Associations|Core-Cfgs|Playlist-DB
+Gui, Add, Button, x187 y17 w55 h20 vSKRESET gSKRESET, RESET
+Gui, Add, Edit, x63 y45 w443 h40 Multi ReadOnly vSKSYSDISP, %RJSYSTEMS%
 
-Gui, Add, CheckBox, x244 y5 vHOVPREV gHovPrev %hovvalue%, Hover-Preview
-Gui, Add, CheckBox,x244 y22 vSRCHCOMPLIO gSRCHCOMPL %SRCHCOMPLIO%, Auto-Populate Search-Window
-Gui, Add, CheckBox, x347 y7 vAUTOPGS gAUTOPGS %AUTOPGSIO%, Auto-Load Per-Game Settings
+Gui, Add, CheckBox, x583 y124 vHOVPREV gHovPrev %hovvalue%, Hover-Preview
+Gui, Add, CheckBox, x583 y158 vSRCHCOMPLIO gSRCHCOMPL %SRCHCOMPLIO%, Auto-Populate Search-Window
+Gui, Add, CheckBox, x583 y141 vAUTOPGS gAUTOPGS %AUTOPGSIO%, Auto-Load Per-Game Settings
 
-Gui, Add, Text, x577 y42 vSKRJQTXT, %RJQNUM% systems
+Gui, Add, Text, x573 y42 vSKRJQTXT, %RJQNUM% systems
 Gui, Add, Text, x582 y86 vSKDISPLCHTXT, DisplayChanger is %DCHINST%
-Gui, Add, Edit, x117 y129 w443 h40 Multi ReadOnly vSKEMUDISP, %RJEMUD%
+Gui, Add, Edit, x63 y129 w443 h41 Multi ReadOnly vSKEMUDISP, %RJEMUD%
 
-Gui, Add, Button, x706 y61 w46 h20 vSKCLRQ gDELRJQ, CLEAR
+Gui, Add, Button, x573 y61 w46 h20 vSKCLRQ gDELRJQ, CLEAR
 Gui, Add, Text, x627 y41 vSKCLRTXT, in the RoM-Jacket queue
 
-Gui, Add, Edit, x193 y433 w353 h44 vtmpdispl Multi ReadOnly, %cacheloc%
+Gui, Add, Edit, x61 y433 w443 h40 vtmpdispl Multi ReadOnly, %cacheloc%
 Gui, Font, Bold
-Gui, Add, Text, x53 y463 w102 h18 vTMPDIRTXT, Temp/Cache Dir
-Gui, Add, Button, x148 y442 w43 h23 vSETTMPD gSETTMPD, SET
+Gui, Add, Text, x18 y476 vTMPDIRTXT, Temp/Cache Dir
+Gui, Add, Button, x18 y450 w43 h23 vSETTMPD gSETTMPD, SET
 Gui, Font, normal
 
+
+Gui, Font, Bold
+Gui Add, GroupBox, x568 y205 w194 h95, Emulator GUI Options
+gui, font,normal
+Gui Add, DropDownList, x609 y227 w120 vEMUGUIDDL gEmuGuiDDL, retroarch||%supguiitems%
+Gui, Add, CheckBox, x583 y257 vAUTOGUI gAUTOGUI %autoguic%, Enabled
 
 ;};;;;;;;;;;;;
 
@@ -7886,6 +7910,44 @@ if (SRCHCOMPL = 1)
 iniwrite, 0,Settings.ini,GLOBAL,AutoPopulate_Search
 return
 
+EmuGuiDDL:
+gui,submit,nohide
+guicontrolget,EMUGUIDDL,,EMUGUIDDL
+iniread,supgui,Settings.ini,GLOBAL,supported_guis
+ifinstring,supgui,%EmuGuiDDL%
+	{
+		guicontrol,,AUTOGUI,1
+		return
+	}
+guicontrol,,AUTOGUI,0
+return
+
+AUTOGUI:
+gui,submit,nohide
+guicontrolget,EMUGUIDDL,,EMUGUIDDL
+guicontrolget,AUTOGUI,,AUTOGUI
+iniread,supgui,Settings.ini,GLOBAL,supported_guis
+ag=
+supgui= 
+if (AUTOGUI = 1)
+	{
+		ifnotinstring,supgui,%EMUGUIDDL%|
+			{
+				supgui.= EMUGUIDDL . "|"
+			}
+	}
+
+if (AUTOGUI = 0)
+	{
+		ifinstring,supgui,%EMUGUIDDL%|
+			{
+				stringreplace,supgui,supgui,%EMUGUIDDL%|,,All
+			}
+	}
+iniwrite,%supgui%,Settings.ini,GLOBAL,supported_guis
+return
+
+
 AUTOPGS:
 gui,submit,nohide
 if (AUTOPGS = 1)
@@ -7895,7 +7957,6 @@ if (AUTOPGS = 1)
 	}
 iniwrite, 0,Settings.ini,GLOBAL,AutoLoad_PerGameSettings
 return
-
 
 ;};;;;;;;;;;;;;;;;;;
 
@@ -8653,22 +8714,6 @@ if (RUNPLRAD = 1)
 							{
 								coreselv= %fijj%
 							}
-				/*
-				if fijj is digit
-					{
-						rereadasset:
-						iniread,fijj,%inpl%,ASSIGNMENTS,%DDLUX%
-						if (fijj = "ERROR")
-							{
-								if (inpl = "Assignments.ini")
-									{
-										inpl= sets\Assignments.set
-										goto, rereadasset
-									}
-								coreselv= mame_libretro.dll
-							}
-					}
-				*/
 			}
 		splitromhash:
 		stringsplit, romfj, romf,#
@@ -82753,27 +82798,6 @@ if (RUNPLRAD = 1)
 						coreselv= %A_LoopField%
 						break
 					}
-				/*
-				splitpath,fijj,,,,coreselv
-				if fijj is digit
-					{
-						redasset:
-						iniread,fijj,%inpl%,ASSIGNMENTS,%TRPTYP%
-						if (fijj = "ERROR")
-							{
-								if (inpl = "Assignments.ini")
-									{
-										inpl= sets\Assignments.set
-										goto, redasset
-									}
-								coreselv= mame_libretro.dll
-							}
-						ifinstring,fijj,_libretro.dll
-							{
-								coreselv= %fijj%
-							}
-					}
-				*/
 				guicontrol,,LCORE,|%coreselv%||%runlist%
 			}
 
@@ -82856,13 +82880,18 @@ if (FILT_UNSUP <> 1)
 				gosub, RecentRead
 			}
 	}
-if (coreselv <> "")
+
+corinjs= %coreselv%
+ifinstring,corinjs,.dll
+	{
+		corinjs= retroarch
+	}
+ifinstring,supgui,%corinjs%
 	{
 		goto, opncore
 	}
 
-guicontrol,,LCORE,||%runlist%
-
+guicontrol,,LCORE,|%coreselv%||%runlist%
 iniwrite, "%romf%",Settings.ini,GLOBAL,last_rom
 gosub, LNCHCHK
 SK_MODE= 1
@@ -82921,37 +82950,6 @@ if (RUNPLRAD = 1)
 			{
 				selectedplaylist= %historyloc%
 			}
-		/*
-		if (OPTYP = "History")
-			{
-				curline= 0
-				Loop, Read, %historyLoc%
-					{
-						curline+=1
-						if (A_LoopReadLine = TOXTN)
-						{
-							coreline := curline+2
-							break
-						}
-					}
-				if (coreline <> "")
-					{
-						FileReadLine, stcl, %historyLoc%,%coreline%
-						SplitPath, stcl, coreselv
-						guicontrol,,LCORE,|%coreselv%||%runlist%
-					}
-				APLN=
-				APLA=
-				splitpath,coreselv,,,dlx
-				gosub, CoreAuto
-				if (dlx <> "dll")
-					{
-						APLN= 1
-					}
-				SB_SetText(" indexing history complete ")
-				return
-			}
-		*/
 		APLN= 1
 		if (dlx = "dll")
 			{
