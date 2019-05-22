@@ -285,8 +285,8 @@ If (playlistloctmp <> "ERROR")
 	}
 	
 supguiitems= mednafen|mame|retroarch|snes9x|	
-iniread,supgui,Settings.ini,GLOBAL,suported_guis
-if ((supgui = "")or(supgui = "ERROR"))
+iniread,supgui,Settings.ini,GLOBAL,supported_guis
+if (supgui = "ERROR")
 	{
 		supgui= %supguiitems%
 	}
@@ -2133,140 +2133,140 @@ Gui, Add, DropDownList, x491 y231 w260 vSRCHLOCDDL gSRCHLOCDDL, :=:System List:=
 ;{;;;;;;;~~~EMUOPT MENU GROUP~~~;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 emutog= Hide
 tmpvis= Hidden
-Gui, Add, Button, x128 y216 w75 h23 vemuBUTA gemuBUTA %tmpvis%, emuBUTA
-Gui, Add, Button, x128 y240 w75 h23 vemuBUTB gemuBUTB %tmpvis%, emuBUTB
-Gui, Add, Button, x128 y264 w75 h23 vemuBUTC gemuBUTC %tmpvis%, emuBUTC
-Gui, Add, Button, x368 y120 w75 h23 vemuBUTG gemuBUTG %tmpvis%, emuBUTG
-Gui, Add, Button, x368 y48 w75 h23 vemuBUTD gemuBUTD %tmpvis%, emuBUTD
-Gui, Add, Button, x368 y72 w75 h23 vemuBUTE gemuBUTE %tmpvis%, emuBUTE
-Gui, Add, Button, x368 y96 w75 h23 vemuBUTF gemuBUTF %tmpvis%, emuBUTF
-Gui, Add, Button, x640 y120 w75 h23 vemuBUTH gemuBUTH %tmpvis%, emuBUTH
-Gui, Add, Button, x640 y144 w75 h23 vemuBUTI gemuBUTI %tmpvis%, emuBUTI
-Gui, Add, Button, x694 y503 w66 h23 vemuBUTJ gemuBUTJ %tmpvis%, emuBUTJ
-Gui, Add, Button, x32 y55 w66 h23 vemuBUTK gemuBUTK %tmpvis%, emuBUTK
-Gui, Add, CheckBox, x128 y120 vemuCHKD gemuCHKD %tmpvis%, emuCHKD
-Gui, Add, CheckBox, x128 y144 vemuCHKE gemuCHKE %tmpvis%, emuCHKE
-Gui, Add, CheckBox, x128 y168 vemuCHKF gemuCHKF %tmpvis%, emuCHKF
-Gui, Add, CheckBox, x128 y192 vemuCHKG gemuCHKG %tmpvis%, emuCHKG
-Gui, Add, CheckBox, x248 y72 vemuCHKH gemuCHKH %tmpvis%, emuCHKH
-Gui, Add, CheckBox, x256 y384 vemuCHKI gemuCHKI %tmpvis%, emuCHKI
-Gui, Add, CheckBox, x256 y408 vemuCHKJ gemuCHKJ %tmpvis%, emuCHKJ
-Gui, Add, CheckBox, x256 y432 vemuCHKK gemuCHKK %tmpvis%, emuCHKK
-Gui, Add, CheckBox, x256 y456 vemuCHKL gemuCHKL %tmpvis%, emuCHKL
-Gui, Add, CheckBox, x520 y400 vemuCHKM gemuCHKM %tmpvis%, emuCHKM
-Gui, Add, CheckBox, x376 y288 vemuCHKN gemuCHKN %tmpvis%, emuCHKN
-Gui, Add, CheckBox, x624 y440 vemuCHKO gemuCHKO %tmpvis%, emuCHKO
-Gui, Add, CheckBox, x624 y464 vemuCHKP gemuCHKP %tmpvis%, emuCHKP
-Gui, Add, CheckBox, x640 y216 vemuCHKQ gemuCHKQ %tmpvis%, emuCHKQ
-Gui, Add, CheckBox, x640 y216 vemuCHKR gemuCHKR %tmpvis%, emuCHKR
-Gui, Add, CheckBox, x640 y226 vemuCHKS gemuCHKS %tmpvis%, emuCHKS
-Gui, Add, CheckBox, x640 y236 vemuCHKT gemuCHKT %tmpvis%, emuCHKT
-Gui, Add, CheckBox, x640 y236 vemuCHKU gemuCHKU %tmpvis%, emuCHKU
-Gui, Add, CheckBox, x8 y440 vemuCHKA gemuCHKA %tmpvis%, emuCHKA
-Gui, Add, CheckBox, x8 y464 vemuCHKB gemuCHKB %tmpvis%, emuCHKB
-Gui, Add, CheckBox, x8 y490 vemuCHKC gemuCHKC %tmpvis%, emuCHKC
-Gui, Add, ComboBox, x248 y312 w124 vemuCBXE gemuCBXE %tmpvis%, emuCBXE||
-Gui, Add, ComboBox, x248 y336 w126 vemuCBXF gemuCBXF %tmpvis%, emuCBXF||
-Gui, Add, ComboBox, x248 y360 w126 vemuCBXG gemuCBXG %tmpvis%, emuCBXG||
-Gui, Add, ComboBox, x368 y144 w126 vemuCBXH gemuCBXH %tmpvis%, emuCBXH||
-Gui, Add, ComboBox, x368 y168 w127 vemuCBXI gemuCBXI %tmpvis%, emuCBXI||
-Gui, Add, ComboBox, x504 y272 w100 vemuCBXJ gemuCBXJ %tmpvis%, emuCBXJ||
-Gui, Add, ComboBox, x8 y248 w120 vemuCBXA gemuCBXA %tmpvis%, emuCBXA||
-Gui, Add, ComboBox, x8 y272 w120 vemuCBXB gemuCBXB %tmpvis%, emuCBXB||
-Gui, Add, ComboBox, x8 y296 w120 vemuCBXC gemuCBXC %tmpvis%, emuCBXC||
-Gui, Add, ComboBox, x8 y320 w120 vemuCBXD gemuCBXD %tmpvis%, emuCBXD||
-Gui, Add, DropDownList, x248 y168 w121 vemuDDLE gemuDDLE %tmpvis%, emuDDLE||
-Gui, Add, DropDownList, x248 y192 w121 vemuDDLF gemuDDLF %tmpvis%, emuDDLF||
-Gui, Add, DropDownList, x248 y216 w121 vemuDDLG gemuDDLG %tmpvis%, emuDDLG||
-Gui, Add, DropDownList, x504 y248 w100 vemuDDLH gemuDDLH %tmpvis%, emuDDLH||
-Gui, Add, DropDownList, x504 y344 w121 vemuDDLI gemuDDLI %tmpvis%, emuDDLI||
-Gui, Add, DropDownList, x640 y320 w100 vemuDDLJ gemuDDLJ %tmpvis%, emuDDLJ||
-Gui, Add, DropDownList, x8 y120 w121 vemuDDLC gemuDDLC %tmpvis%, emuDDLC||
-Gui, Add, DropDownList, x8 y144 w121 vemuDDLD gemuDDLD %tmpvis%, emuDDLD||
-Gui, Add, DropDownList, x8 y72 w121 vemuDDLA gemuDDLA %tmpvis%, emuDDLA||
-Gui, Add, DropDownList, x8 y96 w121 vemuDDLB gemuDDLB %tmpvis%, emuDDLB||
-Gui, Add, Radio, x8 y24 vemuRad1A gemuRad1A %tmpvis%, emuRad1A
-Gui, Add, Radio, x8 y48 vemuRad1B gemuRad1B %tmpvis%, emuRad1B
-Gui, Add, Edit, x128 y24 w120 vemuEDTA gemuEDTA %tmpvis%, emuEDTA
-Gui, Add, Edit, x128 y48 w120 vemuEDTB gemuEDTB %tmpvis%, emuEDTB
-Gui, Add, Radio, x8 y168 vemuRad2A gemuRad2A %tmpvis%, emuRad2A
-Gui, Add, Radio, x8 y192 vemuRad2B gemuRad2B %tmpvis%, emuRad2B
-Gui, Add, Radio, x8 y216 vemuRad2C gemuRad2C %tmpvis%, emuRad2C
-Gui, Add, Edit, x128 y72 w120 vemuEDTC gemuEDTC %tmpvis%, emuEDTC
-Gui, Add, Edit, x128 y96 w88 vemuEDTD gemuEDTD %tmpvis%, emuEDTD
+Gui, Add, Button, x128 y216 w75 h23 vemuBUTA gemuBUTA %tmpvis%,
+Gui, Add, Button, x128 y240 w75 h23 vemuBUTB gemuBUTB %tmpvis%,
+Gui, Add, Button, x128 y264 w75 h23 vemuBUTC gemuBUTC %tmpvis%,
+Gui, Add, Button, x368 y120 w75 h23 vemuBUTG gemuBUTG %tmpvis%,
+Gui, Add, Button, x368 y48 w75 h23 vemuBUTD gemuBUTD %tmpvis%,
+Gui, Add, Button, x368 y72 w75 h23 vemuBUTE gemuBUTE %tmpvis%,
+Gui, Add, Button, x368 y96 w75 h23 vemuBUTF gemuBUTF %tmpvis%,
+Gui, Add, Button, x640 y120 w75 h23 vemuBUTH gemuBUTH %tmpvis%,
+Gui, Add, Button, x640 y144 w75 h23 vemuBUTI gemuBUTI %tmpvis%,
+Gui, Add, Button, x694 y503 w66 h23 vemuBUTJ gemuBUTJ %tmpvis%,
+Gui, Add, Button, x32 y55 w66 h23 vemuBUTK gemuBUTK %tmpvis%,
+Gui, Add, CheckBox, x128 y120 vemuCHKD gemuCHKD %tmpvis%,
+Gui, Add, CheckBox, x128 y144 vemuCHKE gemuCHKE %tmpvis%,
+Gui, Add, CheckBox, x128 y168 vemuCHKF gemuCHKF %tmpvis%,
+Gui, Add, CheckBox, x128 y192 vemuCHKG gemuCHKG %tmpvis%,
+Gui, Add, CheckBox, x248 y72 vemuCHKH gemuCHKH %tmpvis%,
+Gui, Add, CheckBox, x256 y384 vemuCHKI gemuCHKI %tmpvis%,
+Gui, Add, CheckBox, x256 y408 vemuCHKJ gemuCHKJ %tmpvis%,
+Gui, Add, CheckBox, x256 y432 vemuCHKK gemuCHKK %tmpvis%,
+Gui, Add, CheckBox, x256 y456 vemuCHKL gemuCHKL %tmpvis%,
+Gui, Add, CheckBox, x520 y400 vemuCHKM gemuCHKM %tmpvis%,
+Gui, Add, CheckBox, x376 y288 vemuCHKN gemuCHKN %tmpvis%,
+Gui, Add, CheckBox, x624 y440 vemuCHKO gemuCHKO %tmpvis%,
+Gui, Add, CheckBox, x624 y464 vemuCHKP gemuCHKP %tmpvis%,
+Gui, Add, CheckBox, x640 y216 vemuCHKQ gemuCHKQ %tmpvis%,
+Gui, Add, CheckBox, x640 y216 vemuCHKR gemuCHKR %tmpvis%,
+Gui, Add, CheckBox, x640 y226 vemuCHKS gemuCHKS %tmpvis%,
+Gui, Add, CheckBox, x640 y236 vemuCHKT gemuCHKT %tmpvis%,
+Gui, Add, CheckBox, x640 y236 vemuCHKU gemuCHKU %tmpvis%,
+Gui, Add, CheckBox, x8 y440 vemuCHKA gemuCHKA %tmpvis%,
+Gui, Add, CheckBox, x8 y464 vemuCHKB gemuCHKB %tmpvis%,
+Gui, Add, CheckBox, x8 y490 vemuCHKC gemuCHKC %tmpvis%,
+Gui, Add, ComboBox, x248 y312 w124 vemuCBXE gemuCBXE %tmpvis%,
+Gui, Add, ComboBox, x248 y336 w126 vemuCBXF gemuCBXF %tmpvis%,
+Gui, Add, ComboBox, x248 y360 w126 vemuCBXG gemuCBXG %tmpvis%,
+Gui, Add, ComboBox, x368 y144 w126 vemuCBXH gemuCBXH %tmpvis%,
+Gui, Add, ComboBox, x368 y168 w127 vemuCBXI gemuCBXI %tmpvis%,
+Gui, Add, ComboBox, x504 y272 w100 vemuCBXJ gemuCBXJ %tmpvis%,
+Gui, Add, ComboBox, x8 y248 w120 vemuCBXA gemuCBXA %tmpvis%,
+Gui, Add, ComboBox, x8 y272 w120 vemuCBXB gemuCBXB %tmpvis%,
+Gui, Add, ComboBox, x8 y296 w120 vemuCBXC gemuCBXC %tmpvis%,
+Gui, Add, ComboBox, x8 y320 w120 vemuCBXD gemuCBXD %tmpvis%,
+Gui, Add, DropDownList, x248 y168 w121 vemuDDLE gemuDDLE %tmpvis%,
+Gui, Add, DropDownList, x248 y192 w121 vemuDDLF gemuDDLF %tmpvis%,
+Gui, Add, DropDownList, x248 y216 w121 vemuDDLG gemuDDLG %tmpvis%,
+Gui, Add, DropDownList, x504 y248 w100 vemuDDLH gemuDDLH %tmpvis%,
+Gui, Add, DropDownList, x504 y344 w121 vemuDDLI gemuDDLI %tmpvis%,
+Gui, Add, DropDownList, x640 y320 w100 vemuDDLJ gemuDDLJ %tmpvis%,
+Gui, Add, DropDownList, x8 y120 w121 vemuDDLC gemuDDLC %tmpvis%,
+Gui, Add, DropDownList, x8 y144 w121 vemuDDLD gemuDDLD %tmpvis%,
+Gui, Add, DropDownList, x8 y72 w121 vemuDDLA gemuDDLA %tmpvis%,
+Gui, Add, DropDownList, x8 y96 w121 vemuDDLB gemuDDLB %tmpvis%,
+Gui, Add, Radio, x8 y24 vemuRad1A gemuRad1A %tmpvis%,
+Gui, Add, Radio, x8 y48 vemuRad1B gemuRad1B %tmpvis%,
+Gui, Add, Edit, x128 y24 w120 vemuEDTA gemuEDTA %tmpvis%,
+Gui, Add, Edit, x128 y48 w120 vemuEDTB gemuEDTB %tmpvis%,
+Gui, Add, Radio, x8 y168 vemuRad2A gemuRad2A %tmpvis%,
+Gui, Add, Radio, x8 y192 vemuRad2B gemuRad2B %tmpvis%,
+Gui, Add, Radio, x8 y216 vemuRad2C gemuRad2C %tmpvis%,
+Gui, Add, Edit, x128 y72 w120 vemuEDTC gemuEDTC %tmpvis%,
+Gui, Add, Edit, x128 y96 w88 vemuEDTD gemuEDTD %tmpvis%,
 Gui, Add, UpDown, x454 y24 w17 h21 -16 %tmpvis% vemuUPDA gemuUPDA
-Gui, Add, Edit, x256 y480 w120 vemuEDTE gemuEDTE %tmpvis%, emuEDTE
-Gui, Add, Edit, x368 y24 w88 vemuEDTF gemuEDTF %tmpvis%, emuEDTF
-Gui, Add, Radio, x8 y344 vemuRad3A gemuRad3A %tmpvis%, emuRad3A
-Gui, Add, Radio, x8 y368 vemuRad3B gemuRad3B %tmpvis%, emuRad3B
-Gui, Add, Radio, x8 y392 vemuRad3C gemuRad3C %tmpvis%, emuRad3C
-Gui, Add, Radio, x8 y416 vemuRad3D gemuRad3D %tmpvis%, emuRad3D
-Gui, Add, Edit, x560 y56 w120 vemuEDTG gemuEDTG %tmpvis%, emuEDTG
-Gui, Add, Edit, x560 y80 w120 vemuEDTH gemuEDTH %tmpvis%, emuEDTH
+Gui, Add, Edit, x256 y480 w120 vemuEDTE gemuEDTE %tmpvis%,
+Gui, Add, Edit, x368 y24 w88 vemuEDTF gemuEDTF %tmpvis%,
+Gui, Add, Radio, x8 y344 vemuRad3A gemuRad3A %tmpvis%,
+Gui, Add, Radio, x8 y368 vemuRad3B gemuRad3B %tmpvis%,
+Gui, Add, Radio, x8 y392 vemuRad3C gemuRad3C %tmpvis%,
+Gui, Add, Radio, x8 y416 vemuRad3D gemuRad3D %tmpvis%,
+Gui, Add, Edit, x560 y56 w120 vemuEDTG gemuEDTG %tmpvis%,
+Gui, Add, Edit, x560 y80 w120 vemuEDTH gemuEDTH %tmpvis%,
 Gui, Add, UpDown, x726 y296 w17 h21 -16 %tmpvis% vemuUPDB gemuUPDB
-Gui, Add, Edit, x640 y296 w88 vemuEDTI gemuEDTI %tmpvis%, emuEDTI
+Gui, Add, Edit, x640 y296 w88 vemuEDTI gemuEDTI %tmpvis%,
 Gui, Add, UpDown, x214 y96 w17 h21 -16 %tmpvis% vemuUPDC gemuUPDC
-Gui, Add, Radio, x248 y24 vemuRad4A gemuRad4A %tmpvis%, emuRad4A
-Gui, Add, Radio, x248 y48 vemuRad4B gemuRad4B %tmpvis%, emuRad4B
+Gui, Add, Radio, x248 y24 vemuRad4A gemuRad4A %tmpvis%,
+Gui, Add, Radio, x248 y48 vemuRad4B gemuRad4B %tmpvis%,
 Gui,Font,%fontXsm% Bold
-Gui, Add, GroupBox, x488 y24 w71 h29 vemuGRPA %tmpvis%, emuGRPA
-Gui, Add, GroupBox, x488 y56 w70 h29 vemuGRPB %tmpvis%, emuGRPB
-Gui, Add, GroupBox, x488 y88 w68 h29 vemuGRPC %tmpvis%, emuGRPC
-Gui, Add, GroupBox, x496 y176 w88 h19 vemuGRPD %tmpvis%, emuGRPD
-Gui, Add, GroupBox, x496 y200 w101 h19 vemuGRPE %tmpvis%, emuGRPE
-Gui, Add, GroupBox, x496 y224 w94 h19 vemuGRPF %tmpvis%, emuGRPF
-Gui, Add, GroupBox, x602 y392 w151 h45 vemuGRPG %tmpvis%, emuGRPG
+Gui, Add, GroupBox, x488 y24 w71 h29 vemuGRPA %tmpvis%,
+Gui, Add, GroupBox, x488 y56 w70 h29 vemuGRPB %tmpvis%,
+Gui, Add, GroupBox, x488 y88 w68 h29 vemuGRPC %tmpvis%,
+Gui, Add, GroupBox, x496 y176 w88 h19 vemuGRPD %tmpvis%,
+Gui, Add, GroupBox, x496 y200 w101 h19 vemuGRPE %tmpvis%,
+Gui, Add, GroupBox, x496 y224 w94 h19 vemuGRPF %tmpvis%,
+Gui, Add, GroupBox, x602 y392 w151 h45 vemuGRPG %tmpvis%,
 Gui, Font, normal
-Gui, Add, ListBox, x128 y392 w120 h30 vemuLBXA gemuLBXA %tmpvis%, emuLBXA||
-Gui, Add, Radio, x248 y96 vemuRad5A gemuRad5A %tmpvis%, emuRad5A
-Gui, Add, Radio, x248 y120 vemuRad5B gemuRad5B %tmpvis%, emuRad5B
-Gui, Add, Radio, x248 y144 vemuRad5C gemuRad5C %tmpvis%, emuRad5C
-Gui, Add, ListBox, x128 y448 w120 h30 vemuLBXB gemuLBXB %tmpvis%, emuLBXB||
-Gui, Add, ListView, x128 y424 w120 h19 vemuLVA gemuLVA %tmpvis%, emuLVA||
-Gui, Add, Radio, x376 y192 vemuRad6A gemuRad6A %tmpvis%, emuRad6A
-Gui, Add, Radio, x376 y216 vemuRad6B gemuRad6B %tmpvis%, emuRad6B
-Gui, Add, Radio, x376 y240 vemuRad6C gemuRad6C %tmpvis%, emuRad6C
-Gui, Add, Radio, x376 y264 vemuRad6D gemuRad6D %tmpvis%, emuRad6D
-Gui, Add, ListView, x128 y480 w121 h27 vemuLVB gemuLVB %tmpvis%, emuLVB||
-Gui, Add, Radio, x376 y320 vemuRad7A gemuRad7A %tmpvis%, emuRad7A
-Gui, Add, Radio, x376 y344 vemuRad7B gemuRad7B %tmpvis%, emuRad7B
-Gui, Add, ListView, x496 y120 w141 h53 vemuLVC gemuLVC %tmpvis%, emuLVC||
-Gui, Add, Progress, x504 y296 w120 h20 -Smooth vemuPRGB %tmpvis%, 0
-Gui, Add, Radio, x504 y440 vemuRad9A gemuRad9A %tmpvis%, emuRad9A
-Gui, Add, Radio, x504 y464 vemuRad9B gemuRad9B %tmpvis%, emuRad9B
-Gui, Add, Radio, x504 y488 vemuRad9C gemuRad9C %tmpvis%, emuRad9C
-Gui, Add, Progress, x504 y320 w120 h20 -Smooth vemuPRGA %tmpvis%, 0
-Gui, Add, Radio, x376 y464 vemuRad8A gemuRad8A %tmpvis%, emuRad8A
-Gui, Add, Radio, x376 y488 vemuRad8B gemuRad8B %tmpvis%, emuRad8B
-Gui, Add, Radio, x640 y168 vemuRad10A gemuRad10A %tmpvis%, emuRad10A
-Gui, Add, Radio, x640 y192 vemuRad10B gemuRad10B %tmpvis%, emuRad10B
+Gui, Add, ListBox, x128 y392 w120 h30 vemuLBXA gemuLBXA %tmpvis%,
+Gui, Add, Radio, x248 y96 vemuRad5A gemuRad5A %tmpvis%,
+Gui, Add, Radio, x248 y120 vemuRad5B gemuRad5B %tmpvis%,
+Gui, Add, Radio, x248 y144 vemuRad5C gemuRad5C %tmpvis%,
+Gui, Add, ListBox, x128 y448 w120 h30 vemuLBXB gemuLBXB %tmpvis%,
+Gui, Add, ListView, x128 y424 w120 h19 vemuLVA gemuLVA %tmpvis%,
+Gui, Add, Radio, x376 y192 vemuRad6A gemuRad6A %tmpvis%,
+Gui, Add, Radio, x376 y216 vemuRad6B gemuRad6B %tmpvis%,
+Gui, Add, Radio, x376 y240 vemuRad6C gemuRad6C %tmpvis%,
+Gui, Add, Radio, x376 y264 vemuRad6D gemuRad6D %tmpvis%,
+Gui, Add, ListView, x128 y480 w121 h27 vemuLVB gemuLVB %tmpvis%,
+Gui, Add, Radio, x376 y320 vemuRad7A gemuRad7A %tmpvis%,
+Gui, Add, Radio, x376 y344 vemuRad7B gemuRad7B %tmpvis%,
+Gui, Add, ListView, x496 y120 w141 h53 vemuLVC gemuLVC %tmpvis%,
+Gui, Add, Progress, x504 y296 w120 h20 -Smooth vemuPRGB %tmpvis%,
+Gui, Add, Radio, x504 y440 vemuRad9A gemuRad9A %tmpvis%,
+Gui, Add, Radio, x504 y464 vemuRad9B gemuRad9B %tmpvis%,
+Gui, Add, Radio, x504 y488 vemuRad9C gemuRad9C %tmpvis%,
+Gui, Add, Progress, x504 y320 w120 h20 -Smooth vemuPRGA %tmpvis%,
+Gui, Add, Radio, x376 y464 vemuRad8A gemuRad8A %tmpvis%,
+Gui, Add, Radio, x376 y488 vemuRad8B gemuRad8B %tmpvis%,
+Gui, Add, Radio, x640 y168 vemuRad10A gemuRad10A %tmpvis%,
+Gui, Add, Radio, x640 y192 vemuRad10B gemuRad10B %tmpvis%,
 Gui, Add, Slider, x128 y288 w120 h32 Range0-100 vemuSLDA gemuSLDA  %tmpvis%, 0
-Gui, Add, Slider, x128 y320 w120 h32 Range0-100 vemuSLDB gemuSLDB %tmpvis%, 0
-Gui, Add, Slider, x128 y352 w120 h32 Range0-100 vemuSLDD gemuSLDD %tmpvis%, 0
-Gui, Add, Slider, x504 y368 w120 h24 Range0-100 vemuSLDE gemuSLDE %tmpvis%, 0
-Gui, Add, Slider, x602 y408 w151 h25 Range0-100 vemuSLDC gemuSLDC %tmpvis%, 0
-Gui, Add, Radio, x640 y240 vemuRad11A gemuRad11A %tmpvis%, emuRad11A
-Gui, Add, Radio, x640 y264 vemuRad11B gemuRad11B %tmpvis%, emuRad11B
-Gui, Add, Text, x248 y240 vemuTXTA %tmpvis%, emuTXTA
-Gui, Add, Text, x248 y264 vemuTXTB %tmpvis%, emuTXTB
-Gui, Add, Text, x248 y288 vemuTXTC %tmpvis%, emuTXTC
-Gui, Add, Text, x376 y368 vemuTXTD %tmpvis%, emuTXTD
-Gui, Add, Text, x376 y392 vemuTXTE %tmpvis%, emuTXTE
-Gui, Add, Text, x376 y416 vemuTXTF %tmpvis%, emuTXTF
-Gui, Add, Text, x376 y440 vemuTXTG %tmpvis%, emuTXTG
-Gui, Add, Text, x640 y344 vemuTXTH %tmpvis%, emuTXTH
-Gui, Add, Text, x640 y368 vemuTXTI %tmpvis%, emuTXTI
-Gui, Add, Text, x696 y344 vemuTXTJ %tmpvis%, emuTXTJ
-Gui, Add, Text, x696 y368 vemuTXTK %tmpvis%, emuTXTK
-Gui, Add, Text, x624 y488 vemuTXTL %tmpvis%, emuTXTL
-Gui, Add, Text, x560 y24 vemuTXTM %tmpvis%, emuTXTM
-Gui, Add, Text, x688 y24 vemuTXTN %tmpvis%, emuTXTN
-Gui, Add, Text, x688 y48 vemuTXTO %tmpvis%, emuTXTO
-Gui, Add, Text, x688 y72 vemuTXTP %tmpvis%, emuTXTP
-Gui, Add, Text, x688 y96 vemuTXTQ %tmpvis%, emuTXTQ
-Gui, Add, Text, x505 y400 vemuTXTR %tmpvis%, emuTXTR
-Gui, Add, Text, x504 y416 vemuTXTS %tmpvis%, emuTXTS
-Gui, Add, Text, x504 y432 vemuTXTT %tmpvis%, emuTXTT
+Gui, Add, Slider, x128 y320 w120 h32 Range0-100 vemuSLDB gemuSLDB %tmpvis%,0
+Gui, Add, Slider, x128 y352 w120 h32 Range0-100 vemuSLDD gemuSLDD %tmpvis%,0
+Gui, Add, Slider, x504 y368 w120 h24 Range0-100 vemuSLDE gemuSLDE %tmpvis%,0
+Gui, Add, Slider, x602 y408 w151 h25 Range0-100 vemuSLDC gemuSLDC %tmpvis%,0
+Gui, Add, Radio, x640 y240 vemuRad11A gemuRad11A %tmpvis%,
+Gui, Add, Radio, x640 y264 vemuRad11B gemuRad11B %tmpvis%,
+Gui, Add, Text, x248 y240 vemuTXTA %tmpvis%,
+Gui, Add, Text, x248 y264 vemuTXTB %tmpvis%,
+Gui, Add, Text, x248 y288 vemuTXTC %tmpvis%,
+Gui, Add, Text, x376 y368 vemuTXTD %tmpvis%,
+Gui, Add, Text, x376 y392 vemuTXTE %tmpvis%,
+Gui, Add, Text, x376 y416 vemuTXTF %tmpvis%,
+Gui, Add, Text, x376 y440 vemuTXTG %tmpvis%,
+Gui, Add, Text, x640 y344 vemuTXTH %tmpvis%,
+Gui, Add, Text, x640 y368 vemuTXTI %tmpvis%,
+Gui, Add, Text, x696 y344 vemuTXTJ %tmpvis%,
+Gui, Add, Text, x696 y368 vemuTXTK %tmpvis%,
+Gui, Add, Text, x624 y488 vemuTXTL %tmpvis%,
+Gui, Add, Text, x560 y24 vemuTXTM %tmpvis%,
+Gui, Add, Text, x688 y24 vemuTXTN %tmpvis%,
+Gui, Add, Text, x688 y48 vemuTXTO %tmpvis%,
+Gui, Add, Text, x688 y72 vemuTXTP %tmpvis%,
+Gui, Add, Text, x688 y96 vemuTXTQ %tmpvis%,
+Gui, Add, Text, x505 y400 vemuTXTR %tmpvis%,
+Gui, Add, Text, x504 y416 vemuTXTS %tmpvis%,
+Gui, Add, Text, x504 y432 vemuTXTT %tmpvis%,
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -2477,7 +2477,7 @@ Gui, Add, GroupBox, x523 y101 w232 h91 vCIREMAPGRP hidden, Input-remapping
 Gui,Font,%fontXsm% Norm
 JOYCFGMODE= core
 Gui,Font,%fontXmed% Bold
-Gui, Add, DropDownList, x532 y128 w205 vJOYCORE gJOYCORE, Antimicro||Xpadder|%supgui%|%corelist%
+Gui, Add, DropDownList, x532 y128 w205 vJOYCORE gJOYCORE, Antimicro||Xpadder|%supguiitems%|%corelist%
 Gui,Font,%fontXsm% Norm
 Gui, Add, Button, x738 y127 w13 h23 vJCFGADD gJCfgAdd hidden, +
 Gui, Add, ComboBox, x527 y155 w184 vJCFGEDT gJCfgEdt +0x2 +E0x5000 Right hidden,|%joycfg%||%curcfg%
@@ -14433,10 +14433,22 @@ if (nlnch <> "")
 	{
 		return
 	}
+corinjs= %LCORE%
+ifinstring,corinjs,.dll
+	{
+		corinjs= retroarch
+	}
 if (core_gui <> LCORE)
 	{
 		gosub, ShowOnlyEmuGui
-		goto, opncore
+		ifinstring,supgui,%rcrinjs%
+			{
+				if (rcrinjs <> "")
+					{
+						goto, opncore
+					}
+			}
+		return	
 	}
 
 CoreAuto:
@@ -26283,7 +26295,7 @@ if (REMPB = 0)
 		guicontrol,disable,JOYCORE
 		guicontrol,disable,JCFGADD
 		guicontrol,disable,SAVEJOY
-		guicontrol,,JOYCORE,|Antimicro||Xpadder|%supgui%|%corelist%
+		guicontrol,,JOYCORE,|Antimicro||Xpadder|%supguiitems%|%corelist%
 		gosub, JoyCore
 	}
 	IniWrite, "%inputRemapBindsEnable%", %joycfg%,OPTIONS,input_remap_binds_enable
@@ -31306,7 +31318,7 @@ Loop, Parse, semu,|
 						guicontrol,,EMPRDDL,|Emulators||%runlist%
 						guicontrol,,PLCORE,|%runlist%
 						guicontrol,,ARCCORES,|Emu_Preset||%runlist%
-						guicontrol,,JOYCORE,|Antimicro||Xpadder|%supgui%|%corelist%
+						guicontrol,,JOYCORE,|Antimicro||Xpadder|%supguiitems%|%corelist%
 					}
 			;;}
 
@@ -41285,7 +41297,7 @@ stringsplit,splcr,LCORE,_
 EMUSN= %splcr1%
 
 
-Loop,parse,supgui,|
+Loop,parse,supguiitems,|
 	{
 		if (A_loopField = "")
 			{
@@ -42134,7 +42146,7 @@ if (SK_MODE = 2)
 				{
 					FileCreateDir,%indvcp%\.snaps
 				}
-			ifinstring,supgui,%emuname%
+			ifinstring,supguiitems,%emuname%
 				{
 					if (CFG2PROP = "ERROR")
 						{
@@ -42367,6 +42379,10 @@ if (uuniv = "X")
 		guicontrol,move,FNDGUI, x720 y516 w42 h19
 		guicontrol,,FNDGUI,find
 	}
+Loop,parse,RUNBOXGUIITEMS,|
+	{
+		guicontrol,disable,%A_LoopField%
+	}	
 
 snes9xcfgloc= snes9x.conf
 snes9xcfg= snes9x.conf
@@ -43223,6 +43239,10 @@ Loop, parse, SNES9XGUIITEMS,|
 	{
 		guicontrol,%emutog%,%A_LoopField%
 	}
+Loop,parse,RUNBOXGUIITEMS,|
+	{
+		guicontrol,%emutog%,%A_LoopField%
+	}		
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -45607,6 +45627,10 @@ Loop, parse,allsupport,|
 
 gosub, ShowOnlyEmuGui
 emutog= show
+Loop,parse,RUNBOXGUIITEMS,|
+	{
+		guicontrol,disable,%A_LoopField%
+	}
 
 emucfgu= mednafen.cfg
 guicontrolget,uuniv,,FNDGUI
@@ -46360,6 +46384,10 @@ Loop, parse, MEDNAFENGUIITEMS,|
 	{
 		guicontrol,%emutog%,%A_LoopField%
 	}
+Loop,parse,RUNBOXGUIITEMS,|
+	{
+		guicontrol,%emutog%,%A_LoopField%
+	}	
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -49962,6 +49990,10 @@ if (uuniv = "X")
 		guicontrol,move,FNDGUI, x720 y516 w42 h19
 		guicontrol,,FNDGUI,find
 	}
+Loop,parse,RUNBOXGUIITEMS,|
+	{
+		guicontrol,disable,%A_LoopField%
+	}	
 
 mamecfg= mame.ini
 mamejcfg= default.cfg
@@ -50548,7 +50580,11 @@ Loop, parse, MAMEGUIITEMS,|
 	{
 		guicontrol,%emutog%,%A_LoopField%
 	}
-;;gosub, EmuGuiVisTog
+
+Loop,parse,RUNBOXGUIITEMS,|
+	{
+		guicontrol,%emutog%,%A_LoopField%
+	}	
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -73712,7 +73748,7 @@ guicontrol,,LCORE,|%utlDDLC%||%runlist%
 EMUSN= %utlDDLC%
 gosub, EMUOPTPOP
 svgbrnv=
-guicontrol,,JOYCORE,|%utlDDLC%||Antimicro|Xpadder|%supgui%|%corelist%
+guicontrol,,JOYCORE,|%utlDDLC%||Antimicro|Xpadder|%supguiitems%|%corelist%
 gosub, JOYEMUCORE
 guicontrol,,CFGSWITCH,|||EXE|||
 SB_SetText(" Editing emulator executable configurations ")
@@ -76094,7 +76130,7 @@ srchtog= hide
 gosub, TOGGLESEARCHBOX
 emutog= show
 guito= %EMUSN%
-ifnotinstring,supgui,%guito%
+ifnotinstring,supguiitems,%guito%
 	{
 		guito= unimp
 	}
@@ -76108,7 +76144,7 @@ guicontrol,,LCORE,|%RJEMUTG%||%runlist%
 EMUSN= %RJEMUTG%
 gosub, EMUOPTPOP
 svgbrnv=
-guicontrol,,JOYCORE,|%decore%||Antimicro|Xpadder|%supgui%|%corelist%
+guicontrol,,JOYCORE,|%decore%||Antimicro|Xpadder|%supguiitems%|%corelist%
 return
 
 ;};;;;;;;;;;;;;;;;;
@@ -80557,6 +80593,7 @@ if ((romf <> "") && (coreselv <> ""))
 		guicontrol,enable,LNCHBUT
 		guicontrol,enable,RCLLNCH
 	}
+
 ifinstring,LCORE,_libretro
 	{
 		SK_MODE=
@@ -80565,7 +80602,7 @@ ifinstring,LCORE,_libretro
 		gosub, ShowOnlyRAGUI
 		if (AUTOPGS = 1)
 			{
-				guicontrol,,JOYCORE,|%lcore%||Antimicro|Xpadder|%supgui%|%corelist%
+				guicontrol,,JOYCORE,|%lcore%||Antimicro|Xpadder|%supguiitems%|%corelist%
 				gosub, JOYCORE
 			}
 		core_gui= %LCORE%
@@ -80580,7 +80617,7 @@ RJEMUTG= %LCORE%
 stringsplit,crspl,LCORE,_
 IMCORE= %crspl1%
 fig=
-Loop, parse,supgui,|
+Loop, parse,supguiitems,|
 	{
 		if (A_Loopfield = IMCORE)
 			{
@@ -80600,7 +80637,7 @@ if (fig = "")
 			}
 	}
 
-guicontrol,,JOYCORE,|%decore%||Antimicro|Xpadder|%supgui%|%corelist%
+guicontrol,,JOYCORE,|%decore%||Antimicro|Xpadder|%supguiitems%|%corelist%
 
 gosub, EMUNAMEPOP
 
@@ -80650,7 +80687,7 @@ Loop, Parse, fiiw,`n`r
 								stringsplit,empt,A_LoopField,=
 								if (empt3 = saixe)
 									{
-										Loop,parse,supgui,|
+										Loop,parse,supguiitems,|
 											{
 												if (A_Loopfield = empt1)
 													{
@@ -80713,18 +80750,22 @@ if (JOYCORE = "retroArch")
 		guicontrol,,RMPLOAD,0
 		guicontrol,hide,RMPLOAD
 		guicontrol,enable,JOYCORE
-		guicontrol,,JOYCORE,|retroArch||Antimicro|Xpadder|%supgui%|%corelist%
+		guicontrol,,JOYCORE,|retroArch||Antimicro|Xpadder|%supguiitmes%|%corelist%
 		return
 	}
 if (rajoycore = "retroArch")
 	{
-		JOYCFGMODE= emulator
-		loadedjoy= retroarch
-		guicontrol, hide, JCFGADD
-		gosub, EmuJoy
-		emjtog= Hide
-		gosub, EMJTOG
-		goto, RAJOYCORE
+		ifinstring,supgui,retroarch
+			{
+				JOYCFGMODE= emulator
+				loadedjoy= retroarch
+				guicontrol, hide, JCFGADD
+				gosub, EmuJoy
+				emjtog= Hide
+				gosub, EMJTOG
+				goto, RAJOYCORE
+			}
+		return	
 	}
 
 if (emujchk2 <> "dll")
@@ -84530,7 +84571,7 @@ guicontrol,,EMPRDDL,|Emulators|%runlist%
 guicontrol,,ARCCORES,|Emu_Preset||%runlist%
 guicontrol,,PLCORE,|%lastcore%||%runlist%
 guicontrol,,ASCORE,|%corelist%
-guicontrol,,JOYCORE,|Antimicro||Xpadder|%supgui%|%corelist%
+guicontrol,,JOYCORE,|Antimicro||Xpadder|%supguiitems%|%corelist%
 return
 
 resetSYS:
@@ -84545,7 +84586,6 @@ iniread,alra,Settings.ini,GLOBAL,%urlTxt%_EULA
 if (alra <> 1)
 	{
 		SB_SetText("You must agree to the EULA before accessing the repositories.")
-		gosub,ALtURLGet
 		if (current_EULA <> 1)
 			{
 				return
