@@ -8,8 +8,18 @@ if (ERRORLEVEL = 0)
 		exitapp
 	}
 splitpath,A_ScriptDir,,,,,drvp
-
-
+RJEMUF= %ejemut%
+RJSYSTEMS= %rjsyst%
+if (RJEMUF = "")
+	{
+		RJEMUF= %drvp%\Emulators
+		ejemut= %RJEUF%
+	}
+if (RJSYSTEMS = "")
+	{
+		RJSYSTEMS=%drvp%\Console
+		rjsyst= %RJSYSTEMS%
+	}	
 RNMDIR_TT :="Renames detected console directories to supported nomenlature"
 INTRMSYS_TT :="The directory where ROMs should be located."
 INTRMEMU_TT :="The directory where Emulators should be located."
@@ -27,8 +37,8 @@ Gui, Add, Edit, x13 y42 w247 h42 vintrmsys +readonly, %rjsyst%
 Gui, Add, Edit, x14 y110 w247 h42 vintrmemu +readonly, %rjemut%
 Gui, Add, CheckBox, x139 y18 w112 h17 vRNMDIR checked, Rename Directories
 Gui,Font, Bold
-Gui, Add, Button, x60 y19 w62 h17 gSETJKR, BROWSE
-Gui, Add, Button, x61 y89 w62 h17 gSETEMUD, BROWSE
+Gui, Add, Button, x58 y19 w65 h18 gSETJKR, BROWSE
+Gui, Add, Button, x58 y89 w65 h18 gSETEMUD, BROWSE
 Gui Add, Button, x190 y163 w80 h23 vCONTINUE gCONTINUE, CONTINUE
 Gui,Font, Normal
 Gui Add, Text, x10 y168 w120 h13, Drag'n Drop supported
@@ -293,7 +303,7 @@ if ((RJSYSTEMS <> "") && (RJEMUD <> "") && (RJSYSTEMS <> "ERROR") && (RJEMUD <> 
 	}
 
 return
-
+RJEMUFRJEMUF
 
 CONTINUE:
 if ((RJEMUF = "") or (RJSYSTEMS = ""))
@@ -301,7 +311,7 @@ if ((RJEMUF = "") or (RJSYSTEMS = ""))
 		msgbox,,Not Set,An Emulator Directory and a Systems Directory Must be set to continue
 		return
 	}	
-ifnotexist,%RJEMUF%
+ifnotexist,%RJEMUF%\
 	{
 		filecreatedir,%RJEMUF%
 		if (ERRORLEVEL <> 0)
@@ -310,7 +320,7 @@ ifnotexist,%RJEMUF%
 				return
 			}
 	}
-ifnotexist,%RJSYSTEMS%
+ifnotexist,%RJSYSTEMS%\
 	{
 		filecreatedir,%RJSYSTEMS%
 		if (ERRORLEVEL <> 0)

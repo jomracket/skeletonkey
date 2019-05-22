@@ -1852,8 +1852,8 @@ Gui, Add, Text, x150 y173 vSKDSETXT, Detected Supported Emulators: %emunumtot%
 Gui, Add, Text, x150 y90 vSKDETSTXT, Detected Systems: %totsys% supported and %allsys% total
 
 Gui, Add, Text,  x582 y101 vSKDTTXT, Daemon Tools is %DAMINST%
-Gui, Add, DropDownList, x23 y17 w163 vSKRESDDL gSKRESDDL, All||Session|Jacket-Presets|Retroarch|Associations|Core-Cfgs|Playlist-DB
-Gui, Add, Button, x187 y17 w55 h20 vSKRESET gSKRESET, RESET
+Gui, Add, DropDownList, x23 y8 w163 vSKRESDDL gSKRESDDL, All||Session|Jacket-Presets|Retroarch|Associations|Core-Cfgs|Playlist-DB
+Gui, Add, Button, x187 y8 w55 h20 vSKRESET gSKRESET, RESET
 Gui, Add, Edit, x63 y45 w443 h40 Multi ReadOnly vSKSYSDISP, %RJSYSTEMS%
 
 Gui, Add, CheckBox, x583 y124 vHOVPREV gHovPrev %hovvalue%, Hover-Preview
@@ -4121,7 +4121,7 @@ EMPRBUTU_TT :="Prioritises the selected preset in the list."
 EMPRBUTX_TT :="Removes the selected preset from the list."
 DELCFGPGC_TT :="Deletes all per-game skeletetonkey-configurations for the selected emulator."
 DPIOVR_TT :="Override the dpi of the video font"
-
+EMUGUIDDL_TT :="skeletonkey will automatically populate the main tab with the gui of this emulator when enabled."
 TMPDISPL_TT :="The temp directory location"
 SETTMPD_TT :="Set the location for temp files."
 DBLESCP_TT :="Allows retroarch to be closed with a double escape-press`nas opposed to a single press"
