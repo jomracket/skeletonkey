@@ -303,7 +303,6 @@ if ((RJSYSTEMS <> "") && (RJEMUD <> "") && (RJSYSTEMS <> "ERROR") && (RJEMUD <> 
 	}
 
 return
-RJEMUFRJEMUF
 
 CONTINUE:
 if ((RJEMUF = "") or (RJSYSTEMS = ""))
