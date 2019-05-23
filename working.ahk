@@ -1,6 +1,8 @@
 #NoEnv
 #SingleInstance Force
 setworkingdir= %A_ScriptDir%
+Process, Exist,
+CURPID= %ERRORLEVEL%
 ;{#	########              FOLD                #############
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -206,6 +208,10 @@ if (OSVRZ1 >= 7)
 	}
 UPDATERAEXE= %RAUPDT%
 SysGet, MonitorWorkArea, MonitorWorkArea, 1
+
+WGET= %A_ScriptDir%\bin\wget.exe
+ARIA= %A_ScriptDir%\bin\aria2c.exe
+
 ifNotExist, Settings.ini
 	{
 		gosub, CreateConfig
@@ -1640,7 +1646,6 @@ if (INITIAL = 1)
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 DCHINST=Not Found
 if (DCHANGER <> "0")
@@ -1665,6 +1670,7 @@ if (INITIAL = 1)
 		SplashImageGUI(SplashImage, "Center", "Center", true)
 	}
 ;;Progress, 8,.......Loading Menu Interface.......
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;;;;;;;;;;;;;;   -[x]-        MENU  SYSTEM       -[x]-    ;;;;;;;;;;;;;;;;;;
 
@@ -2333,6 +2339,7 @@ Gui, Add, Button, x440 y412 w23 h19 vAddRepo gAddRepo hidden, +
 Gui, Add, CheckBox, x282 y372 h17 vBCKCORE gBckCore hidden, Backup
 Gui,Font,Bold
 Gui, Add, Button,x252 y433 w115 h43 vUPDBTN gUpdSelct Hidden Disabled, DOWNLOAD
+Gui, Add, Button,x370 y445 w15 h15 vUPDBTC gCLRNETP Hidden Disabled,-
 Gui,Font,Normal
 Gui,Font,%fontXsm% Bold
 Gui, Add, GroupBox, x278 y5 w185 h366 Center vCCGRP, Installer
@@ -2393,6 +2400,7 @@ Gui, Add, Radio, x290 y254 h13 vUNIQLNK gUniqLnk Checked hidden, System Configs
 Gui, Add, DropDownList, x282 y27 w177 vINSTEMUDDL gInstEmuDDL, %emuinstpop%
 Gui, Add, Button, x286 y170 w75 h23 vLOCEMUIN gLocEmuIn, SELECT
 Gui, Add, Button, x382 y92 w75 h23 vMULTINST gMULTInst hidden, ASSIGN
+Gui, Add, Button, x362 y98 w15 h15 vEMUINSC gCLRNETP,-
 Gui, Add, Button, x382 y92 w75 h23 vEMUINST gEmuInst, Install
 
 Gui, Add, CheckBox, x350 y75 w110 h16 +0x20 vEMUASIGN gEmuAsign, Assign to System
@@ -5322,7 +5330,7 @@ Loop,Parse,emuj,`n`r
 					}
 				addemu.= "|" . emup1
 			}
-}
+	}
 runlist:= corelist . "|" . addemu
 IniRead,emuj,Assignments.ini,OVERRIDES
 Loop,Parse,emuj,`n`r
@@ -6677,7 +6685,10 @@ splitpath,IMTG,,,,IMTN
 URLFILE= %imgrepo%/%MNUSYS%/%imgrept%/%IMTN%.png
 save=%thumbnailsDirectory%\%MNUSYS%\%imgrept%\%IMTN%.png
 
-DownloadFile(URLFILE, save, True, True)
+splitpath,save,svaf,svap
+exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+
+;;DownloadFile(URLFILE, save, True, True)
 ifnotexist, %save%
 	{
 		SB_SetText(" " MNUSYS " " IMTN ".png could not be found.")
@@ -7252,10 +7263,6 @@ if (INITIAL = 1)
 		splitpath,a_ScriptDir,,,,,drvp
 		RJSYSTSL= %drvp%\Console
 		EMUTSL= %drvp%\Emulators
-
-		Process, Exist,
-		CURPID= %ERRORLEVEL%
-
 		ifexist, %A_ScriptDir%\Console
 			{
 				RJSYSTSL= %A_ScriptDir%\Console
@@ -7750,7 +7757,10 @@ loop, %cacheloc%\skeletonkey-portable*.zip
 	}
 URLFILE= %UPDATEFILE%
 save= %cacheloc%\skeletonKey-portable%upcnt%.zip
-DownloadFile(URLFILE, save, True, True)
+
+splitpath,save,svaf,svap
+exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+;;DownloadFile(URLFILE, save, True, True)
 ifexist,%save%
 	{
 		Process, close, Invader.exe
@@ -8301,7 +8311,9 @@ ifexist,%GAMSRCS%\AutoBios.set
 				ifnotexist, %save%
 					{
 						SB_SetText("Downloading " biosname " ")
-						DownloadFile(aiv1,save,True,True)
+						;;DownloadFile(aiv1,save,True,True)								
+						splitpath,save,svaf,svap
+						exe_get(ARIA,aiv1,svap,svaf,CURPID,cacheloc)
 					}
 				ifnotexist, %save%
 					{
@@ -9469,6 +9481,63 @@ return
 
 ;{;;;;;;;;;;;;;    URLGET PROC     ;;;;;;;;;;;;;;;;;;;;;;;;
 
+;;$exeg_pid = ""
+exe_get($ARIA = "", $URL = "", $TARGET = "", $FNM = "", $SAG = "", $CACHESTAT = "")
+	{
+		Global $exeg_pid
+		StringReplace, $URL, $URL, "&", "^&", All
+		$CMD = "%$ARIA%" --always-resume=false --http-no-cache=true --allow-overwrite=true --stop-with-process=%$SAG% --truncate-console-readout=false --dir="%$TARGET%" --out="%$FNM%" "%$URL%" 1>"%$CACHESTAT%\%$FNM%.status" 2>&1
+		Run, %comspec% /c "%$CMD%",,hide,$exeg_pid
+		Process, Exist, %$exeg_pid%
+		$lastline = 
+		while ErrorLevel != 0
+			{
+				Loop Read, %$CACHESTAT%\%$FNM%.status
+					{
+						L = %A_LoopReadLine%						
+						if ( InStr(L, `%) != 0 )
+							{
+								StringSplit, DownloadInfo, L, (`%,
+								StringLeft, L1, DownloadInfo2, 3								
+								if ( L1 = "100" )
+									{
+										Guicontrol, ,utlPRGA, 0
+										Guicontrol, ,ARCDPRGRS, 0
+										Guicontrol, ,DWNPRGRS, 0
+										Guicontrol, ,FEPRGA, 0
+										Break
+									}
+							}
+						if ( InStr(L, `%) = 0 )
+							{	
+								L = 0
+							}
+					}
+				if ( L1 is digit )
+				Guicontrol, ,utlPRGA, %L1%
+				Guicontrol, ,ARCDPRGRS, %L1%
+				Guicontrol, ,DWNPRGRS, %L1%
+				Guicontrol, ,FEPRGA, %L1%
+				Process, Exist, %$exeg_pid%
+				Sleep, 50
+			}
+		sleep 200
+		FileGetSize, d_size, %$TARGET%\%$FNM%
+		if d_size > 0
+			{
+				FileDelete, %$CACHESTAT%\%$FNM%.status
+				Return true
+			}
+		else
+			{
+				MsgBox,0,Error, There was a problem accessing the server.`nCheck status file for details.
+				FileDelete, %$CACHESTAT%\%$FNM%.status
+				Return false
+			}
+	}
+return
+
+
 DownloadFile(UrlToFile, _SaveFileAs, Overwrite := True, UseProgressBar := True)
 	{
 		FinalSize=
@@ -10592,7 +10661,7 @@ if (selfnd = "")
 	{
 		return
 	}
-
+Guicontrol, show, EMUINSC
 GuiControl, Disable, EAVAIL
 GuiControl, Disable, UAVAIL
 GuiControl, Disable, AVAIL
@@ -10656,7 +10725,11 @@ Loop, Parse,UrlIndex,`n`r
 					{
 						xtractmu= %RJEMUD%\%urloc1%
 					}
-				DownloadFile(URLFILE, save, DWNOV, True)
+				splitpath,save,svaf,svap
+				exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+;;				DownloadFile(URLFILE, save, DWNOV, True)
+
+
 				if (rjintr = 1)
 					{
 						KARC= 1
@@ -10666,6 +10739,7 @@ Loop, Parse,UrlIndex,`n`r
 					{
 						rjintr= x
 						msgbox,0,, %urloc1%`n''%URLFILE%''`n was not downloaded, 20
+						GuiControl, hide, EMUINSC
 						GuiControl, Enable, EAVAIL
 						GuiControl, Enable, UAVAIL
 						GuiControl, Enable, AVAIL
@@ -10686,6 +10760,7 @@ Loop, Parse,UrlIndex,`n`r
 					{
 						rjintr= x
 						SB_SetText(" " urloc1 " could not be installed.")
+						GuiControl, hide, EMUINSC
 						GuiControl, Enable, EAVAIL
 						GuiControl, Enable, UAVAIL
 						GuiControl, Enable, AVAIL
@@ -10909,6 +10984,7 @@ gosub, ResetEmuList
 reasign .= semu . "|"
 GuiControl,,ADDCORE,|Select_A_System||%reasign%
 Guicontrol, ,DWNPRGRS, 0
+GuiControl, hide, EMUINSC
 GuiControl, Enable, EAVAIL
 GuiControl, Enable, UAVAIL
 GuiControl, Enable, AVAIL
@@ -14896,7 +14972,10 @@ save= %cacheloc%\%RAUPDF%
 saveloc= %cacheloc%
 XTRACTLOC= %raexeloc%
 updtmsg= %RAUPDF%
-DownloadFile(URLFILE,save, DWNOV, True)
+
+splitpath,save,svaf,svap
+exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+;;DownloadFile(URLFILE,save, DWNOV, True)
 
 	SB_SetText(" Complete ")
 	      Guicontrol, ,DWNPRGRS, 100
@@ -15007,7 +15086,7 @@ return
 UpdSelct:
 gui, submit, nohide
 guicontrolget, SLCTCORES, ,AVAIL
-GuiControl, Enable, CNCLDWN
+GuiControl, show, UPDBTC
 GuiControl, Disable, AVAIL
 GuiControl, Disable, UPDBTN
 GuiControl, Disable, EXELIST
@@ -15103,7 +15182,7 @@ guicontrol, disable, EXELIST
 guicontrol, disable, UPDSELCT
 guicontrol, disable, UPDCL
 guicontrol, disable, GCUPDT
-guicontrol, enable, CNCLDWN
+guicontrol, show, UPDBTC
 corexist=
 redistr= redist.7z
 RAUPDF= 
@@ -15194,6 +15273,7 @@ Loop, Parse, SLCTCORES,|
 					{
 						msgbox,0,, %dwncore%`n%URLFILE%`n was not downloaded,3
 						GuiControl, Enable, UPDBTN
+						guicontrol, hide, UPDBTC
 						GuiControl, Enable, EXELIST
 						GuiControl, Enable, AVAIL
 						GuiControl, Disable, CNCLDWN
@@ -15205,7 +15285,7 @@ Loop, Parse, SLCTCORES,|
 GuiControl, Enable, EXELIST
 GuiControl, Enable, UPDBTN
 GuiControl, Enable, AVAIL
-GuiControl, Disable, CNCLDWN
+guicontrol, hide, UPDBTC
 guicontrol, enable, UPDSELCT
 guicontrol, enable, UPDCL
 guicontrol, enable, GCUPDT
@@ -15216,7 +15296,9 @@ downloadingcores:
 if (nocoredwn = "")
 	{
 		updtmsg= %coredll%
-		DownloadFile(URLFILE,save, DWNOV, True)
+		;;DownloadFile(URLFILE,save, DWNOV, True)
+		splitpath,save,svaf,svap
+		exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
 	}
 
 Guicontrol, ,DWNPRGRS, 0
@@ -15224,7 +15306,7 @@ SB_SetText(" ")
 GuiControl, Enable, AVAIL
 GuiControl, Enable, UPDBTN
 GuiControl, Enable, EXELIST
-GuiControl, Disable, CNCLDWN
+guicontrol, hide, UPDBTC
 guicontrol, enable, UPDSELCT
 guicontrol, enable, UPDCL
 guicontrol, enable, GCUPDT
@@ -15369,14 +15451,16 @@ if (DWNCNCL= 1)
 save= %cacheloc%\%updtmsg%
 SB_SetText("Downloading retroArch")
 saveloc= %cacheloc%
-DownloadFile(URLFILE, save, DWNOV, True)
+splitpath,save,svaf,svap
+exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+;;DownloadFile(URLFILE, save, DWNOV, True)
 ifnotexist, %cacheloc%\%updtmsg%
 	{
 		msgbox,0,, %updtmsg%`n''%URLFILE%`n'' was not downloaded, 20
 		GuiControl, Enable, AVAIL
 		GuiControl, Enable, UPDBTN
 		GuiControl, Enable, EXELIST
-		GuiControl, Disable, CNCLBTN
+		guicontrol, hide, UPDBTC
 		return
 	}
 Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
@@ -38017,7 +38101,9 @@ guicontrol,enable,AUTOBIOS
 EULA= 1
 iniwrite,1,Settings.ini,Global,%urltxt%_EULA
 save= %cacheloc%\%UrlTxt%.%urlaext%
-DownloadFile(urlaloc, save, True, True)
+splitpath,save,svaf,svap
+exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+;;DownloadFile(urlaloc, save, True, True)
 ifnotexist, %save%
 	{
 		SB_SetText(" " urltxt " repository could not be found.")
@@ -38719,6 +38805,8 @@ guicontrol,,ARCDET,
 guicontrol,enable,ARCSYS
 guicontrol,enable,MAMESWCHK
 INTERRUPTDWN= 1
+Process,close,%$exeg_pid%
+msgbox,,,kill=%$exeg_pid%
 return
 
 MAMESWCHK:
@@ -40117,7 +40205,9 @@ ifnotexist, %save%
 		RETRYTHR:
 		Sleep, %RETRYTHR%
 
-		DownloadFile(URLFILE,save, True, True)
+		splitpath,save,svaf,svap
+		exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+		;;DownloadFile(URLFILE,save, True, True)
 
 		DWNLOADTST:
 		filereadline,doct,%save%,1
@@ -55537,7 +55627,9 @@ if (URLFILE = "ERROR")
 	}
 save= rj\PG\%FEDDLD%.7z
 extractpath= %PGHOME%\themes
-DownloadFile(URLFILE, save, dwnovr, true)
+splitpath,save,svaf,svap
+exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+;;DownloadFile(URLFILE, save, dwnovr, true)
 filegetsize,pgtsz,%save%,K
 if (pgtsz < 1)
 	{
@@ -59652,7 +59744,9 @@ if (URLFILE = "ERROR")
 	}
 save= rj\RF\%FEDDLD%.7z
 extractpath= %RFHOME%\%extractpthadd%
-DownloadFile(URLFILE, save, dwnovr, true)
+splitpath,save,svaf,svap
+exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+;;DownloadFile(URLFILE, save, dwnovr, true)
 filegetsize,rftsz,%save%,K
 if (rftsz < 200)
 	{
@@ -63991,7 +64085,9 @@ if (URLFILE = "ERROR")
 	}
 save= rj\ES\%FEDDLD%.7z
 extractpath= %ESHOME%\themes
-DownloadFile(URLFILE, save, dwnovr, true)
+splitpath,save,svaf,svap
+exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+;;DownloadFile(URLFILE, save, dwnovr, true)
 filegetsize,estsz,%save%,K
 if (estsz < 1)
 	{
@@ -69308,6 +69404,11 @@ gui,font,Bold
 Guicontrol,font,FEBUTA
 gui,font,normal
 
+guicontrol,hide,FEBUTN
+guicontrol,enable,FEBUTN
+guicontrol,move,FEBUTN,x350 y470 w15 h15
+guicontrol,,FEBUTN,-
+
 guicontrol,hide,FEBUTB
 guicontrol,enable,FEBUTB
 guicontrol,move,FEBUTB,x259 y285 w17 h18
@@ -69717,6 +69818,10 @@ Loop, Parse, systmfldrs,|
 LV_ModifyCol()
 return
 
+MediaFEBUTN:
+gosub, CLRNETP
+return
+
 MediaFEBUTA:
 CNCLKUP=
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;     DOWNLOADING ARTWORK   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -69831,6 +69936,7 @@ if (dwnlenb = 0)
 		SB_SetText("You must select components to download.")
 		guicontrol,enable,FEBUTA
 		guicontrol,hide,FEBUTI
+		guicontrol,hide,FEBUTN
 		guicontrol,enable,FELVA
 		guicontrol,enable,FEDDLA
 		guicontrol,enable,FERAD2A
@@ -69868,7 +69974,9 @@ if (FERAD2A = 1)
 								save= rj\netArt\%FEDDLD%\%A_LoopField%\Backdrops\%A_LoopField%.png
 								ifnotexist, rj\netArt\%FEDDLD%\%A_LoopField%\Backdrops
 								FileCreateDir, rj\netArt\%FEDDLD%\%A_LoopField%\Backdrops
-								DownloadFile(URLFILE,save, DWNOVR, True)
+								splitpath,save,svaf,svap
+								exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+								;;DownloadFile(URLFILE,save, DWNOVR, True)
 								FileGetSize,imgsz,%save%,K
 								SB_SetText(" " A_LoopField " backdrop downloaded")
 								if (imgsz < 1)
@@ -69895,7 +70003,9 @@ if (FERAD2A = 1)
 								save= rj\netArt\%FEDDLD%\%A_LoopField%\Photos\%A_LoopField%.png
 								ifnotexist, rj\netArt\%FEDDLD%\%A_LoopField%\Photos
 								FileCreateDir, rj\netArt\%FEDDLD%\%A_LoopField%\Photos
-								DownloadFile(URLFILE,save, DWNOVR, True)
+								splitpath,save,svaf,svap
+								exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+								;;DownloadFile(URLFILE,save, DWNOVR, True)
 								FileGetSize,imgsz,%save%,K
 								SB_SetText(" " A_LoopField " Photo downloaded")
 								if (imgsz < 1)
@@ -69923,7 +70033,9 @@ if (FERAD2A = 1)
 								save= rj\netArt\%FEDDLD%\%A_LoopField%\Icons\%A_LoopField%.png
 								ifnotexist, rj\netArt\%FEDDLD%\%A_LoopField%\Icons
 								FileCreateDir, rj\netArt\%FEDDLD%\%A_LoopField%\Icons
-								DownloadFile(URLFILE,save, DWNOVR, True)
+								splitpath,save,svaf,svap
+								exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+								;;DownloadFile(URLFILE,save, DWNOVR, True)
 								FileGetSize,imgsz,%save%,K
 								SB_SetText(" " A_LoopField " icon downloaded")
 								if (imgsz < 1)
@@ -69951,7 +70063,9 @@ if (FERAD2A = 1)
 								save= rj\netArt\%FEDDLD%\%A_LoopField%\Logos\%A_LoopField%.png
 								ifnotexist, rj\netArt\%FEDDLD%\%A_LoopField%\Logos
 								FileCreateDir, rj\netArt\%FEDDLD%\%A_LoopField%\Logos
-								DownloadFile(URLFILE,save, DWNOVR, True)
+								splitpath,save,svaf,svap
+								exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+								;;DownloadFile(URLFILE,save, DWNOVR, True)
 								FileGetSize,imgsz,%save%,K
 								SB_SetText(" " A_LoopField " logo downloaded")
 								if (imgsz < 1)
@@ -69979,7 +70093,9 @@ if (FERAD2A = 1)
 								save= rj\netArt\%FEDDLD%\%A_LoopField%\Videos\%A_LoopField%.mp4
 								ifnotexist, rj\netArt\%FEDDLD%\%A_LoopField%\Videos
 								FileCreateDir, rj\netArt\%FEDDLD%\%A_LoopField%\Videos
-								DownloadFile(URLFILE,save, DWNOVR, True)
+								splitpath,save,svaf,svap
+								exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+								;;DownloadFile(URLFILE,save, DWNOVR, True)
 								FileGetSize,imgsz,%save%,K
 								SB_SetText(" " A_LoopField " video downloaded")
 								if (imgsz < 1)
@@ -70007,7 +70123,9 @@ if (FERAD2A = 1)
 								save= rj\netArt\%FEDDLD%\%A_LoopField%\MetaData\%A_LoopField%.xml
 								ifnotexist, rj\netArt\%FEDDLD%\%A_LoopField%\MetaData
 								FileCreateDir, rj\netArt\%FEDDLD%\%A_LoopField%\MetaData
-								DownloadFile(URLFILE,save, DWNOVR, True)
+								splitpath,save,svaf,svap
+								exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+								;;DownloadFile(URLFILE,save, DWNOVR, True)
 								FileGetSize,imgsz,%save%,K
 								SB_SetText(" " A_LoopField " downloaded")
 								if (imgsz < 1)
@@ -70044,7 +70162,9 @@ if (FERAD2A = 1)
 						save= rj\netArt\%FEDDLD%\%bdfile%
 						ifnotexist, rj\netArt\%FEDDLD%
 						FileCreateDir, rj\netArt\%FEDDLD%
-						DownloadFile(URLFILE,save, DWNOVR, True)
+						splitpath,save,svaf,svap
+						exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+						;;DownloadFile(URLFILE,save, DWNOVR, True)
 						FileGetSize,imgsz,%save%,K
 						SB_SetText(" " A_LoopField " backdrops downloaded")
 						if (imgsz < 1)
@@ -70066,7 +70186,9 @@ if (FERAD2A = 1)
 						save= rj\netArt\%FEDDLD%\%pdfile%
 						ifnotexist, rj\netArt\%FEDDLD%
 						FileCreateDir, rj\netArt\%FEDDLD%
-						DownloadFile(URLFILE,save, DWNOVR, True)
+						splitpath,save,svaf,svap
+						exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+						;;DownloadFile(URLFILE,save, DWNOVR, True)
 						FileGetSize,imgsz,%save%,K
 						SB_SetText(" " A_LoopField " photoss downloaded")
 						if (imgsz < 1)
@@ -70088,7 +70210,9 @@ if (FERAD2A = 1)
 						save= rj\netArt\%FEDDLD%\%icfile%
 						ifnotexist, rj\netArt\%FEDDLD%
 						FileCreateDir, rj\netArt\%FEDDLD%
-						DownloadFile(URLFILE,save, DWNOVR, True)
+						splitpath,save,svaf,svap
+						exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+						;;DownloadFile(URLFILE,save, DWNOVR, True)
 						FileGetSize,imgsz,%save%,K
 						SB_SetText(" " A_LoopField " icons downloaded")
 						if (imgsz < 1)
@@ -70110,7 +70234,9 @@ if (FERAD2A = 1)
 						save= rj\netArt\%FEDDLD%\%lgfile%
 						ifnotexist, rj\netArt\%FEDDLD%
 						FileCreateDir, rj\netArt\%FEDDLD%
-						DownloadFile(URLFILE,save, DWNOVR, True)
+						splitpath,save,svaf,svap
+						exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+						;;DownloadFile(URLFILE,save, DWNOVR, True)
 						FileGetSize,imgsz,%save%,K
 						SB_SetText(" " A_LoopField " logos downloaded")
 						if (imgsz < 1)
@@ -70131,7 +70257,9 @@ if (FERAD2A = 1)
 						save= rj\netArt\%FEDDLD%\%vefile%
 						ifnotexist, rj\netArt\%FEDDLD%\Videos
 						FileCreateDir, rj\netArt\%FEDDLD%\Videos
-						DownloadFile(URLFILE,save, DWNOVR, True)
+						splitpath,save,svaf,svap
+						exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+						;;DownloadFile(URLFILE,save, DWNOVR, True)
 						FileGetSize,imgsz,%save%,K
 						SB_SetText(" " A_LoopField " videos downloaded")
 						if (imgsz < 1)
@@ -70153,7 +70281,9 @@ if (FERAD2A = 1)
 						save= rj\netArt\%FEDDLD%\%mtfile%
 						ifnotexist, rj\netArt\%FEDDLD%
 						FileCreateDir, rj\netArt\%FEDDLD%
-						DownloadFile(URLFILE,save, DWNOVR, True)
+						splitpath,save,svaf,svap
+						exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+						;;DownloadFile(URLFILE,save, DWNOVR, True)
 						FileGetSize,imgsz,%save%,K
 						SB_SetText(" " A_LoopField " metadata downloaded")
 						if (imgsz < 1)
@@ -71306,6 +71436,7 @@ if (FERAD2B = 1)
 				guicontrol,enable,FELVA
 				guicontrol,enable,FEBUTA
 				guicontrol,hide,FEBUTI
+				guicontrol,hide,FEBUTN
 				if (fromcfg = 1)
 					{
 						GuiControl,Choose,TABMENU,7
@@ -71858,6 +71989,7 @@ return
 ;};;;;;;;;;;;;;;;;;;;
 
 ARTPAUSE:
+guicontrol,%artinterupt%,FEBUTN
 guicontrol,%artinterupt%,FEBUTI
 guicontrol,%arpause%,FEBUTA
 guicontrol,%arpause%,FELVA
@@ -83768,6 +83900,7 @@ if (HISAPND = 1)
 			{
 				inithist= 1
 				FileAppend,{`n%pspce%"version": "1.0"`,`n%pspce%"items": [`n,*%historyloc%
+				;};;
 			}
 		hisapl= %pspxe%{`n%pspce%"path": %RUNROM%`,`n%pspce%"label": "%ROMNAME%"`,`n%pspce%"core_path": "%OvrExtAs%"`,`n%pspce%"core_name": "%coreselv%"`,`n%pspce%"crc32": ""`,`n%pspce%"db_name": ""`,`n%pspxe%}`n%A_Space%%A_Space%]`n
 		stringreplace,hisapl,hisapl,\\\\,\,All

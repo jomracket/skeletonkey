@@ -20,7 +20,7 @@ if (RJSYSTEMS = "")
 		RJSYSTEMS=%drvp%\Console
 		rjsyst= %RJSYSTEMS%
 	}	
-RNMDIR_TT :="Renames detected console directories to supported nomenlature"
+RNMDIR_TT :="Renames detected console directories to supported nomenclature"
 INTRMSYS_TT :="The directory where ROMs should be located."
 INTRMEMU_TT :="The directory where Emulators should be located."
 SETJKR_TT :="Selcts the systems directory"
