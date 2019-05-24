@@ -5405,16 +5405,6 @@ SUPEMU=fm7|fm77|XM7|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
-[Philips - Videopac Plus G7400]
-RJEMUPRESET=MAME
-RJMAMENM=g7400
-MAME?RJEMUOPTS=<g7400 -cart<
-RJZIPPEEK=0
-SHORTNM=PVIDPLUS
-SUPEMU=o2em|MAME
-SUPCORE=mame_libretro.dll
-LNCHPRM=$|1|1|0|1|0
-
 [Galaksija - Galaksija Plus]
 RJEMUPRESET=MAME
 RJMAMENM=galaxy

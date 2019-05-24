@@ -137,7 +137,7 @@ IfNotExist, skopt.cfg
 		_GITUSER= 
 		_GITPASS=
 		_GITPAT=
-		_UPDTURL= http://raw.githubusercontent.com/romjacket/skeletonkey/master/version.txt
+		_UPDTURL= http://raw.githubusercontent.com/romjacket/skeletonkey/master/site/version.txt
 		_UPDTFILE= https://github.com/romjacket/skeletonKey/releases/download/portable/skeletonKey-portable.zip
 		_GETIPADR= http://www.netikus.net/show_ip.html				
 		_GITSRC= http://github.com/romjacket/skeletonkey
@@ -271,7 +271,7 @@ IfNotExist, skopt.cfg
 						CONTPARAM11= 1
 						iniwrite,%SITEDIR%,skopt.cfg,GLOBAL,site_directory
 						
-						UPDTURL= http://raw.githubusercontent.com/%gituser%/skeletonkey/master/version.txt
+						UPDTURL= http://raw.githubusercontent.com/%gituser%/skeletonkey/master/site/version.txt
 						_UPDTURL= %UPDTURL%
 						CONTPARAM13= 1
 						iniwrite,%UPDTURL%,skopt.cfg,GLOBAL,update_url
@@ -787,7 +787,7 @@ guicontrol,,txtgwd,(not set) Github-Site-Directory
 guicontrol,,txtsrc,(not set) Source-Directory
 guicontrol,,txtbld,(not set) Build-Directory
 guicontrol,,txtdpl,(not set) Deployment-Directory
-guicontrol,,uver, http://raw.githubusercontent.com/romjacket/skeletonkey/master/version.txt
+guicontrol,,uver, http://raw.githubusercontent.com/romjacket/skeletonkey/master/site/version.txt
 guicontrol,,iurl,http://www.netikus.net/show_ip.html
 guicontrol,,uflu, https://github.com/romjacket/skeletonKey/releases/download/portable/skeletonKey-portable.zip
 guicontrol,,irepo, https://github.com/romjacket
@@ -1062,7 +1062,7 @@ if (GITUSER = "")
 			if (UPDTURL = "")
 				{
 					CONTPARAM13= 1
-					UPDTURL= http://raw.githubusercontent.com/%gituser%/skeletonkey/master/version.txt
+					UPDTURL= http://raw.githubusercontent.com/%gituser%/skeletonkey/master/site/version.txt
 					iniwrite,%UPDTURL%,skopt.cfg,GLOBAL,update_url
 					guicontrol,,UVER,%UPDTURL%
 				}
@@ -1165,7 +1165,7 @@ if (GITUSER = "")
 	}
 CONTPARAM1= 1
 iniwrite, %GITUSER%,skopt.cfg,GLOBAL,Git_username
-guicontrol,,uVer,http://raw.githubusercontent.com/%gituser%/skeletonkey/master/version.txt
+guicontrol,,uVer,http://raw.githubusercontent.com/%gituser%/skeletonkey/master/site/version.txt
 CONTPARAM13= 1
 iniwrite,%uVer%,skopt.cfg,GLOBAL,update_url
 guicontrol,,uFLU,https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey-portable.zip
@@ -1217,11 +1217,11 @@ gui,submit,nohide
 guicontrolget,UVER,,UVER
 if (UVER = "")
 	{
-		UVER= http://raw.githubusercontent.com/%GITUSER%/skeletonkey/master/version.txt
+		UVER= http://raw.githubusercontent.com/%GITUSER%/skeletonkey/master/site/version.txt
 	}
 if (GITUSER = "")
 	{
-		UVER= http://raw.githubusercontent.com/romjacket/skeletonkey/master/version.txt
+		UVER= http://raw.githubusercontent.com/romjacket/skeletonkey/master/site/version.txt
 	}
 guicontrol,,UVER,%UVER%
 CONTPARAM13= 1
@@ -1358,7 +1358,7 @@ ifinstring,stlocn,.github.io
 					}
 			}
 	}
-if (STLOC = "")
+if (SITEDIR = "")
 	{
 		msgbox,3,Clone,Would you like to clone the skeletonkey website?
 		ifmsgbox,yes
@@ -1367,17 +1367,19 @@ if (STLOC = "")
 			}
 	}
 
-ifnotexist, %STLOC%\%gituser%.github.io\skeletonkey\
+ifnotexist, %GITROOT%\%gituser%.github.io\skeletonkey\
 	{
 		Msgbox,3,SetUp Github Site,Would you like to copy the source's site to your github projects?
 		ifmsgbox,Yes
 			{
 				filecreatedir,%GITROOT%\%gituser%.github.io\skeletonkey
+				SITEDIR= %GITROOT%\%gituser%.github.io\skeletonkey
 				FileCopyDir,%SKELD%\site,%GITROOT%\%gituser%.github.io\skeletonkey,1
 			}
 		ifmsgbox,No
 			{
 				CONTPARAM11= 
+				SITEDIR= 
 				guicontrol,,txtGWD,(not set) Github-Site-Directory
 				inidelete,skopt.cfg,GLOBAL,site_directory
 				return
@@ -2494,12 +2496,12 @@ gui,submit,nohide
 UPDTURL= 
 if (UPDTURLT = "")
 	{
-		UPDTURLT= http://raw.githubusercontent.com/%GITUSER%/skeletonkey/master/version.txt
+		UPDTURLT= http://raw.githubusercontent.com/%GITUSER%/skeletonkey/master/site/version.txt
 	}
 inputbox,UPDTURL,Version,Enter the url of the file which contains your update information,,345,140,,,,,%UPDTURLT%
 if (UPDTURL = "")
 	{
-		UPDTURLT= http://raw.githubusercontent.com/romjacket/skeletonkey/master/version.txt
+		UPDTURLT= http://raw.githubusercontent.com/romjacket/skeletonkey/master/site/version.txt
 		UPDTURL= %UPDTURLT%
 	}
 IniWrite,%UPDTURL%,skopt.cfg,GLOBAL,update_url

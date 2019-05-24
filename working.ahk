@@ -220,6 +220,10 @@ ifNotExist, Settings.ini
 	{
 		ExitApp
 	}
+IfNotExist, config.cfg
+	{
+		FileCopy,sets\config.set,config.cfg,1
+	}
 IfNotExist, racoreopt.cfg
 	{
 		FileCopy,sets\racoreopt.set,racoreopt.cfg,1
@@ -6687,7 +6691,6 @@ save=%thumbnailsDirectory%\%MNUSYS%\%imgrept%\%IMTN%.png
 
 splitpath,save,svaf,svap
 exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
-
 ;;DownloadFile(URLFILE, save, True, True)
 ifnotexist, %save%
 	{
@@ -7731,7 +7734,7 @@ ifnotexist, site\version.txt
 	}
 FileReadLine,DATECHK,site\version.txt,1
 stringsplit,VERCHKC,DATECHK,=
-if (VERCHKC3 <> RELEASE)
+if ((VERCHKC3 <> RELEASE)or(DATECHK = "404: Not Found")or(DATECHK = "[CURV]"))
 	{
 		msgbox,4,Update, Update available`n%VERCHKC1%`nWould you like to update skeletonKey?`n(program will close)
 		IfMsgBox, yes
@@ -37675,14 +37678,32 @@ if (oil = "ERROR")
 		topcore= ||%runlist%
 		goto, INSCOR
 	}
+if (oil = "")
+	{
+		iniread,vchk,sets\EmuCfgPresets.set,%EXTRSYS%,SUPEMU
+		if (vchk <> "ERROR")
+			{
+				Loop,parse,vchk,|
+					{
+						iniread,vki,Assignments.ini,ASSIGNMENTS,%A_LoopField%
+						if ((vki <> "")&&(vki <> "ERROR"))
+							{
+								oil= %A_LoopField%
+								break
+							}
+					}
+			}
+	}
 stringsplit,aix,oil,|
 oil= %aix1%
-if (oil = 1)
+/*	
+ifinstring,oil,.dll
 	{
 		iniread,coreselv,Assignments.ini,ASSIGNMENTS,%EXTRSYS%
 		topcore:= coreselv . "||" runlist
 		goto,INSCOR
 	}
+*/	
 ;;if oil is not digit
 ;;	{
 		coreselv= %oil%
@@ -38102,7 +38123,7 @@ EULA= 1
 iniwrite,1,Settings.ini,Global,%urltxt%_EULA
 save= %cacheloc%\%UrlTxt%.%urlaext%
 splitpath,save,svaf,svap
-exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+exe_get(ARIA,urlaloc,svap,svaf,CURPID,cacheloc)
 ;;DownloadFile(urlaloc, save, True, True)
 ifnotexist, %save%
 	{
@@ -38806,7 +38827,6 @@ guicontrol,enable,ARCSYS
 guicontrol,enable,MAMESWCHK
 INTERRUPTDWN= 1
 Process,close,%$exeg_pid%
-msgbox,,,kill=%$exeg_pid%
 return
 
 MAMESWCHK:
@@ -70777,7 +70797,9 @@ if (FERAD2B = 1)
 									}
 								save= rj\scrapeArt\%SYSLKUP%.7z
 								SB_SetText("Downloading " SYSLKUP " Metadata")
-								DownloadFile(URLFILE,save, True, True)
+								splitpath,save,svaf,svap
+								exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+								;;DownloadFile(URLFILE,save, True, True)
 								SB_SetText("Download Complete")
 								gosub, cleanprgb
 
@@ -70795,7 +70817,9 @@ if (FERAD2B = 1)
 								URLFILE= %dlprfx%/rj/scrapeart/%SYSLKUP%.7z
 								save= rj\scrapeArt\%SYSLKUP%.7z
 								SB_SetText("Downloading " SYSLKUP " Metadata")
-								DownloadFile(URLFILE,save, True, True)
+								splitpath,save,svaf,svap
+								exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+								;;DownloadFile(URLFILE,save, True, True)
 								SB_SetText("Download Complete")
 								gosub, cleanprgb
 							}
@@ -70937,7 +70961,9 @@ if (FERAD2C = 1)
 									}
 								save= rj\scrapeArt\%SYSLKUP%.7z
 								SB_SetText("Downloading " SYSLKUP " Metadata")
-								DownloadFile(URLFILE,save, True, True)
+								splitpath,save,svaf,svap
+								exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+								;;DownloadFile(URLFILE,save, True, True)
 								SB_SetText("Download Complete")
 						ifnotexist,rj\scrapeArt\%SYSLKUP%.7z
 							{
@@ -71949,7 +71975,9 @@ Loop, Read, rj\scrapeArt\%SYSLKUP%\%xmlf%
 		SB_SetText("Downloading " realname " " jaksbd "")
 		ifnotexist,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%urlf%
 			{
-				DownloadFile(URLFILE, save, DWNOVR, True)
+				splitpath,save,svaf,svap
+				exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+				;;DownloadFile(URLFILE, save, DWNOVR, True)
 				ifNotExist, %save%
 					{
 						DWNFLD= 1
@@ -74363,7 +74391,9 @@ Loop, Parse, emupartset,`n`r
 										{
 											xtractmu= executable
 										}
-								DownloadFile(URLFILE, save, True, True)
+								splitpath,save,svaf,svap
+								exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+								;;DownloadFile(URLFILE, save, True, True)
 								ifnotexist, %save%
 									{
 										msgbox,0,, %xesel1%`n''%URLFILE%''`n was not downloaded, 20
@@ -74669,7 +74699,9 @@ ifnotexist,%cacheloc%\antimicro%ARCH%.7z
 												{
 													xtractmu= executable
 												}
-										DownloadFile(URLFILE, save, True, True)
+										splitpath,save,svaf,svap
+										exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+										;;DownloadFile(URLFILE, save, True, True)
 										ifnotexist, %save%
 											{
 												msgbox,0,, %xesel1%`n''%URLFILE%''`n was not downloaded, 20
