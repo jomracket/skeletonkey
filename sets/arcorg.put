@@ -1,0 +1,15 @@
+[GLOBAL]
+CLOUDLOC=http://archive.org/download
+HOSTINGURL=[HOSTINGURL]
+ALTHOST=[ALTHOST]
+SOURCEHOST=[SOURCEHOST]
+IP_LOOKUP=[IPLK]
+UPDATEFILE=[UPDATEFILE]
+
+[SOURCES]
+Archive=http://archive.org/download
+Archive:SET=[REPOSRC]/ARCHIVE/Archive.7z
+the-eye=https://the-eye.eu/public/rom
+the-eye:SET=[REPOSRC]/THE-EYE/THE-EYE.7z
+
+[REPOSITORIES]

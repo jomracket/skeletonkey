@@ -1,0 +1,15 @@
+[GLOBAL]
+CLOUDLOC=http://archive.org/download
+HOSTINGURL=https://github.com/romjacket
+ALTHOST=[ALTHOST]
+SOURCEHOST=http://raw.githubusercontent.com/romjacket/skeletonkey/master/site/version.txt
+IP_LOOKUP=http://www.netikus.net/show_ip.html
+UPDATEFILE=https://github.com/romjacket/skeletonKey/releases/download/portable/skeletonKey-portable.zip
+
+[SOURCES]
+Archive=http://archive.org/download
+Archive:SET=https://github.com/romjacket/skeletonKey/releases/download/ARCHIVE/Archive.7z
+the-eye=https://the-eye.eu/public/rom
+the-eye:SET=https://github.com/romjacket/skeletonKey/releases/download/THE-EYE/THE-EYE.7z
+
+[REPOSITORIES]
