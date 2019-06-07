@@ -1,7 +1,7 @@
 [GLOBAL]
 CLOUDLOC=http://archive.org/download
 HOSTINGURL=https://github.com/romjacket
-ALTHOST=[ALTHOST]
+ALTHOST=http://archive.org/download/emu_exe_mir
 SOURCEHOST=http://raw.githubusercontent.com/romjacket/skeletonkey/master/site/version.txt
 IP_LOOKUP=http://www.netikus.net/show_ip.html
 UPDATEFILE=https://github.com/romjacket/skeletonKey/releases/download/portable/skeletonKey-portable.zip

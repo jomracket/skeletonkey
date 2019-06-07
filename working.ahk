@@ -870,8 +870,8 @@ qresf= 320x240 32bits 60hz|640x480 32bits 60hz|720x480 32bits 60hz|720x576 32bit
 sysposb= |Atari - 2600|Atari - 7800|Atari - 800|Atari - Jaguar|Atari - Lynx|Atari - ST|Bandai - WonderSwan|Bandai - WonderSwan Color|Casio - Loopy|Casio - PV-1000|Coleco - ColecoVision|Commodore - 64|Commodore - 64 (PP)|Commodore - 64 (Tapes)|Commodore - Amiga|Commodore - Amiga|Commodore - Plus-4|Commodore - VIC-20|Emerson - Arcadia|Entex - Adventure Vision|FB Alpha - Arcade Games|Fairchild - Channel F|Funtech - Super Acan|GCE - Vectrex|GCE - Vectrex|GamePark - GP32|Hartung - Game Master|Leapfrog - Leapster Learning Game System|MAME - Arcade|MAME2003|MAME2010|Magnavox - Odyssey2|Magnavox - Odyssey2|Magnavox - Odyssey2|Microsoft - DOS|Microsoft - MSX|Microsoft - MSX2|NEC - PC Engine - TurboGrafx 16|NEC - PC Engine CD - TurboGrafx CD|NEC - PC Engine SuperGrafx|NEC - PC-FX|NEC - PC98|Nintendo - Famicom Disk System|Nintendo - Famicom System|Nintendo - Game Boy|Nintendo - Game Boy Advance|Nintendo - Game Boy Advance(e-Cards)|Nintendo - Game Boy Color|Nintendo - Nintendo 3DS|Nintendo - Nintendo 64|Nintendo - Nintendo 64DD|Nintendo - Nintendo DS|Nintendo - Nintendo DS Decrypted|Nintendo - Nintendo Entertainment System|Nintendo - Pokemon Mini|Nintendo - Satellaview|Nintendo - Satellaview|Nintendo - Sufami Turbo|Nintendo - Super Nintendo Entertainment System|Nintendo - Virtual Boy|Nokia - N-Gage|RCA - Studio II|RCA - Studio II|SNK - Neo Geo|SNK - Neo Geo MVS|SNK - Neo Geo Pocket|ScummVM|Sega - 32X|Sega - Dreamcast|Sega - Game Gear|Sega - Master System - Mark III|Sega - Mega Drive - Genesis|Sega - Mega-CD - Sega CD|Sega - PICO|Sega - SG-1000|Sega - Saturn|Sharp - X68000|Sinclair - ZX 81|Sinclair - ZX Spectrum|Sony - Playstation|Sony - Playstation 2|Sony - Playstation Portable|The 3DO Company - 3DO|Tiger - Game com|VTech - CreatiVision|VTech - V.SmileTurboGrafx 16
 hkDDL= inputAudioMute|inputCheatIndexMinus|inputCheatIndexPlus|inputCheatToggle|inputDiskEjectToggle|inputDiskNext|inputDiskPrev|inputEnableHotkey|inputExitEmulator|inputFrameAdvance|inputToggleFullscreen|inputGrabMouseToggle|inputHoldFastForward|inputHoldSlowmotion|inputLoadState|inputMenuToggle|inputMovieRecordToggle|inputNetplayFlipPlayers|inputOskToggle|inputOverlayNext|inputPauseToggle|inputReset|inputRewind|inputSaveState|inputScreenshot|inputShaderNext|inputShaderPrev|inputSlowmotion|inputStateSlotDecrease|inputStateSlotIncrease|inputToggleFastForward|inputToggleFullscreen|inputVolumeDown|inputVolumeUp
 CoreMI= DDLB|DDLC|DDLD|DDLE|DDLF|DDLG|DDLH|DDLI|DDLJ|DDLK|DDLL|RadA|RadB|CMBA|RadC|RadD|RadE|RadF|CHKA|CHKB|CHKC|RadG|RadH|CHKD|CHKE|CMBB|SLDA|RadI|RadJ|RadK|RadL|CHKF|CHKG|CHKH|CHKI|RadM|RadN|RadO|RadP|RadQ|RadR|RadS|RadT|RadU|RadV
-supCoreLst= mgba|genesisplusgx|mame|desmume|ppsspp|nestopia|mesen|mednafenpcefast|mednafensaturn|redream|reicast|blusemsx|dosbox|picodrive|snes9x|mednafenPsx|mednafenngp|mednafensupergrafx|mednafenvb|fceumm|mame2014|fbaneo|fbalpha2012|fbalpha2012neogeo|fbalpha2012cps2|fbalphacps2012|mupen64plus|4do|gambatte|mame2000|mame2010|mame|bsnes|yabause|fuse|fmsx
-COREVARS= mgba_solar_sensor_level|mgba_allow_opposing_directions|mgba_use_bios|mgba_skip_bios|mgba_idle_optimization|genesis_plus_gx_system_hw|genesis_plus_gx_region_detect|genesis_plus_gx_force_dtack|genesis_plus_gx_bios|genesis_plus_gx_bram|genesis_plus_gx_addr_error|genesis_plus_gx_lock_on|genesis_plus_gx_ym2413|genesis_plus_gx_dac_bits|genesis_plus_gx_blargg_ntsc_filter|genesis_plus_gx_lcd_filter|genesis_plus_gx_overscan|genesis_plus_gx_gg_extra|genesis_plus_gx_render|genesis_plus_gx_gun_cursor|genesis_plus_gx_invert_mouse|mame2014_read_config|mame2014_write_config|mame2014_saves|mame2014_auto_save|mame2014_mouse_enable|mame2014_throttle|mame2014_cheats_enable|mame2014_hide_nagscreen|mame2014_hide_gameinfo|mame2014_hide_warnings|mame2014_alternate_renderer|mame2014_softlists_enable|mame2014_softlists_auto_media|mame2014_media_type|mame2014_boot_to_bios|mame2014_boot_to_osd|mame2014_boot_from_cli|ume2014_read_config|ume2014_write_config|ume2014_saves|ume2014_auto_save|ume2014_mouse_enable|ume2014_throttle|ume2014_cheats_enable|ume2014_hide_nagscreen|ume2014_hide_gameinfo|ume2014_hide_warnings|ume2014_alternate_renderer|ume2014_softlists_enable|ume2014_softlists_auto_media|ume2014_media_type|ume2014_boot_to_bios|ume2014_boot_to_osd|ume2014_boot_from_cli|mame_read_config|mame_write_config|mame_saves|mame_auto_save|mame_mouse_enable|mame_throttle|mame_cheats_enable|mame_hide_nagscreen|mame_hide_gameinfo|mame_hide_warnings|mame_alternate_renderer|mame_softlists_enable|mame_softlists_auto_media|mame_media_type|mame_boot_to_bios|mame_boot_to_osd|mame_boot_from_cli|desmume_internal_resolution|desmume_num_cores|desmume_cpu_mode|desmume_jit_block_size|desmume_screens_layout|desmume_pointer_mouse|desmume_pointer_type|desmume_pointer_colour|desmume_pointer_device|desmume_pointer_device_deadzone|desmume_pointer_device_acceleration_mod|desmume_pointer_stylus_pressure|desmume_pointer_stylus_jitter|desmume_load_to_memory|desmume_advanced_timing|desmume_firmware_language|desmume_frameskip|desmume_screens_gap|desmume_gfx_edgemark|desmume_gfx_linehack|desmume_gfx_txthack|desmume_mic_force_enable|desmume_mic_mode|desmume_hybrid_layout_scale|ppsspp_cpu_core|ppsspp_locked_cpu_speed|ppsspp_language|ppsspp_rendering_mode|ppsspp_auto_frameskip|ppsspp_frameskip|ppsspp_framerate_limit|ppsspp_force_max_fps|ppsspp_audio_latency|ppsspp_internal_resolution|ppsspp_output_resolution|ppsspp_button_preference|ppsspp_fast_memory|ppsspp_set_rounding_mode|ppsspp_block_transfer_gpu|ppsspp_texture_scaling_level|ppsspp_texture_scaling_type|ppsspp_texture_anisotropic_filtering|ppsspp_texture_deposterize|ppsspp_internal_shader|ppsspp_gpu_hardware_transform|ppsspp_vertex_cache|ppsspp_prescale_uv|ppsspp_separate_io_thread|ppsspp_unsafe_func_replacements|ppsspp_sound_speedhack|ppsspp_threaded_input|nestopia_blargg_ntsc_filter|nestopia_palette|nestopia_nospritelimit|nestopia_fds_auto_insert|nestopia_overscan_v|nestopia_overscan_h|nestopia_aspect|nestopia_genie_distortion|nestopia_favored_system|nestopia_ram_power_state|pce_fast_cdimagecache|pce_nospritelimit|pce_ocmultiplier|pce_hoverscan|pce_initial_scanline|pce_last_scanline|pce_cddavolume|pce_adpcmvolume|pce_cdpsgvolume|pce_cdspeed|Turbo_Delay|p0_turbo_I_enable|p0_turbo_II_enable|p1_turbo_I_enable|p1_turbo_II_enable|p2_turbo_I_enable|p2_turbo_II_enable|p3_turbo_I_enable|p3_turbo_II_enable|p4_turbo_I_enable|p4_turbo_II_enable|beetle_saturn_cdimagecache|beetle_saturn_initial_scanline|beetle_saturn_initial_scanline_pal|beetle_saturn_last_scanline|beetle_saturn_last_scanline_pal|reicast_cpu_mode|reicast_boot_to_bios|reicast_internal_resolution|reicast_mipmapping|reicast_widescreen_hack|reicast_audio_buffer_size|reicast_cable_type|reicast_broadcast|reicast_region|reicast_precompile_shaders|reicast_enable_rtt|reicast_enable_purupuru|bluemsx_msxtype|bluemsx_vdp_synctype|bluemsx_ym2413_enable|dosbox_machine_type|dosbox_emulated_mouse|dosbox_cpu_cycles_0|dosbox_cpu_cycles_1|dosbox_cpu_cycles_2|dosbox_cpu_cycles_3|dosbox_mapper_y|dosbox_mapper_x|dosbox_mapper_b|dosbox_mapper_a|dosbox_mapper_l|dosbox_mapper_r|dosbox_mapper_up|dosbox_mapper_down|dosbox_mapper_left|dosbox_mapper_right|dosbox_mapper_select|dosbox_mapper_start|picodrive_input1|picodrive_input2|picodrive_sprlim|picodrive_ramcart|picodrive_region|picodrive_region_fps|picodrive_aspect|snes9x_overclock|snes9x_layer_1|snes9x_layer_2|snes9x_layer_3|snes9x_layer_4|snes9x_layer_5|snes9x_gfx_clip|snes9x_gfx_transp|snes9x_sndchan_1|snes9x_sndchan_2|snes9x_sndchan_3|snes9x_sndchan_4|snes9x_sndchan_5|snes9x_sndchan_6|snes9x_sndchan_7|snes9x_sndchan_8|beetle_psx_renderer|beetle_psx_renderer_software_fb|beetle_psx_cdimagecache|beetle_psx_cpu_overclock|beetle_psx_skipbios|beetle_psx_widescreen_hack|beetle_psx_internal_resolution|beetle_psx_filter|beetle_psx_internal_color_depth|beetle_psx_scale_dither|beetle_psx_wireframe|beetle_psx_display_vram|beetle_psx_dither_mode|beetle_psx_pgxp_mode|beetle_psx_pgxp_caching|beetle_psx_pgxp_texture|beetle_psx_use_mednafen_memcard0_method|beetle_psx_enable_memcard1|beetle_psx_shared_memory_cards|beetle_psx_analog_calibration|beetle_psx_initial_scanline|beetle_psx_initial_scanline_pal|beetle_psx_last_scanline|beetle_psx_last_scanline_pal|beetle_psx_analog_toggle|beetle_psx_enable_multitap_port1|beetle_psx_enable_multitap_port2|beetle_psx_frame_duping_enable|beetle_psx_display_internal_framerate|beetle_psx_crop_overscan|beetle_psx_image_offset|beetle_psx_image_crop|ngp_language|fceumm_palette|fceumm_nospritelimit|fceumm_overclocking|fceumm_overscan|fceumm_aspect|mame2014_read_config|mame2014_auto_save|mame2014_mouse_enable|mame2014_throttle|mame2014_cheats_enable|mame2014_hide_nagscreen|mame2014_hide_infoscreen|mame2014_hide_warnings|mame2014_alternate_renderer|mame2014_boot_to_osd|mame2014_boot_from_cli|mame2016_read_config|mame2016_auto_save|mame2016_mouse_enable|mame2016_throttle|mame2016_cheats_enable|mame2016_hide_nagscreen|mame2016_hide_infoscreen|mame2016_hide_warnings|mame2016_alternate_renderer|mame2016_boot_to_osd|mame2016_boot_from_cli|fba-diagnostics|fba-unibios|fba-cpu-speed-adjust|fba-controls|fba-aspect|fba-controls-p1|fba-controls-p2|fba-sh2-mode|fba-hiscores|fba-lr-controls-p1|fba-lr-controls-p2|fba-neogeo-mode|fba-neogeo-controls-p1|fba-neogeo-controls-p2|mupen64-cpucore|mupen64-audio-buffer-size|mupen64-astick-deadzone|mupen64-pak1|mupen64-pak2|mupen64-pak3|mupen64-pak4|mupen64-disable_expmem|mupen64-gfxplugin-accuracy|mupen64-gfxplugin|mupen64-rspplugin|mupen64-screensize|mupen64-aspectratiohint|mupen64-filtering|mupen64-polyoffset-factor|mupen64-polyoffset-units|mupen64-angrylion-vioverlay|mupen64-virefresh|mupen64-bufferswap|mupen64-framerate|mupen64-vcache-vbo|mupen64-boot-device|mupen64-64dd-hardware|reicast_volume_modifier_mode|reicast_framerate|4do_high_resolution|gambatte_gb_colorization|gambatte_gb_internal_palette|gambatte_gbc_color_correction|gambatte_gb_hwmode|gambatte_gb_link_mode|gambatte_gb_link_network_port|gambatte_gb_link_network_server_ip_octet1|gambatte_gb_link_network_server_ip_octet2|gambatte_gb_link_network_server_ip_octet3|gambatte_gb_link_network_server_ip_octet4|mame_current_mouse_enable|mame_current_videoapproach1_enable|mame_current_skip_nagscreen|mame_current_skip_gameinfo|mame_current_skip_warnings|mame2003-frameskip|mame2003-dcs-speedhack|mame2003-skip_disclaimer|mame2003-skip_warnings|mame2003-samples|mame2003-sample_rate|mame2003-cheats|mame2003-dialsharexy|mame2003-mouse_device|mame2003-rstick_to_btns|mame2000-skip_disclaimer|mame2000-show_gameinfo|cpu-speed-adjust|diagnostics|vbam_layer_1|vbam_layer_2|vbam_layer_3|vbam_layer_4|vbam_layer_5|vbam_layer_6|vbam_layer_7|vbam_layer_8|vbanext_bios|yabause_frameskip|yabause_force_hle_bios|yabause_addon_cart|handy_rot|bsnes_violate_accuracy|bsnes_chip_hle|bsnes_superfx_overclock|vb_anaglyph_preset|vb_color_mode|fuse_machine|fuse_hide_border|fuse_fast_load|fuse_load_sound|fuse_speaker_type|fuse_ay_stereo_separation|fuse_key_ovrlay_transp|fuse_key_hold_time|fmsx_mode|fmsx_video_mode|fmsx_mapper_type_mode|glupen64-cpucore|glupen64-rspmode|glupen64-43screensize|glupen64-169screensize|glupen64-aspect|glupen64-BilinearMode|glupen64-EnableFBEmulation|glupen64-UseNativeResolutionFactor|glupen64-EnableCopyAuxiliaryToRDRAM|glupen64-EnableCopyColorToRDRAM|glupen64-EnableCopyDepthToRDRAM|glupen64-EnableCopyColorFromRDRAM|glupen64-EnableHWLighting|glupen64-CorrectTexrectCoords|glupen64-EnableNativeResTexrects|glupen64-EnableLegacyBlending|glupen64-astick-deadzone|glupen64-pak1|glupen64-pak2|glupen64-pak3|glupen64-pak4|virtualjaguar_usefastblitter|virtualjaguar_doom_res_hack|vice_Statusbar|vice_Drive8Type|vice_DriveTrueEmulation|vice_RetroJoy|vice_Controller|px68k_cpuspeed|px68k_ramsize|px68k_analog|px68k_joytype1|px68k_joytype2
+supCoreLst= mgba|genesisplusgx|mame|desmume|ppsspp|nestopia|mesen|mednafenpcefast|mednafensaturn|redream|flycast|blusemsx|dosbox|picodrive|snes9x|mednafenPsx|mednafenngp|mednafensupergrafx|mednafenvb|fceumm|mame2014|fbaneo|fbalpha2012|fbalpha2012neogeo|fbalpha2012cps2|fbalphacps2012|mupen64plus|4do|gambatte|mame2000|mame2010|mame|bsnes|yabause|fuse|fmsx
+COREVARS= mgba_solar_sensor_level|mgba_allow_opposing_directions|mgba_use_bios|mgba_skip_bios|mgba_idle_optimization|genesis_plus_gx_system_hw|genesis_plus_gx_region_detect|genesis_plus_gx_force_dtack|genesis_plus_gx_bios|genesis_plus_gx_bram|genesis_plus_gx_addr_error|genesis_plus_gx_lock_on|genesis_plus_gx_ym2413|genesis_plus_gx_dac_bits|genesis_plus_gx_blargg_ntsc_filter|genesis_plus_gx_lcd_filter|genesis_plus_gx_overscan|genesis_plus_gx_gg_extra|genesis_plus_gx_render|genesis_plus_gx_gun_cursor|genesis_plus_gx_invert_mouse|mame2014_read_config|mame2014_write_config|mame2014_saves|mame2014_auto_save|mame2014_mouse_enable|mame2014_throttle|mame2014_cheats_enable|mame2014_hide_nagscreen|mame2014_hide_gameinfo|mame2014_hide_warnings|mame2014_alternate_renderer|mame2014_softlists_enable|mame2014_softlists_auto_media|mame2014_media_type|mame2014_boot_to_bios|mame2014_boot_to_osd|mame2014_boot_from_cli|ume2014_read_config|ume2014_write_config|ume2014_saves|ume2014_auto_save|ume2014_mouse_enable|ume2014_throttle|ume2014_cheats_enable|ume2014_hide_nagscreen|ume2014_hide_gameinfo|ume2014_hide_warnings|ume2014_alternate_renderer|ume2014_softlists_enable|ume2014_softlists_auto_media|ume2014_media_type|ume2014_boot_to_bios|ume2014_boot_to_osd|ume2014_boot_from_cli|mame_read_config|mame_write_config|mame_saves|mame_auto_save|mame_mouse_enable|mame_throttle|mame_cheats_enable|mame_hide_nagscreen|mame_hide_gameinfo|mame_hide_warnings|mame_alternate_renderer|mame_softlists_enable|mame_softlists_auto_media|mame_media_type|mame_boot_to_bios|mame_boot_to_osd|mame_boot_from_cli|desmume_internal_resolution|desmume_num_cores|desmume_cpu_mode|desmume_jit_block_size|desmume_screens_layout|desmume_pointer_mouse|desmume_pointer_type|desmume_pointer_colour|desmume_pointer_device|desmume_pointer_device_deadzone|desmume_pointer_device_acceleration_mod|desmume_pointer_stylus_pressure|desmume_pointer_stylus_jitter|desmume_load_to_memory|desmume_advanced_timing|desmume_firmware_language|desmume_frameskip|desmume_screens_gap|desmume_gfx_edgemark|desmume_gfx_linehack|desmume_gfx_txthack|desmume_mic_force_enable|desmume_mic_mode|desmume_hybrid_layout_scale|ppsspp_cpu_core|ppsspp_locked_cpu_speed|ppsspp_language|ppsspp_rendering_mode|ppsspp_auto_frameskip|ppsspp_frameskip|ppsspp_framerate_limit|ppsspp_force_max_fps|ppsspp_audio_latency|ppsspp_internal_resolution|ppsspp_output_resolution|ppsspp_button_preference|ppsspp_fast_memory|ppsspp_set_rounding_mode|ppsspp_block_transfer_gpu|ppsspp_texture_scaling_level|ppsspp_texture_scaling_type|ppsspp_texture_anisotropic_filtering|ppsspp_texture_deposterize|ppsspp_internal_shader|ppsspp_gpu_hardware_transform|ppsspp_vertex_cache|ppsspp_prescale_uv|ppsspp_separate_io_thread|ppsspp_unsafe_func_replacements|ppsspp_sound_speedhack|ppsspp_threaded_input|nestopia_blargg_ntsc_filter|nestopia_palette|nestopia_nospritelimit|nestopia_fds_auto_insert|nestopia_overscan_v|nestopia_overscan_h|nestopia_aspect|nestopia_genie_distortion|nestopia_favored_system|nestopia_ram_power_state|pce_fast_cdimagecache|pce_nospritelimit|pce_ocmultiplier|pce_hoverscan|pce_initial_scanline|pce_last_scanline|pce_cddavolume|pce_adpcmvolume|pce_cdpsgvolume|pce_cdspeed|Turbo_Delay|p0_turbo_I_enable|p0_turbo_II_enable|p1_turbo_I_enable|p1_turbo_II_enable|p2_turbo_I_enable|p2_turbo_II_enable|p3_turbo_I_enable|p3_turbo_II_enable|p4_turbo_I_enable|p4_turbo_II_enable|beetle_saturn_cdimagecache|beetle_saturn_initial_scanline|beetle_saturn_initial_scanline_pal|beetle_saturn_last_scanline|beetle_saturn_last_scanline_pal|flycast_cpu_mode|flycast_boot_to_bios|flycast_internal_resolution|flycast_mipmapping|flycast_widescreen_hack|flycast_audio_buffer_size|flycast_cable_type|flycast_broadcast|flycast_region|flycast_precompile_shaders|flycast_enable_rtt|flycast_enable_purupuru|bluemsx_msxtype|bluemsx_vdp_synctype|bluemsx_ym2413_enable|dosbox_machine_type|dosbox_emulated_mouse|dosbox_cpu_cycles_0|dosbox_cpu_cycles_1|dosbox_cpu_cycles_2|dosbox_cpu_cycles_3|dosbox_mapper_y|dosbox_mapper_x|dosbox_mapper_b|dosbox_mapper_a|dosbox_mapper_l|dosbox_mapper_r|dosbox_mapper_up|dosbox_mapper_down|dosbox_mapper_left|dosbox_mapper_right|dosbox_mapper_select|dosbox_mapper_start|picodrive_input1|picodrive_input2|picodrive_sprlim|picodrive_ramcart|picodrive_region|picodrive_region_fps|picodrive_aspect|snes9x_overclock|snes9x_layer_1|snes9x_layer_2|snes9x_layer_3|snes9x_layer_4|snes9x_layer_5|snes9x_gfx_clip|snes9x_gfx_transp|snes9x_sndchan_1|snes9x_sndchan_2|snes9x_sndchan_3|snes9x_sndchan_4|snes9x_sndchan_5|snes9x_sndchan_6|snes9x_sndchan_7|snes9x_sndchan_8|beetle_psx_renderer|beetle_psx_renderer_software_fb|beetle_psx_cdimagecache|beetle_psx_cpu_overclock|beetle_psx_skipbios|beetle_psx_widescreen_hack|beetle_psx_internal_resolution|beetle_psx_filter|beetle_psx_internal_color_depth|beetle_psx_scale_dither|beetle_psx_wireframe|beetle_psx_display_vram|beetle_psx_dither_mode|beetle_psx_pgxp_mode|beetle_psx_pgxp_caching|beetle_psx_pgxp_texture|beetle_psx_use_mednafen_memcard0_method|beetle_psx_enable_memcard1|beetle_psx_shared_memory_cards|beetle_psx_analog_calibration|beetle_psx_initial_scanline|beetle_psx_initial_scanline_pal|beetle_psx_last_scanline|beetle_psx_last_scanline_pal|beetle_psx_analog_toggle|beetle_psx_enable_multitap_port1|beetle_psx_enable_multitap_port2|beetle_psx_frame_duping_enable|beetle_psx_display_internal_framerate|beetle_psx_crop_overscan|beetle_psx_image_offset|beetle_psx_image_crop|ngp_language|fceumm_palette|fceumm_nospritelimit|fceumm_overclocking|fceumm_overscan|fceumm_aspect|mame2014_read_config|mame2014_auto_save|mame2014_mouse_enable|mame2014_throttle|mame2014_cheats_enable|mame2014_hide_nagscreen|mame2014_hide_infoscreen|mame2014_hide_warnings|mame2014_alternate_renderer|mame2014_boot_to_osd|mame2014_boot_from_cli|mame2016_read_config|mame2016_auto_save|mame2016_mouse_enable|mame2016_throttle|mame2016_cheats_enable|mame2016_hide_nagscreen|mame2016_hide_infoscreen|mame2016_hide_warnings|mame2016_alternate_renderer|mame2016_boot_to_osd|mame2016_boot_from_cli|fba-diagnostics|fba-unibios|fba-cpu-speed-adjust|fba-controls|fba-aspect|fba-controls-p1|fba-controls-p2|fba-sh2-mode|fba-hiscores|fba-lr-controls-p1|fba-lr-controls-p2|fba-neogeo-mode|fba-neogeo-controls-p1|fba-neogeo-controls-p2|mupen64-cpucore|mupen64-audio-buffer-size|mupen64-astick-deadzone|mupen64-pak1|mupen64-pak2|mupen64-pak3|mupen64-pak4|mupen64-disable_expmem|mupen64-gfxplugin-accuracy|mupen64-gfxplugin|mupen64-rspplugin|mupen64-screensize|mupen64-aspectratiohint|mupen64-filtering|mupen64-polyoffset-factor|mupen64-polyoffset-units|mupen64-angrylion-vioverlay|mupen64-virefresh|mupen64-bufferswap|mupen64-framerate|mupen64-vcache-vbo|mupen64-boot-device|mupen64-64dd-hardware|flycast_volume_modifier_mode|flycast_framerate|4do_high_resolution|gambatte_gb_colorization|gambatte_gb_internal_palette|gambatte_gbc_color_correction|gambatte_gb_hwmode|gambatte_gb_link_mode|gambatte_gb_link_network_port|gambatte_gb_link_network_server_ip_octet1|gambatte_gb_link_network_server_ip_octet2|gambatte_gb_link_network_server_ip_octet3|gambatte_gb_link_network_server_ip_octet4|mame_current_mouse_enable|mame_current_videoapproach1_enable|mame_current_skip_nagscreen|mame_current_skip_gameinfo|mame_current_skip_warnings|mame2003-frameskip|mame2003-dcs-speedhack|mame2003-skip_disclaimer|mame2003-skip_warnings|mame2003-samples|mame2003-sample_rate|mame2003-cheats|mame2003-dialsharexy|mame2003-mouse_device|mame2003-rstick_to_btns|mame2000-skip_disclaimer|mame2000-show_gameinfo|cpu-speed-adjust|diagnostics|vbam_layer_1|vbam_layer_2|vbam_layer_3|vbam_layer_4|vbam_layer_5|vbam_layer_6|vbam_layer_7|vbam_layer_8|vbanext_bios|yabause_frameskip|yabause_force_hle_bios|yabause_addon_cart|handy_rot|bsnes_violate_accuracy|bsnes_chip_hle|bsnes_superfx_overclock|vb_anaglyph_preset|vb_color_mode|fuse_machine|fuse_hide_border|fuse_fast_load|fuse_load_sound|fuse_speaker_type|fuse_ay_stereo_separation|fuse_key_ovrlay_transp|fuse_key_hold_time|fmsx_mode|fmsx_video_mode|fmsx_mapper_type_mode|glupen64-cpucore|glupen64-rspmode|glupen64-43screensize|glupen64-169screensize|glupen64-aspect|glupen64-BilinearMode|glupen64-EnableFBEmulation|glupen64-UseNativeResolutionFactor|glupen64-EnableCopyAuxiliaryToRDRAM|glupen64-EnableCopyColorToRDRAM|glupen64-EnableCopyDepthToRDRAM|glupen64-EnableCopyColorFromRDRAM|glupen64-EnableHWLighting|glupen64-CorrectTexrectCoords|glupen64-EnableNativeResTexrects|glupen64-EnableLegacyBlending|glupen64-astick-deadzone|glupen64-pak1|glupen64-pak2|glupen64-pak3|glupen64-pak4|virtualjaguar_usefastblitter|virtualjaguar_doom_res_hack|vice_Statusbar|vice_Drive8Type|vice_DriveTrueEmulation|vice_RetroJoy|vice_Controller|px68k_cpuspeed|px68k_ramsize|px68k_analog|px68k_joytype1|px68k_joytype2
 pspce:= A_Tab . A_Space . A_Space
 pspxe:= A_Tab
 FAN1ART= Backdrops
@@ -1867,8 +1867,8 @@ Gui, Add, Button, x661 y2 w78 h29 vHLNCHBUT gRUNTABHOSTING hidden, HOST
 Gui, Add, Button, x677 y2 w60 h29 vLNCHBUT gLNCH disabled, LAUNCH
 Gui, Add, Button, x737 y2 w25 h29 vRCLLNCH gRCLLNCH,::>
 gui,font,normal
-Gui, Add, Button, x744 y33 w16 h16 vCLRCUROM gCLREDT,X
-Gui, Add, Button, x744 y33 w16 h16 vRETAL gRETAL hidden,>
+Gui, Add, Button, x744 y34 w15 h15 vCLRCUROM gCLREDT,X
+Gui, Add, Button, x744 y34 w15 h15 vRETAL gRETAL hidden,>
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;  Speed ;;;;;
 Gui,Add,Edit, hwndEdtHndl6 x362 y247 w92 h21 vRaSpdEdt gRaSpdEdt hidden,
@@ -4729,7 +4729,11 @@ if (shdprvsz < 20)
 	}
 IfNotExist,%assetsDirectory%\shaderPreviews\%shaderpth%\%shadername%.png
 			{
-				URLDownloadToFile,%shaderHost%\%shaderpth%/%shadername%.png,%assetsDirectory%\shaderPreviews\%shaderpth%\%shadername%.png
+				;;URLDownloadToFile,%shaderHost%\%shaderpth%/%shadername%.png,%assetsDirectory%\shaderPreviews\%shaderpth%\%shadername%.png
+				save= %assetsDirectory%\shaderPreviews\%shaderpth%\%shadername%.png
+				URLFILE= %shaderHost%\%shaderpth%/%shadername%.png
+				splitpath,save,svaf,svap
+				exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
 			}
 ifnotexist,%assetsDirectory%\shaderPreviews\%shaderpth%\%shadername%.png
 return
@@ -7394,7 +7398,11 @@ guicontrol,disable,UpdateSK
 FileDelete, site\version.txt
 IniRead,sourceHost,%ARCORG%,GLOBAL,SOURCEHOST
 IniRead,UPDATEFILE,%ARCORG%,GLOBAL,UPDATEFILE
-URLDownloadToFile, %sourceHost%,site\version.txt
+;;URLDownloadToFile, %sourceHost%,
+URLFILE= %sourceHost%
+save= %A_ScriptDir%\site\version.txt
+splitpath,save,svaf,svap
+exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
 ifnotexist, site\version.txt
 	{
 		SB_SetText(" Update not found. ")
@@ -8055,6 +8063,7 @@ if (uuniv = "X")
 				gosub, TOGGLESEARCHBOX
 				guicontrol,move,FNDGUI, x720 y516 w42 h19
 				guicontrol,,FNDGUI,find
+				GuiControl, +Redraw, SRCHROMLBX
 				return
 			}
 		gosub, initsearchbox
@@ -8070,6 +8079,7 @@ if (uuniv = "X")
 		gosub, TOGGLESEARCHBOX
 		guicontrol,move,FNDGUI, x720 y516 w42 h19
 		guicontrol,,FNDGUI,find
+		GuiControl, +Redraw, SRCHROMLBX
 		return
 	}
 fndtog= hide
@@ -8086,6 +8096,7 @@ try, gosub, %EMUSN%GUITOG
 gosub, TOGGLESEARCHBOX
 guicontrol,move,FNDGUI,x175 y59 w16 h19
 guicontrol,,FNDGUI,X
+GuiControl, +Redraw, SRCHROMLBX
 return
 NoHistoryFile:
 historyLoctmp=
@@ -8243,6 +8254,7 @@ if (main_search = "")
 			main_search= %swpparv%
 		}
 guicontrol,,RUNSYSCBX,|%OPSYS%||%main_search%
+Control, ShowDropDown, , ,ahk_id %CbxHndl109%
 return
 
 
@@ -10393,6 +10405,9 @@ Loop, Parse,UrlIndex,`n`r
 						xtractmu= %RJEMUD%\%urloc1%
 					}
 				splitpath,save,svaf,svap
+				rtrcnt= 
+				origurl= %URLFILE%
+				EMUDOWNLOADING:
 				exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
 ;;				DownloadFile(URLFILE, save, DWNOV, True)
 				if (rjintr = 1)
@@ -10403,7 +10418,22 @@ Loop, Parse,UrlIndex,`n`r
 				ifnotexist, %save%
 					{
 						rjintr= x
-						msgbox,0,, %urloc1%`n''%URLFILE%''`n was not downloaded, 20
+						msgbox,8452,, %urloc1%`n''%URLFILE%''`n was not downloaded`nretry?, 20
+						ifmsgbox,yes
+							{
+								rtrcnt+= 1
+								Loop,parse,ALTHOST,>
+									{
+										if (A_Index = rtrcnt)
+											{
+												stringreplace,URLFILE,origurl,repoloc,%A_LoopField%,All
+												break
+											}
+										rtrcnt= 
+										URLFILE= %origurl%	
+									}
+								goto,EMUDOWNLOADING
+							}
 						GuiControl, hide, EMUINSC
 						GuiControl, Enable, EAVAIL
 						GuiControl, Enable, UAVAIL
@@ -14218,9 +14248,10 @@ GuiControl, Disable, SaList
 EXELIST= 1
 gosub, STABLE
 gosub, RBundle
+gosub, RRedist
 EXELIST= 0
 RALIST= 1
-SLCTCORES= 4do_libretro.dll.zip|bluemsx_libretro.dll.zip|desmume_libretro.dll.zip|dosbox_libretro.dll.zip|fbalpha2012_libretro.dll.zip|freeintv_libretro.dll.zip|gambatte_libretro.dll.zip|genesis_plus_gx_libretro.dll.zip|pcsx_rearmed_libretro.dll.zip|handy_libretro.dll.zip|mame_libretro.dll.zip|mednafen_ngp_libretro.dll.zip|mednafen_pce_fast_libretro.dll.zip|mdednafen_pcfx_libretro.dll.zip|mednafen_psx_libretro.dll.zip|mednafen_supergrafx_libretro.dll.zip|mednafen_vb_libretro.dll.zip|mednafen_wswan_libretro.dll.zip|mgba_libretro.dll.zip|nestopia_libretro.dll.zip|parallel_n64_libretro.dll.zip|picodrive_libretro.dll.zip|prosystem_libretro.dll.zip|snes9x_libretro.dll.zip|stella_libretro.dll.zip|virtualjaguar_libretro.dll.zip|crocods_libretro.dll.zip|px68k_libretro.dll.zip|openlara_libretro.dll.zip|atari800_libretro.dll.zip|np2kai_libretro.dll.zip|vice_x64_libretro.dll.zip|vice_xplus4_libretro.dll.zip|vice_xvic_libretro.dll.zip|pokemini_libretro.dll.zip|reicast_wince_libretro.dll.zip|reicast_libretro.dll.zip|mednafen_saturn_libretro.dll.zip|mu_libretro.dll.zip|theodore_libretro.dll.zip
+SLCTCORES= 4do_libretro.dll.zip|bluemsx_libretro.dll.zip|desmume_libretro.dll.zip|dosbox_libretro.dll.zip|fbalpha2012_libretro.dll.zip|freeintv_libretro.dll.zip|gambatte_libretro.dll.zip|genesis_plus_gx_libretro.dll.zip|pcsx_rearmed_libretro.dll.zip|handy_libretro.dll.zip|mame_libretro.dll.zip|mednafen_ngp_libretro.dll.zip|mednafen_pce_fast_libretro.dll.zip|mdednafen_pcfx_libretro.dll.zip|mednafen_psx_libretro.dll.zip|mednafen_supergrafx_libretro.dll.zip|mednafen_vb_libretro.dll.zip|mednafen_wswan_libretro.dll.zip|mgba_libretro.dll.zip|nestopia_libretro.dll.zip|parallel_n64_libretro.dll.zip|picodrive_libretro.dll.zip|prosystem_libretro.dll.zip|snes9x_libretro.dll.zip|stella_libretro.dll.zip|virtualjaguar_libretro.dll.zip|crocods_libretro.dll.zip|px68k_libretro.dll.zip|openlara_libretro.dll.zip|atari800_libretro.dll.zip|np2kai_libretro.dll.zip|vice_x64_libretro.dll.zip|vice_xplus4_libretro.dll.zip|vice_xvic_libretro.dll.zip|pokemini_libretro.dll.zip|flycast_wince_libretro.dll.zip|flycast_libretro.dll.zip|mednafen_saturn_libretro.dll.zip|mu_libretro.dll.zip|theodore_libretro.dll.zip
 if (ARCH = "64")
 	{
 		SLCTCORES .= "|" . "dolphin_libretro.dll.zip" . "|" . "citra_canary_libretro.dll.zip" . "|" . "kronos_libretro.dll.zip"
@@ -14308,8 +14339,13 @@ gosub, XTRACTRA
 return
 ;{;;;;;;;;;; RA GET UPDATES ;;;;;;;;;
 getBBCORES:
-		filedelete, coreupdt.ini
-		URLDownloadToFile, %BLDBOT%/latest/.index-extended, coreupdt.ini
+filedelete, coreupdt.ini
+save= %A_ScriptDir%\coreupdt.ini
+URLFILE= %BLDBOT%/latest/.index-extended
+splitpath,save,svaf,svap
+;;exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+;;URLDownloadToFile, %BLDBOT%/latest/.index-extended, coreupdt.ini
+RunWait,"bin\wget.exe" -t3 -w1 -O"%save%" "%URLFILE%",,hide
 return
 CoreUpdtChk:
 rewrlibv=
@@ -14693,6 +14729,7 @@ if (ntna2 = RASTABLE)
 guicontrol,,NETNAME,%NETNAME%(%RASTABLE%)
 return
 GettingRA:
+guicontrol,enable,UPDBTC
 if (DWNCNCL= 1)
 	{
 		gosub, InteruptDwn
@@ -14750,6 +14787,7 @@ iniread,racht,Assignments.ini,ASSIGNMENTS,retroarch
 if (racht = "ERROR") or Instr(racht, "NOT-FOUND")
 	{
 		iniwrite, "%raexeloc%\%raexefile%",Assignments.ini,ASSIGNMENTS,retroarch
+		guicontrol,,SKRADISP,%raexeloc%\%raexefile%
 	}
 if (KARC = 0)
 	{
@@ -16282,14 +16320,14 @@ if (ccv = "quicknes")
 		corcfgnam= QuickNES
 	    return
     }
-if (ccv = "reicast_wince")
+if (ccv = "flycast_wince")
 	{
-		corcfgnam= Reicast
+		corcfgnam= flycast
 	    return
     }
-if (ccv = "reicast")
+if (ccv = "flycast")
 	{
-		corcfgnam= Reicast
+		corcfgnam= flycast
 	    return
     }
 if (ccv = "redream")
@@ -16857,18 +16895,18 @@ if (syslk = "PPSSPP")
 		corelk= ppsspp
 	    return
 	}
-if (syslk = "Reicast WinCE")
+if (syslk = "flycast WinCE")
 	{
 		ASPOP= Sega - Dreamcast
 		szip= 0
-		corelk= reicast_wince
+		corelk= flycast_wince
 	    return
 	}
-if (syslk = "Reicast")
+if (syslk = "flycast")
 	{
 		ASPOP= Sega - Dreamcast
 		szip= 0
-		corelk= reicast
+		corelk= flycast
 	    return
 	}
 if (syslk = "Redream")
@@ -17231,6 +17269,7 @@ core_vemulatorDDLA:
 core_openlaraDDLA:
 core_theodoreDDLA:
 core_nekop2DDLA:
+core_quasi88DDLA:
 core_tryquakeDDLA:
 core_np2kaiDDLA:
 core_chailoveDDLA:
@@ -21618,17 +21657,17 @@ core_quicknesDDLA:
 gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
-;{;;;;; reicast CORE  ;;;;;
-core_reicast_winceDDLA:
-core_reicastDDLA:
-if (ccv = "reicast_WinCE")
+;{;;;;; flycast CORE  ;;;;;
+core_flycast_winceDDLA:
+core_flycastDDLA:
+if (ccv = "flycast_WinCE")
 	{
-		airv= reicast_WinCE
-		ccv= reicast
+		airv= flycast_WinCE
+		ccv= flycast
 	}
 guicontrol,,CORERADA,dynamic-recompiler
 guicontrol,,CORERADB,generic-recompiler
-guicontrol,,CORECMBA,|%reicastaudiobuffersize%||1024|2048
+guicontrol,,CORECMBA,|%flycastaudiobuffersize%||1024|2048
 guicontrol,,CORECMBTXTA,Audiobuffer
 guicontrol,,CORECHKA,Boot to BIOS
 guicontrol,,CORECHKB,Mipmapping
@@ -21642,50 +21681,50 @@ guicontrol,,COREDDLTXTD,Broadcast
 guicontrol,,COREDDLTXTC,Cable Type
 guicontrol,,COREDDLTXTE,Region
 guicontrol,,COREDDLTXTF,Framerate
-guicontrol,,COREDDLB,|%reicastinternalresolution%||640x480|1280x960|1920x1440|2560x1920|3200x2400|3840x2880|4480x3360
-guicontrol,,COREDDLC,|%reicastcabletype%||V (VBS/Y+S/C)|TV (RGB)|VGA (RGB)
-guicontrol,,COREDDLD,|%reicastbroadcast%||0|1|2|3|4
-guicontrol,,COREDDLE,|%reicastregion%||0|1|2|3
-guicontrol,,COREDDLF,|%reicastframerate%||normal|fullspeed
+guicontrol,,COREDDLB,|%flycastinternalresolution%||640x480|1280x960|1920x1440|2560x1920|3200x2400|3840x2880|4480x3360
+guicontrol,,COREDDLC,|%flycastcabletype%||V (VBS/Y+S/C)|TV (RGB)|VGA (RGB)
+guicontrol,,COREDDLD,|%flycastbroadcast%||0|1|2|3|4
+guicontrol,,COREDDLE,|%flycastregion%||0|1|2|3
+guicontrol,,COREDDLF,|%flycastframerate%||normal|fullspeed
 guicontrol,,CORERADA,1
 guicontrol,,CORERADB,0
-if (reicastcpumode= "enabled")
+if (flycastcpumode= "enabled")
 	{
 		guicontrol,,CORERADA,0
 		guicontrol,,CORERADB,1
 	}
 guicontrol,,CORECHKA,0
-if (reicastboottobios= "enabled")
+if (flycastboottobios= "enabled")
 	{
 		guicontrol,,CORECHKA,1
 	}
 guicontrol,,CORECHKB,1
-if (reicastmipmapping= "disabled")
+if (flycastmipmapping= "disabled")
 	{
 		guicontrol,,CORECHKB,0
 	}
 guicontrol,,CORECHKC,1
-if (reicastwidescreenhack= "disabled")
+if (flycastwidescreenhack= "disabled")
 	{
 		guicontrol,,CORECHKC,0
 	}
 guicontrol,,CORECHKF,0
-if (reicastvolumemodifiermode= "enabled")
+if (flycastvolumemodifiermode= "enabled")
 	{
 		guicontrol,,CORECHKF,1
 	}
 guicontrol,,CORECHKE,1
-if (reicastrendertotexture= "disabled")
+if (flycastrendertotexture= "disabled")
 	{
 guicontrol,,CORECHKE,0
 	}
 	guicontrol,,CORECHKD,1
-if (reicastprecompileshaders= "disabled")
+if (flycastprecompileshaders= "disabled")
 	{
 			guicontrol,,CORECHKD,0
 	}
 guicontrol,,CORECHKG,1
-if (reicastnablepurupuru= "disabled")
+if (flycastnablepurupuru= "disabled")
 	{
 		guicontrol,,CORECHKG,0
 	}
@@ -21713,102 +21752,102 @@ guicontrol,show,COREDDLD
 guicontrol,show,COREDDLE
 guicontrol,show,COREDDLF
 return
-core_reicastDDLB:
+core_flycastDDLB:
 gui,submit,nohide
-reicastinternalresolution= %COREDDLB%
-iniwrite, "%reicastinternalresolution%",%racoreopt%,OPTIONS,reicast_internal_resolution
+flycastinternalresolution= %COREDDLB%
+iniwrite, "%flycastinternalresolution%",%racoreopt%,OPTIONS,flycast_internal_resolution
 return
-core_reicastRADA:
+core_flycastRADA:
 gui,submit,nohide
-reicastaudiobuffersize= %CORERADA%
-iniwrite, "%reicastaudiobuffersize%",%racoreopt%,OPTIONS,reicast_audio_buffer_size
+flycastaudiobuffersize= %CORERADA%
+iniwrite, "%flycastaudiobuffersize%",%racoreopt%,OPTIONS,flycast_audio_buffer_size
 return
-core_reicastRADB:
+core_flycastRADB:
 gui,submit,nohide
-reicastaudiobuffersize= %CORERADB%
-iniwrite, "%reicastaudiobuffersize%",%racoreopt%,OPTIONS,reicast_audio_buffer_size
+flycastaudiobuffersize= %CORERADB%
+iniwrite, "%flycastaudiobuffersize%",%racoreopt%,OPTIONS,flycast_audio_buffer_size
 return
-core_reicastDDLC:
+core_flycastDDLC:
 gui,submit,nohide
-reicastcabletype= %COREDDLC%
+flycastcabletype= %COREDDLC%
 return
-core_reicastDDLD:
+core_flycastDDLD:
 gui,submit,nohide
-reicastbroadcast= %COREDDLD%
+flycastbroadcast= %COREDDLD%
 return
-core_reicastDDLF:
+core_flycastDDLF:
 gui,submit,nohide
-reicastframerate= %COREDDLF%
+flycastframerate= %COREDDLF%
 return
-core_reicastDDLE:
+core_flycastDDLE:
 gui,submit,nohide
-reicastregion= %COREDDLE%
+flycastregion= %COREDDLE%
 return
-core_reicastCHKA:
+core_flycastCHKA:
 gui,submit,nohide
-reicastboottobios= disabled
+flycastboottobios= disabled
 if (CORECHKA = 1)
 	{
-		reicastboottobios= enabled
+		flycastboottobios= enabled
 	}
-iniwrite, "%reicastboottobios%",%racoreopt%,OPTIONS,reicast_boot_to_bios
+iniwrite, "%flycastboottobios%",%racoreopt%,OPTIONS,flycast_boot_to_bios
 return
-core_reicastCHKB:
+core_flycastCHKB:
 gui,submit,nohide
-reicastmipmapping= enabled
+flycastmipmapping= enabled
 if (CORECHKB = 0)
 	{
-		reicastmipmapping= disabled
+		flycastmipmapping= disabled
 	}
-iniwrite, "%reicastmipmapping%",%racoreopt%,OPTIONS,reicast_mipmapping
+iniwrite, "%flycastmipmapping%",%racoreopt%,OPTIONS,flycast_mipmapping
 return
-core_reicastCHKC:
+core_flycastCHKC:
 gui,submit,nohide
-reicastwidescreenhack= disabled
+flycastwidescreenhack= disabled
 if (CORECHKC = 1)
 	{
-		reicast= enabled
+		flycast= enabled
 	}
-iniwrite, "%reicastwidescreenhack%",%racoreopt%,OPTIONS,reicast_widescreen_hack
+iniwrite, "%flycastwidescreenhack%",%racoreopt%,OPTIONS,flycast_widescreen_hack
 return
-core_reicastCHKF:
+core_flycastCHKF:
 gui,submit,nohide
-reicastvolumemodifiermode= disabled
+flycastvolumemodifiermode= disabled
 if (CORECHKF = 1)
 	{
-		reicastvolumemodifiermode= enabled
+		flycastvolumemodifiermode= enabled
 	}
-iniwrite, "%reicastvolumemodifiermode%",%racoreopt%,OPTIONS,reicast_volume_modifier_mode
+iniwrite, "%flycastvolumemodifiermode%",%racoreopt%,OPTIONS,flycast_volume_modifier_mode
 return
-core_reicastCHKE:
+core_flycastCHKE:
 gui,submit,nohide
-reicastrendertotexture= enabled
+flycastrendertotexture= enabled
 if (CORECHKE = 0)
 	{
-		reicastrendertotexture= disabled
+		flycastrendertotexture= disabled
 	}
-iniwrite, "%reicastrendertotexture%",%racoreopt%,OPTIONS,reicast_render_to_texture
+iniwrite, "%flycastrendertotexture%",%racoreopt%,OPTIONS,flycast_render_to_texture
 return
-core_reicastCHKD:
+core_flycastCHKD:
 gui,submit,nohide
-reicastprecompileshaders= disabled
+flycastprecompileshaders= disabled
 if (CORECHKD = 1)
 	{
-		reicastprecompileshaders= enabled
+		flycastprecompileshaders= enabled
 	}
-iniwrite, "%reicastprecompileshaders%",%racoreopt%,OPTIONS,reicast_precompile_shaders
+iniwrite, "%flycastprecompileshaders%",%racoreopt%,OPTIONS,flycast_precompile_shaders
 return
-core_reicastCHKG:
+core_flycastCHKG:
 gui,submit,nohide
-reicastenablepurupuru= disabled
+flycastenablepurupuru= disabled
 if (CORECHKG = 0)
 	{
-		reicastreicastenablepurupuru= disabled
+		flycastflycastenablepurupuru= disabled
 	}
-iniwrite, "%reicastenablepurupuru%",%racoreopt%,OPTIONS,reicast_enable_purupuru
+iniwrite, "%flycastenablepurupuru%",%racoreopt%,OPTIONS,flycast_enable_purupuru
 return
-core_reicastCMBA:
-iniwrite, "%reicastaudiobuffersize%",%racoreopt%,OPTIONS,reicast_audio_buffer_size
+core_flycastCMBA:
+iniwrite, "%flycastaudiobuffersize%",%racoreopt%,OPTIONS,flycast_audio_buffer_size
 return
 ;};;;;;;;;;;;
 ;{;;;;; scummvm CORE  ;;;;;
@@ -22362,6 +22401,7 @@ core_tryquakeRESET:
 core_pokeminiRESET:
 core_openlaraRESET:
 core_nekop2RESET:
+core_quasi88RESET:
 core_np2kaiRESET:
 core_redreamRESET:
 core_Atari800RESET:
@@ -22778,23 +22818,23 @@ iniwrite,"239",%racoreopt%,OPTIONS,beetle_saturn_last_scanline
 iniwrite,"287",%racoreopt%,OPTIONS,beetle_saturn_last_scanline_pal
 return
 ;};;;;;;;;;;;
-;{;;;;;;;; RESET REICAST ;;;;;;;;;;;;
-core_reicastRESET:
-core_reicast_WINCERESET:
-reicastCpuMode= dynamicRecompiler
-reicastBootToBios= disabled
-reicastInternalResolution= 640x480
-reicastMipmapping= enabled
-reicastWidescreenHack= disabled
-reicastAudioBufferSize= 1024
-reicastCableType= TV (VBS/Y+S/C)
-reicastBroadcast= 4
-reicastRegion= 3
-reicastPrecompileShaders= disabled
-reicastEnableRtt= enabled
-reicastEnablePurupuru= enabled
-reicastVolumeModifierMode= disabled
-reicastFramerate= normal
+;{;;;;;;;; RESET flycast ;;;;;;;;;;;;
+core_flycastRESET:
+core_flycast_WINCERESET:
+flycastCpuMode= dynamicRecompiler
+flycastBootToBios= disabled
+flycastInternalResolution= 640x480
+flycastMipmapping= enabled
+flycastWidescreenHack= disabled
+flycastAudioBufferSize= 1024
+flycastCableType= TV (VBS/Y+S/C)
+flycastBroadcast= 4
+flycastRegion= 3
+flycastPrecompileShaders= disabled
+flycastEnableRtt= enabled
+flycastEnablePurupuru= enabled
+flycastVolumeModifierMode= disabled
+flycastFramerate= normal
 guicontrol,,CORECHKA,0
 guicontrol,,CORECHKB,1
 guicontrol,,CORECHKC,0
@@ -22810,20 +22850,20 @@ guicontrol,,COREDDLC,|V (VBS/Y+S/C)||TV (RGB)|VGA (RGB)
 guicontrol,,COREDDLD,|4||0|1|2|3|4
 guicontrol,,COREDDLE,|3||0|1|2|3
 guicontrol,,COREDDLF,|normal||fullspeed
-iniwrite,"dynamic_recompiler",%racoreopt%,OPTIONS,reicast_cpu_mode
-iniwrite,"disabled",%racoreopt%,OPTIONS,reicast_boot_to_bios
-iniwrite,"640x480",%racoreopt%,OPTIONS,reicast_internal_resolution
-iniwrite,"enabled",%racoreopt%,OPTIONS,reicast_mipmapping
-iniwrite,"disabled",%racoreopt%,OPTIONS,reicast_widescreen_hack
-iniwrite,"1024",%racoreopt%,OPTIONS,reicast_audio_buffer_size
-iniwrite, "TV (VBS/Y+S/C)",%racoreopt%,OPTIONS,reicast_cable_type
-iniwrite,"4",%racoreopt%,OPTIONS,reicast_broadcast
-iniwrite,"3",%racoreopt%,OPTIONS,reicast_region
-iniwrite,"disabled",%racoreopt%,OPTIONS,reicast_precompile_shaders
-iniwrite,"enabled",%racoreopt%,OPTIONS,reicast_enable_rtt
-iniwrite,"enabled",%racoreopt%,OPTIONS,reicast_enable_purupuru
-iniwrite,"disabled",%racoreopt%,OPTIONS,reicast_volume_modifier_mode
-iniwrite,"normal",%racoreopt%,OPTIONS,reicast_framerate
+iniwrite,"dynamic_recompiler",%racoreopt%,OPTIONS,flycast_cpu_mode
+iniwrite,"disabled",%racoreopt%,OPTIONS,flycast_boot_to_bios
+iniwrite,"640x480",%racoreopt%,OPTIONS,flycast_internal_resolution
+iniwrite,"enabled",%racoreopt%,OPTIONS,flycast_mipmapping
+iniwrite,"disabled",%racoreopt%,OPTIONS,flycast_widescreen_hack
+iniwrite,"1024",%racoreopt%,OPTIONS,flycast_audio_buffer_size
+iniwrite, "TV (VBS/Y+S/C)",%racoreopt%,OPTIONS,flycast_cable_type
+iniwrite,"4",%racoreopt%,OPTIONS,flycast_broadcast
+iniwrite,"3",%racoreopt%,OPTIONS,flycast_region
+iniwrite,"disabled",%racoreopt%,OPTIONS,flycast_precompile_shaders
+iniwrite,"enabled",%racoreopt%,OPTIONS,flycast_enable_rtt
+iniwrite,"enabled",%racoreopt%,OPTIONS,flycast_enable_purupuru
+iniwrite,"disabled",%racoreopt%,OPTIONS,flycast_volume_modifier_mode
+iniwrite,"normal",%racoreopt%,OPTIONS,flycast_framerate
 return
 ;};;;;;;;;;;;;;
 ;{;;;;;;;; RESET BLUEMSX ;;;;;;;;;;;;;;;;
@@ -24194,7 +24234,7 @@ core_snes9x2005JLayout:
 return
 core_mupen64plusJLayout:
 return
-core_reicastJLayout:
+core_flycastJLayout:
 return
 core_3dengineJLayout:
 return
@@ -31205,7 +31245,10 @@ return
 IP_Get:
 FileDelete,ShowIP.txt
 IniRead,ipLookup,%ARCORG%,GLOBAL,IP_LOOKUP
-URLDownloadToFile,%ipLookup%,%A_ScriptDir%\ShowIP.txt
+URLFILE= %ipLookup%
+save= %A_ScriptDir%\ShowIP.txt
+splitpath,save,svaf,svap
+exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
 if ErrorLevel = 1
   {
     MsgBox,16,IP Addresses,Your public IP address could not be detected., 3
@@ -31334,7 +31377,11 @@ return
 NewLobby:
 ;;IniRead,curlobby,%ARCORG%,GLOBAL,LOBBY
 ;;FileReadLine,curlobby,arcorg.set,3
-URLDownloadToFile,%curlobby%,%A_ScriptDir%\lobby.ini
+;;URLDownloadToFile,%curlobby%,%A_ScriptDir%\lobby.ini
+save= %A_ScriptDir%\lobby.ini
+URLFILE= %curlobby%
+splitpath,save,svaf,svap
+exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
 if ErrorLevel = 1
   {
 	MsgBox,16,NETHOST,NETHOSTs-List could not be retrieved., 3
@@ -69740,11 +69787,29 @@ Loop, Parse, emupartset,`n`r
 											xtractmu= executable
 										}
 								splitpath,save,svaf,svap
+								rtrcnt= 
+								origurl= %URLFILE%
+								EXEUTILDWN:
 								exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
 								;;DownloadFile(URLFILE, save, True, True)
 								ifnotexist, %save%
 									{
-										msgbox,0,, %xesel1%`n''%URLFILE%''`n was not downloaded, 20
+										msgbox,8452,, %xesel1%`n''%URLFILE%''`n was not downloaded`nretry?, 20
+										ifmsgbox,yes
+											{											
+												rtrcnt+= 1
+												Loop,parse,ALTHOST,>
+													{
+														if (A_Index = rtrcnt)
+															{
+																stringreplace,URLFILE,origurl,repoloc,%A_LoopField%,All
+																break
+															}
+														rtrcnt= 
+														URLFILE= %origurl%	
+													}
+												goto, EXEUTILDWN	
+											}
 										break
 									}
 								SB_SetText(" " save " " "extracting")
@@ -69963,11 +70028,29 @@ ifnotexist,%cacheloc%\antimicro%ARCH%.7z
 													xtractmu= executable
 												}
 										splitpath,save,svaf,svap
+										rtrcnt= 
+										origurl= %URLFILE%
+										AMICRODWN:
 										exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
 										;;DownloadFile(URLFILE, save, True, True)
 										ifnotexist, %save%
 											{
-												msgbox,0,, %xesel1%`n''%URLFILE%''`n was not downloaded, 20
+												msgbox,8452,, %xesel1%`n''%URLFILE%''`n was not downloaded`nretry?, 20
+												ifmsgbox,yes
+													{								
+														rtrcnt+= 1
+														Loop,parse,ALTHOST,>
+															{
+																if (A_Index = rtrcnt)
+																	{
+																		stringreplace,URLFILE,origurl,repoloc,%A_LoopField%,All
+																		break
+																	}
+																rtrcnt= 
+																URLFILE= %origurl%	
+															}
+														goto, AMICRODWN	
+													}
 												break
 											}
 										SB_SetText(" " save " " "extracting")
@@ -77331,7 +77414,7 @@ sysrev= Sega - PICO
 gosub,OpnAssign
 Return
 SEGDCOpen:
-opncor= reicast
+opncor= flycast
 sysrev= Sega - Dreamcast
 gosub,OpnAssign
 Return

@@ -107,6 +107,24 @@ retroarch\system=:o2rom.bin:8016A315>
 4DO=3doplay\BIOS=retroarch\system=:panafz10 [h].bin:230E6FEB
 4DO=3doplay\BIOS=retroarch\system=:sanyotry.bin:D5CBC509>
 
+
+m88=system\quasi88:disk.rom:2158D307
+m88=system\quasi88:font.rom:56653188
+m88=system\quasi88:kanji.rom:6178BD43>
+m88=system\quasi88:kanji2.rom:154803CC>
+m88=system\quasi88:n80.rom:5CB8B584
+m88=system\quasi88:n88.rom:FFD68BEO
+m88=system\quasi88:n88_0.rom:61984BAB
+m88=system\quasi88:n88_1.rom:C0BD2AA6>
+m88=system\quasi88:n88_2.rom:AF2B6EFA>
+m88=system\quasi88:n88_3.rom:7713C519>
+m88=system\quasi88:N88.ROM:A0FC0473
+m88=system\quasi88:N88SUB.ROM:2158D307
+m88=system\quasi88:N88N.ROM:27E1857D
+m88=system\quasi88:N88EXT0.ROM:710A63EC
+m88=system\quasi88:N88JISHO.ROM:BD6EB062
+
+
 Altirra=Atari800=Atari800winplus\rom=Atariplusplus=retroarch\system=:ATARIBAS.ROM:7D684184>
 Altirra=Atari800=Atari800winplus\rom=Atariplusplus=retroarch\system:ATARIOSB.ROM:3E28A1FE>
 Altirra=Atari800=Atari800winplus\rom=Atariplusplus=retroarch\system:ATARIXL.ROM:1F9CD270>

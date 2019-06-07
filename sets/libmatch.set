@@ -17,7 +17,7 @@ mame_libretro.dll|Emerson - Arcadia
 mame_libretro.dll|RCA - CHIP 8
 mame_libretro.dll|RCA - Studio II
 mame_libretro.dll|Fujitsu - FM Towns
-mame_libretro.dll|NEC - PC88
+quasi88_libretro.dll|NEC - PC88
 mame_libretro.dll|VTech - Creativision
 mame_libretro.dll|VTech - V
 mame_libretro.dll|Watara - Supervision
@@ -63,8 +63,8 @@ mame_libretro.dll|Memotech - MTX
 mame_libretro.dll|Microsoft - MSX2+
 mame_libretro.dll|NEC - PC Engine - JAP
 mame_libretro.dll|NEC - PC-6001
-mame_libretro.dll|NEC - PC88-VA
-mame_libretro.dll|NEC - PC8801
+quasi88_libretro.dll|NEC - PC88-VA
+quasi88_libretro.dll|NEC - PC8801
 mame_libretro.dll|Nintendo - Pokemon Mini
 mame_libretro.dll|Nintendo - Super Famicom
 mame_libretro.dll|Nintendo - Super Game Boy
@@ -92,7 +92,7 @@ mame_libretro.dll|Thomson - To7
 mame_libretro.dll|Thomson - To8
 mame_libretro.dll|Tiger - Game-com
 mame_libretro.dll|Tomy - Tutor
-mame_libretro.dll|NEC - PC98 - Touhou
+nekop2_libretro.dll|NEC - PC98 - Touhou
 mame_libretro.dll|VTech - Laser 200
 mame_libretro.dll|VTech - Laser 310
 mame_libretro.dll|VTech - V-Smile

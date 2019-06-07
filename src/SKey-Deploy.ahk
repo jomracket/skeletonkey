@@ -150,6 +150,7 @@ IfNotExist, skopt.cfg
 		_GETIPADR= http://www.netikus.net/show_ip.html				
 		_GITSRC= http://github.com/romjacket/skeletonkey
 		_REPOURL= http://github.com/romjacket
+		_ALTHOST= http://archive.org/download/emu_exe_mir
 
 		gitrttmp=
 		_GITROOT= (not set) Github-Projects-Directory
@@ -453,6 +454,15 @@ Loop, Read, skopt.cfg
 							CONTPARAM15= 1
 						}
 				}
+		if (curvl1 = "alt_host")
+				{
+					_REPOURL= http://archive.org/download/emu_exe_mir
+					if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
+						{
+							ALTHOST= %curvl2%
+							_ALTHOST= %curvl2%
+						}
+				}
 		if (curvl1 = "repository_url")
 				{
 					_REPOURL= http://github.com/romjacket
@@ -500,6 +510,7 @@ SelRls_TT :="Select the github-release.exe"
 DwnNSIS_TT :="Download the NSIS executable"
 SelNSIS_TT :="Select makensis.exe"
 DwnAHK_TT :="Download AutoHotkey"
+IALTH_TT :="Alternate repositories`ndelimited by a ''>''"
 SelAHK_TT :="Select the Ahk2Exe compiler executable"
 SelBLD_TT :="Select the build directory.`nusually the same as your source directory"
 SelGPD_TT :="Select the GitHub Projects directory`nusually ..\..\Documents\GitHub"
@@ -551,7 +562,7 @@ if (initchk = 1)
 	{
 		setupguiitems= ILogin|IEmail|IPass|IToken|DwnGit|SelGit|DwnRls|SelRls|DwnNSIS|SelNSIS|DwnAHK|SelAHK|SelBLD|SelGPD|DwnPULL|SelGSD|DwnIO|SelGWD|SelDPL|SelSRC|UVER|UFLU|IURL|IREPO|IReset|SelDXB|ICONTINUE
 		Gui,Font,Bold
-		Gui Add, GroupBox, x11 y1 w370 h406, Deployment Tool Setup
+		Gui Add, GroupBox, x11 y1 w370 h429, Deployment Tool Setup
 		Gui,Font,normal
 		Gui Add, Text, x20 y20 w29 h14 , login:
 		Gui Add, Text, x287 y25 w88 h14 , (github username)
@@ -613,12 +624,13 @@ if (initchk = 1)
 		Gui Add, Edit, x30 y333 w326 h21 vUFLU gUFLU, %_UPDTFILE%
 		Gui Add, Edit, x30 y357 w326 h21 vIURL gIURL, %_GETIPADR%
 		Gui Add, Edit, x30 y380 w326 h21 vIREPO gIREPO, %_REPOURL%
-		Gui Add, Button, x10 y409 w51 h19 vIReset gIReset, reset_all
-		Gui Add, Button, x331 y409 w51 h19 vSelDXB gSelDXB, quick
-		Gui Add, Button, x159 y411 w80 h23 vICONTINUE gICONTINUE, CONTINUE
+		Gui Add, Edit, x30 y403 w326 h21 vIALTH gIALTH, %_ALTHOST%
+		Gui Add, Button, x10 y432 w51 h19 vIReset gIReset, reset_all
+		Gui Add, Button, x331 y432 w51 h19 vSelDXB gSelDXB, quick
+		Gui Add, Button, x159 y433 w80 h23 vICONTINUE gICONTINUE, CONTINUE
 		Gui Add, StatusBar,, Status Bar
 		OnMessage(0x200, "WM_MOUSEMOVE")
-		Gui Show, w391 h462, _DEV_
+		Gui Show, w391 h482, _DEV_
 		return	
 	}
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -833,6 +845,12 @@ return
 ICONTINUE:
 nocont= 
 stv= 
+if (CONTPARAM21 = "")
+	{
+		guicontrolget,IALTH,,IALTH
+		iniwrite,%IALTH%,skopt.cfg,GLOBAL,alt_host
+		CONTPARAM21= 1
+	}
 if (CONTPARAM20 = "")
 	{
 		guicontrolget,IEmail,,IEmail
@@ -877,7 +895,7 @@ if (CONTPARAM16 = "")
 			}
 		CONTPARAM16= 1
 	}
-Loop,19
+Loop,20
 	{
 		stv= % CONTPARAM%A_Index%
 		if (stv = "")
@@ -1251,6 +1269,31 @@ CONTPARAM14= 1
 iniwrite,%uFLU%,skopt.cfg,GLOBAL,update_file
 return
 
+IALTH:
+gui,submit,nohide
+guicontrolget,IALTH,,IALTH
+if (IALTH = "")
+	{
+		iniread,IALTHv,sets\arcorg.set,GLOBAL,ALTHOST
+		if ((IALTHv = "")or(IALTHv = "ERROR"))
+			{	
+				IALTHv= https://archive.org/download/emu_exe_mir
+				guicontrol,,IALTH,%IALTHv%
+			}
+		IALTH= %IALTHv%
+		IniWrite,%IALTH%,skopt.cfg,GLOBAL,alt_host
+		CONTPARAM21= 1
+		return	
+	}
+if (IALTH = "")
+	{
+		IALTH= http://archive.org/download/emu_exe_mir
+	}
+IniWrite,%IALTH%,skopt.cfg,GLOBAL,alt_host
+guicontrol,,IALTH,%IALTH%
+CONTPARAM21= 1
+return
+
 IREPO:
 gui,submit,nohide
 guicontrolget,IREPO,,IREPO
@@ -1265,7 +1308,8 @@ if (IREPO = "")
 				reponum2= 
 				reponum3= 
 				reponum4= 
-				stringsplit,reponum,IREPOv,>
+				iniread,ALTHv,sets\arcorg.set,GLOBAL,ALTHOST
+				stringsplit,reponum,ALTHv,>
 				if (reponum2 <> "")
 					{
 						ALTHOST= %reponum2%
@@ -1275,7 +1319,9 @@ if (IREPO = "")
 						ALTHOST= http://archive.org/download/emu_exe_mir
 					}
 				IniWrite,%reponum1%,skopt.cfg,GLOBAL,repository_url
-				CONTPARAM16= 1				
+				IniWrite,%ALTHOST%,skopt.cfg,GLOBAL,alt_host
+				CONTPARAM16= 1
+				CONTPARAM21= 1
 				return
 			}
 		IREPO= https://github.com/%gituser%
@@ -1288,6 +1334,8 @@ if (IREPO = "")
 				ALTHOST= http://archive.org/download/emu_exe_mir
 			}
 		guicontrol,,IREPO,%IREPO%
+		IniWrite,%ALTHOST%,skopt.cfg,GLOBAL,alt_host
+		CONTPARAM21= 1
 	}
 CONTPARAM16= 1
 IniWrite,%IREPO%,skopt.cfg,GLOBAL,repository_url
@@ -3225,8 +3273,10 @@ FileMove,%SKELD%\sets\themes.set, %SKELD%\themes.bak,1
 FileMove,%SKELD%\sets\arcorg.set, %SKELD%\arcorg.bak,1
 FIleRead,skthemes,%SKELD%\sets\Themes.put
 FIleRead,arcorgv,%SKELD%\sets\arcorg.put
+StringReplace,skthemes,skthemes,[ALTHOST],%ALTHOST%,All
 StringReplace,skthemes,skthemes,[HOSTINGURL],%REPOURL%,All
 StringReplace,arcorgv,arcorgv,[UPDATEFILE],%UPDTFILE%,All
+StringReplace,arcorgv,arcorgv,[ALTHOST],%ALTHOST%,All
 StringReplace,arcorgv,arcorgv,[HOSTINGURL],%REPOURL%,All
 StringReplace,arcorgv,arcorgv,[SHADERHOST],%SHDRPURL%,All
 StringReplace,arcorgv,arcorgv,[SOURCEHOST],%UPDTURL%,All
